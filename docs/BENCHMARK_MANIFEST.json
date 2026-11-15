@@ -15,7 +15,7 @@
     "dense_chunk_tokens": 384,
     "dense_document_score": "maximum cosine across all overlapping chunks",
     "dense_model": "BAAI/bge-small-en-v1.5",
-    "evidence_aliases": "human-readable logical_id plus immutable version suffix; all arms identical",
+    "evidence_aliases": "human-readable logical_id plus deterministic content/recipe/input-version digest; all arms identical",
     "exact_id_seeding": true,
     "execution_arms": [
       "bm25",
@@ -29,11 +29,12 @@
     "graph_depth": 15,
     "heldout_composition_status": "deterministic recipe pilot; not agent-chosen until separate agent run",
     "iterative_round_width": 3,
-    "iterative_rounds": 4,
+    "iterative_rounds": "corpus_size",
     "main_budget": 2048,
     "reader": "deterministic transitive reader restricted to returned evidence",
     "record_serialization": "EvidenceRecord.render/v1",
     "rrf_constant": 60,
+    "shared_executor": "Hydra-assisted currentness and recursive refresh for all arms; standalone baseline safety not evaluated",
     "tokenizer": "cl100k_base"
   },
   "fixture": {

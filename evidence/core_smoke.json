@@ -1,0 +1,123 @@
+{
+  "timestamp_utc": "2026-11-15T09:39:07.414200+00:00",
+  "backend": "HydraDB OSS live; native graph traversal; no fallback",
+  "case_id": "core-smoke-fe5724222d294912",
+  "application_reopen_tested": true,
+  "database_restart_requested": false,
+  "graph_replayed_from_application": false,
+  "data": "Authored commerce fixture; actual SQLite tools; staged EUR exchange-rate correction",
+  "oracle_scope": "Fresh recipe execution independent of graph/cache, with separate known numeric fixture assertions",
+  "state_directory": ".state/core-smoke-fe5724222d294912",
+  "final_state": "fx source intentionally removed at the end to prove missing-source refusal",
+  "code_hashes": {
+    "analytics.py": "cca3a122cf9884e38323cfefca105c65fd3a462950994ec9822d76abc413ff86",
+    "artifacts.py": "068bc264a5184800dc9bb9f11600977526eeccdb52e7dc9cd6282c7a4bd507e2",
+    "graph.py": "48c2ced679cf419208ba5c498819648c67db9b4ab2d263d7332a1ff5beb48eb1",
+    "models.py": "bf0e046db1615411afa727a70088ecc0bc8e7820318b4582a03d25270e1e49e9",
+    "runtime.py": "06dc175c5c8592c13d67c838ed26bae70b533951e15e38f98faf27d5216db671"
+  },
+  "checks": {
+    "known_initial_eu_cents": true,
+    "known_initial_us_cents": true,
+    "known_initial_company_cents": true,
+    "known_independent_support_count": true,
+    "cross_run_input_reuse": true,
+    "new_source_version": true,
+    "exact_expected_dependency_closure": true,
+    "stale_claim_value_withheld": true,
+    "independent_claim_still_current": true,
+    "four_actual_tools_executed": true,
+    "no_support_reexecution": true,
+    "fresh_numeric_outputs_equal_full_recompute": true,
+    "refreshed_reports_current": true,
+    "downstream_bound_to_new_intermediate": true,
+    "known_corrected_eu_cents": true,
+    "known_corrected_company_cents": true,
+    "support_identity_and_hash_unchanged": true,
+    "workspace_persisted": true,
+    "application_reopen_graph_and_content": true,
+    "new_client_reads_existing_hydra_node": true,
+    "removed_source_invalidates_saved_report": true,
+    "missing_source_refresh_refused": true,
+    "missing_source_full_recompute_refused": true,
+    "runtime_code_unchanged_during_probe": true
+  },
+  "passed": true,
+  "stages": {
+    "fixture_setup": {
+      "native_queries": 202,
+      "mutation_requests": 85,
+      "elapsed_ms": 1746.863
+    },
+    "source_mutation": {
+      "native_queries": 2,
+      "mutation_requests": 1,
+      "elapsed_ms": 9.249
+    },
+    "impact_and_claim_checks": {
+      "native_queries": 16,
+      "mutation_requests": 0,
+      "elapsed_ms": 39.871
+    },
+    "selective_refresh": {
+      "native_queries": 124,
+      "mutation_requests": 38,
+      "elapsed_ms": 919.399
+    },
+    "post_refresh_verification": {
+      "native_queries": 8,
+      "mutation_requests": 0,
+      "elapsed_ms": 18.77
+    },
+    "application_reopen_new_client": {
+      "native_queries": 9,
+      "mutation_requests": 0,
+      "elapsed_ms": 17.164
+    },
+    "missing_source_refusal": {
+      "native_queries": 14,
+      "mutation_requests": 1,
+      "elapsed_ms": 34.57
+    }
+  },
+  "native_queries_total": 375,
+  "mutation_requests_total": 125,
+  "elapsed_seconds": 2.82,
+  "details": {
+    "namespace": "core-smoke-fe5724222d294912-79359aeb74924f91bfcdf20e9293dbbc",
+    "workspace": "79359aeb74924f91bfcdf20e9293dbbc",
+    "affected_logical_ids": [
+      "metric:company",
+      "metric:regional",
+      "report:company",
+      "report:eu"
+    ],
+    "refresh_calls": [
+      {
+        "tool": "convert_to_usd",
+        "status": "success",
+        "elapsed_ms": 0.07
+      },
+      {
+        "tool": "company_total",
+        "status": "success",
+        "elapsed_ms": 0.024
+      },
+      {
+        "tool": "compose_report",
+        "status": "success",
+        "elapsed_ms": 0.031
+      },
+      {
+        "tool": "compose_report",
+        "status": "success",
+        "elapsed_ms": 0.022
+      }
+    ],
+    "fresh_report_ids": {
+      "report_a": "79359aeb74924f91bfcdf20e9293dbbc:artifact:d95d0c86f7a5e7ef1b88d2abd05c1d3c6fbedb2c372d225d75d8004785138343",
+      "report_b": "79359aeb74924f91bfcdf20e9293dbbc:artifact:b3888c42095a25a38ef56eeddf6bf438e8b65ace085c699fd5ee956ba3820cff"
+    }
+  },
+  "error": null
+}

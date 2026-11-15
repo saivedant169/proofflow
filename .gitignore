@@ -8,3 +8,7 @@ __pycache__/
 node_modules/
 .DS_Store
 *.egg-info/
+results/**/blobs/
+results/**/*.sqlite3
+results/**/*.sqlite3-wal
+results/**/*.sqlite3-shm
