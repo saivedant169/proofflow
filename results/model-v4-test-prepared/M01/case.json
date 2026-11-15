@@ -1,0 +1,1258 @@
+{
+  "alias_to_raw": {
+    "artifact:2011-03-01:daily_close@a0ba22e1be05": "7e9d048094494eafb32955384cf1388b:artifact:ba5b5f56471a709cf4078e7564bbdc27d096952f85bd25e21668a477b80eda78",
+    "artifact:2011-03-01:gross@15fdd4bb1f1f": "7e9d048094494eafb32955384cf1388b:artifact:6baaa3296a0eb0c71e4e2cd4fa81ccbc51d7bf686b56a2f2bd8d2125f8acc847",
+    "artifact:2011-03-01:gross_total@3ab77bfb76e8": "7e9d048094494eafb32955384cf1388b:artifact:66c8e05458f555b7289905da47824dc5c26bcf3aedca1ee1a7d2af8f66c4b2c5",
+    "artifact:2011-03-01:gross_usd@f93e540e9b9c": "7e9d048094494eafb32955384cf1388b:artifact:38c59c167e7ecad0a3134d4b61365ec8d5f1f82bf74a19acdd7491e355e102d7",
+    "artifact:2011-03-01:net@a8af84b97e2c": "7e9d048094494eafb32955384cf1388b:artifact:2196caa27a0a804304005cccb6c50104fe34acb7674081ed3254f75502ac525b",
+    "artifact:2011-03-01:net_total@9eb2afc6a1d6": "7e9d048094494eafb32955384cf1388b:artifact:2863a960dfca645161c898830681ed31f96c46f3c8c6fd1a3908ab88ac3baabe",
+    "artifact:2011-03-01:net_usd@a16f61b7ff36": "7e9d048094494eafb32955384cf1388b:artifact:78347750c475f39c2c3bb888ba85de00882148da9470fc87873569619c41e488",
+    "artifact:2011-03-01:refunds@6bf23cb73689": "7e9d048094494eafb32955384cf1388b:artifact:a99339bb359f2afba8e3a539bc27b7afb66cea7b645b2685eebef220b406d98c",
+    "artifact:2011-03-01:uk_brief@289dc7ae6404": "7e9d048094494eafb32955384cf1388b:artifact:cd5f40f43eef9079df4d145526e99606e8a3f322b4b4bf4750add2d2cb3cbd29",
+    "artifact:2011-03-02:daily_close@f75693434d9a": "7e9d048094494eafb32955384cf1388b:artifact:8e4304af4919bc3e5f12e0c3dd41ec908f180839c7ff6203cb7cd0e046da86b3",
+    "artifact:2011-03-02:gross@83cbf83c663d": "7e9d048094494eafb32955384cf1388b:artifact:4a15eef21408c2dcf51b87dc977e21706efc66dbafe39a79b57efee605556be5",
+    "artifact:2011-03-02:gross_total@87fd2e23212e": "7e9d048094494eafb32955384cf1388b:artifact:96cca540472033dd3bf6fc4cfb401b7226bb9527fbaa724e4606dc42b031a7c1",
+    "artifact:2011-03-02:gross_usd@caf176db8984": "7e9d048094494eafb32955384cf1388b:artifact:05830541723a70e1ff40b5a16c59c63b8d9c49fb187b5bcdb17ec30ef6ec832e",
+    "artifact:2011-03-02:net@2a639419a996": "7e9d048094494eafb32955384cf1388b:artifact:165aa6b6b6d03f0d6ed0662dec3b64cb12a99402c1176b0c08ad674023a97379",
+    "artifact:2011-03-02:net_total@7543f3fd8fbe": "7e9d048094494eafb32955384cf1388b:artifact:a1f7a5b1201fe4febc1de85bfa4391f4573085b503c932d5d4f03bf985fb09aa",
+    "artifact:2011-03-02:net_usd@a7a98e6cfb6e": "7e9d048094494eafb32955384cf1388b:artifact:579f56ea28c3628394eeb134bb513426f757c0062c8e38ca48230f83bc598635",
+    "artifact:2011-03-02:refunds@2706e2d7db4c": "7e9d048094494eafb32955384cf1388b:artifact:a529949e40719f7d2415639ea39e3fea5a4988e6efaa3e192510c58d4faf7fe7",
+    "artifact:2011-03-02:uk_brief@7b69bf6b2d18": "7e9d048094494eafb32955384cf1388b:artifact:f9e24b0e520d5c0ce68e1d6805483e794d3ef5f6ae2c4c15630771de7e303c8d",
+    "artifact:2011-03-03:daily_close@422885646c00": "7e9d048094494eafb32955384cf1388b:artifact:a0fba19124383f4fbe7acf11905c609490e389177ef783299c65e30147ebb2b5",
+    "artifact:2011-03-03:gross@ce3ac58baf77": "7e9d048094494eafb32955384cf1388b:artifact:485b6ecc02b1a76acdf5156d50f744db7c6c4a47266b68a0bce5cd8ca1607298",
+    "artifact:2011-03-03:gross_total@d12dbaf88533": "7e9d048094494eafb32955384cf1388b:artifact:109a2b3db1bdc7ab48a5b33ee7fcee58850bdf7445c23c6b20d9c9732babf08e",
+    "artifact:2011-03-03:gross_usd@77ba70e24e0a": "7e9d048094494eafb32955384cf1388b:artifact:2f227de0d52b27c7a2d74b208c9269e9f5ac61a45038fa1f5020fb5846c5133b",
+    "artifact:2011-03-03:net@ca5177532da2": "7e9d048094494eafb32955384cf1388b:artifact:652e73d319271f03c17b8da96af00bfce218d45e2b5787e74a5c6e393e0f9616",
+    "artifact:2011-03-03:net_total@af4d1c571a22": "7e9d048094494eafb32955384cf1388b:artifact:844f3b44b282d29d20a366365e514afac9dcab938ff4a702e78fdb5ba3bafebb",
+    "artifact:2011-03-03:net_usd@4e9e13393f4c": "7e9d048094494eafb32955384cf1388b:artifact:187890975cc02f4e327b4112e1973f148b4d5fdedfa595f01e12768a853429a4",
+    "artifact:2011-03-03:refunds@86aecaa0bac1": "7e9d048094494eafb32955384cf1388b:artifact:b25078ec0a71cd4b3b5d8d8a5f471e8c6fa9c483288565ea5280677404bde783",
+    "artifact:2011-03-03:uk_brief@d87bfe0a0cae": "7e9d048094494eafb32955384cf1388b:artifact:6adc9f85f422bbe7a69d11feaf0fe53eb6f69faa066324d15e47f3e7d0008cf6",
+    "artifact:2011-03-04:daily_close@238e2cf57de1": "7e9d048094494eafb32955384cf1388b:artifact:d725fcf61715f6669f5be1cae947c4c3ee2785a727a5c45f7684845d63878c54",
+    "artifact:2011-03-04:gross@3320d2133b66": "7e9d048094494eafb32955384cf1388b:artifact:ef19e902565bcfba351ee1e546c656e053b03d3d1f921a9e2edb436de1618de2",
+    "artifact:2011-03-04:gross_total@cf3a490f0f91": "7e9d048094494eafb32955384cf1388b:artifact:0b52e39e06dccd8b5b48110726c82ada3a97ba80f5d82927ba524abf8db7ebdb",
+    "artifact:2011-03-04:gross_usd@0cc317235cae": "7e9d048094494eafb32955384cf1388b:artifact:649cf689d43ed0b1ae0e98b3c58413c02c041ae13bfc3a88eef4fd9d8ae72316",
+    "artifact:2011-03-04:net@ff29995bc28d": "7e9d048094494eafb32955384cf1388b:artifact:1d6e52fc955d37bb842064f75ba0ac5e72e309eb085d41d016bc1032fd200d00",
+    "artifact:2011-03-04:net_total@b9900ecf1a9b": "7e9d048094494eafb32955384cf1388b:artifact:e1bf12bf8bb255a788e328e827af70dd7a9ec0a86b78362fc80e66e04883c37f",
+    "artifact:2011-03-04:net_usd@d4926afa08d4": "7e9d048094494eafb32955384cf1388b:artifact:381d68117c747772b179975058b32d896bbe19cc83d09c060f968a63751db712",
+    "artifact:2011-03-04:refunds@29853c5f0f23": "7e9d048094494eafb32955384cf1388b:artifact:114d0791ee6b088c0228335a6edf4f2988b0e84b30f3ae6985341ffad30c04b8",
+    "artifact:2011-03-04:uk_brief@d8d6526ef53c": "7e9d048094494eafb32955384cf1388b:artifact:3dc096c5cee56e085c08e9b26cad33f24adce4c023ea5dc906c0244c3045bc1f",
+    "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9": "7e9d048094494eafb32955384cf1388b:artifact:3697d5c6019be95c35c9c966cf3b922249f945a2095673ea94e11f4d1375370c",
+    "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197": "7e9d048094494eafb32955384cf1388b:artifact:0a76ced451260650f4fa0560d5a34d2fac68a58613a60ce0546f4514abf04c8a",
+    "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983": "7e9d048094494eafb32955384cf1388b:artifact:718c8b731cb59e24183bcd5e4b68f27be625bcde55be43b30bd0b184f44c6391",
+    "source:2011-03-01:fx@75e2bb612f83": "7e9d048094494eafb32955384cf1388b:source:46a2a9c16d3f9960539062e903cd8ae2eb2af3717cc062215db6a5ac34aebd42",
+    "source:2011-03-01:orders@ff74f7b54545": "7e9d048094494eafb32955384cf1388b:source:15bb513c4d8504595612f048ac79bd3bb8af1adf948f38621913cd7819261bb4",
+    "source:2011-03-01:refunds@13db86401d20": "7e9d048094494eafb32955384cf1388b:source:b41dc8921390e699ddb07e4dac76912b87445a06d36209716fd3668112a55895",
+    "source:2011-03-02:fx@402ab2a86a89": "7e9d048094494eafb32955384cf1388b:source:e5e8aa951dbab6aa49b3aed918e2cfc7a2f0e5dfaf4b2449bf2f0f805322e1c1",
+    "source:2011-03-02:orders@fd653fcd736a": "7e9d048094494eafb32955384cf1388b:source:61f51318c4872160e55c9b6417e8ceaf5ddc6ab8dfcd41367d4565b6777009e4",
+    "source:2011-03-02:refunds@53b4fbd6d4c3": "7e9d048094494eafb32955384cf1388b:source:fa81a0168e6bb974b01ff2c40a0e078d0395db957cdbe30e160d43592159117c",
+    "source:2011-03-02:refunds@89c48a6f1c30": "7e9d048094494eafb32955384cf1388b:source:2fab42f4a45a9a032224f1672479d60ba5f588e17d3a17a6866252d05e0aed35",
+    "source:2011-03-03:fx@c204f65afa7f": "7e9d048094494eafb32955384cf1388b:source:5a2fb31d63579b047bbde1e74c4fa9e41e87cd30c7415aee172ed0baa984343a",
+    "source:2011-03-03:orders@536b9ae15427": "7e9d048094494eafb32955384cf1388b:source:b7b9a43bedd4474a6e6ebf5fa4a9e336ab2959f3e4aa65572d6e4a07879821b9",
+    "source:2011-03-03:refunds@bacb854fcfbc": "7e9d048094494eafb32955384cf1388b:source:e46b7106559dfafa03384469981b547a5d4fdfdb825ee82618b7ef91455acad2",
+    "source:2011-03-04:fx@8b806c2104d8": "7e9d048094494eafb32955384cf1388b:source:ff4b382e7deab897e795685ae8e930fa4b1c4bff663e6e6938974c83558fd006",
+    "source:2011-03-04:orders@43f2adfae649": "7e9d048094494eafb32955384cf1388b:source:91f8ac640d1ba47f0fbd56732e9af39af465f970f23ee5bab6e8d7a004c89b10",
+    "source:2011-03-04:refunds@9618aa06b231": "7e9d048094494eafb32955384cf1388b:source:059eb96193b9a01b1d6680110e481842ca73c003405762dfb1862a5b112aa160",
+    "tool:company_total@fcdb2990803d": "7e9d048094494eafb32955384cf1388b:tool:f292d9109171070088c107efc2b4cf2d929961bad569bdcf8968cd8d31b37434",
+    "tool:compose_report@f1c27467f0de": "7e9d048094494eafb32955384cf1388b:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee",
+    "tool:convert_to_usd@f06369159d71": "7e9d048094494eafb32955384cf1388b:tool:c78b222dc40236afafd222f7cc7438950a6b1179ad4dd169a6b3c1cfc0eb302f",
+    "tool:gross_by_region@52ea04f90794": "7e9d048094494eafb32955384cf1388b:tool:269b8e6146f737a72eb9a36bffe590aa96dbf8d97767ebb5f3bc176c20273a09",
+    "tool:net_by_region@4ab70497c81e": "7e9d048094494eafb32955384cf1388b:tool:077ba3c17c0056a410c5fe3638ef60267578e466552567585982deca82823b8f",
+    "tool:refunds_by_region@d563234386bf": "7e9d048094494eafb32955384cf1388b:tool:daca152df821a64d43d80795b52abd53e98085406a1e6c69c9792f1c56ae4e8a"
+  },
+  "analytics_sha256": "cca3a122cf9884e38323cfefca105c65fd3a462950994ec9822d76abc413ff86",
+  "candidate_names": [
+    "2011-03-01:daily_close",
+    "2011-03-01:gross",
+    "2011-03-01:gross_total",
+    "2011-03-01:gross_usd",
+    "2011-03-01:net",
+    "2011-03-01:net_total",
+    "2011-03-01:net_usd",
+    "2011-03-01:refunds",
+    "2011-03-01:uk_brief",
+    "2011-03-02:daily_close",
+    "2011-03-02:gross",
+    "2011-03-02:gross_total",
+    "2011-03-02:gross_usd",
+    "2011-03-02:net",
+    "2011-03-02:net_total",
+    "2011-03-02:net_usd",
+    "2011-03-02:refunds",
+    "2011-03-02:uk_brief",
+    "2011-03-03:daily_close",
+    "2011-03-03:gross",
+    "2011-03-03:gross_total",
+    "2011-03-03:gross_usd",
+    "2011-03-03:net",
+    "2011-03-03:net_total",
+    "2011-03-03:net_usd",
+    "2011-03-03:refunds",
+    "2011-03-03:uk_brief",
+    "2011-03-04:daily_close",
+    "2011-03-04:gross",
+    "2011-03-04:gross_total",
+    "2011-03-04:gross_usd",
+    "2011-03-04:net",
+    "2011-03-04:net_total",
+    "2011-03-04:net_usd",
+    "2011-03-04:refunds",
+    "2011-03-04:uk_brief",
+    "cross:2011-03-01:2011-03-02:daily_brief",
+    "cross:2011-03-02:2011-03-03:daily_brief",
+    "cross:2011-03-03:2011-03-04:daily_brief"
+  ],
+  "case_id": "M01",
+  "case_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/case.json",
+  "category": "local_refund",
+  "changed_raw_ids": [
+    "7e9d048094494eafb32955384cf1388b:source:2fab42f4a45a9a032224f1672479d60ba5f588e17d3a17a6866252d05e0aed35"
+  ],
+  "configuration": {
+    "bm25": {
+      "b": 0.75,
+      "k1": 1.5
+    },
+    "dense_chunk_overlap": 64,
+    "dense_chunk_tokens": 384,
+    "dense_document_score": "maximum cosine across all overlapping chunks",
+    "dense_model": "BAAI/bge-small-en-v1.5",
+    "evidence_budget": "complete native graph closure token count shared by five capped arms; full context uncapped",
+    "exact_id_seeding": true,
+    "iterative_round_width": 3,
+    "iterative_rounds": "corpus_size",
+    "record_serialization": "EvidenceRecord.render/v1",
+    "rrf_constant": 60,
+    "tokenizer": "cl100k_base"
+  },
+  "corpus_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/corpus.jsonl",
+  "corpus_records": 39,
+  "corpus_sha256": "5fbb0125d9c49ae2810ad004c87bcaf06c637e11e24f181872c66865a95de2da",
+  "corpus_tokens": 14929,
+  "costs": {
+    "fixture_graph_mutations": 390,
+    "fixture_graph_queries": 976,
+    "fixture_ms": 8945.744167082012,
+    "mutation_graph_queries": 2,
+    "mutation_ms": 23.534208070486784,
+    "native_discovery_ms": 15.658624935895205,
+    "native_discovery_queries": 4,
+    "seed_tool_calls": 39,
+    "total_prepare_ms": 13032.076249830425
+  },
+  "evidence_allowance": 3630,
+  "exact_flat_ids": [
+    "artifact:2011-03-02:refunds@2706e2d7db4c",
+    "artifact:2011-03-02:net@2a639419a996",
+    "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+    "artifact:2011-03-02:net_total@7543f3fd8fbe",
+    "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+    "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+    "artifact:2011-03-02:daily_close@f75693434d9a",
+    "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+  ],
+  "fixture_sha256": "e8310edd64cec834ecc434ff2279128699c166c7bf41b89805417d6a6899a4fe",
+  "graph_exact_flat_prompt_hashes_match": true,
+  "graph_namespace": "model-v4-M01-7e9d048094494eafb32955384cf1388b",
+  "index_metrics": {
+    "bm25_build_ms": 2.591041848063469,
+    "dense_build_ms": 3727.2325828671455,
+    "dense_chunks": 72,
+    "dense_document_tokens_maximum": 930,
+    "dense_memo_cleared_before_case": true
+  },
+  "initial_records_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/initial_records.json",
+  "initial_records_sha256": "e453b4f9306a136c4a61bb086d21f9844d4b21ee33e69f4e9c646f64edf556bf",
+  "initial_store_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/initial",
+  "manifest_sqlite_sha256": "3e9da9e6ac86f5cc4e5ae3c84b569ecdd7597a232782e742100246bc860fc4e0",
+  "mutation_audit": [
+    {
+      "after_sha256": "4ad12dc4fa15c84a6509c0d1c236d2ac209096068b379e9bb3f90ec1399a9d5c",
+      "before_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "current_id": "7e9d048094494eafb32955384cf1388b:source:fa81a0168e6bb974b01ff2c40a0e078d0395db957cdbe30e160d43592159117c",
+      "deleted": false,
+      "expected_changed": true,
+      "kind": "source",
+      "logical_id": "source:2011-03-02:refunds",
+      "observed_changed": true,
+      "original_id": "7e9d048094494eafb32955384cf1388b:source:2fab42f4a45a9a032224f1672479d60ba5f588e17d3a17a6866252d05e0aed35"
+    }
+  ],
+  "native_flat_membership_equal": true,
+  "native_graph_ids": [
+    "artifact:2011-03-02:daily_close@f75693434d9a",
+    "artifact:2011-03-02:net@2a639419a996",
+    "artifact:2011-03-02:net_total@7543f3fd8fbe",
+    "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+    "artifact:2011-03-02:refunds@2706e2d7db4c",
+    "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+    "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+    "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+  ],
+  "provider_calls": 0,
+  "query": {
+    "changed_ids": [
+      "source:2011-03-02:refunds@89c48a6f1c30"
+    ],
+    "text": "A partial refund was recorded for one 2011-03-02 order. Refresh affected saved reports and retain reusable evidence."
+  },
+  "query_text_tokens_cl100k": 50,
+  "recipes": [
+    {
+      "description": "Eligible positive gross sales by country in GBP; 2011-03-01.",
+      "inputs": {
+        "orders": "source:2011-03-01:orders"
+      },
+      "name": "2011-03-01:gross",
+      "params": {},
+      "run": "snapshot-2011-03-01",
+      "tool": "gross_by_region"
+    },
+    {
+      "description": "Authored refunds by country in GBP, initially empty; 2011-03-01.",
+      "inputs": {
+        "orders": "source:2011-03-01:orders",
+        "refunds": "source:2011-03-01:refunds"
+      },
+      "name": "2011-03-01:refunds",
+      "params": {},
+      "run": "snapshot-2011-03-01",
+      "tool": "refunds_by_region"
+    },
+    {
+      "description": "Eligible gross sales less authored refunds by country in GBP; 2011-03-01.",
+      "inputs": {
+        "gross": "2011-03-01:gross",
+        "refunds": "2011-03-01:refunds"
+      },
+      "name": "2011-03-01:net",
+      "params": {},
+      "run": "snapshot-2011-03-01",
+      "tool": "net_by_region"
+    },
+    {
+      "description": "Gross sales in USD, independent of the net branch; 2011-03-01.",
+      "inputs": {
+        "fx": "source:2011-03-01:fx",
+        "net": "2011-03-01:gross"
+      },
+      "name": "2011-03-01:gross_usd",
+      "params": {},
+      "run": "snapshot-2011-03-01",
+      "tool": "convert_to_usd"
+    },
+    {
+      "description": "Sales less authored refunds in USD; 2011-03-01.",
+      "inputs": {
+        "fx": "source:2011-03-01:fx",
+        "net": "2011-03-01:net"
+      },
+      "name": "2011-03-01:net_usd",
+      "params": {},
+      "run": "snapshot-2011-03-01",
+      "tool": "convert_to_usd"
+    },
+    {
+      "description": "All-country total eligible gross sales in USD; 2011-03-01.",
+      "inputs": {
+        "regional": "2011-03-01:gross_usd"
+      },
+      "name": "2011-03-01:gross_total",
+      "params": {},
+      "run": "snapshot-2011-03-01",
+      "tool": "company_total"
+    },
+    {
+      "description": "All-country total sales less authored refunds in USD; 2011-03-01.",
+      "inputs": {
+        "regional": "2011-03-01:net_usd"
+      },
+      "name": "2011-03-01:net_total",
+      "params": {},
+      "run": "snapshot-2011-03-01",
+      "tool": "company_total"
+    },
+    {
+      "description": "Daily gross and net totals for every eligible transaction on 2011-03-01.",
+      "inputs": {
+        "gross": "2011-03-01:gross_total",
+        "net": "2011-03-01:net_total"
+      },
+      "name": "2011-03-01:daily_close",
+      "params": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "Eligible gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "Eligible sales less authored refunds",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "Daily eligible-sales close for 2011-03-01"
+      },
+      "run": "close-2011-03-01",
+      "tool": "compose_report"
+    },
+    {
+      "description": "UK-specific gross and net sales on 2011-03-01, reusing the dated monetary calculations.",
+      "inputs": {
+        "gross": "2011-03-01:gross_usd",
+        "net": "2011-03-01:net_usd"
+      },
+      "name": "2011-03-01:uk_brief",
+      "params": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "UK eligible gross sales",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "UK sales less authored refunds",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "UK home-market sales for 2011-03-01"
+      },
+      "run": "uk-2011-03-01",
+      "tool": "compose_report"
+    },
+    {
+      "description": "Eligible positive gross sales by country in GBP; 2011-03-02.",
+      "inputs": {
+        "orders": "source:2011-03-02:orders"
+      },
+      "name": "2011-03-02:gross",
+      "params": {},
+      "run": "snapshot-2011-03-02",
+      "tool": "gross_by_region"
+    },
+    {
+      "description": "Authored refunds by country in GBP, initially empty; 2011-03-02.",
+      "inputs": {
+        "orders": "source:2011-03-02:orders",
+        "refunds": "source:2011-03-02:refunds"
+      },
+      "name": "2011-03-02:refunds",
+      "params": {},
+      "run": "snapshot-2011-03-02",
+      "tool": "refunds_by_region"
+    },
+    {
+      "description": "Eligible gross sales less authored refunds by country in GBP; 2011-03-02.",
+      "inputs": {
+        "gross": "2011-03-02:gross",
+        "refunds": "2011-03-02:refunds"
+      },
+      "name": "2011-03-02:net",
+      "params": {},
+      "run": "snapshot-2011-03-02",
+      "tool": "net_by_region"
+    },
+    {
+      "description": "Gross sales in USD, independent of the net branch; 2011-03-02.",
+      "inputs": {
+        "fx": "source:2011-03-02:fx",
+        "net": "2011-03-02:gross"
+      },
+      "name": "2011-03-02:gross_usd",
+      "params": {},
+      "run": "snapshot-2011-03-02",
+      "tool": "convert_to_usd"
+    },
+    {
+      "description": "Sales less authored refunds in USD; 2011-03-02.",
+      "inputs": {
+        "fx": "source:2011-03-02:fx",
+        "net": "2011-03-02:net"
+      },
+      "name": "2011-03-02:net_usd",
+      "params": {},
+      "run": "snapshot-2011-03-02",
+      "tool": "convert_to_usd"
+    },
+    {
+      "description": "All-country total eligible gross sales in USD; 2011-03-02.",
+      "inputs": {
+        "regional": "2011-03-02:gross_usd"
+      },
+      "name": "2011-03-02:gross_total",
+      "params": {},
+      "run": "snapshot-2011-03-02",
+      "tool": "company_total"
+    },
+    {
+      "description": "All-country total sales less authored refunds in USD; 2011-03-02.",
+      "inputs": {
+        "regional": "2011-03-02:net_usd"
+      },
+      "name": "2011-03-02:net_total",
+      "params": {},
+      "run": "snapshot-2011-03-02",
+      "tool": "company_total"
+    },
+    {
+      "description": "Daily gross and net totals for every eligible transaction on 2011-03-02.",
+      "inputs": {
+        "gross": "2011-03-02:gross_total",
+        "net": "2011-03-02:net_total"
+      },
+      "name": "2011-03-02:daily_close",
+      "params": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "Eligible gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "Eligible sales less authored refunds",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "Daily eligible-sales close for 2011-03-02"
+      },
+      "run": "close-2011-03-02",
+      "tool": "compose_report"
+    },
+    {
+      "description": "UK-specific gross and net sales on 2011-03-02, reusing the dated monetary calculations.",
+      "inputs": {
+        "gross": "2011-03-02:gross_usd",
+        "net": "2011-03-02:net_usd"
+      },
+      "name": "2011-03-02:uk_brief",
+      "params": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "UK eligible gross sales",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "UK sales less authored refunds",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "UK home-market sales for 2011-03-02"
+      },
+      "run": "uk-2011-03-02",
+      "tool": "compose_report"
+    },
+    {
+      "description": "Eligible positive gross sales by country in GBP; 2011-03-03.",
+      "inputs": {
+        "orders": "source:2011-03-03:orders"
+      },
+      "name": "2011-03-03:gross",
+      "params": {},
+      "run": "snapshot-2011-03-03",
+      "tool": "gross_by_region"
+    },
+    {
+      "description": "Authored refunds by country in GBP, initially empty; 2011-03-03.",
+      "inputs": {
+        "orders": "source:2011-03-03:orders",
+        "refunds": "source:2011-03-03:refunds"
+      },
+      "name": "2011-03-03:refunds",
+      "params": {},
+      "run": "snapshot-2011-03-03",
+      "tool": "refunds_by_region"
+    },
+    {
+      "description": "Eligible gross sales less authored refunds by country in GBP; 2011-03-03.",
+      "inputs": {
+        "gross": "2011-03-03:gross",
+        "refunds": "2011-03-03:refunds"
+      },
+      "name": "2011-03-03:net",
+      "params": {},
+      "run": "snapshot-2011-03-03",
+      "tool": "net_by_region"
+    },
+    {
+      "description": "Gross sales in USD, independent of the net branch; 2011-03-03.",
+      "inputs": {
+        "fx": "source:2011-03-03:fx",
+        "net": "2011-03-03:gross"
+      },
+      "name": "2011-03-03:gross_usd",
+      "params": {},
+      "run": "snapshot-2011-03-03",
+      "tool": "convert_to_usd"
+    },
+    {
+      "description": "Sales less authored refunds in USD; 2011-03-03.",
+      "inputs": {
+        "fx": "source:2011-03-03:fx",
+        "net": "2011-03-03:net"
+      },
+      "name": "2011-03-03:net_usd",
+      "params": {},
+      "run": "snapshot-2011-03-03",
+      "tool": "convert_to_usd"
+    },
+    {
+      "description": "All-country total eligible gross sales in USD; 2011-03-03.",
+      "inputs": {
+        "regional": "2011-03-03:gross_usd"
+      },
+      "name": "2011-03-03:gross_total",
+      "params": {},
+      "run": "snapshot-2011-03-03",
+      "tool": "company_total"
+    },
+    {
+      "description": "All-country total sales less authored refunds in USD; 2011-03-03.",
+      "inputs": {
+        "regional": "2011-03-03:net_usd"
+      },
+      "name": "2011-03-03:net_total",
+      "params": {},
+      "run": "snapshot-2011-03-03",
+      "tool": "company_total"
+    },
+    {
+      "description": "Daily gross and net totals for every eligible transaction on 2011-03-03.",
+      "inputs": {
+        "gross": "2011-03-03:gross_total",
+        "net": "2011-03-03:net_total"
+      },
+      "name": "2011-03-03:daily_close",
+      "params": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "Eligible gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "Eligible sales less authored refunds",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "Daily eligible-sales close for 2011-03-03"
+      },
+      "run": "close-2011-03-03",
+      "tool": "compose_report"
+    },
+    {
+      "description": "UK-specific gross and net sales on 2011-03-03, reusing the dated monetary calculations.",
+      "inputs": {
+        "gross": "2011-03-03:gross_usd",
+        "net": "2011-03-03:net_usd"
+      },
+      "name": "2011-03-03:uk_brief",
+      "params": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "UK eligible gross sales",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "UK sales less authored refunds",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "UK home-market sales for 2011-03-03"
+      },
+      "run": "uk-2011-03-03",
+      "tool": "compose_report"
+    },
+    {
+      "description": "Eligible positive gross sales by country in GBP; 2011-03-04.",
+      "inputs": {
+        "orders": "source:2011-03-04:orders"
+      },
+      "name": "2011-03-04:gross",
+      "params": {},
+      "run": "snapshot-2011-03-04",
+      "tool": "gross_by_region"
+    },
+    {
+      "description": "Authored refunds by country in GBP, initially empty; 2011-03-04.",
+      "inputs": {
+        "orders": "source:2011-03-04:orders",
+        "refunds": "source:2011-03-04:refunds"
+      },
+      "name": "2011-03-04:refunds",
+      "params": {},
+      "run": "snapshot-2011-03-04",
+      "tool": "refunds_by_region"
+    },
+    {
+      "description": "Eligible gross sales less authored refunds by country in GBP; 2011-03-04.",
+      "inputs": {
+        "gross": "2011-03-04:gross",
+        "refunds": "2011-03-04:refunds"
+      },
+      "name": "2011-03-04:net",
+      "params": {},
+      "run": "snapshot-2011-03-04",
+      "tool": "net_by_region"
+    },
+    {
+      "description": "Gross sales in USD, independent of the net branch; 2011-03-04.",
+      "inputs": {
+        "fx": "source:2011-03-04:fx",
+        "net": "2011-03-04:gross"
+      },
+      "name": "2011-03-04:gross_usd",
+      "params": {},
+      "run": "snapshot-2011-03-04",
+      "tool": "convert_to_usd"
+    },
+    {
+      "description": "Sales less authored refunds in USD; 2011-03-04.",
+      "inputs": {
+        "fx": "source:2011-03-04:fx",
+        "net": "2011-03-04:net"
+      },
+      "name": "2011-03-04:net_usd",
+      "params": {},
+      "run": "snapshot-2011-03-04",
+      "tool": "convert_to_usd"
+    },
+    {
+      "description": "All-country total eligible gross sales in USD; 2011-03-04.",
+      "inputs": {
+        "regional": "2011-03-04:gross_usd"
+      },
+      "name": "2011-03-04:gross_total",
+      "params": {},
+      "run": "snapshot-2011-03-04",
+      "tool": "company_total"
+    },
+    {
+      "description": "All-country total sales less authored refunds in USD; 2011-03-04.",
+      "inputs": {
+        "regional": "2011-03-04:net_usd"
+      },
+      "name": "2011-03-04:net_total",
+      "params": {},
+      "run": "snapshot-2011-03-04",
+      "tool": "company_total"
+    },
+    {
+      "description": "Daily gross and net totals for every eligible transaction on 2011-03-04.",
+      "inputs": {
+        "gross": "2011-03-04:gross_total",
+        "net": "2011-03-04:net_total"
+      },
+      "name": "2011-03-04:daily_close",
+      "params": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "Eligible gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "Eligible sales less authored refunds",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "Daily eligible-sales close for 2011-03-04"
+      },
+      "run": "close-2011-03-04",
+      "tool": "compose_report"
+    },
+    {
+      "description": "UK-specific gross and net sales on 2011-03-04, reusing the dated monetary calculations.",
+      "inputs": {
+        "gross": "2011-03-04:gross_usd",
+        "net": "2011-03-04:net_usd"
+      },
+      "name": "2011-03-04:uk_brief",
+      "params": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "UK eligible gross sales",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "UK sales less authored refunds",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "UK home-market sales for 2011-03-04"
+      },
+      "run": "uk-2011-03-04",
+      "tool": "compose_report"
+    },
+    {
+      "description": "Three stated sales values reused from two distinct dated runs; not a computed difference.",
+      "inputs": {
+        "current_gross": "2011-03-02:gross_total",
+        "current_uk_net": "2011-03-02:net_usd",
+        "previous_net": "2011-03-01:net_total"
+      },
+      "name": "cross:2011-03-01:2011-03-02:daily_brief",
+      "params": {
+        "sections": [
+          {
+            "input": "previous_net",
+            "key": "previous_net",
+            "label": "2011-03-01 eligible net sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_gross",
+            "key": "current_gross",
+            "label": "2011-03-02 eligible gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_uk_net",
+            "key": "current_uk_net",
+            "label": "2011-03-02 UK net sales",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "Sales comparison for 2011-03-01 and 2011-03-02"
+      },
+      "run": "comparison-2011-03-01-2011-03-02",
+      "tool": "compose_report"
+    },
+    {
+      "description": "Three stated sales values reused from two distinct dated runs; not a computed difference.",
+      "inputs": {
+        "current_gross": "2011-03-03:gross_total",
+        "current_uk_net": "2011-03-03:net_usd",
+        "previous_net": "2011-03-02:net_total"
+      },
+      "name": "cross:2011-03-02:2011-03-03:daily_brief",
+      "params": {
+        "sections": [
+          {
+            "input": "previous_net",
+            "key": "previous_net",
+            "label": "2011-03-02 eligible net sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_gross",
+            "key": "current_gross",
+            "label": "2011-03-03 eligible gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_uk_net",
+            "key": "current_uk_net",
+            "label": "2011-03-03 UK net sales",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "Sales comparison for 2011-03-02 and 2011-03-03"
+      },
+      "run": "comparison-2011-03-02-2011-03-03",
+      "tool": "compose_report"
+    },
+    {
+      "description": "Three stated sales values reused from two distinct dated runs; not a computed difference.",
+      "inputs": {
+        "current_gross": "2011-03-04:gross_total",
+        "current_uk_net": "2011-03-04:net_usd",
+        "previous_net": "2011-03-03:net_total"
+      },
+      "name": "cross:2011-03-03:2011-03-04:daily_brief",
+      "params": {
+        "sections": [
+          {
+            "input": "previous_net",
+            "key": "previous_net",
+            "label": "2011-03-03 eligible net sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_gross",
+            "key": "current_gross",
+            "label": "2011-03-04 eligible gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_uk_net",
+            "key": "current_uk_net",
+            "label": "2011-03-04 UK net sales",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "Sales comparison for 2011-03-03 and 2011-03-04"
+      },
+      "run": "comparison-2011-03-03-2011-03-04",
+      "tool": "compose_report"
+    }
+  ],
+  "refresh_calls": 0,
+  "requests_by_arm": {
+    "bm25": {
+      "arm": "bm25",
+      "context_file_sha256": "7a5a483e47c868f95ffc8ed15bc5114927fbaa2d048e91414d59ca0dbd7063e7",
+      "context_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/bm25/context.jsonl",
+      "context_sha256": "5e1ace52f6be936386ac3e11f61e3666522046063f8df300b35a225fee526613",
+      "evidence_budget": 3630,
+      "evidence_tokens": 3630,
+      "known_prompt_components_tokens_cl100k": 4217,
+      "native_discovery_queries": 0,
+      "prompt_file_sha256": "fd0bc72c7476b97625e1a2a3d60f2c43ac27e60abd5cb03e9cb10e14eea41768",
+      "prompt_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/bm25/prompt.txt",
+      "record_count": 8,
+      "request_file_sha256": "533eb574a7cf1e5f46b14c16a32081647086196e6783cee71afa300921452292",
+      "request_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/bm25/request.json",
+      "request_sha256": "fd0bc72c7476b97625e1a2a3d60f2c43ac27e60abd5cb03e9cb10e14eea41768",
+      "request_text_tokens_cl100k": 3889,
+      "retrieval_ms": 25.567833799868822,
+      "retrieval_ms_excluding_native_discovery": 25.567833799868822,
+      "retrieved_ids": [
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe"
+      ],
+      "search_index_calls": 1,
+      "skipped_ids": [
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:gross@83cbf83c663d",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:2011-03-03:refunds@86aecaa0bac1",
+        "artifact:2011-03-01:refunds@6bf23cb73689",
+        "artifact:2011-03-04:refunds@29853c5f0f23",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-03:net@ca5177532da2",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-01:net@a8af84b97e2c",
+        "artifact:2011-03-04:net@ff29995bc28d",
+        "artifact:2011-03-03:gross@ce3ac58baf77",
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-01:gross@15fdd4bb1f1f",
+        "artifact:2011-03-04:gross@3320d2133b66",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91"
+      ]
+    },
+    "dense": {
+      "arm": "dense",
+      "context_file_sha256": "d5d4b926b533abd225bcb9bedaa480b7dfa22230749a171dbb7060290b5542c1",
+      "context_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/dense/context.jsonl",
+      "context_sha256": "4d0b26aa3dbb5533d920c5d358c37f32ae9ce4c57eb1b98dfd5804f7e50456d8",
+      "evidence_budget": 3630,
+      "evidence_tokens": 3587,
+      "known_prompt_components_tokens_cl100k": 4143,
+      "native_discovery_queries": 0,
+      "prompt_file_sha256": "9454b110be8cd1b481b86eb8fdef39288b52d9f3d1d9ca25012cf046c1a32098",
+      "prompt_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/dense/prompt.txt",
+      "record_count": 10,
+      "request_file_sha256": "78905b7bd71975a297a7788aafdcf93bcd96b95a55d96f036de6a2623d03decf",
+      "request_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/dense/request.json",
+      "request_sha256": "9454b110be8cd1b481b86eb8fdef39288b52d9f3d1d9ca25012cf046c1a32098",
+      "request_text_tokens_cl100k": 3815,
+      "retrieval_ms": 32.838291954249144,
+      "retrieval_ms_excluding_native_discovery": 32.838291954249144,
+      "retrieved_ids": [
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-03:refunds@86aecaa0bac1",
+        "artifact:2011-03-04:refunds@29853c5f0f23",
+        "artifact:2011-03-01:refunds@6bf23cb73689",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:net@a8af84b97e2c",
+        "artifact:2011-03-03:net@ca5177532da2"
+      ],
+      "search_index_calls": 1,
+      "skipped_ids": [
+        "artifact:2011-03-04:net@ff29995bc28d",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:2011-03-01:gross@15fdd4bb1f1f",
+        "artifact:2011-03-03:gross@ce3ac58baf77",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:2011-03-04:gross@3320d2133b66",
+        "artifact:2011-03-02:gross@83cbf83c663d",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91"
+      ]
+    },
+    "exact_flat": {
+      "arm": "exact_flat",
+      "context_file_sha256": "6400f00ca3e689f99f7be25aaf83e49d79f33b9c9329f521aec465ee049c7597",
+      "context_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/exact_flat/context.jsonl",
+      "context_sha256": "fe5734c6b1fa541e4ae0301051e7e26165b9c4e75d6c80c718cf6d11a7bd3996",
+      "evidence_budget": 3630,
+      "evidence_tokens": 3630,
+      "known_prompt_components_tokens_cl100k": 4217,
+      "native_discovery_queries": 0,
+      "prompt_file_sha256": "e62fe2c87c5bd16b839e550b492e9c3d7150ae3383f116ba5d5531f7498365d6",
+      "prompt_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/exact_flat/prompt.txt",
+      "record_count": 8,
+      "request_file_sha256": "2fa435b9d8eb5ea81d72ec736b0453b33f93c8ec38b091aa7780c3d308cb8a9d",
+      "request_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/exact_flat/request.json",
+      "request_sha256": "e62fe2c87c5bd16b839e550b492e9c3d7150ae3383f116ba5d5531f7498365d6",
+      "request_text_tokens_cl100k": 3889,
+      "retrieval_ms": 2.2677909582853317,
+      "retrieval_ms_excluding_native_discovery": 2.2677909582853317,
+      "retrieved_ids": [
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "search_index_calls": 0,
+      "skipped_ids": []
+    },
+    "full_context": {
+      "arm": "full_context",
+      "context_file_sha256": "fde26ef9bc6ac7e856e01e31dc4798ee0b6a891f8c6e310f4f8e46c6bd5a3a7d",
+      "context_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/full_context/context.jsonl",
+      "context_sha256": "5fbb0125d9c49ae2810ad004c87bcaf06c637e11e24f181872c66865a95de2da",
+      "evidence_budget": null,
+      "evidence_tokens": 14929,
+      "known_prompt_components_tokens_cl100k": 16171,
+      "native_discovery_queries": 0,
+      "prompt_file_sha256": "fceacc5b7828cc30f1e20489994ba8e21c2ad0e18758f94f82f08f670f70cfc6",
+      "prompt_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/full_context/prompt.txt",
+      "record_count": 39,
+      "request_file_sha256": "339b56b9f409eb1ed7d355a65cf6319b6f374f63d794663826f7ad485cf87346",
+      "request_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/full_context/request.json",
+      "request_sha256": "fceacc5b7828cc30f1e20489994ba8e21c2ad0e18758f94f82f08f670f70cfc6",
+      "request_text_tokens_cl100k": 15843,
+      "retrieval_ms": 37.82054176554084,
+      "retrieval_ms_excluding_native_discovery": 37.82054176554084,
+      "retrieved_ids": [
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:2011-03-01:gross@15fdd4bb1f1f",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net@a8af84b97e2c",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:refunds@6bf23cb73689",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:2011-03-02:gross@83cbf83c663d",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-03:gross@ce3ac58baf77",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net@ca5177532da2",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:refunds@86aecaa0bac1",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:2011-03-04:gross@3320d2133b66",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net@ff29995bc28d",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-04:refunds@29853c5f0f23",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "search_index_calls": 0,
+      "skipped_ids": []
+    },
+    "graph": {
+      "arm": "graph",
+      "context_file_sha256": "6400f00ca3e689f99f7be25aaf83e49d79f33b9c9329f521aec465ee049c7597",
+      "context_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/graph/context.jsonl",
+      "context_sha256": "fe5734c6b1fa541e4ae0301051e7e26165b9c4e75d6c80c718cf6d11a7bd3996",
+      "evidence_budget": 3630,
+      "evidence_tokens": 3630,
+      "known_prompt_components_tokens_cl100k": 4217,
+      "native_discovery_queries": 4,
+      "prompt_file_sha256": "e62fe2c87c5bd16b839e550b492e9c3d7150ae3383f116ba5d5531f7498365d6",
+      "prompt_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/graph/prompt.txt",
+      "record_count": 8,
+      "request_file_sha256": "2fa435b9d8eb5ea81d72ec736b0453b33f93c8ec38b091aa7780c3d308cb8a9d",
+      "request_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/graph/request.json",
+      "request_sha256": "e62fe2c87c5bd16b839e550b492e9c3d7150ae3383f116ba5d5531f7498365d6",
+      "request_text_tokens_cl100k": 3889,
+      "retrieval_ms": 24.908166844397783,
+      "retrieval_ms_excluding_native_discovery": 9.249541908502579,
+      "retrieved_ids": [
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "search_index_calls": 0,
+      "skipped_ids": []
+    },
+    "iterative_hybrid": {
+      "arm": "iterative_hybrid",
+      "context_file_sha256": "4dab6a3b422456f0760386990cc353d42eff74c011fa5769730b679bac0ba4b0",
+      "context_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/iterative_hybrid/context.jsonl",
+      "context_sha256": "74d7962ba9e42cda934050f0201e242279f3a33728bce6257031eca8ba6b58a1",
+      "evidence_budget": 3630,
+      "evidence_tokens": 3498,
+      "known_prompt_components_tokens_cl100k": 4057,
+      "native_discovery_queries": 0,
+      "prompt_file_sha256": "74dd3372911d96e065e02ba736333ea45f8c70a9e64e643ae5f5af64f1852a8b",
+      "prompt_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/iterative_hybrid/prompt.txt",
+      "record_count": 9,
+      "request_file_sha256": "2fafc2302f20939a1986a5bf0c88f89aa0e8221306e2548ad5b6b5996097c6ce",
+      "request_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/requests/iterative_hybrid/request.json",
+      "request_sha256": "74dd3372911d96e065e02ba736333ea45f8c70a9e64e643ae5f5af64f1852a8b",
+      "request_text_tokens_cl100k": 3729,
+      "retrieval_ms": 154.28949985653162,
+      "retrieval_ms_excluding_native_discovery": 154.28949985653162,
+      "retrieved_ids": [
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-03:refunds@86aecaa0bac1",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:2011-03-04:refunds@29853c5f0f23",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36"
+      ],
+      "search_index_calls": 8,
+      "skipped_ids": [
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:2011-03-01:gross@15fdd4bb1f1f",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net@a8af84b97e2c",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:refunds@6bf23cb73689",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:2011-03-02:gross@83cbf83c663d",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-03:gross@ce3ac58baf77",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net@ca5177532da2",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:2011-03-04:gross@3320d2133b66",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net@ff29995bc28d",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ]
+    }
+  },
+  "scenario": {
+    "category": "local_refund",
+    "description": "A partial refund was recorded for one 2011-03-02 order. Refresh affected saved reports and retain reusable evidence.",
+    "id": "M01",
+    "mutations": [
+      {
+        "operation": "refund_add",
+        "parameters": {
+          "order_id": "uci:545339:row:106698",
+          "refund_cents": 450
+        },
+        "source": "2011-03-02:refunds",
+        "tool": ""
+      }
+    ],
+    "restart": false,
+    "scope_partitions": [
+      "2011-03-01",
+      "2011-03-02",
+      "2011-03-03",
+      "2011-03-04"
+    ],
+    "split": "test"
+  },
+  "selection_boundary": "Request files contain task, observed changed aliases, selected full-v2 evidence and locally validated allowed IDs only; no oracle outputs or plans.",
+  "source_values_path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/model-v4-test-prepared/M01/current_sources.json",
+  "source_values_sha256": "ea02cdbd8333b28add1c3df190c20fd400f0bbb20bfa79e47aba06b6b3837393",
+  "split": "test",
+  "token_accounting": "Evidence allowance counts original JSONL only; request/schema/system estimates are separate and are not provider usage.",
+  "version": "model-contexts-v4"
+}
