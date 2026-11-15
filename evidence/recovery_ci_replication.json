@@ -1,0 +1,40 @@
+{
+  "artifact": {
+    "artifact_id": 14162543988,
+    "bytes": 56576,
+    "checked_at": "2026-11-15T13:18:39.157040+00:00",
+    "private_state_or_cookie_directories_present": false,
+    "revision": "8f5b9dec7c162a617354775f3014fa3e9032e389",
+    "sha256": "3134ae17a26beb50a2877056a6e61eebcc5c3b8e5b2061b45de60014ba384cce",
+    "source": "https://github.com/saivedant169/proofflow/actions/runs/43717591526",
+    "workflow_run": 43717591526
+  },
+  "recovery_summary": {
+    "checks": {
+      "actual_sigkill_without_application_cleanup": true,
+      "control_parity_for_all_eight_artifact_lineages": true,
+      "exact_refresh_tool_multisets_match_manifest": true,
+      "frozen_inputs_and_implementation_unchanged": true,
+      "full_lifecycle_accounting_including_bootstrap_and_interruption": true,
+      "initial_arms_have_matching_current_artifact_lineage": true,
+      "negative_response_control_detected": true,
+      "no_duplicate_current_heads": true,
+      "parent_observed_mixed_durable_heads_and_native_vertex": true,
+      "recovered_known_values_and_seven_calls": true,
+      "refresh_and_verify_refused_until_resubmission": true,
+      "reopen_marker_stale_withheld_support_current": true,
+      "resubmit_retains_all_original_affected_roots": true,
+      "successful_source_metadata_reconciled": true,
+      "uninterrupted_control_known_values": true
+    },
+    "error": null,
+    "finished_at": "2026-11-15T13:11:32.175614+00:00",
+    "model_calls": 0,
+    "passed": true,
+    "production_change": false,
+    "revision": "8f5b9dec7c162a617354775f3014fa3e9032e389",
+    "scope": "One prospective SIGKILL at the boundary between committed orders and pending refunds updates. No main-app/Hydra restart; no claim about OS/power-loss or within-write crash atomicity."
+  },
+  "scope": "Second execution of the same fixed process-interruption probe on the GitHub-hosted Linux runner. Not an independent customer trial or general crash-safety proof.",
+  "summary_sha256": "5115f4dab887e5e890f2204afe6b3c4f142d876d3bfc186162b3f932c15f436f"
+}

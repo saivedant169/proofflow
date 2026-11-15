@@ -1,0 +1,1100 @@
+order_id,region,currency,gross_cents
+uci:545579:row:109022,Greece,GBP,990
+uci:545579:row:109023,Greece,GBP,1500
+uci:545579:row:109024,Greece,GBP,1980
+uci:545579:row:109025,Greece,GBP,1020
+uci:545579:row:109026,Greece,GBP,1475
+uci:545579:row:109027,Greece,GBP,1475
+uci:545579:row:109028,Greece,GBP,1250
+uci:545579:row:109029,Greece,GBP,4425
+uci:545579:row:109030,Greece,GBP,2040
+uci:545579:row:109031,Greece,GBP,850
+uci:545579:row:109032,Greece,GBP,1950
+uci:545579:row:109033,Greece,GBP,1950
+uci:545579:row:109034,Greece,GBP,1950
+uci:545579:row:109035,Greece,GBP,990
+uci:545579:row:109036,Greece,GBP,990
+uci:545579:row:109037,Greece,GBP,3480
+uci:545579:row:109038,Greece,GBP,1500
+uci:545579:row:109039,Greece,GBP,1020
+uci:545579:row:109040,Greece,GBP,3000
+uci:545579:row:109041,Greece,GBP,3000
+uci:545579:row:109042,Greece,GBP,1560
+uci:545579:row:109043,Greece,GBP,336
+uci:545580:row:109044,United Kingdom,GBP,1950
+uci:545580:row:109045,United Kingdom,GBP,1950
+uci:545580:row:109046,United Kingdom,GBP,2950
+uci:545580:row:109047,United Kingdom,GBP,1950
+uci:545580:row:109048,United Kingdom,GBP,1950
+uci:545580:row:109049,United Kingdom,GBP,1950
+uci:545580:row:109050,United Kingdom,GBP,850
+uci:545580:row:109051,United Kingdom,GBP,850
+uci:545580:row:109052,United Kingdom,GBP,850
+uci:545580:row:109053,United Kingdom,GBP,1485
+uci:545580:row:109054,United Kingdom,GBP,1500
+uci:545580:row:109055,United Kingdom,GBP,1320
+uci:545580:row:109056,United Kingdom,GBP,1770
+uci:545580:row:109057,United Kingdom,GBP,4056
+uci:545580:row:109058,United Kingdom,GBP,1785
+uci:545580:row:109059,United Kingdom,GBP,1475
+uci:545580:row:109060,United Kingdom,GBP,2340
+uci:545580:row:109061,United Kingdom,GBP,3540
+uci:545580:row:109062,United Kingdom,GBP,1650
+uci:545580:row:109063,United Kingdom,GBP,1650
+uci:545581:row:109064,United Kingdom,GBP,504
+uci:545581:row:109065,United Kingdom,GBP,504
+uci:545581:row:109066,United Kingdom,GBP,8100
+uci:545581:row:109067,United Kingdom,GBP,8100
+uci:545581:row:109068,United Kingdom,GBP,6120
+uci:545581:row:109069,United Kingdom,GBP,6120
+uci:545581:row:109070,United Kingdom,GBP,4590
+uci:545581:row:109071,United Kingdom,GBP,6120
+uci:545581:row:109072,United Kingdom,GBP,6120
+uci:545581:row:109073,United Kingdom,GBP,6750
+uci:545581:row:109074,United Kingdom,GBP,10200
+uci:545581:row:109075,United Kingdom,GBP,3060
+uci:545581:row:109076,United Kingdom,GBP,1990
+uci:545581:row:109077,United Kingdom,GBP,5100
+uci:545582:row:109078,United Kingdom,GBP,10200
+uci:545582:row:109079,United Kingdom,GBP,5040
+uci:545582:row:109080,United Kingdom,GBP,7632
+uci:545582:row:109081,United Kingdom,GBP,12750
+uci:545582:row:109082,United Kingdom,GBP,12750
+uci:545582:row:109083,United Kingdom,GBP,12750
+uci:545582:row:109084,United Kingdom,GBP,12750
+uci:545582:row:109085,United Kingdom,GBP,8250
+uci:545582:row:109086,United Kingdom,GBP,7632
+uci:545582:row:109087,United Kingdom,GBP,12168
+uci:545582:row:109088,United Kingdom,GBP,8160
+uci:545582:row:109089,United Kingdom,GBP,27500
+uci:545582:row:109090,United Kingdom,GBP,21000
+uci:545582:row:109091,United Kingdom,GBP,21200
+uci:545582:row:109092,United Kingdom,GBP,52500
+uci:545582:row:109093,United Kingdom,GBP,9900
+uci:545582:row:109094,United Kingdom,GBP,12000
+uci:545582:row:109095,United Kingdom,GBP,5040
+uci:545582:row:109096,United Kingdom,GBP,47520
+uci:545582:row:109097,United Kingdom,GBP,8112
+uci:545582:row:109098,United Kingdom,GBP,16500
+uci:545582:row:109099,United Kingdom,GBP,14500
+uci:545582:row:109100,United Kingdom,GBP,8880
+uci:545583:row:109101,France,GBP,5850
+uci:545583:row:109102,France,GBP,1950
+uci:545583:row:109103,France,GBP,1485
+uci:545583:row:109104,France,GBP,1485
+uci:545583:row:109105,France,GBP,1485
+uci:545583:row:109106,France,GBP,1500
+uci:545583:row:109107,France,GBP,1770
+uci:545583:row:109108,France,GBP,1980
+uci:545583:row:109109,France,GBP,1530
+uci:545583:row:109110,France,GBP,1500
+uci:545583:row:109111,France,GBP,1590
+uci:545583:row:109112,France,GBP,1500
+uci:545583:row:109113,France,GBP,1500
+uci:545583:row:109114,France,GBP,1500
+uci:545583:row:109115,France,GBP,1500
+uci:545583:row:109116,France,GBP,3600
+uci:545584:row:109117,United Kingdom,GBP,795
+uci:545585:row:109118,Spain,GBP,1770
+uci:545585:row:109119,Spain,GBP,3000
+uci:545585:row:109120,Spain,GBP,3000
+uci:545585:row:109121,Spain,GBP,3000
+uci:545585:row:109122,Spain,GBP,1050
+uci:545585:row:109123,Spain,GBP,1050
+uci:545585:row:109124,Spain,GBP,1050
+uci:545585:row:109125,Spain,GBP,1950
+uci:545585:row:109126,Spain,GBP,1320
+uci:545585:row:109127,Spain,GBP,3060
+uci:545585:row:109128,Spain,GBP,1320
+uci:545585:row:109129,Spain,GBP,1320
+uci:545585:row:109130,Spain,GBP,1320
+uci:545585:row:109131,Spain,GBP,1485
+uci:545585:row:109132,Spain,GBP,1485
+uci:545585:row:109133,Spain,GBP,1260
+uci:545585:row:109134,Spain,GBP,2800
+uci:545586:row:109135,United Kingdom,GBP,680
+uci:545586:row:109136,United Kingdom,GBP,165
+uci:545586:row:109137,United Kingdom,GBP,195
+uci:545586:row:109138,United Kingdom,GBP,390
+uci:545586:row:109139,United Kingdom,GBP,168
+uci:545586:row:109140,United Kingdom,GBP,375
+uci:545586:row:109141,United Kingdom,GBP,84
+uci:545586:row:109142,United Kingdom,GBP,990
+uci:545586:row:109143,United Kingdom,GBP,596
+uci:545586:row:109144,United Kingdom,GBP,252
+uci:545586:row:109145,United Kingdom,GBP,590
+uci:545587:row:109146,United Kingdom,GBP,250
+uci:545587:row:109147,United Kingdom,GBP,125
+uci:545587:row:109148,United Kingdom,GBP,125
+uci:545587:row:109149,United Kingdom,GBP,250
+uci:545587:row:109150,United Kingdom,GBP,250
+uci:545587:row:109151,United Kingdom,GBP,250
+uci:545587:row:109152,United Kingdom,GBP,125
+uci:545587:row:109153,United Kingdom,GBP,375
+uci:545587:row:109154,United Kingdom,GBP,250
+uci:545587:row:109155,United Kingdom,GBP,348
+uci:545587:row:109156,United Kingdom,GBP,348
+uci:545587:row:109157,United Kingdom,GBP,348
+uci:545587:row:109158,United Kingdom,GBP,348
+uci:545587:row:109159,United Kingdom,GBP,348
+uci:545587:row:109160,United Kingdom,GBP,375
+uci:545587:row:109161,United Kingdom,GBP,425
+uci:545587:row:109162,United Kingdom,GBP,55
+uci:545587:row:109163,United Kingdom,GBP,110
+uci:545587:row:109164,United Kingdom,GBP,55
+uci:545587:row:109165,United Kingdom,GBP,110
+uci:545587:row:109166,United Kingdom,GBP,165
+uci:545587:row:109167,United Kingdom,GBP,250
+uci:545587:row:109168,United Kingdom,GBP,590
+uci:545587:row:109169,United Kingdom,GBP,330
+uci:545587:row:109170,United Kingdom,GBP,590
+uci:545587:row:109171,United Kingdom,GBP,435
+uci:545587:row:109172,United Kingdom,GBP,330
+uci:545587:row:109173,United Kingdom,GBP,250
+uci:545587:row:109174,United Kingdom,GBP,250
+uci:545587:row:109175,United Kingdom,GBP,125
+uci:545587:row:109176,United Kingdom,GBP,125
+uci:545587:row:109177,United Kingdom,GBP,125
+uci:545587:row:109178,United Kingdom,GBP,125
+uci:545587:row:109179,United Kingdom,GBP,1000
+uci:545587:row:109180,United Kingdom,GBP,2500
+uci:545587:row:109181,United Kingdom,GBP,1990
+uci:545587:row:109182,United Kingdom,GBP,1341
+uci:545587:row:109183,United Kingdom,GBP,1192
+uci:545587:row:109184,United Kingdom,GBP,840
+uci:545587:row:109185,United Kingdom,GBP,630
+uci:545587:row:109186,United Kingdom,GBP,630
+uci:545587:row:109187,United Kingdom,GBP,420
+uci:545587:row:109188,United Kingdom,GBP,676
+uci:545587:row:109189,United Kingdom,GBP,435
+uci:545587:row:109190,United Kingdom,GBP,416
+uci:545587:row:109191,United Kingdom,GBP,210
+uci:545587:row:109192,United Kingdom,GBP,630
+uci:545587:row:109193,United Kingdom,GBP,765
+uci:545587:row:109194,United Kingdom,GBP,125
+uci:545587:row:109195,United Kingdom,GBP,995
+uci:545587:row:109196,United Kingdom,GBP,195
+uci:545587:row:109197,United Kingdom,GBP,510
+uci:545587:row:109198,United Kingdom,GBP,578
+uci:545587:row:109199,United Kingdom,GBP,495
+uci:545587:row:109200,United Kingdom,GBP,510
+uci:545587:row:109201,United Kingdom,GBP,250
+uci:545587:row:109202,United Kingdom,GBP,250
+uci:545587:row:109203,United Kingdom,GBP,875
+uci:545587:row:109204,United Kingdom,GBP,596
+uci:545587:row:109205,United Kingdom,GBP,660
+uci:545588:row:109206,United Kingdom,GBP,1500
+uci:545588:row:109207,United Kingdom,GBP,1260
+uci:545588:row:109208,United Kingdom,GBP,1590
+uci:545588:row:109209,United Kingdom,GBP,995
+uci:545588:row:109210,United Kingdom,GBP,1500
+uci:545588:row:109211,United Kingdom,GBP,1500
+uci:545588:row:109212,United Kingdom,GBP,1500
+uci:545588:row:109213,United Kingdom,GBP,1500
+uci:545588:row:109214,United Kingdom,GBP,1500
+uci:545588:row:109215,United Kingdom,GBP,1500
+uci:545588:row:109216,United Kingdom,GBP,1500
+uci:545588:row:109217,United Kingdom,GBP,1352
+uci:545588:row:109218,United Kingdom,GBP,1352
+uci:545588:row:109219,United Kingdom,GBP,1980
+uci:545588:row:109220,United Kingdom,GBP,1770
+uci:545589:row:109221,United Kingdom,GBP,1040
+uci:545589:row:109222,United Kingdom,GBP,1020
+uci:545589:row:109223,United Kingdom,GBP,1260
+uci:545589:row:109224,United Kingdom,GBP,3390
+uci:545589:row:109225,United Kingdom,GBP,2360
+uci:545589:row:109226,United Kingdom,GBP,1500
+uci:545589:row:109227,United Kingdom,GBP,1500
+uci:545589:row:109228,United Kingdom,GBP,3000
+uci:545589:row:109229,United Kingdom,GBP,1500
+uci:545589:row:109230,United Kingdom,GBP,1530
+uci:545589:row:109231,United Kingdom,GBP,3900
+uci:545589:row:109232,United Kingdom,GBP,3060
+uci:545589:row:109233,United Kingdom,GBP,1360
+uci:545589:row:109234,United Kingdom,GBP,3900
+uci:545589:row:109235,United Kingdom,GBP,3000
+uci:545590:row:109236,United Kingdom,GBP,1500
+uci:545590:row:109237,United Kingdom,GBP,1020
+uci:545590:row:109238,United Kingdom,GBP,1020
+uci:545590:row:109239,United Kingdom,GBP,1530
+uci:545590:row:109240,United Kingdom,GBP,1500
+uci:545590:row:109241,United Kingdom,GBP,1980
+uci:545590:row:109242,United Kingdom,GBP,1740
+uci:545590:row:109243,United Kingdom,GBP,1500
+uci:545590:row:109244,United Kingdom,GBP,1260
+uci:545590:row:109245,United Kingdom,GBP,432
+uci:545590:row:109246,United Kingdom,GBP,1008
+uci:545590:row:109247,United Kingdom,GBP,504
+uci:545590:row:109248,United Kingdom,GBP,1020
+uci:545590:row:109249,United Kingdom,GBP,1500
+uci:545590:row:109250,United Kingdom,GBP,1500
+uci:545590:row:109251,United Kingdom,GBP,1500
+uci:545590:row:109252,United Kingdom,GBP,2340
+uci:545590:row:109253,United Kingdom,GBP,990
+uci:545590:row:109254,United Kingdom,GBP,1770
+uci:545590:row:109255,United Kingdom,GBP,1785
+uci:545590:row:109256,United Kingdom,GBP,1020
+uci:545590:row:109257,United Kingdom,GBP,1392
+uci:545590:row:109258,United Kingdom,GBP,1800
+uci:545591:row:109259,United Kingdom,GBP,850
+uci:545591:row:109260,United Kingdom,GBP,850
+uci:545591:row:109261,United Kingdom,GBP,1250
+uci:545591:row:109262,United Kingdom,GBP,1250
+uci:545591:row:109263,United Kingdom,GBP,1250
+uci:545591:row:109264,United Kingdom,GBP,1650
+uci:545591:row:109265,United Kingdom,GBP,1650
+uci:545591:row:109266,United Kingdom,GBP,1950
+uci:545591:row:109267,United Kingdom,GBP,2040
+uci:545591:row:109268,United Kingdom,GBP,1650
+uci:545591:row:109269,United Kingdom,GBP,1950
+uci:545591:row:109270,United Kingdom,GBP,1950
+uci:545591:row:109271,United Kingdom,GBP,1950
+uci:545591:row:109272,United Kingdom,GBP,1050
+uci:545591:row:109273,United Kingdom,GBP,3900
+uci:545591:row:109274,United Kingdom,GBP,3900
+uci:545591:row:109275,United Kingdom,GBP,1050
+uci:545591:row:109276,United Kingdom,GBP,1950
+uci:545591:row:109277,United Kingdom,GBP,850
+uci:545591:row:109278,United Kingdom,GBP,850
+uci:545591:row:109279,United Kingdom,GBP,1050
+uci:545591:row:109280,United Kingdom,GBP,850
+uci:545592:row:109281,United Kingdom,GBP,1770
+uci:545592:row:109282,United Kingdom,GBP,1500
+uci:545592:row:109283,United Kingdom,GBP,1580
+uci:545592:row:109284,United Kingdom,GBP,1485
+uci:545592:row:109285,United Kingdom,GBP,2520
+uci:545592:row:109286,United Kingdom,GBP,2250
+uci:545592:row:109287,United Kingdom,GBP,1980
+uci:545592:row:109288,United Kingdom,GBP,1770
+uci:545592:row:109289,United Kingdom,GBP,2340
+uci:545592:row:109290,United Kingdom,GBP,3975
+uci:545592:row:109291,United Kingdom,GBP,3975
+uci:545592:row:109292,United Kingdom,GBP,1530
+uci:545592:row:109293,United Kingdom,GBP,1530
+uci:545592:row:109294,United Kingdom,GBP,1770
+uci:545592:row:109295,United Kingdom,GBP,1950
+uci:545592:row:109296,United Kingdom,GBP,1530
+uci:545592:row:109297,United Kingdom,GBP,1770
+uci:545592:row:109298,United Kingdom,GBP,1770
+uci:545593:row:109299,United Kingdom,GBP,1990
+uci:545593:row:109300,United Kingdom,GBP,1500
+uci:545593:row:109301,United Kingdom,GBP,6750
+uci:545595:row:109302,United Kingdom,GBP,85
+uci:545595:row:109303,United Kingdom,GBP,504
+uci:545595:row:109304,United Kingdom,GBP,885
+uci:545595:row:109305,United Kingdom,GBP,795
+uci:545595:row:109306,United Kingdom,GBP,295
+uci:545595:row:109307,United Kingdom,GBP,348
+uci:545595:row:109308,United Kingdom,GBP,295
+uci:545595:row:109309,United Kingdom,GBP,295
+uci:545595:row:109310,United Kingdom,GBP,348
+uci:545595:row:109311,United Kingdom,GBP,650
+uci:545595:row:109312,United Kingdom,GBP,7735
+uci:545595:row:109313,United Kingdom,GBP,595
+uci:545595:row:109314,United Kingdom,GBP,750
+uci:545595:row:109315,United Kingdom,GBP,596
+uci:545595:row:109316,United Kingdom,GBP,500
+uci:545595:row:109317,United Kingdom,GBP,435
+uci:545595:row:109318,United Kingdom,GBP,420
+uci:545595:row:109319,United Kingdom,GBP,420
+uci:545595:row:109320,United Kingdom,GBP,420
+uci:545595:row:109321,United Kingdom,GBP,420
+uci:545596:row:109322,United Kingdom,GBP,3480
+uci:545596:row:109323,United Kingdom,GBP,1500
+uci:545596:row:109324,United Kingdom,GBP,1360
+uci:545596:row:109325,United Kingdom,GBP,1980
+uci:545596:row:109326,United Kingdom,GBP,1980
+uci:545596:row:109327,United Kingdom,GBP,1660
+uci:545596:row:109328,United Kingdom,GBP,1660
+uci:545596:row:109329,United Kingdom,GBP,1500
+uci:545596:row:109330,United Kingdom,GBP,1500
+uci:545596:row:109331,United Kingdom,GBP,2340
+uci:545596:row:109332,United Kingdom,GBP,1660
+uci:545596:row:109333,United Kingdom,GBP,1590
+uci:545596:row:109334,United Kingdom,GBP,990
+uci:545596:row:109335,United Kingdom,GBP,1650
+uci:545596:row:109336,United Kingdom,GBP,1650
+uci:545597:row:109337,United Kingdom,GBP,590
+uci:545597:row:109338,United Kingdom,GBP,495
+uci:545597:row:109339,United Kingdom,GBP,495
+uci:545597:row:109340,United Kingdom,GBP,425
+uci:545597:row:109341,United Kingdom,GBP,295
+uci:545597:row:109342,United Kingdom,GBP,375
+uci:545597:row:109343,United Kingdom,GBP,995
+uci:545597:row:109344,United Kingdom,GBP,350
+uci:545597:row:109345,United Kingdom,GBP,995
+uci:545601:row:109349,United Kingdom,GBP,1770
+uci:545601:row:109350,United Kingdom,GBP,1770
+uci:545601:row:109351,United Kingdom,GBP,1770
+uci:545601:row:109352,United Kingdom,GBP,1785
+uci:545601:row:109353,United Kingdom,GBP,1770
+uci:545601:row:109354,United Kingdom,GBP,1485
+uci:545601:row:109355,United Kingdom,GBP,1580
+uci:545601:row:109356,United Kingdom,GBP,1500
+uci:545601:row:109357,United Kingdom,GBP,1770
+uci:545602:row:109358,United Kingdom,GBP,195
+uci:545602:row:109359,United Kingdom,GBP,195
+uci:545602:row:109360,United Kingdom,GBP,195
+uci:545602:row:109361,United Kingdom,GBP,195
+uci:545602:row:109362,United Kingdom,GBP,195
+uci:545602:row:109363,United Kingdom,GBP,495
+uci:545602:row:109364,United Kingdom,GBP,126
+uci:545602:row:109365,United Kingdom,GBP,2465
+uci:545602:row:109366,United Kingdom,GBP,2565
+uci:545602:row:109367,United Kingdom,GBP,1020
+uci:545602:row:109368,United Kingdom,GBP,510
+uci:545602:row:109369,United Kingdom,GBP,990
+uci:545602:row:109370,United Kingdom,GBP,1770
+uci:545603:row:109371,United Kingdom,GBP,1560
+uci:545603:row:109372,United Kingdom,GBP,2250
+uci:545630:row:109373,United Kingdom,GBP,9900
+uci:545630:row:109374,United Kingdom,GBP,5355
+uci:545630:row:109375,United Kingdom,GBP,1770
+uci:545630:row:109376,United Kingdom,GBP,3285
+uci:545630:row:109377,United Kingdom,GBP,1770
+uci:545630:row:109378,United Kingdom,GBP,1770
+uci:545630:row:109379,United Kingdom,GBP,7650
+uci:545630:row:109380,United Kingdom,GBP,1740
+uci:545634:row:109381,EIRE,GBP,1260
+uci:545634:row:109382,EIRE,GBP,1500
+uci:545634:row:109383,EIRE,GBP,1980
+uci:545634:row:109384,EIRE,GBP,1020
+uci:545634:row:109385,EIRE,GBP,1500
+uci:545634:row:109386,EIRE,GBP,1500
+uci:545634:row:109387,EIRE,GBP,2340
+uci:545634:row:109388,EIRE,GBP,870
+uci:545634:row:109389,EIRE,GBP,1500
+uci:545634:row:109390,EIRE,GBP,1500
+uci:545634:row:109391,EIRE,GBP,1500
+uci:545634:row:109392,EIRE,GBP,3390
+uci:545634:row:109393,EIRE,GBP,1500
+uci:545634:row:109394,EIRE,GBP,1392
+uci:545634:row:109395,EIRE,GBP,1008
+uci:545634:row:109396,EIRE,GBP,1050
+uci:545634:row:109397,EIRE,GBP,504
+uci:545634:row:109398,EIRE,GBP,504
+uci:545634:row:109399,EIRE,GBP,5000
+uci:545635:row:109400,United Kingdom,GBP,3000
+uci:545635:row:109401,United Kingdom,GBP,1160
+uci:545635:row:109402,United Kingdom,GBP,1050
+uci:545635:row:109403,United Kingdom,GBP,1740
+uci:545635:row:109404,United Kingdom,GBP,1020
+uci:545635:row:109405,United Kingdom,GBP,1788
+uci:545635:row:109406,United Kingdom,GBP,1050
+uci:545635:row:109407,United Kingdom,GBP,1008
+uci:545635:row:109408,United Kingdom,GBP,1500
+uci:545635:row:109409,United Kingdom,GBP,1260
+uci:545635:row:109410,United Kingdom,GBP,1008
+uci:545635:row:109411,United Kingdom,GBP,1734
+uci:545635:row:109412,United Kingdom,GBP,1740
+uci:545635:row:109413,United Kingdom,GBP,1740
+uci:545635:row:109414,United Kingdom,GBP,1770
+uci:545635:row:109415,United Kingdom,GBP,1500
+uci:545636:row:109416,United Kingdom,GBP,2704
+uci:545636:row:109417,United Kingdom,GBP,2380
+uci:545636:row:109418,United Kingdom,GBP,1500
+uci:545636:row:109419,United Kingdom,GBP,1500
+uci:545636:row:109420,United Kingdom,GBP,3480
+uci:545636:row:109421,United Kingdom,GBP,3000
+uci:545636:row:109422,United Kingdom,GBP,1500
+uci:545636:row:109423,United Kingdom,GBP,1980
+uci:545636:row:109424,United Kingdom,GBP,1360
+uci:545636:row:109425,United Kingdom,GBP,1980
+uci:545636:row:109426,United Kingdom,GBP,1500
+uci:545636:row:109427,United Kingdom,GBP,1560
+uci:545636:row:109428,United Kingdom,GBP,995
+uci:545636:row:109429,United Kingdom,GBP,1980
+uci:545636:row:109430,United Kingdom,GBP,1580
+uci:545636:row:109431,United Kingdom,GBP,1700
+uci:545636:row:109432,United Kingdom,GBP,1740
+uci:545636:row:109433,United Kingdom,GBP,1020
+uci:545636:row:109434,United Kingdom,GBP,1500
+uci:545636:row:109435,United Kingdom,GBP,1020
+uci:545636:row:109436,United Kingdom,GBP,2150
+uci:545636:row:109437,United Kingdom,GBP,1770
+uci:545636:row:109438,United Kingdom,GBP,1770
+uci:545637:row:109439,United Kingdom,GBP,1500
+uci:545637:row:109440,United Kingdom,GBP,425
+uci:545637:row:109441,United Kingdom,GBP,650
+uci:545637:row:109442,United Kingdom,GBP,504
+uci:545637:row:109443,United Kingdom,GBP,650
+uci:545637:row:109444,United Kingdom,GBP,168
+uci:545637:row:109445,United Kingdom,GBP,170
+uci:545637:row:109446,United Kingdom,GBP,504
+uci:545637:row:109447,United Kingdom,GBP,250
+uci:545637:row:109448,United Kingdom,GBP,756
+uci:545637:row:109449,United Kingdom,GBP,231
+uci:545637:row:109450,United Kingdom,GBP,340
+uci:545637:row:109451,United Kingdom,GBP,390
+uci:545637:row:109452,United Kingdom,GBP,2250
+uci:545637:row:109453,United Kingdom,GBP,2625
+uci:545637:row:109454,United Kingdom,GBP,2250
+uci:545637:row:109455,United Kingdom,GBP,3060
+uci:545637:row:109456,United Kingdom,GBP,1980
+uci:545637:row:109457,United Kingdom,GBP,6000
+uci:545637:row:109458,United Kingdom,GBP,4500
+uci:545638:row:109459,United Kingdom,GBP,8136
+uci:545638:row:109460,United Kingdom,GBP,10200
+uci:545638:row:109461,United Kingdom,GBP,330
+uci:545638:row:109462,United Kingdom,GBP,395
+uci:545638:row:109463,United Kingdom,GBP,290
+uci:545638:row:109464,United Kingdom,GBP,250
+uci:545638:row:109465,United Kingdom,GBP,290
+uci:545638:row:109466,United Kingdom,GBP,750
+uci:545638:row:109467,United Kingdom,GBP,2950
+uci:545644:row:109469,United Kingdom,GBP,43200
+uci:545644:row:109470,United Kingdom,GBP,61056
+uci:545644:row:109471,United Kingdom,GBP,24192
+uci:545644:row:109472,United Kingdom,GBP,29680
+uci:545644:row:109473,United Kingdom,GBP,33920
+uci:545645:row:109474,Japan,GBP,595
+uci:545645:row:109475,Japan,GBP,995
+uci:545645:row:109476,Japan,GBP,165
+uci:545646:row:109477,United Kingdom,GBP,2250
+uci:545646:row:109478,United Kingdom,GBP,495
+uci:545646:row:109479,United Kingdom,GBP,85
+uci:545646:row:109480,United Kingdom,GBP,125
+uci:545646:row:109481,United Kingdom,GBP,255
+uci:545646:row:109482,United Kingdom,GBP,590
+uci:545647:row:109483,Spain,GBP,3000
+uci:545647:row:109484,Spain,GBP,3000
+uci:545647:row:109485,Spain,GBP,3060
+uci:545647:row:109486,Spain,GBP,2040
+uci:545647:row:109487,Spain,GBP,2040
+uci:545647:row:109488,Spain,GBP,2800
+uci:545648:row:109489,United Kingdom,GBP,1170
+uci:545648:row:109490,United Kingdom,GBP,1250
+uci:545648:row:109491,United Kingdom,GBP,1650
+uci:545648:row:109492,United Kingdom,GBP,1980
+uci:545648:row:109493,United Kingdom,GBP,1980
+uci:545648:row:109494,United Kingdom,GBP,1650
+uci:545649:row:109495,United Kingdom,GBP,250
+uci:545649:row:109496,United Kingdom,GBP,170
+uci:545649:row:109497,United Kingdom,GBP,375
+uci:545649:row:109498,United Kingdom,GBP,375
+uci:545649:row:109499,United Kingdom,GBP,425
+uci:545649:row:109500,United Kingdom,GBP,425
+uci:545649:row:109501,United Kingdom,GBP,425
+uci:545649:row:109502,United Kingdom,GBP,1065
+uci:545649:row:109503,United Kingdom,GBP,125
+uci:545649:row:109504,United Kingdom,GBP,250
+uci:545649:row:109505,United Kingdom,GBP,425
+uci:545649:row:109506,United Kingdom,GBP,425
+uci:545649:row:109507,United Kingdom,GBP,425
+uci:545649:row:109508,United Kingdom,GBP,195
+uci:545649:row:109509,United Kingdom,GBP,295
+uci:545649:row:109510,United Kingdom,GBP,330
+uci:545649:row:109511,United Kingdom,GBP,750
+uci:545649:row:109512,United Kingdom,GBP,295
+uci:545649:row:109513,United Kingdom,GBP,255
+uci:545649:row:109514,United Kingdom,GBP,170
+uci:545649:row:109515,United Kingdom,GBP,255
+uci:545649:row:109516,United Kingdom,GBP,145
+uci:545649:row:109517,United Kingdom,GBP,42
+uci:545649:row:109518,United Kingdom,GBP,42
+uci:545649:row:109519,United Kingdom,GBP,85
+uci:545649:row:109520,United Kingdom,GBP,58
+uci:545649:row:109521,United Kingdom,GBP,29
+uci:545649:row:109522,United Kingdom,GBP,250
+uci:545649:row:109523,United Kingdom,GBP,125
+uci:545649:row:109524,United Kingdom,GBP,125
+uci:545649:row:109525,United Kingdom,GBP,885
+uci:545649:row:109526,United Kingdom,GBP,295
+uci:545649:row:109527,United Kingdom,GBP,765
+uci:545649:row:109528,United Kingdom,GBP,195
+uci:545649:row:109529,United Kingdom,GBP,195
+uci:545649:row:109530,United Kingdom,GBP,795
+uci:545649:row:109531,United Kingdom,GBP,195
+uci:545652:row:109535,United Kingdom,GBP,1590
+uci:545652:row:109536,United Kingdom,GBP,1500
+uci:545652:row:109537,United Kingdom,GBP,1990
+uci:545653:row:109538,United Kingdom,GBP,125
+uci:545653:row:109539,United Kingdom,GBP,170
+uci:545653:row:109540,United Kingdom,GBP,250
+uci:545653:row:109541,United Kingdom,GBP,338
+uci:545653:row:109542,United Kingdom,GBP,590
+uci:545653:row:109543,United Kingdom,GBP,16500
+uci:545653:row:109544,United Kingdom,GBP,8136
+uci:545653:row:109545,United Kingdom,GBP,16500
+uci:545653:row:109546,United Kingdom,GBP,7560
+uci:545653:row:109547,United Kingdom,GBP,6144
+uci:545653:row:109548,United Kingdom,GBP,3816
+uci:545653:row:109549,United Kingdom,GBP,8880
+uci:545653:row:109550,United Kingdom,GBP,780
+uci:545653:row:109551,United Kingdom,GBP,1950
+uci:545653:row:109552,United Kingdom,GBP,1950
+uci:545653:row:109553,United Kingdom,GBP,1190
+uci:545653:row:109554,United Kingdom,GBP,675
+uci:545653:row:109555,United Kingdom,GBP,425
+uci:545653:row:109556,United Kingdom,GBP,590
+uci:545653:row:109557,United Kingdom,GBP,255
+uci:545653:row:109558,United Kingdom,GBP,3000
+uci:545653:row:109559,United Kingdom,GBP,3000
+uci:545653:row:109560,United Kingdom,GBP,1190
+uci:545653:row:109561,United Kingdom,GBP,1785
+uci:545653:row:109562,United Kingdom,GBP,840
+uci:545653:row:109563,United Kingdom,GBP,420
+uci:545653:row:109564,United Kingdom,GBP,1090
+uci:545653:row:109565,United Kingdom,GBP,885
+uci:545653:row:109566,United Kingdom,GBP,510
+uci:545653:row:109567,United Kingdom,GBP,590
+uci:545653:row:109568,United Kingdom,GBP,845
+uci:545653:row:109569,United Kingdom,GBP,1020
+uci:545653:row:109570,United Kingdom,GBP,210
+uci:545653:row:109571,United Kingdom,GBP,595
+uci:545653:row:109572,United Kingdom,GBP,750
+uci:545654:row:109573,United Kingdom,GBP,780
+uci:545654:row:109574,United Kingdom,GBP,780
+uci:545654:row:109575,United Kingdom,GBP,780
+uci:545654:row:109576,United Kingdom,GBP,780
+uci:545654:row:109577,United Kingdom,GBP,780
+uci:545654:row:109578,United Kingdom,GBP,780
+uci:545654:row:109579,United Kingdom,GBP,2360
+uci:545654:row:109580,United Kingdom,GBP,3480
+uci:545654:row:109581,United Kingdom,GBP,1980
+uci:545654:row:109582,United Kingdom,GBP,3480
+uci:545654:row:109583,United Kingdom,GBP,4680
+uci:545654:row:109584,United Kingdom,GBP,1664
+uci:545654:row:109585,United Kingdom,GBP,1664
+uci:545654:row:109586,United Kingdom,GBP,3540
+uci:545654:row:109587,United Kingdom,GBP,2000
+uci:545654:row:109588,United Kingdom,GBP,2040
+uci:545654:row:109589,United Kingdom,GBP,3000
+uci:545655:row:109590,United Kingdom,GBP,795
+uci:545655:row:109591,United Kingdom,GBP,295
+uci:545655:row:109592,United Kingdom,GBP,295
+uci:545655:row:109593,United Kingdom,GBP,170
+uci:545655:row:109594,United Kingdom,GBP,65
+uci:545655:row:109595,United Kingdom,GBP,295
+uci:545655:row:109596,United Kingdom,GBP,295
+uci:545655:row:109597,United Kingdom,GBP,210
+uci:545655:row:109598,United Kingdom,GBP,295
+uci:545655:row:109599,United Kingdom,GBP,125
+uci:545655:row:109600,United Kingdom,GBP,170
+uci:545655:row:109601,United Kingdom,GBP,195
+uci:545655:row:109602,United Kingdom,GBP,145
+uci:545655:row:109603,United Kingdom,GBP,507
+uci:545655:row:109604,United Kingdom,GBP,165
+uci:545655:row:109605,United Kingdom,GBP,375
+uci:545655:row:109606,United Kingdom,GBP,165
+uci:545655:row:109607,United Kingdom,GBP,165
+uci:545655:row:109608,United Kingdom,GBP,42
+uci:545655:row:109609,United Kingdom,GBP,330
+uci:545655:row:109610,United Kingdom,GBP,210
+uci:545655:row:109611,United Kingdom,GBP,250
+uci:545655:row:109612,United Kingdom,GBP,295
+uci:545655:row:109613,United Kingdom,GBP,195
+uci:545655:row:109614,United Kingdom,GBP,125
+uci:545655:row:109615,United Kingdom,GBP,42
+uci:545655:row:109616,United Kingdom,GBP,149
+uci:545655:row:109617,United Kingdom,GBP,250
+uci:545655:row:109618,United Kingdom,GBP,210
+uci:545655:row:109619,United Kingdom,GBP,250
+uci:545655:row:109620,United Kingdom,GBP,125
+uci:545655:row:109621,United Kingdom,GBP,295
+uci:545655:row:109622,United Kingdom,GBP,210
+uci:545655:row:109623,United Kingdom,GBP,85
+uci:545655:row:109624,United Kingdom,GBP,85
+uci:545655:row:109625,United Kingdom,GBP,29
+uci:545655:row:109626,United Kingdom,GBP,110
+uci:545655:row:109627,United Kingdom,GBP,165
+uci:545655:row:109628,United Kingdom,GBP,298
+uci:545655:row:109629,United Kingdom,GBP,165
+uci:545655:row:109630,United Kingdom,GBP,170
+uci:545655:row:109631,United Kingdom,GBP,87
+uci:545655:row:109632,United Kingdom,GBP,58
+uci:545655:row:109633,United Kingdom,GBP,165
+uci:545655:row:109634,United Kingdom,GBP,87
+uci:545655:row:109635,United Kingdom,GBP,750
+uci:545656:row:109636,United Kingdom,GBP,1650
+uci:545656:row:109637,United Kingdom,GBP,1650
+uci:545656:row:109638,United Kingdom,GBP,1650
+uci:545656:row:109639,United Kingdom,GBP,1650
+uci:545656:row:109640,United Kingdom,GBP,1650
+uci:545656:row:109641,United Kingdom,GBP,1650
+uci:545657:row:109642,EIRE,GBP,1990
+uci:545657:row:109643,EIRE,GBP,1590
+uci:545657:row:109644,EIRE,GBP,1590
+uci:545657:row:109645,EIRE,GBP,2704
+uci:545657:row:109646,EIRE,GBP,1500
+uci:545657:row:109647,EIRE,GBP,1980
+uci:545657:row:109648,EIRE,GBP,1580
+uci:545657:row:109649,EIRE,GBP,1770
+uci:545657:row:109650,EIRE,GBP,1500
+uci:545657:row:109651,EIRE,GBP,1590
+uci:545657:row:109652,EIRE,GBP,1590
+uci:545657:row:109653,EIRE,GBP,1500
+uci:545657:row:109654,EIRE,GBP,1500
+uci:545657:row:109655,EIRE,GBP,1500
+uci:545657:row:109656,EIRE,GBP,1485
+uci:545657:row:109657,EIRE,GBP,1740
+uci:545657:row:109658,EIRE,GBP,1980
+uci:545657:row:109659,EIRE,GBP,1950
+uci:545657:row:109660,EIRE,GBP,1770
+uci:545657:row:109661,EIRE,GBP,2250
+uci:545657:row:109662,EIRE,GBP,1740
+uci:545657:row:109663,EIRE,GBP,2520
+uci:545657:row:109664,EIRE,GBP,1020
+uci:545657:row:109665,EIRE,GBP,2340
+uci:545657:row:109666,EIRE,GBP,696
+uci:545657:row:109667,EIRE,GBP,696
+uci:545657:row:109668,EIRE,GBP,1392
+uci:545657:row:109669,EIRE,GBP,1020
+uci:545657:row:109670,EIRE,GBP,1500
+uci:545657:row:109671,EIRE,GBP,1500
+uci:545657:row:109672,EIRE,GBP,1980
+uci:545657:row:109673,EIRE,GBP,1785
+uci:545657:row:109674,EIRE,GBP,1650
+uci:545657:row:109675,EIRE,GBP,1650
+uci:545657:row:109676,EIRE,GBP,1950
+uci:545657:row:109677,EIRE,GBP,1260
+uci:545657:row:109678,EIRE,GBP,1260
+uci:545657:row:109679,EIRE,GBP,2340
+uci:545657:row:109680,EIRE,GBP,1980
+uci:545657:row:109681,EIRE,GBP,1980
+uci:545657:row:109682,EIRE,GBP,1500
+uci:545657:row:109683,EIRE,GBP,1980
+uci:545657:row:109684,EIRE,GBP,1500
+uci:545657:row:109685,EIRE,GBP,2340
+uci:545657:row:109686,EIRE,GBP,504
+uci:545657:row:109687,EIRE,GBP,504
+uci:545657:row:109688,EIRE,GBP,504
+uci:545657:row:109689,EIRE,GBP,504
+uci:545657:row:109690,EIRE,GBP,504
+uci:545657:row:109691,EIRE,GBP,1020
+uci:545657:row:109692,EIRE,GBP,1020
+uci:545657:row:109693,EIRE,GBP,1770
+uci:545657:row:109694,EIRE,GBP,1500
+uci:545657:row:109695,EIRE,GBP,1485
+uci:545657:row:109696,EIRE,GBP,1990
+uci:545657:row:109697,EIRE,GBP,1788
+uci:545658:row:109698,United Kingdom,GBP,595
+uci:545658:row:109699,United Kingdom,GBP,170
+uci:545658:row:109700,United Kingdom,GBP,420
+uci:545658:row:109701,United Kingdom,GBP,170
+uci:545658:row:109702,United Kingdom,GBP,165
+uci:545658:row:109703,United Kingdom,GBP,338
+uci:545658:row:109704,United Kingdom,GBP,338
+uci:545658:row:109705,United Kingdom,GBP,676
+uci:545658:row:109706,United Kingdom,GBP,21
+uci:545658:row:109707,United Kingdom,GBP,495
+uci:545658:row:109708,United Kingdom,GBP,1090
+uci:545658:row:109709,United Kingdom,GBP,42
+uci:545658:row:109710,United Kingdom,GBP,168
+uci:545658:row:109711,United Kingdom,GBP,295
+uci:545658:row:109712,United Kingdom,GBP,165
+uci:545658:row:109713,United Kingdom,GBP,650
+uci:545658:row:109714,United Kingdom,GBP,330
+uci:545658:row:109715,United Kingdom,GBP,504
+uci:545658:row:109716,United Kingdom,GBP,504
+uci:545658:row:109717,United Kingdom,GBP,21
+uci:545658:row:109718,United Kingdom,GBP,125
+uci:545658:row:109719,United Kingdom,GBP,84
+uci:545658:row:109720,United Kingdom,GBP,125
+uci:545658:row:109721,United Kingdom,GBP,125
+uci:545658:row:109722,United Kingdom,GBP,330
+uci:545658:row:109723,United Kingdom,GBP,145
+uci:545658:row:109724,United Kingdom,GBP,250
+uci:545658:row:109725,United Kingdom,GBP,170
+uci:545658:row:109726,United Kingdom,GBP,510
+uci:545658:row:109727,United Kingdom,GBP,520
+uci:545658:row:109728,United Kingdom,GBP,250
+uci:545658:row:109729,United Kingdom,GBP,85
+uci:545658:row:109730,United Kingdom,GBP,84
+uci:545658:row:109731,United Kingdom,GBP,85
+uci:545658:row:109732,United Kingdom,GBP,130
+uci:545658:row:109733,United Kingdom,GBP,165
+uci:545658:row:109734,United Kingdom,GBP,625
+uci:545658:row:109735,United Kingdom,GBP,990
+uci:545658:row:109736,United Kingdom,GBP,85
+uci:545658:row:109737,United Kingdom,GBP,220
+uci:545658:row:109738,United Kingdom,GBP,500
+uci:545658:row:109739,United Kingdom,GBP,63
+uci:545658:row:109740,United Kingdom,GBP,149
+uci:545658:row:109741,United Kingdom,GBP,420
+uci:545658:row:109742,United Kingdom,GBP,330
+uci:545658:row:109743,United Kingdom,GBP,255
+uci:545658:row:109744,United Kingdom,GBP,255
+uci:545658:row:109745,United Kingdom,GBP,330
+uci:545658:row:109746,United Kingdom,GBP,500
+uci:545658:row:109747,United Kingdom,GBP,21
+uci:545658:row:109748,United Kingdom,GBP,210
+uci:545658:row:109749,United Kingdom,GBP,85
+uci:545658:row:109750,United Kingdom,GBP,85
+uci:545658:row:109751,United Kingdom,GBP,125
+uci:545658:row:109752,United Kingdom,GBP,130
+uci:545658:row:109753,United Kingdom,GBP,495
+uci:545658:row:109754,United Kingdom,GBP,1250
+uci:545658:row:109755,United Kingdom,GBP,1875
+uci:545658:row:109756,United Kingdom,GBP,1250
+uci:545658:row:109757,United Kingdom,GBP,255
+uci:545658:row:109758,United Kingdom,GBP,225
+uci:545658:row:109759,United Kingdom,GBP,450
+uci:545658:row:109760,United Kingdom,GBP,1020
+uci:545658:row:109761,United Kingdom,GBP,125
+uci:545658:row:109762,United Kingdom,GBP,250
+uci:545658:row:109763,United Kingdom,GBP,330
+uci:545658:row:109764,United Kingdom,GBP,425
+uci:545658:row:109765,United Kingdom,GBP,495
+uci:545658:row:109766,United Kingdom,GBP,85
+uci:545658:row:109767,United Kingdom,GBP,375
+uci:545658:row:109768,United Kingdom,GBP,595
+uci:545658:row:109769,United Kingdom,GBP,695
+uci:545658:row:109770,United Kingdom,GBP,695
+uci:545658:row:109771,United Kingdom,GBP,590
+uci:545658:row:109772,United Kingdom,GBP,295
+uci:545658:row:109773,United Kingdom,GBP,375
+uci:545658:row:109774,United Kingdom,GBP,348
+uci:545658:row:109775,United Kingdom,GBP,348
+uci:545658:row:109776,United Kingdom,GBP,210
+uci:545658:row:109777,United Kingdom,GBP,660
+uci:545658:row:109778,United Kingdom,GBP,500
+uci:545658:row:109779,United Kingdom,GBP,125
+uci:545658:row:109780,United Kingdom,GBP,125
+uci:545658:row:109781,United Kingdom,GBP,500
+uci:545658:row:109782,United Kingdom,GBP,255
+uci:545658:row:109783,United Kingdom,GBP,255
+uci:545659:row:109784,United Kingdom,GBP,1500
+uci:545659:row:109785,United Kingdom,GBP,1500
+uci:545659:row:109786,United Kingdom,GBP,1500
+uci:545660:row:109787,United Kingdom,GBP,630
+uci:545660:row:109788,United Kingdom,GBP,169
+uci:545660:row:109789,United Kingdom,GBP,435
+uci:545660:row:109790,United Kingdom,GBP,210
+uci:545660:row:109791,United Kingdom,GBP,3245
+uci:545660:row:109792,United Kingdom,GBP,750
+uci:545660:row:109793,United Kingdom,GBP,990
+uci:545660:row:109794,United Kingdom,GBP,1485
+uci:545660:row:109795,United Kingdom,GBP,1740
+uci:545660:row:109796,United Kingdom,GBP,590
+uci:545660:row:109797,United Kingdom,GBP,330
+uci:545660:row:109798,United Kingdom,GBP,145
+uci:545660:row:109799,United Kingdom,GBP,420
+uci:545660:row:109800,United Kingdom,GBP,114
+uci:545660:row:109801,United Kingdom,GBP,990
+uci:545660:row:109802,United Kingdom,GBP,295
+uci:545660:row:109803,United Kingdom,GBP,510
+uci:545660:row:109804,United Kingdom,GBP,850
+uci:545660:row:109805,United Kingdom,GBP,1500
+uci:545660:row:109806,United Kingdom,GBP,1500
+uci:545660:row:109807,United Kingdom,GBP,750
+uci:545660:row:109808,United Kingdom,GBP,625
+uci:545660:row:109809,United Kingdom,GBP,750
+uci:545660:row:109810,United Kingdom,GBP,750
+uci:545660:row:109811,United Kingdom,GBP,875
+uci:545660:row:109812,United Kingdom,GBP,510
+uci:545660:row:109813,United Kingdom,GBP,1485
+uci:545660:row:109814,United Kingdom,GBP,170
+uci:545660:row:109815,United Kingdom,GBP,1660
+uci:545660:row:109816,United Kingdom,GBP,590
+uci:545660:row:109817,United Kingdom,GBP,1014
+uci:545660:row:109818,United Kingdom,GBP,750
+uci:545660:row:109819,United Kingdom,GBP,870
+uci:545660:row:109820,United Kingdom,GBP,325
+uci:545660:row:109821,United Kingdom,GBP,125
+uci:545660:row:109822,United Kingdom,GBP,2550
+uci:545660:row:109823,United Kingdom,GBP,380
+uci:545661:row:109824,United Kingdom,GBP,1300
+uci:545661:row:109825,United Kingdom,GBP,1020
+uci:545661:row:109826,United Kingdom,GBP,5040
+uci:545661:row:109827,United Kingdom,GBP,1500
+uci:545661:row:109828,United Kingdom,GBP,1530
+uci:545661:row:109829,United Kingdom,GBP,1008
+uci:545661:row:109830,United Kingdom,GBP,1500
+uci:545661:row:109831,United Kingdom,GBP,1980
+uci:545661:row:109832,United Kingdom,GBP,672
+uci:545661:row:109833,United Kingdom,GBP,1770
+uci:545661:row:109834,United Kingdom,GBP,3000
+uci:545661:row:109835,United Kingdom,GBP,1500
+uci:545661:row:109836,United Kingdom,GBP,3000
+uci:545661:row:109837,United Kingdom,GBP,1700
+uci:545661:row:109838,United Kingdom,GBP,1050
+uci:545661:row:109839,United Kingdom,GBP,504
+uci:545661:row:109840,United Kingdom,GBP,504
+uci:545661:row:109841,United Kingdom,GBP,3000
+uci:545661:row:109842,United Kingdom,GBP,1770
+uci:545661:row:109843,United Kingdom,GBP,1770
+uci:545661:row:109844,United Kingdom,GBP,2640
+uci:545661:row:109845,United Kingdom,GBP,1980
+uci:545661:row:109846,United Kingdom,GBP,1500
+uci:545661:row:109847,United Kingdom,GBP,1320
+uci:545661:row:109848,United Kingdom,GBP,1320
+uci:545661:row:109849,United Kingdom,GBP,1320
+uci:545661:row:109850,United Kingdom,GBP,1500
+uci:545661:row:109851,United Kingdom,GBP,1950
+uci:545661:row:109852,United Kingdom,GBP,504
+uci:545661:row:109853,United Kingdom,GBP,1500
+uci:545661:row:109854,United Kingdom,GBP,1770
+uci:545661:row:109855,United Kingdom,GBP,1320
+uci:545661:row:109856,United Kingdom,GBP,1770
+uci:545661:row:109857,United Kingdom,GBP,1050
+uci:545661:row:109858,United Kingdom,GBP,1260
+uci:545661:row:109859,United Kingdom,GBP,2550
+uci:545661:row:109860,United Kingdom,GBP,1008
+uci:545661:row:109861,United Kingdom,GBP,1020
+uci:545661:row:109862,United Kingdom,GBP,1740
+uci:545661:row:109863,United Kingdom,GBP,780
+uci:545661:row:109864,United Kingdom,GBP,1020
+uci:545661:row:109865,United Kingdom,GBP,1500
+uci:545661:row:109866,United Kingdom,GBP,1980
+uci:545661:row:109867,United Kingdom,GBP,1500
+uci:545661:row:109868,United Kingdom,GBP,1020
+uci:545661:row:109869,United Kingdom,GBP,1485
+uci:545661:row:109870,United Kingdom,GBP,1500
+uci:545661:row:109871,United Kingdom,GBP,1700
+uci:545661:row:109872,United Kingdom,GBP,1740
+uci:545661:row:109873,United Kingdom,GBP,1500
+uci:545661:row:109874,United Kingdom,GBP,1590
+uci:545661:row:109875,United Kingdom,GBP,1530
+uci:545662:row:109876,United Kingdom,GBP,1800
+uci:545662:row:109877,United Kingdom,GBP,1800
+uci:545662:row:109878,United Kingdom,GBP,1800
+uci:545662:row:109879,United Kingdom,GBP,1800
+uci:545662:row:109880,United Kingdom,GBP,2340
+uci:545662:row:109881,United Kingdom,GBP,2340
+uci:545662:row:109882,United Kingdom,GBP,1980
+uci:545662:row:109883,United Kingdom,GBP,1980
+uci:545662:row:109884,United Kingdom,GBP,1980
+uci:545662:row:109885,United Kingdom,GBP,1500
+uci:545662:row:109886,United Kingdom,GBP,1500
+uci:545663:row:109887,United Kingdom,GBP,504
+uci:545663:row:109888,United Kingdom,GBP,1500
+uci:545663:row:109889,United Kingdom,GBP,1050
+uci:545663:row:109890,United Kingdom,GBP,1500
+uci:545663:row:109891,United Kingdom,GBP,1500
+uci:545663:row:109892,United Kingdom,GBP,525
+uci:545663:row:109893,United Kingdom,GBP,525
+uci:545663:row:109894,United Kingdom,GBP,2300
+uci:545663:row:109895,United Kingdom,GBP,1740
+uci:545663:row:109896,United Kingdom,GBP,1500
+uci:545663:row:109897,United Kingdom,GBP,1020
+uci:545663:row:109898,United Kingdom,GBP,756
+uci:545663:row:109899,United Kingdom,GBP,1788
+uci:545664:row:109900,Italy,GBP,1785
+uci:545664:row:109901,Italy,GBP,1950
+uci:545664:row:109902,Italy,GBP,1695
+uci:545664:row:109903,Italy,GBP,2028
+uci:545664:row:109904,Italy,GBP,1785
+uci:545664:row:109905,Italy,GBP,1990
+uci:545664:row:109906,Italy,GBP,1590
+uci:545664:row:109907,Italy,GBP,5940
+uci:545664:row:109908,Italy,GBP,1590
+uci:545664:row:109909,Italy,GBP,1590
+uci:545664:row:109910,Italy,GBP,1590
+uci:545664:row:109911,Italy,GBP,3160
+uci:545664:row:109912,Italy,GBP,2970
+uci:545664:row:109913,Italy,GBP,1785
+uci:545664:row:109914,Italy,GBP,3540
+uci:545664:row:109915,Italy,GBP,995
+uci:545664:row:109916,Italy,GBP,1980
+uci:545664:row:109917,Italy,GBP,8400
+uci:545665:row:109918,United Kingdom,GBP,1020
+uci:545665:row:109919,United Kingdom,GBP,1020
+uci:545665:row:109920,United Kingdom,GBP,1530
+uci:545665:row:109921,United Kingdom,GBP,1500
+uci:545665:row:109922,United Kingdom,GBP,1040
+uci:545665:row:109923,United Kingdom,GBP,1770
+uci:545665:row:109924,United Kingdom,GBP,1020
+uci:545665:row:109925,United Kingdom,GBP,1500
+uci:545665:row:109926,United Kingdom,GBP,1250
+uci:545665:row:109927,United Kingdom,GBP,1020
+uci:545665:row:109928,United Kingdom,GBP,1500
+uci:545665:row:109929,United Kingdom,GBP,1250
+uci:545665:row:109930,United Kingdom,GBP,1020
+uci:545667:row:109932,United Kingdom,GBP,166
+uci:545667:row:109933,United Kingdom,GBP,829
+uci:545667:row:109934,United Kingdom,GBP,1658
+uci:545667:row:109935,United Kingdom,GBP,329
+uci:545667:row:109936,United Kingdom,GBP,413
+uci:545667:row:109937,United Kingdom,GBP,2460
+uci:545667:row:109938,United Kingdom,GBP,1316
+uci:545667:row:109939,United Kingdom,GBP,246
+uci:545667:row:109940,United Kingdom,GBP,83
+uci:545667:row:109941,United Kingdom,GBP,163
+uci:545667:row:109942,United Kingdom,GBP,163
+uci:545667:row:109943,United Kingdom,GBP,163
+uci:545667:row:109944,United Kingdom,GBP,658
+uci:545667:row:109945,United Kingdom,GBP,413
+uci:545667:row:109946,United Kingdom,GBP,163
+uci:545667:row:109947,United Kingdom,GBP,329
+uci:545667:row:109948,United Kingdom,GBP,83
+uci:545667:row:109949,United Kingdom,GBP,83
+uci:545667:row:109950,United Kingdom,GBP,992
+uci:545667:row:109951,United Kingdom,GBP,246
+uci:545667:row:109952,United Kingdom,GBP,83
+uci:545667:row:109953,United Kingdom,GBP,329
+uci:545667:row:109954,United Kingdom,GBP,42
+uci:545667:row:109955,United Kingdom,GBP,498
+uci:545667:row:109956,United Kingdom,GBP,915
+uci:545667:row:109957,United Kingdom,GBP,17648
+uci:545667:row:109958,United Kingdom,GBP,1275
+uci:545667:row:109959,United Kingdom,GBP,4380
+uci:545667:row:109960,United Kingdom,GBP,4890
+uci:545667:row:109961,United Kingdom,GBP,579
+uci:545667:row:109962,United Kingdom,GBP,1246
+uci:545667:row:109963,United Kingdom,GBP,2496
+uci:545667:row:109964,United Kingdom,GBP,42
+uci:545667:row:109965,United Kingdom,GBP,1793
+uci:545667:row:109966,United Kingdom,GBP,166
+uci:545667:row:109967,United Kingdom,GBP,413
+uci:545667:row:109968,United Kingdom,GBP,246
+uci:545667:row:109969,United Kingdom,GBP,326
+uci:545667:row:109970,United Kingdom,GBP,83
+uci:545667:row:109971,United Kingdom,GBP,166
+uci:545667:row:109972,United Kingdom,GBP,1246
+uci:545667:row:109973,United Kingdom,GBP,246
+uci:545667:row:109974,United Kingdom,GBP,663
+uci:545667:row:109975,United Kingdom,GBP,246
+uci:545667:row:109976,United Kingdom,GBP,246
+uci:545667:row:109977,United Kingdom,GBP,246
+uci:545667:row:109978,United Kingdom,GBP,246
+uci:545667:row:109979,United Kingdom,GBP,246
+uci:545667:row:109980,United Kingdom,GBP,496
+uci:545667:row:109981,United Kingdom,GBP,413
+uci:545667:row:109982,United Kingdom,GBP,42
+uci:545667:row:109983,United Kingdom,GBP,413
+uci:545667:row:109984,United Kingdom,GBP,326
+uci:545667:row:109985,United Kingdom,GBP,826
+uci:545667:row:109986,United Kingdom,GBP,987
+uci:545667:row:109987,United Kingdom,GBP,125
+uci:545667:row:109988,United Kingdom,GBP,987
+uci:545667:row:109989,United Kingdom,GBP,125
+uci:545667:row:109990,United Kingdom,GBP,579
+uci:545667:row:109991,United Kingdom,GBP,163
+uci:545667:row:109992,United Kingdom,GBP,163
+uci:545667:row:109993,United Kingdom,GBP,166
+uci:545667:row:109994,United Kingdom,GBP,166
+uci:545667:row:109995,United Kingdom,GBP,83
+uci:545667:row:109996,United Kingdom,GBP,83
+uci:545667:row:109997,United Kingdom,GBP,496
+uci:545667:row:109998,United Kingdom,GBP,829
+uci:545667:row:109999,United Kingdom,GBP,2664
+uci:545667:row:110000,United Kingdom,GBP,329
+uci:545667:row:110001,United Kingdom,GBP,1163
+uci:545667:row:110002,United Kingdom,GBP,1163
+uci:545667:row:110003,United Kingdom,GBP,984
+uci:545667:row:110004,United Kingdom,GBP,738
+uci:545667:row:110005,United Kingdom,GBP,163
+uci:545667:row:110006,United Kingdom,GBP,246
+uci:545667:row:110007,United Kingdom,GBP,329
+uci:545667:row:110008,United Kingdom,GBP,326
+uci:545667:row:110009,United Kingdom,GBP,329
+uci:545667:row:110010,United Kingdom,GBP,584
+uci:545667:row:110011,United Kingdom,GBP,125
+uci:545667:row:110012,United Kingdom,GBP,246
+uci:545667:row:110013,United Kingdom,GBP,246
+uci:545667:row:110014,United Kingdom,GBP,166
+uci:545667:row:110015,United Kingdom,GBP,83
+uci:545667:row:110016,United Kingdom,GBP,83
+uci:545667:row:110017,United Kingdom,GBP,83
+uci:545667:row:110018,United Kingdom,GBP,579
+uci:545667:row:110019,United Kingdom,GBP,746
+uci:545667:row:110020,United Kingdom,GBP,163
+uci:545667:row:110021,United Kingdom,GBP,1079
+uci:545667:row:110022,United Kingdom,GBP,1663
+uci:545667:row:110023,United Kingdom,GBP,329
+uci:545667:row:110024,United Kingdom,GBP,246
+uci:545667:row:110025,United Kingdom,GBP,1158
+uci:545667:row:110026,United Kingdom,GBP,489
+uci:545667:row:110027,United Kingdom,GBP,250
+uci:545667:row:110028,United Kingdom,GBP,329
+uci:545667:row:110029,United Kingdom,GBP,246
+uci:545667:row:110030,United Kingdom,GBP,163
+uci:545667:row:110031,United Kingdom,GBP,163
+uci:545667:row:110032,United Kingdom,GBP,246
+uci:545667:row:110033,United Kingdom,GBP,1579
+uci:545667:row:110034,United Kingdom,GBP,329
+uci:545667:row:110035,United Kingdom,GBP,246
+uci:545667:row:110036,United Kingdom,GBP,658
+uci:545667:row:110037,United Kingdom,GBP,579
+uci:545667:row:110038,United Kingdom,GBP,125
+uci:545667:row:110039,United Kingdom,GBP,329
+uci:545667:row:110040,United Kingdom,GBP,326
+uci:545667:row:110041,United Kingdom,GBP,163
+uci:545667:row:110042,United Kingdom,GBP,579
+uci:545667:row:110043,United Kingdom,GBP,579
+uci:545667:row:110044,United Kingdom,GBP,579
+uci:545667:row:110045,United Kingdom,GBP,413
+uci:545667:row:110046,United Kingdom,GBP,413
+uci:545667:row:110047,United Kingdom,GBP,2988
+uci:545667:row:110048,United Kingdom,GBP,579
+uci:545667:row:110049,United Kingdom,GBP,329
+uci:545667:row:110050,United Kingdom,GBP,660
+uci:545667:row:110051,United Kingdom,GBP,295
+uci:545667:row:110052,United Kingdom,GBP,496
+uci:545667:row:110053,United Kingdom,GBP,496
+uci:545667:row:110054,United Kingdom,GBP,163
+uci:545667:row:110055,United Kingdom,GBP,326
+uci:545667:row:110056,United Kingdom,GBP,413
+uci:545667:row:110057,United Kingdom,GBP,246
+uci:545667:row:110058,United Kingdom,GBP,246
+uci:545667:row:110059,United Kingdom,GBP,1579
+uci:545667:row:110060,United Kingdom,GBP,2316
+uci:545667:row:110061,United Kingdom,GBP,2316
+uci:545667:row:110062,United Kingdom,GBP,1158
+uci:545667:row:110063,United Kingdom,GBP,83
+uci:545667:row:110064,United Kingdom,GBP,83
+uci:545667:row:110065,United Kingdom,GBP,83
+uci:545667:row:110066,United Kingdom,GBP,1079
+uci:545667:row:110067,United Kingdom,GBP,829
+uci:545667:row:110068,United Kingdom,GBP,746
+uci:545667:row:110069,United Kingdom,GBP,1239
+uci:545667:row:110070,United Kingdom,GBP,1652
+uci:545667:row:110071,United Kingdom,GBP,1239
+uci:545667:row:110072,United Kingdom,GBP,2750
+uci:545667:row:110073,United Kingdom,GBP,750
+uci:545667:row:110074,United Kingdom,GBP,750
+uci:545667:row:110075,United Kingdom,GBP,750
+uci:545667:row:110076,United Kingdom,GBP,750
+uci:545667:row:110077,United Kingdom,GBP,413
+uci:545667:row:110078,United Kingdom,GBP,166
+uci:545667:row:110079,United Kingdom,GBP,913
+uci:545667:row:110080,United Kingdom,GBP,163
+uci:545667:row:110081,United Kingdom,GBP,413
+uci:545667:row:110082,United Kingdom,GBP,413
+uci:545667:row:110083,United Kingdom,GBP,83
+uci:545667:row:110084,United Kingdom,GBP,1079
+uci:545667:row:110085,United Kingdom,GBP,829
+uci:545667:row:110086,United Kingdom,GBP,658
+uci:545667:row:110087,United Kingdom,GBP,492
+uci:545667:row:110088,United Kingdom,GBP,166
+uci:545667:row:110089,United Kingdom,GBP,738
+uci:545667:row:110090,United Kingdom,GBP,83
+uci:545667:row:110091,United Kingdom,GBP,996
+uci:545667:row:110092,United Kingdom,GBP,996
+uci:545667:row:110093,United Kingdom,GBP,996
+uci:545667:row:110094,United Kingdom,GBP,458
+uci:545667:row:110095,United Kingdom,GBP,166
+uci:545667:row:110096,United Kingdom,GBP,166
+uci:545667:row:110097,United Kingdom,GBP,163
+uci:545667:row:110098,United Kingdom,GBP,329
+uci:545667:row:110099,United Kingdom,GBP,6448
+uci:545667:row:110100,United Kingdom,GBP,984
+uci:545667:row:110101,United Kingdom,GBP,83
+uci:545667:row:110102,United Kingdom,GBP,495
+uci:545667:row:110103,United Kingdom,GBP,83
+uci:545667:row:110104,United Kingdom,GBP,992
+uci:545667:row:110105,United Kingdom,GBP,746
+uci:545667:row:110106,United Kingdom,GBP,246
+uci:545667:row:110107,United Kingdom,GBP,326
+uci:545667:row:110108,United Kingdom,GBP,250
+uci:545667:row:110109,United Kingdom,GBP,250
+uci:545667:row:110110,United Kingdom,GBP,250
+uci:545667:row:110111,United Kingdom,GBP,413
+uci:545667:row:110112,United Kingdom,GBP,413
+uci:545667:row:110113,United Kingdom,GBP,1658
+uci:545667:row:110114,United Kingdom,GBP,829
+uci:545667:row:110115,United Kingdom,GBP,413
+uci:545667:row:110116,United Kingdom,GBP,1492
+uci:545667:row:110117,United Kingdom,GBP,336
+uci:545667:row:110118,United Kingdom,GBP,579
+uci:545668:row:110119,United Kingdom,GBP,2016
+uci:545668:row:110120,United Kingdom,GBP,5950
+uci:545668:row:110121,United Kingdom,GBP,3570
+uci:545668:row:110122,United Kingdom,GBP,5408
+uci:545668:row:110123,United Kingdom,GBP,6000
+uci:545668:row:110124,United Kingdom,GBP,5100
+uci:545668:row:110125,United Kingdom,GBP,3980
+uci:545668:row:110126,United Kingdom,GBP,5100
+uci:545668:row:110127,United Kingdom,GBP,825
+uci:545668:row:110128,United Kingdom,GBP,15264
