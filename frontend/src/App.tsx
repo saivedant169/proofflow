@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { ArrowRight, CheckCircle2, CircleAlert, Database, Download, FileUp, LoaderCircle, Plus, RefreshCw, ShieldCheck } from 'lucide-react'
 import { api } from './lib/api'
+import { parseUSDCents } from './lib/format'
 import type { ImportExport, ImportExportRequest, ImportedWorkspaceState, ImportRequest, SourceChange, Verification, WorkspaceState } from './lib/types'
 import ReportPanel from './components/ReportPanel'
 import EvidenceGraph from './components/EvidenceGraph'
@@ -9,7 +10,7 @@ import SourceDrawer from './components/SourceDrawer'
 import EvidenceDrawer from './components/EvidenceDrawer'
 import BenchmarkPanel from './components/BenchmarkPanel'
 import ImportDrawer from './components/ImportDrawer'
-import './report-export.css'
+import './import-workspace.css'
 
 type WorkspaceKind = 'demo' | 'import'
 const exportTimeFormat = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'long', timeZone: 'UTC' })
@@ -24,7 +25,7 @@ function currentReportId(state: ImportedWorkspaceState, key: string, claimKey: s
   if (!report?.id || report.state !== 'current' || report.claims.length !== 1) return null
   const [claim] = report.claims
   return claim.key === claimKey && claim.state === 'current' && claim.unit === 'USD cents'
-    && typeof claim.value === 'number' && Number.isInteger(claim.value) ? report.id : null
+    && parseUSDCents(claim.value) !== null ? report.id : null
 }
 
 function exportRequest(state: ImportedWorkspaceState | null): ImportExportRequest | null {

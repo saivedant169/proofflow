@@ -1,11 +1,24 @@
 import type { Claim, JSONValue } from './types'
 
+const numberFormat = new Intl.NumberFormat('en-US')
+
+export function parseUSDCents(value: unknown): bigint | null {
+  if (typeof value === 'number' && Number.isSafeInteger(value)) return BigInt(value)
+  if (typeof value === 'string' && /^(?:0|-?[1-9]\d*)$/.test(value)) return BigInt(value)
+  return null
+}
+
 export function formatValue(value: JSONValue | undefined, unit: string): string {
   if (value === null || value === undefined) return 'Unavailable'
-  if (typeof value === 'number' && unit === 'USD cents') {
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value / 100)
+  if (unit === 'USD cents') {
+    const cents = parseUSDCents(value)
+    if (cents === null) return 'Unavailable'
+    const absolute = cents < 0n ? -cents : cents
+    const dollars = numberFormat.format(absolute / 100n)
+    const remainder = String(absolute % 100n).padStart(2, '0')
+    return `${cents < 0n ? '-' : ''}$${dollars}.${remainder}`
   }
-  if (typeof value === 'number') return new Intl.NumberFormat('en-US').format(value)
+  if (typeof value === 'number') return numberFormat.format(value)
   return typeof value === 'string' ? value : JSON.stringify(value)
 }
 

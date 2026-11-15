@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { ArrowUpRight, Check, CircleAlert, Layers } from 'lucide-react'
 import type { Claim, WorkspaceState } from '../lib/types'
 import { formatValue } from '../lib/format'
@@ -6,9 +7,13 @@ import Status from './Status'
 function Metric({ claim, main = false, blocked = false, onInspect }: { claim?: Claim; main?: boolean; blocked?: boolean; onInspect: (id: string) => void }) {
   if (!claim) return <div className="metric-missing">This claim is unavailable.</div>
   const current = !blocked && claim.state === 'current' && claim.value !== null
+  const value = current ? formatValue(claim.value, claim.unit) : !blocked && claim.state === 'stale' ? 'Awaiting refresh' : 'Unavailable'
+  const longAmount = current && claim.unit === 'USD cents' && value.length > 18
   return <button className={`metric ${main ? 'metric-main' : ''} ${current ? '' : 'metric-withheld'}`} onClick={() => onInspect(claim.artifact_id)} aria-label={`Inspect evidence for ${claim.label}`}>
     {!main && <span className="metric-label">{claim.label}<ArrowUpRight size={14} /></span>}
-    <strong>{current ? formatValue(claim.value, claim.unit) : !blocked && claim.state === 'stale' ? 'Awaiting refresh' : 'Unavailable'}</strong>
+    <strong className={longAmount ? 'metric-long-amount' : undefined}>{longAmount ? value.split(',').map((group, index) => (
+      <Fragment key={index}>{index > 0 ? <>,<wbr /></> : null}{group}</Fragment>
+    )) : value}</strong>
     {main && <span className="metric-label">{claim.label}{claim.unit === 'USD cents' ? ' · USD' : ''} <ArrowUpRight size={14} /></span>}
     {!current && <span className="historical">Previously {formatValue(claim.saved_value, claim.unit)}</span>}
     {current && !main && <span className="metric-current"><Check size={12} /> Current</span>}

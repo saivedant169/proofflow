@@ -2,6 +2,7 @@ import type {
   Evidence, Health, ImportExport, ImportExportRequest, ImportedWorkspaceState, ImportPreview, ImportRequest,
   ImportVerification, SourceChange, Verification, WorkspaceState,
 } from './types';
+import { parseUSDCents } from './format';
 
 export class APIError extends Error {
   readonly status: number;
@@ -72,6 +73,10 @@ function workspace(value: unknown): WorkspaceState {
         || !('value' in claim) || !('saved_value' in claim) || !Array.isArray(claim.reasons)) malformed();
       if (claim.state !== 'current' && claim.value !== null) malformed();
       if (typeof claim.value === 'number' && !Number.isFinite(claim.value)) malformed();
+      if (claim.unit === 'USD cents' && (
+        (claim.value !== null && parseUSDCents(claim.value) === null)
+        || (claim.saved_value !== null && parseUSDCents(claim.saved_value) === null)
+      )) malformed();
     }
   }
   if (value.last_refresh !== null && (!isRecord(value.last_refresh)

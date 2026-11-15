@@ -6,9 +6,9 @@ export interface Claim {
   key: string;
   label: string;
   unit: string;
-  /** Current value only. Stale and unknown claims always contain null here. */
+  /** Current value only, or null when withheld. USD cents outside the safe integer range use decimal strings. */
   value: JSONValue;
-  /** Historical value; never render this as a current answer. */
+  /** Historical value with the same representation as the current value. */
   saved_value: JSONValue;
   state: Currentness;
   artifact_id: string;
@@ -237,6 +237,8 @@ export interface EvidencePath {
 
 export interface Evidence {
   artifact: ArtifactEvidence;
+  /** Browser display of saved values with exact decimal strings for large USD cent amounts. */
+  display_saved_value?: JSONValue;
   receipt: JSONObject | null;
   paths: EvidencePath[];
 }
