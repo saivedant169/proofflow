@@ -1,6 +1,6 @@
 # ProofFlow submission draft
 
-External automated checks verified the live app and walkthrough at deployed revision `fdee9c999a1a5c62de4cf624f9bcc42ba6c124a6`. Approved judge access to the private repository and the organizer’s form remain pending. [Live app](https://proofflow.arnavbule.in) · [Two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Hosted verification](HOSTED_DELIVERY.md).
+The hosted app runs revision `92da58c806a07d2577aef27bf5c967e7751325a0`. External checks verified the browser workflow, public evidence download and CSV connector discovery. Approved judge access to the private repository and the organizer’s form remain pending. [Live app](https://proofflow.arnavbule.in) · [Two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Hosted verification](HOSTED_DELIVERY.md).
 
 ## Project and track
 
@@ -29,6 +29,8 @@ The browser accepts a bounded CSV, previews it without publishing, and creates t
 **Download current reports** in the CSV workspace creates a static, UTC-timestamped text file with the two USD figures, their labels, and immutable report and claim artifact IDs. The server checks that the displayed workspace generation and both report IDs still match, and that both reports and their claims are current. A stale claim, incomplete source publication, unavailable evidence, or a newer workspace or report version in another tab blocks the download.
 
 Five local stdio MCP tools expose source loading, preparation, client-selected plan execution, currentness inspection and refresh. The external model chooses a bounded plan; registered tools compute the numbers. The server makes no model calls and accepts no arbitrary code or SQL. A recorded Fable 5.2/high MCP client completed one corrected trajectory with 32 checks, cross-run composition and reuse; its first launch-configuration failure is retained. [Agent quickstart](AGENT_QUICKSTART.md) · [Client evidence](MCP_AGENT_RESULTS.md).
+
+The downloadable CSV connector lets a local MCP host create and inspect the browser’s fixed revenue reports, publish a correction, refresh affected work and return a checked text snapshot. A fresh external stock client downloaded the script and discovered all five tools without invoking them. An earlier stock-client run exercised the same script against the previous hosted CSV API with synthetic data and passed 21 checks. [Public connector setup](https://proofflow.arnavbule.in/agent/) · [Check scopes](HOSTED_DELIVERY.md).
 
 ## Live demonstration
 
@@ -71,10 +73,12 @@ The evidence supports explicit dependency context over relevance ranking for thi
 
 ## Verification and scope
 
-The public results package includes saved study inputs, poststates, provider counters, earlier failures, an explicit publication manifest and an offline Python verifier. The four hosted files matched the release bytes. The verifier checked 346 bundle files, including the model audit of 152 payloads and all 48 scored cells. [Public evidence and download](https://proofflow.arnavbule.in/evidence/) · [Verification instructions](PUBLIC_EVIDENCE.md).
+The public results package includes saved study inputs, poststates, provider counters, earlier failures, an explicit publication manifest and an offline Python verifier. The four evidence files matched the release bytes. The verifier ran in an isolated Linux network namespace and checked 346 bundle files, including the model audit of 152 payloads and all 48 scored cells. [Public evidence and download](https://proofflow.arnavbule.in/evidence/) · [Verification instructions](PUBLIC_EVIDENCE.md).
 
-- **Current hosted release.** A GitHub-hosted runner used system DNS and normal TLS, matched the served frontend to a build from the same revision, and passed 11 Chrome steps and 13 guided HTTP checks. The application-only replacement separately passed 21 read-only host checks. [Hosted verification](HOSTED_DELIVERY.md).
-- **Current release CI.** The first attempt passed 465 Python tests and nine default Chromium workflows across 22 successful job steps. The one-cent control detected both arithmetic differences. [Linux CI run, private repository access required](https://github.com/saivedant169/proofflow/actions/runs/43752499925).
+- **Current hosted release.** The external runner passed 11 Chrome steps and 13 guided HTTP checks. Eight public download responses matched the checkout, and a fresh stock client discovered all five connector tools. The application-only replacement passed 21 read-only host checks. [Hosted verification](HOSTED_DELIVERY.md).
+- **Hosted retail CSV.** One external Chrome run uploaded 642 UCI Online Retail positive-sales lines from January 16, 2011. After a staged GBP rate correction, the old export was refused and both checked reports matched the independent oracle at $9,414.68. All eligible rows were from the United Kingdom. [Observed workflow and scope](REAL_PARTITION_RESULTS.md).
+- **Current release CI.** The first attempt passed 473 Python tests and nine default Chromium workflows across 22 successful job steps. The one-cent control detected both arithmetic differences. [Linux CI run, private repository access required](https://github.com/saivedant169/proofflow/actions/runs/43757568426).
+- **Earlier hosted acceptance.** The `fdee9c9` release passed 11 external Chrome steps and 13 guided HTTP checks, including the CSV correction and checked download. [V2 receipt](../evidence/hosted_delivery_v2.json).
 - **Earlier hosted restart.** The `0535ba6` app restart passed 87 checks across 12 HTTP responses, restoring saved CSV reports before a new correction and refresh. [Historical receipt](../evidence/hosted_delivery_v1.json).
 - [Native persistence](../evidence/hydra_smoke.json): database restart, persisted traversal and a new write.
 - [Packaged application](../evidence/deployment_smoke.json): 16 HTTP checks, including application restart and session/artifact preservation.
@@ -88,7 +92,8 @@ The browser supports two fixed reports, at most 1 MiB/1,000 rows, USD/EUR/GBP an
 ## Delivery fields
 
 - **Private source.** Approved judge access remains pending. [saivedant169/proofflow](https://github.com/saivedant169/proofflow).
-- **Hosted app.** The running release was verified at revision `fdee9c999a1a5c62de4cf624f9bcc42ba6c124a6`. [ProofFlow](https://proofflow.arnavbule.in) · [Hosted receipt](../evidence/hosted_delivery_v2.json).
-- **Video.** The served file matched the packaged film. External Chrome checked playback and seeking, and the server returned the expected byte range. [120-second walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4).
+- **Hosted app.** The running release was verified at revision `92da58c806a07d2577aef27bf5c967e7751325a0`. [ProofFlow](https://proofflow.arnavbule.in) · [Hosted verification receipt](../evidence/hosted_delivery_v3.json).
+- **Video.** The served file matched the packaged film, the server returned the expected byte range, and external Chrome checked playback and seeking. [120-second walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4).
+- **CSV connector.** The setup page, downloadable script and checksum were verified over public HTTPS. [Connector setup](https://proofflow.arnavbule.in/agent/).
 - **Public results package.** The release-matched ZIP includes saved model evidence and the offline verifier. [Evidence page](https://proofflow.arnavbule.in/evidence/).
 - **Event.** The organizer’s form and final required fields remain unverified. The recorded deadline is 16 November 2026, 09:00 IST. Submission receipt pending. [HydraDB Hackathon](https://luma.com/bqwllms4).

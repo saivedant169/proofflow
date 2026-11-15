@@ -1,0 +1,375 @@
+{
+  "browser": {
+    "channel": "chrome",
+    "closed_contexts": 1,
+    "cookie_attributes": {
+      "http_only": true,
+      "same_site": "Strict",
+      "secure": true
+    },
+    "headless": true,
+    "opened_contexts": 1,
+    "tls_protocol": "TLS 1.3",
+    "version": "157.0.8103.50",
+    "viewport": {
+      "height": 1024,
+      "width": 1536
+    }
+  },
+  "checkout_revision": "f0173e70337fc87972a7eda77ae55475be43649c",
+  "correction": {
+    "affected_artifact_logical_ids": [
+      "import:metric:company",
+      "import:metric:regional",
+      "import:report:company",
+      "import:report:region"
+    ],
+    "changed_sources": [
+      "fx"
+    ],
+    "current_revenue_usd_cents": {
+      "company": null,
+      "region": null
+    },
+    "old_head_export_downloads": 0,
+    "old_head_export_error": "evidence_unavailable",
+    "old_head_export_http_status": 409,
+    "preview_accounting": {
+      "preflight_calculation_count": 8,
+      "recorded_tool_call_count": 0,
+      "total_calculation_count": 8,
+      "verification_calculation_count": 0
+    },
+    "reconciliation_http_status": 200,
+    "update_accounting": {
+      "changed_source_count": 1,
+      "preflight_calculation_count": 8,
+      "recorded_tool_call_count": 0,
+      "total_calculation_count": 8,
+      "verification_calculation_count": 0
+    }
+  },
+  "finished_at_utc": "2026-11-15T20:29:51.182496+00:00",
+  "fixture": {
+    "authored_gbp_to_usd": {
+      "corrected": "1.30",
+      "initial": "1.25"
+    },
+    "date": "2011-01-16",
+    "files": {
+      "orders.csv": {
+        "bytes": 28429,
+        "sha256": "7b45308e83161fa41aace37b1bd9f7f6390566b65a45bb2a0dd9aaf0b8ae69b8"
+      },
+      "source_cells.csv": {
+        "bytes": 35503,
+        "sha256": "ff4f6c0a8988ab040c3e49e621993ba29aca835be5244f263cda12fffd3a0233"
+      }
+    },
+    "invoices": 25,
+    "manifest_sha256": "efc5aceb3cfce4256ede1c97db7a797aeacca9657ac254bbf50f4b0b2523c952",
+    "oracle": {
+      "corrected": {
+        "by_region_usd_cents": {
+          "United Kingdom": 941468
+        },
+        "company_usd_cents": 941468,
+        "region_usd_cents": 941468
+      },
+      "gross_gbp_by_region": {
+        "United Kingdom": "7242.06"
+      },
+      "initial": {
+        "by_region_usd_cents": {
+          "United Kingdom": 905258
+        },
+        "company_usd_cents": 905258,
+        "region_usd_cents": 905258
+      }
+    },
+    "probe_sha256": "c25b69998691d2802e09ee64c88b7b8bcc791d8de07a7bec067ed1686d8bd7bf",
+    "protocol_sha256": "50857a68cc229eb52a4cd602e80dcea0c5a01bf580d9a809c03a3edcf4aafbef",
+    "report_region": "United Kingdom",
+    "rows": 642
+  },
+  "freeze_revision": "f0173e70337fc87972a7eda77ae55475be43649c",
+  "http": [
+    {
+      "method": "POST",
+      "path": "/api/session",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/import/preview",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/import/create",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/import/export",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/import/state",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/import/preview",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/import/update",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/import/export",
+      "status": 409
+    },
+    {
+      "method": "GET",
+      "path": "/api/import/state",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/import/refresh",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/import/export",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/import/state",
+      "status": 200
+    }
+  ],
+  "initial": {
+    "create_accounting": {
+      "changed_source_count": 4,
+      "preflight_calculation_count": 8,
+      "recorded_tool_call_count": 8,
+      "total_calculation_count": 27,
+      "verification_calculation_count": 11
+    },
+    "export": {
+      "both_amounts_and_report_claim_ids_match": true,
+      "bytes": 820,
+      "checked_at_utc": "2026-11-15T20:29:38.581667+00:00",
+      "http_status": 200,
+      "matches_server_bytes": true,
+      "no_store": true,
+      "sha256": "2d8225b12c7e955cfd1bb3483ac113d600481c9b6617984d39fab1e11ff76dde"
+    },
+    "native_queries": 320,
+    "preview_accounting": {
+      "preflight_calculation_count": 8,
+      "recorded_tool_call_count": 0,
+      "total_calculation_count": 8,
+      "verification_calculation_count": 0
+    },
+    "revenue_usd_cents": {
+      "company": 905258,
+      "region": 905258
+    }
+  },
+  "operator_verified_release": {
+    "image_id": "sha256:b7cc8d19136ed25caa573ffc05446a6ea93cfb40a4013f5c6f6bd45644c6e958",
+    "source_revision": "92da58c806a07d2577aef27bf5c967e7751325a0"
+  },
+  "origin": "https://proofflow.arnavbule.in",
+  "passed": true,
+  "preflight": {
+    "backend": "HydraDB OSS",
+    "frontend_byte_match": true,
+    "health_http_status": 200,
+    "origin": "https://proofflow.arnavbule.in",
+    "served_build": {
+      "/": {
+        "bytes": 636,
+        "sha256": "deaba9a75b892e8435b0bc96f44549b5713df07dd4146fb218e294fbfb0a8322"
+      },
+      "/assets/index-BdlhywmX.js": {
+        "bytes": 406239,
+        "sha256": "b8000fa8b6b028ce6cb06de09539a2fe6e41743a410cbfca214bf1a7c1902d92"
+      },
+      "/assets/index-CoDwoFJZ.css": {
+        "bytes": 36104,
+        "sha256": "58d4a7102be1ca27015e8864e03ba9e1aa73f207925cf36e4e0b4a8d5204024f"
+      }
+    },
+    "system_dns_address_families": [
+      "AF_INET"
+    ]
+  },
+  "probe": "real-partition-v1",
+  "refresh": {
+    "accounting": {
+      "changed_source_count": 0,
+      "preflight_calculation_count": 0,
+      "recorded_tool_call_count": 4,
+      "total_calculation_count": 15,
+      "verification_calculation_count": 11
+    },
+    "export": {
+      "both_amounts_and_report_claim_ids_match": true,
+      "bytes": 820,
+      "checked_at_utc": "2026-11-15T20:29:48.619411+00:00",
+      "http_status": 200,
+      "matches_server_bytes": true,
+      "no_store": true,
+      "sha256": "80aa1cfa63ea761b91ea6bf6ef9cdea029b93417c286928e8f5c85aba212cbcb"
+    },
+    "initial_file_remained_unchanged": true,
+    "native_queries": 222,
+    "recorded_tools": {
+      "company_total": 1,
+      "compose_report": 2,
+      "convert_to_usd": 1
+    },
+    "refresh_verification_passed": true,
+    "revenue_usd_cents": {
+      "company": 941468,
+      "region": 941468
+    },
+    "unchanged_artifact_logical_ids": [
+      "import:metric:gross",
+      "import:metric:net",
+      "import:metric:refunds",
+      "import:metric:support"
+    ]
+  },
+  "reload": {
+    "checked_files_downloaded": 2,
+    "revenue_usd_cents": {
+      "company": 941468,
+      "region": 941468
+    },
+    "same_session_source_and_artifact_heads": true,
+    "unexpected_javascript_runtime_errors": 0
+  },
+  "runner": {
+    "environment": "github-hosted",
+    "image_os": "ubuntu24",
+    "image_version": "20261111.370.1",
+    "playwright_version": "1.56.0",
+    "provider": "GitHub Actions",
+    "run_attempt": "1",
+    "run_url": "https://github.com/saivedant169/proofflow/actions/runs/43758286967"
+  },
+  "schema_version": 1,
+  "scope": "Automated hosted Chrome acceptance on one UCI trading date",
+  "screenshots": [
+    {
+      "bytes": 165205,
+      "file": "initial-reports.png",
+      "sha256": "793fe81c87afef6f9e572bdd4150600386bf1a3e0c54ed11e59fe57ab9d5d1b4"
+    },
+    {
+      "bytes": 167187,
+      "file": "initial-checked-download.png",
+      "sha256": "461af9d4240226216e35f01805e9caad536b5db9657f8a88f0d86d13657ef12b"
+    },
+    {
+      "bytes": 177499,
+      "file": "old-heads-refused.png",
+      "sha256": "7520ab655b8dc7cdca2e1992935818c627d86d81f376ef06c33070f4b6166fab"
+    },
+    {
+      "bytes": 170969,
+      "file": "refreshed-checked-download.png",
+      "sha256": "dfc2ebd020f55a29b2e2a87f6082fe54d745389d1fd2a60b57828458323959b0"
+    }
+  ],
+  "started_at_utc": "2026-11-15T20:29:19.333775+00:00",
+  "steps": {
+    "correction_and_old_export_refusal": {
+      "elapsed_ms": 7269,
+      "started_at_utc": "2026-11-15T20:29:38.803019+00:00",
+      "status": "pass"
+    },
+    "initial_checked_download": {
+      "elapsed_ms": 567,
+      "started_at_utc": "2026-11-15T20:29:38.234899+00:00",
+      "status": "pass"
+    },
+    "refresh_and_checked_download": {
+      "elapsed_ms": 2636,
+      "started_at_utc": "2026-11-15T20:29:46.182185+00:00",
+      "status": "pass"
+    },
+    "release_preflight": {
+      "elapsed_ms": 2715,
+      "started_at_utc": "2026-11-15T20:29:19.333806+00:00",
+      "status": "pass"
+    },
+    "reload_persisted_heads": {
+      "elapsed_ms": 2199,
+      "started_at_utc": "2026-11-15T20:29:48.818551+00:00",
+      "status": "pass"
+    },
+    "upload_preview_create": {
+      "elapsed_ms": 10297,
+      "started_at_utc": "2026-11-15T20:29:27.936816+00:00",
+      "status": "pass"
+    }
+  },
+  "write_request_attempts": [
+    {
+      "allowed": true,
+      "method": "POST",
+      "path": "/api/session"
+    },
+    {
+      "allowed": true,
+      "method": "POST",
+      "path": "/api/import/preview"
+    },
+    {
+      "allowed": true,
+      "method": "POST",
+      "path": "/api/import/create"
+    },
+    {
+      "allowed": true,
+      "method": "POST",
+      "path": "/api/import/export"
+    },
+    {
+      "allowed": true,
+      "method": "POST",
+      "path": "/api/import/preview"
+    },
+    {
+      "allowed": true,
+      "method": "POST",
+      "path": "/api/import/update"
+    },
+    {
+      "allowed": true,
+      "method": "POST",
+      "path": "/api/import/export"
+    },
+    {
+      "allowed": true,
+      "method": "POST",
+      "path": "/api/import/refresh"
+    },
+    {
+      "allowed": true,
+      "method": "POST",
+      "path": "/api/import/export"
+    }
+  ]
+}

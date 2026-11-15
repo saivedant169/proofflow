@@ -2,7 +2,7 @@
 
 **Keep saved agent reports current when an input changes.** ProofFlow records the inputs behind each supported number. Correct an exchange rate or refund, see which saved reports depend on it, and refresh affected calculations while keeping valid work. Try company and regional revenue with a compatible orders CSV, or connect a local MCP host to compose reports from supported tools and reuse earlier results.
 
-**[Open the live app](https://proofflow.arnavbule.in) · [Watch the two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Verify the public evidence](https://proofflow.arnavbule.in/evidence/)** · [Hosted verification](docs/HOSTED_DELIVERY.md)
+**[Open the live app](https://proofflow.arnavbule.in) · [Watch the two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Verify the public evidence](https://proofflow.arnavbule.in/evidence/) · [Get the CSV connector](https://proofflow.arnavbule.in/agent/)** · [Hosted verification](docs/HOSTED_DELIVERY.md)
 
 A frozen **48-invocation actual-model comparison** refreshed **32/32 affected reports**, matching full context at **39.33% of its provider input exposure**, excluding the no-op case. BM25 refreshed 25/32, BGE vector retrieval 5/32 and iterative hybrid 28/32 at the graph's per-case evidence allowance. Exact-flat traversal also achieved 32/32 with identical prompts. This is eight fresh cases and one sample per method/case, with a shared safe executor; it establishes neither a unique database-engine advantage nor general model reliability. [Audited model results](docs/MODEL_COMPARISON_RESULTS.md).
 
@@ -101,6 +101,8 @@ The original automated Chromium suite passed **six browser workflows** against r
 
 The expanded local suite passed **nine workflows**, adding checked report downloads, stale-tab refusal, unavailable-response handling and exact large monetary values. The original arithmetic control still detects both one-cent errors. [Report handoff acceptance and scope](docs/REPORT_HANDOFF_ACCEPTANCE.md).
 
+One hosted Chrome run uploaded **642 UCI Online Retail positive-sales lines** from January 16, 2011. Those invoice lines were new to the prepared workflows. A staged GBP rate correction changed the company and UK figures from **$9,052.58 to $9,414.68**, matching the independent oracle. The old tab’s download was refused, and the checked replacement persisted on reload. All sales lines were from the United Kingdom, so the two report figures coincide. [Hosted retail CSV results and scope](docs/REAL_PARTITION_RESULTS.md).
+
 One preview followed by creation performs **8 preview preflight + 8 create preflight + 8 recorded calls + 11 verification calculations = 35 calculations**. The creation response alone reports 27; preview is a separate operation. Updates validate again but do not automatically refresh. Counts cover registered arithmetic invocations, not all parsing, storage or graph-query work.
 
 The importer accepts at most **1 MiB, 1,000 order rows and 10,000 total ticket counts**, with USD/EUR/GBP, unique order IDs and one currency per region. Money is nonnegative integer cents; refunds cannot exceed gross amounts. Imported USD cents outside JavaScript’s safe integer range reach the browser as decimal strings for exact display. Exchange rates are supplied by the caller, not fetched. Both browser reports contain revenue only; support remains a separate artifact. The same schema is available through the CLI below and the [five-tool MCP interface](docs/AGENT_QUICKSTART.md).
@@ -129,6 +131,14 @@ Required columns: `order_id,region,currency,gross_cents`. Optional: `refund_cent
 Python integrations can use `ProofFlowRuntime.set_source`, `execute`, `currentness`, `affected`, and `refresh` around the supported explicit-input tools. The browser API is documented in [API_CONTRACT.md](docs/API_CONTRACT.md).
 
 ## Connect an agent
+
+### Hosted CSV connector
+
+The downloadable Python connector lets a local MCP host create, inspect, correct, refresh and export the same two guided CSV revenue reports as the browser. Install `uv` and use Python 3.11 or newer. Verify the script against its companion checksum and configure the host to launch it over stdio. The connector sends the supplied CSV to the demo service over HTTPS and opens one session per process. The service expires idle sessions after one hour. No repository checkout, ProofFlow account or HydraDB key is required. [Connector setup](https://proofflow.arnavbule.in/agent/) · [Python script](https://proofflow.arnavbule.in/agent/proofflow_csv_mcp.py) · [Checksum](https://proofflow.arnavbule.in/agent/proofflow_csv_mcp.py.sha256).
+
+An external runner downloaded the connector, matched its bytes to the release, and discovered all five tools with a stock MCP client in a fresh environment. An earlier stock-client run using the same script against the live CSV API passed 21 checks, including stale and cross-session export refusal. Both runs used scripted clients. [Delivery and check scopes](docs/HOSTED_DELIVERY.md).
+
+### Local typed planning and composition
 
 The local stdio MCP server exposes five tools: load caller CSV, prepare typed evidence, execute a client-selected plan, inspect currentness, and refresh saved work. The host chooses the plan; this server runs no model and accepts no arbitrary code, SQL or filesystem paths.
 

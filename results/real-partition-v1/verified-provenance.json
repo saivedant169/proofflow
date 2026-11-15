@@ -1,0 +1,28 @@
+{
+  "artifact": {
+    "created_at": "2026-11-15T20:29:52Z",
+    "digest": "sha256:53e3de2cbe8ba97cd53ec3e9d257fc6564f827ad999b7cceb26efc7e87bc0577",
+    "entries": [
+      "receipt.json",
+      "initial-reports.png",
+      "initial-checked-download.png",
+      "old-heads-refused.png",
+      "refreshed-checked-download.png"
+    ],
+    "expired": false,
+    "id": 14179206879,
+    "name": "real-partition-v1-evidence-1",
+    "receipt_sha256": "6ed0876bb4069e42c661a5baeb69973bce1e3cbb1615dc74b71afbaf080dce34",
+    "size_in_bytes": 656405
+  },
+  "run": {
+    "attempt": 1,
+    "conclusion": "success",
+    "event": "workflow_dispatch",
+    "headSha": "f0173e70337fc87972a7eda77ae55475be43649c",
+    "startedAt": "2026-11-15T20:28:44Z",
+    "updatedAt": "2026-11-15T20:29:56Z",
+    "url": "https://github.com/saivedant169/proofflow/actions/runs/43758286967"
+  },
+  "schema_version": 1
+}
