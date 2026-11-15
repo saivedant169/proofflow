@@ -136,3 +136,30 @@ jobs:
           name: hosted-guided-http-evidence-${{ github.run_attempt }}
           path: ${{ runner.temp }}/proofflow-guided/receipt.json
           if-no-files-found: error
+
+  public-download:
+    name: Public evidence and cold MCP connector downloads
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install uv and the stock MCP test client
+        run: python -m pip install uv 'mcp==2.3.0'
+      - name: Verify public payload bytes, offline audit, and cold MCP launch
+        env:
+          PROOFFLOW_PUBLIC_DOWNLOAD_OUTPUT: ${{ runner.temp }}/proofflow-public-download
+        run: |
+          env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u http_proxy -u https_proxy -u all_proxy \
+            python scripts/public_download_acceptance.py
+      - name: Preserve public download receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hosted-public-download-evidence-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/proofflow-public-download/receipt.json
+          if-no-files-found: error

@@ -1,0 +1,312 @@
+"""Verify the anonymous public downloads against a clean checkout."""
+from __future__ import annotations
+
+import asyncio
+from datetime import datetime, timezone
+from hashlib import sha256
+from importlib.metadata import version
+from io import BytesIO
+import json
+import logging
+import os
+from pathlib import Path, PurePosixPath
+import re
+import shutil
+import socket
+import ssl
+import stat
+import subprocess
+import sys
+from tempfile import TemporaryDirectory
+from urllib.error import HTTPError
+from urllib.request import HTTPSHandler, HTTPRedirectHandler, ProxyHandler, Request, build_opener
+from zipfile import ZipFile
+
+
+ROOT = Path(__file__).resolve().parents[1]
+HOST = "proofflow.arnavbule.in"
+ORIGIN = f"https://{HOST}"
+ARCHIVE = "proofflow-model-evidence.zip"
+CONNECTOR = "proofflow_csv_mcp.py"
+MCP_VERSION = "2.3.0"
+TOOLS = {
+    "create_csv_reports", "inspect_reports", "update_csv", "refresh_reports", "export_current_reports",
+}
+EVIDENCE_FILES = {
+    "/evidence/": ("evidence/index.html", "text/html"),
+    "/evidence/evidence.css": ("evidence/evidence.css", "text/css"),
+    f"/evidence/{ARCHIVE}": (f"evidence/{ARCHIVE}", "application/zip"),
+    f"/evidence/{ARCHIVE}.sha256": (f"evidence/{ARCHIVE}.sha256", None),
+}
+AGENT_FILES = {
+    "/agent/": ("agent/index.html", "text/html"),
+    "/agent/index.html": ("agent/index.html", "text/html"),
+    f"/agent/{CONNECTOR}": (f"agent/{CONNECTOR}", None),
+    f"/agent/{CONNECTOR}.sha256": (f"agent/{CONNECTOR}.sha256", None),
+}
+RECEIPT_MIME_TYPES = {
+    "application/json", "application/octet-stream", "application/zip",
+    "text/css", "text/html", "text/plain", "text/x-python", "text/x-python-script",
+}
+
+
+class CheckFailure(Exception):
+    """An assertion label safe to store in public-delivery receipts."""
+
+
+class NoRedirect(HTTPRedirectHandler):
+    def redirect_request(self, request, fp, code, msg, headers, newurl):
+        return None
+
+
+def require(condition, label):
+    if not condition:
+        raise CheckFailure(label)
+
+
+def utc_now():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def digest(data):
+    return sha256(data).hexdigest()
+
+
+def git(*args):
+    return subprocess.run(
+        ["git", *args], cwd=ROOT, check=True, capture_output=True, timeout=30,
+    ).stdout
+
+
+def network():
+    hosts = Path("/etc/hosts").read_text()
+    names = {name.rstrip(".").lower() for line in hosts.splitlines()
+             for name in line.split("#", 1)[0].split()[1:]}
+    require(HOST not in names, "Canonical hostname has no hosts-file override")
+    families = sorted({item[0].name for item in socket.getaddrinfo(HOST, 443, type=socket.SOCK_STREAM)})
+    require(families, "Canonical hostname resolves through the system resolver")
+    tls = ssl.create_default_context()
+    require(tls.check_hostname and tls.verify_mode == ssl.CERT_REQUIRED, "HTTPS validates the certificate and hostname")
+    opener = build_opener(ProxyHandler({}), HTTPSHandler(context=tls), NoRedirect())
+    return opener, {
+        "resolver": "System DNS", "address_families": families, "hosts_file_override": False,
+        "proxy_enabled": False, "certificate_and_hostname_validation": True, "anonymous": True,
+    }
+
+
+def public_get(opener, path):
+    request = Request(f"{ORIGIN}{path}", headers={"Accept-Encoding": "identity"})
+    try:
+        return opener.open(request, timeout=30)
+    except HTTPError as response:
+        return response
+
+
+def response_observation(response, path, expected_mime=None):
+    mime = response.headers.get_content_type() if "Content-Type" in response.headers else None
+    return {
+        "status": response.status,
+        "mime_type": mime if mime is None or mime in RECEIPT_MIME_TYPES else "other",
+        "expected_mime_matches": mime == expected_mime if expected_mime else None,
+        "canonical_url_matches": response.url == ORIGIN + path,
+        "set_cookie_present": "Set-Cookie" in response.headers,
+    }
+
+
+def download_files(opener, source_sha, files, receipt):
+    downloads = {}
+    for path, (filename, content_type) in files.items():
+        expected = git("show", f"{source_sha}:frontend/public/{filename}")
+        with public_get(opener, path) as response:
+            observed = response_observation(response, path, content_type)
+            receipt["files"][path] = observed
+            require(observed["status"] == 200 and observed["canonical_url_matches"], f"{path} returns canonical HTTPS 200")
+            require(not observed["set_cookie_present"], f"{path} does not set a session cookie")
+            require(observed["expected_mime_matches"] is not False, f"{path} returns expected MIME type")
+            downloaded = response.read(len(expected) + 1)
+        observed.update({
+            "bytes": len(downloaded), "sha256": digest(downloaded),
+            "checkout_sha256": digest(expected), "byte_match": downloaded == expected,
+        })
+        require(downloaded == expected, f"{path} matches checked-out public file bytes")
+        downloads[filename] = downloaded
+    return downloads
+
+
+def verify_sidecar(data, sidecar, filename):
+    require(sidecar == f"{digest(data)}  {filename}\n".encode(), f"{filename} matches its published SHA-256 sidecar")
+
+
+def extract_bundle(data, directory):
+    directory.mkdir()
+    with ZipFile(BytesIO(data)) as archive:
+        entries = archive.infolist()
+        require(entries and len(entries) <= 1000 and sum(entry.file_size for entry in entries) <= 128 * 1024**2,
+                "Evidence archive inventory and extracted bytes are bounded")
+        seen = set()
+        for entry in entries:
+            member = PurePosixPath(entry.filename)
+            require(
+                member.parts and not member.is_absolute() and ".." not in member.parts
+                and "\\" not in entry.filename and member not in seen and stat.S_ISREG(entry.external_attr >> 16),
+                "Evidence archive contains unique, relative regular files",
+            )
+            seen.add(member)
+            target = directory.joinpath(*member.parts)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(archive.read(entry))
+
+
+def offline_python():
+    # Ubuntu hosted runners have passwordless sudo. Drop back to the runner's
+    # UID/GID inside the fresh network namespace before starting the verifier.
+    uid, gid = os.getuid(), os.getgid()
+    require(uid != 0 and os.geteuid() == uid and os.getegid() == gid, "Verifier caller has the runner's non-root identity")
+    namespace = os.readlink("/proc/self/ns/net")
+    launcher = (
+        'actual=$(readlink /proc/self/ns/net) && test -n "$actual" && test "$actual" != "$1" '
+        '&& test "$(id -u)" = "$2" && test "$(id -g)" = "$3" && shift 3 && exec "$@"'
+    )
+    return [
+        "sudo", "-n", "unshare", "--net", "--setgid", str(gid), "--setuid", str(uid),
+        "--", "/bin/sh", "-c", launcher, "proofflow-offline", namespace, str(uid), str(gid),
+        sys.executable, "-E", "-s", "-S", "-B",
+    ]
+
+
+def verify_bundle(data, directory, python):
+    extract_bundle(data, directory)
+    result = subprocess.run(
+        [*python, "scripts/verify_public_evidence.py"], cwd=directory, stdin=subprocess.DEVNULL,
+        capture_output=True, timeout=90, check=False,
+    )
+    require(result.returncode == 0, "Downloaded standard-library verifier passed in isolated extraction")
+    report = json.loads(result.stdout)
+    model = report["model_study"]
+    study_revision = json.loads((directory / "manifest.json").read_bytes())["frozen_study_revision"]
+    require(report["bundle_files_verified"] == 346 and model["passed"] is True
+            and model["published_files_verified"] == 152 and model["scored_cells"] == 48
+            and model["reconstructed_source_rows"] == 4681 and re.fullmatch(r"[0-9a-f]{40}", study_revision),
+            "Expected model study and bundle inventory verified")
+    return {
+        "bundle_files_verified": report["bundle_files_verified"], "model_study_payloads_verified": model["published_files_verified"],
+        "scored_cells": model["scored_cells"], "reconstructed_source_rows": model["reconstructed_source_rows"],
+        "bundled_verifier": "scripts/verify_public_evidence.py", "frozen_study_revision": study_revision,
+    }
+
+
+async def cold_connector(script, scratch):
+    from mcp import ClientSession, StdioServerParameters
+    from mcp.client.stdio import stdio_client
+
+    require(version("mcp") == MCP_VERSION, "Stock MCP client has the expected dependency version")
+    uv = shutil.which("uv")
+    require(uv is not None, "uv is installed")
+    run_dir = scratch / "empty-working-directory"
+    cache = scratch / "cache"
+    for directory in (run_dir, cache):
+        directory.mkdir()
+    params = StdioServerParameters(
+        command=uv,
+        args=["run", "--no-project", "--no-config", "--default-index", "https://pypi.org/simple",
+              "--python", sys.executable, "--script", str(script)],
+        cwd=run_dir,
+        env={"UV_CACHE_DIR": str(cache), "UV_PYTHON_DOWNLOADS": "never", "UV_NO_PROGRESS": "1"},
+    )
+    with open(os.devnull, "w") as stderr:
+        async with asyncio.timeout(180):
+            async with stdio_client(params, errlog=stderr) as streams:
+                async with ClientSession(*streams) as session:
+                    initialized = await session.initialize()
+                    listed = await session.list_tools()
+    require(initialized.server_info.name == "ProofFlow Hosted CSV", "Downloaded connector identifies the expected MCP server")
+    names = sorted(tool.name for tool in listed.tools)
+    require(names == sorted(TOOLS) and listed.next_cursor is None, "Downloaded connector advertises exactly five expected tools")
+    protocol = initialized.protocol_version
+    require(re.fullmatch(r"\d{4}-\d{2}-\d{2}", protocol), "MCP negotiates a date-based protocol version")
+    responses = (initialized.model_dump_json() + listed.model_dump_json()).lower()
+    require(not any(marker in responses for marker in ("proofflow_session", "session_id", "set-cookie", "bearer ")),
+            "MCP handshake and catalog expose no session or cookie fields")
+    return {
+        "mcp_client_version": MCP_VERSION, "negotiated_protocol": protocol, "tools": names,
+        "fresh_uv_cache": True, "empty_working_directory": True, "pep723_uv_launch": True,
+        "methods": ["initialize", "notifications/initialized", "tools/list"],
+        "tool_calls": 0, "session_or_cookie_fields_in_output": False,
+    }
+
+
+def runner_context(receipt):
+    env = os.environ
+    source_sha = git("rev-parse", "HEAD").decode().strip()
+    clean = not git("status", "--porcelain")
+    receipt["source_sha"] = source_sha
+    receipt["source_worktree_clean"] = clean
+    receipt["runner"] = {
+        "provider": "GitHub Actions", "environment": env.get("RUNNER_ENVIRONMENT"), "image_os": env.get("ImageOS"),
+        "image_version": env.get("ImageVersion"), "arch": env.get("RUNNER_ARCH"), "event": env.get("GITHUB_EVENT_NAME"),
+        "repository": env.get("GITHUB_REPOSITORY"), "run_id": env.get("GITHUB_RUN_ID"),
+        "run_attempt": env.get("GITHUB_RUN_ATTEMPT"), "workflow_ref": env.get("GITHUB_WORKFLOW_REF"),
+    }
+    require(env.get("GITHUB_ACTIONS") == "true" and env.get("RUNNER_ENVIRONMENT") == "github-hosted"
+            and env.get("RUNNER_OS") == "Linux" and env.get("ImageOS") == "ubuntu24"
+            and env.get("GITHUB_EVENT_NAME") == "workflow_dispatch", "Manual GitHub-hosted Ubuntu 24.04 run")
+    require(clean and source_sha == env.get("GITHUB_SHA"), "Clean checkout matches workflow source SHA")
+    return source_sha
+
+
+def main():
+    os.umask(0o077)
+    # Keep SDK transport diagnostics and subprocess output out of workflow logs.
+    logging.disable(logging.CRITICAL)
+    output = Path(os.environ["PROOFFLOW_PUBLIC_DOWNLOAD_OUTPUT"])
+    output.mkdir(parents=True, exist_ok=True)
+    receipt = {
+        "schema_version": 1, "origin": ORIGIN, "started_at_utc": utc_now(), "files": {}, "passed": False,
+        "scope": "Public bundle and connector static bytes, offline arithmetic audit, and MCP initialization and tool discovery.",
+        "revision_scope": "Checkout SHA identifies the expected static files. The bundle independently pins its study revision.",
+    }
+    stage = "runner_provenance"
+    try:
+        source_sha = runner_context(receipt)
+        stage = "network"
+        opener, receipt["network"] = network()
+        with TemporaryDirectory(prefix="proofflow-cold-download-") as temp:
+            temporary = Path(temp)
+            stage = "evidence_download"
+            evidence = download_files(opener, source_sha, EVIDENCE_FILES, receipt)
+            archive = evidence[f"evidence/{ARCHIVE}"]
+            verify_sidecar(archive, evidence[f"evidence/{ARCHIVE}.sha256"], ARCHIVE)
+            stage = "offline_bundle_verification"
+            receipt[stage] = verify_bundle(archive, temporary / "extracted", offline_python())
+            receipt[stage]["isolated_linux_network_namespace"] = True
+
+            stage = "connector_download"
+            with public_get(opener, "/agent") as response:
+                redirect = response_observation(response, "/agent")
+                redirect["location_matches"] = response.headers.get("Location") == "/agent/"
+                receipt["agent_redirect"] = redirect
+                require(redirect["status"] == 308 and redirect["canonical_url_matches"] and redirect["location_matches"]
+                        and not redirect["set_cookie_present"], "Connector entry redirects to canonical /agent/")
+                redirect["location"] = "/agent/"
+            downloads = download_files(opener, source_sha, AGENT_FILES, receipt)
+            source = downloads[f"agent/{CONNECTOR}"]
+            verify_sidecar(source, downloads[f"agent/{CONNECTOR}.sha256"], CONNECTOR)
+            script = temporary / CONNECTOR
+            script.write_bytes(source)
+            stage = "cold_connector_handshake"
+            receipt[stage] = asyncio.run(cold_connector(script, temporary))
+        receipt["passed"] = True
+    except Exception as error:
+        reason = str(error) if isinstance(error, CheckFailure) else "Request, subprocess, or assertion did not complete"
+        receipt["failure"] = {"stage": stage, "reason": reason}
+        print(f"Public download acceptance failed in {stage}: {reason}")
+    finally:
+        receipt["finished_at_utc"] = utc_now()
+        (output / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
+    if receipt["passed"]:
+        print("Public payload bytes, offline evidence verifier, and cold MCP handshake passed")
+    return 0 if receipt["passed"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
