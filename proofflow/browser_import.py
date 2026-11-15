@@ -16,6 +16,20 @@ from .models import InvalidInputError, MissingEvidenceError
 from .runtime import ProofFlowRuntime
 
 
+JS_MAX_SAFE_INTEGER = 2**53 - 1
+
+
+def _browser_cents(value: int | None) -> int | str | None:
+    # Keep full precision when the browser parses JSON numbers as IEEE 754 doubles.
+    return str(value) if type(value) is int and abs(value) > JS_MAX_SAFE_INTEGER else value
+
+
+def _browser_claim(claim: dict[str, Any]) -> dict[str, Any]:
+    if claim.get("unit") != "USD cents":
+        return claim
+    return {**claim, **{key: _browser_cents(claim[key]) for key in ("value", "saved_value") if key in claim}}
+
+
 def validated_csv(payload: dict) -> ImportedDataset:
     if not isinstance(payload, dict) or set(payload) - {"csv_text", "rates", "region"} or "csv_text" not in payload:
         raise CSVImportError("CSV request accepts csv_text, rates and region only")
@@ -56,10 +70,8 @@ def preview(payload: dict) -> dict[str, Any]:
 
 
 class BrowserImport:
-    # Reuse native-edge verification and evidence rendering; only report selection,
-    # labels and source metadata differ from the authored demonstration.
+    # Reuse native-edge verification from the authored demonstration.
     _graph_state = DemoSession._graph_state
-    evidence = DemoSession.evidence
 
     def __init__(self, owner: DemoSession, metadata: dict, graph_factory):
         self.owner = owner
@@ -96,6 +108,26 @@ class BrowserImport:
                   "source:csv:fx": "Explicit exchange rates", "source:csv:tickets": "Imported ticket counts"}
         return labels.get(record.logical_id, record.metadata.get("title", record.logical_id))
 
+    def evidence(self, artifact_id: str) -> dict:
+        evidence = DemoSession.evidence(self, artifact_id)
+        artifact = evidence["artifact"]
+        saved = artifact["saved_value"]
+        display = saved
+        tool = artifact["metadata"].get("tool")
+        if tool == "compose_report":
+            display = {**saved, "sections": [_browser_claim(section) for section in saved["sections"]]}
+        elif tool == "company_total":
+            display = {**saved, "usd_cents": _browser_cents(saved["usd_cents"])}
+        elif tool == "convert_to_usd":
+            display = {**saved, "regions": {
+                name: {**row, "usd_cents": _browser_cents(row["usd_cents"])}
+                for name, row in saved["regions"].items()
+            }}
+        if display != saved:
+            # The immutable artifact payload and its content hash stay canonical.
+            evidence["display_saved_value"] = display
+        return evidence
+
     def _operation(self, kind: str, *, started: float, preflight: int = 0, verification: int = 0,
                    changed: int = 0, noop: bool = False, calls: list[dict] | None = None) -> dict:
         calls = list(self.runtime.calls if calls is None else calls)
@@ -115,7 +147,7 @@ class BrowserImport:
             statuses[record.id] = status.state
             reports.append({"key": key, "id": record.id, "title": self.label(record),
                             "run_id": record.metadata["run_id"], "state": status.state,
-                            "claims": self.runtime.report_claims(record.id)})
+                            "claims": [_browser_claim(claim) for claim in self.runtime.report_claims(record.id)]})
         sources = []
         for record in self.store.heads("source"):
             value = self.store.read(record.id)

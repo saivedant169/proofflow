@@ -3,6 +3,8 @@
 import csv
 from datetime import datetime, timedelta, timezone
 import io
+import json
+from pathlib import Path
 import time
 from unittest.mock import patch
 
@@ -10,13 +12,13 @@ from fastapi.testclient import TestClient
 import pytest
 
 from proofflow.api import COOKIE, REPORT_EXPORT_PATH
-from proofflow.artifacts import ArtifactStore
+from proofflow.artifacts import ArtifactStore, digest
 from proofflow.browser_import import BrowserImport, active_import
 from proofflow.graph import GraphError
 from proofflow.importing import REGION_REPORT
 from proofflow.runtime import ProofFlowRuntime
 from test_api import TestGraphClient, assert_error, seed
-from test_browser_import import app, browser, csv_body, graph_factory, post, state
+from test_browser_import import app, browser, csv_body, evidence, graph_factory, post, state
 
 
 def export_request(import_state):
@@ -261,6 +263,11 @@ def test_export_preserves_large_integer_cents_and_escapes_region_controls(browse
     writer.writerows((f"private-order-{index}", region, "EUR", 10**12) for index in range(10))
     writer.writerow(("private-cent", "SOUTH", "USD", 1))
     initial = post(browser, "create", {"csv_text": buffer.getvalue(), "region": region, "rates": {"EUR": "1000"}})
+    regional_claim = next(report["claims"][0] for report in initial["reports"] if report["key"] == "region")
+    assert regional_claim["value"] == "10000000000000000"
+    regional_metric = evidence(browser, regional_claim["artifact_id"])
+    assert regional_metric["artifact"]["saved_value"]["regions"][region]["usd_cents"] == 10**16
+    assert regional_metric["display_saved_value"]["regions"][region]["usd_cents"] == "10000000000000000"
     result = browser.post(REPORT_EXPORT_PATH, json=export_request(initial))
     assert result.status_code == 200, result.text
     content = result.json()["content"]
@@ -269,3 +276,71 @@ def test_export_preserves_large_integer_cents_and_escapes_region_controls(browse
     assert all(control not in content for control in ("\u2028", "\u202e", "\u0085"))
     assert "private-order-" not in content
     assert "private-cent" not in content
+
+
+def test_import_api_preserves_safe_and_unsafe_cents_across_state_evidence_and_refresh(app, browser, graph_factory):
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(("order_id", "region", "currency", "gross_cents"))
+    for region, currency, remainder in (("NORTH", "EUR", 7_199_254_741), ("SOUTH", "GBP", 928_007_452_591)):
+        writer.writerows((f"{region}-{index}", region, currency, 10**12) for index in range(9))
+        writer.writerow((f"{region}-remainder", region, currency, remainder))
+    body = {"csv_text": buffer.getvalue(), "region": "NORTH",
+            "rates": {"EUR": "999.999999999989", "GBP": "100"}}
+    initial = post(browser, "create", body)
+    expected = {"company": "10000000000000001", "region": 9007199254740901}
+
+    for report in initial["reports"]:
+        claim = report["claims"][0]
+        cents = expected[report["key"]]
+        assert claim["value"] == claim["saved_value"] == cents
+        report_evidence = evidence(browser, report["id"])
+        report_artifact = report_evidence["artifact"]
+        assert report_artifact["saved_value"]["sections"][0]["value"] == int(cents)
+        metric_evidence = evidence(browser, claim["artifact_id"])
+        metric = metric_evidence["artifact"]["saved_value"]
+        for entry in (report_evidence, metric_evidence):
+            artifact = entry["artifact"]
+            assert digest(artifact["saved_value"]) == artifact["content_hash"] == entry["receipt"]["output_hash"]
+        if report["key"] == "company":
+            assert metric == {"usd_cents": int(cents)}
+            assert report_evidence["display_saved_value"]["sections"][0]["value"] == cents
+            assert metric_evidence["display_saved_value"] == {"usd_cents": cents}
+        else:
+            assert metric["regions"]["NORTH"] == {"usd_cents": cents}
+            assert "display_saved_value" not in report_evidence
+            assert "display_saved_value" not in metric_evidence
+
+    assert state(browser)["reports"] == initial["reports"]
+    with app.state.manager.session(browser.cookies.get(COOKIE)) as owner:
+        with active_import(owner, graph_factory) as imported:
+            for report in initial["reports"]:
+                stored_claim = imported.runtime.report_claims(report["id"])[0]
+                assert type(stored_claim["value"]) is int
+                assert stored_claim["value"] == int(expected[report["key"]])
+
+    snapshot = post(browser, "export", export_request(initial))["content"]
+    assert "Company net revenue: $100,000,000,000,000.01 USD" in snapshot.splitlines()
+    assert "Regional net revenue ('NORTH'): $90,071,992,547,409.01 USD" in snapshot.splitlines()
+
+    corrected = {**body, "rates": {**body["rates"], "EUR": "999.999999999999"}}
+    stale = post(browser, "update", corrected)
+    for report in stale["reports"]:
+        claim = report["claims"][0]
+        assert claim["state"] == "stale"
+        assert claim["value"] is None
+        assert claim["saved_value"] == expected[report["key"]]
+    assert_export_error(browser.post(REPORT_EXPORT_PATH, json=export_request(stale)), 409)
+
+    refreshed = post(browser, "refresh")
+    refreshed_values = {report["key"]: report["claims"][0]["value"] for report in refreshed["reports"]}
+    assert refreshed_values == {"company": "10000000000000091", "region": 9007199254740991}
+    assert post(browser, "verify")["passed"] is True
+
+
+def test_benchmark_endpoint_serves_the_frozen_summary(browser, monkeypatch):
+    evidence_dir = Path(__file__).resolve().parents[1] / "evidence"
+    monkeypatch.setenv("PROOFFLOW_EVIDENCE_DIR", str(evidence_dir))
+    response = browser.get("/api/benchmark")
+    assert response.status_code == 200
+    assert response.json() == json.loads((evidence_dir / "benchmark_summary.json").read_text())
