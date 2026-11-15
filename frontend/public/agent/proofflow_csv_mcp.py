@@ -9,6 +9,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass, field
 from hashlib import sha256
 import json
+import re
 from threading import Lock
 from typing import Any
 
@@ -27,6 +28,18 @@ STATE = "/api/import/state"
 UPDATE = "/api/import/update"
 REFRESH = "/api/import/refresh"
 EXPORT = "/api/import/export"
+EVIDENCE = "/api/import/evidence/"
+GENERATION_PATTERN = re.compile(r"[0-9a-f]{32}\Z")
+RECORD_PATTERN = re.compile(r"([0-9a-f]{32}):(artifact|source|execution|tool):[0-9a-f]{64}\Z")
+HASH_PATTERN = re.compile(r"[0-9a-f]{64}\Z")
+ARTIFACT_LOGICAL_IDS = frozenset({
+    "import:report:company", "import:report:region",
+    *(f"import:metric:{name}" for name in ("gross", "refunds", "net", "regional", "company", "support")),
+})
+PRODUCERS = frozenset({"gross_by_region", "refunds_by_region", "net_by_region", "convert_to_usd",
+                       "company_total", "support_by_region", "compose_report"})
+PATH_SCOPE = ("Native path witnesses from recorded changed-source versions, including earlier corrections; "
+              "at most three paths per source, depth at most 15. An empty list is not a currentness verdict.")
 CSV_ARGUMENTS = frozenset({"csv_text", "rates", "region"})
 TOOL_ARGUMENTS = {
     "create_csv_reports": CSV_ARGUMENTS,
@@ -34,6 +47,7 @@ TOOL_ARGUMENTS = {
     "update_csv": CSV_ARGUMENTS,
     "refresh_reports": frozenset(),
     "export_current_reports": frozenset({"generation", "report_ids"}),
+    "inspect_evidence": frozenset({"generation", "artifact_id"}),
 }
 STATUS_ERRORS = {
     400: "The hosted API rejected the input. Check the CSV schema, selected region, and exchange rates.",
@@ -49,7 +63,7 @@ STATUS_ERRORS = {
 class HostedCsvServer(MCPServer):
     async def call_tool(self, name, arguments, context=None):
         if name not in TOOL_ARGUMENTS or arguments.keys() - TOOL_ARGUMENTS[name]:
-            raise ToolError("Use one of the five connector tools with only its advertised arguments.")
+            raise ToolError("Use one of the six connector tools with only its advertised arguments.")
         try:
             return await super().call_tool(name, arguments, context)
         except ToolError as exc:
@@ -80,6 +94,124 @@ def csv_payload(csv_text: str, rates: dict[str, str] | None, region: str | None)
 
 def select(value: dict, *keys: str) -> dict:
     return {key: value[key] for key in keys}
+
+
+def evidence_state(raw: dict, generation: str, artifact_id: str) -> dict:
+    """Validate and project the atomic envelope; never forward stored values."""
+    workspace = artifact_id.split(":", 1)[0]
+
+    def record_id(value, kinds):
+        match = RECORD_PATTERN.fullmatch(value) if isinstance(value, str) else None
+        if match is None or match[1] != workspace or match[2] not in kinds:
+            raise ValueError("Invalid evidence identity")
+        return value
+
+    def content_hash(value):
+        if not isinstance(value, str) or HASH_PATTERN.fullmatch(value) is None:
+            raise ValueError("Invalid evidence hash")
+        return value
+
+    def logical_id(value, kind):
+        valid = (value in ARTIFACT_LOGICAL_IDS if kind == "artifact" else
+                 value in {f"source:csv:{name}" for name in ("orders", "refunds", "fx", "tickets")}
+                 if kind == "source" else
+                 isinstance(value, str) and re.fullmatch(r"execution:[0-9a-f]{32}", value) is not None)
+        if not valid:
+            raise ValueError("Invalid logical identity")
+        return value
+
+    try:
+        if (type(raw["schema_version"]) is not int or raw["schema_version"] != 1
+                or raw["generation"] != generation or raw["incomplete_update"] is not False
+                or not isinstance(raw["path_scope"], str)):
+            raise ValueError("Unexpected evidence envelope")
+        backend = select(raw["backend"], "engine", "native_queries", "fallback")
+        if (backend["engine"] != "HydraDB OSS" or backend["fallback"] is not False
+                or type(backend["native_queries"]) is not int or backend["native_queries"] < 1):
+            raise ValueError("Native evidence unavailable")
+        artifact = select(raw["artifact"], "id", "kind", "logical_id", "content_hash", "state", "current_head_id")
+        if artifact["id"] != artifact_id or artifact["kind"] != "artifact" or artifact["state"] not in {"current", "stale"}:
+            raise ValueError("Unexpected artifact")
+        record_id(artifact["id"], {"artifact"})
+        record_id(artifact["current_head_id"], {"artifact"})
+        logical_id(artifact["logical_id"], "artifact")
+        content_hash(artifact["content_hash"])
+        reasons = raw["artifact"]["reasons"]
+        if not isinstance(reasons, list) or len(reasons) > 64:
+            raise ValueError("Invalid currentness reasons")
+        artifact["reasons"] = []
+        for reason in reasons:
+            item = select(reason, "id", "reason")
+            record_id(item["id"], {"source", "tool"})
+            if item["reason"] not in {"version_changed", "implementation_changed"}:
+                raise ValueError("Incomplete currentness")
+            if "current_id" in reason:
+                item["current_id"] = None if reason["current_id"] is None else record_id(reason["current_id"], {"source", "tool"})
+            artifact["reasons"].append(item)
+        if (artifact["state"] == "current") != (not artifact["reasons"]):
+            raise ValueError("Inconsistent currentness")
+        receipt = select(raw["receipt"], "id", "content_hash", "tool", "tool_version_id", "status", "output_id", "output_hash")
+        record_id(receipt["id"], {"execution"})
+        record_id(receipt["tool_version_id"], {"tool"})
+        content_hash(receipt["content_hash"])
+        if (receipt["status"] != "success" or receipt["tool"] not in PRODUCERS
+                or receipt["output_id"] != artifact_id or receipt["output_hash"] != artifact["content_hash"]):
+            raise ValueError("Inconsistent producing receipt")
+        if not isinstance(raw["inputs"], list) or not 1 <= len(raw["inputs"]) <= 16:
+            raise ValueError("Invalid receipt inputs")
+        inputs, names = [], set()
+        for source in raw["inputs"]:
+            item = select(source, "name", "id", "kind", "logical_id", "content_hash", "inspectable")
+            if (item["kind"] not in {"source", "artifact"} or not isinstance(item["name"], str)
+                    or re.fullmatch(r"[a-z_]{1,48}", item["name"]) is None or item["name"] in names
+                    or item["inspectable"] is not (item["kind"] == "artifact")):
+                raise ValueError("Invalid typed input")
+            names.add(item["name"])
+            record_id(item["id"], {item["kind"]})
+            logical_id(item["logical_id"], item["kind"])
+            content_hash(item["content_hash"])
+            inputs.append(item)
+        paths = raw["recorded_changed_source_paths"]
+        if not isinstance(paths, list) or len(paths) > 384:
+            raise ValueError("Invalid native paths")
+        projected_paths, source_counts = [], {}
+        for path in paths:
+            source_id = record_id(path["source_id"], {"source"})
+            if path["target_id"] != artifact_id:
+                raise ValueError("Unexpected native path target")
+            source_counts[source_id] = source_counts.get(source_id, 0) + 1
+            if source_counts[source_id] > 3 or not isinstance(path["nodes"], list) or not 2 <= len(path["nodes"]) <= 16:
+                raise ValueError("Unbounded native path")
+            nodes = []
+            for node in path["nodes"]:
+                item = select(node, "id", "kind", "logical_id")
+                if item["kind"] not in {"source", "artifact", "execution"}:
+                    raise ValueError("Invalid native path node")
+                record_id(item["id"], {item["kind"]})
+                logical_id(item["logical_id"], item["kind"])
+                nodes.append(item)
+            if (nodes[0]["id"] != source_id or nodes[-1]["id"] != artifact_id
+                    or len({node["id"] for node in nodes}) != len(nodes)
+                    or not isinstance(path["edges"], list) or len(path["edges"]) != len(nodes) - 1):
+                raise ValueError("Discontinuous native path")
+            if (nodes[-1] != {key: artifact[key] for key in ("id", "kind", "logical_id")}
+                    or nodes[-2]["id"] != receipt["id"] or nodes[-2]["kind"] != "execution"):
+                raise ValueError("Native path does not bind the selected artifact's producing receipt")
+            edges = []
+            for index, edge in enumerate(path["edges"]):
+                item = select(edge, "source", "target", "kind")
+                left, right = nodes[index], nodes[index + 1]
+                expected = "PRODUCED" if left["kind"] == "execution" and right["kind"] == "artifact" else (
+                    "CONSUMED" if left["kind"] in {"source", "artifact"} and right["kind"] == "execution" else None)
+                if expected is None or item != {"source": left["id"], "target": right["id"], "kind": expected}:
+                    raise ValueError("Invalid native path edge")
+                edges.append(item)
+            projected_paths.append({"source_id": source_id, "target_id": artifact_id, "nodes": nodes, "edges": edges})
+        return {"schema_version": 1, "generation": generation, "incomplete_update": False,
+                "backend": backend, "artifact": artifact, "receipt": receipt, "inputs": inputs,
+                "recorded_changed_source_paths": projected_paths, "path_scope": PATH_SCOPE}
+    except (KeyError, TypeError, ValueError, AttributeError, IndexError):
+        raise ToolError("The hosted API returned incomplete or unexpected evidence. No evidence was returned.") from None
 
 
 def report_state(state: dict) -> dict:
@@ -207,7 +339,7 @@ class HostedCsvAPI:
             if error.status == 401:
                 self._lose_session()
                 raise
-            if error.status == 404 and self.confirmed_csv is not None:
+            if error.status == 404 and self.confirmed_csv is not None and not path.startswith(EVIDENCE):
                 self._block_writes()
             raise
         finally:
@@ -295,6 +427,16 @@ class HostedCsvAPI:
                 return state
             return response
 
+    def inspect_evidence(self, generation: str, artifact_id: str) -> dict:
+        if (GENERATION_PATTERN.fullmatch(generation) is None
+                or (match := RECORD_PATTERN.fullmatch(artifact_id)) is None or match[2] != "artifact"):
+            raise ToolError("Pass an observed workspace generation and an immutable artifact ID.")
+        with self.lock:
+            # This read can diagnose an uncertain write, but cannot restore the
+            # confirmed CSV or make subsequent writes/exports permissible.
+            raw = self._session_request("GET", f"{EVIDENCE}{artifact_id}?generation={generation}")
+            return evidence_state(raw, generation, artifact_id)
+
     def _request(self, method: str, path: str, payload: dict | None = None) -> dict:
         try:
             with self.client.stream(method, path, json=payload) as response:
@@ -327,6 +469,8 @@ def build_server(client: httpx.Client) -> MCPServer:
         "Create saves two fixed revenue reports (company and selected region). Update publishes a correction "
         "without recalculating. For a rate-only update in the same process, omit csv_text and pass rates and region. "
         "Stale claims and incomplete updates have no current value. Refresh recalculates affected work. "
+        "Inspect evidence for an observed artifact ID to follow its receipt inputs and recorded native changed-source paths; "
+        "this read returns no amounts or source contents and does not refresh anything. "
         "Export verifies both selected report IDs and their workspace generation before returning snapshot text."
     ))
 
@@ -340,6 +484,11 @@ def build_server(client: httpx.Client) -> MCPServer:
     def inspect_reports() -> dict[str, Any]:
         """Inspect currentness, impact, and immutable IDs for the two reports in this connector's workspace."""
         return api.call("GET", STATE)
+
+    @server.tool()
+    def inspect_evidence(generation: str, artifact_id: str) -> dict[str, Any]:
+        """Inspect one observed report or calculation artifact in its observed workspace generation. Return currentness, producing receipt, typed followable artifact inputs and bounded native paths from recorded changed sources, including earlier corrections. No saved numeric values or source contents are returned. An empty path list is not a currentness verdict."""
+        return api.inspect_evidence(generation, artifact_id)
 
     @server.tool()
     def update_csv(csv_text: str | None = None, rates: dict[str, str] | None = None,

@@ -93,6 +93,7 @@ CSV request body for preview/create/update:
 | POST `/api/import/verify` | `{}` | Existing verification shape plus `accounting` for this operation |
 | POST `/api/import/export` | `{generation, report_ids:{company,region}}` | Server-checked plain-text snapshot in a JSON envelope; no recalculation |
 | GET `/api/import/evidence/{artifact_id}` | owned immutable artifact ID | Existing evidence shape, using this import workspace only |
+| GET `/api/import/evidence/{artifact_id}?generation={generation}` | owned immutable artifact ID and observed import generation | Restricted agent evidence shape below; no saved values or source contents |
 
 Preview shape:
 
@@ -130,6 +131,34 @@ Each imported report contains one USD-cent claim: company total or selected regi
 Imported monetary claim `value` and `saved_value` are JSON integers within JavaScript's safe integer range and canonical base-10 strings outside it; a stale current `value` remains null. Parse either exact form as an integer before formatting currency. Imported evidence can include a top-level `display_saved_value` projection for a large monetary scalar. This projection is for display only: `artifact.saved_value`, its content hash, and the receipt retain their canonical contents.
 
 Export requires the visible import generation and exactly both report-head IDs. Under the session lock it verifies those identities and native currentness for both complete reports and their USD claims. Success returns `{filename:"proofflow-current-reports.txt",media_type:"text/plain;charset=utf-8",checked_at:"UTC ISO timestamp",content:"…"}`. The text contains both amounts, report/claim IDs, and the check time; it is a static file that later corrections can supersede. A mismatch, stale or incomplete report returns 409; unavailable evidence returns 503. Missing session/import and malformed body retain the usual 401/404/400 errors. Success and failure responses set `Cache-Control: no-store`. No revenue recalculation, source publication, artifact/receipt commit or graph write occurs; normal session-access and rate-limit bookkeeping still applies. The browser must download the server's content and reconcile state after refusal, never export cached amounts. [Acceptance evidence](REPORT_HANDOFF_ACCEPTANCE.md).
+
+### Generation-bound evidence inspection
+
+Adding the `generation` query parameter to the existing imported-evidence GET selects the restricted response used by the hosted connector's `inspect_evidence` tool. URL-encode both the artifact ID and generation. Without this parameter, the existing browser evidence response is unchanged. The server checks the active generation, update completeness, selected artifact, producing receipt and native relationships under the owning session lock; a concurrent workspace replacement cannot interleave with this read.
+
+```ts
+{
+  schema_version:1, generation:string, incomplete_update:false,
+  backend:{engine:"HydraDB OSS",native_queries:number,fallback:false},
+  artifact:{id:string,kind:"artifact",logical_id:string,content_hash:string,
+    state:"current"|"stale",current_head_id:string,
+    reasons:Array<{id:string,reason:"version_changed"|"implementation_changed",current_id?:string|null}>},
+  receipt:{id:string,content_hash:string,tool:string,tool_version_id:string,
+    status:"success",output_id:string,output_hash:string},
+  inputs:Array<{name:string,id:string,kind:"source"|"artifact",logical_id:string,
+    content_hash:string,inspectable:boolean}>,
+  recorded_changed_source_paths:Array<{source_id:string,target_id:string,
+    nodes:Array<{id:string,kind:string,logical_id:string}>,
+    edges:Array<{source:string,target:string,kind:"CONSUMED"|"PRODUCED"}>}>,
+  path_scope:string
+}
+```
+
+Only artifacts are inspectable, including earlier report or calculation versions in the active imported workspace. Follow inputs marked `inspectable:true`; source IDs and the receipt's tool-version ID identify consumed versions but cannot be inspected through this mode. The response omits saved values, raw source contents, CSV rows, tool parameters, cookies and session credentials. It performs no calculation, source publication or artifact/receipt write; ordinary session-access bookkeeping still applies.
+
+`recorded_changed_source_paths` contains native witnesses from accumulated recorded changed-source versions, including earlier corrections, with at most three paths per source and depth at most 15. It is not the artifact's complete lineage or a list limited to the latest edit. An empty path list is not a currentness verdict; use `artifact.state` and `artifact.reasons`.
+
+A wrong generation or incomplete update returns 409, as does unknown currentness or an incomplete producing receipt. Unknown IDs, IDs from another workspace, and non-artifact IDs return 404. Missing session/import and unavailable native evidence retain the usual 401/404/503 errors. Successful responses set `Cache-Control: no-store`. A failed read must not be replaced with a previously successful envelope or described as a current check.
 
 Counters count registered analytics invocations, not total CPU work. Preview performs 8 preflight calculations. Create independently revalidates (8), executes the guided recipe (8 recorded calls), and verifies the two report recipes (11 unrecorded calculations). Thus a preview followed by create performs both sets of validation. Update performs 8 preflight calculations and 0 recorded calls; it leaves affected reports stale. Refresh records only actual changed tool executions, plus 11 separate verification calculations. Verification alone performs 11 recipe calculations. A no-op update/reorder still validates; it is not a zero-total-compute claim. `total_calculation_count` sums the three disclosed categories for that operation only.
 

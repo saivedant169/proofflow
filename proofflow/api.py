@@ -294,9 +294,12 @@ def create_app(state_dir: str | Path | None = None, graph_factory: Callable[...,
                 return imported.export_reports(payload.generation, payload.report_ids.model_dump())
 
     @application.get("/api/import/evidence/{artifact_id:path}")
-    def import_evidence(request: Request, artifact_id: str):
+    def import_evidence(request: Request, artifact_id: str, generation: str | None = None):
         with manager.session(sid(request)) as current, active_import(current, factory) as imported:
-            return imported.evidence(artifact_id)
+            evidence = imported.evidence(artifact_id, generation)
+            if generation is not None:
+                return JSONResponse(evidence, headers={"Cache-Control": "no-store"})
+            return evidence
 
     directory = Path(static_dir or os.environ.get("PROOFFLOW_STATIC_DIR", "frontend/dist")).resolve()
     if directory.is_dir():

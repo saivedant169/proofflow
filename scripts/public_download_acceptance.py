@@ -32,7 +32,7 @@ FIXED_ARCHIVE = "proofflow-fixed-budget-evidence.zip"
 CONNECTOR = "proofflow_csv_mcp.py"
 MCP_VERSION = "2.3.0"
 TOOLS = {
-    "create_csv_reports", "inspect_reports", "update_csv", "refresh_reports", "export_current_reports",
+    "create_csv_reports", "inspect_reports", "inspect_evidence", "update_csv", "refresh_reports", "export_current_reports",
 }
 EVIDENCE_FILES = {
     "/evidence/": ("evidence/index.html", "text/html"),
@@ -311,7 +311,7 @@ async def cold_connector(script, scratch):
                     listed = await session.list_tools()
     require(initialized.server_info.name == "ProofFlow Hosted CSV", "Downloaded connector identifies the expected MCP server")
     names = sorted(tool.name for tool in listed.tools)
-    require(names == sorted(TOOLS) and listed.next_cursor is None, "Downloaded connector advertises exactly five expected tools")
+    require(names == sorted(TOOLS) and listed.next_cursor is None, "Downloaded connector advertises exactly six expected tools")
     protocol = initialized.protocol_version
     require(re.fullmatch(r"\d{4}-\d{2}-\d{2}", protocol), "MCP negotiates a date-based protocol version")
     responses = (initialized.model_dump_json() + listed.model_dump_json()).lower()

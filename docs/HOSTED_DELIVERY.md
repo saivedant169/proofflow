@@ -2,11 +2,11 @@
 
 [Open ProofFlow](https://proofflow.arnavbule.in) · [Watch the walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Inspect the public evidence](https://proofflow.arnavbule.in/evidence/) · [Set up the CSV connector](https://proofflow.arnavbule.in/agent/)
 
-## Hosted connector release
+## Recorded five-tool hosted connector release
 
-The hosted connector release is `c2c19c1397026e136bf7648ddb0604a4d2ea6d7f`, Linux AMD64 image `sha256:9973b5414c4f23b3ded11a7357a494f89fb568c5e049119c363a58163377b39f`. Its deployment passed 21 read-only host checks and replaced the application container while retaining both state volumes and the running HydraDB container. The first external acceptance attempt passed **11 Chrome steps**, **13 guided HTTP checks** and checks of **12 exact public downloads**, including the connector and three evidence ZIPs. Release CI passed **507 Python tests and nine Chromium workflows**. [Hosted acceptance](https://github.com/saivedant169/proofflow/actions/runs/43768541029) · [Release CI](https://github.com/saivedant169/proofflow/actions/runs/43767784998). Both GitHub links require repository access.
+The recorded five-tool hosted connector release is `c2c19c1397026e136bf7648ddb0604a4d2ea6d7f`, Linux AMD64 image `sha256:9973b5414c4f23b3ded11a7357a494f89fb568c5e049119c363a58163377b39f`. Its deployment passed 21 read-only host checks and replaced the application container while retaining both state volumes and the running HydraDB container. The first external acceptance attempt passed **11 Chrome steps**, **13 guided HTTP checks** and checks of **12 exact public downloads**, including the connector and three evidence ZIPs. Release CI passed **507 Python tests and nine Chromium workflows**. [Hosted acceptance](https://github.com/saivedant169/proofflow/actions/runs/43768541029) · [Release CI](https://github.com/saivedant169/proofflow/actions/runs/43767784998). Both GitHub links require repository access.
 
-The hosted connector can reuse its confirmed CSV for a rate-only correction. A separate guided Fable 5.2 trial on this release completed all seven prescribed stages using the same retail partition as V1. [V2 model receipt and scope](HOSTED_CONNECTOR_MODEL_V2_RESULTS.md) · [V1 partial result](HOSTED_CONNECTOR_MODEL_V1_RESULTS.md).
+That release's connector can reuse its confirmed CSV for a rate-only correction. A separate guided Fable 5.2 trial on this release completed all seven prescribed stages using the same retail partition as V1. These records predate the sixth tool, `inspect_evidence`, and do not verify that capability. [V2 model receipt and scope](HOSTED_CONNECTOR_MODEL_V2_RESULTS.md) · [V1 partial result](HOSTED_CONNECTOR_MODEL_V1_RESULTS.md).
 
 ## Public HTTPS acceptance on `b13f238`
 
@@ -22,7 +22,7 @@ The public download job used anonymous HTTPS, system DNS and normal certificate 
 
 The separate delivery verifier checked **52 payloads** from the saved `0535ba6`, `fdee9c9` and `92da58c` releases and accompanying studies. These include the January retail CSV run, paired recalculation, interrupted-update recovery, and the original fixed-budget wrapper failures and audited recovered scores. The clipboard test for `b13f238` appears in its hosted receipt. [Delivery ZIP and verification instructions](PUBLIC_DELIVERY_EVIDENCE.md) · [Hosted V4 receipt](../evidence/hosted_delivery_v4.json).
 
-The connector download launched in an empty directory with a new `uv` cache. A stock MCP 2.3.0 client negotiated protocol `2025-11-25` and discovered all five tools. This check stopped at discovery with **zero tool calls**. An earlier stock-client run exercised the same script against the `fdee9c9` hosted API and passed **21 fixture checks**, including a checked export and stale and cross-session refusal. Both used scripted clients. Model-selected composition was tested separately through the local stdio server. [Connector setup](https://proofflow.arnavbule.in/agent/) · [Local model-client evidence](MCP_AGENT_RESULTS.md).
+For this historical five-tool release, the connector download launched in an empty directory with a new `uv` cache. A stock MCP 2.3.0 client negotiated protocol `2025-11-25` and discovered all five tools. This check stopped at discovery with **zero tool calls**. An earlier stock-client run exercised the same script against the `fdee9c9` hosted API and passed **21 fixture checks**, including a checked export and stale and cross-session refusal. Both used scripted clients and predate `inspect_evidence`. Model-selected composition was tested separately through the local stdio server. [Connector setup](https://proofflow.arnavbule.in/agent/) · [Local model-client evidence](MCP_AGENT_RESULTS.md).
 
 ## CI and local packaging checks on `b13f238`
 

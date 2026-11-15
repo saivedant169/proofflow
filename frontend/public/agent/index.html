@@ -29,7 +29,7 @@
   <header><div><a class="wordmark" href="/">ProofFlow</a></div></header>
   <main>
     <h1>Hosted CSV connector</h1>
-    <p>Create and refresh company and regional revenue reports from a local MCP host. Five guided tools use the same hosted workflow as the browser.</p>
+    <p>Create and refresh company and regional revenue reports from a local MCP host. Six tools use the hosted CSV workflow and let your agent inspect the recorded inputs behind a saved report.</p>
     <div class="links">
       <a class="download" href="proofflow_csv_mcp.py" download>Download Python script</a>
       <a href="proofflow_csv_mcp.py.sha256" download>SHA-256 checksum</a>
@@ -66,10 +66,17 @@ s1,SOUTH,USD,20000,0,1
 Save the generation and both report IDs from the create result. Call update_csv with rates {"EUR":"1.30"} and region "NORTH". Omit csv_text for this rate-only correction. Inspect both reports and attempt a checked export using the original IDs. Then refresh the reports and export using the fresh IDs. Show both totals and the actual refresh call count.</pre>
     <p>The initial totals should be <strong>$308.00 company</strong> and <strong>$108.00 NORTH</strong>. The correction withholds stale values and blocks the old export. After four recorded refresh calls, the checked snapshot should show <strong>$317.00 company</strong> and <strong>$117.00 NORTH</strong>.</p>
 
+    <h2>Explain a withheld report</h2>
+    <p>Keep the original report ID after a correction. Your agent can inspect that exact saved version, including after fresh reports replace it.</p>
+    <pre>Call inspect_evidence with the observed generation and the original company report's artifact_id. Explain the native dependency path from a recorded changed source to that saved report. Follow an artifact input ID with another inspect_evidence call to inspect its producing execution. Identify each result by its immutable artifact and receipt IDs.</pre>
+    <p>The response identifies the artifact's currentness, content fingerprint, producing execution and typed inputs. It includes native paths from recorded changed sources. Those sources accumulate across corrections, so a path does not by itself identify the most recent edit. Paths are bounded; an empty list does not establish that an artifact is current. You can also inspect a retained calculation before and after a correction to compare its artifact and receipt identities.</p>
+    <p>Inspection returns provenance without saved values, CSV rows, source contents or tool parameters. Use <code>inspect_reports</code> for current amounts and <code>export_current_reports</code> for a checked handoff. An inspection does not refresh or export a report.</p>
+
     <h2>Tools and session</h2>
     <ul>
       <li><code>create_csv_reports</code> creates the two fixed revenue reports in the active session.</li>
       <li><code>inspect_reports</code> returns immutable IDs, claim currentness, and impact.</li>
+      <li><code>inspect_evidence</code> accepts the observed <code>generation</code> and an <code>artifact_id</code>. It returns that artifact's recorded execution, typed inputs and native paths from recorded changed sources. Follow artifact input IDs to inspect their evidence.</li>
       <li><code>update_csv</code> publishes corrected rows and rates. For a rate-only correction, omit <code>csv_text</code> and pass the existing region and all required rates.</li>
       <li><code>refresh_reports</code> recomputes affected work and returns actual execution counts.</li>
       <li><code>export_current_reports</code> checks the given generation and both report IDs, then returns plain-text snapshot content.</li>
@@ -77,6 +84,7 @@ Save the generation and both report IDs from the create result. Call update_csv 
     <p>The connector keeps only the exact CSV text from the last confirmed create or update in memory. The host can omit that text from a later rate-only tool call in the same process. The connector checks the hosted session, workspace and CSV digest, then sends the cached bytes with the supplied rates. Provide the full corrected CSV when rows change.</p>
     <p>If a write result is uncertain or the workspace reports an incomplete update, the connector discards its CSV cache. Start a fresh connector process and explicitly create reports with the intended CSV before changing or exporting reports again.</p>
     <p>The one-week hosted demo shares capacity with browser sessions. Idle sessions expire after one hour. The connector keeps its session cookie in local process memory. Restarting clears the cookie and CSV cache. Explicitly create reports again to start a fresh CSV workspace. Creating again in the same process replaces the active import.</p>
+    <p>Evidence inspection is limited to the active imported workspace and requires its matching generation. Source input IDs and the receipt's tool-version ID identify consumed versions; they are not artifact IDs to pass to <code>inspect_evidence</code>.</p>
   </main>
 </body>
 </html>

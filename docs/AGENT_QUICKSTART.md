@@ -1,6 +1,27 @@
 # Use ProofFlow from a local agent
 
-For guided revenue reports through the public demo, use the downloadable CSV connector. It supports rate-only corrections using the last CSV confirmed in the same process. The setup and model trial are separate from the local typed planner below. [Hosted connector setup](https://proofflow.arnavbule.in/agent/) · [Guided model trial](HOSTED_CONNECTOR_MODEL_V2_RESULTS.md).
+For guided revenue reports through the public demo, use the downloadable CSV connector. It supports rate-only corrections using the last CSV confirmed in the same process and inspection of the recorded evidence behind a selected artifact. [Hosted connector setup](https://proofflow.arnavbule.in/agent/).
+
+## Six hosted CSV tools
+
+The hosted connector creates the same two fixed revenue reports as the browser. Its six tools are `create_csv_reports`, `inspect_reports`, `inspect_evidence`, `update_csv`, `refresh_reports` and `export_current_reports`. This connector is separate from the local typed planner below.
+
+When an exchange-rate or refund correction withholds a report, call `inspect_evidence` with the `generation` returned by report inspection and the saved report or claim `artifact_id`. It returns the selected artifact's currentness, immutable identity and content fingerprint, its producing receipt's identity and fingerprint, the producing tool, typed input identities, and native dependency paths from recorded changed sources. Follow an input of kind `artifact` with another call to inspect its execution. Source inputs and the receipt's tool-version ID identify consumed versions; this tool does not open their contents.
+
+```json
+{
+  "generation": "<observed workspace generation>",
+  "artifact_id": "<observed report, claim, or artifact input ID>"
+}
+```
+
+Keep a prior report ID to explain why that saved version became stale, even after a refresh creates its replacement. To inspect retained work, compare the artifact and producing receipt identities for the same unaffected calculation before and after a correction. Recorded changed sources accumulate across corrections; a returned path is not a claim that its source changed in the latest edit. The response includes at most three paths per recorded source, with a maximum depth of 15. An empty path list does not establish currentness; use the explicit artifact state.
+
+`inspect_evidence` is read-only. It returns provenance without saved values, CSV rows, source contents, tool parameters, cookies or session credentials. Use `inspect_reports` for current amounts and `export_current_reports` for a server-checked snapshot. The selected generation must still be the connector's active imported workspace; replacing that workspace or starting a new connector process does not grant access to earlier workspaces.
+
+The recorded [V2 guided model trial](HOSTED_CONNECTOR_MODEL_V2_RESULTS.md) used the earlier **five-tool** connector and completed seven prescribed stages. It did not exercise `inspect_evidence`. Its results and the earlier V1 partial result remain separate from the new inspection capability.
+
+## Local typed planning setup
 
 The stdio MCP server lets a host choose analytics plans over its own CSV data. ProofFlow executes the registered tools, records their consumed inputs in HydraDB, and checks whether saved results are still current. When a model is used, it runs in your MCP host; this server invokes no model and makes no paid model calls.
 
@@ -33,7 +54,7 @@ The last command starts a stdio server and waits for a client. Normally the host
 
 The token file is created by local initialization; do not paste its contents into prompts or configuration examples. The existing checkout `.env` is also supported by the Hydra adapter. `PROOFFLOW_MCP_STATE_DIR` is optional and defaults to `.state/mcp` relative to the server's working directory; an absolute path keeps persistence predictable when a host launches the process elsewhere.
 
-## Five tools
+## Five local planning tools
 
 | Tool | Input | Result |
 |---|---|---|
@@ -113,4 +134,4 @@ Use a new output directory for each recording. This check makes no model calls: 
 
 This interface is for a trusted local host on one machine and currently uses POSIX file locking on macOS or Linux. It provides no public HTTP endpoint or shared-client authentication. Keep Hydra credentials local, and consider the host's model/data-sharing settings separately from the server's behavior.
 
-The source repository remains private. Public hosting is on hold and will be handled by the project owner; this local stdio interface does not require a hosted app.
+The source repository remains private. The hosted CSV connector is documented separately above; this local stdio interface does not require a hosted app.

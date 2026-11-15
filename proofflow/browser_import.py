@@ -2,13 +2,15 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
+import json
 import shutil
 import time
 from typing import Any
 import uuid
 
 from .artifacts import ArtifactStore, digest
-from .demo import DemoSession, ID_PATTERN, SessionMissing, now
+from .demo import DemoSession, ID_PATTERN, SessionMissing, now, unwrap_native
+from .graph import GraphError
 from .importing import (COMPANY_REPORT, REGION_REPORT, SUPPORT_ARTIFACT, CSVImportError,
                         MAX_BYTES, ImportedDataset, _apply_preflighted_import,
                         parse_csv, recipe_calculation_count)
@@ -108,7 +110,11 @@ class BrowserImport:
                   "source:csv:fx": "Explicit exchange rates", "source:csv:tickets": "Imported ticket counts"}
         return labels.get(record.logical_id, record.metadata.get("title", record.logical_id))
 
-    def evidence(self, artifact_id: str) -> dict:
+    def evidence(self, artifact_id: str, generation: str | None = None) -> dict:
+        # The API holds the owning session lock across this entire read. A
+        # generation-bound request receives only the agent's restricted envelope.
+        if generation is not None:
+            return self._agent_evidence(artifact_id, generation)
         evidence = DemoSession.evidence(self, artifact_id)
         artifact = evidence["artifact"]
         saved = artifact["saved_value"]
@@ -127,6 +133,145 @@ class BrowserImport:
             # The immutable artifact payload and its content hash stay canonical.
             evidence["display_saved_value"] = display
         return evidence
+
+    def _agent_evidence(self, artifact_id: str, generation: str) -> dict:
+        if generation != self.metadata["workspace_id"]:
+            raise MissingEvidenceError("The imported workspace has changed since this artifact was selected")
+        if self.metadata.get("incomplete_update"):
+            raise MissingEvidenceError("Complete the CSV update before inspecting report evidence")
+        record = self.store.get(artifact_id, required=False)
+        if record is None or record.kind != "artifact":
+            raise SessionMissing("Unknown artifact in this session")
+        try:
+            return self._checked_agent_evidence(record, generation)
+        except (KeyError, TypeError, ValueError, AttributeError) as exc:
+            raise MissingEvidenceError("The selected artifact's evidence is malformed") from exc
+
+    def _checked_agent_evidence(self, record, generation: str) -> dict:
+        artifact_id = record.id
+        validity = self.runtime.currentness(artifact_id)
+        if validity.state not in {"current", "stale"}:
+            raise MissingEvidenceError("The selected artifact has incomplete evidence")
+        receipt_record, receipt = self._agent_receipt(record)
+        head = self.store.get_head(record.logical_id)
+        if head is None:
+            raise MissingEvidenceError("The selected artifact has no current head")
+        inputs = []
+        for name, node_id in sorted(receipt["inputs"].items()):
+            source = self.store.get(node_id)
+            if source.kind not in {"source", "artifact"}:
+                raise MissingEvidenceError("The selected artifact has an invalid input record")
+            inputs.append({"name": name, "id": source.id, "kind": source.kind,
+                           "logical_id": source.logical_id, "content_hash": source.content_hash,
+                           "inspectable": source.kind == "artifact"})
+        # Reverse ancestor discovery alone cannot establish forward receipt edges.
+        # Validate all discovered artifact producers, including untouched ancestors.
+        ancestors = set(self.graph.ancestors([artifact_id], max_depth=15))
+        expected_edges = set()
+        for node_id in sorted(ancestors | {artifact_id}):
+            ancestor = self.store.get(node_id)
+            if ancestor.kind != "artifact":
+                continue
+            producer, produced = self._agent_receipt(ancestor)
+            expected_edges.add((producer.id, ancestor.id, "PRODUCED"))
+            expected_edges.add((produced["tool_version_id"], producer.id, "USED_TOOL"))
+            expected_edges.update((source, producer.id, "CONSUMED") for source in produced["inputs"].values())
+        for source, target, kind in sorted(expected_edges):
+            paths = self._agent_paths(source, target, max_depth=1)
+            if not paths or any(path["edges"] != [{"source": source, "target": target, "kind": kind}]
+                                for path in paths):
+                raise GraphError("The selected receipt has incomplete native edges")
+        changed_paths = []
+        for source_id in self.metadata.get("changed_source_ids", []):
+            paths = self._agent_paths(source_id, artifact_id)
+            if source_id in ancestors and not paths:
+                raise GraphError("A changed-source ancestor has no native path witness")
+            changed_paths.extend(paths)
+        reasons = []
+        for reason in validity.reasons:
+            if reason["reason"] not in {"version_changed", "implementation_changed"}:
+                raise MissingEvidenceError("The selected artifact has incomplete currentness evidence")
+            reasons.append({key: reason[key] for key in ("id", "reason", "current_id") if key in reason})
+        return {
+            "schema_version": 1, "generation": generation, "incomplete_update": False,
+            "backend": {"engine": "HydraDB OSS", "native_queries": self.graph.queries, "fallback": False},
+            "artifact": {"id": record.id, "kind": record.kind, "logical_id": record.logical_id,
+                         "content_hash": record.content_hash, "state": validity.state,
+                         "current_head_id": head.id, "reasons": reasons},
+            "receipt": {"id": receipt_record.id, "content_hash": receipt_record.content_hash,
+                        **{key: receipt[key] for key in ("tool", "tool_version_id", "status", "output_id", "output_hash")}},
+            "inputs": inputs,
+            "recorded_changed_source_paths": changed_paths,
+            "path_scope": "Native path witnesses from recorded changed-source versions, including earlier corrections; "
+                          "at most three paths per source, depth at most 15. An empty list is not a currentness verdict.",
+        }
+
+    def _agent_receipt(self, record):
+        receipt_record = self.store.get(record.metadata["receipt_id"])
+        receipt = self.store.read(receipt_record.id)
+        if (receipt_record.kind != "execution" or receipt["status"] != "success"
+                or receipt["output_id"] != record.id or receipt["output_hash"] != record.content_hash
+                or any(receipt[key] != record.metadata[key]
+                       for key in ("inputs", "tool", "tool_version_id", "params"))
+                or receipt_record.metadata["tool"] != receipt["tool"]):
+            raise MissingEvidenceError("The selected artifact's producing receipt is incomplete")
+        return receipt_record, receipt
+
+    def _agent_paths(self, source_id: str, target_id: str, *, max_depth: int = 15) -> list[dict]:
+        """Project only native path witnesses whose keys, direction and receipts agree."""
+        try:
+            return self._validated_agent_paths(source_id, target_id, max_depth=max_depth)
+        except (KeyError, TypeError, ValueError, AttributeError) as exc:
+            raise GraphError("The native path response is incomplete") from exc
+
+    def _validated_agent_paths(self, source_id: str, target_id: str, *, max_depth: int) -> list[dict]:
+        results = []
+        native_paths = self.graph.paths(source_id, target_id, max_depth=max_depth)
+        if not isinstance(native_paths, list) or len(native_paths) > 3:
+            raise GraphError("Unexpected native path response")
+        for native in native_paths:
+            nodes, by_native_id = [], {}
+            for item in native["nodes"]:
+                properties = item["properties"]
+                key = unwrap_native(properties["key"])
+                record = self.store.get(key, required=False) if isinstance(key, str) else None
+                if (record is None or item["id"] != self.graph.vertex_id(key)
+                        or unwrap_native(properties["kind"]) != record.kind
+                        or unwrap_native(properties["workspace"]) != self.graph.namespace
+                        or item["id"] in by_native_id):
+                    raise GraphError("Native path vertex does not match this workspace")
+                payload = json.loads(unwrap_native(properties["payload"]))
+                expected_payload = {"logical_id": record.logical_id, "content_hash": record.content_hash,
+                                    "created_at": record.created_at, **record.metadata}
+                if payload != expected_payload:
+                    raise GraphError("Native path vertex content does not match its immutable record")
+                by_native_id[item["id"]] = record
+                nodes.append({"id": record.id, "kind": record.kind, "logical_id": record.logical_id})
+            if (not 2 <= len(nodes) <= max_depth + 1 or nodes[0]["id"] != source_id
+                    or nodes[-1]["id"] != target_id
+                    or len(native["relationships"]) != len(nodes) - 1):
+                raise GraphError("Native path endpoints or length do not match")
+            edges = []
+            for index, edge in enumerate(native["relationships"]):
+                source, target = by_native_id[edge["src"]], by_native_id[edge["dst"]]
+                kind = unwrap_native(edge["properties"]["kind"])
+                if (edge["edge_type"] != "FLOW" or source.id != nodes[index]["id"]
+                        or target.id != nodes[index + 1]["id"]):
+                    raise GraphError("Native path direction or relationship is invalid")
+                if kind == "PRODUCED" and source.kind == "execution" and target.kind == "artifact":
+                    receipt_record, _ = self._agent_receipt(target)
+                    valid = receipt_record.id == source.id
+                elif kind == "CONSUMED" and source.kind in {"source", "artifact"} and target.kind == "execution":
+                    valid = source.id in self.store.read(target.id)["inputs"].values()
+                elif kind == "USED_TOOL" and source.kind == "tool" and target.kind == "execution":
+                    valid = self.store.read(target.id)["tool_version_id"] == source.id
+                else:
+                    valid = False
+                if not valid:
+                    raise GraphError("Native path relationship does not match its execution receipt")
+                edges.append({"source": source.id, "target": target.id, "kind": kind})
+            results.append({"source_id": source_id, "target_id": target_id, "nodes": nodes, "edges": edges})
+        return results
 
     def _operation(self, kind: str, *, started: float, preflight: int = 0, verification: int = 0,
                    changed: int = 0, noop: bool = False, calls: list[dict] | None = None) -> dict:
