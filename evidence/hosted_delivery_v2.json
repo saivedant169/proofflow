@@ -1,0 +1,284 @@
+{
+  "schema_version": 2,
+  "canonical_origin": "https://proofflow.arnavbule.in",
+  "release": {
+    "source_revision": "fdee9c999a1a5c62de4cf624f9bcc42ba6c124a6",
+    "platform": "linux/amd64",
+    "app_image_id": "sha256:f94ddef84a8a1b204a123cd16839af317337731ca999989b32b469215065677c",
+    "app_image_archive_sha256": "f77ff9305ae9bbc530f7d9f1919da7a6a8d1eb064ff99b24f5e2531e6176c3d4",
+    "source_archive_sha256": "ab8af971386591a87b4752f817477e80e432d397ea01bce08efb27ceaf28995a"
+  },
+  "host_runtime_observation": {
+    "verified_at_utc": "2026-11-15T19:38:39.504735+00:00",
+    "host_captured_at_utc": "2026-11-15T19:37:45.572134+00:00",
+    "scope": "Read-only checks after application container replacement",
+    "checks_passed": 21,
+    "application_container_replaced": true,
+    "running_revision_and_image_match_release": true,
+    "hydradb_container_and_start_time_unchanged": true,
+    "application_and_hydradb_volumes_retained": true,
+    "both_services_non_root": true,
+    "both_token_mounts_read_only": true,
+    "public_health": {
+      "status": "ok",
+      "backend": "HydraDB OSS"
+    }
+  },
+  "local_image_smoke": {
+    "tested_at_utc": "2026-11-15T19:33:22.142688+00:00",
+    "checks_passed": 45,
+    "http_responses": 18,
+    "scope": "Exact AMD64 image tested locally under emulation and loopback HTTP with a separate app state volume"
+  },
+  "release_ci": {
+    "run_url": "https://github.com/saivedant169/proofflow/actions/runs/43752499925",
+    "run_access": "Private GitHub repository. Permissions required.",
+    "run_attempt": 1,
+    "conclusion": "success",
+    "completed_at_utc": "2026-11-15T19:31:26Z",
+    "successful_job_steps": 22,
+    "python_passed": 465,
+    "chromium_passed": 9,
+    "chromium_config": "Checked-in Playwright configuration with default 90-second test and 15-second assertion limits and zero retries",
+    "one_cent_negative_control_confirmed": true
+  },
+  "hosted_acceptance": {
+    "runner": "GitHub-hosted Ubuntu 24.04",
+    "run_url": "https://github.com/saivedant169/proofflow/actions/runs/43753250552",
+    "run_access": "Private GitHub repository. Permissions required.",
+    "run_attempt": 1,
+    "conclusion": "success",
+    "browser_finished_at_utc": "2026-11-15T19:36:35.869Z",
+    "guided_http_finished_at_utc": "2026-11-15T19:35:36.840287+00:00",
+    "browser": {
+      "name": "Google Chrome",
+      "version": "157.0.8103.50"
+    },
+    "chrome_steps_passed": 11,
+    "guided_http_checks_passed": 13,
+    "guided_http_checks": {
+      "health_reads_real_hydra": true,
+      "built_interface_served": true,
+      "compiled_assets_load": true,
+      "unknown_api_is_not_spa": true,
+      "initial_actual_values": true,
+      "changed_claims_withheld": true,
+      "native_impact_four_artifacts": true,
+      "correct_refreshed_values": true,
+      "four_actual_tools_and_support_preserved": true,
+      "independent_refresh_parity": true,
+      "missing_source_refresh_refused": true,
+      "missing_source_never_serves_current_revenue": true,
+      "reset_recovers_new_generation": true
+    },
+    "guided_fixture_cents_and_tickets": {
+      "initial": [
+        556500,
+        209000,
+        2
+      ],
+      "withheld": [
+        null,
+        null,
+        2
+      ],
+      "refreshed": [
+        575500,
+        228000,
+        2
+      ],
+      "units": [
+        "company USD cents",
+        "EU USD cents",
+        "EU support tickets"
+      ]
+    },
+    "network": {
+      "resolver": "System DNS",
+      "hosts_file_override": false,
+      "browser_resolver_override": false,
+      "tls_validation": "Enabled",
+      "health": {
+        "status": 200,
+        "backend": "HydraDB OSS"
+      },
+      "byte_match_to_checked_out_build": true
+    },
+    "served_build": {
+      "index_sha256": "5b8292a9bfd4c3029eb4cd96067398d909ba4962e805d773614c6b86d5750ca9",
+      "assets": [
+        {
+          "path": "/assets/index-CElxDEXr.js",
+          "bytes": 405863,
+          "sha256": "1419dc1150e404020b68560fd1b9c9a3cfef0b631705e90c2a87878bba630d7c",
+          "status": 200
+        },
+        {
+          "path": "/assets/index-UIEPyqwi.css",
+          "bytes": 36085,
+          "sha256": "7b29ec7b2d1a71dc1bf69205b78b2c57d0aed0d6879a578ec062447e399a6dff",
+          "status": 200
+        }
+      ]
+    },
+    "walkthrough": {
+      "url": "https://proofflow.arnavbule.in/walkthrough.mp4",
+      "bytes": 5064373,
+      "sha256": "5d9c1dc53519097121527dad6d35dd9e34310ae45b634445eb6bb6e156584393",
+      "range_status": 206,
+      "content_range": "bytes 0-1023/5064373",
+      "prefix_matches": true,
+      "duration_seconds": 120,
+      "seek_target_seconds": 75,
+      "continued_to_seconds": 75.32
+    },
+    "csv_revenue_handoff": {
+      "revenue_columns": [
+        "company",
+        "NORTH"
+      ],
+      "initial_eur_to_usd": "1.20",
+      "initial_revenue_usd_cents": [
+        30800,
+        10800
+      ],
+      "initial_reload_preserved_artifacts": true,
+      "initial_export_status": 200,
+      "corrected_eur_to_usd": "1.30",
+      "affected_artifacts": 4,
+      "current_values_withheld": [
+        null,
+        null
+      ],
+      "stale_export_status": 409,
+      "stale_export_downloads": 0,
+      "refreshed_revenue_usd_cents": [
+        31700,
+        11700
+      ],
+      "refresh_accounting": {
+        "preflight": 0,
+        "recorded_calls": 4,
+        "verification": 11,
+        "total": 15
+      },
+      "refreshed_export_status": 200,
+      "refreshed_export_matches_report_and_claim_ids": true,
+      "numeric_parity": true,
+      "preserved_support_artifact": true,
+      "reload_preserved_artifacts": true,
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "no_horizontal_overflow": true
+        },
+        {
+          "width": 320,
+          "height": 844,
+          "no_horizontal_overflow": true
+        }
+      ],
+      "other_context_revenue_columns": [
+        "company",
+        "APAC"
+      ],
+      "other_context_revenue_usd_cents": [
+        16375,
+        9375
+      ],
+      "other_context_foreign_evidence_status": 404,
+      "other_context_retained_artifacts": true,
+      "cookie_attributes": {
+        "secure": true,
+        "http_only": true,
+        "same_site": "Strict"
+      }
+    },
+    "archived_github_artifacts": [
+      {
+        "url": "https://github.com/saivedant169/proofflow/actions/runs/43753250552/artifacts/14177406248",
+        "access": "Private GitHub repository. Permissions required.",
+        "downloaded_sha256": "ae6ab0f979f49794e05593c7e5057364f08273d2e6eb28c674bb378de999eff8"
+      },
+      {
+        "url": "https://github.com/saivedant169/proofflow/actions/runs/43753250552/artifacts/14177180927",
+        "access": "Private GitHub repository. Permissions required.",
+        "downloaded_sha256": "14cc1e6d21a9fb97929388db8f657fc1992dd9b24cd9a6139556b2730c42f820"
+      }
+    ]
+  },
+  "public_evidence": {
+    "url": "https://proofflow.arnavbule.in/evidence/",
+    "observed_at_utc": "2026-11-15T19:35:10.629378+00:00",
+    "scope": "Builder network using system DNS and normal certificate verification",
+    "matching_committed_files": [
+      {
+        "path": "/evidence/",
+        "status": 200,
+        "bytes": 6639,
+        "sha256": "9597ad96f8d6b27695dc4559c4b838f3c86fac35892e2ad7a34ce34ef3ce4315",
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "path": "/evidence/evidence.css",
+        "status": 200,
+        "bytes": 6375,
+        "sha256": "857095b393fed43c020c076e9dea18e45a6dcea4e689d5e035be4f9c4661e672",
+        "content_type": "text/css; charset=utf-8"
+      },
+      {
+        "path": "/evidence/proofflow-model-evidence.zip",
+        "status": 200,
+        "bytes": 5664791,
+        "sha256": "996d670a4d49929ff4eefc01441e8fa05d29099a45e109f4e73b3dbbf9c40be7",
+        "content_type": "application/zip"
+      },
+      {
+        "path": "/evidence/proofflow-model-evidence.zip.sha256",
+        "status": 200,
+        "bytes": 95,
+        "sha256": "1cd448724a30944328faa45b9369eef13f85722738d255fbef355e0104865e02",
+        "content_type": "application/octet-stream"
+      }
+    ],
+    "bare_route_redirect_status": 308,
+    "missing_file_status": 404,
+    "evidence_routes_set_session_cookie": false,
+    "offline_verification": {
+      "bundle_files_verified": 346,
+      "model_study_payloads_verified": 152,
+      "scored_cells": 48,
+      "reconstructed_source_rows": 4681,
+      "passed": true,
+      "historical_retail_fixed_2048_graph": {
+        "fresh": 8,
+        "eligible": 38
+      },
+      "historical_retail_development": {
+        "graph_tokens": 6752,
+        "full_context_tokens": 11107,
+        "ratio": 0.6079049248221842,
+        "maximum_ratio": 0.4,
+        "passed": false
+      }
+    }
+  },
+  "historical_hosted_app_restart": {
+    "evidence_file": "hosted_delivery_v1.json",
+    "source_revision": "0535ba672b4b31c563c13d95df03285a73a4d736",
+    "checks_passed": 87,
+    "http_responses": 12
+  },
+  "archived_source_receipt_sha256": {
+    "release_manifest": "9af13a034e7b9345eabf076d3fc01706e9366ac7b7add974a69c13d5cd7526e8",
+    "host_runtime_observation": "5988d1ab9121a4490a91e4434116ebe18c4ef6cc4f93462f8dbe7f7c5578aa7b",
+    "host_receipt": "d24043ea14e2fce86ced16c403fb3849933fcf53b91c9db79ebe98706fa80db9",
+    "local_image_smoke": "ae1775e04a6afe71aaddcdaa0976097335803e339bab79871484c58fc49c17f6",
+    "release_ci_observation": "396f2c1bf857a901fc2109a58484d7b8e543a872b71abfa0a2cdfcf082d08be7",
+    "hosted_acceptance_summary": "c41194da0d44fdd649e96d0f4c01dce12688f5f553c59e39733626ef84435c8b",
+    "hosted_browser_receipt": "676b692c815d41de285eaeeb8a6bd28c961c087fdeaa386a492039b599d75766",
+    "hosted_guided_http_receipt": "fe1d66a8c109191d50a982b6b8498d2f7ec235ca7368d1cfe0bfa13f6aac8298",
+    "public_evidence_observation": "d092c882cf77c1efea11f9cc09ad46fa59d0e565dd63c87ec2c78d81192b554d"
+  }
+}

@@ -1,6 +1,6 @@
 # ProofFlow submission draft
 
-The [live app](https://proofflow.arnavbule.in) and [two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) passed [hosted verification](HOSTED_DELIVERY.md). Approved judge access to the private repository and the organizer's form remain pending. This document is not a submission receipt.
+External automated checks verified the live app and walkthrough at deployed revision `fdee9c999a1a5c62de4cf624f9bcc42ba6c124a6`. Approved judge access to the private repository and the organizer’s form remain pending. [Live app](https://proofflow.arnavbule.in) · [Two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Hosted verification](HOSTED_DELIVERY.md).
 
 ## Project and track
 
@@ -71,9 +71,11 @@ The evidence supports explicit dependency context over relevance ranking for thi
 
 ## Verification and scope
 
-The [public results package](https://proofflow.arnavbule.in/evidence/) includes saved study inputs, poststates, provider counters, earlier failures, an explicit publication manifest and an offline Python verifier. It provides inspectable results without access to the private application repository. [Verification instructions and public-copy transformations](PUBLIC_EVIDENCE.md).
+The public results package includes saved study inputs, poststates, provider counters, earlier failures, an explicit publication manifest and an offline Python verifier. The four hosted files matched the release bytes. The verifier checked 346 bundle files, including the model audit of 152 payloads and all 48 scored cells. [Public evidence and download](https://proofflow.arnavbule.in/evidence/) · [Verification instructions](PUBLIC_EVIDENCE.md).
 
-- [Hosted delivery](HOSTED_DELIVERY.md): the custom domain passed 13 guided HTTP checks and a Chrome check of guided correction and refresh. Separate IP-based runs passed 13 guided HTTP checks, eight Chrome acceptance groups and 87 restart checks over 12 HTTP responses. These functional checks from the builder network are separate from the benchmark results.
+- **Current hosted release.** A GitHub-hosted runner used system DNS and normal TLS, matched the served frontend to a build from the same revision, and passed 11 Chrome steps and 13 guided HTTP checks. The application-only replacement separately passed 21 read-only host checks. [Hosted verification](HOSTED_DELIVERY.md).
+- **Current release CI.** The first attempt passed 465 Python tests and nine default Chromium workflows across 22 successful job steps. The one-cent control detected both arithmetic differences. [Linux CI run, private repository access required](https://github.com/saivedant169/proofflow/actions/runs/43752499925).
+- **Earlier hosted restart.** The `0535ba6` app restart passed 87 checks across 12 HTTP responses, restoring saved CSV reports before a new correction and refresh. [Historical receipt](../evidence/hosted_delivery_v1.json).
 - [Native persistence](../evidence/hydra_smoke.json): database restart, persisted traversal and a new write.
 - [Packaged application](../evidence/deployment_smoke.json): 16 HTTP checks, including application restart and session/artifact preservation.
 - [Interrupted update](RECOVERY_V1_RESULTS.md): 15/15 checks locally and in Linux CI after actual SIGKILL between committed source publications; stale values withheld, then full resubmission matched all eight uninterrupted artifact lineages.
@@ -85,8 +87,8 @@ The browser supports two fixed reports, at most 1 MiB/1,000 rows, USD/EUR/GBP an
 
 ## Delivery fields
 
-- **Private source:** [saivedant169/proofflow](https://github.com/saivedant169/proofflow). Judge access must be confirmed; privacy is not changed by app deployment.
-- **Hosted app:** [Open ProofFlow](https://proofflow.arnavbule.in). [Hosted evidence](HOSTED_DELIVERY.md) pins the running app to revision `0535ba672b4b31c563c13d95df03285a73a4d736`.
-- **Video:** [120-second walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4). Delivery on the custom domain returned the requested byte range; the earlier IP-based run matched the full packaged film and verified Chrome playback and seeking.
-- **Event:** [HydraDB Hackathon](https://luma.com/bqwllms4). The organizer's form and final required fields remain unverified.
-- **Deadline:** 16 November 2026, 09:00 IST. No submission receipt exists.
+- **Private source.** Approved judge access remains pending. [saivedant169/proofflow](https://github.com/saivedant169/proofflow).
+- **Hosted app.** The running release was verified at revision `fdee9c999a1a5c62de4cf624f9bcc42ba6c124a6`. [ProofFlow](https://proofflow.arnavbule.in) · [Hosted receipt](../evidence/hosted_delivery_v2.json).
+- **Video.** The served file matched the packaged film. External Chrome checked playback and seeking, and the server returned the expected byte range. [120-second walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4).
+- **Public results package.** The release-matched ZIP includes saved model evidence and the offline verifier. [Evidence page](https://proofflow.arnavbule.in/evidence/).
+- **Event.** The organizer’s form and final required fields remain unverified. The recorded deadline is 16 November 2026, 09:00 IST. Submission receipt pending. [HydraDB Hackathon](https://luma.com/bqwllms4).
