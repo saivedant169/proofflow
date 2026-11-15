@@ -32,7 +32,7 @@ export default function RecordedModelBenchmark() {
       <div>
         <h2 id="model-comparison-title">Recorded model comparison</h2>
         <p>{study.model} / {study.effort} effort · {study.cli_calls} CLI calls · {study.cli_turns} CLI turns. No live rerun.<br />
-          {study.cases.length} authored correction cases over {count.format(study.test_rows)} real March 2011 positive-sales rows from UCI Online Retail.
+          {study.cases.length} authored cases over {count.format(study.test_rows)} real March 2011 positive-sales rows from UCI Online Retail.
         </p>
       </div>
       <a className="text-link" href={`${evidenceCommit}/docs/MODEL_COMPARISON_RESULTS.md`} target="_blank" rel="noreferrer">Audited results<ArrowUpRight size={14} /></a>
@@ -53,7 +53,7 @@ export default function RecordedModelBenchmark() {
           <td>{arm.correction_cases_completed} / {study.recoverable_cases}</td>
         </tr>)}</tbody>
       </table>
-      <p className="benchmark-callout"><Info size={16} /><span><strong>{study.unavailable_reports} / {study.unavailable_reports} unavailable reports blocked by every arm.</strong> The missing-source and no-op cases earned no fresh-report credit.</span></p>
+      <p className="benchmark-callout"><Info size={16} /><span><strong>{study.unavailable_reports} / {study.unavailable_reports} unavailable reports blocked by every arm.</strong> Six cases required correction; the missing-source and no-op cases earned no fresh-report credit. Freshness includes lineage revalidation when numbers are unchanged.</span></p>
       <p className="benchmark-callout"><Info size={16} /><span>Graph and exact-flat tied on refresh outcomes and used identical prompts in {study.matching_graph_exact_flat_prompts} / {study.cases.length} cases. Every arm used the same Hydra-assisted executor to check currentness and refresh reports. The five capped arms shared adaptive caps of {count.format(study.evidence_caps.min)}–{count.format(study.evidence_caps.max)} evidence tokens, set by each case’s full graph closure. Full context was uncapped.</span></p>
     </div>
 
