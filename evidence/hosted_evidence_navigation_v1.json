@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "study": "hosted evidence navigation model trial",
+  "overall_pass": true,
+  "scope": "One guided model-issued evidence handoff on the fixed, already public two-row authored NORTH/SOUTH data. The hosted service used fixed report recipes.",
+  "operator_launches": 1,
+  "tools_discovered": 6,
+  "calls": 13,
+  "matched_results": 13,
+  "evidence_reads": 9,
+  "mutation_calls": 3,
+  "checked_exports": 1,
+  "tool_errors": 0,
+  "guard_blocks": 0,
+  "provider_internal_transport_retries": "unobserved",
+  "model": "claude-fable-5-2",
+  "model_seen_on_all_tool_uses": true,
+  "requested_effort": "high",
+  "effort_seen_in_dummy_wire": "high",
+  "process_exit": 0,
+  "cli_result": "success",
+  "cli_stop_reason": "end_turn",
+  "timeout": false,
+  "cli_turns": 14,
+  "cli_duration_seconds": 46.736,
+  "wall_seconds": 48.039,
+  "started_utc": "2026-11-15T23:18:51.573870+00:00",
+  "finished_utc": "2026-11-15T23:19:39.613341+00:00",
+  "budget": {
+    "cli_estimated_stop_setting_usd": 2,
+    "planning_allowance_usd": 3,
+    "cli_reported_list_cost_estimate_usd": 0.4920828,
+    "bill_observed": false,
+    "usage": {
+      "input_tokens": 18,
+      "cache_creation_input_tokens": 19500,
+      "cache_read_input_tokens": 71894,
+      "output_tokens": 4139,
+      "provider_input_exposure": 91412
+    }
+  },
+  "release": {
+    "origin": "https://proofflow.arnavbule.in",
+    "source_revision": "327dc602cbb255c07201ffb85bcfc656476b382e",
+    "operator_verified_image": "sha256:7942a2441d932792000acfc50358a82f2ec7a1c949922f5ac1b9e6e679b83042",
+    "hosted_acceptance_workflow_run": 43772376825,
+    "connector_bytes": 28594,
+    "connector_sha256": "f987dd80caa31aad06d22f7ad479548fae6e7bd41a0aa1c102d73305f14c5ede"
+  },
+  "fixture": {
+    "bytes": 112,
+    "rows": 2,
+    "sha256": "9404a094f276690922a09e3727301f124a36647dbec7bfd2babb1859f4f26cca",
+    "selected_region": "NORTH",
+    "initial_eur_usd": "1.20",
+    "corrected_eur_usd": "1.30"
+  },
+  "amounts_usd_cents": {
+    "initial": {
+      "company": 30800,
+      "region": 10800
+    },
+    "stale": {
+      "company": null,
+      "region": null
+    },
+    "checked_current": {
+      "company": 31700,
+      "region": 11700
+    }
+  },
+  "correction": {
+    "model_csv_text_argument": "omitted",
+    "source_csv_digest_and_rows_preserved": true,
+    "changed_sources": 1,
+    "affected_artifacts": 4,
+    "recorded_executions": 0
+  },
+  "refresh": {
+    "recorded_executions": 4,
+    "verification_calculations": 11,
+    "reported_reused_artifacts": 2,
+    "explicitly_verified_net_member": true,
+    "unchanged_generation": true,
+    "replacement_reports_and_claims": true
+  },
+  "export": {
+    "bytes": 807,
+    "sha256": "c966dd4f21b10e5c4a9c7fc52ed89c2c4a1a5845c274beeabe303e1d529b3dd0",
+    "checked_at_utc": "2026-11-15T23:19:22.511964+00:00",
+    "both_role_specific_report_claim_pairs_match": true,
+    "stale_export_attempted": false
+  },
+  "historical_results": {
+    "v1_verified_stages": 2,
+    "v1_planned_stages": 7,
+    "v2_verified_stages": 7,
+    "v2_planned_stages": 7,
+    "independent_receipt_sha256": {
+      "v1": "45b853d69bb3f7ba92611940310c93a5c1bcf4ded895d366d1d0e2c12773a002",
+      "v2": "f0428aab6ec85529ff99ddf44c5ae184d56bf373e84d85f8d09317ed7d7a4fbc"
+    }
+  },
+  "limitations": "This is one model-guided integration using a fixed authored fixture. No stale export request occurred. The trail shows a recorded native witness, with no claim that the returned paths exhaust the graph. Cost is a client list estimate. It does not establish statistical learning, generalization, adoption, human use, a graph-engine advantage or comparative cost.",
+  "obligations": [
+    {
+      "number": 1,
+      "status": "pass",
+      "evidence": "Model chose the observed NORTH report and its stated claim as evidence targets."
+    },
+    {
+      "number": 2,
+      "status": "pass",
+      "evidence": "The selected claim result introduced net as a typed input. A later call followed that identifier and matched the input hash."
+    },
+    {
+      "number": 3,
+      "status": "pass",
+      "evidence": "The net producing receipt, artifact ID and hash matched before correction and in a current result after correction and before refresh."
+    },
+    {
+      "number": 4,
+      "status": "pass",
+      "evidence": "The stale NORTH claim result linked the old FX source through its consuming execution to the claim. The final explanation accurately used that recorded native path."
+    },
+    {
+      "number": 5,
+      "status": "pass",
+      "evidence": "Both stale claim values were withheld. The assistant labeled the old NORTH amount as historical and asserted current amounts only after verified refresh and export."
+    },
+    {
+      "number": 6,
+      "status": "pass",
+      "evidence": "The actual refresh response reuse list explicitly contained the same inspected net artifact. A post-refresh inspection confirmed its same ID, hash and receipt."
+    },
+    {
+      "number": 7,
+      "status": "pass",
+      "evidence": "A checked UTC export matched both independently calculated amounts and their role-specific replacement report/claim ID pairs."
+    },
+    {
+      "number": 8,
+      "status": "pass",
+      "evidence": "The final explanation correctly distinguished four executed calculations from two reused results and limited its identity claim to the net artifact it actually inspected."
+    }
+  ],
+  "freeze": {
+    "frozen_at_utc": "2026-11-15T23:15:46.913013+00:00",
+    "frozen_packet_sha256": "50af52ddbe95c9c759183ac28bd95a1f0dbc5fa21bc9e101c647d386d72db905",
+    "original_protocol_sha256": "e9db57f9abae28b6e5b5cae1d1477726ca4e3f15f3704489feeee1cb052abce5",
+    "task_prompt_sha256": "f273b38ab38c83e97114625f54310e1f1bb4a9218c58ea926db545239b2f5eb1",
+    "system_instruction_sha256": "ea79e6371ced4e6765650a022c2dfaff681beb2ef242f3d46052c3f864f8a99c",
+    "independent_sanitized_source_receipt_sha256": "27e1c69494575ce94cbf899dbfb4210e6ff4b81bbf05edca87a1f627805c97fd",
+    "external_release_gate_sha256": "5b4b9180722dab3d0fab97bb1de25df8d3eb06d52be38e904f4cddccfc121142",
+    "external_acceptance_audit_sha256": "791feeb405990a43e5416bd8e751cb3805c01f6343f5232f234872aee9605785"
+  }
+}
