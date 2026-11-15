@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HOST = "proofflow.arnavbule.in"
 ORIGIN = f"https://{HOST}"
 ARCHIVE = "proofflow-model-evidence.zip"
+DELIVERY_ARCHIVE = "proofflow-delivery-evidence.zip"
 CONNECTOR = "proofflow_csv_mcp.py"
 MCP_VERSION = "2.3.0"
 TOOLS = {
@@ -37,6 +38,36 @@ EVIDENCE_FILES = {
     "/evidence/evidence.css": ("evidence/evidence.css", "text/css"),
     f"/evidence/{ARCHIVE}": (f"evidence/{ARCHIVE}", "application/zip"),
     f"/evidence/{ARCHIVE}.sha256": (f"evidence/{ARCHIVE}.sha256", None),
+}
+DELIVERY_FILES = {
+    f"/evidence/{DELIVERY_ARCHIVE}": (f"evidence/{DELIVERY_ARCHIVE}", "application/zip"),
+    f"/evidence/{DELIVERY_ARCHIVE}.sha256": (f"evidence/{DELIVERY_ARCHIVE}.sha256", None),
+}
+DELIVERY_RELEASES = [
+    "0535ba672b4b31c563c13d95df03285a73a4d736",
+    "fdee9c999a1a5c62de4cf624f9bcc42ba6c124a6",
+    "92da58c806a07d2577aef27bf5c967e7751325a0",
+]
+DELIVERY_RESULTS = {
+    "real_partition": {
+        "rows": 642, "invoices": 25, "initial_usd_cents": 905258,
+        "corrected_usd_cents": 941468, "verified_phases": 6,
+    },
+    "paired_workflow": {
+        "phases": 3, "stale_refusals_per_method": 4, "current_handoffs_per_method": 3,
+        "proofflow_new_outputs": [8, 4, 6], "proofflow_retained_heads_and_receipts": [0, 4, 2],
+        "proofflow_warm_analytics_calls": 64,
+    },
+    "interrupted_update": {"checks_passed": 15},
+    "fixed_budget_diagnostic": {
+        "planned_cells": 88, "original_completed": False, "original_wrapper_execution_errors": 88,
+        "recovered_scored_cells": 88,
+        "fresh_affected": {
+            "fixed_4096": {"graph": 15, "exact_flat": 15, "bm25": 5, "dense": 2, "iterative_hybrid": 15},
+            "fixed_8192": {"graph": 27, "exact_flat": 27, "bm25": 25, "dense": 10, "iterative_hybrid": 28},
+            "uncapped_reference": {"full_context": 32},
+        },
+    },
 }
 AGENT_FILES = {
     "/agent/": ("agent/index.html", "text/html"),
@@ -174,14 +205,19 @@ def offline_python():
     ]
 
 
-def verify_bundle(data, directory, python):
+def run_bundled_verifier(data, directory, python, verifier):
     extract_bundle(data, directory)
     result = subprocess.run(
-        [*python, "scripts/verify_public_evidence.py"], cwd=directory, stdin=subprocess.DEVNULL,
+        [*python, verifier], cwd=directory, stdin=subprocess.DEVNULL,
         capture_output=True, timeout=90, check=False,
     )
-    require(result.returncode == 0, "Downloaded standard-library verifier passed in isolated extraction")
-    report = json.loads(result.stdout)
+    require(result.returncode == 0, f"{verifier} passed in isolated extraction")
+    return json.loads(result.stdout)
+
+
+def verify_bundle(data, directory, python):
+    verifier = "scripts/verify_public_evidence.py"
+    report = run_bundled_verifier(data, directory, python, verifier)
     model = report["model_study"]
     study_revision = json.loads((directory / "manifest.json").read_bytes())["frozen_study_revision"]
     require(report["bundle_files_verified"] == 346 and model["passed"] is True
@@ -191,7 +227,24 @@ def verify_bundle(data, directory, python):
     return {
         "bundle_files_verified": report["bundle_files_verified"], "model_study_payloads_verified": model["published_files_verified"],
         "scored_cells": model["scored_cells"], "reconstructed_source_rows": model["reconstructed_source_rows"],
-        "bundled_verifier": "scripts/verify_public_evidence.py", "frozen_study_revision": study_revision,
+        "bundled_verifier": verifier, "frozen_study_revision": study_revision,
+    }
+
+
+def verify_delivery_bundle(data, directory, python):
+    verifier = "verify_delivery_evidence.py"
+    report = run_bundled_verifier(data, directory, python, verifier)
+    inventory = json.loads((directory / "manifest.json").read_bytes())["files"]
+    require(report["bundle_files_verified"] == len(inventory) == 52, "Delivery bundle inventory verified")
+    releases = report["hosted"]["releases"]
+    require(releases == DELIVERY_RELEASES, "Expected historical hosted release receipts verified")
+    observed = {}
+    for section, expected in DELIVERY_RESULTS.items():
+        observed[section] = {key: report[section][key] for key in expected}
+        require(observed[section] == expected, f"Expected delivery evidence verified for {section}")
+    return {
+        "bundle_files_verified": report["bundle_files_verified"], "bundled_verifier": verifier,
+        "historical_hosted_release_revisions": releases, **observed,
     }
 
 
@@ -262,8 +315,8 @@ def main():
     output.mkdir(parents=True, exist_ok=True)
     receipt = {
         "schema_version": 1, "origin": ORIGIN, "started_at_utc": utc_now(), "files": {}, "passed": False,
-        "scope": "Public bundle and connector static bytes, offline arithmetic audit, and MCP initialization and tool discovery.",
-        "revision_scope": "Checkout SHA identifies the expected static files. The bundle independently pins its study revision.",
+        "scope": "Public evidence bundles and connector static bytes, offline verification, and MCP initialization and tool discovery.",
+        "revision_scope": "Checkout SHA identifies the expected static files. The model bundle pins its study revision and the delivery bundle lists historical releases.",
     }
     stage = "runner_provenance"
     try:
@@ -278,6 +331,14 @@ def main():
             verify_sidecar(archive, evidence[f"evidence/{ARCHIVE}.sha256"], ARCHIVE)
             stage = "offline_bundle_verification"
             receipt[stage] = verify_bundle(archive, temporary / "extracted", offline_python())
+            receipt[stage]["isolated_linux_network_namespace"] = True
+
+            stage = "delivery_evidence_download"
+            delivery = download_files(opener, source_sha, DELIVERY_FILES, receipt)
+            archive = delivery[f"evidence/{DELIVERY_ARCHIVE}"]
+            verify_sidecar(archive, delivery[f"evidence/{DELIVERY_ARCHIVE}.sha256"], DELIVERY_ARCHIVE)
+            stage = "offline_delivery_verification"
+            receipt[stage] = verify_delivery_bundle(archive, temporary / "delivery-extracted", offline_python())
             receipt[stage]["isolated_linux_network_namespace"] = True
 
             stage = "connector_download"
@@ -304,7 +365,7 @@ def main():
         receipt["finished_at_utc"] = utc_now()
         (output / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
     if receipt["passed"]:
-        print("Public payload bytes, offline evidence verifier, and cold MCP handshake passed")
+        print("Public payload bytes, both offline evidence verifiers, and cold MCP handshake passed")
     return 0 if receipt["passed"] else 1
 
 

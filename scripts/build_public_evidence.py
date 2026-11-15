@@ -19,6 +19,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = ROOT / "frontend/public/evidence"
 ARCHIVE = "proofflow-model-evidence.zip"
 CHECKSUM = f"{ARCHIVE}.sha256"
+DELIVERY_ARCHIVE = "proofflow-delivery-evidence.zip"
+DELIVERY_CHECKSUM = f"{DELIVERY_ARCHIVE}.sha256"
 PORTAL_FILES = ("index.html", "evidence.css")
 SUMMARY = audit.RUN / "summary.json"
 STARTED = audit.RUN / "started.json"
@@ -327,12 +329,13 @@ def verify_build(payloads):
 def check_public_directory(require_archive):
     audit.check(OUTPUT_DIR.resolve() == OUTPUT_DIR and OUTPUT_DIR.is_dir(), "regular public evidence directory")
     present = set()
-    allowed = {*PORTAL_FILES, ARCHIVE, CHECKSUM}
+    model = {*PORTAL_FILES, ARCHIVE, CHECKSUM}
+    allowed = model | {DELIVERY_ARCHIVE, DELIVERY_CHECKSUM}
     for path in OUTPUT_DIR.iterdir():
         audit.check(path.name in allowed and path.is_file() and not path.is_symlink(),
                     path.name, "unexpected file in the public evidence directory")
         present.add(path.name)
-    required = allowed if require_archive else set(PORTAL_FILES)
+    required = model if require_archive else set(PORTAL_FILES)
     audit.check(required <= present, "complete public evidence directory")
 
 

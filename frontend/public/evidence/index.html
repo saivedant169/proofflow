@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="ProofFlow’s saved model benchmark, public results bundle, and offline verification instructions.">
-    <title>Benchmark evidence | ProofFlow</title>
+    <meta name="description" content="ProofFlow’s saved model, hosted delivery, and recovery results with offline verification.">
+    <title>Evidence | ProofFlow</title>
     <link rel="stylesheet" href="evidence.css">
   </head>
   <body>
@@ -23,11 +23,11 @@
       <section class="hero" aria-labelledby="page-title">
         <div>
           <p class="study-date"><time datetime="2026-11-15">15 November 2026</time> model study</p>
-          <h1 id="page-title">Verify the benchmark results</h1>
+          <h1 id="page-title">Verify the saved results</h1>
           <p class="intro">Recheck 48 saved model runs across eight cases and six evidence selection methods. The ZIP includes the source rows, saved outcomes and an offline verifier.</p>
           <div class="actions">
-            <a class="button primary" href="proofflow-model-evidence.zip" download>Download evidence ZIP <span aria-hidden="true">↓</span></a>
-            <a class="button secondary" href="#verify">Verify offline</a>
+            <a class="button primary" href="proofflow-model-evidence.zip" download>Download model evidence ZIP <span aria-hidden="true">↓</span></a>
+            <a class="button secondary" href="#delivery">Delivery and recovery</a>
           </div>
         </div>
         <div class="highlights">
@@ -43,6 +43,24 @@
             </div>
           </dl>
         </div>
+      </section>
+
+      <section class="verify section" id="delivery" aria-labelledby="delivery-heading">
+        <div class="section-title">
+          <h2 id="delivery-heading">Delivery and recovery evidence</h2>
+          <p>Recheck the saved hosted release receipts, retail arithmetic, paired handoffs, and interrupted-update recovery.</p>
+        </div>
+        <ul class="conditions">
+          <li><strong>Hosted retail.</strong> On release <code>92da58c</code>, an authored FX correction changed both reports from $9,052.58 to $9,414.68 across 642 transaction lines. The old-tab export returned HTTP 409.</li>
+          <li><strong>Paired close.</strong> Full recalculation and ProofFlow each rejected four stale handoffs. ProofFlow retained four and then two artifact heads and their receipts. Its warm corrections still ran 64 analytics invocations, including validation and verification.</li>
+          <li><strong>Interrupted update.</strong> Both values stayed withheld after the API child was killed between source publications. After resubmission, seven recorded executions restored the uninterrupted control’s values and lineage.</li>
+          <li><strong>Historical delivery.</strong> The archive includes the cold external checks on <code>92da58c</code> and <code>fdee9c9</code>, and the <code>0535ba6</code> application restart with two transient HTTP 502 responses.</li>
+        </ul>
+        <div class="actions">
+          <a class="button primary" href="proofflow-delivery-evidence.zip" download>Download delivery evidence ZIP <span aria-hidden="true">↓</span></a>
+          <a class="button secondary" href="proofflow-delivery-evidence.zip.sha256" download>ZIP SHA-256</a>
+        </div>
+        <p class="provenance">Extract into a new folder and run <code>python3 verify_delivery_evidence.py</code>. Python 3.10 or later recomputes amounts and checks the saved receipts offline.</p>
       </section>
 
       <section class="section" aria-labelledby="model-study">
@@ -81,6 +99,18 @@
         </ul>
       </section>
 
+      <section class="section" aria-labelledby="fixed-diagnostic">
+        <div class="section-title">
+          <h2 id="fixed-diagnostic">Fixed-budget diagnostic</h2>
+          <p>The original wrapper failed all 88 publication records after saving scores. A separate read-only audit recovered 88 saved observations. The delivery ZIP preserves both summaries and their provenance.</p>
+        </div>
+        <ul class="conditions">
+          <li><strong>4,096 tokens.</strong> Graph and exact-flat refreshed 15/32 reports each, tying iterative hybrid. BM25 refreshed 5/32 and dense BGE 2/32.</li>
+          <li><strong>8,192 tokens.</strong> Graph and exact-flat refreshed 27/32 each, behind iterative hybrid at 28/32. BM25 refreshed 25/32 and dense BGE 10/32.</li>
+          <li><strong>Uncapped deterministic reference.</strong> Full context refreshed 32/32. Graph and exact-flat packed identical evidence at both caps.</li>
+        </ul>
+      </section>
+
       <section class="section" aria-labelledby="conditions">
         <div class="section-title"><h2 id="conditions">Study conditions and limits</h2></div>
         <ul class="conditions">
@@ -93,7 +123,7 @@
 
       <section class="verify section" id="verify" aria-labelledby="verification-heading">
         <div class="section-title">
-          <h2 id="verification-heading">Verify offline</h2>
+          <h2 id="verification-heading">Verify the model study offline</h2>
           <p>Use Python 3.10 or later. The bundle includes both verifier scripts and all reconstruction inputs.</p>
         </div>
         <ol>

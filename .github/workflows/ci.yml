@@ -24,6 +24,8 @@ jobs:
         run: python3 scripts/audit_model_comparison_v4.py .
       - name: Verify the public evidence download and publication inventory
         run: python3 scripts/build_public_evidence.py --check
+      - name: Verify the public delivery evidence download
+        run: python3 scripts/build_delivery_evidence.py --check
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
