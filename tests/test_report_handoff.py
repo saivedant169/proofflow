@@ -10,6 +10,7 @@ from fastapi.testclient import TestClient
 import pytest
 
 from proofflow.api import COOKIE, REPORT_EXPORT_PATH
+from proofflow.artifacts import ArtifactStore
 from proofflow.browser_import import BrowserImport, active_import
 from proofflow.graph import GraphError
 from proofflow.importing import REGION_REPORT
@@ -41,6 +42,7 @@ def test_snapshot_exports_only_current_claims_and_proof_ids_without_writes(brows
         patch("proofflow.importing.execute_tool") as preflight,
         patch("proofflow.runtime.execute_tool") as calculations,
         patch.object(ProofFlowRuntime, "refresh") as refresh,
+        patch.object(ArtifactStore, "commit") as store_writes,
     ):
         result = browser.post(REPORT_EXPORT_PATH, json=export_request(initial))
     finished = datetime.now(timezone.utc)
@@ -77,6 +79,7 @@ def test_snapshot_exports_only_current_claims_and_proof_ids_without_writes(brows
     preflight.assert_not_called()
     calculations.assert_not_called()
     refresh.assert_not_called()
+    store_writes.assert_not_called()
     remaining = state(browser)
     for field in ("generation", "dataset", "reports", "executions", "impact", "last_operation", "last_refresh"):
         assert remaining[field] == initial[field]
