@@ -126,6 +126,18 @@ export interface ImportRequest {
   region?: string;
 }
 
+export interface ImportExportRequest {
+  generation: string;
+  report_ids: { company: string; region: string };
+}
+
+export interface ImportExport {
+  filename: 'proofflow-current-reports.txt';
+  media_type: 'text/plain;charset=utf-8';
+  checked_at: string;
+  content: string;
+}
+
 export interface ImportPreview {
   valid: true;
   persisted: false;

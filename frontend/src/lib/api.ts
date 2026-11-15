@@ -1,5 +1,5 @@
 import type {
-  Evidence, Health, ImportedWorkspaceState, ImportPreview, ImportRequest,
+  Evidence, Health, ImportExport, ImportExportRequest, ImportedWorkspaceState, ImportPreview, ImportRequest,
   ImportVerification, SourceChange, Verification, WorkspaceState,
 } from './types';
 
@@ -212,6 +212,18 @@ export async function verifyImport(options?: RequestOptions): Promise<ImportVeri
   return value as unknown as ImportVerification;
 }
 
+export async function exportImport(input: ImportExportRequest, options?: RequestOptions): Promise<ImportExport> {
+  const value = await request('/api/import/export', 'POST', input, options);
+  if (!isRecord(value) || Object.keys(value).length !== 4
+    || value.filename !== 'proofflow-current-reports.txt' || value.media_type !== 'text/plain;charset=utf-8'
+    || typeof value.checked_at !== 'string'
+    || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{1,6})?(Z|\+00:00)$/.test(value.checked_at)
+    || !Number.isFinite(Date.parse(value.checked_at))
+    || typeof value.content !== 'string' || !value.content.trim()) malformed();
+  const { filename, media_type, checked_at, content } = value;
+  return { filename, media_type, checked_at, content };
+}
+
 export async function readImportEvidence(artifactId: string, options?: RequestOptions): Promise<Evidence> {
   if (!artifactId) throw new APIError('Choose an artifact to inspect.', 400, 'missing_artifact');
   return evidence(await request(`/api/import/evidence/${encodeURIComponent(artifactId)}`, 'GET', undefined, options), artifactId);
@@ -225,5 +237,5 @@ export async function health(options?: RequestOptions): Promise<Health> {
 
 export const api = {
   createSession, readState, applyChange, refresh, reset, verify, readEvidence, health,
-  previewImport, createImport, readImportState, updateImport, refreshImport, verifyImport, readImportEvidence,
+  previewImport, createImport, readImportState, updateImport, refreshImport, verifyImport, exportImport, readImportEvidence,
 };
