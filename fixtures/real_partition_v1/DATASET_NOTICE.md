@@ -1,0 +1,5 @@
+# Online Retail source and changes
+
+Daqing Chen (2015), *Online Retail*, UCI Machine Learning Repository. The dataset is licensed under Creative Commons Attribution 4.0 International. [Dataset and creator](https://archive.ics.uci.edu/dataset/352/online%2Bretail) · [DOI 10.24432/C5BW33](https://doi.org/10.24432/C5BW33) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`source_cells.csv` retains the original worksheet row, public invoice number, raw Excel date/quantity/unit-price cells and country for each eligible line on January 16, 2011. `orders.csv` maps country to region, adds a line ID derived from the invoice number and worksheet row, marks every line GBP and expresses the quantity × unit price subtotal in integer pence. The transformation omits customer IDs, product descriptions and stock codes. The selection excludes four cancellation lines that day. The two exchange rates are authored test inputs. Refer to the [protocol](../../docs/REAL_PARTITION_PROTOCOL.md) for the complete selection and numeric decoding rules.

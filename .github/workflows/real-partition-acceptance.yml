@@ -1,0 +1,73 @@
+name: Hosted CSV acceptance on UCI retail data
+
+on:
+  workflow_dispatch:
+    inputs:
+      freeze_revision:
+        description: Reviewed protocol and fixture commit (full SHA)
+        required: true
+        type: string
+      release_revision:
+        description: Operator-verified deployed source commit (full SHA)
+        required: true
+        type: string
+      image_id:
+        description: Operator-verified deployed Linux image ID (sha256)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hosted-proofflow-acceptance
+  cancel-in-progress: false
+
+jobs:
+  real-partition-chrome:
+    name: One public HTTPS Chrome workflow
+    runs-on: ubuntu-24.04
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Rebuild the frontend with locked dependencies
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the pinned driver and locate packaged Chrome
+        run: |
+          python -m pip install playwright==1.56.0
+          google-chrome --version
+      - name: Exercise the once-only protocol with the frozen CSV
+        env:
+          PROOFFLOW_PROBE_FREEZE_REVISION: ${{ inputs.freeze_revision }}
+          PROOFFLOW_PROBE_RELEASE_REVISION: ${{ inputs.release_revision }}
+          PROOFFLOW_PROBE_IMAGE_ID: ${{ inputs.image_id }}
+          PROOFFLOW_PROBE_OUTPUT: ${{ runner.temp }}/proofflow-real-partition-v1
+        run: |
+          umask 077
+          env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u http_proxy -u https_proxy -u all_proxy \
+            python scripts/real_partition_probe.py hosted --build frontend/dist --output "$PROOFFLOW_PROBE_OUTPUT" \
+              --freeze-revision "$PROOFFLOW_PROBE_FREEZE_REVISION" --release-revision "$PROOFFLOW_PROBE_RELEASE_REVISION" \
+              --image-id "$PROOFFLOW_PROBE_IMAGE_ID"
+      - name: Preserve the sanitized receipt and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: real-partition-v1-evidence-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/proofflow-real-partition-v1/receipt.json
+            ${{ runner.temp }}/proofflow-real-partition-v1/*.png
+          if-no-files-found: error

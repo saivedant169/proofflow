@@ -1,0 +1,138 @@
+{
+  "authored_gbp_to_usd": {
+    "corrected": "1.30",
+    "initial": "1.25"
+  },
+  "candidate_profiles_through_selected_date": [
+    {
+      "counts": {
+        "cancellation_invoice": 8,
+        "eligible": 1951,
+        "invalid_price": 5,
+        "invalid_quantity": 12
+      },
+      "date": "2011-01-10",
+      "rows": 1976
+    },
+    {
+      "counts": {
+        "cancellation_invoice": 48,
+        "eligible": 1395,
+        "invalid_price": 10,
+        "invalid_quantity": 1
+      },
+      "date": "2011-01-11",
+      "rows": 1454
+    },
+    {
+      "counts": {
+        "cancellation_invoice": 23,
+        "eligible": 1783,
+        "invalid_price": 1,
+        "invalid_quantity": 2
+      },
+      "date": "2011-01-12",
+      "rows": 1809
+    },
+    {
+      "counts": {
+        "cancellation_invoice": 10,
+        "eligible": 1433,
+        "invalid_price": 1,
+        "invalid_quantity": 1
+      },
+      "date": "2011-01-13",
+      "rows": 1445
+    },
+    {
+      "counts": {
+        "cancellation_invoice": 17,
+        "eligible": 1493
+      },
+      "date": "2011-01-14",
+      "rows": 1510
+    },
+    {
+      "counts": {
+        "cancellation_invoice": 4,
+        "eligible": 642
+      },
+      "date": "2011-01-16",
+      "rows": 646
+    }
+  ],
+  "files": {
+    "orders.csv": {
+      "bytes": 28429,
+      "sha256": "7b45308e83161fa41aace37b1bd9f7f6390566b65a45bb2a0dd9aaf0b8ae69b8"
+    },
+    "source_cells.csv": {
+      "bytes": 35503,
+      "sha256": "ff4f6c0a8988ab040c3e49e621993ba29aca835be5244f263cda12fffd3a0233"
+    }
+  },
+  "invoice_overlap_with_reserved_partitions": 0,
+  "invoices": 25,
+  "oracle": {
+    "corrected": {
+      "by_region_usd_cents": {
+        "United Kingdom": 941468
+      },
+      "company_usd_cents": 941468,
+      "region_usd_cents": 941468
+    },
+    "gross_gbp_by_region": {
+      "United Kingdom": "7242.06"
+    },
+    "initial": {
+      "by_region_usd_cents": {
+        "United Kingdom": 905258
+      },
+      "company_usd_cents": 905258,
+      "region_usd_cents": 905258
+    }
+  },
+  "probe": "real-partition-v1",
+  "reserved": {
+    "compact_v3_dates": [
+      "2011-01-04",
+      "2011-01-05",
+      "2011-01-06",
+      "2011-01-07",
+      "2011-01-09",
+      "2011-09-01",
+      "2011-09-02",
+      "2011-09-04",
+      "2011-09-05",
+      "2011-09-06"
+    ],
+    "model_v4_dates": [
+      "2011-03-01",
+      "2011-03-02",
+      "2011-03-03",
+      "2011-03-04",
+      "2011-06-01",
+      "2011-06-02"
+    ],
+    "retail_v2_months": [
+      "2010-12",
+      "2011-02",
+      "2011-05",
+      "2011-08",
+      "2011-11"
+    ]
+  },
+  "rows": 642,
+  "rows_by_region": {
+    "United Kingdom": 642
+  },
+  "schema_version": 1,
+  "selected_date": "2011-01-16",
+  "selected_region": "United Kingdom",
+  "source": {
+    "doi": "10.24432/C5BW33",
+    "license": "CC BY 4.0",
+    "workbook_rows": 541909,
+    "workbook_sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d"
+  }
+}
