@@ -1,0 +1,65 @@
+{
+  "created_at_utc": "2026-11-15T22:59:40.781946+00:00",
+  "documentation_base_commit": "1a52a49053cf5dec1f81ffff0f1aa08da05256f7",
+  "files": {
+    "docs/FRESH_MULTICOUNTRY_PROTOCOL.md": {
+      "bytes": 7073,
+      "sha256": "c43dc0acb56d63de5ffa805d599b8c6f2d6ceda160ffc7d2437b7edf192f6dbe"
+    },
+    "docs/FRESH_MULTICOUNTRY_RESULTS.md": {
+      "bytes": 7010,
+      "sha256": "8a891366839931b3e5d22788e836998921faac42eb7c150868c16052b6921ae1"
+    },
+    "fixtures/fresh_multicountry_v1/DATASET_NOTICE.md": {
+      "bytes": 2303,
+      "sha256": "614b8c2eb8fcb585bdbdd855f6ac3db5cac72d321a5c783b366bb2280fdd2bbf"
+    },
+    "fixtures/fresh_multicountry_v1/cases.json": {
+      "bytes": 1553,
+      "sha256": "ba58d7a2b844b344d01d62a90501a3ab271aab8468d69187e999dc0f8181c954"
+    },
+    "fixtures/fresh_multicountry_v1/fixture.json": {
+      "bytes": 1115,
+      "sha256": "0b3d0859350316bdbb2ec2aae97074c2a7ef1b89392519046a7a785ede35c15e"
+    },
+    "fixtures/fresh_multicountry_v1/oracle-audit.json": {
+      "bytes": 808,
+      "sha256": "2bd32934d6593651d027c10d6c0427f444f0c9eaa646e64f2d74a8e4eea5be5d"
+    },
+    "fixtures/fresh_multicountry_v1/orders.csv": {
+      "bytes": 42105,
+      "sha256": "d128b57d741ad34c1252c51c271272529602555272869690f76d86cb9b02a985"
+    },
+    "fixtures/fresh_multicountry_v1/selection.json": {
+      "bytes": 3870,
+      "sha256": "275eee6733fc87ff791e54482a12e195814123f7e2c4297ed0f51546dceb5edc"
+    },
+    "fixtures/fresh_multicountry_v1/source_cells.csv": {
+      "bytes": 52654,
+      "sha256": "ad60005fd96654e8b2257cf1f62861992ac6399d17d59ad14e026e7b524f3b79"
+    },
+    "results/fresh-multicountry-v1/receipt.json": {
+      "bytes": 55514,
+      "sha256": "407b61520786839f483b17e6e7084b0742d90b064d8597a621900900316c2281"
+    },
+    "scripts/fresh_multicountry_oracle.py": {
+      "bytes": 8623,
+      "sha256": "6312e034b4dae557f55ef182441805823e8f416b05ccb3bc73eec0cbd9b07d53"
+    },
+    "scripts/verify_fresh_multicountry.py": {
+      "bytes": 35129,
+      "sha256": "634f15075053f45526fa354ca2dc3b4fea5f19f00ef827473192d510f73c077d"
+    },
+    "tests/test_fresh_multicountry_evidence.py": {
+      "bytes": 7420,
+      "sha256": "05c9403c71766b9f03c4be619d1f7f099d00be68aabf755ce7c23cabdad3ab82"
+    }
+  },
+  "kind": "post_observation_sanitized_evidence_package",
+  "measured_source_commit": "c2c19c1397026e136bf7648ddb0604a4d2ea6d7f",
+  "native_execution_independently_attested_by_package": false,
+  "not_a_new_experiment_or_preregistration": true,
+  "original_study_freeze_sha256": "855e22cec6cc68afd80cb0b2f4c98749e06cdaaf76b1551cb50c6241204d2cdd",
+  "schema_version": 1,
+  "study": "fresh-multicountry-v1"
+}

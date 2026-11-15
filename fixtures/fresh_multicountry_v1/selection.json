@@ -1,0 +1,175 @@
+{
+  "application_or_arm_runs": 0,
+  "authored_rates": {
+    "fx-correction": "1.30",
+    "initial": "1.25"
+  },
+  "candidate_profiles_through_selected_date": [
+    {
+      "countries": {
+        "Australia": 1,
+        "EIRE": 67,
+        "France": 12,
+        "Germany": 10,
+        "Israel": 6,
+        "United Kingdom": 1126
+      },
+      "counts": {
+        "cancellation_invoice": 19,
+        "eligible": 1222,
+        "invalid_price": 6,
+        "invalid_quantity": 14
+      },
+      "date": "2011-04-01",
+      "rows": 1261
+    },
+    {
+      "countries": {
+        "United Kingdom": 725
+      },
+      "counts": {
+        "cancellation_invoice": 6,
+        "eligible": 725
+      },
+      "date": "2011-04-03",
+      "rows": 731
+    },
+    {
+      "countries": {
+        "EIRE": 29,
+        "France": 28,
+        "Germany": 28,
+        "Singapore": 5,
+        "United Kingdom": 1566
+      },
+      "counts": {
+        "cancellation_invoice": 42,
+        "eligible": 1656,
+        "invalid_price": 1,
+        "invalid_quantity": 6
+      },
+      "date": "2011-04-04",
+      "rows": 1705
+    },
+    {
+      "countries": {
+        "Finland": 5,
+        "France": 1,
+        "Japan": 32,
+        "Netherlands": 15,
+        "Poland": 25,
+        "Singapore": 52,
+        "United Kingdom": 1005
+      },
+      "counts": {
+        "cancellation_invoice": 50,
+        "eligible": 1135,
+        "invalid_price": 5,
+        "invalid_quantity": 25
+      },
+      "date": "2011-04-05",
+      "rows": 1215
+    },
+    {
+      "countries": {
+        "EIRE": 65,
+        "United Kingdom": 1005
+      },
+      "counts": {
+        "cancellation_invoice": 8,
+        "eligible": 1070,
+        "invalid_price": 11,
+        "invalid_quantity": 33
+      },
+      "date": "2011-04-06",
+      "rows": 1122
+    },
+    {
+      "countries": {
+        "Belgium": 18,
+        "EIRE": 33,
+        "France": 24,
+        "Germany": 24,
+        "Iceland": 24,
+        "Italy": 14,
+        "United Kingdom": 1363
+      },
+      "counts": {
+        "cancellation_invoice": 20,
+        "eligible": 1500,
+        "invalid_quantity": 7
+      },
+      "date": "2011-04-07",
+      "rows": 1527
+    },
+    {
+      "countries": {
+        "Australia": 17,
+        "Germany": 69,
+        "Greece": 31,
+        "Portugal": 21,
+        "United Kingdom": 1230
+      },
+      "counts": {
+        "cancellation_invoice": 18,
+        "eligible": 1368,
+        "invalid_price": 14,
+        "invalid_quantity": 41
+      },
+      "date": "2011-04-08",
+      "rows": 1441
+    },
+    {
+      "countries": {
+        "Belgium": 26,
+        "United Kingdom": 907
+      },
+      "counts": {
+        "cancellation_invoice": 7,
+        "eligible": 933
+      },
+      "date": "2011-04-10",
+      "rows": 940
+    }
+  ],
+  "excluded_months": [
+    "2010-12",
+    "2011-01",
+    "2011-02",
+    "2011-03",
+    "2011-05",
+    "2011-06",
+    "2011-08",
+    "2011-09",
+    "2011-11"
+  ],
+  "files": {
+    "orders.csv": {
+      "bytes": 42105,
+      "sha256": "d128b57d741ad34c1252c51c271272529602555272869690f76d86cb9b02a985"
+    },
+    "source_cells.csv": {
+      "bytes": 52654,
+      "sha256": "ad60005fd96654e8b2257cf1f62861992ac6399d17d59ad14e026e7b524f3b79"
+    }
+  },
+  "invoice_overlap_with_excluded_months": 0,
+  "invoices": 32,
+  "missing_observations": [
+    "refunds",
+    "support"
+  ],
+  "monetary_aggregates_inspected_for_selection": false,
+  "preparation_finished_utc": "2026-11-15T22:37:08.741116+00:00",
+  "rows": 933,
+  "rows_by_region": {
+    "Belgium": 26,
+    "United Kingdom": 907
+  },
+  "selected_date": "2011-04-10",
+  "selected_region": "United Kingdom",
+  "selection_freeze_sha256": "e48684119133192701991364c661b9d757386c57169ef49925a971210d3a2894",
+  "study": "fresh-multicountry-v1",
+  "workbook_rows": 541909,
+  "workbook_sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d"
+}

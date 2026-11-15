@@ -1,0 +1,1871 @@
+{
+  "independent_postrun_audit": {
+    "audit_corrections": [
+      "Auditor initially assumed the naive-aggregate difference had the same sign in both stages; actual difference is -1 cent initially and +1 cent after correction. No experiment rerun.",
+      "The saved update visualization omits the support execution. Complete execution-list equality is supported by the frozen live assertion; offline checks establish no new displayed executions or heads and zero recorded update calls. No evidence changed."
+    ],
+    "checks": {
+      "all_10_ordered_post_requests_present_once": true,
+      "all_16_receipts_reference_exact_expected_source_and_artifact_versions": true,
+      "all_16_retained_artifacts_current_hash_receipt_unit_tool_identity_valid": true,
+      "all_attempt_sizes_and_sha256_match": true,
+      "all_four_exports_no_store_no_calculations_two_409_two_200": true,
+      "all_four_snapshots_values_identity_labels_hashes_valid_and_old_bytes_retained": true,
+      "all_frozen_sizes_and_sha256_match": true,
+      "all_function_invocations_recount_to_request_category_ledger": true,
+      "all_original_cells_reconcile_to_exact_uploaded_lines": true,
+      "attempt_inventory_exact_no_extra_payloads": true,
+      "both_native_paths_match_graph_and_original_producing_receipts": true,
+      "both_progress_files_match_all_16_semantic_outputs": true,
+      "both_stale_current_claim_values_null_historical_preserved": true,
+      "chronology_freeze_review_authorization_run": true,
+      "country_rounding_differs_from_naive_aggregate_each_stage": true,
+      "exactly_four_unaffected_heads_and_receipts_preserved": true,
+      "fixture_date_invoice_country_counts": true,
+      "fixture_shape_933_rows_two_countries": true,
+      "four_affected_outputs_have_matching_new_receipts": true,
+      "freeze_digest_exact": true,
+      "fresh_stale_and_current_state_reads_recorded": true,
+      "fx-correction_preview_retains_identical_inputs_and_valid_accounting": true,
+      "fx_only_source_changed_three_other_sources_identical": true,
+      "identical_csv_rates_region_revision_digest_both_arms": true,
+      "independent_raw_cell_arithmetic_matches_frozen_cases": true,
+      "independent_review_digest_exact": true,
+      "initial_preview_retains_identical_inputs_and_valid_accounting": true,
+      "local_only_zero_provider_hosted_writes_declared": true,
+      "native_backend_retained_evidence": true,
+      "nonstudy_frozen_files_equal_exact_c2_git_objects": true,
+      "observed_step_call_inventory_matches_retained_receipt_scope": true,
+      "operation_keys_unique_and_chronological": true,
+      "ordinary_full_scan_validation_controls_each_revision": true,
+      "ordinary_two_stale_refusals_no_content_two_current_acceptances": true,
+      "proofflow_two_stale_refusals_no_content_two_current_acceptances": true,
+      "raw_evidence_values_match_frozen_oracle_and_summaries": true,
+      "reproducible_offline_core_replay_passed": true,
+      "review_and_authorization_bind_exact_freeze": true,
+      "root_authorization_digest_exact": true,
+      "run_terminal_both_arms_pass_no_errors": true,
+      "single_retained_attempt_directory": true,
+      "stale_scope_exact_four_heads_other_four_current": true,
+      "update_boundary_zero_recorded_calls_no_new_displayed_execution_ids_or_artifact_heads": true,
+      "update_saved_accounting_matches_observed_invocations": true
+    },
+    "checks_passed": 44,
+    "first_audit_draft_sha256": "a8a3ae261d98f7c9203449ceca2b173fd5f75e6dc61ed7418b35370cafd2b253",
+    "status": "passed"
+  },
+  "independent_postrun_audit_sha256": "96615fa0204248d030f6e15b4c6ee77970dd5a4ceedcf7050c3147e74ec79bdc",
+  "limitations": [
+    "Same known public dataset; not an unseen or sealed holdout. Earlier eligibility/invoice-span scans covered the workbook.",
+    "No refund/support observations: empty sources are modeled zero defaults, not observed zero activity.",
+    "One local API paired workflow, one authored FX correction, no hosted/browser or model run.",
+    "Logical outputs and registered invocations have different units; no timing, compute-saving, cost, learning, adoption or broad-generalization claim.",
+    "Ordered single-writer guarded handoff, not concurrency or crash recovery.",
+    "Snapshot bytes remain private; their original hashes and the audited preservation outcome are projected here.",
+    "Native execution is not independently attested by this sanitized projection; raw attempt remains private.",
+    "Complete update-boundary execution-list equality relies on the frozen live assertion; the saved visualization displays seven initial executions."
+  ],
+  "native_stale_paths": {
+    "company": [
+      {
+        "edges": [
+          {
+            "kind": "CONSUMED",
+            "source": "source.fx.v1",
+            "target": "execution.regional.v1"
+          },
+          {
+            "kind": "PRODUCED",
+            "source": "execution.regional.v1",
+            "target": "artifact.regional.v1"
+          },
+          {
+            "kind": "CONSUMED",
+            "source": "artifact.regional.v1",
+            "target": "execution.company.v1"
+          },
+          {
+            "kind": "PRODUCED",
+            "source": "execution.company.v1",
+            "target": "artifact.company.v1"
+          },
+          {
+            "kind": "CONSUMED",
+            "source": "artifact.company.v1",
+            "target": "execution.company_report.v1"
+          },
+          {
+            "kind": "PRODUCED",
+            "source": "execution.company_report.v1",
+            "target": "artifact.company_report.v1"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "source.fx.v1",
+            "kind": "source",
+            "label": "Explicit exchange rates"
+          },
+          {
+            "id": "execution.regional.v1",
+            "kind": "execution",
+            "label": "Execute convert_to_usd"
+          },
+          {
+            "id": "artifact.regional.v1",
+            "kind": "artifact",
+            "label": "Regional USD revenue"
+          },
+          {
+            "id": "execution.company.v1",
+            "kind": "execution",
+            "label": "Execute company_total"
+          },
+          {
+            "id": "artifact.company.v1",
+            "kind": "artifact",
+            "label": "Company revenue"
+          },
+          {
+            "id": "execution.company_report.v1",
+            "kind": "execution",
+            "label": "Execute compose_report"
+          },
+          {
+            "id": "artifact.company_report.v1",
+            "kind": "artifact",
+            "label": "Imported company revenue"
+          }
+        ],
+        "source_id": "source.fx.v1",
+        "target_id": "artifact.company_report.v1"
+      }
+    ],
+    "region": [
+      {
+        "edges": [
+          {
+            "kind": "CONSUMED",
+            "source": "source.fx.v1",
+            "target": "execution.regional.v1"
+          },
+          {
+            "kind": "PRODUCED",
+            "source": "execution.regional.v1",
+            "target": "artifact.regional.v1"
+          },
+          {
+            "kind": "CONSUMED",
+            "source": "artifact.regional.v1",
+            "target": "execution.region_report.v1"
+          },
+          {
+            "kind": "PRODUCED",
+            "source": "execution.region_report.v1",
+            "target": "artifact.region_report.v1"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "source.fx.v1",
+            "kind": "source",
+            "label": "Explicit exchange rates"
+          },
+          {
+            "id": "execution.regional.v1",
+            "kind": "execution",
+            "label": "Execute convert_to_usd"
+          },
+          {
+            "id": "artifact.regional.v1",
+            "kind": "artifact",
+            "label": "Regional USD revenue"
+          },
+          {
+            "id": "execution.region_report.v1",
+            "kind": "execution",
+            "label": "Execute compose_report"
+          },
+          {
+            "id": "artifact.region_report.v1",
+            "kind": "artifact",
+            "label": "United Kingdom revenue brief"
+          }
+        ],
+        "source_id": "source.fx.v1",
+        "target_id": "artifact.region_report.v1"
+      }
+    ]
+  },
+  "operations": [
+    {
+      "arm": "ordinary",
+      "at": "2026-11-15T22:45:39.291312+00:00",
+      "step": "initial.start"
+    },
+    {
+      "arm": "ordinary",
+      "at": "2026-11-15T22:45:39.292075+00:00",
+      "step": "initial.publish-source"
+    },
+    {
+      "accepted": true,
+      "arm": "ordinary",
+      "at": "2026-11-15T22:45:39.296749+00:00",
+      "report_content_returned": true,
+      "step": "initial.current"
+    },
+    {
+      "arm": "ordinary",
+      "at": "2026-11-15T22:45:39.297237+00:00",
+      "step": "fx-correction.start"
+    },
+    {
+      "arm": "ordinary",
+      "at": "2026-11-15T22:45:39.297851+00:00",
+      "step": "fx-correction.publish-source"
+    },
+    {
+      "accepted": false,
+      "arm": "ordinary",
+      "at": "2026-11-15T22:45:39.297944+00:00",
+      "report_content_returned": false,
+      "step": "fx-correction.old-during"
+    },
+    {
+      "accepted": false,
+      "arm": "ordinary",
+      "at": "2026-11-15T22:45:39.300351+00:00",
+      "report_content_returned": false,
+      "step": "fx-correction.old-after"
+    },
+    {
+      "accepted": true,
+      "arm": "ordinary",
+      "at": "2026-11-15T22:45:39.300438+00:00",
+      "report_content_returned": true,
+      "step": "fx-correction.current"
+    },
+    {
+      "actual_sha256": "33d579be5eeaf95bfbb90d054b3ddabfebc85d1e6796d7361015e3c23ed2cf70",
+      "arm": "ordinary",
+      "at": "2026-11-15T22:45:39.300571+00:00",
+      "expected_sha256": "33d579be5eeaf95bfbb90d054b3ddabfebc85d1e6796d7361015e3c23ed2cf70",
+      "file": "ordinary-initial.txt",
+      "step": "fx-correction.retained-file"
+    },
+    {
+      "arm": "ordinary",
+      "at": "2026-11-15T22:45:39.300881+00:00",
+      "step": "passed"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:39.531769+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/health",
+      "step": "health"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 8,
+        "verification": 0
+      },
+      "analytics_calls": [
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "gross_by_region"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "refunds_by_region"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "net_by_region"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "convert_to_usd"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "company_total"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "support_by_region"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "compose_report"
+        }
+      ],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:41.467422+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "POST",
+      "route": "/api/session",
+      "step": "session.bootstrap"
+    },
+    {
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:41.468200+00:00",
+      "step": "initial.start"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 8,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "gross_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "refunds_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "net_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "convert_to_usd"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "company_total"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "support_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "compose_report"
+        }
+      ],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:41.479803+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "POST",
+      "route": "/api/import/preview",
+      "step": "initial.preview"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 8,
+        "recorded": 8,
+        "verification": 11
+      },
+      "analytics_calls": [
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "gross_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "refunds_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "net_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "convert_to_usd"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "company_total"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "support_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "gross_by_region"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "refunds_by_region"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "net_by_region"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "convert_to_usd"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "company_total"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "support_by_region"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "gross_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "refunds_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "net_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "convert_to_usd"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "company_total"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "gross_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "refunds_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "net_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "convert_to_usd"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "compose_report"
+        }
+      ],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.363210+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "POST",
+      "route": "/api/import/create",
+      "step": "initial.create"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.374204+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "initial.evidence.gross"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.387251+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "initial.evidence.regional"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.399378+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "initial.evidence.refunds"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.416320+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "initial.evidence.company_report"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.431718+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "initial.evidence.company"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.442130+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "initial.evidence.support"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.453997+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "initial.evidence.net"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.469605+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "initial.evidence.region_report"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.607396+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/state",
+      "step": "initial.reload-current"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.666297+00:00",
+      "cache_control": "no-store",
+      "error": null,
+      "http_status": 200,
+      "method": "POST",
+      "route": "/api/import/export",
+      "step": "initial.current"
+    },
+    {
+      "accepted": true,
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.666365+00:00",
+      "report_content_returned": true,
+      "step": "initial.current-verdict"
+    },
+    {
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.666721+00:00",
+      "step": "fx-correction.start"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 8,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "gross_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "refunds_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "net_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "convert_to_usd"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "company_total"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "support_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "compose_report"
+        }
+      ],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.674374+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "POST",
+      "route": "/api/import/preview",
+      "step": "fx-correction.preview"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 8,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "gross_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "refunds_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "net_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "convert_to_usd"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "company_total"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "support_by_region"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "preflight",
+          "status": "success",
+          "tool": "compose_report"
+        }
+      ],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.875190+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "POST",
+      "route": "/api/import/update",
+      "step": "fx-correction.update"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.892750+00:00",
+      "cache_control": "no-store",
+      "error": {
+        "code": "evidence_unavailable",
+        "message": "Both imported reports and their revenue claims must be current and complete"
+      },
+      "http_status": 409,
+      "method": "POST",
+      "route": "/api/import/export",
+      "step": "fx-correction.old-during"
+    },
+    {
+      "accepted": false,
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:43.892896+00:00",
+      "error": {
+        "code": "evidence_unavailable",
+        "message": "Both imported reports and their revenue claims must be current and complete"
+      },
+      "http_status": 409,
+      "report_content_returned": false,
+      "step": "fx-correction.old-during-verdict"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:44.031502+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/state",
+      "step": "fx-correction.fresh-stale-state"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:44.049544+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "fx-correction.stale-evidence.company"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:44.067539+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "fx-correction.stale-evidence.region"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 4,
+        "verification": 11
+      },
+      "analytics_calls": [
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "convert_to_usd"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "company_total"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "recorded",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "gross_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "refunds_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "net_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "convert_to_usd"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "company_total"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "compose_report"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "gross_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "refunds_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "net_by_region"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "convert_to_usd"
+        },
+        {
+          "category": "verification",
+          "status": "success",
+          "tool": "compose_report"
+        }
+      ],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.066935+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "POST",
+      "route": "/api/import/refresh",
+      "step": "fx-correction.refresh"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.072512+00:00",
+      "cache_control": "no-store",
+      "error": {
+        "code": "evidence_unavailable",
+        "message": "Both imported reports and their revenue claims must be current and complete"
+      },
+      "http_status": 409,
+      "method": "POST",
+      "route": "/api/import/export",
+      "step": "fx-correction.old-after"
+    },
+    {
+      "accepted": false,
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.072588+00:00",
+      "error": {
+        "code": "evidence_unavailable",
+        "message": "Both imported reports and their revenue claims must be current and complete"
+      },
+      "http_status": 409,
+      "report_content_returned": false,
+      "step": "fx-correction.old-after-verdict"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.094387+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "fx-correction.evidence.region_report"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.109782+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "fx-correction.evidence.gross"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.134577+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "fx-correction.evidence.regional"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.157495+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "fx-correction.evidence.company_report"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.177158+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "fx-correction.evidence.refunds"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.205086+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "fx-correction.evidence.company"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.221087+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "fx-correction.evidence.support"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.244528+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/evidence/<artifact>",
+      "step": "fx-correction.evidence.net"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.434596+00:00",
+      "cache_control": null,
+      "error": null,
+      "http_status": 200,
+      "method": "GET",
+      "route": "/api/import/state",
+      "step": "fx-correction.reload-current"
+    },
+    {
+      "actual_calculation_counts": {
+        "preflight": 0,
+        "recorded": 0,
+        "verification": 0
+      },
+      "analytics_calls": [],
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.509888+00:00",
+      "cache_control": "no-store",
+      "error": null,
+      "http_status": 200,
+      "method": "POST",
+      "route": "/api/import/export",
+      "step": "fx-correction.current"
+    },
+    {
+      "accepted": true,
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.509953+00:00",
+      "report_content_returned": true,
+      "step": "fx-correction.current-verdict"
+    },
+    {
+      "actual_sha256": "8be9833cdaa67f2ed14bc88daab30ec74938b1e6e6fd5fd10f5b2fed963e6234",
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.510119+00:00",
+      "expected_sha256": "8be9833cdaa67f2ed14bc88daab30ec74938b1e6e6fd5fd10f5b2fed963e6234",
+      "file": "proofflow-initial.txt",
+      "step": "fx-correction.retained-file"
+    },
+    {
+      "arm": "proofflow",
+      "at": "2026-11-15T22:45:45.511994+00:00",
+      "step": "passed"
+    }
+  ],
+  "ordinary": {
+    "fx-correction": {
+      "input_revision_sha256": "21f019e49a9b2a0283dcd03b762eab145ce1b4887c59f1fc1098e75e874bf5cb",
+      "old_values_equal": [
+        "gross",
+        "net",
+        "refunds",
+        "support"
+      ],
+      "outputs": {
+        "company": 1288818,
+        "company_report": 1288818,
+        "gross": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "net": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "refunds": {},
+        "region_report": 1226874,
+        "regional": {
+          "Belgium": 61944,
+          "United Kingdom": 1226874
+        },
+        "support": {}
+      },
+      "recalculation": {
+        "fresh_logical_outputs": [
+          "company",
+          "company_report",
+          "gross",
+          "net",
+          "refunds",
+          "region_report",
+          "regional",
+          "support"
+        ],
+        "full_csv_scans": 1,
+        "input_validation_passed": true,
+        "reconciliation_controls": {
+          "company_report_reconciles_to_region_plus_remaining_regions": true,
+          "grouped_net_matches_row_net_for_each_region": true,
+          "selected_report_matches_converted_region": true,
+          "support_matches_input_control_total": true
+        },
+        "region_currencies": {
+          "Belgium": "GBP",
+          "United Kingdom": "GBP"
+        },
+        "validated_rows": 933
+      },
+      "snapshot_sha256": "1265e2533e70565ad60d13c04c379e2a409faad0f706e17b7528255e13be8cae",
+      "source": {
+        "csv_sha256": "d128b57d741ad34c1252c51c271272529602555272869690f76d86cb9b02a985",
+        "rates": {
+          "GBP": "1.30"
+        },
+        "region": "United Kingdom"
+      }
+    },
+    "initial": {
+      "input_revision_sha256": "681490f89f94f02b3118f747cff739148060ca655d2f1dc5977f3f995254a5fd",
+      "old_values_equal": [],
+      "outputs": {
+        "company": 1239247,
+        "company_report": 1239247,
+        "gross": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "net": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "refunds": {},
+        "region_report": 1179686,
+        "regional": {
+          "Belgium": 59561,
+          "United Kingdom": 1179686
+        },
+        "support": {}
+      },
+      "recalculation": {
+        "fresh_logical_outputs": [
+          "company",
+          "company_report",
+          "gross",
+          "net",
+          "refunds",
+          "region_report",
+          "regional",
+          "support"
+        ],
+        "full_csv_scans": 1,
+        "input_validation_passed": true,
+        "reconciliation_controls": {
+          "company_report_reconciles_to_region_plus_remaining_regions": true,
+          "grouped_net_matches_row_net_for_each_region": true,
+          "selected_report_matches_converted_region": true,
+          "support_matches_input_control_total": true
+        },
+        "region_currencies": {
+          "Belgium": "GBP",
+          "United Kingdom": "GBP"
+        },
+        "validated_rows": 933
+      },
+      "snapshot_sha256": "33d579be5eeaf95bfbb90d054b3ddabfebc85d1e6796d7361015e3c23ed2cf70",
+      "source": {
+        "csv_sha256": "d128b57d741ad34c1252c51c271272529602555272869690f76d86cb9b02a985",
+        "rates": {
+          "GBP": "1.25"
+        },
+        "region": "United Kingdom"
+      }
+    }
+  },
+  "preregistration": {
+    "freeze_sha256": "855e22cec6cc68afd80cb0b2f4c98749e06cdaaf76b1551cb50c6241204d2cdd",
+    "independent_pre_execution_review_sha256": "3149cf93de13fc4ed6817b2ee9468820b8016e44c081545722947a02f42576a4",
+    "protocol_sha256": "a3d1ac8b8820e632e341373efaa983717275d34a324c63dbe0f50b3204987c84",
+    "selection_freeze_sha256": "e48684119133192701991364c661b9d757386c57169ef49925a971210d3a2894"
+  },
+  "projection": {
+    "identifiers": "consistent semantic aliases; original session/workspace/artifact/receipt IDs omitted",
+    "kind": "sanitized_observation_projection",
+    "native_execution_independently_attested": false,
+    "raw_attempt_retained_privately": true,
+    "scope": "Values and CSV/source-cell arithmetic can be recomputed offline. Normalized execution observations are an audited projection of a private raw attempt; hashes are commitments, not independently available raw evidence."
+  },
+  "proofflow": {
+    "fx-correction": {
+      "artifact_ids": {
+        "company": "artifact.company.v2",
+        "company_report": "artifact.company_report.v2",
+        "gross": "artifact.gross.v1",
+        "net": "artifact.net.v1",
+        "refunds": "artifact.refunds.v1",
+        "region_report": "artifact.region_report.v2",
+        "regional": "artifact.regional.v2",
+        "support": "artifact.support.v1"
+      },
+      "backend": {
+        "engine": "HydraDB OSS",
+        "fallback": false,
+        "native_queries": 222
+      },
+      "input_revision_sha256": "21f019e49a9b2a0283dcd03b762eab145ce1b4887c59f1fc1098e75e874bf5cb",
+      "outputs": {
+        "company": 1288818,
+        "company_report": 1288818,
+        "gross": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "net": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "refunds": {},
+        "region_report": 1226874,
+        "regional": {
+          "Belgium": 61944,
+          "United Kingdom": 1226874
+        },
+        "support": {}
+      },
+      "receipt_ids": {
+        "company": "execution.company.v2",
+        "company_report": "execution.company_report.v2",
+        "gross": "execution.gross.v1",
+        "net": "execution.net.v1",
+        "refunds": "execution.refunds.v1",
+        "region_report": "execution.region_report.v2",
+        "regional": "execution.regional.v2",
+        "support": "execution.support.v1"
+      },
+      "report_ids": {
+        "company": "artifact.company_report.v2",
+        "region": "artifact.region_report.v2"
+      },
+      "retained_work": {
+        "new_receipt_ids": [
+          "execution.regional.v2",
+          "execution.company_report.v2",
+          "execution.region_report.v2",
+          "execution.company.v2"
+        ],
+        "recorded_outputs": [
+          "company",
+          "company_report",
+          "region_report",
+          "regional"
+        ],
+        "retained_heads_and_receipts": [
+          "gross",
+          "net",
+          "refunds",
+          "support"
+        ],
+        "tool_calls": [
+          {
+            "output_id": "artifact.regional.v2",
+            "status": "success",
+            "tool": "convert_to_usd"
+          },
+          {
+            "output_id": "artifact.company.v2",
+            "status": "success",
+            "tool": "company_total"
+          },
+          {
+            "output_id": "artifact.company_report.v2",
+            "status": "success",
+            "tool": "compose_report"
+          },
+          {
+            "output_id": "artifact.region_report.v2",
+            "status": "success",
+            "tool": "compose_report"
+          }
+        ]
+      },
+      "snapshot_sha256": "adfd5bab83112df7ff4776d169e6ca870047da99668525186778ba5fa38a4169",
+      "source": {
+        "csv_sha256": "d128b57d741ad34c1252c51c271272529602555272869690f76d86cb9b02a985",
+        "rates": {
+          "GBP": "1.30"
+        },
+        "region": "United Kingdom"
+      },
+      "sources": {
+        "fx": {
+          "content_hash": "0fb18da3fae741280bbfdf8d32244ed08b197d321307c82c8950f05da2f860fc",
+          "id": "source.fx.v2",
+          "name": "fx",
+          "removed": false,
+          "summary": {
+            "GBP": "1.3",
+            "USD": "1"
+          }
+        },
+        "orders": {
+          "content_hash": "64f0a54124176e0812f9bf0b4fab8294d661b8e590a503621681adbf49b5de1a",
+          "id": "source.orders.v1",
+          "name": "orders",
+          "removed": false,
+          "summary": {
+            "rows": 933
+          }
+        },
+        "refunds": {
+          "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "id": "source.refunds.v1",
+          "name": "refunds",
+          "removed": false,
+          "summary": {
+            "rows": 0
+          }
+        },
+        "tickets": {
+          "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "id": "source.tickets.v1",
+          "name": "tickets",
+          "removed": false,
+          "summary": {
+            "rows": 0
+          }
+        }
+      },
+      "stale_boundary": {
+        "affected": [
+          "company",
+          "company_report",
+          "region_report",
+          "regional"
+        ],
+        "heads": {
+          "company": {
+            "current_head": true,
+            "id": "artifact.company.v1",
+            "kind": "artifact",
+            "label": "Company revenue",
+            "logical_id": "import:metric:company",
+            "state": "stale"
+          },
+          "company_report": {
+            "current_head": true,
+            "id": "artifact.company_report.v1",
+            "kind": "artifact",
+            "label": "Imported company revenue",
+            "logical_id": "import:report:company",
+            "state": "stale"
+          },
+          "gross": {
+            "current_head": true,
+            "id": "artifact.gross.v1",
+            "kind": "artifact",
+            "label": "Gross regional revenue",
+            "logical_id": "import:metric:gross",
+            "state": "current"
+          },
+          "net": {
+            "current_head": true,
+            "id": "artifact.net.v1",
+            "kind": "artifact",
+            "label": "Net regional revenue",
+            "logical_id": "import:metric:net",
+            "state": "current"
+          },
+          "refunds": {
+            "current_head": true,
+            "id": "artifact.refunds.v1",
+            "kind": "artifact",
+            "label": "Regional refunds",
+            "logical_id": "import:metric:refunds",
+            "state": "current"
+          },
+          "region_report": {
+            "current_head": true,
+            "id": "artifact.region_report.v1",
+            "kind": "artifact",
+            "label": "United Kingdom revenue brief",
+            "logical_id": "import:report:region",
+            "state": "stale"
+          },
+          "regional": {
+            "current_head": true,
+            "id": "artifact.regional.v1",
+            "kind": "artifact",
+            "label": "Regional USD revenue",
+            "logical_id": "import:metric:regional",
+            "state": "stale"
+          },
+          "support": {
+            "current_head": true,
+            "id": "artifact.support.v1",
+            "kind": "artifact",
+            "label": "Imported support counts",
+            "logical_id": "import:metric:support",
+            "state": "current"
+          }
+        },
+        "native_path_counts": {
+          "company": 1,
+          "region": 1
+        },
+        "state": [
+          {
+            "claims": [
+              {
+                "artifact_id": "artifact.company.v1",
+                "key": "company_revenue",
+                "label": "Company net revenue",
+                "path": [
+                  "usd_cents"
+                ],
+                "reasons": [
+                  {
+                    "current_id": "source.fx.v2",
+                    "id": "source.fx.v1",
+                    "logical_id": "source:csv:fx",
+                    "reason": "version_changed"
+                  }
+                ],
+                "saved_value": 1239247,
+                "state": "stale",
+                "unit": "USD cents",
+                "value": null
+              }
+            ],
+            "id": "artifact.company_report.v1",
+            "key": "company",
+            "run_id": "csv-company-run",
+            "state": "stale",
+            "title": "Imported company revenue"
+          },
+          {
+            "claims": [
+              {
+                "artifact_id": "artifact.regional.v1",
+                "key": "regional_revenue",
+                "label": "United Kingdom net revenue",
+                "path": [
+                  "regions",
+                  "United Kingdom",
+                  "usd_cents"
+                ],
+                "reasons": [
+                  {
+                    "current_id": "source.fx.v2",
+                    "id": "source.fx.v1",
+                    "logical_id": "source:csv:fx",
+                    "reason": "version_changed"
+                  }
+                ],
+                "saved_value": 1179686,
+                "state": "stale",
+                "unit": "USD cents",
+                "value": null
+              }
+            ],
+            "id": "artifact.region_report.v1",
+            "key": "region",
+            "run_id": "csv-region-run",
+            "state": "stale",
+            "title": "United Kingdom revenue brief"
+          }
+        ],
+        "superseded_source_id": "source.fx.v1",
+        "updated_sources": {
+          "fx": {
+            "content_hash": "0fb18da3fae741280bbfdf8d32244ed08b197d321307c82c8950f05da2f860fc",
+            "id": "source.fx.v2",
+            "name": "fx",
+            "removed": false,
+            "summary": {
+              "GBP": "1.3",
+              "USD": "1"
+            }
+          },
+          "orders": {
+            "content_hash": "64f0a54124176e0812f9bf0b4fab8294d661b8e590a503621681adbf49b5de1a",
+            "id": "source.orders.v1",
+            "name": "orders",
+            "removed": false,
+            "summary": {
+              "rows": 933
+            }
+          },
+          "refunds": {
+            "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "id": "source.refunds.v1",
+            "name": "refunds",
+            "removed": false,
+            "summary": {
+              "rows": 0
+            }
+          },
+          "tickets": {
+            "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "id": "source.tickets.v1",
+            "name": "tickets",
+            "removed": false,
+            "summary": {
+              "rows": 0
+            }
+          }
+        }
+      }
+    },
+    "initial": {
+      "artifact_ids": {
+        "company": "artifact.company.v1",
+        "company_report": "artifact.company_report.v1",
+        "gross": "artifact.gross.v1",
+        "net": "artifact.net.v1",
+        "refunds": "artifact.refunds.v1",
+        "region_report": "artifact.region_report.v1",
+        "regional": "artifact.regional.v1",
+        "support": "artifact.support.v1"
+      },
+      "backend": {
+        "engine": "HydraDB OSS",
+        "fallback": false,
+        "native_queries": 320
+      },
+      "input_revision_sha256": "681490f89f94f02b3118f747cff739148060ca655d2f1dc5977f3f995254a5fd",
+      "outputs": {
+        "company": 1239247,
+        "company_report": 1239247,
+        "gross": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "net": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "refunds": {},
+        "region_report": 1179686,
+        "regional": {
+          "Belgium": 59561,
+          "United Kingdom": 1179686
+        },
+        "support": {}
+      },
+      "receipt_ids": {
+        "company": "execution.company.v1",
+        "company_report": "execution.company_report.v1",
+        "gross": "execution.gross.v1",
+        "net": "execution.net.v1",
+        "refunds": "execution.refunds.v1",
+        "region_report": "execution.region_report.v1",
+        "regional": "execution.regional.v1",
+        "support": "execution.support.v1"
+      },
+      "report_ids": {
+        "company": "artifact.company_report.v1",
+        "region": "artifact.region_report.v1"
+      },
+      "retained_work": {
+        "recorded_outputs": [
+          "company",
+          "company_report",
+          "gross",
+          "net",
+          "refunds",
+          "region_report",
+          "regional",
+          "support"
+        ],
+        "retained_heads_and_receipts": []
+      },
+      "snapshot_sha256": "8be9833cdaa67f2ed14bc88daab30ec74938b1e6e6fd5fd10f5b2fed963e6234",
+      "source": {
+        "csv_sha256": "d128b57d741ad34c1252c51c271272529602555272869690f76d86cb9b02a985",
+        "rates": {
+          "GBP": "1.25"
+        },
+        "region": "United Kingdom"
+      },
+      "sources": {
+        "fx": {
+          "content_hash": "cb3971be50451f5da408d189c52d84311088dba59875e632074260495c4cce85",
+          "id": "source.fx.v1",
+          "name": "fx",
+          "removed": false,
+          "summary": {
+            "GBP": "1.25",
+            "USD": "1"
+          }
+        },
+        "orders": {
+          "content_hash": "64f0a54124176e0812f9bf0b4fab8294d661b8e590a503621681adbf49b5de1a",
+          "id": "source.orders.v1",
+          "name": "orders",
+          "removed": false,
+          "summary": {
+            "rows": 933
+          }
+        },
+        "refunds": {
+          "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "id": "source.refunds.v1",
+          "name": "refunds",
+          "removed": false,
+          "summary": {
+            "rows": 0
+          }
+        },
+        "tickets": {
+          "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "id": "source.tickets.v1",
+          "name": "tickets",
+          "removed": false,
+          "summary": {
+            "rows": 0
+          }
+        }
+      },
+      "stale_boundary": null
+    }
+  },
+  "raw_file_hashes": {
+    "operations.jsonl": {
+      "bytes": 22124,
+      "sha256": "15971aa62075e5dc8c19df5e7729b7ca3c94c08ac85c86ddd2da25875b925e43"
+    },
+    "ordinary-fx-correction-calculation.json": {
+      "bytes": 1037,
+      "sha256": "6da206e1c974496d7134e913982b53d99b29e03c1508b907337fd0682e71bdbf"
+    },
+    "ordinary-fx-correction.txt": {
+      "bytes": 373,
+      "sha256": "1265e2533e70565ad60d13c04c379e2a409faad0f706e17b7528255e13be8cae"
+    },
+    "ordinary-initial-calculation.json": {
+      "bytes": 1037,
+      "sha256": "eb2a747afcdff707e8acfeb4b74d54dfdb0ac41a0173be2bb151cb40cebee641"
+    },
+    "ordinary-initial.txt": {
+      "bytes": 373,
+      "sha256": "33d579be5eeaf95bfbb90d054b3ddabfebc85d1e6796d7361015e3c23ed2cf70"
+    },
+    "ordinary-progress.json": {
+      "bytes": 3179,
+      "sha256": "e6df34b0f4cb08e171d98220494fcc840b9189f2e6f28e39289477cd4e6f87a3"
+    },
+    "proofflow-demo-bootstrap.json": {
+      "bytes": 8215,
+      "sha256": "f56d6b9309cf2d0f7b050fb6e37ecd97ebdffe51b2e95a690fb8834e9365d15f"
+    },
+    "proofflow-fx-correction-current-evidence.json": {
+      "bytes": 19088,
+      "sha256": "3ab6ae2d6c1dcb3716bdf3a0d88bb03294d379574565988b168e7e6dddfe64af"
+    },
+    "proofflow-fx-correction-preview.json": {
+      "bytes": 597,
+      "sha256": "8af8b8d30fdca4a1e56dc92d342880aae32993e1ea8df39ed37cf56e4201bd9f"
+    },
+    "proofflow-fx-correction-stale-paths.json": {
+      "bytes": 6434,
+      "sha256": "cef1df64720818f83eae91cab2cbb2479c6fff91686c671140fa91f30cc8e154"
+    },
+    "proofflow-fx-correction-update.json": {
+      "bytes": 21215,
+      "sha256": "d5357bb851314bcd095091543f913da749a8d374e1df9efd1bdcdf33c10c6848"
+    },
+    "proofflow-fx-correction.txt": {
+      "bytes": 822,
+      "sha256": "adfd5bab83112df7ff4776d169e6ca870047da99668525186778ba5fa38a4169"
+    },
+    "proofflow-initial-current-evidence.json": {
+      "bytes": 18887,
+      "sha256": "ff795f9ed23daafb9449d59d85737a1af3db2b9b7f90b2f893cdea9fb4eb7f4f"
+    },
+    "proofflow-initial-preview.json": {
+      "bytes": 598,
+      "sha256": "e8bfa195c8664a37710f96a48c48fb39e803b7ccb3d34f6930ce2d96161563c2"
+    },
+    "proofflow-initial.txt": {
+      "bytes": 822,
+      "sha256": "8be9833cdaa67f2ed14bc88daab30ec74938b1e6e6fd5fd10f5b2fed963e6234"
+    },
+    "proofflow-progress.json": {
+      "bytes": 18636,
+      "sha256": "cc924ec36db42bd93a83b5782176fff703ed9ee1d1dde7f9584acd060da11e18"
+    },
+    "run.json": {
+      "bytes": 1134,
+      "sha256": "5a0d57d33821375b223650d02ad86ea8ddfb2fce25734ea55171d89c2a6a261f"
+    }
+  },
+  "raw_hash_manifest_sha256": "9cb61dd967dcaa8cf17df164f48dc1b508285a90bc0ed9c15fa7ec91840df90a",
+  "run": {
+    "arm_status": {
+      "ordinary": "passed",
+      "proofflow": "passed"
+    },
+    "attempt": 1,
+    "finished_at_utc": "2026-11-15T22:45:45.518189+00:00",
+    "hosted_app_writes": 0,
+    "model_calls": 0,
+    "started_at_utc": "2026-11-15T22:45:39.175791+00:00",
+    "status": "passed",
+    "timing_comparison": false
+  },
+  "schema_version": 1,
+  "source_commit": "c2c19c1397026e136bf7648ddb0604a4d2ea6d7f",
+  "study": "fresh-multicountry-v1"
+}

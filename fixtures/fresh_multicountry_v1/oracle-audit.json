@@ -1,0 +1,33 @@
+{
+  "files": {
+    "orders.csv": {
+      "bytes": 42105,
+      "sha256": "d128b57d741ad34c1252c51c271272529602555272869690f76d86cb9b02a985"
+    },
+    "source_cells.csv": {
+      "bytes": 52654,
+      "sha256": "ad60005fd96654e8b2257cf1f62861992ac6399d17d59ad14e026e7b524f3b79"
+    }
+  },
+  "gross_gbp_cents_by_region": {
+    "Belgium": 47649,
+    "United Kingdom": 943749
+  },
+  "invoices": 32,
+  "missing_observation_policy": "Omitted fields use zero defaults; zero activity is not observed.",
+  "missing_observations": [
+    "refund_cents",
+    "ticket_count"
+  ],
+  "region_currencies": {
+    "Belgium": "GBP",
+    "United Kingdom": "GBP"
+  },
+  "rows": 933,
+  "rows_by_region": {
+    "Belgium": 26,
+    "United Kingdom": 907
+  },
+  "selected_date": "2011-04-10",
+  "selected_region": "United Kingdom"
+}

@@ -1,0 +1,72 @@
+{
+  "application_or_arm_runs": 0,
+  "cases": [
+    {
+      "affected_outputs": [],
+      "changed_source": null,
+      "csv": "orders.csv",
+      "expected": {
+        "company": 1239247,
+        "company_report": 1239247,
+        "gross": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "net": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "refunds": {},
+        "region_report": 1179686,
+        "regional": {
+          "Belgium": 59561,
+          "United Kingdom": 1179686
+        },
+        "support": {}
+      },
+      "id": "initial",
+      "rates": {
+        "GBP": "1.25"
+      }
+    },
+    {
+      "affected_outputs": [
+        "regional",
+        "company",
+        "company_report",
+        "region_report"
+      ],
+      "changed_source": "fx",
+      "csv": "orders.csv",
+      "expected": {
+        "company": 1288818,
+        "company_report": 1288818,
+        "gross": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "net": {
+          "Belgium": 47649,
+          "United Kingdom": 943749
+        },
+        "refunds": {},
+        "region_report": 1226874,
+        "regional": {
+          "Belgium": 61944,
+          "United Kingdom": 1226874
+        },
+        "support": {}
+      },
+      "id": "fx-correction",
+      "rates": {
+        "GBP": "1.30"
+      }
+    }
+  ],
+  "region_currencies": {
+    "Belgium": "GBP",
+    "United Kingdom": "GBP"
+  },
+  "selected_region": "United Kingdom",
+  "study": "fresh-multicountry-v1"
+}
