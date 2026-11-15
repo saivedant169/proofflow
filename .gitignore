@@ -12,3 +12,4 @@ results/**/blobs/
 results/**/*.sqlite3
 results/**/*.sqlite3-wal
 results/**/*.sqlite3-shm
+results/mcp-*/state/

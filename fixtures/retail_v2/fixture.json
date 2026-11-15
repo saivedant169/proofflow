@@ -1,0 +1,7071 @@
+{
+  "version": "retail-v2-1",
+  "source": {
+    "page": "https://archive.ics.uci.edu/dataset/352/online%2Bretail",
+    "download": "https://archive.ics.uci.edu/static/public/352/online%2Bretail.zip",
+    "zip_sha256": "f5385cbb54bbebf7196389109c6b0621faab0c304e3702548165e71c84aede8b",
+    "xlsx_sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
+    "worksheet": "Online Retail",
+    "citation": "Chen, D. (2015). Online Retail. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "numeric_policy": "XLSX numeric XML decoded as finite binary64, shortest round-trip decimal string; exact Decimal quantity*GBP_price*100 integer pence; no monetary rounding",
+  "selection": {
+    "salt": "proofflow-retail-v2-invoices-1",
+    "max_rows_per_partition": 160,
+    "policy": "SHA256-order complete eligible invoice groups; skip a group if it exceeds remaining row capacity; all selected eligible lines retained; positive sales only"
+  },
+  "partitions_by_split": {
+    "dev": [
+      "2010-12"
+    ],
+    "test": [
+      "2011-02",
+      "2011-05",
+      "2011-08",
+      "2011-11"
+    ]
+  },
+  "partition_files": {
+    "2010-12": {
+      "csv": "2010-12.csv",
+      "csv_sha256": "1890ad058daf391517b0bd31219eda591d75ae2cd96644dde50bfb5ade391ea5",
+      "provenance": "2010-12.provenance.json",
+      "provenance_sha256": "ac34d081bb7868ec5000b1349529645205206328594f35115a44e08ac4d6c9d9",
+      "rows": 160,
+      "selected_region": "United Kingdom"
+    },
+    "2011-02": {
+      "csv": "2011-02.csv",
+      "csv_sha256": "2d45dba60a8609772bbf0ce94395e8cb991a6f8236024a6031ec0f322d7d531b",
+      "provenance": "2011-02.provenance.json",
+      "provenance_sha256": "218c017412bab12b09d6da4628288e95ff3ec379ea65363254a0370b39ae1579",
+      "rows": 160,
+      "selected_region": "United Kingdom"
+    },
+    "2011-05": {
+      "csv": "2011-05.csv",
+      "csv_sha256": "cf597ea7d212393c46a99fd7dca8f23d8bed422317378287b2efde45fd02e008",
+      "provenance": "2011-05.provenance.json",
+      "provenance_sha256": "181f365f2b0e62c0fcc20c8dde0b6fae32fcb7d2cbff671f031199c0df6d1875",
+      "rows": 160,
+      "selected_region": "France"
+    },
+    "2011-08": {
+      "csv": "2011-08.csv",
+      "csv_sha256": "8cc379ac28d0ab093fdeab90fffb9cb5ed05d7d26879a737c7b33ea2c2d2447c",
+      "provenance": "2011-08.provenance.json",
+      "provenance_sha256": "358282e3adfa6e709a911d6d646a5155e35fe7215321d88b2363d70838e20f87",
+      "rows": 160,
+      "selected_region": "United Kingdom"
+    },
+    "2011-11": {
+      "csv": "2011-11.csv",
+      "csv_sha256": "2cf7f7335b000fe4948580464cb8d7a38bb051a3a3f3ece4977012b0d4f695f3",
+      "provenance": "2011-11.provenance.json",
+      "provenance_sha256": "ee0cc058c5e6838202e06daee223c8c631720e9f9847502795f98714a4472f54",
+      "rows": 160,
+      "selected_region": "EIRE"
+    }
+  },
+  "profile": {
+    "worksheet_data_rows": 541909,
+    "partition_profiles": {
+      "2010-12": {
+        "eligibility_counts": {
+          "cancellation_invoice": 728,
+          "eligible": 41480,
+          "nonpositive_or_invalid_price": 203,
+          "nonpositive_or_noninteger_quantity": 70
+        },
+        "eligible_invoices": 1559,
+        "selected_invoices": [
+          "537135",
+          "537220",
+          "536530",
+          "536834",
+          "539310",
+          "536586",
+          "539269",
+          "539758",
+          "537801",
+          "536369"
+        ],
+        "selected_rows": 160,
+        "selected_countries": [
+          "United Kingdom"
+        ],
+        "skipped_invoice_groups_for_size": 1549,
+        "selected_original_row_numbers": [
+          27,
+          1192,
+          1193,
+          1194,
+          1195,
+          1196,
+          1197,
+          1198,
+          1199,
+          1200,
+          1201,
+          1202,
+          1203,
+          1204,
+          1205,
+          1206,
+          1207,
+          1208,
+          1209,
+          1210,
+          1211,
+          1212,
+          1213,
+          1214,
+          2368,
+          2369,
+          2370,
+          2371,
+          2372,
+          2373,
+          2374,
+          4990,
+          8333,
+          8334,
+          8335,
+          8336,
+          8337,
+          8338,
+          8339,
+          8340,
+          8341,
+          8342,
+          8343,
+          8344,
+          8345,
+          8346,
+          8347,
+          8348,
+          8349,
+          8350,
+          8351,
+          8352,
+          8353,
+          8354,
+          8355,
+          8356,
+          8357,
+          8358,
+          8359,
+          8360,
+          8361,
+          8362,
+          8363,
+          8364,
+          8365,
+          8366,
+          8367,
+          8368,
+          8369,
+          8370,
+          8371,
+          8372,
+          8373,
+          8374,
+          8375,
+          8376,
+          8377,
+          8378,
+          8379,
+          8380,
+          8381,
+          8382,
+          8383,
+          8384,
+          8385,
+          8386,
+          8387,
+          8388,
+          8389,
+          8390,
+          8391,
+          8392,
+          8393,
+          8394,
+          8395,
+          8396,
+          8397,
+          8398,
+          8399,
+          8400,
+          8401,
+          8402,
+          8403,
+          8404,
+          8405,
+          8406,
+          8407,
+          8408,
+          8409,
+          8410,
+          8411,
+          8412,
+          8413,
+          8414,
+          8415,
+          8416,
+          8417,
+          8418,
+          8419,
+          8420,
+          8421,
+          8422,
+          8423,
+          8424,
+          8425,
+          8426,
+          8427,
+          8428,
+          8429,
+          8430,
+          8431,
+          8432,
+          8433,
+          8434,
+          8435,
+          8436,
+          8437,
+          8438,
+          8439,
+          8440,
+          8441,
+          8442,
+          8443,
+          8444,
+          8445,
+          8446,
+          8447,
+          8448,
+          8449,
+          9870,
+          18148,
+          18149,
+          18150,
+          18151,
+          18152,
+          33610,
+          33611,
+          33612,
+          33972,
+          41190
+        ]
+      },
+      "2011-02": {
+        "eligibility_counts": {
+          "cancellation_invoice": 475,
+          "eligible": 27105,
+          "nonpositive_or_invalid_price": 79,
+          "nonpositive_or_noninteger_quantity": 48
+        },
+        "eligible_invoices": 1100,
+        "selected_invoices": [
+          "543831",
+          "543649",
+          "544637",
+          "544058",
+          "542928",
+          "545011",
+          "543548",
+          "543626",
+          "544305",
+          "543332",
+          "543284",
+          "543134",
+          "543168",
+          "544475",
+          "544805"
+        ],
+        "selected_rows": 160,
+        "selected_countries": [
+          "United Kingdom"
+        ],
+        "skipped_invoice_groups_for_size": 1085,
+        "selected_original_row_numbers": [
+          79270,
+          79271,
+          79272,
+          79273,
+          79274,
+          79275,
+          79276,
+          79277,
+          79278,
+          79279,
+          79280,
+          79281,
+          79282,
+          79283,
+          79284,
+          79285,
+          79286,
+          79287,
+          79288,
+          79289,
+          79290,
+          79291,
+          79292,
+          79293,
+          79294,
+          79295,
+          79296,
+          81479,
+          81640,
+          81641,
+          81642,
+          81643,
+          81644,
+          83120,
+          83121,
+          83122,
+          83123,
+          83124,
+          83125,
+          83126,
+          83127,
+          83572,
+          83573,
+          83574,
+          83575,
+          83576,
+          83577,
+          83578,
+          83579,
+          83580,
+          83581,
+          83582,
+          86483,
+          86484,
+          86485,
+          86486,
+          86487,
+          86488,
+          86489,
+          86490,
+          86491,
+          86492,
+          86493,
+          86494,
+          86495,
+          86496,
+          86497,
+          86498,
+          86499,
+          86500,
+          86501,
+          86502,
+          86966,
+          86967,
+          86968,
+          86969,
+          86970,
+          86971,
+          86972,
+          86973,
+          86974,
+          86975,
+          86976,
+          86977,
+          86978,
+          86979,
+          86980,
+          86981,
+          86982,
+          86983,
+          86984,
+          87285,
+          87286,
+          89215,
+          89216,
+          89217,
+          89218,
+          89219,
+          89220,
+          89221,
+          89222,
+          89223,
+          89224,
+          90621,
+          90622,
+          90623,
+          90624,
+          90625,
+          90626,
+          90627,
+          90628,
+          90629,
+          90630,
+          90631,
+          90632,
+          90633,
+          90634,
+          90635,
+          90636,
+          93685,
+          93686,
+          93687,
+          93688,
+          93689,
+          93690,
+          93691,
+          93692,
+          93693,
+          93694,
+          93695,
+          93696,
+          93697,
+          96051,
+          97486,
+          97487,
+          97488,
+          97489,
+          97490,
+          97491,
+          97492,
+          97493,
+          97494,
+          97495,
+          97496,
+          97497,
+          97498,
+          97499,
+          97500,
+          97501,
+          97502,
+          97503,
+          97504,
+          100155,
+          102313,
+          102314,
+          102315,
+          102316,
+          102317,
+          102318,
+          102319
+        ]
+      },
+      "2011-05": {
+        "eligibility_counts": {
+          "cancellation_invoice": 621,
+          "eligible": 36164,
+          "nonpositive_or_invalid_price": 128,
+          "nonpositive_or_noninteger_quantity": 117
+        },
+        "eligible_invoices": 1681,
+        "selected_invoices": [
+          "553927",
+          "553371",
+          "551850",
+          "552364",
+          "554538",
+          "553909",
+          "555005",
+          "551977",
+          "554855",
+          "552342",
+          "554272",
+          "553316",
+          "553411",
+          "552041",
+          "553839"
+        ],
+        "selected_rows": 160,
+        "selected_countries": [
+          "France",
+          "United Kingdom"
+        ],
+        "skipped_invoice_groups_for_size": 1666,
+        "selected_original_row_numbers": [
+          174784,
+          174785,
+          174786,
+          174787,
+          174788,
+          174789,
+          174790,
+          174791,
+          174792,
+          174793,
+          174794,
+          174795,
+          174796,
+          174797,
+          174798,
+          174799,
+          174800,
+          174801,
+          175601,
+          175602,
+          175603,
+          177112,
+          177113,
+          177114,
+          177115,
+          177116,
+          177117,
+          180757,
+          180758,
+          180848,
+          180849,
+          180850,
+          180851,
+          180852,
+          180853,
+          180854,
+          180855,
+          180856,
+          180857,
+          180858,
+          180859,
+          180860,
+          180861,
+          180862,
+          180863,
+          180864,
+          180865,
+          180866,
+          180867,
+          180868,
+          180869,
+          180870,
+          180871,
+          180872,
+          180873,
+          180874,
+          180875,
+          180876,
+          180877,
+          191113,
+          191114,
+          191115,
+          191116,
+          191117,
+          191118,
+          191119,
+          191497,
+          191498,
+          191499,
+          191500,
+          191501,
+          192387,
+          192388,
+          192389,
+          192390,
+          192391,
+          192392,
+          192393,
+          192394,
+          192395,
+          192396,
+          192397,
+          192398,
+          192399,
+          192400,
+          192401,
+          192402,
+          192403,
+          192404,
+          192405,
+          192406,
+          192407,
+          192408,
+          192409,
+          192410,
+          192411,
+          192412,
+          192413,
+          192414,
+          192415,
+          192416,
+          192417,
+          192418,
+          192419,
+          192420,
+          192421,
+          192422,
+          192423,
+          192424,
+          192425,
+          192426,
+          192427,
+          192428,
+          192429,
+          192430,
+          192431,
+          196361,
+          196362,
+          197449,
+          197450,
+          197451,
+          197452,
+          197453,
+          197454,
+          197455,
+          197456,
+          197457,
+          197690,
+          197691,
+          197692,
+          197693,
+          201150,
+          201151,
+          201152,
+          201153,
+          201154,
+          201155,
+          203646,
+          203647,
+          205978,
+          205979,
+          205980,
+          205981,
+          205982,
+          205983,
+          205984,
+          205985,
+          205986,
+          205987,
+          205988,
+          205989,
+          205990,
+          207802,
+          207803,
+          207804,
+          207805,
+          207806,
+          207807,
+          207808,
+          207809
+        ]
+      },
+      "2011-08": {
+        "eligibility_counts": {
+          "cancellation_invoice": 668,
+          "eligible": 34483,
+          "nonpositive_or_invalid_price": 83,
+          "nonpositive_or_noninteger_quantity": 50
+        },
+        "eligible_invoices": 1361,
+        "selected_invoices": [
+          "564181",
+          "562283",
+          "563198",
+          "562453",
+          "564189",
+          "563264",
+          "563620",
+          "562393",
+          "564967",
+          "564048"
+        ],
+        "selected_rows": 160,
+        "selected_countries": [
+          "United Kingdom"
+        ],
+        "skipped_invoice_groups_for_size": 1351,
+        "selected_original_row_numbers": [
+          289735,
+          289736,
+          289737,
+          289738,
+          289739,
+          289740,
+          289741,
+          289742,
+          289743,
+          289744,
+          289745,
+          289746,
+          289747,
+          289748,
+          289749,
+          289750,
+          289751,
+          289752,
+          289753,
+          289754,
+          289755,
+          289756,
+          289757,
+          289758,
+          289759,
+          289760,
+          289761,
+          289762,
+          289763,
+          289764,
+          289765,
+          289766,
+          289767,
+          289768,
+          289769,
+          289770,
+          289771,
+          290667,
+          290668,
+          290669,
+          290670,
+          290671,
+          290672,
+          290673,
+          290674,
+          290675,
+          290676,
+          290677,
+          290678,
+          290679,
+          290680,
+          290681,
+          290682,
+          290683,
+          290684,
+          290685,
+          290686,
+          290687,
+          290688,
+          290689,
+          290690,
+          290691,
+          290692,
+          290693,
+          291441,
+          291442,
+          291443,
+          291444,
+          291445,
+          291446,
+          291447,
+          291448,
+          291449,
+          291450,
+          291451,
+          300479,
+          300480,
+          300481,
+          300482,
+          300483,
+          300484,
+          300485,
+          301427,
+          301428,
+          301429,
+          301430,
+          301431,
+          301432,
+          301433,
+          301434,
+          301435,
+          301436,
+          301437,
+          301438,
+          301439,
+          305038,
+          305039,
+          305040,
+          305041,
+          305042,
+          305043,
+          305044,
+          305045,
+          305046,
+          305047,
+          305048,
+          305049,
+          305050,
+          308673,
+          310372,
+          310373,
+          310374,
+          310375,
+          310376,
+          310377,
+          310378,
+          310379,
+          310380,
+          310381,
+          310382,
+          310383,
+          310384,
+          310385,
+          310386,
+          310387,
+          310388,
+          310389,
+          310390,
+          310391,
+          310392,
+          310543,
+          310544,
+          310545,
+          310546,
+          310547,
+          310548,
+          310549,
+          310550,
+          310551,
+          310552,
+          310553,
+          310554,
+          310555,
+          310556,
+          310557,
+          310558,
+          310559,
+          310560,
+          310561,
+          310562,
+          310563,
+          310564,
+          310565,
+          310566,
+          310567,
+          310568,
+          320170,
+          320171,
+          320172,
+          320173
+        ]
+      },
+      "2011-11": {
+        "eligibility_counts": {
+          "cancellation_invoice": 1076,
+          "eligible": 83369,
+          "nonpositive_or_invalid_price": 129,
+          "nonpositive_or_noninteger_quantity": 137
+        },
+        "eligible_invoices": 2769,
+        "selected_invoices": [
+          "576948",
+          "577721",
+          "579011",
+          "578787",
+          "576603",
+          "578506",
+          "577086",
+          "577443",
+          "579448",
+          "579451",
+          "578141",
+          "579107"
+        ],
+        "selected_rows": 160,
+        "selected_countries": [
+          "EIRE",
+          "Netherlands",
+          "United Kingdom"
+        ],
+        "skipped_invoice_groups_for_size": 2757,
+        "selected_original_row_numbers": [
+          469666,
+          469667,
+          469668,
+          469669,
+          469670,
+          469671,
+          469672,
+          469673,
+          469674,
+          469675,
+          469676,
+          469677,
+          469678,
+          469679,
+          469680,
+          469681,
+          469682,
+          469683,
+          469684,
+          469685,
+          469686,
+          469687,
+          469688,
+          469689,
+          469690,
+          469691,
+          469692,
+          469693,
+          469694,
+          476198,
+          476199,
+          476200,
+          476201,
+          476202,
+          476203,
+          476204,
+          476205,
+          476206,
+          476207,
+          476208,
+          476209,
+          476210,
+          476211,
+          476212,
+          476213,
+          476214,
+          476215,
+          476216,
+          476217,
+          476218,
+          476219,
+          476220,
+          478491,
+          478492,
+          478493,
+          478494,
+          478495,
+          478496,
+          478497,
+          478498,
+          478499,
+          478500,
+          478501,
+          478502,
+          478503,
+          478504,
+          482276,
+          482277,
+          482278,
+          486232,
+          486233,
+          486234,
+          486235,
+          486236,
+          486237,
+          486238,
+          486239,
+          486240,
+          486241,
+          486242,
+          492644,
+          497965,
+          497966,
+          497967,
+          497968,
+          497969,
+          497970,
+          497971,
+          497972,
+          497973,
+          497974,
+          497975,
+          497976,
+          497977,
+          497978,
+          497979,
+          497980,
+          497981,
+          497982,
+          497983,
+          497984,
+          497985,
+          497986,
+          497987,
+          497988,
+          497989,
+          497990,
+          497991,
+          497992,
+          497993,
+          497994,
+          497995,
+          497996,
+          497997,
+          497998,
+          497999,
+          498000,
+          498001,
+          498002,
+          498003,
+          498004,
+          498005,
+          498006,
+          498007,
+          498008,
+          498009,
+          498010,
+          498011,
+          498012,
+          498013,
+          498014,
+          498015,
+          498016,
+          498017,
+          498018,
+          500560,
+          500561,
+          500562,
+          500563,
+          500564,
+          500565,
+          500566,
+          500567,
+          500568,
+          500569,
+          500570,
+          500571,
+          505314,
+          505315,
+          505316,
+          505317,
+          505318,
+          505319,
+          505320,
+          505321,
+          505322,
+          505323,
+          505986,
+          510372,
+          510376
+        ]
+      }
+    }
+  },
+  "sources": {
+    "2010-12:orders": [
+      {
+        "order_id": "uci:536369:row:27",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1785
+      },
+      {
+        "order_id": "uci:536530:row:1192",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 590
+      },
+      {
+        "order_id": "uci:536530:row:1193",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 295
+      },
+      {
+        "order_id": "uci:536530:row:1194",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 695
+      },
+      {
+        "order_id": "uci:536530:row:1195",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1180
+      },
+      {
+        "order_id": "uci:536530:row:1196",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:536530:row:1197",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 850
+      },
+      {
+        "order_id": "uci:536530:row:1198",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 995
+      },
+      {
+        "order_id": "uci:536530:row:1199",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1275
+      },
+      {
+        "order_id": "uci:536530:row:1200",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 295
+      },
+      {
+        "order_id": "uci:536530:row:1201",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 695
+      },
+      {
+        "order_id": "uci:536530:row:1202",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1995
+      },
+      {
+        "order_id": "uci:536530:row:1203",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 125
+      },
+      {
+        "order_id": "uci:536530:row:1204",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 145
+      },
+      {
+        "order_id": "uci:536530:row:1205",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 125
+      },
+      {
+        "order_id": "uci:536530:row:1206",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 660
+      },
+      {
+        "order_id": "uci:536530:row:1207",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 125
+      },
+      {
+        "order_id": "uci:536530:row:1208",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 595
+      },
+      {
+        "order_id": "uci:536530:row:1209",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2360
+      },
+      {
+        "order_id": "uci:536530:row:1210",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 870
+      },
+      {
+        "order_id": "uci:536530:row:1211",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 395
+      },
+      {
+        "order_id": "uci:536530:row:1212",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 750
+      },
+      {
+        "order_id": "uci:536530:row:1213",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 990
+      },
+      {
+        "order_id": "uci:536530:row:1214",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1170
+      },
+      {
+        "order_id": "uci:536586:row:2368",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 11960
+      },
+      {
+        "order_id": "uci:536586:row:2369",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 11960
+      },
+      {
+        "order_id": "uci:536586:row:2370",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:536586:row:2371",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:536586:row:2372",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:536586:row:2373",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:536586:row:2374",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:536834:row:4990",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3540
+      },
+      {
+        "order_id": "uci:537135:row:8333",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 630
+      },
+      {
+        "order_id": "uci:537135:row:8334",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1275
+      },
+      {
+        "order_id": "uci:537135:row:8335",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 750
+      },
+      {
+        "order_id": "uci:537135:row:8336",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:537135:row:8337",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 330
+      },
+      {
+        "order_id": "uci:537135:row:8338",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 55
+      },
+      {
+        "order_id": "uci:537135:row:8339",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 55
+      },
+      {
+        "order_id": "uci:537135:row:8340",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 55
+      },
+      {
+        "order_id": "uci:537135:row:8341",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 55
+      },
+      {
+        "order_id": "uci:537135:row:8342",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 170
+      },
+      {
+        "order_id": "uci:537135:row:8343",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 250
+      },
+      {
+        "order_id": "uci:537135:row:8344",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 125
+      },
+      {
+        "order_id": "uci:537135:row:8345",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 375
+      },
+      {
+        "order_id": "uci:537135:row:8346",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 250
+      },
+      {
+        "order_id": "uci:537135:row:8347",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 885
+      },
+      {
+        "order_id": "uci:537135:row:8348",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2360
+      },
+      {
+        "order_id": "uci:537135:row:8349",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:537135:row:8350",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 885
+      },
+      {
+        "order_id": "uci:537135:row:8351",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1125
+      },
+      {
+        "order_id": "uci:537135:row:8352",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 590
+      },
+      {
+        "order_id": "uci:537135:row:8353",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 510
+      },
+      {
+        "order_id": "uci:537135:row:8354",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 395
+      },
+      {
+        "order_id": "uci:537135:row:8355",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 495
+      },
+      {
+        "order_id": "uci:537135:row:8356",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 465
+      },
+      {
+        "order_id": "uci:537135:row:8357",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 495
+      },
+      {
+        "order_id": "uci:537135:row:8358",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 375
+      },
+      {
+        "order_id": "uci:537135:row:8359",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 690
+      },
+      {
+        "order_id": "uci:537135:row:8360",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 750
+      },
+      {
+        "order_id": "uci:537135:row:8361",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 990
+      },
+      {
+        "order_id": "uci:537135:row:8362",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1000
+      },
+      {
+        "order_id": "uci:537135:row:8363",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 170
+      },
+      {
+        "order_id": "uci:537135:row:8364",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 255
+      },
+      {
+        "order_id": "uci:537135:row:8365",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 340
+      },
+      {
+        "order_id": "uci:537135:row:8366",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 170
+      },
+      {
+        "order_id": "uci:537135:row:8367",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 595
+      },
+      {
+        "order_id": "uci:537135:row:8368",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 750
+      },
+      {
+        "order_id": "uci:537135:row:8369",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 375
+      },
+      {
+        "order_id": "uci:537135:row:8370",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 250
+      },
+      {
+        "order_id": "uci:537135:row:8371",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 170
+      },
+      {
+        "order_id": "uci:537135:row:8372",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 340
+      },
+      {
+        "order_id": "uci:537135:row:8373",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 845
+      },
+      {
+        "order_id": "uci:537135:row:8374",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1560
+      },
+      {
+        "order_id": "uci:537135:row:8375",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 750
+      },
+      {
+        "order_id": "uci:537135:row:8376",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 420
+      },
+      {
+        "order_id": "uci:537135:row:8377",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 630
+      },
+      {
+        "order_id": "uci:537135:row:8378",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 630
+      },
+      {
+        "order_id": "uci:537135:row:8379",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 630
+      },
+      {
+        "order_id": "uci:537135:row:8380",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:537135:row:8381",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 630
+      },
+      {
+        "order_id": "uci:537135:row:8382",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 590
+      },
+      {
+        "order_id": "uci:537135:row:8383",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2016
+      },
+      {
+        "order_id": "uci:537135:row:8384",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 252
+      },
+      {
+        "order_id": "uci:537135:row:8385",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 168
+      },
+      {
+        "order_id": "uci:537135:row:8386",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 42
+      },
+      {
+        "order_id": "uci:537135:row:8387",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 672
+      },
+      {
+        "order_id": "uci:537135:row:8388",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 885
+      },
+      {
+        "order_id": "uci:537135:row:8389",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:537135:row:8390",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:537135:row:8391",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 125
+      },
+      {
+        "order_id": "uci:537135:row:8392",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 390
+      },
+      {
+        "order_id": "uci:537135:row:8393",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 390
+      },
+      {
+        "order_id": "uci:537135:row:8394",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 390
+      },
+      {
+        "order_id": "uci:537135:row:8395",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1390
+      },
+      {
+        "order_id": "uci:537135:row:8396",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 840
+      },
+      {
+        "order_id": "uci:537135:row:8397",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 169
+      },
+      {
+        "order_id": "uci:537135:row:8398",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 590
+      },
+      {
+        "order_id": "uci:537135:row:8399",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 210
+      },
+      {
+        "order_id": "uci:537135:row:8400",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 195
+      },
+      {
+        "order_id": "uci:537135:row:8401",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 195
+      },
+      {
+        "order_id": "uci:537135:row:8402",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 590
+      },
+      {
+        "order_id": "uci:537135:row:8403",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:537135:row:8404",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1320
+      },
+      {
+        "order_id": "uci:537135:row:8405",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 990
+      },
+      {
+        "order_id": "uci:537135:row:8406",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 340
+      },
+      {
+        "order_id": "uci:537135:row:8407",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3060
+      },
+      {
+        "order_id": "uci:537135:row:8408",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1090
+      },
+      {
+        "order_id": "uci:537135:row:8409",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2550
+      },
+      {
+        "order_id": "uci:537135:row:8410",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 330
+      },
+      {
+        "order_id": "uci:537135:row:8411",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 330
+      },
+      {
+        "order_id": "uci:537135:row:8412",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 495
+      },
+      {
+        "order_id": "uci:537135:row:8413",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 165
+      },
+      {
+        "order_id": "uci:537135:row:8414",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 330
+      },
+      {
+        "order_id": "uci:537135:row:8415",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 330
+      },
+      {
+        "order_id": "uci:537135:row:8416",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 330
+      },
+      {
+        "order_id": "uci:537135:row:8417",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 390
+      },
+      {
+        "order_id": "uci:537135:row:8418",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 195
+      },
+      {
+        "order_id": "uci:537135:row:8419",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 585
+      },
+      {
+        "order_id": "uci:537135:row:8420",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 780
+      },
+      {
+        "order_id": "uci:537135:row:8421",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 585
+      },
+      {
+        "order_id": "uci:537135:row:8422",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 390
+      },
+      {
+        "order_id": "uci:537135:row:8423",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 585
+      },
+      {
+        "order_id": "uci:537135:row:8424",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 390
+      },
+      {
+        "order_id": "uci:537135:row:8425",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 260
+      },
+      {
+        "order_id": "uci:537135:row:8426",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 390
+      },
+      {
+        "order_id": "uci:537135:row:8427",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 795
+      },
+      {
+        "order_id": "uci:537135:row:8428",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1190
+      },
+      {
+        "order_id": "uci:537135:row:8429",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:537135:row:8430",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1375
+      },
+      {
+        "order_id": "uci:537135:row:8431",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1180
+      },
+      {
+        "order_id": "uci:537135:row:8432",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 975
+      },
+      {
+        "order_id": "uci:537135:row:8433",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 42
+      },
+      {
+        "order_id": "uci:537135:row:8434",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 510
+      },
+      {
+        "order_id": "uci:537135:row:8435",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 170
+      },
+      {
+        "order_id": "uci:537135:row:8436",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1530
+      },
+      {
+        "order_id": "uci:537135:row:8437",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 250
+      },
+      {
+        "order_id": "uci:537135:row:8438",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 42
+      },
+      {
+        "order_id": "uci:537135:row:8439",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 126
+      },
+      {
+        "order_id": "uci:537135:row:8440",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 84
+      },
+      {
+        "order_id": "uci:537135:row:8441",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 126
+      },
+      {
+        "order_id": "uci:537135:row:8442",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 42
+      },
+      {
+        "order_id": "uci:537135:row:8443",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 42
+      },
+      {
+        "order_id": "uci:537135:row:8444",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 42
+      },
+      {
+        "order_id": "uci:537135:row:8445",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 42
+      },
+      {
+        "order_id": "uci:537135:row:8446",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 190
+      },
+      {
+        "order_id": "uci:537135:row:8447",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 630
+      },
+      {
+        "order_id": "uci:537135:row:8448",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 750
+      },
+      {
+        "order_id": "uci:537135:row:8449",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 375
+      },
+      {
+        "order_id": "uci:537220:row:9870",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 335
+      },
+      {
+        "order_id": "uci:537801:row:18148",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 7920
+      },
+      {
+        "order_id": "uci:537801:row:18149",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 5085
+      },
+      {
+        "order_id": "uci:537801:row:18150",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 8780
+      },
+      {
+        "order_id": "uci:537801:row:18151",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 8340
+      },
+      {
+        "order_id": "uci:537801:row:18152",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 10200
+      },
+      {
+        "order_id": "uci:539269:row:33610",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:539269:row:33611",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1485
+      },
+      {
+        "order_id": "uci:539269:row:33612",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:539310:row:33972",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:539758:row:41190",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 425
+      }
+    ],
+    "2010-12:refunds": [],
+    "2010-12:tickets": [],
+    "2010-12:fx": {
+      "GBP": "1.25",
+      "USD": "1"
+    },
+    "2011-02:orders": [
+      {
+        "order_id": "uci:542928:row:79270",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:542928:row:79271",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:542928:row:79272",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:542928:row:79273",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:542928:row:79274",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:542928:row:79275",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:542928:row:79276",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:542928:row:79277",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:542928:row:79278",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1008
+      },
+      {
+        "order_id": "uci:542928:row:79279",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1008
+      },
+      {
+        "order_id": "uci:542928:row:79280",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:542928:row:79281",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:542928:row:79282",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 5940
+      },
+      {
+        "order_id": "uci:542928:row:79283",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:542928:row:79284",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:542928:row:79285",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3480
+      },
+      {
+        "order_id": "uci:542928:row:79286",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 780
+      },
+      {
+        "order_id": "uci:542928:row:79287",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:542928:row:79288",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:542928:row:79289",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:542928:row:79290",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:542928:row:79291",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:542928:row:79292",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3540
+      },
+      {
+        "order_id": "uci:542928:row:79293",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:542928:row:79294",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3060
+      },
+      {
+        "order_id": "uci:542928:row:79295",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:542928:row:79296",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:543134:row:81479",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:543168:row:81640",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 10500
+      },
+      {
+        "order_id": "uci:543168:row:81641",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 8880
+      },
+      {
+        "order_id": "uci:543168:row:81642",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 26640
+      },
+      {
+        "order_id": "uci:543168:row:81643",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 15552
+      },
+      {
+        "order_id": "uci:543168:row:81644",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 7776
+      },
+      {
+        "order_id": "uci:543284:row:83120",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2520
+      },
+      {
+        "order_id": "uci:543284:row:83121",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:543284:row:83122",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:543284:row:83123",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1485
+      },
+      {
+        "order_id": "uci:543284:row:83124",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1990
+      },
+      {
+        "order_id": "uci:543284:row:83125",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:543284:row:83126",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:543284:row:83127",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:543332:row:83572",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 5100
+      },
+      {
+        "order_id": "uci:543332:row:83573",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:543332:row:83574",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 870
+      },
+      {
+        "order_id": "uci:543332:row:83575",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:543332:row:83576",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 780
+      },
+      {
+        "order_id": "uci:543332:row:83577",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:543332:row:83578",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1040
+      },
+      {
+        "order_id": "uci:543332:row:83579",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:543332:row:83580",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:543332:row:83581",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:543332:row:83582",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:543548:row:86483",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 780
+      },
+      {
+        "order_id": "uci:543548:row:86484",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 780
+      },
+      {
+        "order_id": "uci:543548:row:86485",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 780
+      },
+      {
+        "order_id": "uci:543548:row:86486",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 780
+      },
+      {
+        "order_id": "uci:543548:row:86487",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 780
+      },
+      {
+        "order_id": "uci:543548:row:86488",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 780
+      },
+      {
+        "order_id": "uci:543548:row:86489",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1352
+      },
+      {
+        "order_id": "uci:543548:row:86490",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1352
+      },
+      {
+        "order_id": "uci:543548:row:86491",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:543548:row:86492",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:543548:row:86493",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:543548:row:86494",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:543548:row:86495",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:543548:row:86496",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:543548:row:86497",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3060
+      },
+      {
+        "order_id": "uci:543548:row:86498",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3060
+      },
+      {
+        "order_id": "uci:543548:row:86499",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1785
+      },
+      {
+        "order_id": "uci:543548:row:86500",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1530
+      },
+      {
+        "order_id": "uci:543548:row:86501",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:543548:row:86502",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3990
+      },
+      {
+        "order_id": "uci:543626:row:86966",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:543626:row:86967",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2950
+      },
+      {
+        "order_id": "uci:543626:row:86968",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2950
+      },
+      {
+        "order_id": "uci:543626:row:86969",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1785
+      },
+      {
+        "order_id": "uci:543626:row:86970",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1785
+      },
+      {
+        "order_id": "uci:543626:row:86971",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3060
+      },
+      {
+        "order_id": "uci:543626:row:86972",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2550
+      },
+      {
+        "order_id": "uci:543626:row:86973",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1248
+      },
+      {
+        "order_id": "uci:543626:row:86974",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1014
+      },
+      {
+        "order_id": "uci:543626:row:86975",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1530
+      },
+      {
+        "order_id": "uci:543626:row:86976",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1260
+      },
+      {
+        "order_id": "uci:543626:row:86977",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1260
+      },
+      {
+        "order_id": "uci:543626:row:86978",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1260
+      },
+      {
+        "order_id": "uci:543626:row:86979",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1590
+      },
+      {
+        "order_id": "uci:543626:row:86980",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 510
+      },
+      {
+        "order_id": "uci:543626:row:86981",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 510
+      },
+      {
+        "order_id": "uci:543626:row:86982",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 870
+      },
+      {
+        "order_id": "uci:543626:row:86983",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2950
+      },
+      {
+        "order_id": "uci:543626:row:86984",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3540
+      },
+      {
+        "order_id": "uci:543649:row:87285",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 24300
+      },
+      {
+        "order_id": "uci:543649:row:87286",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 36720
+      },
+      {
+        "order_id": "uci:543831:row:89215",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 12240
+      },
+      {
+        "order_id": "uci:543831:row:89216",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 49500
+      },
+      {
+        "order_id": "uci:543831:row:89217",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 16500
+      },
+      {
+        "order_id": "uci:543831:row:89218",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 33000
+      },
+      {
+        "order_id": "uci:543831:row:89219",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 16500
+      },
+      {
+        "order_id": "uci:543831:row:89220",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 16500
+      },
+      {
+        "order_id": "uci:543831:row:89221",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 49500
+      },
+      {
+        "order_id": "uci:543831:row:89222",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 66000
+      },
+      {
+        "order_id": "uci:543831:row:89223",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 33000
+      },
+      {
+        "order_id": "uci:543831:row:89224",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 33000
+      },
+      {
+        "order_id": "uci:544058:row:90621",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 750
+      },
+      {
+        "order_id": "uci:544058:row:90622",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 750
+      },
+      {
+        "order_id": "uci:544058:row:90623",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 750
+      },
+      {
+        "order_id": "uci:544058:row:90624",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1530
+      },
+      {
+        "order_id": "uci:544058:row:90625",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1275
+      },
+      {
+        "order_id": "uci:544058:row:90626",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1990
+      },
+      {
+        "order_id": "uci:544058:row:90627",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1990
+      },
+      {
+        "order_id": "uci:544058:row:90628",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2520
+      },
+      {
+        "order_id": "uci:544058:row:90629",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2520
+      },
+      {
+        "order_id": "uci:544058:row:90630",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:544058:row:90631",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:544058:row:90632",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:544058:row:90633",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:544058:row:90634",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:544058:row:90635",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:544058:row:90636",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:544305:row:93685",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 495
+      },
+      {
+        "order_id": "uci:544305:row:93686",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1180
+      },
+      {
+        "order_id": "uci:544305:row:93687",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1180
+      },
+      {
+        "order_id": "uci:544305:row:93688",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1180
+      },
+      {
+        "order_id": "uci:544305:row:93689",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3825
+      },
+      {
+        "order_id": "uci:544305:row:93690",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1260
+      },
+      {
+        "order_id": "uci:544305:row:93691",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1530
+      },
+      {
+        "order_id": "uci:544305:row:93692",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3540
+      },
+      {
+        "order_id": "uci:544305:row:93693",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 795
+      },
+      {
+        "order_id": "uci:544305:row:93694",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 795
+      },
+      {
+        "order_id": "uci:544305:row:93695",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1790
+      },
+      {
+        "order_id": "uci:544305:row:93696",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1390
+      },
+      {
+        "order_id": "uci:544305:row:93697",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1590
+      },
+      {
+        "order_id": "uci:544475:row:96051",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4500
+      },
+      {
+        "order_id": "uci:544637:row:97486",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:544637:row:97487",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:544637:row:97488",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1360
+      },
+      {
+        "order_id": "uci:544637:row:97489",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1360
+      },
+      {
+        "order_id": "uci:544637:row:97490",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:544637:row:97491",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1485
+      },
+      {
+        "order_id": "uci:544637:row:97492",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 5310
+      },
+      {
+        "order_id": "uci:544637:row:97493",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:544637:row:97494",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1320
+      },
+      {
+        "order_id": "uci:544637:row:97495",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:544637:row:97496",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4080
+      },
+      {
+        "order_id": "uci:544637:row:97497",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3480
+      },
+      {
+        "order_id": "uci:544637:row:97498",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3480
+      },
+      {
+        "order_id": "uci:544637:row:97499",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:544637:row:97500",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2040
+      },
+      {
+        "order_id": "uci:544637:row:97501",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2040
+      },
+      {
+        "order_id": "uci:544637:row:97502",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3960
+      },
+      {
+        "order_id": "uci:544637:row:97503",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3980
+      },
+      {
+        "order_id": "uci:544637:row:97504",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3540
+      },
+      {
+        "order_id": "uci:544805:row:100155",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 10170
+      },
+      {
+        "order_id": "uci:545011:row:102313",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1090
+      },
+      {
+        "order_id": "uci:545011:row:102314",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 495
+      },
+      {
+        "order_id": "uci:545011:row:102315",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1475
+      },
+      {
+        "order_id": "uci:545011:row:102316",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 210
+      },
+      {
+        "order_id": "uci:545011:row:102317",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 210
+      },
+      {
+        "order_id": "uci:545011:row:102318",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 295
+      },
+      {
+        "order_id": "uci:545011:row:102319",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 590
+      }
+    ],
+    "2011-02:refunds": [],
+    "2011-02:tickets": [],
+    "2011-02:fx": {
+      "GBP": "1.25",
+      "USD": "1"
+    },
+    "2011-05:orders": [
+      {
+        "order_id": "uci:551850:row:174784",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:551850:row:174785",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:551850:row:174786",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:551850:row:174787",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1530
+      },
+      {
+        "order_id": "uci:551850:row:174788",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:551850:row:174789",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:551850:row:174790",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1352
+      },
+      {
+        "order_id": "uci:551850:row:174791",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:551850:row:174792",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:551850:row:174793",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1495
+      },
+      {
+        "order_id": "uci:551850:row:174794",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1495
+      },
+      {
+        "order_id": "uci:551850:row:174795",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:551850:row:174796",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1495
+      },
+      {
+        "order_id": "uci:551850:row:174797",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1990
+      },
+      {
+        "order_id": "uci:551850:row:174798",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:551850:row:174799",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2150
+      },
+      {
+        "order_id": "uci:551850:row:174800",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:551850:row:174801",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:551977:row:175601",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 18360
+      },
+      {
+        "order_id": "uci:551977:row:175602",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2100
+      },
+      {
+        "order_id": "uci:551977:row:175603",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2100
+      },
+      {
+        "order_id": "uci:552041:row:177112",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:552041:row:177113",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:552041:row:177114",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:552041:row:177115",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:552041:row:177116",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:552041:row:177117",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:552342:row:180757",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 47520
+      },
+      {
+        "order_id": "uci:552342:row:180758",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 26280
+      },
+      {
+        "order_id": "uci:552364:row:180848",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 996
+      },
+      {
+        "order_id": "uci:552364:row:180849",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:552364:row:180850",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 850
+      },
+      {
+        "order_id": "uci:552364:row:180851",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 850
+      },
+      {
+        "order_id": "uci:552364:row:180852",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1590
+      },
+      {
+        "order_id": "uci:552364:row:180853",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1040
+      },
+      {
+        "order_id": "uci:552364:row:180854",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:552364:row:180855",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:552364:row:180856",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1530
+      },
+      {
+        "order_id": "uci:552364:row:180857",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1785
+      },
+      {
+        "order_id": "uci:552364:row:180858",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1560
+      },
+      {
+        "order_id": "uci:552364:row:180859",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1320
+      },
+      {
+        "order_id": "uci:552364:row:180860",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1824
+      },
+      {
+        "order_id": "uci:552364:row:180861",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 936
+      },
+      {
+        "order_id": "uci:552364:row:180862",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1740
+      },
+      {
+        "order_id": "uci:552364:row:180863",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1560
+      },
+      {
+        "order_id": "uci:552364:row:180864",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1485
+      },
+      {
+        "order_id": "uci:552364:row:180865",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:552364:row:180866",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1740
+      },
+      {
+        "order_id": "uci:552364:row:180867",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:552364:row:180868",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 850
+      },
+      {
+        "order_id": "uci:552364:row:180869",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 696
+      },
+      {
+        "order_id": "uci:552364:row:180870",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 696
+      },
+      {
+        "order_id": "uci:552364:row:180871",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 696
+      },
+      {
+        "order_id": "uci:552364:row:180872",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:552364:row:180873",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:552364:row:180874",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:552364:row:180875",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:552364:row:180876",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:552364:row:180877",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1008
+      },
+      {
+        "order_id": "uci:553316:row:191113",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:553316:row:191114",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:553316:row:191115",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 3980
+      },
+      {
+        "order_id": "uci:553316:row:191116",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1248
+      },
+      {
+        "order_id": "uci:553316:row:191117",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:553316:row:191118",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:553316:row:191119",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1800
+      },
+      {
+        "order_id": "uci:553371:row:191497",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4500
+      },
+      {
+        "order_id": "uci:553371:row:191498",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4500
+      },
+      {
+        "order_id": "uci:553371:row:191499",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 5088
+      },
+      {
+        "order_id": "uci:553371:row:191500",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4500
+      },
+      {
+        "order_id": "uci:553371:row:191501",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 6000
+      },
+      {
+        "order_id": "uci:553411:row:192387",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:553411:row:192388",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192389",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192390",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:553411:row:192391",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:553411:row:192392",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:553411:row:192393",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1008
+      },
+      {
+        "order_id": "uci:553411:row:192394",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 4056
+      },
+      {
+        "order_id": "uci:553411:row:192395",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:553411:row:192396",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:553411:row:192397",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:553411:row:192398",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 228
+      },
+      {
+        "order_id": "uci:553411:row:192399",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1485
+      },
+      {
+        "order_id": "uci:553411:row:192400",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1530
+      },
+      {
+        "order_id": "uci:553411:row:192401",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 2496
+      },
+      {
+        "order_id": "uci:553411:row:192402",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1992
+      },
+      {
+        "order_id": "uci:553411:row:192403",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:553411:row:192404",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:553411:row:192405",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:553411:row:192406",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:553411:row:192407",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192408",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:553411:row:192409",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:553411:row:192410",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1740
+      },
+      {
+        "order_id": "uci:553411:row:192411",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1740
+      },
+      {
+        "order_id": "uci:553411:row:192412",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:553411:row:192413",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:553411:row:192414",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1300
+      },
+      {
+        "order_id": "uci:553411:row:192415",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1560
+      },
+      {
+        "order_id": "uci:553411:row:192416",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:553411:row:192417",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 2970
+      },
+      {
+        "order_id": "uci:553411:row:192418",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1275
+      },
+      {
+        "order_id": "uci:553411:row:192419",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192420",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192421",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192422",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192423",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192424",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 2250
+      },
+      {
+        "order_id": "uci:553411:row:192425",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192426",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192427",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192428",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 5408
+      },
+      {
+        "order_id": "uci:553411:row:192429",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192430",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:553411:row:192431",
+        "region": "France",
+        "currency": "GBP",
+        "gross_cents": 5400
+      },
+      {
+        "order_id": "uci:553839:row:196361",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 5800
+      },
+      {
+        "order_id": "uci:553839:row:196362",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2970
+      },
+      {
+        "order_id": "uci:553909:row:197449",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:553909:row:197450",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3400
+      },
+      {
+        "order_id": "uci:553909:row:197451",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:553909:row:197452",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1785
+      },
+      {
+        "order_id": "uci:553909:row:197453",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1485
+      },
+      {
+        "order_id": "uci:553909:row:197454",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1250
+      },
+      {
+        "order_id": "uci:553909:row:197455",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:553909:row:197456",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:553909:row:197457",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:553927:row:197690",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 14400
+      },
+      {
+        "order_id": "uci:553927:row:197691",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 6780
+      },
+      {
+        "order_id": "uci:553927:row:197692",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 15840
+      },
+      {
+        "order_id": "uci:553927:row:197693",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 41472
+      },
+      {
+        "order_id": "uci:554272:row:201150",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 24062
+      },
+      {
+        "order_id": "uci:554272:row:201151",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 113400
+      },
+      {
+        "order_id": "uci:554272:row:201152",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 36630
+      },
+      {
+        "order_id": "uci:554272:row:201153",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 8208
+      },
+      {
+        "order_id": "uci:554272:row:201154",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 50400
+      },
+      {
+        "order_id": "uci:554272:row:201155",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 51660
+      },
+      {
+        "order_id": "uci:554538:row:203646",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3990
+      },
+      {
+        "order_id": "uci:554538:row:203647",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 7475
+      },
+      {
+        "order_id": "uci:554855:row:205978",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:554855:row:205979",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:554855:row:205980",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:554855:row:205981",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:554855:row:205982",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:554855:row:205983",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:554855:row:205984",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:554855:row:205985",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:554855:row:205986",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:554855:row:205987",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:554855:row:205988",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:554855:row:205989",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:554855:row:205990",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4080
+      },
+      {
+        "order_id": "uci:555005:row:207802",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 17280
+      },
+      {
+        "order_id": "uci:555005:row:207803",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:555005:row:207804",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 15264
+      },
+      {
+        "order_id": "uci:555005:row:207805",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 11880
+      },
+      {
+        "order_id": "uci:555005:row:207806",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 5760
+      },
+      {
+        "order_id": "uci:555005:row:207807",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 15552
+      },
+      {
+        "order_id": "uci:555005:row:207808",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 10368
+      },
+      {
+        "order_id": "uci:555005:row:207809",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 30240
+      }
+    ],
+    "2011-05:refunds": [],
+    "2011-05:tickets": [],
+    "2011-05:fx": {
+      "GBP": "1.25",
+      "USD": "1"
+    },
+    "2011-08:orders": [
+      {
+        "order_id": "uci:562283:row:289735",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1485
+      },
+      {
+        "order_id": "uci:562283:row:289736",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:562283:row:289737",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:562283:row:289738",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:562283:row:289739",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:562283:row:289740",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:562283:row:289741",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:562283:row:289742",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:562283:row:289743",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 5940
+      },
+      {
+        "order_id": "uci:562283:row:289744",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2475
+      },
+      {
+        "order_id": "uci:562283:row:289745",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1475
+      },
+      {
+        "order_id": "uci:562283:row:289746",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1740
+      },
+      {
+        "order_id": "uci:562283:row:289747",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:562283:row:289748",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:562283:row:289749",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:562283:row:289750",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:562283:row:289751",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:562283:row:289752",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:562283:row:289753",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1485
+      },
+      {
+        "order_id": "uci:562283:row:289754",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:562283:row:289755",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:562283:row:289756",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:562283:row:289757",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:562283:row:289758",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 996
+      },
+      {
+        "order_id": "uci:562283:row:289759",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 468
+      },
+      {
+        "order_id": "uci:562283:row:289760",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 468
+      },
+      {
+        "order_id": "uci:562283:row:289761",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:562283:row:289762",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:562283:row:289763",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:562283:row:289764",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:562283:row:289765",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:562283:row:289766",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:562283:row:289767",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 672
+      },
+      {
+        "order_id": "uci:562283:row:289768",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1530
+      },
+      {
+        "order_id": "uci:562283:row:289769",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1734
+      },
+      {
+        "order_id": "uci:562283:row:289770",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2250
+      },
+      {
+        "order_id": "uci:562283:row:289771",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1008
+      },
+      {
+        "order_id": "uci:562393:row:290667",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1992
+      },
+      {
+        "order_id": "uci:562393:row:290668",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4500
+      },
+      {
+        "order_id": "uci:562393:row:290669",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4500
+      },
+      {
+        "order_id": "uci:562393:row:290670",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4500
+      },
+      {
+        "order_id": "uci:562393:row:290671",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 5976
+      },
+      {
+        "order_id": "uci:562393:row:290672",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 6936
+      },
+      {
+        "order_id": "uci:562393:row:290673",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3960
+      },
+      {
+        "order_id": "uci:562393:row:290674",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3960
+      },
+      {
+        "order_id": "uci:562393:row:290675",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1260
+      },
+      {
+        "order_id": "uci:562393:row:290676",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:562393:row:290677",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:562393:row:290678",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:562393:row:290679",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:562393:row:290680",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4770
+      },
+      {
+        "order_id": "uci:562393:row:290681",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4770
+      },
+      {
+        "order_id": "uci:562393:row:290682",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 7080
+      },
+      {
+        "order_id": "uci:562393:row:290683",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4056
+      },
+      {
+        "order_id": "uci:562393:row:290684",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4992
+      },
+      {
+        "order_id": "uci:562393:row:290685",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4992
+      },
+      {
+        "order_id": "uci:562393:row:290686",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4992
+      },
+      {
+        "order_id": "uci:562393:row:290687",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4056
+      },
+      {
+        "order_id": "uci:562393:row:290688",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 7080
+      },
+      {
+        "order_id": "uci:562393:row:290689",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:562393:row:290690",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1248
+      },
+      {
+        "order_id": "uci:562393:row:290691",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1248
+      },
+      {
+        "order_id": "uci:562393:row:290692",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1248
+      },
+      {
+        "order_id": "uci:562393:row:290693",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1248
+      },
+      {
+        "order_id": "uci:562453:row:291441",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:562453:row:291442",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:562453:row:291443",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:562453:row:291444",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3960
+      },
+      {
+        "order_id": "uci:562453:row:291445",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:562453:row:291446",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:562453:row:291447",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2520
+      },
+      {
+        "order_id": "uci:562453:row:291448",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2520
+      },
+      {
+        "order_id": "uci:562453:row:291449",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2520
+      },
+      {
+        "order_id": "uci:562453:row:291450",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1680
+      },
+      {
+        "order_id": "uci:562453:row:291451",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:563198:row:300479",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3540
+      },
+      {
+        "order_id": "uci:563198:row:300480",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 7650
+      },
+      {
+        "order_id": "uci:563198:row:300481",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 8160
+      },
+      {
+        "order_id": "uci:563198:row:300482",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 12204
+      },
+      {
+        "order_id": "uci:563198:row:300483",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4080
+      },
+      {
+        "order_id": "uci:563198:row:300484",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 16320
+      },
+      {
+        "order_id": "uci:563198:row:300485",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:563264:row:301427",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2970
+      },
+      {
+        "order_id": "uci:563264:row:301428",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:563264:row:301429",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:563264:row:301430",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:563264:row:301431",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:563264:row:301432",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:563264:row:301433",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1785
+      },
+      {
+        "order_id": "uci:563264:row:301434",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:563264:row:301435",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:563264:row:301436",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:563264:row:301437",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:563264:row:301438",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:563264:row:301439",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:563620:row:305038",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1590
+      },
+      {
+        "order_id": "uci:563620:row:305039",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1785
+      },
+      {
+        "order_id": "uci:563620:row:305040",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1250
+      },
+      {
+        "order_id": "uci:563620:row:305041",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1740
+      },
+      {
+        "order_id": "uci:563620:row:305042",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1740
+      },
+      {
+        "order_id": "uci:563620:row:305043",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:563620:row:305044",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2970
+      },
+      {
+        "order_id": "uci:563620:row:305045",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:563620:row:305046",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1530
+      },
+      {
+        "order_id": "uci:563620:row:305047",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 995
+      },
+      {
+        "order_id": "uci:563620:row:305048",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:563620:row:305049",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:563620:row:305050",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2340
+      },
+      {
+        "order_id": "uci:564048:row:308673",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4080
+      },
+      {
+        "order_id": "uci:564181:row:310372",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:564181:row:310373",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1475
+      },
+      {
+        "order_id": "uci:564181:row:310374",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:564181:row:310375",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2490
+      },
+      {
+        "order_id": "uci:564181:row:310376",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3300
+      },
+      {
+        "order_id": "uci:564181:row:310377",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:564181:row:310378",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2550
+      },
+      {
+        "order_id": "uci:564181:row:310379",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:564181:row:310380",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1740
+      },
+      {
+        "order_id": "uci:564181:row:310381",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 680
+      },
+      {
+        "order_id": "uci:564181:row:310382",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 680
+      },
+      {
+        "order_id": "uci:564181:row:310383",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2496
+      },
+      {
+        "order_id": "uci:564181:row:310384",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:564181:row:310385",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:564181:row:310386",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1050
+      },
+      {
+        "order_id": "uci:564181:row:310387",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 996
+      },
+      {
+        "order_id": "uci:564181:row:310388",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:564181:row:310389",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 996
+      },
+      {
+        "order_id": "uci:564181:row:310390",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:564181:row:310391",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:564181:row:310392",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:564189:row:310543",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1350
+      },
+      {
+        "order_id": "uci:564189:row:310544",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:564189:row:310545",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1790
+      },
+      {
+        "order_id": "uci:564189:row:310546",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1390
+      },
+      {
+        "order_id": "uci:564189:row:310547",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1590
+      },
+      {
+        "order_id": "uci:564189:row:310548",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1530
+      },
+      {
+        "order_id": "uci:564189:row:310549",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:564189:row:310550",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1040
+      },
+      {
+        "order_id": "uci:564189:row:310551",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:564189:row:310552",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:564189:row:310553",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:564189:row:310554",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:564189:row:310555",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:564189:row:310556",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:564189:row:310557",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1352
+      },
+      {
+        "order_id": "uci:564189:row:310558",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:564189:row:310559",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:564189:row:310560",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:564189:row:310561",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:564189:row:310562",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:564189:row:310563",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:564189:row:310564",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:564189:row:310565",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:564189:row:310566",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:564189:row:310567",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:564189:row:310568",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 504
+      },
+      {
+        "order_id": "uci:564967:row:320170",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1248
+      },
+      {
+        "order_id": "uci:564967:row:320171",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:564967:row:320172",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:564967:row:320173",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      }
+    ],
+    "2011-08:refunds": [],
+    "2011-08:tickets": [],
+    "2011-08:fx": {
+      "GBP": "1.25",
+      "USD": "1"
+    },
+    "2011-11:orders": [
+      {
+        "order_id": "uci:576603:row:469666",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:576603:row:469667",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:576603:row:469668",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1485
+      },
+      {
+        "order_id": "uci:576603:row:469669",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:576603:row:469670",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 2028
+      },
+      {
+        "order_id": "uci:576603:row:469671",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:576603:row:469672",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:576603:row:469673",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:576603:row:469674",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 5000
+      },
+      {
+        "order_id": "uci:576603:row:469675",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:576603:row:469676",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 2390
+      },
+      {
+        "order_id": "uci:576603:row:469677",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1785
+      },
+      {
+        "order_id": "uci:576603:row:469678",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1740
+      },
+      {
+        "order_id": "uci:576603:row:469679",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:576603:row:469680",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:576603:row:469681",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1560
+      },
+      {
+        "order_id": "uci:576603:row:469682",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:576603:row:469683",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:576603:row:469684",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:576603:row:469685",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 2250
+      },
+      {
+        "order_id": "uci:576603:row:469686",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:576603:row:469687",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1260
+      },
+      {
+        "order_id": "uci:576603:row:469688",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1260
+      },
+      {
+        "order_id": "uci:576603:row:469689",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:576603:row:469690",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:576603:row:469691",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:576603:row:469692",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:576603:row:469693",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:576603:row:469694",
+        "region": "EIRE",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:576948:row:476198",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 435
+      },
+      {
+        "order_id": "uci:576948:row:476199",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4050
+      },
+      {
+        "order_id": "uci:576948:row:476200",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1365
+      },
+      {
+        "order_id": "uci:576948:row:476201",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2360
+      },
+      {
+        "order_id": "uci:576948:row:476202",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:576948:row:476203",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 590
+      },
+      {
+        "order_id": "uci:576948:row:476204",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 250
+      },
+      {
+        "order_id": "uci:576948:row:476205",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 85
+      },
+      {
+        "order_id": "uci:576948:row:476206",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2250
+      },
+      {
+        "order_id": "uci:576948:row:476207",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3795
+      },
+      {
+        "order_id": "uci:576948:row:476208",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1352
+      },
+      {
+        "order_id": "uci:576948:row:476209",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 850
+      },
+      {
+        "order_id": "uci:576948:row:476210",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 7020
+      },
+      {
+        "order_id": "uci:576948:row:476211",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1352
+      },
+      {
+        "order_id": "uci:576948:row:476212",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:576948:row:476213",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:576948:row:476214",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:576948:row:476215",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 7140
+      },
+      {
+        "order_id": "uci:576948:row:476216",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1995
+      },
+      {
+        "order_id": "uci:576948:row:476217",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4160
+      },
+      {
+        "order_id": "uci:576948:row:476218",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:576948:row:476219",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:576948:row:476220",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4160
+      },
+      {
+        "order_id": "uci:577086:row:478491",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:577086:row:478492",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:577086:row:478493",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:577086:row:478494",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 936
+      },
+      {
+        "order_id": "uci:577086:row:478495",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 790
+      },
+      {
+        "order_id": "uci:577086:row:478496",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1320
+      },
+      {
+        "order_id": "uci:577086:row:478497",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:577086:row:478498",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 456
+      },
+      {
+        "order_id": "uci:577086:row:478499",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 696
+      },
+      {
+        "order_id": "uci:577086:row:478500",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 696
+      },
+      {
+        "order_id": "uci:577086:row:478501",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1422
+      },
+      {
+        "order_id": "uci:577086:row:478502",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 288
+      },
+      {
+        "order_id": "uci:577086:row:478503",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 996
+      },
+      {
+        "order_id": "uci:577086:row:478504",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1500
+      },
+      {
+        "order_id": "uci:577443:row:482276",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1320
+      },
+      {
+        "order_id": "uci:577443:row:482277",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2040
+      },
+      {
+        "order_id": "uci:577443:row:482278",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 13920
+      },
+      {
+        "order_id": "uci:577721:row:486232",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 312
+      },
+      {
+        "order_id": "uci:577721:row:486233",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1000
+      },
+      {
+        "order_id": "uci:577721:row:486234",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1170
+      },
+      {
+        "order_id": "uci:577721:row:486235",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1000
+      },
+      {
+        "order_id": "uci:577721:row:486236",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1260
+      },
+      {
+        "order_id": "uci:577721:row:486237",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1260
+      },
+      {
+        "order_id": "uci:577721:row:486238",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1445
+      },
+      {
+        "order_id": "uci:577721:row:486239",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1404
+      },
+      {
+        "order_id": "uci:577721:row:486240",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1990
+      },
+      {
+        "order_id": "uci:577721:row:486241",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1485
+      },
+      {
+        "order_id": "uci:577721:row:486242",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 840
+      },
+      {
+        "order_id": "uci:578141:row:492644",
+        "region": "Netherlands",
+        "currency": "GBP",
+        "gross_cents": 29000
+      },
+      {
+        "order_id": "uci:578506:row:497965",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1245
+      },
+      {
+        "order_id": "uci:578506:row:497966",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 625
+      },
+      {
+        "order_id": "uci:578506:row:497967",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 395
+      },
+      {
+        "order_id": "uci:578506:row:497968",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1170
+      },
+      {
+        "order_id": "uci:578506:row:497969",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 825
+      },
+      {
+        "order_id": "uci:578506:row:497970",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 425
+      },
+      {
+        "order_id": "uci:578506:row:497971",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 595
+      },
+      {
+        "order_id": "uci:578506:row:497972",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 750
+      },
+      {
+        "order_id": "uci:578506:row:497973",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1090
+      },
+      {
+        "order_id": "uci:578506:row:497974",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1250
+      },
+      {
+        "order_id": "uci:578506:row:497975",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 785
+      },
+      {
+        "order_id": "uci:578506:row:497976",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 830
+      },
+      {
+        "order_id": "uci:578506:row:497977",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 660
+      },
+      {
+        "order_id": "uci:578506:row:497978",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:578506:row:497979",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1245
+      },
+      {
+        "order_id": "uci:578506:row:497980",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1245
+      },
+      {
+        "order_id": "uci:578506:row:497981",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 830
+      },
+      {
+        "order_id": "uci:578506:row:497982",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 330
+      },
+      {
+        "order_id": "uci:578506:row:497983",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1660
+      },
+      {
+        "order_id": "uci:578506:row:497984",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 590
+      },
+      {
+        "order_id": "uci:578506:row:497985",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 295
+      },
+      {
+        "order_id": "uci:578506:row:497986",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 250
+      },
+      {
+        "order_id": "uci:578506:row:497987",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 340
+      },
+      {
+        "order_id": "uci:578506:row:497988",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 500
+      },
+      {
+        "order_id": "uci:578506:row:497989",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 170
+      },
+      {
+        "order_id": "uci:578506:row:497990",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 170
+      },
+      {
+        "order_id": "uci:578506:row:497991",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 325
+      },
+      {
+        "order_id": "uci:578506:row:497992",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 500
+      },
+      {
+        "order_id": "uci:578506:row:497993",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 255
+      },
+      {
+        "order_id": "uci:578506:row:497994",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 750
+      },
+      {
+        "order_id": "uci:578506:row:497995",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 168
+      },
+      {
+        "order_id": "uci:578506:row:497996",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 420
+      },
+      {
+        "order_id": "uci:578506:row:497997",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 420
+      },
+      {
+        "order_id": "uci:578506:row:497998",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 330
+      },
+      {
+        "order_id": "uci:578506:row:497999",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 420
+      },
+      {
+        "order_id": "uci:578506:row:498000",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 330
+      },
+      {
+        "order_id": "uci:578506:row:498001",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 435
+      },
+      {
+        "order_id": "uci:578506:row:498002",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 125
+      },
+      {
+        "order_id": "uci:578506:row:498003",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 168
+      },
+      {
+        "order_id": "uci:578506:row:498004",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 580
+      },
+      {
+        "order_id": "uci:578506:row:498005",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 250
+      },
+      {
+        "order_id": "uci:578506:row:498006",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 195
+      },
+      {
+        "order_id": "uci:578506:row:498007",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1770
+      },
+      {
+        "order_id": "uci:578506:row:498008",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 498
+      },
+      {
+        "order_id": "uci:578506:row:498009",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 158
+      },
+      {
+        "order_id": "uci:578506:row:498010",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 250
+      },
+      {
+        "order_id": "uci:578506:row:498011",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 330
+      },
+      {
+        "order_id": "uci:578506:row:498012",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 580
+      },
+      {
+        "order_id": "uci:578506:row:498013",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 125
+      },
+      {
+        "order_id": "uci:578506:row:498014",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 250
+      },
+      {
+        "order_id": "uci:578506:row:498015",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:578506:row:498016",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 170
+      },
+      {
+        "order_id": "uci:578506:row:498017",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 578
+      },
+      {
+        "order_id": "uci:578506:row:498018",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 330
+      },
+      {
+        "order_id": "uci:578787:row:500560",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2500
+      },
+      {
+        "order_id": "uci:578787:row:500561",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2250
+      },
+      {
+        "order_id": "uci:578787:row:500562",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:578787:row:500563",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1020
+      },
+      {
+        "order_id": "uci:578787:row:500564",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:578787:row:500565",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:578787:row:500566",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 3000
+      },
+      {
+        "order_id": "uci:578787:row:500567",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2550
+      },
+      {
+        "order_id": "uci:578787:row:500568",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1700
+      },
+      {
+        "order_id": "uci:578787:row:500569",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:578787:row:500570",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1980
+      },
+      {
+        "order_id": "uci:578787:row:500571",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1485
+      },
+      {
+        "order_id": "uci:579011:row:505314",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4160
+      },
+      {
+        "order_id": "uci:579011:row:505315",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4160
+      },
+      {
+        "order_id": "uci:579011:row:505316",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:579011:row:505317",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:579011:row:505318",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4160
+      },
+      {
+        "order_id": "uci:579011:row:505319",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2496
+      },
+      {
+        "order_id": "uci:579011:row:505320",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4160
+      },
+      {
+        "order_id": "uci:579011:row:505321",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 2080
+      },
+      {
+        "order_id": "uci:579011:row:505322",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:579011:row:505323",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 4160
+      },
+      {
+        "order_id": "uci:579107:row:505986",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 1650
+      },
+      {
+        "order_id": "uci:579448:row:510372",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 468
+      },
+      {
+        "order_id": "uci:579451:row:510376",
+        "region": "United Kingdom",
+        "currency": "GBP",
+        "gross_cents": 23760
+      }
+    ],
+    "2011-11:refunds": [],
+    "2011-11:tickets": [],
+    "2011-11:fx": {
+      "GBP": "1.25",
+      "USD": "1"
+    }
+  },
+  "recipes_by_split": {
+    "dev": [
+      {
+        "name": "2010-12:gross",
+        "tool": "gross_by_region",
+        "inputs": {
+          "orders": "source:2010-12:orders"
+        },
+        "params": {},
+        "description": "Positive sampled gross sales by country in GBP; 2010-12.",
+        "run": "snapshot-2010-12"
+      },
+      {
+        "name": "2010-12:refunds",
+        "tool": "refunds_by_region",
+        "inputs": {
+          "orders": "source:2010-12:orders",
+          "refunds": "source:2010-12:refunds"
+        },
+        "params": {},
+        "description": "Staged refunds, initially empty, by country in GBP; 2010-12.",
+        "run": "snapshot-2010-12"
+      },
+      {
+        "name": "2010-12:net",
+        "tool": "net_by_region",
+        "inputs": {
+          "gross": "2010-12:gross",
+          "refunds": "2010-12:refunds"
+        },
+        "params": {},
+        "description": "Sampled gross sales less staged refunds in GBP; 2010-12.",
+        "run": "snapshot-2010-12"
+      },
+      {
+        "name": "2010-12:gross_usd",
+        "tool": "convert_to_usd",
+        "inputs": {
+          "net": "2010-12:gross",
+          "fx": "source:2010-12:fx"
+        },
+        "params": {},
+        "description": "Gross sales converted directly to USD, without the net-sales branch; 2010-12.",
+        "run": "snapshot-2010-12"
+      },
+      {
+        "name": "2010-12:net_usd",
+        "tool": "convert_to_usd",
+        "inputs": {
+          "net": "2010-12:net",
+          "fx": "source:2010-12:fx"
+        },
+        "params": {},
+        "description": "Net sales converted to USD after staged refunds; 2010-12.",
+        "run": "snapshot-2010-12"
+      },
+      {
+        "name": "2010-12:gross_total",
+        "tool": "company_total",
+        "inputs": {
+          "regional": "2010-12:gross_usd"
+        },
+        "params": {},
+        "description": "Whole selected sample gross sales in USD; 2010-12.",
+        "run": "snapshot-2010-12"
+      },
+      {
+        "name": "2010-12:net_total",
+        "tool": "company_total",
+        "inputs": {
+          "regional": "2010-12:net_usd"
+        },
+        "params": {},
+        "description": "Whole selected sample net sales in USD; 2010-12.",
+        "run": "snapshot-2010-12"
+      },
+      {
+        "name": "2010-12:gross_net_brief",
+        "tool": "compose_report",
+        "inputs": {
+          "gross": "2010-12:gross_total",
+          "net": "2010-12:net_total"
+        },
+        "params": {
+          "title": "2010-12 positive-sales sample gross and net brief",
+          "sections": [
+            {
+              "key": "gross",
+              "label": "Sample gross sales",
+              "input": "gross",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "net",
+              "label": "Sample sales less staged refunds",
+              "input": "net",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Two parallel monetary branches for the actual sampled invoices from 2010-12.",
+        "run": "brief-2010-12"
+      },
+      {
+        "name": "2010-12:country_brief",
+        "tool": "compose_report",
+        "inputs": {
+          "gross": "2010-12:gross_usd",
+          "net": "2010-12:net_usd"
+        },
+        "params": {
+          "title": "United Kingdom positive-sales sample for 2010-12",
+          "sections": [
+            {
+              "key": "gross",
+              "label": "United Kingdom sampled gross sales",
+              "input": "gross",
+              "path": [
+                "regions",
+                "United Kingdom",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "net",
+              "label": "United Kingdom sales less staged refunds",
+              "input": "net",
+              "path": [
+                "regions",
+                "United Kingdom",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Country-specific brief for United Kingdom, 2010-12; both monetary artifacts reused from the earlier snapshot run.",
+        "run": "country-2010-12"
+      }
+    ],
+    "test": [
+      {
+        "name": "2011-02:gross",
+        "tool": "gross_by_region",
+        "inputs": {
+          "orders": "source:2011-02:orders"
+        },
+        "params": {},
+        "description": "Positive sampled gross sales by country in GBP; 2011-02.",
+        "run": "snapshot-2011-02"
+      },
+      {
+        "name": "2011-02:refunds",
+        "tool": "refunds_by_region",
+        "inputs": {
+          "orders": "source:2011-02:orders",
+          "refunds": "source:2011-02:refunds"
+        },
+        "params": {},
+        "description": "Staged refunds, initially empty, by country in GBP; 2011-02.",
+        "run": "snapshot-2011-02"
+      },
+      {
+        "name": "2011-02:net",
+        "tool": "net_by_region",
+        "inputs": {
+          "gross": "2011-02:gross",
+          "refunds": "2011-02:refunds"
+        },
+        "params": {},
+        "description": "Sampled gross sales less staged refunds in GBP; 2011-02.",
+        "run": "snapshot-2011-02"
+      },
+      {
+        "name": "2011-02:gross_usd",
+        "tool": "convert_to_usd",
+        "inputs": {
+          "net": "2011-02:gross",
+          "fx": "source:2011-02:fx"
+        },
+        "params": {},
+        "description": "Gross sales converted directly to USD, without the net-sales branch; 2011-02.",
+        "run": "snapshot-2011-02"
+      },
+      {
+        "name": "2011-02:net_usd",
+        "tool": "convert_to_usd",
+        "inputs": {
+          "net": "2011-02:net",
+          "fx": "source:2011-02:fx"
+        },
+        "params": {},
+        "description": "Net sales converted to USD after staged refunds; 2011-02.",
+        "run": "snapshot-2011-02"
+      },
+      {
+        "name": "2011-02:gross_total",
+        "tool": "company_total",
+        "inputs": {
+          "regional": "2011-02:gross_usd"
+        },
+        "params": {},
+        "description": "Whole selected sample gross sales in USD; 2011-02.",
+        "run": "snapshot-2011-02"
+      },
+      {
+        "name": "2011-02:net_total",
+        "tool": "company_total",
+        "inputs": {
+          "regional": "2011-02:net_usd"
+        },
+        "params": {},
+        "description": "Whole selected sample net sales in USD; 2011-02.",
+        "run": "snapshot-2011-02"
+      },
+      {
+        "name": "2011-02:gross_net_brief",
+        "tool": "compose_report",
+        "inputs": {
+          "gross": "2011-02:gross_total",
+          "net": "2011-02:net_total"
+        },
+        "params": {
+          "title": "2011-02 positive-sales sample gross and net brief",
+          "sections": [
+            {
+              "key": "gross",
+              "label": "Sample gross sales",
+              "input": "gross",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "net",
+              "label": "Sample sales less staged refunds",
+              "input": "net",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Two parallel monetary branches for the actual sampled invoices from 2011-02.",
+        "run": "brief-2011-02"
+      },
+      {
+        "name": "2011-02:country_brief",
+        "tool": "compose_report",
+        "inputs": {
+          "gross": "2011-02:gross_usd",
+          "net": "2011-02:net_usd"
+        },
+        "params": {
+          "title": "United Kingdom positive-sales sample for 2011-02",
+          "sections": [
+            {
+              "key": "gross",
+              "label": "United Kingdom sampled gross sales",
+              "input": "gross",
+              "path": [
+                "regions",
+                "United Kingdom",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "net",
+              "label": "United Kingdom sales less staged refunds",
+              "input": "net",
+              "path": [
+                "regions",
+                "United Kingdom",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Country-specific brief for United Kingdom, 2011-02; both monetary artifacts reused from the earlier snapshot run.",
+        "run": "country-2011-02"
+      },
+      {
+        "name": "2011-05:gross",
+        "tool": "gross_by_region",
+        "inputs": {
+          "orders": "source:2011-05:orders"
+        },
+        "params": {},
+        "description": "Positive sampled gross sales by country in GBP; 2011-05.",
+        "run": "snapshot-2011-05"
+      },
+      {
+        "name": "2011-05:refunds",
+        "tool": "refunds_by_region",
+        "inputs": {
+          "orders": "source:2011-05:orders",
+          "refunds": "source:2011-05:refunds"
+        },
+        "params": {},
+        "description": "Staged refunds, initially empty, by country in GBP; 2011-05.",
+        "run": "snapshot-2011-05"
+      },
+      {
+        "name": "2011-05:net",
+        "tool": "net_by_region",
+        "inputs": {
+          "gross": "2011-05:gross",
+          "refunds": "2011-05:refunds"
+        },
+        "params": {},
+        "description": "Sampled gross sales less staged refunds in GBP; 2011-05.",
+        "run": "snapshot-2011-05"
+      },
+      {
+        "name": "2011-05:gross_usd",
+        "tool": "convert_to_usd",
+        "inputs": {
+          "net": "2011-05:gross",
+          "fx": "source:2011-05:fx"
+        },
+        "params": {},
+        "description": "Gross sales converted directly to USD, without the net-sales branch; 2011-05.",
+        "run": "snapshot-2011-05"
+      },
+      {
+        "name": "2011-05:net_usd",
+        "tool": "convert_to_usd",
+        "inputs": {
+          "net": "2011-05:net",
+          "fx": "source:2011-05:fx"
+        },
+        "params": {},
+        "description": "Net sales converted to USD after staged refunds; 2011-05.",
+        "run": "snapshot-2011-05"
+      },
+      {
+        "name": "2011-05:gross_total",
+        "tool": "company_total",
+        "inputs": {
+          "regional": "2011-05:gross_usd"
+        },
+        "params": {},
+        "description": "Whole selected sample gross sales in USD; 2011-05.",
+        "run": "snapshot-2011-05"
+      },
+      {
+        "name": "2011-05:net_total",
+        "tool": "company_total",
+        "inputs": {
+          "regional": "2011-05:net_usd"
+        },
+        "params": {},
+        "description": "Whole selected sample net sales in USD; 2011-05.",
+        "run": "snapshot-2011-05"
+      },
+      {
+        "name": "2011-05:gross_net_brief",
+        "tool": "compose_report",
+        "inputs": {
+          "gross": "2011-05:gross_total",
+          "net": "2011-05:net_total"
+        },
+        "params": {
+          "title": "2011-05 positive-sales sample gross and net brief",
+          "sections": [
+            {
+              "key": "gross",
+              "label": "Sample gross sales",
+              "input": "gross",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "net",
+              "label": "Sample sales less staged refunds",
+              "input": "net",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Two parallel monetary branches for the actual sampled invoices from 2011-05.",
+        "run": "brief-2011-05"
+      },
+      {
+        "name": "2011-05:country_brief",
+        "tool": "compose_report",
+        "inputs": {
+          "gross": "2011-05:gross_usd",
+          "net": "2011-05:net_usd"
+        },
+        "params": {
+          "title": "France positive-sales sample for 2011-05",
+          "sections": [
+            {
+              "key": "gross",
+              "label": "France sampled gross sales",
+              "input": "gross",
+              "path": [
+                "regions",
+                "France",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "net",
+              "label": "France sales less staged refunds",
+              "input": "net",
+              "path": [
+                "regions",
+                "France",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Country-specific brief for France, 2011-05; both monetary artifacts reused from the earlier snapshot run.",
+        "run": "country-2011-05"
+      },
+      {
+        "name": "2011-08:gross",
+        "tool": "gross_by_region",
+        "inputs": {
+          "orders": "source:2011-08:orders"
+        },
+        "params": {},
+        "description": "Positive sampled gross sales by country in GBP; 2011-08.",
+        "run": "snapshot-2011-08"
+      },
+      {
+        "name": "2011-08:refunds",
+        "tool": "refunds_by_region",
+        "inputs": {
+          "orders": "source:2011-08:orders",
+          "refunds": "source:2011-08:refunds"
+        },
+        "params": {},
+        "description": "Staged refunds, initially empty, by country in GBP; 2011-08.",
+        "run": "snapshot-2011-08"
+      },
+      {
+        "name": "2011-08:net",
+        "tool": "net_by_region",
+        "inputs": {
+          "gross": "2011-08:gross",
+          "refunds": "2011-08:refunds"
+        },
+        "params": {},
+        "description": "Sampled gross sales less staged refunds in GBP; 2011-08.",
+        "run": "snapshot-2011-08"
+      },
+      {
+        "name": "2011-08:gross_usd",
+        "tool": "convert_to_usd",
+        "inputs": {
+          "net": "2011-08:gross",
+          "fx": "source:2011-08:fx"
+        },
+        "params": {},
+        "description": "Gross sales converted directly to USD, without the net-sales branch; 2011-08.",
+        "run": "snapshot-2011-08"
+      },
+      {
+        "name": "2011-08:net_usd",
+        "tool": "convert_to_usd",
+        "inputs": {
+          "net": "2011-08:net",
+          "fx": "source:2011-08:fx"
+        },
+        "params": {},
+        "description": "Net sales converted to USD after staged refunds; 2011-08.",
+        "run": "snapshot-2011-08"
+      },
+      {
+        "name": "2011-08:gross_total",
+        "tool": "company_total",
+        "inputs": {
+          "regional": "2011-08:gross_usd"
+        },
+        "params": {},
+        "description": "Whole selected sample gross sales in USD; 2011-08.",
+        "run": "snapshot-2011-08"
+      },
+      {
+        "name": "2011-08:net_total",
+        "tool": "company_total",
+        "inputs": {
+          "regional": "2011-08:net_usd"
+        },
+        "params": {},
+        "description": "Whole selected sample net sales in USD; 2011-08.",
+        "run": "snapshot-2011-08"
+      },
+      {
+        "name": "2011-08:gross_net_brief",
+        "tool": "compose_report",
+        "inputs": {
+          "gross": "2011-08:gross_total",
+          "net": "2011-08:net_total"
+        },
+        "params": {
+          "title": "2011-08 positive-sales sample gross and net brief",
+          "sections": [
+            {
+              "key": "gross",
+              "label": "Sample gross sales",
+              "input": "gross",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "net",
+              "label": "Sample sales less staged refunds",
+              "input": "net",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Two parallel monetary branches for the actual sampled invoices from 2011-08.",
+        "run": "brief-2011-08"
+      },
+      {
+        "name": "2011-08:country_brief",
+        "tool": "compose_report",
+        "inputs": {
+          "gross": "2011-08:gross_usd",
+          "net": "2011-08:net_usd"
+        },
+        "params": {
+          "title": "United Kingdom positive-sales sample for 2011-08",
+          "sections": [
+            {
+              "key": "gross",
+              "label": "United Kingdom sampled gross sales",
+              "input": "gross",
+              "path": [
+                "regions",
+                "United Kingdom",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "net",
+              "label": "United Kingdom sales less staged refunds",
+              "input": "net",
+              "path": [
+                "regions",
+                "United Kingdom",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Country-specific brief for United Kingdom, 2011-08; both monetary artifacts reused from the earlier snapshot run.",
+        "run": "country-2011-08"
+      },
+      {
+        "name": "2011-11:gross",
+        "tool": "gross_by_region",
+        "inputs": {
+          "orders": "source:2011-11:orders"
+        },
+        "params": {},
+        "description": "Positive sampled gross sales by country in GBP; 2011-11.",
+        "run": "snapshot-2011-11"
+      },
+      {
+        "name": "2011-11:refunds",
+        "tool": "refunds_by_region",
+        "inputs": {
+          "orders": "source:2011-11:orders",
+          "refunds": "source:2011-11:refunds"
+        },
+        "params": {},
+        "description": "Staged refunds, initially empty, by country in GBP; 2011-11.",
+        "run": "snapshot-2011-11"
+      },
+      {
+        "name": "2011-11:net",
+        "tool": "net_by_region",
+        "inputs": {
+          "gross": "2011-11:gross",
+          "refunds": "2011-11:refunds"
+        },
+        "params": {},
+        "description": "Sampled gross sales less staged refunds in GBP; 2011-11.",
+        "run": "snapshot-2011-11"
+      },
+      {
+        "name": "2011-11:gross_usd",
+        "tool": "convert_to_usd",
+        "inputs": {
+          "net": "2011-11:gross",
+          "fx": "source:2011-11:fx"
+        },
+        "params": {},
+        "description": "Gross sales converted directly to USD, without the net-sales branch; 2011-11.",
+        "run": "snapshot-2011-11"
+      },
+      {
+        "name": "2011-11:net_usd",
+        "tool": "convert_to_usd",
+        "inputs": {
+          "net": "2011-11:net",
+          "fx": "source:2011-11:fx"
+        },
+        "params": {},
+        "description": "Net sales converted to USD after staged refunds; 2011-11.",
+        "run": "snapshot-2011-11"
+      },
+      {
+        "name": "2011-11:gross_total",
+        "tool": "company_total",
+        "inputs": {
+          "regional": "2011-11:gross_usd"
+        },
+        "params": {},
+        "description": "Whole selected sample gross sales in USD; 2011-11.",
+        "run": "snapshot-2011-11"
+      },
+      {
+        "name": "2011-11:net_total",
+        "tool": "company_total",
+        "inputs": {
+          "regional": "2011-11:net_usd"
+        },
+        "params": {},
+        "description": "Whole selected sample net sales in USD; 2011-11.",
+        "run": "snapshot-2011-11"
+      },
+      {
+        "name": "2011-11:gross_net_brief",
+        "tool": "compose_report",
+        "inputs": {
+          "gross": "2011-11:gross_total",
+          "net": "2011-11:net_total"
+        },
+        "params": {
+          "title": "2011-11 positive-sales sample gross and net brief",
+          "sections": [
+            {
+              "key": "gross",
+              "label": "Sample gross sales",
+              "input": "gross",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "net",
+              "label": "Sample sales less staged refunds",
+              "input": "net",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Two parallel monetary branches for the actual sampled invoices from 2011-11.",
+        "run": "brief-2011-11"
+      },
+      {
+        "name": "2011-11:country_brief",
+        "tool": "compose_report",
+        "inputs": {
+          "gross": "2011-11:gross_usd",
+          "net": "2011-11:net_usd"
+        },
+        "params": {
+          "title": "EIRE positive-sales sample for 2011-11",
+          "sections": [
+            {
+              "key": "gross",
+              "label": "EIRE sampled gross sales",
+              "input": "gross",
+              "path": [
+                "regions",
+                "EIRE",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "net",
+              "label": "EIRE sales less staged refunds",
+              "input": "net",
+              "path": [
+                "regions",
+                "EIRE",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Country-specific brief for EIRE, 2011-11; both monetary artifacts reused from the earlier snapshot run.",
+        "run": "country-2011-11"
+      },
+      {
+        "name": "cross:2011-02:2011-05:three_input",
+        "tool": "compose_report",
+        "inputs": {
+          "previous_net": "2011-02:net_total",
+          "current_gross": "2011-05:gross_total",
+          "current_country_net": "2011-05:net_usd"
+        },
+        "params": {
+          "title": "Sample comparison 2011-02 and 2011-05",
+          "sections": [
+            {
+              "key": "previous_net",
+              "label": "2011-02 sample net sales",
+              "input": "previous_net",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "current_gross",
+              "label": "2011-05 sample gross sales",
+              "input": "current_gross",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "current_country_net",
+              "label": "2011-05 France sample net sales",
+              "input": "current_country_net",
+              "path": [
+                "regions",
+                "France",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Three-input composition reuses gross and net artifacts from two independent dated snapshot runs.",
+        "run": "comparison-2011-02-2011-05"
+      },
+      {
+        "name": "cross:2011-05:2011-08:three_input",
+        "tool": "compose_report",
+        "inputs": {
+          "previous_net": "2011-05:net_total",
+          "current_gross": "2011-08:gross_total",
+          "current_country_net": "2011-08:net_usd"
+        },
+        "params": {
+          "title": "Sample comparison 2011-05 and 2011-08",
+          "sections": [
+            {
+              "key": "previous_net",
+              "label": "2011-05 sample net sales",
+              "input": "previous_net",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "current_gross",
+              "label": "2011-08 sample gross sales",
+              "input": "current_gross",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "current_country_net",
+              "label": "2011-08 United Kingdom sample net sales",
+              "input": "current_country_net",
+              "path": [
+                "regions",
+                "United Kingdom",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Three-input composition reuses gross and net artifacts from two independent dated snapshot runs.",
+        "run": "comparison-2011-05-2011-08"
+      },
+      {
+        "name": "cross:2011-08:2011-11:three_input",
+        "tool": "compose_report",
+        "inputs": {
+          "previous_net": "2011-08:net_total",
+          "current_gross": "2011-11:gross_total",
+          "current_country_net": "2011-11:net_usd"
+        },
+        "params": {
+          "title": "Sample comparison 2011-08 and 2011-11",
+          "sections": [
+            {
+              "key": "previous_net",
+              "label": "2011-08 sample net sales",
+              "input": "previous_net",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "current_gross",
+              "label": "2011-11 sample gross sales",
+              "input": "current_gross",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "key": "current_country_net",
+              "label": "2011-11 EIRE sample net sales",
+              "input": "current_country_net",
+              "path": [
+                "regions",
+                "EIRE",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ]
+        },
+        "description": "Three-input composition reuses gross and net artifacts from two independent dated snapshot runs.",
+        "run": "comparison-2011-08-2011-11"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "RD01",
+      "split": "dev",
+      "description": "Correct the quantity on one sampled invoice line in 2010-12.",
+      "mutations": [
+        {
+          "source": "2010-12:orders",
+          "operation": "quantity_delta",
+          "parameters": {
+            "order_id": "uci:536369:row:27",
+            "delta_quantity": 1,
+            "unit_price_gbp": "5.95"
+          },
+          "tool": ""
+        }
+      ],
+      "category": "quantity",
+      "scope_partitions": [
+        "2010-12"
+      ],
+      "restart": false
+    },
+    {
+      "id": "RD02",
+      "split": "dev",
+      "description": "Add a staged refund in 2010-12; gross sales remain reusable.",
+      "mutations": [
+        {
+          "source": "2010-12:refunds",
+          "operation": "refund_add",
+          "parameters": {
+            "order_id": "uci:536369:row:27",
+            "refund_cents": 178
+          },
+          "tool": ""
+        }
+      ],
+      "category": "gross_net_divergence",
+      "scope_partitions": [
+        "2010-12"
+      ],
+      "restart": false
+    },
+    {
+      "id": "RD03",
+      "split": "dev",
+      "description": "Correct the illustrative GBP conversion for 2010-12 to 1.27 USD.",
+      "mutations": [
+        {
+          "source": "2010-12:fx",
+          "operation": "fx_set",
+          "parameters": {
+            "GBP": "1.27"
+          },
+          "tool": ""
+        }
+      ],
+      "category": "fx",
+      "scope_partitions": [
+        "2010-12"
+      ],
+      "restart": false
+    },
+    {
+      "id": "RD04",
+      "split": "dev",
+      "description": "Reorder identical selected invoice lines from 2010-12; canonical source input remains equal.",
+      "mutations": [
+        {
+          "source": "2010-12:orders",
+          "operation": "reorder",
+          "parameters": {},
+          "tool": ""
+        }
+      ],
+      "category": "canonical_noop",
+      "scope_partitions": [
+        "2010-12"
+      ],
+      "restart": false
+    },
+    {
+      "id": "R01",
+      "split": "test",
+      "description": "A quantity correction in 2011-02 must reach both gross and net branches and later reused briefs.",
+      "mutations": [
+        {
+          "source": "2011-02:orders",
+          "operation": "quantity_delta",
+          "parameters": {
+            "order_id": "uci:542928:row:79270",
+            "delta_quantity": 1,
+            "unit_price_gbp": "1.65"
+          },
+          "tool": ""
+        }
+      ],
+      "category": "parallel_quantity",
+      "scope_partitions": [
+        "2011-02",
+        "2011-05",
+        "2011-08",
+        "2011-11"
+      ],
+      "restart": false
+    },
+    {
+      "id": "R02",
+      "split": "test",
+      "description": "A one-penny unit-price correction in 2011-05 changes a sampled invoice subtotal.",
+      "mutations": [
+        {
+          "source": "2011-05:orders",
+          "operation": "unit_price_delta_pence",
+          "parameters": {
+            "order_id": "uci:551850:row:174784",
+            "delta_pence": 1,
+            "quantity": 6
+          },
+          "tool": ""
+        }
+      ],
+      "category": "price",
+      "scope_partitions": [
+        "2011-02",
+        "2011-05",
+        "2011-08",
+        "2011-11"
+      ],
+      "restart": false
+    },
+    {
+      "id": "R03",
+      "split": "test",
+      "description": "Add a clearly staged refund in 2011-08; only the net branch and its consumers need revalidation.",
+      "mutations": [
+        {
+          "source": "2011-08:refunds",
+          "operation": "refund_add",
+          "parameters": {
+            "order_id": "uci:562283:row:289735",
+            "refund_cents": 148
+          },
+          "tool": ""
+        }
+      ],
+      "category": "gross_net_divergence",
+      "scope_partitions": [
+        "2011-02",
+        "2011-05",
+        "2011-08",
+        "2011-11"
+      ],
+      "restart": false
+    },
+    {
+      "id": "R04",
+      "split": "test",
+      "description": "Correct the illustrative GBP-to-USD rate in 2011-11 to 1.31; earlier partition evidence stays usable.",
+      "mutations": [
+        {
+          "source": "2011-11:fx",
+          "operation": "fx_set",
+          "parameters": {
+            "GBP": "1.31"
+          },
+          "tool": ""
+        }
+      ],
+      "category": "fx_partition",
+      "scope_partitions": [
+        "2011-02",
+        "2011-05",
+        "2011-08",
+        "2011-11"
+      ],
+      "restart": false
+    },
+    {
+      "id": "R05",
+      "split": "test",
+      "description": "Offset two United Kingdom invoice-line subtotals in 2011-02 by one penny; all country aggregates remain equal but source contents change.",
+      "mutations": [
+        {
+          "source": "2011-02:orders",
+          "operation": "offset_gross",
+          "parameters": {
+            "first": "uci:542928:row:79270",
+            "second": "uci:542928:row:79271",
+            "delta_cents": 1
+          },
+          "tool": ""
+        }
+      ],
+      "category": "same_value_revalidation",
+      "scope_partitions": [
+        "2011-02",
+        "2011-05",
+        "2011-08",
+        "2011-11"
+      ],
+      "restart": false
+    },
+    {
+      "id": "R06",
+      "split": "test",
+      "description": "Apply a staged refund in 2011-05 and a quantity correction in 2011-11; find their combined cross-run impact.",
+      "mutations": [
+        {
+          "source": "2011-05:refunds",
+          "operation": "refund_add",
+          "parameters": {
+            "order_id": "uci:551850:row:174784",
+            "refund_cents": 177
+          },
+          "tool": ""
+        },
+        {
+          "source": "2011-11:orders",
+          "operation": "quantity_delta",
+          "parameters": {
+            "order_id": "uci:576603:row:469666",
+            "delta_quantity": 1,
+            "unit_price_gbp": "1.65"
+          },
+          "tool": ""
+        }
+      ],
+      "category": "multiple_partitions",
+      "scope_partitions": [
+        "2011-02",
+        "2011-05",
+        "2011-08",
+        "2011-11"
+      ],
+      "restart": false
+    },
+    {
+      "id": "R07",
+      "split": "test",
+      "description": "The illustrative FX source for 2011-08 is unavailable; block dependent claims while preserving other dated reports.",
+      "mutations": [
+        {
+          "source": "2011-08:fx",
+          "operation": "remove",
+          "parameters": {},
+          "tool": ""
+        }
+      ],
+      "category": "missing_source",
+      "scope_partitions": [
+        "2011-02",
+        "2011-05",
+        "2011-08",
+        "2011-11"
+      ],
+      "restart": false
+    },
+    {
+      "id": "R08",
+      "split": "test",
+      "description": "The conversion implementation version is replaced for every saved snapshot; arithmetic is unchanged but old receipts require revalidation.",
+      "mutations": [
+        {
+          "source": "",
+          "operation": "tool_version",
+          "parameters": {
+            "version": "retail-v2-2"
+          },
+          "tool": "convert_to_usd"
+        }
+      ],
+      "category": "global_tool_version",
+      "scope_partitions": [
+        "2011-02",
+        "2011-05",
+        "2011-08",
+        "2011-11"
+      ],
+      "restart": false
+    },
+    {
+      "id": "R09",
+      "split": "test",
+      "description": "Reorder the identical selected invoice lines in 2011-05; normalization must preserve source identities and do no new calculations.",
+      "mutations": [
+        {
+          "source": "2011-05:orders",
+          "operation": "reorder",
+          "parameters": {},
+          "tool": ""
+        }
+      ],
+      "category": "canonical_noop",
+      "scope_partitions": [
+        "2011-02",
+        "2011-05",
+        "2011-08",
+        "2011-11"
+      ],
+      "restart": false
+    },
+    {
+      "id": "R10",
+      "split": "test",
+      "description": "Correct one quantity in 2011-11, then reopen the application before selecting evidence and refreshing cross-partition briefs.",
+      "mutations": [
+        {
+          "source": "2011-11:orders",
+          "operation": "quantity_delta",
+          "parameters": {
+            "order_id": "uci:576603:row:469666",
+            "delta_quantity": 1,
+            "unit_price_gbp": "1.65"
+          },
+          "tool": ""
+        }
+      ],
+      "category": "restart_after_change",
+      "scope_partitions": [
+        "2011-02",
+        "2011-05",
+        "2011-08",
+        "2011-11"
+      ],
+      "restart": true
+    }
+  ],
+  "limitations": [
+    "Positive sampled sales, not complete merchant revenue",
+    "FX and corrections are staged interventions, not historical incidents",
+    "No CustomerID or product descriptions exported",
+    "No ticket or refund observations invented; initial refund/ticket sources empty",
+    "Gross conversion uses the existing monetary-region contract; the input port named net receives explicitly labeled gross monetary values"
+  ]
+}

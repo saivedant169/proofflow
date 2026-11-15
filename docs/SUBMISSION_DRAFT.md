@@ -22,7 +22,7 @@ ProofFlow combines a typed analytics runtime, a persistent dependency graph and 
 
 The React/Vite/TypeScript interface shows two report runs, real graph evidence and tool activity. Visitors can correct an exchange rate, order, refund or support count; remove an input; refresh affected work; verify values against independent recomputation; and reset their isolated session. Stale monetary claims are withheld while independent current claims stay visible. The FastAPI application and built frontend run together with persistent state, and the Docker deployment passed sixteen HTTP checks including application restart.
 
-A local CSV CLI accepts bounded user-supplied transaction rows, executes the same tools and refreshes a persisted workspace after changes. Its authored non-EU integration verified correction propagation, preservation of unrelated support, and no new calculations after row reordering. The browser demonstration uses the labeled authored fixture rather than a CSV upload interface.
+A local CSV CLI accepts bounded user-supplied transaction rows, executes the same tools and refreshes a persisted workspace after changes. Its authored non-EU integration verified correction propagation, preservation of unrelated support, and no new recorded refresh calls after row reordering. Every CSV load still performs eight arithmetic preflight checks; this is not a zero-total-computation claim. The browser demonstration uses the labeled authored fixture rather than a CSV upload interface.
 
 ## Why HydraDB matters
 

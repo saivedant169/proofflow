@@ -79,7 +79,7 @@ The local CSV integration also uses real HydraDB. Its entry point is `scripts/im
 uv run python scripts/import_csv.py orders.csv --workspace my-orders --region APAC --fx EUR=1.10
 ```
 
-Rerunning the same workspace refreshes affected reports. CSV input stays local and does not call a model. The authored non-EU [integration check](../results/import-smoke-v1/verification.json) verified a correction, four refresh calls, unchanged support identity and zero new tool calls after row reordering. This is a CLI integration, not a browser upload feature.
+Rerunning the same workspace refreshes affected reports. CSV input stays local and does not call a model. The authored non-EU [integration check](../results/import-smoke-v1/verification.json) verified a correction, four recorded refresh calls, unchanged support identity and zero recorded refresh calls after row reordering. Each CSV load separately performs eight arithmetic preflight checks, including an unchanged import. This is a CLI integration, not a browser upload feature.
 
 ## Recovery and delivery status
 

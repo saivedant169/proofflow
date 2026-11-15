@@ -70,9 +70,20 @@ uv run python scripts/import_csv.py results/import-smoke-v1/input.csv \
   --workspace my-orders --region EMEA --fx EUR=1.20
 ```
 
-Required columns: `order_id,region,currency,gross_cents`. Optional: `refund_cents,ticket_count`. Monetary inputs are integer cents; provide explicit exchange rates for the currencies used. Imports are bounded to 1 MiB and 1,000 rows, validated before mutation, and reordered identical rows are a no-op. The example is authored verification data, not a customer dataset. [CSV verification](results/import-smoke-v1/verification.json) records actual native impact and refresh across separate process opens.
+Required columns: `order_id,region,currency,gross_cents`. Optional: `refund_cents,ticket_count`. Monetary inputs are integer cents; provide explicit exchange rates for the currencies used. Imports are bounded to 1 MiB and 1,000 rows, validated before mutation, and reordered identical rows publish no new versions or execution receipts. Every CSV load still performs eight arithmetic preflight checks; zero recorded refresh calls does not mean zero validation work. The example is authored verification data, not a customer dataset. [CSV verification](results/import-smoke-v1/verification.json) records actual native impact and refresh across separate process opens.
 
 Python integrations can use `ProofFlowRuntime.set_source`, `execute`, `currentness`, `affected`, and `refresh` around the supported explicit-input tools. The browser API is documented in [API_CONTRACT.md](docs/API_CONTRACT.md).
+
+## Connect an agent
+
+The local stdio MCP server exposes five tools: load caller CSV, prepare typed evidence, execute a client-selected plan, inspect currentness, and refresh saved work. The host chooses the plan; this server runs no model and accepts no arbitrary code, SQL or filesystem paths.
+
+```sh
+uv sync --frozen --extra mcp
+.venv/bin/python -m proofflow.mcp_server
+```
+
+Configure your host using the [agent quickstart](docs/AGENT_QUICKSTART.md). The [stock-client process check](results/mcp-v1/summary.json) passed 20 checks, including cross-run reuse, changed-source refresh, process restart, stale-plan refusal and unavailable-Hydra errors. CSV validation work is counted separately from recorded refresh calls. This is a trusted local integration, not a public model endpoint.
 
 ## How it works
 

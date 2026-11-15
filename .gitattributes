@@ -1,0 +1,2 @@
+# Preserve the byte-hashed CSV fixtures, including their standard CRLF endings.
+fixtures/retail_v2/*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

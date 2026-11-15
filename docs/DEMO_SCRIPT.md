@@ -53,7 +53,7 @@ The browser's two initial reports are guided presets. The separate recorded comp
 
 After the main recording, **Change a source → Missing source → FX** demonstrates a refused refresh while support remains current. **New workspace** restores the original fixture. A restart clip can show the same session and artifact IDs returning after the app restarts; the database's separate restart evidence also verifies old native paths and a new write. Avoid making visitors wait through a service restart in the main two-minute flow.
 
-The CSV CLI is an additional integration demonstration: repeat an import into the same workspace after a correction, then reorder the same rows and observe no new calculations. Its authored non-EU smoke is separate from the held-out retrieval benchmark.
+The CSV CLI is an additional integration demonstration: repeat an import into the same workspace after a correction, then reorder the same rows and observe no new recorded refresh calls. Each import still performs eight arithmetic preflight checks. Its authored non-EU smoke is separate from the held-out retrieval benchmark.
 
 ## Evidence
 
