@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "study": "hosted CSV connector model trial",
+  "audit": "independent read-only corroboration of the frozen protocol, actual CLI tool trace, guard ledger and terminal receipt",
+  "scope": "One guided Claude Code trial on one previously browser-tested positive-sales partition. The model issued connector calls and the hosted service calculated its fixed report recipes.",
+  "overall_pass": false,
+  "operator_launches": 1,
+  "additional_model_attempts": 0,
+  "harness_tool_retries": 0,
+  "provider_internal_transport_retries": "unobserved",
+  "planned_stages": 7,
+  "verified_stages": 2,
+  "planned_stages_unattempted": 5,
+  "stop_explanation": "The model stated that it stopped before attempting the correction because it estimated the remaining calls would exceed the CLI budget. The terminal result was a normal end_turn and did not report a budget-limit error. The cost of the unattempted steps remains unknown.",
+  "started_utc": "2026-11-15T21:48:07.747248+00:00",
+  "finished_utc": "2026-11-15T21:50:30.646333+00:00",
+  "wall_seconds": 142.899,
+  "cli_duration_seconds": 141.937,
+  "process_exit": 0,
+  "cli_result_subtype": "success",
+  "cli_stop_reason": "end_turn",
+  "timeout": false,
+  "cli_turns": 3,
+  "model": {
+    "requested_model": "claude-fable-5-2",
+    "observed_canonical_model": "claude-fable-5-2",
+    "observed_model_on_both_tools": true,
+    "assistant_events_with_exact_model": 7,
+    "requested_effort": "high",
+    "dummy_wire_effort": "high",
+    "cli_version": "2.1.325",
+    "exact_five_connector_tools_at_cli_init": true
+  },
+  "budget": {
+    "planning_allowance_usd": 3,
+    "cli_estimated_stop_setting_usd": 2,
+    "cli_reported_list_cost_estimate_usd": 1.3265222,
+    "billing_amount_observed": false,
+    "cli_budget_stop_reported": false,
+    "usage": {
+      "input_tokens": 6,
+      "cache_creation_input_tokens": 35726,
+      "cache_read_input_tokens": 52691,
+      "output_tokens": 18608,
+      "provider_input_exposure": 88423
+    },
+    "cache_creation_one_hour_input_tokens": 35726,
+    "cache_creation_five_minute_input_tokens": 0
+  },
+  "host": {
+    "origin": "https://proofflow.arnavbule.in",
+    "operator_verified_release": "b13f23892405efb856c8d4ca0e6abc94a1eca77c",
+    "operator_verified_image": "sha256:6899dcbe1a3af480c999b0014118befa9ea5d517adf73f1e1816165915220efc",
+    "fresh_read_only_checks_passed": 21,
+    "fresh_runtime_receipt_sha256": "d04009794e57796166c6fe743defd4f17138948530d702432469e3082a852118",
+    "canonical_release_fingerprints_match": true
+  },
+  "connector": {
+    "bytes": 11532,
+    "sha256": "59e9db0ca368aaeecaac3819b32dacc3f1cf77e589a2d55a71a2c4c21900ef11",
+    "protocol": "stdio"
+  },
+  "fixture": {
+    "date": "2011-01-16",
+    "sha256": "7b45308e83161fa41aace37b1bd9f7f6390566b65a45bb2a0dd9aaf0b8ae69b8",
+    "bytes": 28429,
+    "rows": 642,
+    "invoices": 25,
+    "selected_region": "United Kingdom",
+    "initial_gbp_usd": "1.25",
+    "planned_correction_gbp_usd": "1.30"
+  },
+  "stages": [
+    {
+      "stage": 1,
+      "tool": "create_csv_reports",
+      "status": "verified",
+      "matching_exact_model_supplied_csv": true,
+      "report_values_usd_cents": {
+        "company": 905258,
+        "region": 905258
+      },
+      "both_report_claims_current": true,
+      "reported_native_hydra_without_fallback": true,
+      "preflight_calculations": 8,
+      "recorded_executions": 8,
+      "verification_calculations": 11
+    },
+    {
+      "stage": 2,
+      "tool": "inspect_reports",
+      "status": "verified",
+      "report_values_usd_cents": {
+        "company": 905258,
+        "region": 905258
+      },
+      "both_report_claims_current": true,
+      "reported_native_hydra_without_fallback": true,
+      "same_generation_report_and_claim_ids": true
+    },
+    {
+      "stage": 3,
+      "tool": "update_csv",
+      "status": "unattempted"
+    },
+    {
+      "stage": 4,
+      "tool": "inspect_reports",
+      "status": "unattempted"
+    },
+    {
+      "stage": 5,
+      "tool": "export_current_reports",
+      "status": "unattempted",
+      "export_selection": "previously inspected heads"
+    },
+    {
+      "stage": 6,
+      "tool": "refresh_reports",
+      "status": "unattempted"
+    },
+    {
+      "stage": 7,
+      "tool": "export_current_reports",
+      "status": "unattempted",
+      "export_selection": "refreshed heads"
+    }
+  ],
+  "prior_preflights": [
+    {
+      "phase": "Claude dummy 1",
+      "status": "failed",
+      "dummy_requests": 6,
+      "reason": "Initial request offered an additional deferred tool."
+    },
+    {
+      "phase": "Claude dummy 2",
+      "status": "failed",
+      "dummy_requests": 3,
+      "reason": "The intentional dummy HTTP 400 produced three requests despite the retry setting."
+    },
+    {
+      "phase": "Claude dummy 3",
+      "status": "passed",
+      "dummy_requests": 1,
+      "reason": "Exact five tools, Fable 5.2, high effort and max_tokens 20000. Stopped before provider response or hosted requests."
+    },
+    {
+      "phase": "Earlier separate Codex loopback",
+      "status": "failed",
+      "reason": "The model request captured before inference did not offer the five connector tools."
+    }
+  ],
+  "limitations": "The trace verifies creation and persisted inspection. The correction, withheld current values, old-head refusal, refresh and checked export were unobserved in this trial. The earlier no-model hosted connector check, browser workflow, and local typed MCP test are separate evidence.",
+  "freeze": {
+    "frozen_at_utc": "2026-11-15T21:45:24.920905+00:00",
+    "frozen_packet_sha256": "29fa25c20c290082ee0d2c9a614340873c887f2441e07bb97ab969ec1049ed9d",
+    "original_protocol_sha256": "388a7a1d2b65ed574908bbb60110b91086b7528d984aa44486ba133d8201881f",
+    "exact_task_prompt_sha256": "1fca9dd2cc54de701ff2a0ed7e57dd0f8d702d975bd7d7a02a331423b9d5d279",
+    "exact_system_instruction_sha256": "32f4d96e0a6cc6964eeb20b56ba6c8b35188c88a6bca14a1d126b2ace571a0e9",
+    "independent_sanitized_source_receipt_sha256": "45b853d69bb3f7ba92611940310c93a5c1bcf4ded895d366d1d0e2c12773a002"
+  }
+}

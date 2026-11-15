@@ -1,10 +1,10 @@
 # ProofFlow submission draft
 
-The hosted app runs revision `b13f23892405efb856c8d4ca0e6abc94a1eca77c`. External checks verified report handoff by clipboard and file, both evidence downloads and CSV connector discovery. Approved judge access to the private repository and the organizer’s form remain pending. [Live app](https://proofflow.arnavbule.in) · [Two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Hosted verification](HOSTED_DELIVERY.md).
+The hosted app runs revision `b13f23892405efb856c8d4ca0e6abc94a1eca77c`. External checks verified report handoff by clipboard and file, both evidence downloads and CSV connector discovery. The organizer posted the form. Submission is deferred while the source remains private. [Live app](https://proofflow.arnavbule.in) · [Two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Hosted verification](HOSTED_DELIVERY.md).
 
 ## Project and track
 
-**ProofFlow — Track 2: agent context layer.** Final field wording depends on the organizer's form. The project demonstrates cross-run reuse and correction propagation; it claims no measured learning uplift.
+**ProofFlow — Track 2: agent context layer.** The organizer’s FAQ weights technical and go-to-market judging equally. Its technical criteria include suitable metrics, a baseline with continual-learning improvement, and evidence that the graph affects results. ProofFlow demonstrates live context, cross-run reuse and correction propagation. Continual-learning improvement remains unmeasured. [Organizer announcements](https://discord.com/channels/1489825700079734845/1490004148530450622).
 
 ## Short description
 
@@ -33,6 +33,8 @@ The browser accepts a bounded CSV, previews it without publishing, and creates t
 Five local stdio MCP tools expose source loading, preparation, client-selected plan execution, currentness inspection and refresh. The external model chooses a bounded plan; registered tools compute the numbers. The server makes no model calls and accepts no arbitrary code or SQL. A recorded Fable 5.2/high MCP client completed one corrected trajectory with 32 checks, cross-run composition and reuse; its first launch-configuration failure is retained. [Agent quickstart](AGENT_QUICKSTART.md) · [Client evidence](MCP_AGENT_RESULTS.md).
 
 The downloadable CSV connector lets a local MCP host create and inspect the browser’s fixed revenue reports, publish a correction, refresh affected work and return a checked text snapshot. A fresh external stock client downloaded the script and discovered all five tools without invoking them. An earlier stock-client run exercised the same script against the previous hosted CSV API with synthetic data and passed 21 checks. [Public connector setup](https://proofflow.arnavbule.in/agent/) · [Check scopes](HOSTED_DELIVERY.md).
+
+In one guided model trial on the hosted connector, Fable 5.2 created and inspected both reports from the exact 642-row CSV. Both showed $9,052.58. The model ended normally after **2 of 7** planned steps, citing a budget estimate. Correction, stale inspection, old export refusal, refresh and checked export went unattempted. [Partial result and bounds](HOSTED_CONNECTOR_MODEL_V1_RESULTS.md).
 
 ## Live demonstration
 
@@ -95,9 +97,9 @@ The browser supports two fixed reports, at most 1 MiB/1,000 rows, USD/EUR/GBP an
 
 ## Delivery fields
 
-- **Private source.** Approved judge access remains pending. [saivedant169/proofflow](https://github.com/saivedant169/proofflow).
+- **Source.** ProofFlow’s GitHub repository is private. The organizer requires an open-source repository, and no approved private-source route has been identified. [saivedant169/proofflow](https://github.com/saivedant169/proofflow) · [Organizer announcements](https://discord.com/channels/1489825700079734845/1490004148530450622).
 - **Hosted app.** The running release was verified at revision `b13f23892405efb856c8d4ca0e6abc94a1eca77c`. [ProofFlow](https://proofflow.arnavbule.in) · [Hosted verification receipt](../evidence/hosted_delivery_v4.json).
-- **Video.** The served file matched the packaged film, the server returned the expected byte range, and external Chrome checked playback and seeking. [120-second walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4).
+- **Video.** The hosted walkthrough passed external playback and seeking checks. The organizer requires a Loom. Acceptance of the hosted MP4 as a substitute remains unconfirmed. [120-second walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4).
 - **CSV connector.** The setup page, downloadable script and checksum were verified over public HTTPS. [Connector setup](https://proofflow.arnavbule.in/agent/).
 - **Public evidence.** The model and delivery ZIPs each include an offline verifier. [Evidence page](https://proofflow.arnavbule.in/evidence/).
-- **Event.** The organizer’s form and final required fields remain unverified. The recorded deadline is 16 November 2026, 09:00 IST. Submission receipt pending. [HydraDB Hackathon](https://luma.com/bqwllms4).
+- **Event and submission.** The organizer posted the form and set a deadline of 16 November 2026 at 09:00 IST. Submission is deferred. [HydraDB Hackathon](https://luma.com/bqwllms4) · [Organizer’s submission form](https://forms.gle/9brHhy7BC229tw868).

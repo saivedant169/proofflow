@@ -142,6 +142,8 @@ The downloadable Python connector lets a local MCP host create, inspect, correct
 
 An external runner downloaded the connector, matched its bytes to the release, and discovered all five tools with a stock MCP client in a fresh environment. An earlier stock-client run using the same script against the live CSV API passed 21 checks, including stale and cross-session export refusal. Both runs used scripted clients. [Delivery and check scopes](docs/HOSTED_DELIVERY.md).
 
+In one separate guided model trial, Fable 5.2 created and inspected the two reports from the 642-row retail CSV. That verified **2 of 7** planned steps at **$9,052.58** company and UK revenue. The model stopped before correction, citing its budget estimate. Five steps remained unattempted. [Partial result and protocol](docs/HOSTED_CONNECTOR_MODEL_V1_RESULTS.md).
+
 ### Local typed planning and composition
 
 The local stdio MCP server exposes five tools: load caller CSV, prepare typed evidence, execute a client-selected plan, inspect currentness, and refresh saved work. The host chooses the plan; this server runs no model and accepts no arbitrary code, SQL or filesystem paths.
