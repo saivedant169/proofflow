@@ -30,6 +30,8 @@ ARCHIVE = "proofflow-model-evidence.zip"
 DELIVERY_ARCHIVE = "proofflow-delivery-evidence.zip"
 FIXED_ARCHIVE = "proofflow-fixed-budget-evidence.zip"
 CONNECTOR = "proofflow_csv_mcp.py"
+NAVIGATION_RECEIPT = "hosted_evidence_navigation_v1.json"
+NAVIGATION_SHA256 = "27e1c69494575ce94cbf899dbfb4210e6ff4b81bbf05edca87a1f627805c97fd"
 MCP_VERSION = "2.3.0"
 TOOLS = {
     "create_csv_reports", "inspect_reports", "inspect_evidence", "update_csv", "refresh_reports", "export_current_reports",
@@ -79,6 +81,8 @@ AGENT_FILES = {
     "/agent/index.html": ("agent/index.html", "text/html"),
     f"/agent/{CONNECTOR}": (f"agent/{CONNECTOR}", None),
     f"/agent/{CONNECTOR}.sha256": (f"agent/{CONNECTOR}.sha256", None),
+    f"/agent/{NAVIGATION_RECEIPT}": (f"agent/{NAVIGATION_RECEIPT}", "application/json"),
+    f"/agent/{NAVIGATION_RECEIPT}.sha256": (f"agent/{NAVIGATION_RECEIPT}.sha256", None),
 }
 RECEIPT_MIME_TYPES = {
     "application/json", "application/octet-stream", "application/zip",
@@ -171,6 +175,50 @@ def download_files(opener, source_sha, files, receipt):
 
 def verify_sidecar(data, sidecar, filename):
     require(sidecar == f"{digest(data)}  {filename}\n".encode(), f"{filename} matches its published SHA-256 sidecar")
+
+
+def verify_navigation_receipt(data):
+    actual_sha = digest(data)
+    require(actual_sha == NAVIGATION_SHA256, "Recorded navigation receipt matches the independently audited bytes")
+    report = json.loads(data)
+    require(report["schema_version"] == 1 and report["study"] == "hosted evidence navigation model trial"
+            and report["overall_pass"] is True and report["model"] == "claude-fable-5-2"
+            and report["requested_effort"] == "high" and report["operator_launches"] == 1
+            and report["process_exit"] == 0 and report["cli_result"] == "success"
+            and report["cli_stop_reason"] == "end_turn" and report["timeout"] is False,
+            "Recorded model and single guided walkthrough scope")
+    require(report["tools_discovered"] == 6 and report["calls"] == report["matched_results"] == 13
+            and (report["evidence_reads"], report["mutation_calls"], report["checked_exports"]) == (9, 3, 1)
+            and report["cli_turns"] == 14 and report["tool_errors"] == report["guard_blocks"] == 0
+            and report["budget"]["cli_reported_list_cost_estimate_usd"] == 0.4920828
+            and report["budget"]["bill_observed"] is False,
+            "Recorded model call, turn and estimate accounting")
+    release, refresh = report["release"], report["refresh"]
+    require(release["origin"] == ORIGIN and release["source_revision"] == "327dc602cbb255c07201ffb85bcfc656476b382e"
+            and release["operator_verified_image"] == "sha256:7942a2441d932792000acfc50358a82f2ec7a1c949922f5ac1b9e6e679b83042"
+            and release["connector_sha256"] == "f987dd80caa31aad06d22f7ad479548fae6e7bd41a0aa1c102d73305f14c5ede"
+            and release["connector_bytes"] == 28594 and report["fixture"]["rows"] == 2
+            and report["fixture"]["selected_region"] == "NORTH", "Recorded historical release and two-row fixture")
+    require([(item["number"], item["status"]) for item in report["obligations"]] ==
+            [(number, "pass") for number in range(1, 9)]
+            and report["correction"]["model_csv_text_argument"] == "omitted"
+            and report["correction"]["source_csv_digest_and_rows_preserved"] is True
+            and report["amounts_usd_cents"] == {
+                "initial": {"company": 30800, "region": 10800}, "stale": {"company": None, "region": None},
+                "checked_current": {"company": 31700, "region": 11700},
+            }
+            and (refresh["recorded_executions"], refresh["verification_calculations"], refresh["reported_reused_artifacts"]) == (4, 11, 2)
+            and refresh["explicitly_verified_net_member"] is True
+            and report["export"]["both_role_specific_report_claim_pairs_match"] is True
+            and report["export"]["stale_export_attempted"] is False, "Recorded audited walkthrough results")
+    history = report["historical_results"]
+    require((history["v1_verified_stages"], history["v1_planned_stages"], history["v2_verified_stages"],
+             history["v2_planned_stages"]) == (2, 7, 7, 7), "Separate earlier five-tool stage outcomes")
+    return {
+        "sha256": actual_sha, "historical_source_revision": release["source_revision"],
+        "model": report["model"], "matched_results": report["matched_results"],
+        "obligations_passed": len(report["obligations"]), "stale_export_attempted": report["export"]["stale_export_attempted"],
+    }
 
 
 def extract_bundle(data, directory):
@@ -352,8 +400,8 @@ def main():
     output.mkdir(parents=True, exist_ok=True)
     receipt = {
         "schema_version": 1, "origin": ORIGIN, "started_at_utc": utc_now(), "files": {}, "passed": False,
-        "scope": "Public evidence bundles and connector static bytes, offline verification, and MCP initialization and tool discovery.",
-        "revision_scope": "Checkout SHA identifies the expected static files. The model and fixed-budget bundles pin their study revisions. The delivery bundle lists historical releases.",
+        "scope": "Public evidence bundles, the recorded navigation receipt, and connector static bytes with offline verification and MCP tool discovery.",
+        "revision_scope": "Checkout SHA identifies the expected static files. The model and fixed-budget bundles pin their study revisions. The delivery bundle and recorded navigation receipt identify earlier releases.",
     }
     stage = "runner_provenance"
     try:
@@ -397,6 +445,10 @@ def main():
             downloads = download_files(opener, source_sha, AGENT_FILES, receipt)
             source = downloads[f"agent/{CONNECTOR}"]
             verify_sidecar(source, downloads[f"agent/{CONNECTOR}.sha256"], CONNECTOR)
+            stage = "recorded_navigation_receipt_verification"
+            navigation = downloads[f"agent/{NAVIGATION_RECEIPT}"]
+            verify_sidecar(navigation, downloads[f"agent/{NAVIGATION_RECEIPT}.sha256"], NAVIGATION_RECEIPT)
+            receipt[stage] = verify_navigation_receipt(navigation)
             script = temporary / CONNECTOR
             script.write_bytes(source)
             stage = "cold_connector_handshake"
@@ -410,7 +462,7 @@ def main():
         receipt["finished_at_utc"] = utc_now()
         (output / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
     if receipt["passed"]:
-        print("Public payload bytes, all three offline evidence verifiers, and cold MCP handshake passed")
+        print("Public payload bytes, all three offline evidence verifiers, recorded navigation receipt, and cold MCP handshake passed")
     return 0 if receipt["passed"] else 1
 
 

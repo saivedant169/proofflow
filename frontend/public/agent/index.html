@@ -72,6 +72,14 @@ Save the generation and both report IDs from the create result. Call update_csv 
     <p>The response identifies the artifact's currentness, content fingerprint, producing execution and typed inputs. It includes native paths from recorded changed sources. Those sources accumulate across corrections, so a path does not by itself identify the most recent edit. Paths are bounded; an empty list does not establish that an artifact is current. You can also inspect a retained calculation before and after a correction to compare its artifact and receipt identities.</p>
     <p>Inspection returns provenance without saved values, CSV rows, source contents or tool parameters. Use <code>inspect_reports</code> for current amounts and <code>export_current_reports</code> for a checked handoff. An inspection does not refresh or export a report.</p>
 
+    <section aria-labelledby="recorded-walkthrough">
+      <h2 id="recorded-walkthrough">Recorded agent walkthrough</h2>
+      <p>Fable 5.2 completed one guided workflow on two authored rows with the six-tool connector on release <code>327dc60</code>. Independent review verified all <strong>8 obligations</strong>. The agent followed recorded inputs from the withheld NORTH report, traced a native path from the old FX version, and rechecked the same net artifact through the correction. The refresh response explicitly listed that artifact under reuse.</p>
+      <p>The checked handoff showed <strong>$317.00 company</strong> and <strong>$117.00 NORTH</strong>. Refresh recorded four executions, eleven separate verification calculations, and two reused artifacts. The final checked handoff was the only export attempt.</p>
+      <p>The 13 matched tool calls used five of the six available tools, including nine evidence inspections. The CLI recorded 14 turns and a list cost estimate of <strong>$0.4920828</strong>. The receipt also records the earlier five-tool runs separately, with 2/7 stages verified in V1 and 7/7 in V2.</p>
+      <p><a href="hosted_evidence_navigation_v1.json">View the sanitized audit receipt</a> · <a href="hosted_evidence_navigation_v1.json.sha256" download>Receipt SHA-256</a></p>
+    </section>
+
     <h2>Tools and session</h2>
     <ul>
       <li><code>create_csv_reports</code> creates the two fixed revenue reports in the active session.</li>
