@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-11-15T11:47:16.940557+00:00",
+  "origin": "http://127.0.0.1:18080/walkthrough.mp4",
+  "release_revision": "640cea5",
+  "passed": true,
+  "checks": {
+    "exact_sha256": true,
+    "video_mime": true,
+    "range_206": true,
+    "range_content": true
+  },
+  "bytes": 5151087,
+  "sha256": "100f6bb9399b48498b829b23264c508e9fd70e07994138df4b295db7dd927d8b",
+  "scope": "Local Docker image built from committed source archive, not remote deployment."
+}
