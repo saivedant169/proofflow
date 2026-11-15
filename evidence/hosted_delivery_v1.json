@@ -1,0 +1,364 @@
+{
+  "schema_version": 1,
+  "canonical_origin": "https://proofflow.arnavbule.in",
+  "ip_tested_origin": "https://16.4.117.247",
+  "release": {
+    "source_revision": "0535ba672b4b31c563c13d95df03285a73a4d736",
+    "platform": "linux/amd64",
+    "app_image_id": "sha256:6bd0995c0714ed6f326b708c09ac8b680a97dd9f173d82f5af7d5a3223e9b01e",
+    "build_image_receipt_sha256": "596614aa117c53a8f8391c4d141212e90de25df2255a8c644c63dd3c1184f894",
+    "running_host_manifest_sha256": "9649bd6d64d6433fd436886b57c33b9d4aebbd942abb38fb2de2c923ca487ec6",
+    "running_host_manifest_captured_at_utc": "2026-11-15T17:04:41+00:00",
+    "running_app_image_and_revision_match_build": true
+  },
+  "domain_verification": {
+    "source_receipt_sha256": "0227609d8585d8760a3c2c31c6a983e2f8925a098deabc46241422165cb784a4",
+    "verified_at_utc": "2026-11-15T17:11:42.283078+00:00",
+    "tls": {
+      "san": [
+        "proofflow.arnavbule.in"
+      ],
+      "not_before_utc": "2026-11-15T16:11:14Z",
+      "not_after_utc": "2027-02-13T16:11:13Z",
+      "trusted_https_health": 200
+    },
+    "http_redirect": {
+      "status": 308,
+      "location": "https://proofflow.arnavbule.in/health"
+    },
+    "health": {
+      "status": "ok",
+      "backend": "HydraDB OSS"
+    },
+    "video_range": {
+      "status": 206,
+      "content_type": "video/mp4",
+      "content_range": "bytes 0-1023/5064373"
+    },
+    "http_smoke": {
+      "checks_passed": 13,
+      "checks_total": 13,
+      "app_restart_requested": false
+    },
+    "chrome_guided_flow": {
+      "passed": true,
+      "initial_values": [
+        556500,
+        209000,
+        2
+      ],
+      "refreshed_values": [
+        575500,
+        228000,
+        2
+      ],
+      "withheld_before_refresh": true,
+      "recorded_refresh_calls": 4,
+      "independent_verification": true,
+      "cookie_attributes": [
+        "Secure",
+        "HttpOnly",
+        "SameSite=Strict",
+        "Path=/"
+      ],
+      "console_errors": 0
+    },
+    "dns": {
+      "ipv4_address": "16.4.117.247",
+      "matching_authoritative_resolvers": 2,
+      "matching_public_resolvers": 2,
+      "matching_server_resolver": true,
+      "builder_default_resolver_cached_negative_answer": true,
+      "application_checks_used_per_process_hostname_mapping": true,
+      "application_checks_preserved_normal_tls_and_hostname": true
+    }
+  },
+  "guided_http_smoke": {
+    "source_receipt_sha256": "1b27aa75873f053c0ad12dfa5c29b51a95ab0e2597ce4fc846f22e3bc199097b",
+    "tested_at_utc": "2026-11-15T17:00:37.166291+00:00",
+    "passed": true,
+    "check_count": 13,
+    "checks": {
+      "health_reads_real_hydra": true,
+      "built_interface_served": true,
+      "compiled_assets_load": true,
+      "unknown_api_is_not_spa": true,
+      "initial_actual_values": true,
+      "changed_claims_withheld": true,
+      "native_impact_four_artifacts": true,
+      "correct_refreshed_values": true,
+      "four_actual_tools_and_support_preserved": true,
+      "independent_refresh_parity": true,
+      "missing_source_refresh_refused": true,
+      "missing_source_never_serves_current_revenue": true,
+      "reset_recovers_new_generation": true
+    }
+  },
+  "chrome_acceptance": {
+    "source_receipt_sha256": "829f779cd604d845d991542637a97fcc5d3fd6241c75c869a15213cfc37a1ac7",
+    "started_at_utc": "2026-11-15T17:00:21.480Z",
+    "finished_at_utc": "2026-11-15T17:01:06.925Z",
+    "fresh_browser_contexts": 3,
+    "successful_csv_creates": 2,
+    "result": "pass",
+    "group_count": 8,
+    "browser": {
+      "name": "Chrome via Playwright Chromium",
+      "version": "157.0.8103.78"
+    },
+    "groups": {
+      "https_health_and_media_bytes": {
+        "status": "pass",
+        "health": {
+          "status": 200,
+          "backend": "HydraDB OSS"
+        },
+        "video": {
+          "bytes": 5064373,
+          "sha256": "5d9c1dc53519097121527dad6d35dd9e34310ae45b634445eb6bb6e156584393",
+          "range_status": 206,
+          "content_range": "bytes 0-1023/5064373",
+          "prefix_matches": true
+        },
+        "poster": {
+          "status": 200,
+          "sha256": "6eb442e366e969b3dba85ef41a6095844cf3135c244c520d2dd41c7401b71ef6"
+        }
+      },
+      "browser_video_play_and_seek": {
+        "status": "pass",
+        "playback_started_at_seconds": 0.31,
+        "playback_after_seek_seconds": 75.32,
+        "duration_seconds": 120,
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "muted_browser_playback": true
+      },
+      "desktop_guided_demo_and_cookie": {
+        "status": "pass",
+        "viewport": [
+          1536,
+          1024
+        ],
+        "secure_cookie_attributes": {
+          "Secure": true,
+          "HttpOnly": true,
+          "SameSite": "Strict",
+          "Path": "/"
+        },
+        "initial_values": [
+          556500,
+          209000,
+          2
+        ],
+        "refreshed_values": [
+          575500,
+          228000,
+          2
+        ],
+        "withheld_before_refresh": true,
+        "refresh_recorded_calls": 4,
+        "verified": true
+      },
+      "desktop_csv_create_and_reload": {
+        "status": "pass",
+        "reload_preserved_identities": true,
+        "update_csv_field_empty": true,
+        "preview": {
+          "status": 200,
+          "persisted": false,
+          "preflight": 8,
+          "recorded": 0,
+          "fixture_hash_matches": true,
+          "prior_import_state_status": 404
+        },
+        "create": {
+          "status": 200,
+          "revenue_cents": [
+            30800,
+            10800
+          ],
+          "accounting": [
+            8,
+            8,
+            11,
+            27
+          ],
+          "backend": "HydraDB OSS",
+          "fallback": false
+        },
+        "first_export": {
+          "status": 200,
+          "no_store": true,
+          "checked_at_utc": "2026-11-15T17:00:35.088651+00:00"
+        }
+      },
+      "mobile_isolated_csv_before_desktop_correction": {
+        "status": "pass",
+        "different_sessions": true,
+        "owner_evidence_status": 200,
+        "foreign_evidence_status": 404,
+        "revenue_cents": [
+          16375,
+          9375
+        ],
+        "fabricated_support_claim": false
+      },
+      "desktop_concurrent_correction_and_stale_export_refusal": {
+        "status": "pass",
+        "same_session_and_generation": true,
+        "only_fx_source_changed": true,
+        "correction_accounting": [
+          8,
+          0,
+          0,
+          8
+        ],
+        "affected_artifacts": 4,
+        "stale_export_status": 409,
+        "reconciliation_status": 200,
+        "refused_download_events": 0,
+        "stale_values_withheld": true
+      },
+      "desktop_refresh_export_and_mobile_report_controls": {
+        "status": "pass",
+        "refresh_status": 200,
+        "accounting": [
+          0,
+          4,
+          11,
+          15
+        ],
+        "fresh_recomputation_matches": true,
+        "unchanged_support": true,
+        "refreshed_revenues_cents": [
+          31700,
+          11700
+        ],
+        "new_report_heads": true,
+        "previous_file_unchanged": true,
+        "unexpected_console_runtime_entries": 0,
+        "export": {
+          "status": 200,
+          "no_store": true,
+          "checked_at_utc": "2026-11-15T17:00:45.046074+00:00"
+        },
+        "viewport_measurements": [
+          {
+            "height": 844,
+            "viewport": 390,
+            "page": 390,
+            "toolbar": 358,
+            "toolbar_client": 358
+          },
+          {
+            "height": 844,
+            "viewport": 320,
+            "page": 320,
+            "toolbar": 288,
+            "toolbar_client": 288
+          }
+        ]
+      },
+      "mobile_isolation_after_desktop_correction": {
+        "status": "pass",
+        "isolated_reload_preserved_generation_and_artifacts": true,
+        "revenue_cents": [
+          16375,
+          9375
+        ],
+        "dimensions": {
+          "viewport": 390,
+          "page": 390,
+          "height": 844
+        }
+      }
+    }
+  },
+  "application_restart": {
+    "source_receipt_sha256": "9427e504701c91664224c0f4b01ad5a086080699934747454cfacc5167d98d1a",
+    "began_at_utc": "2026-11-15T17:01:37.573333+00:00",
+    "tested_at_utc": "2026-11-15T17:01:51.646238+00:00",
+    "status": "pass",
+    "check_count": 87,
+    "request_count": 12,
+    "component_tested": "app",
+    "app_started_at_before_utc": "2026-11-15T16:59:29.769099+00:00",
+    "app_started_at_after_utc": "2026-11-15T17:01:44.749328+00:00",
+    "check_observations": {
+      "app_restarted_with_new_started_at": true,
+      "same_host_boot": true,
+      "same_readonly_token_file_metadata": true,
+      "same_app_container_and_exact_image": true,
+      "same_hydradb_container_image_and_start_time": true,
+      "same_app_and_hydradb_mounts": true,
+      "restored_same_session": true,
+      "restored_same_generation": true,
+      "restored_same_sources": true,
+      "restored_same_artifacts": true,
+      "restored_same_reports": true,
+      "restored_same_executions": true,
+      "correction_changes_only_fx_source": true,
+      "correction_affects_exactly_four_prior_artifacts": true,
+      "withheld_reload_retains_impact_and_historical_values": true,
+      "refresh_four_executions_with_fresh_recomputation_parity": true,
+      "refresh_replaces_only_four_affected_artifacts": true,
+      "refresh_preserves_independent_support_artifact": true,
+      "final_reload_same_artifacts": true,
+      "final_reload_same_reports": true
+    },
+    "http_response_statuses": [
+      200,
+      200,
+      404,
+      200,
+      502,
+      502,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "health_statuses_after_restart": [
+      502,
+      502,
+      200
+    ],
+    "stages": {
+      "initial": {
+        "company_usd_cents": 30800,
+        "north_usd_cents": 10800,
+        "report_state": "current"
+      },
+      "restored": {
+        "company_usd_cents": 30800,
+        "north_usd_cents": 10800,
+        "report_state": "current"
+      },
+      "corrected": {
+        "company_usd_cents": null,
+        "north_usd_cents": null,
+        "report_state": "stale"
+      },
+      "withheld_reload": {
+        "company_usd_cents": null,
+        "north_usd_cents": null,
+        "report_state": "stale"
+      },
+      "refreshed": {
+        "company_usd_cents": 31700,
+        "north_usd_cents": 11700,
+        "report_state": "current"
+      },
+      "final_reload": {
+        "company_usd_cents": 31700,
+        "north_usd_cents": 11700,
+        "report_state": "current"
+      }
+    }
+  }
+}

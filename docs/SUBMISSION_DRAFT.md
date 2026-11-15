@@ -1,6 +1,6 @@
 # ProofFlow submission draft
 
-The application, benchmark evidence and local walkthrough are built. The owner will deploy the app; hosted verification, approved judge source access and the organizer's form remain pending. The repository stays private. This document is not a submission receipt.
+The [live app](https://proofflow.arnavbule.in) and [two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) passed [hosted verification](HOSTED_DELIVERY.md). Approved judge access to the private repository and the organizer's form remain pending. This document is not a submission receipt.
 
 ## Project and track
 
@@ -34,7 +34,7 @@ Five local stdio MCP tools expose source loading, preparation, client-selected p
 2. Publish the same CSV with the corrected rate 1.30. Four artifacts become stale, current monetary values are withheld, and native graph evidence explains the impact. Support remains current.
 3. Refresh the affected work. Four recorded tool calls produce **$317 / $117**, verified against independent arithmetic. Validation and verification calculations are counted separately; four recorded calls are not the complete computation cost. Choose **Download current reports** to capture the refreshed figures and their artifact IDs for the handoff.
 
-The 120-second film shows this CSV preview/creation briefly, then explicitly switches to a separate guided fixture, the audited 48-invocation model comparison and recorded MCP evidence. Earlier deterministic failures remain visible in a separate limits card. Those fixtures and experiments are not pooled. [Video](../video/proofflow-walkthrough.mp4) · [Narration](VIDEO_SCRIPT.md).
+The 120-second film shows this CSV preview/creation briefly, then explicitly switches to a separate guided fixture, the audited 48-invocation model comparison and recorded MCP evidence. Earlier deterministic failures remain visible in a separate limits card. Those fixtures and experiments are not pooled. [Watch the hosted video](https://proofflow.arnavbule.in/walkthrough.mp4) · [Narration](VIDEO_SCRIPT.md).
 
 ## Fresh actual-model evidence
 
@@ -69,6 +69,7 @@ The evidence supports explicit dependency context over relevance ranking for thi
 
 ## Verification and scope
 
+- [Hosted delivery](HOSTED_DELIVERY.md): the custom domain passed 13 guided HTTP checks and a Chrome check of guided correction and refresh. Separate IP-based runs passed 13 guided HTTP checks, eight Chrome acceptance groups and 87 restart checks over 12 HTTP responses. These functional checks from the builder network are separate from the benchmark results.
 - [Native persistence](../evidence/hydra_smoke.json): database restart, persisted traversal and a new write.
 - [Packaged application](../evidence/deployment_smoke.json): 16 HTTP checks, including application restart and session/artifact preservation.
 - [Interrupted update](RECOVERY_V1_RESULTS.md): 15/15 checks locally and in Linux CI after actual SIGKILL between committed source publications; stale values withheld, then full resubmission matched all eight uninterrupted artifact lineages.
@@ -81,8 +82,7 @@ The browser supports two fixed reports, at most 1 MiB/1,000 rows, USD/EUR/GBP an
 ## Delivery fields
 
 - **Private source:** [saivedant169/proofflow](https://github.com/saivedant169/proofflow). Judge access must be confirmed; privacy is not changed by app deployment.
-- **Local app:** http://127.0.0.1:18080. This is not a hosted judge URL.
-- **Hosted app:** owner deployment on hold; no public URL or hosted verification claimed.
-- **Video:** [local 120-second walkthrough](../video/proofflow-walkthrough.mp4), packaged at `/walkthrough.mp4`; [updated-film local delivery](../evidence/video_delivery_v4.json) passed exact-hash, MIME and HTTP range checks. Public delivery remains pending.
+- **Hosted app:** [Open ProofFlow](https://proofflow.arnavbule.in). [Hosted evidence](HOSTED_DELIVERY.md) pins the running app to revision `0535ba672b4b31c563c13d95df03285a73a4d736`.
+- **Video:** [120-second walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4). Delivery on the custom domain returned the requested byte range; the earlier IP-based run matched the full packaged film and verified Chrome playback and seeking.
 - **Event:** [HydraDB Hackathon](https://luma.com/bqwllms4). The organizer's form and final required fields remain unverified.
 - **Deadline:** 16 November 2026, 09:00 IST. No submission receipt exists.

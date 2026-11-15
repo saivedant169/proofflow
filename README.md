@@ -2,6 +2,8 @@
 
 **Keep saved agent reports current when an input changes.** ProofFlow records the inputs behind each supported number. Correct an exchange rate or refund, see which saved reports depend on it, and refresh affected calculations while keeping valid work. Try company and regional revenue with a compatible orders CSV, or connect a local MCP host to compose reports from supported tools and reuse earlier results.
 
+**[Open the live app](https://proofflow.arnavbule.in) · [Watch the two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4)** · [Hosted verification](docs/HOSTED_DELIVERY.md)
+
 A frozen **48-invocation actual-model comparison** refreshed **32/32 affected reports**, matching full context at **39.33% of its provider input exposure**, excluding the no-op case. BM25 refreshed 25/32, BGE vector retrieval 5/32 and iterative hybrid 28/32 at the graph's per-case evidence allowance. Exact-flat traversal also achieved 32/32 with identical prompts. This is eight fresh cases and one sample per method/case, with a shared safe executor; it establishes neither a unique database-engine advantage nor general model reliability. [Audited model results](docs/MODEL_COMPARISON_RESULTS.md).
 
 In the audited retail benchmark, the complete dependency path refreshed **38/38 recoverable affected reports** and correctly blocked **4/4 unavailable reports**, using **69.41% fewer evidence tokens than full context**. At the same per-case evidence allowance, BM25 refreshed 19/38, dense BGE 8/38 and iterative hybrid 33/38. Exact flat dependency traversal ties ProofFlow; every arm uses the same Hydra-assisted executor. [Results and limits](docs/RETAIL_V2_RESULTS.md).
@@ -10,7 +12,7 @@ In the guided browser sample, a company report and an EU brief share a revenue c
 
 ![ProofFlow workspace](evidence/ui/workspace-final.jpg)
 
-[Watch the two-minute walkthrough](video/proofflow-walkthrough.mp4) · [Narration and evidence references](docs/VIDEO_SCRIPT.md)
+[Walkthrough file in this repository](video/proofflow-walkthrough.mp4) · [Narration and evidence references](docs/VIDEO_SCRIPT.md)
 
 The current film briefly shows CSV preview and report creation, then a separately labeled guided correction flow, the audited 48-invocation model comparison and saved actual MCP-client evidence. Earlier deterministic failures remain visible in a separate limits card. The full CSV correction workflow below is a longer live feature. [Verified local video delivery](evidence/video_delivery_v4.json) · [Demo narrative](docs/DEMO_SCRIPT.md).
 
@@ -175,10 +177,11 @@ The recovery probe uses fresh disposable workspaces and kills only its own API c
 - [Native HydraDB persistence evidence](evidence/hydra_smoke.json)
 - [Core numeric and cross-run evidence](evidence/core_smoke.json)
 - [Interrupted-update protocol and result](docs/RECOVERY_V1_RESULTS.md)
+- [Hosted HTTP, browser and restart checks](docs/HOSTED_DELIVERY.md)
 - [Deployment and recovery](docs/DEPLOYMENT.md)
 - [Browser verification](docs/UI_FIDELITY.md)
 
-The repository remains private. Hosting is on hold and will be handled by the project owner. No hosted URL or final submission receipt is claimed. Local database listeners bind only to localhost; hosted deployments should expose the application through HTTPS and keep HydraDB private. The demo uses one application worker, bounded sessions and a configurable idle expiry.
+The repository remains private. The hosted demo uses HTTPS, one application worker, bounded sessions and a configurable idle expiry. Local database listeners bind only to localhost. The live demo is separate from judge access to the private source and from submission through the organizer's form.
 
 ## License
 
