@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "proofflow"
+version = "0.1.0"
+description = "Execution-derived evidence and current context for analytics agents"
+requires-python = ">=3.11"
+dependencies = ["httpx>=0.28,<0.29", "fastapi>=0.115,<1", "uvicorn>=0.34,<1"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+benchmark = ["fastembed>=0.7,<1", "rank-bm25>=0.2.2,<0.3", "numpy>=2,<3", "tiktoken>=0.9,<1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: requires the local HydraDB service"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["proofflow"]

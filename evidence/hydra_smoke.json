@@ -1,0 +1,197 @@
+{
+  "timestamp_utc": "2026-11-15T09:31:38.122806+00:00",
+  "namespace": "smoke-830866051baa",
+  "backend": "HydraDB OSS 0.4.0",
+  "commit": "916637477f3f34766b4905b270bd4292109d77e6",
+  "image_digest": "sha256:ab71d651fefee13ebb23eb56d72316065bdca563ff7587442e07be663f2bf880",
+  "storage": "CLOUD_PROVIDER=local, Docker named persistent volume",
+  "restart_requested": true,
+  "graph_replayed_from_application": false,
+  "checks": {
+    "multi_hop_descendants": true,
+    "multi_hop_ancestors": true,
+    "native_path_evidence": true,
+    "idempotent_edge_write": true,
+    "unrelated_output_excluded": true,
+    "restart_metadata": true,
+    "restart_traversal": true,
+    "write_after_restart": true
+  },
+  "passed": true,
+  "native_queries": 55,
+  "elapsed_seconds": 0.923,
+  "descendants": [
+    "metric",
+    "report",
+    "run1",
+    "run2"
+  ],
+  "ancestors": [
+    "metric",
+    "run1",
+    "run2",
+    "source"
+  ],
+  "example_native_path": {
+    "nodes": [
+      {
+        "id": 329711030333390107,
+        "labels": [
+          "ProofFlow"
+        ],
+        "properties": {
+          "key": {
+            "String": "source"
+          },
+          "kind": {
+            "String": "source"
+          },
+          "payload": {
+            "String": "{\"label\":\"source\",\"probe\":\"smoke-830866051baa\"}"
+          },
+          "workspace": {
+            "String": "smoke-830866051baa"
+          }
+        }
+      },
+      {
+        "id": 480287907437633823,
+        "labels": [
+          "ProofFlow"
+        ],
+        "properties": {
+          "key": {
+            "String": "run1"
+          },
+          "kind": {
+            "String": "execution"
+          },
+          "payload": {
+            "String": "{\"label\":\"run1\",\"probe\":\"smoke-830866051baa\"}"
+          },
+          "workspace": {
+            "String": "smoke-830866051baa"
+          }
+        }
+      },
+      {
+        "id": 251386714504926126,
+        "labels": [
+          "ProofFlow"
+        ],
+        "properties": {
+          "key": {
+            "String": "metric"
+          },
+          "kind": {
+            "String": "artifact"
+          },
+          "payload": {
+            "String": "{\"label\":\"metric\",\"probe\":\"smoke-830866051baa\"}"
+          },
+          "workspace": {
+            "String": "smoke-830866051baa"
+          }
+        }
+      },
+      {
+        "id": 934893439962807780,
+        "labels": [
+          "ProofFlow"
+        ],
+        "properties": {
+          "key": {
+            "String": "run2"
+          },
+          "kind": {
+            "String": "execution"
+          },
+          "payload": {
+            "String": "{\"label\":\"run2\",\"probe\":\"smoke-830866051baa\"}"
+          },
+          "workspace": {
+            "String": "smoke-830866051baa"
+          }
+        }
+      },
+      {
+        "id": 325580177476872971,
+        "labels": [
+          "ProofFlow"
+        ],
+        "properties": {
+          "key": {
+            "String": "report"
+          },
+          "kind": {
+            "String": "artifact"
+          },
+          "payload": {
+            "String": "{\"label\":\"report\",\"probe\":\"smoke-830866051baa\"}"
+          },
+          "workspace": {
+            "String": "smoke-830866051baa"
+          }
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "id": null,
+        "edge_type": "FLOW",
+        "src": 329711030333390107,
+        "dst": 480287907437633823,
+        "properties": {
+          "kind": {
+            "String": "DEPENDENCY"
+          },
+          "payload": {
+            "String": "{}"
+          }
+        }
+      },
+      {
+        "id": null,
+        "edge_type": "FLOW",
+        "src": 480287907437633823,
+        "dst": 251386714504926126,
+        "properties": {
+          "kind": {
+            "String": "DEPENDENCY"
+          },
+          "payload": {
+            "String": "{}"
+          }
+        }
+      },
+      {
+        "id": null,
+        "edge_type": "FLOW",
+        "src": 251386714504926126,
+        "dst": 934893439962807780,
+        "properties": {
+          "kind": {
+            "String": "DEPENDENCY"
+          },
+          "payload": {
+            "String": "{}"
+          }
+        }
+      },
+      {
+        "id": null,
+        "edge_type": "FLOW",
+        "src": 934893439962807780,
+        "dst": 325580177476872971,
+        "properties": {
+          "kind": {
+            "String": "DEPENDENCY"
+          },
+          "payload": {
+            "String": "{}"
+          }
+        }
+      }
+    ]
+  }
+}

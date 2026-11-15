@@ -1,0 +1,42 @@
+name: proofflow
+services:
+  store-init:
+    image: alpine:3.22
+    user: "0:0"
+    command: ["sh", "-c", "mkdir -p /state/store /state/cache && chown -R 10001:10001 /state"]
+    volumes:
+      - hydra-state:/state
+  hydradb:
+    image: ghcr.io/hydra-db/hydradb:0.4.0@sha256:ab71d651fefee13ebb23eb56d72316065bdca563ff7587442e07be663f2bf880
+    depends_on:
+      store-init:
+        condition: service_completed_successfully
+    environment:
+      CLOUD_PROVIDER: local
+      LOCAL_PATH: /state/store
+      GRAPH_NAMESPACE: default
+      GRAPH_ID: default
+      GRAPH_CELL_ID: cell-0
+      GRAPH_CELLS: cell-0
+      GRAPH_NODE_ID: proofflow-node
+      GRAPH_BOLT_NODE_ADDRESSES: proofflow-node=127.0.0.1:7687
+      GRAPH_ADVERTISED_BOLT_ADDR: 127.0.0.1:7687
+      GRAPH_DATA_CACHE_DIR: /state/cache
+      GRAPH_AUTH_TOKEN_FILE: /run/secrets/hydra_token
+      GRAPH_ALLOW_PLAINTEXT: "true"
+      GRAPH_USAGE_REPORT_ENABLED: "false"
+      RUST_MIN_STACK: "33554432"
+    secrets:
+      - hydra_token
+    volumes:
+      - hydra-state:/state
+    ports:
+      - "127.0.0.1:18443:8443"
+      - "127.0.0.1:19090:9090"
+      - "127.0.0.1:17687:7687"
+    restart: unless-stopped
+secrets:
+  hydra_token:
+    file: .state/hydra-token
+volumes:
+  hydra-state:
