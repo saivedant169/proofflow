@@ -1,0 +1,16 @@
+{
+  "baseline": {
+    "csv_text": "order_id,region,currency,gross_cents,refund_cents,ticket_count\nriver-a,RIVER,EUR,42000,2000,2\nhill-a,HILL,USD,31000,1000,1\n",
+    "rates": {
+      "EUR": "1.25"
+    },
+    "region": "RIVER"
+  },
+  "correction_and_resubmission": {
+    "csv_text": "order_id,region,currency,gross_cents,refund_cents,ticket_count\nriver-a,RIVER,EUR,46000,3500,2\nhill-a,HILL,USD,31000,1000,1\n",
+    "rates": {
+      "EUR": "1.25"
+    },
+    "region": "RIVER"
+  }
+}

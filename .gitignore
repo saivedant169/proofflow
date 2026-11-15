@@ -13,3 +13,7 @@ results/**/*.sqlite3
 results/**/*.sqlite3-wal
 results/**/*.sqlite3-shm
 results/mcp-*/state/
+results/recovery-*/private/
+results/recovery-*/state/
+evidence/ci_recovery/private/
+evidence/ci_recovery/state/

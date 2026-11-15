@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "checks": {
+    "uninterrupted_control_known_values": true,
+    "initial_arms_have_matching_current_artifact_lineage": true,
+    "parent_observed_mixed_durable_heads_and_native_vertex": true,
+    "actual_sigkill_without_application_cleanup": true,
+    "reopen_marker_stale_withheld_support_current": true,
+    "refresh_and_verify_refused_until_resubmission": true,
+    "negative_response_control_detected": true,
+    "resubmit_retains_all_original_affected_roots": true,
+    "recovered_known_values_and_seven_calls": true,
+    "control_parity_for_all_eight_artifact_lineages": true,
+    "no_duplicate_current_heads": true,
+    "successful_source_metadata_reconciled": true,
+    "full_lifecycle_accounting_including_bootstrap_and_interruption": true,
+    "exact_refresh_tool_multisets_match_manifest": true,
+    "frozen_inputs_and_implementation_unchanged": true
+  },
+  "error": null,
+  "revision": "b47fbbf8a6c8e7e41f92d638d7fc3bde6c1d9d9b",
+  "finished_at": "2026-11-15T12:57:01.946593+00:00",
+  "model_calls": 0,
+  "production_change": false,
+  "scope": "One prospective SIGKILL at the boundary between committed orders and pending refunds updates. No main-app/Hydra restart; no claim about OS/power-loss or within-write crash atomicity."
+}

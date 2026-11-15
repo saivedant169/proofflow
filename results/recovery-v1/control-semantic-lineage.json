@@ -1,0 +1,211 @@
+{
+  "import:metric:company": {
+    "content_hash": "455d7e8dff5183f1242c79315eb3370c7a2e88948c28add5a84ffdc974343db0",
+    "value": {
+      "usd_cents": 83125
+    },
+    "tool": "company_total",
+    "params": {},
+    "inputs": {
+      "regional": {
+        "logical_id": "import:metric:regional",
+        "content_hash": "cc463c5e8f050926f3a4207044cf483b9d50ee6265b1fa48adc01db5ac9eaea3"
+      }
+    }
+  },
+  "import:metric:gross": {
+    "content_hash": "6742bedd9cde205203c464ca001ea903262f0b106639d5377bbeb0133486003c",
+    "value": {
+      "regions": {
+        "HILL": {
+          "amount_cents": 31000,
+          "currency": "USD"
+        },
+        "RIVER": {
+          "amount_cents": 46000,
+          "currency": "EUR"
+        }
+      }
+    },
+    "tool": "gross_by_region",
+    "params": {},
+    "inputs": {
+      "orders": {
+        "logical_id": "source:csv:orders",
+        "content_hash": "12c8e6f80eb8354a4799c2a87a601c60b8c0508ae766f154f34df1125ea3dab9"
+      }
+    }
+  },
+  "import:metric:net": {
+    "content_hash": "c282db67bdbde7a44d48dbd842cc1666b94c22e9f4f80c82bbcafa1e9565569f",
+    "value": {
+      "regions": {
+        "HILL": {
+          "amount_cents": 30000,
+          "currency": "USD"
+        },
+        "RIVER": {
+          "amount_cents": 42500,
+          "currency": "EUR"
+        }
+      }
+    },
+    "tool": "net_by_region",
+    "params": {},
+    "inputs": {
+      "gross": {
+        "logical_id": "import:metric:gross",
+        "content_hash": "6742bedd9cde205203c464ca001ea903262f0b106639d5377bbeb0133486003c"
+      },
+      "refunds": {
+        "logical_id": "import:metric:refunds",
+        "content_hash": "33ffe1b1f91d3c5aecd44c3bb621f0e93143e2f8adab158cffdd5e120eb4a418"
+      }
+    }
+  },
+  "import:metric:refunds": {
+    "content_hash": "33ffe1b1f91d3c5aecd44c3bb621f0e93143e2f8adab158cffdd5e120eb4a418",
+    "value": {
+      "regions": {
+        "HILL": {
+          "amount_cents": 1000,
+          "currency": "USD"
+        },
+        "RIVER": {
+          "amount_cents": 3500,
+          "currency": "EUR"
+        }
+      }
+    },
+    "tool": "refunds_by_region",
+    "params": {},
+    "inputs": {
+      "orders": {
+        "logical_id": "source:csv:orders",
+        "content_hash": "12c8e6f80eb8354a4799c2a87a601c60b8c0508ae766f154f34df1125ea3dab9"
+      },
+      "refunds": {
+        "logical_id": "source:csv:refunds",
+        "content_hash": "6b67dfe0f719b7dff61b8c56f874f73d0a723088e6a4dfd7484ffc7b6268fecb"
+      }
+    }
+  },
+  "import:metric:regional": {
+    "content_hash": "cc463c5e8f050926f3a4207044cf483b9d50ee6265b1fa48adc01db5ac9eaea3",
+    "value": {
+      "regions": {
+        "HILL": {
+          "usd_cents": 30000
+        },
+        "RIVER": {
+          "usd_cents": 53125
+        }
+      }
+    },
+    "tool": "convert_to_usd",
+    "params": {},
+    "inputs": {
+      "fx": {
+        "logical_id": "source:csv:fx",
+        "content_hash": "6eb58ea8222a71a24d59529de9114e2db9155e756f61689babe3d2883b88dcf6"
+      },
+      "net": {
+        "logical_id": "import:metric:net",
+        "content_hash": "c282db67bdbde7a44d48dbd842cc1666b94c22e9f4f80c82bbcafa1e9565569f"
+      }
+    }
+  },
+  "import:metric:support": {
+    "content_hash": "24cf2deb30deec931485159d5211f8ecdda8fe05d040cf45dc12c25785daa2e4",
+    "value": {
+      "regions": {
+        "HILL": {
+          "tickets": 1
+        },
+        "RIVER": {
+          "tickets": 2
+        }
+      }
+    },
+    "tool": "support_by_region",
+    "params": {},
+    "inputs": {
+      "tickets": {
+        "logical_id": "source:csv:tickets",
+        "content_hash": "5562771f2440a1150b4b5de5f7db2fc3a00549dfecb6584ec603893aada2dfbd"
+      }
+    }
+  },
+  "import:report:company": {
+    "content_hash": "0ea10caf5ef9a4d89a7c0d5e67760f5812bb13018e4ed721d82a2c6dd7473258",
+    "value": {
+      "sections": [
+        {
+          "key": "company_revenue",
+          "label": "Company net revenue",
+          "unit": "USD cents",
+          "value": 83125
+        }
+      ],
+      "title": "Imported company revenue"
+    },
+    "tool": "compose_report",
+    "params": {
+      "sections": [
+        {
+          "input": "revenue",
+          "key": "company_revenue",
+          "label": "Company net revenue",
+          "path": [
+            "usd_cents"
+          ],
+          "unit": "USD cents"
+        }
+      ],
+      "title": "Imported company revenue"
+    },
+    "inputs": {
+      "revenue": {
+        "logical_id": "import:metric:company",
+        "content_hash": "455d7e8dff5183f1242c79315eb3370c7a2e88948c28add5a84ffdc974343db0"
+      }
+    }
+  },
+  "import:report:region": {
+    "content_hash": "f698cbeac0057489574fff6a047b23bc908381b78e9c85e399a78710f1e5c50a",
+    "value": {
+      "sections": [
+        {
+          "key": "regional_revenue",
+          "label": "RIVER net revenue",
+          "unit": "USD cents",
+          "value": 53125
+        }
+      ],
+      "title": "RIVER revenue brief"
+    },
+    "tool": "compose_report",
+    "params": {
+      "sections": [
+        {
+          "input": "revenue",
+          "key": "regional_revenue",
+          "label": "RIVER net revenue",
+          "path": [
+            "regions",
+            "RIVER",
+            "usd_cents"
+          ],
+          "unit": "USD cents"
+        }
+      ],
+      "title": "RIVER revenue brief"
+    },
+    "inputs": {
+      "revenue": {
+        "logical_id": "import:metric:regional",
+        "content_hash": "cc463c5e8f050926f3a4207044cf483b9d50ee6265b1fa48adc01db5ac9eaea3"
+      }
+    }
+  }
+}

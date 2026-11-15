@@ -1,0 +1,6 @@
+{
+  "signal": "SIGKILL",
+  "returncode": -9,
+  "child_pid": 90659,
+  "parent_verified_storage_before_kill": true
+}

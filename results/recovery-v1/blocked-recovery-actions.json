@@ -1,0 +1,20 @@
+{
+  "refresh": {
+    "http_status": 409,
+    "body": {
+      "error": {
+        "code": "evidence_unavailable",
+        "message": "CSV update was incomplete; resubmit the full corrected CSV before refreshing"
+      }
+    }
+  },
+  "verify": {
+    "http_status": 409,
+    "body": {
+      "error": {
+        "code": "evidence_unavailable",
+        "message": "CSV update was incomplete; resubmit the full corrected CSV before verification"
+      }
+    }
+  }
+}

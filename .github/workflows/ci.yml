@@ -45,6 +45,10 @@ jobs:
         run: uv run python scripts/core_smoke.py --output evidence/ci_core_smoke.json
       - name: Verify local MCP client and durable workspaces
         run: uv run --extra mcp python scripts/mcp_smoke.py --output evidence/ci_mcp
+      - name: Verify recovery after an interrupted CSV update
+        env:
+          PROOFFLOW_HYDRA_TOKEN_FILE: ${{ github.workspace }}/.state/hydra-token
+        run: uv run python scripts/recovery_probe.py --output evidence/ci_recovery
       - name: Preserve verification evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -53,6 +57,14 @@ jobs:
           path: |
             evidence/ci_*.json
             evidence/ci_mcp/*.json
+            evidence/ci_recovery/summary.json
+            evidence/ci_recovery/run-manifest.json
+            evidence/ci_recovery/kill-result.json
+            evidence/ci_recovery/parent-observed-boundary.json
+            evidence/ci_recovery/blocked-recovery-actions.json
+            evidence/ci_recovery/lifecycle-accounting.json
+            evidence/ci_recovery/*-semantic-lineage.json
+            evidence/ci_recovery/arithmetic-*.jsonl
       - name: Stop this job's services
         if: always()
         run: docker compose down

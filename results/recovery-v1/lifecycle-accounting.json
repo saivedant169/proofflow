@@ -1,0 +1,85 @@
+{
+  "control": {
+    "observed": {
+      "preflight": 16,
+      "recorded": 23,
+      "verification": 22
+    },
+    "expected": {
+      "preflight": 16,
+      "recorded": 23,
+      "verification": 22
+    },
+    "total": 61,
+    "operations": [
+      "POST /api/import/create",
+      "POST /api/import/refresh",
+      "POST /api/import/update",
+      "POST /api/session"
+    ]
+  },
+  "setup": {
+    "observed": {
+      "preflight": 8,
+      "recorded": 16,
+      "verification": 11
+    },
+    "expected": {
+      "preflight": 8,
+      "recorded": 16,
+      "verification": 11
+    },
+    "total": 35,
+    "operations": [
+      "POST /api/import/create",
+      "POST /api/session"
+    ]
+  },
+  "fault": {
+    "observed": {
+      "preflight": 8,
+      "recorded": 0,
+      "verification": 0
+    },
+    "expected": {
+      "preflight": 8,
+      "recorded": 0,
+      "verification": 0
+    },
+    "total": 8,
+    "operations": [
+      "POST /api/import/update"
+    ]
+  },
+  "reopen": {
+    "observed": {
+      "preflight": 0,
+      "recorded": 0,
+      "verification": 0
+    },
+    "expected": {
+      "preflight": 0,
+      "recorded": 0,
+      "verification": 0
+    },
+    "total": 0,
+    "operations": []
+  },
+  "recover": {
+    "observed": {
+      "preflight": 8,
+      "recorded": 7,
+      "verification": 11
+    },
+    "expected": {
+      "preflight": 8,
+      "recorded": 7,
+      "verification": 11
+    },
+    "total": 26,
+    "operations": [
+      "POST /api/import/refresh",
+      "POST /api/import/update"
+    ]
+  }
+}

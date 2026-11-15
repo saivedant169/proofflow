@@ -1,0 +1,163 @@
+{
+  "schema": "proofflow-curated-recovery-evidence-v1",
+  "production_base": "500f3aeaad373455ddb81c45962ecd82e882c1c0",
+  "prospective_freeze": "b47fbbf8a6c8e7e41f92d638d7fc3bde6c1d9d9b",
+  "reviewed_evidence_commit": "e168197",
+  "files": [
+    {
+      "install_path": "docs/RECOVERY_V1_PROTOCOL.md",
+      "sha256": "a2ef1dbd6bc725d6a6056345781cdc55930ac8ac0ebe17e58d9ceee211a2a796",
+      "bytes": 11027
+    },
+    {
+      "install_path": "docs/RECOVERY_V1_RESULTS.md",
+      "sha256": "d2634f515130e5adfe3814e89d8401fd1385573238480ad4a80fb23b698be2e7",
+      "bytes": 3227
+    },
+    {
+      "install_path": "fixtures/recovery_v1/base.csv",
+      "sha256": "516cfa05bf039229cf19bd4b505abec61b63d53cdb5d16d525e63ffa83d3997a",
+      "bytes": 123
+    },
+    {
+      "install_path": "fixtures/recovery_v1/corrected.csv",
+      "sha256": "14a09c3f05ad3f832c5ff1d8c173c4b02510c8b41f3cfd679aca465fe064e75e",
+      "bytes": 123
+    },
+    {
+      "install_path": "fixtures/recovery_v1/manifest.json",
+      "sha256": "83364482b237e33e84ebbcaf5aaac9d1acdecf42c12654efe5b7cb0665dab71b",
+      "bytes": 3916
+    },
+    {
+      "install_path": "scripts/recovery_probe.py",
+      "sha256": "8c9436b0255d685f3e82ef748450eb29f8d1b1d2c68c96dee484bf691b5a9474",
+      "bytes": 24286
+    },
+    {
+      "install_path": "results/recovery-v1/summary.json",
+      "sha256": "b80a5fa5d3d8d7b90a91e34db97c3d0634276789004886a4d7211f1f88d37603",
+      "bytes": 1265
+    },
+    {
+      "install_path": "results/recovery-v1/run-manifest.json",
+      "sha256": "5759eef01e90c96eda12e2a5cc84a5f8911ca96b699e2058b7e783c6c5b2ebef",
+      "bytes": 1686
+    },
+    {
+      "install_path": "results/recovery-v1/requests.json",
+      "sha256": "95f77916a48ec9b00092140ffca627913f8039a19ee022bdae4e0ab9861d4dd0",
+      "bytes": 484
+    },
+    {
+      "install_path": "results/recovery-v1/parent-observed-boundary.json",
+      "sha256": "b3badb49ca713929a639ea9b33f75ca873ac5a296bae5041c3133c0ca824b246",
+      "bytes": 50229
+    },
+    {
+      "install_path": "results/recovery-v1/kill-result.json",
+      "sha256": "3f0ec4856e9f931d0b5e88d6becaa4857535aa0c3c45e70449afb02a7b216a2e",
+      "bytes": 115
+    },
+    {
+      "install_path": "results/recovery-v1/interrupted-initial.json",
+      "sha256": "0e2dfd46a9a8256ad16dbf9ebe1b212315d8d4b661e30a6ab475083131188137",
+      "bytes": 29332
+    },
+    {
+      "install_path": "results/recovery-v1/reopened-state.json",
+      "sha256": "b390f5b024dbb377190709c0c002d9e0226954cba8dd250c9b2bd8443d3feb6d",
+      "bytes": 30381
+    },
+    {
+      "install_path": "results/recovery-v1/blocked-recovery-actions.json",
+      "sha256": "65b307bac38ffc9b78c1e5495d23b541aa2a84ee6a1b4ae7f9316b5c58672c6f",
+      "bytes": 458
+    },
+    {
+      "install_path": "results/recovery-v1/interrupted-updated.json",
+      "sha256": "f629492f10ade1e043613d84d416239b0fd6d6f698e5289d8f53f088aaea0127",
+      "bytes": 31624
+    },
+    {
+      "install_path": "results/recovery-v1/control-final.json",
+      "sha256": "638656bb5a66fce28fce55377c688327baec5e3fb34f11debc9f794e96f330cb",
+      "bytes": 41073
+    },
+    {
+      "install_path": "results/recovery-v1/interrupted-final.json",
+      "sha256": "97fa10b2980738b6b68d6f854c6baefa54e54b5db9ae32a41c622b60bade8d09",
+      "bytes": 41056
+    },
+    {
+      "install_path": "results/recovery-v1/interrupted-final-manifest.json",
+      "sha256": "e114a560023aaa917fd9c5edc9d25d7ba0bb47d9af5d700093357ad293df15a9",
+      "bytes": 66837
+    },
+    {
+      "install_path": "results/recovery-v1/control-semantic-lineage.json",
+      "sha256": "faaf76bee3b0124c03bd5b79b06c909503d1baf747210b931385349e5dbdfba8",
+      "bytes": 5476
+    },
+    {
+      "install_path": "results/recovery-v1/interrupted-semantic-lineage.json",
+      "sha256": "faaf76bee3b0124c03bd5b79b06c909503d1baf747210b931385349e5dbdfba8",
+      "bytes": 5476
+    },
+    {
+      "install_path": "results/recovery-v1/lifecycle-accounting.json",
+      "sha256": "b6f62827146e50d3b5f257c7447e0568d3055313b29a4c073124f2c3181841c1",
+      "bytes": 1521
+    },
+    {
+      "install_path": "results/recovery-v1/negative-control.json",
+      "sha256": "4bc55b87ed711cccc58b9681866562378d57564befbbf8787be9467fb18fedd0",
+      "bytes": 31955
+    },
+    {
+      "install_path": "results/recovery-v1/arithmetic-control.jsonl",
+      "sha256": "f1435c2d2c5265cf76d3e85da444cb74aa1c913738c23ac0dd5539259c61bb5f",
+      "bytes": 7792
+    },
+    {
+      "install_path": "results/recovery-v1/arithmetic-setup.jsonl",
+      "sha256": "bd3eafb267e5be0dbe49d4c100836670b5305e960cbf9b8f07faffca18760bce",
+      "bytes": 4434
+    },
+    {
+      "install_path": "results/recovery-v1/arithmetic-fault.jsonl",
+      "sha256": "45e8aac1068e3dbf6a0e95dc0fab2c4ae5a840119e2831de1febcb9aac801fa6",
+      "bytes": 1021
+    },
+    {
+      "install_path": "results/recovery-v1/arithmetic-reopen.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "install_path": "results/recovery-v1/arithmetic-recover.jsonl",
+      "sha256": "fec3684340ed271771c868c3f4b88850f089ae0fdf8b188d696e66d680870958",
+      "bytes": 3358
+    }
+  ],
+  "excluded": [
+    "results/recovery-v1/private/",
+    "results/recovery-v1/state/",
+    "phase stdout/stderr and redundant full initial manifests"
+  ],
+  "leak_check": {
+    "passed": true,
+    "private_values_checked": 3,
+    "variants_checked": [
+      "raw",
+      "JSON-escaped",
+      "URL-encoded",
+      "base64"
+    ],
+    "matching_files": [],
+    "session_ids_verified_equal_checked_cookies": true
+  },
+  "production_code_changes": false,
+  "new_experiment_runs": 0,
+  "manifest_install_path": "results/recovery-v1/publication_manifest.json"
+}

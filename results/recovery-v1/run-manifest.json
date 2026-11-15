@@ -1,0 +1,22 @@
+{
+  "revision": "b47fbbf8a6c8e7e41f92d638d7fc3bde6c1d9d9b",
+  "production_base": "500f3ae",
+  "started_at": "2026-11-15T12:56:49.050862+00:00",
+  "sha256": {
+    "proofflow/api.py": "615bbdf45f14d44038d6fc20731373fc872b7f280ab8001341793f07c15f81b1",
+    "proofflow/browser_import.py": "710a6c071ed8a9473cd22a3ec05eab1dafb558b648f1d5846e76c05642cff81b",
+    "proofflow/demo.py": "0eefd3cbc3804c6da2aad9afef957f9dcf096003e8f50c031c9f8b914e9cd22b",
+    "proofflow/importing.py": "b83876a054779c09a12f81f29e4c9864a3ccbb535569e14069f44628d385a87e",
+    "proofflow/runtime.py": "17312dbb90b3d46590cd88466379d9a95a787a292597bf024894d4d0a1e756ba",
+    "proofflow/artifacts.py": "068bc264a5184800dc9bb9f11600977526eeccdb52e7dc9cd6282c7a4bd507e2",
+    "proofflow/graph.py": "ba409e28f945dd57b8ab3b7a1b3475c22a17038ef9942f0ce1bf3715c8faf091",
+    "proofflow/analytics.py": "cca3a122cf9884e38323cfefca105c65fd3a462950994ec9822d76abc413ff86",
+    "proofflow/models.py": "bf0e046db1615411afa727a70088ecc0bc8e7820318b4582a03d25270e1e49e9",
+    "scripts/recovery_probe.py": "8c9436b0255d685f3e82ef748450eb29f8d1b1d2c68c96dee484bf691b5a9474",
+    "docs/RECOVERY_V1_PROTOCOL.md": "a2ef1dbd6bc725d6a6056345781cdc55930ac8ac0ebe17e58d9ceee211a2a796",
+    "fixtures/recovery_v1/manifest.json": "83364482b237e33e84ebbcaf5aaac9d1acdecf42c12654efe5b7cb0665dab71b",
+    "fixtures/recovery_v1/base.csv": "516cfa05bf039229cf19bd4b505abec61b63d53cdb5d16d525e63ffa83d3997a",
+    "fixtures/recovery_v1/corrected.csv": "14a09c3f05ad3f832c5ff1d8c173c4b02510c8b41f3cfd679aca465fe064e75e"
+  },
+  "scope": "Process SIGKILL between two fully committed source updates; not an OS/power-loss or within-write atomicity test"
+}

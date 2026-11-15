@@ -151,6 +151,7 @@ uv run pytest -q
 uv run python scripts/hydra_smoke.py --restart
 uv run python scripts/core_smoke.py
 uv run python scripts/deployment_smoke.py --restart-app
+PROOFFLOW_HYDRA_TOKEN_FILE=.state/hydra-token uv run python scripts/recovery_probe.py --output results/recovery-reproduction
 uv run python -m proofflow.eval.runner --split test --allow-test --output results/reproduction
 uv run python scripts/summarize_benchmark.py --input results/reproduction
 uv run python scripts/summarize_retail.py
@@ -158,10 +159,13 @@ uv run python scripts/summarize_retail.py
 
 The restart checks act only on this project's Compose services. Benchmark runs refuse to overwrite results, and held-out runs require a clean, committed tracked tree. Local model experiments use the authenticated Claude CLI; their instructions, costs and frozen protocols are documented separately. Ordinary browser use and tests need no model credentials.
 
+The recovery probe uses fresh disposable workspaces and kills only its own API child between two source publications. The first frozen attempt passed 15 checks: restart withheld affected values, full CSV resubmission restored the uninterrupted control's values and lineage, and support stayed current. Refresh recorded seven tool calls; complete lifecycle accounting was 61 calculations for control and 69 with interruption. The extra eight were validation completed before the kill. This is one process-interruption case, not a general crash-safety guarantee. The command requires the running local Hydra service, committed probe/source files and a new output directory. Cookies and state remain private; curated observations are separate.
+
 - [Retail protocol and freeze](docs/RETAIL_V2_SPEC.md)
 - [Original pilot methodology](docs/BENCHMARK_SPEC.md)
 - [Native HydraDB persistence evidence](evidence/hydra_smoke.json)
 - [Core numeric and cross-run evidence](evidence/core_smoke.json)
+- [Interrupted-update protocol and result](docs/RECOVERY_V1_RESULTS.md)
 - [Deployment and recovery](docs/DEPLOYMENT.md)
 - [Browser verification](docs/UI_FIDELITY.md)
 
