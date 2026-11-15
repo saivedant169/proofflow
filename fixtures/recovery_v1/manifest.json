@@ -1,0 +1,135 @@
+{
+  "affected_artifact_logical_ids": [
+    "import:metric:gross",
+    "import:metric:refunds",
+    "import:metric:net",
+    "import:metric:regional",
+    "import:metric:company",
+    "import:report:company",
+    "import:report:region"
+  ],
+  "control": {
+    "compare_independent_immutable_ids": false,
+    "comparison_fields": [
+      "output_values",
+      "content_hashes",
+      "tool_names",
+      "tool_parameters",
+      "named_consumed_dependency_logical_ids"
+    ],
+    "same_fixtures": true,
+    "same_production_build": true,
+    "separate_cookie_and_hydra_namespace": true
+  },
+  "expected_successful_operation_accounting": {
+    "baseline_import": {
+      "preflight_calculation_count": 8,
+      "recorded_tool_call_count": 8,
+      "total_calculation_count": 27,
+      "verification_calculation_count": 11
+    },
+    "corrected_csv_submission": {
+      "preflight_calculation_count": 8,
+      "recorded_tool_call_count": 0,
+      "total_calculation_count": 8,
+      "verification_calculation_count": 0
+    },
+    "explicit_verify": {
+      "preflight_calculation_count": 0,
+      "recorded_tool_call_count": 0,
+      "total_calculation_count": 11,
+      "verification_calculation_count": 11
+    },
+    "refresh": {
+      "preflight_calculation_count": 0,
+      "recorded_tool_call_count": 7,
+      "total_calculation_count": 18,
+      "verification_calculation_count": 11
+    }
+  },
+  "fault": {
+    "boundary": "after original call returns, before csv:refunds publication",
+    "boundary_timeout_seconds": 30,
+    "expected_return_code": -9,
+    "hook": "ProofFlowRuntime.set_source",
+    "mechanism": "SIGKILL of child API process",
+    "restart_hydra": false,
+    "source_name": "csv:orders"
+  },
+  "final_current_artifact_heads": 8,
+  "fixtures": {
+    "base.csv": {
+      "bytes": 123,
+      "encoding": "UTF-8",
+      "line_endings": "LF",
+      "order_rows": 2,
+      "path": "fixtures/recovery_v1/base.csv",
+      "sha256": "516cfa05bf039229cf19bd4b505abec61b63d53cdb5d16d525e63ffa83d3997a",
+      "trailing_lf": true
+    },
+    "corrected.csv": {
+      "bytes": 123,
+      "encoding": "UTF-8",
+      "line_endings": "LF",
+      "order_rows": 2,
+      "path": "fixtures/recovery_v1/corrected.csv",
+      "sha256": "14a09c3f05ad3f832c5ff1d8c173c4b02510c8b41f3cfd679aca465fe064e75e",
+      "trailing_lf": true
+    }
+  },
+  "independent_expected_values": {
+    "baseline": {
+      "company_usd_cents": 80000,
+      "river_usd_cents": 50000
+    },
+    "corrected": {
+      "company_usd_cents": 83125,
+      "river_usd_cents": 53125
+    },
+    "mixed_new_orders_old_refunds_diagnostic_only": {
+      "allowed_as_current_claim": false,
+      "company_usd_cents": 85000,
+      "river_usd_cents": 55000
+    },
+    "support_ticket_counts": {
+      "HILL": 1,
+      "RIVER": 2
+    }
+  },
+  "model_calls": 0,
+  "negative_control": {
+    "expected_detector_verdict": "fail",
+    "mutation": "copy observed reopened response; mark one monetary claim current and expose old saved_value as value",
+    "production_database_mutation": false,
+    "scope": "response-detector sanity check only"
+  },
+  "production_commit": "500f3aeaad373455ddb81c45962ecd82e882c1c0",
+  "protocol": "recovery-v1",
+  "protocol_path": "docs/RECOVERY_V1_PROTOCOL.md",
+  "refresh_recorded_tool_counts": {
+    "company_total": 1,
+    "compose_report": 2,
+    "convert_to_usd": 1,
+    "gross_by_region": 1,
+    "net_by_region": 1,
+    "refunds_by_region": 1,
+    "support_by_region": 0
+  },
+  "reopen_required": {
+    "incomplete_update": true,
+    "last_successful_csv": "base.csv",
+    "money_claim_states": "stale",
+    "money_current_value": null,
+    "refresh_status": 409,
+    "support_identity_unchanged": true,
+    "support_state": "current",
+    "verify_status": 409
+  },
+  "request_parameters": {
+    "rates": {
+      "EUR": "1.25"
+    },
+    "region": "RIVER"
+  },
+  "status": "prospective-frozen-inputs-no-fault-executed"
+}

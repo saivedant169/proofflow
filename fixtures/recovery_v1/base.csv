@@ -1,0 +1,3 @@
+order_id,region,currency,gross_cents,refund_cents,ticket_count
+river-a,RIVER,EUR,42000,2000,2
+hill-a,HILL,USD,31000,1000,1
