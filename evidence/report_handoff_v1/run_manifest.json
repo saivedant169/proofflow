@@ -1,0 +1,109 @@
+{
+  "kind": "report_handoff_browser_acceptance",
+  "browser_run": {
+    "started_utc": "2026-11-15T15:48:06.380Z",
+    "os": "macOS arm64",
+    "playwright": "1.56.1",
+    "pinned_chromium": "141.0.7390.37",
+    "backend": "real HydraDB OSS via local ProofFlow loopback app servers",
+    "workers": 1,
+    "retries": 0,
+    "passed": 9,
+    "original_csv_cases": 6,
+    "report_export_cases": 3,
+    "skipped": 0,
+    "flaky": 0,
+    "unexpected": 0,
+    "runner_errors": 0,
+    "desktop_viewport": [
+      1536,
+      1024
+    ],
+    "mobile_viewports": [
+      [
+        390,
+        844
+      ],
+      [
+        320,
+        844
+      ]
+    ]
+  },
+  "source": {
+    "baseline_commit": "39d15efcb75ea8e2a6551e7eac3b8a8b315cb08d",
+    "executed_worktree_head": "0f7568e922d3e22ad47140a488a8e279683bc027",
+    "executed_worktree_extra_file": {
+      "path": "frontend/src/styles.css",
+      "sha256": "6c6bc680d589ce7e52d31c622f32a11e573d9e7d77fc9ae4ee4100c962a054a9",
+      "matches_commit": "a29147e7633c7ffa400f2d2773a7e94ace1c9d8b"
+    },
+    "integrated_equivalent_commit": "2a353379cbe0b3498ae646d9b06e80201ac218a5",
+    "integrated_equivalent_tree": "130d2b2518fe97ac14033cda8e5d540f8817305c",
+    "tracked_source_equivalence": "Every tracked file in the browser worktree, including the one dirty stylesheet, matched the integrated commit byte for byte. The positive run executed in the feature worktree.",
+    "changed_file_sha256": {
+      "README.md": "716bad0035d983a81d5b6e590541442d5cb11f98b38aab0c4092f66460e2a749",
+      "docs/SUBMISSION_DRAFT.md": "a0e647b5da1e09ebf2ba5d597dd22b55f1cf19f2a0add752c57e78746ec01e5c",
+      "frontend/e2e/report-export/csv.spec.ts": "f7c69800d2e30c3fb8854866ce29137d420529be21eff93be45ea4f8156ed2d6",
+      "frontend/src/App.tsx": "7b679185f8ae6be6c2dc119aa3a0a9dbc18403c36ba4a6a0603fe0185a3a6119",
+      "frontend/src/components/EvidenceDrawer.tsx": "f18634a272cf819c5332decc0b18594911747890360c7b26cb9caf9b10e6eded",
+      "frontend/src/components/ReportPanel.tsx": "a341887b87f726e88515586a31e4ae3beb2a9f16d5f91c70367bf99f3ccc9f71",
+      "frontend/src/import-workspace.css": "368afa1db5217111d50d5b4429b09a0fc1096a0d6ca4f91e03ce5af97f36684f",
+      "frontend/src/lib/api.ts": "f47c1dbc63d0b3a7ab671306198806955dfaf1b36f0d9ed41b8fb12fc6580c75",
+      "frontend/src/lib/format.ts": "681cc22b441b644929019ab61bb324817fe3d189f4094c303ced1e8a16980025",
+      "frontend/src/lib/types.ts": "1950065be304eb86a7e98801fb2fe55e7f0946712a0d194d57f1122468f526e1",
+      "frontend/src/styles.css": "6c6bc680d589ce7e52d31c622f32a11e573d9e7d77fc9ae4ee4100c962a054a9",
+      "proofflow/api.py": "4293eff43425911313d101d1e07a1699633fa6704aea34a024c8052b3f44303b",
+      "proofflow/browser_import.py": "72f485744786991326923dcc77e10e84060d562fd6733cb426f1aef6214d56cb",
+      "tests/test_report_handoff.py": "bc7bc1c9c647960adfb40bfef2f2828087584f0dc9f744c326d2528edbb2d5f6"
+    },
+    "tracked_files_compared": 1552
+  },
+  "fixtures_and_runner": {
+    "frozen_csv_file_sha256": {
+      "fixtures/browser_csv_v1/acceptance_manifest.json": "a764314e455a99ddcd551f4e1dec226fb7fa393667a00d1107b2510a1fbed823",
+      "fixtures/browser_csv_v1/valid_non_eu.csv": "9404a094f276690922a09e3727301f124a36647dbec7bfd2babb1859f4f26cca",
+      "fixtures/browser_csv_v1/valid_zero_support.csv": "48d85092a2a4608da4cb76e549f4436bce21b3d272b952f87c49f8b786da28b5",
+      "fixtures/browser_csv_v1/reordered_non_eu.csv": "3228cffc2e8daf0f789b136cc6937e1dc030773cd2519ecde456cff799af0a3b",
+      "fixtures/browser_csv_v1/malformed.csv": "46b6521ddf66bf81343e1fdd803238f9ce1851619933c0122a490ff5323b8c95",
+      "fixtures/browser_csv_v1/oversized.csv": "154b8ed3c2383ce429058768595935faf7851b5c38db2b1732594be1d88bc05a"
+    },
+    "original_browser_runner_file_sha256": {
+      "frontend/e2e/README.md": "e476f931c75ed4e8c4ecf0ba6515d3e8a15310c45a447cf5f5437f52f6fe6ec4",
+      "frontend/e2e/csv.spec.ts": "9a042440defac7be5dd490f50cb01b0b349dac9a1028229863ab0fd9ee34bcb9",
+      "frontend/e2e/negative-fx.mjs": "1ad63fbcfdf6c1b6dd2cbd725f1270f12d38aa2c2c97c1a1bb78f6bcc521a9b0",
+      "frontend/e2e/serve.py": "57e00239ae0d2a1a1ff08c5731b4a083b97b527a0e561a1d57a5ba815590dd4a",
+      "frontend/package-lock.json": "950b0bbc9f858317eb780184faf5da7ac65fe26a9e0c8007c948574fd6db15eb",
+      "frontend/package.json": "9c3454d7d612c29d388332279d06d51251c078b87ef9360ea57f4035c726e5bc",
+      "frontend/playwright.config.ts": "6c75c7a2cc0f0a2556bb121933b280e98b37363d3649e215c41ae04ab98f50c4"
+    },
+    "large_amount_fixture": "Synthetic rows and decimal exchange rates inline in frontend/e2e/report-export/csv.spec.ts; covered by its source digest."
+  },
+  "evidence_sha256": {
+    "assertions.jsonl": "7ea1f9f2bbc860fe7915bd4884e42952cc6095418dcfdc18497839ae34f31490",
+    "private_raw_playwright_report": "745b62940c41b3b74df5491476550f33cdce849bd983fb5544a2952a2c50b0e7",
+    "private_red_intermediate_report": "fe5b02e0ef8649d117adc79aaa91182699f2c84e391b333f5db799b125979943",
+    "private_independent_review": "be9f0dbfb453c7c237da13f4682cd1e4b437e1b888e7a5a28388c9e246937c39",
+    "negative-control.json": "84e6f4b993bf98bde798b9727a44ea37331fa998dd3c6e4da68c757fa6d9375b",
+    "private_raw_negative_control_report": "f53413c35c9c915126b54df75618db11c5811f054fd24fb99b7c560b266610ab"
+  },
+  "python_suite": {
+    "reported_passed": 453,
+    "provenance": "Local suite count reported by implementers and recorded by independent review; this evidence does not include the original pytest output."
+  },
+  "linux_ci": {
+    "status": "No nine-case Linux run was part of this record. Earlier six-case Linux CI remains in evidence/browser_e2e_v1/ci_replication.json."
+  },
+  "frozen_benchmark_scope": "The baseline-to-integrated diff leaves frozen benchmark fixtures, harness, saved results, and benchmark components unchanged. No benchmark was rerun for this feature.",
+  "integrated_verification": {
+    "source_commit": "2a353379cbe0b3498ae646d9b06e80201ac218a5",
+    "production_build_and_typecheck": "passed",
+    "negative_fx_control": {
+      "started_utc": "2026-11-15T15:56:34.517Z",
+      "unchanged_fx_case": "deliberate one-cent mutation detected",
+      "playwright_exit_status": 1,
+      "control_wrapper_exit_status": 0,
+      "unrelated_runner_errors": 0
+    }
+  }
+}

@@ -61,7 +61,7 @@ After a change, `impact.change` is `{kind,label,previous_source_id,current_sourc
 
 After refresh, `last_refresh` is `{executed_count,reused_count,executed_artifact_ids,reused_artifact_ids,elapsed_ms,tool_calls:[{tool,status,elapsed_ms,output_id}],numeric_parity,unchanged_support,graph_queries}`. Counts use **actual tool calls**, including when an old handle resolves to an already-refreshed head. `numeric_parity` is `null` if verification cannot complete; never render it as success then.
 
-`state` is `current`, `stale`, or `unknown`. A stale/unknown claim's `value` is **null**; `saved_value` is historical display only and must be clearly labeled. Monetary values use integer cents; divide by 100 for display. Source-change effects are conservative source-level revalidation, not a claim that every dependent number changed.
+`state` is `current`, `stale`, or `unknown`. A stale/unknown claim's `value` is **null**; `saved_value` is historical display only and must be clearly labeled. Monetary values use integer cents; format their integer quotient and remainder without floating-point division. Imported large amounts use the decimal-string representation described below. Source-change effects are conservative source-level revalidation, not a claim that every dependent number changed.
 
 ## Errors and limits
 
@@ -91,6 +91,7 @@ CSV request body for preview/create/update:
 | POST `/api/import/update` | CSV request | Source-only publication, affected artifacts and stale claims; no automatic refresh |
 | POST `/api/import/refresh` | `{}` | Refresh both reports plus independent support artifact, returning imported state |
 | POST `/api/import/verify` | `{}` | Existing verification shape plus `accounting` for this operation |
+| POST `/api/import/export` | `{generation, report_ids:{company,region}}` | Server-checked plain-text snapshot in a JSON envelope; no recalculation |
 | GET `/api/import/evidence/{artifact_id}` | owned immutable artifact ID | Existing evidence shape, using this import workspace only |
 
 Preview shape:
@@ -125,6 +126,10 @@ Imported state retains the demo's `session_id`, `generation`, `created_at`, `bac
 ```
 
 Each imported report contains one USD-cent claim: company total or selected region. Support remains a separate actual artifact; no zero-ticket claim is fabricated. All graph nodes/edges and receipts derive from executed work. `incomplete_update` marks a failed multi-source publication; refresh refuses until the same corrected CSV is successfully resubmitted. `source_csv_sha256` describes the last successful load, not a failed partial update.
+
+Imported monetary claim `value` and `saved_value` are JSON integers within JavaScript's safe integer range and canonical base-10 strings outside it; a stale current `value` remains null. Parse either exact form as an integer before formatting currency. Imported evidence can include a top-level `display_saved_value` projection for a large monetary scalar. This projection is for display only: `artifact.saved_value`, its content hash, and the receipt retain their canonical contents.
+
+Export requires the visible import generation and exactly both report-head IDs. Under the session lock it verifies those identities and native currentness for both complete reports and their USD claims. Success returns `{filename:"proofflow-current-reports.txt",media_type:"text/plain;charset=utf-8",checked_at:"UTC ISO timestamp",content:"…"}`. The text contains both amounts, report/claim IDs, and the check time; it is a static file that later corrections can supersede. A mismatch, stale or incomplete report returns 409; unavailable evidence returns 503. Missing session/import and malformed body retain the usual 401/404/400 errors. Success and failure responses set `Cache-Control: no-store`. No revenue recalculation, source publication, artifact/receipt commit or graph write occurs; normal session-access and rate-limit bookkeeping still applies. The browser must download the server's content and reconcile state after refusal, never export cached amounts. [Acceptance evidence](REPORT_HANDOFF_ACCEPTANCE.md).
 
 Counters count registered analytics invocations, not total CPU work. Preview performs 8 preflight calculations. Create independently revalidates (8), executes the guided recipe (8 recorded calls), and verifies the two report recipes (11 unrecorded calculations). Thus a preview followed by create performs both sets of validation. Update performs 8 preflight calculations and 0 recorded calls; it leaves affected reports stale. Refresh records only actual changed tool executions, plus 11 separate verification calculations. Verification alone performs 11 recipe calculations. A no-op update/reorder still validates; it is not a zero-total-compute claim. `total_calculation_count` sums the three disclosed categories for that operation only.
 
