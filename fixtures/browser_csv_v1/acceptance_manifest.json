@@ -1,0 +1,97 @@
+{
+  "frozen_at": "2026-11-15T11:50:42.554729+00:00",
+  "scope": "Five acceptance CSV inputs frozen before browser-import implementation or tests; authored functional fixtures, not retrieval benchmark data.",
+  "files": {
+    "valid_non_eu.csv": {
+      "sha256": "9404a094f276690922a09e3727301f124a36647dbec7bfd2babb1859f4f26cca",
+      "bytes": 112
+    },
+    "valid_zero_support.csv": {
+      "sha256": "48d85092a2a4608da4cb76e549f4436bce21b3d272b952f87c49f8b786da28b5",
+      "bytes": 113
+    },
+    "reordered_non_eu.csv": {
+      "sha256": "3228cffc2e8daf0f789b136cc6937e1dc030773cd2519ecde456cff799af0a3b",
+      "bytes": 112
+    },
+    "malformed.csv": {
+      "sha256": "46b6521ddf66bf81343e1fdd803238f9ce1851619933c0122a490ff5323b8c95",
+      "bytes": 58
+    },
+    "oversized.csv": {
+      "sha256": "154b8ed3c2383ce429058768595935faf7851b5c38db2b1732594be1d88bc05a",
+      "bytes": 1048577
+    }
+  },
+  "cases": [
+    {
+      "file": "valid_non_eu.csv",
+      "rates": {
+        "EUR": "1.20"
+      },
+      "region": "NORTH",
+      "expected_company_usd_cents": 30800,
+      "expected_region_usd_cents": 10800,
+      "initial_recorded_calls": 8,
+      "browser_preflight_calls": 8,
+      "report_sections_each": 1
+    },
+    {
+      "file": "valid_zero_support.csv",
+      "rates": {
+        "GBP": "1.25"
+      },
+      "region": "APAC",
+      "expected_company_usd_cents": 16375,
+      "expected_region_usd_cents": 9375,
+      "initial_recorded_calls": 8,
+      "browser_preflight_calls": 8,
+      "support_regions": {},
+      "report_sections_each": 1
+    },
+    {
+      "file": "reordered_non_eu.csv",
+      "prior": "valid_non_eu.csv",
+      "rates": {
+        "EUR": "1.20"
+      },
+      "region": "NORTH",
+      "expected_changed_source_count": 0,
+      "update_recorded_calls": 0,
+      "refresh_recorded_calls": 0,
+      "browser_preflight_calls": 8,
+      "artifact_ids_preserved": true
+    },
+    {
+      "file": "malformed.csv",
+      "rates": {},
+      "region": "NORTH",
+      "expected_http_status": 400,
+      "expected_graph_mutations": 0
+    },
+    {
+      "file": "oversized.csv",
+      "rates": {},
+      "region": null,
+      "expected_http_status": 400,
+      "expected_graph_mutations": 0
+    }
+  ],
+  "additional_same_file_checks": {
+    "fx_correction": {
+      "file": "valid_non_eu.csv",
+      "rates": {
+        "EUR": "1.30"
+      },
+      "region": "NORTH",
+      "expected_company_usd_cents": 31700,
+      "expected_region_usd_cents": 11700,
+      "expected_affected_artifacts": 4,
+      "update_recorded_calls": 0,
+      "refresh_recorded_calls": 4,
+      "support_identity_preserved": true
+    }
+  },
+  "parity": "For valid inputs compare browser to canonical apply_import/CLI recipe output content hashes, values, tool names/parameters and dependency logical IDs; independent workspaces necessarily have different immutable IDs. Invalid requests must precede graph writes. Preserve original artifact IDs on no-op in the same browser workspace.",
+  "accounting": "Preview and create/update each validate independently. Their preflight counts must be separate; source-only update has eight preflight calculations and zero recorded runtime calls. Full recipe verification calculations are disclosed separately when performed."
+}

@@ -1,0 +1,3 @@
+order_id,region,currency,gross_cents,refund_cents,ticket_count
+n1,NORTH,EUR,10000,1000,3
+s1,SOUTH,USD,20000,0,1
