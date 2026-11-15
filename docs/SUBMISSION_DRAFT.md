@@ -80,6 +80,6 @@ The browser supports two fixed reports, at most 1 MiB/1,000 rows, USD/EUR/GBP an
 - **Private source:** [saivedant169/proofflow](https://github.com/saivedant169/proofflow). Judge access must be confirmed; privacy is not changed by app deployment.
 - **Local app:** http://127.0.0.1:18080. This is not a hosted judge URL.
 - **Hosted app:** owner deployment on hold; no public URL or hosted verification claimed.
-- **Video:** [local 120-second walkthrough](../video/proofflow-walkthrough.mp4), packaged at `/walkthrough.mp4`; [previous-version local delivery](../evidence/video_delivery_v3.json). Verification of the updated film in the packaged app is pending.
+- **Video:** [local 120-second walkthrough](../video/proofflow-walkthrough.mp4), packaged at `/walkthrough.mp4`; [updated-film local delivery](../evidence/video_delivery_v4.json) passed exact-hash, MIME and HTTP range checks. Public delivery remains pending.
 - **Event:** [HydraDB Hackathon](https://luma.com/bqwllms4). The organizer's form and final required fields remain unverified.
 - **Deadline:** 16 November 2026, 09:00 IST. No submission receipt exists.

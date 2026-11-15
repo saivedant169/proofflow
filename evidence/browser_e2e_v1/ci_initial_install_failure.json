@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-11-15T14:18:49.221901+00:00",
+  "workflow_run": 43723401599,
+  "job_id": 132840032052,
+  "revision": "f0b51c0925e092c6ab3566c96ebb14abd59e7af4",
+  "conclusion": "failure",
+  "failed_step": "Install pinned Chromium for browser acceptance",
+  "runner_os": "Ubuntu 26.04 from ubuntu-latest",
+  "error": "Playwright 1.56.1 does not support chromium on ubuntu26.04-x64",
+  "browser_tests": "not started",
+  "prior_steps_passed": [
+    "425 unit tests",
+    "portable 48-cell evidence audit",
+    "frontend build",
+    "native Hydra restart/new-write probe",
+    "core smoke",
+    "MCP smoke",
+    "15-check recovery probe"
+  ],
+  "correction": "Pin ubuntu-24.04, retaining exact Playwright 1.56.1 and matching Chromium. No app, expected-value or model-study change.",
+  "source_url": "https://github.com/saivedant169/proofflow/actions/runs/43723401599"
+}

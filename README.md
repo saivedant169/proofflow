@@ -12,7 +12,7 @@ In the guided browser sample, a company report and an EU brief share a revenue c
 
 [Watch the two-minute walkthrough](video/proofflow-walkthrough.mp4) · [Narration and evidence references](docs/VIDEO_SCRIPT.md)
 
-The current film briefly shows CSV preview and report creation, then a separately labeled guided correction flow, the audited 48-invocation model comparison and saved actual MCP-client evidence. Earlier deterministic failures remain visible in a separate limits card. The full CSV correction workflow below is a longer live feature. [Previous-version delivery verification](evidence/video_delivery_v3.json) · [Demo narrative](docs/DEMO_SCRIPT.md).
+The current film briefly shows CSV preview and report creation, then a separately labeled guided correction flow, the audited 48-invocation model comparison and saved actual MCP-client evidence. Earlier deterministic failures remain visible in a separate limits card. The full CSV correction workflow below is a longer live feature. [Verified local video delivery](evidence/video_delivery_v4.json) · [Demo narrative](docs/DEMO_SCRIPT.md).
 
 ## Run the application
 

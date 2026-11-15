@@ -1,0 +1,26 @@
+{
+  "app_health": {
+    "backend": "HydraDB OSS",
+    "status": "ok"
+  },
+  "build_revision": "f0b51c0925e092c6ab3566c96ebb14abd59e7af4",
+  "bytes": 5064373,
+  "checked_at": "2026-11-15T14:17:21.219485+00:00",
+  "checks": {
+    "full_video_sha256_matches": true,
+    "range_bytes_match": true,
+    "range_status_and_header": true,
+    "video_mime_and_length": true
+  },
+  "http": {
+    "content_length": 5064373,
+    "content_range": "bytes 0-1023/5064373",
+    "content_type": "video/mp4",
+    "full_status": 200,
+    "range_status": 206
+  },
+  "image_id": "sha256:940218c54963f07b2189e458e6bdc38c9b3d3ca38c14eb62f4dc6edd406c29e5",
+  "scope": "Local Docker delivery only. No public hosting or manual audio audition claimed.",
+  "sha256": "5d9c1dc53519097121527dad6d35dd9e34310ae45b634445eb6bb6e156584393",
+  "target": "http://127.0.0.1:18080"
+}

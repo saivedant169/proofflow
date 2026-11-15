@@ -41,3 +41,5 @@ npm run test:e2e:negative
 ```
 
 For CI publication, allowlist `assertions.jsonl` and `negative-control.json` from the printed run directories. Linux CI, hosted ProofFlow, and other browser engines were not exercised in this verification. Concurrent load makes the local run durations unsuitable for performance comparisons.
+
+The first integrated CI run [43723401599](https://github.com/saivedant169/proofflow/actions/runs/43723401599) passed the unit, saved-model audit, native Hydra, core, MCP and recovery checks, then stopped before browser tests: `ubuntu-latest` resolved to Ubuntu 26.04, unsupported by pinned Playwright 1.56.1. The workflow now pins Ubuntu 24.04 while retaining the tested browser version. The [initial setup failure](../evidence/browser_e2e_v1/ci_initial_install_failure.json) is preserved; the corrected CI outcome is not presumed.

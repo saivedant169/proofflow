@@ -21,6 +21,7 @@ From the project root on macOS with `ffmpeg`, `ffprobe`, `say` and Pillow instal
 - [Audited model comparison](../docs/MODEL_COMPARISON_RESULTS.md)
 - [Earlier deterministic retail results and limits](../docs/RETAIL_V2_RESULTS.md)
 - [Actual MCP-client results](../docs/MCP_AGENT_RESULTS.md)
+- [Local Docker delivery](../evidence/video_delivery_v4.json): exact file hash, video MIME type, and matching HTTP partial content.
 - `render_manifest.json`, `media_validation.json` and `quality_review.json`: asset hashes, timings and technical review.
 - `captions.srt`: caption sidecar. `poster.jpg`: opening frame, unchanged from the previous version.
 
