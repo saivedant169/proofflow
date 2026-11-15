@@ -16,7 +16,7 @@ In a frozen 48-invocation actual-model study, ProofFlow refreshed **32/32 affect
 
 A saved agent report can be relevant and still be out of date. When an exchange rate, refund or tool changes, later reports may reuse calculations made from earlier inputs. The analyst needs to know which figures are still usable, which require repair, and why.
 
-Our initial use case is a recurring commerce revenue handoff: an analyst corrects an input after saving company and regional figures. ProofFlow supplies currentness at the point those saved reports are read through the application. It does not update numbers already copied into a document or validate the business truth of the source data. Customer demand and time savings have not yet been measured.
+In a recurring commerce revenue handoff, an analyst may need to correct an input after saving company and regional figures. ProofFlow checks those figures against their recorded dependencies when reading or downloading the reports. The analyst supplies the underlying business data. Customer demand and time savings have not yet been measured.
 
 ## What works
 
@@ -24,13 +24,15 @@ Seven registered tools perform SQLite aggregations, Decimal currency calculation
 
 The browser accepts a bounded CSV, previews it without publishing, and creates two revenue-only reports for the company and selected region. Publishing a correction changes sources and withholds affected monetary values. Refresh brings recoverable reports up to date; independent support remains reusable. The guided sample and imported workspace are separate.
 
+**Download current reports** in the CSV workspace creates a static, UTC-timestamped text file with the two USD figures, their labels, and immutable report and claim artifact IDs. The server checks that the displayed workspace generation and both report IDs still match, and that both reports and their claims are current. A stale claim, incomplete source publication, unavailable evidence, or a newer workspace or report version in another tab blocks the download.
+
 Five local stdio MCP tools expose source loading, preparation, client-selected plan execution, currentness inspection and refresh. The external model chooses a bounded plan; registered tools compute the numbers. The server makes no model calls and accepts no arbitrary code or SQL. A recorded Fable 5.2/high MCP client completed one corrected trajectory with 32 checks, cross-run composition and reuse; its first launch-configuration failure is retained. [Agent quickstart](AGENT_QUICKSTART.md) · [Client evidence](MCP_AGENT_RESULTS.md).
 
 ## Live demonstration
 
 1. Upload the authored two-row NORTH/SOUTH CSV with EUR→USD at 1.20. The current company and NORTH reports are **$308 / $108**.
 2. Publish the same CSV with the corrected rate 1.30. Four artifacts become stale, current monetary values are withheld, and native graph evidence explains the impact. Support remains current.
-3. Refresh the affected work. Four recorded tool calls produce **$317 / $117**, verified against independent arithmetic. Validation and verification calculations are counted separately; four recorded calls are not the complete computation cost.
+3. Refresh the affected work. Four recorded tool calls produce **$317 / $117**, verified against independent arithmetic. Validation and verification calculations are counted separately; four recorded calls are not the complete computation cost. Choose **Download current reports** to capture the refreshed figures and their artifact IDs for the handoff.
 
 The 120-second film shows this CSV preview/creation briefly, then explicitly switches to a separate guided fixture, the audited 48-invocation model comparison and recorded MCP evidence. Earlier deterministic failures remain visible in a separate limits card. Those fixtures and experiments are not pooled. [Video](../video/proofflow-walkthrough.mp4) · [Narration](VIDEO_SCRIPT.md).
 
