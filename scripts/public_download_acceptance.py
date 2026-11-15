@@ -28,6 +28,7 @@ HOST = "proofflow.arnavbule.in"
 ORIGIN = f"https://{HOST}"
 ARCHIVE = "proofflow-model-evidence.zip"
 DELIVERY_ARCHIVE = "proofflow-delivery-evidence.zip"
+FIXED_ARCHIVE = "proofflow-fixed-budget-evidence.zip"
 CONNECTOR = "proofflow_csv_mcp.py"
 MCP_VERSION = "2.3.0"
 TOOLS = {
@@ -42,6 +43,10 @@ EVIDENCE_FILES = {
 DELIVERY_FILES = {
     f"/evidence/{DELIVERY_ARCHIVE}": (f"evidence/{DELIVERY_ARCHIVE}", "application/zip"),
     f"/evidence/{DELIVERY_ARCHIVE}.sha256": (f"evidence/{DELIVERY_ARCHIVE}.sha256", None),
+}
+FIXED_FILES = {
+    f"/evidence/{FIXED_ARCHIVE}": (f"evidence/{FIXED_ARCHIVE}", "application/zip"),
+    f"/evidence/{FIXED_ARCHIVE}.sha256": (f"evidence/{FIXED_ARCHIVE}.sha256", None),
 }
 DELIVERY_RELEASES = [
     "0535ba672b4b31c563c13d95df03285a73a4d736",
@@ -248,6 +253,38 @@ def verify_delivery_bundle(data, directory, python):
     }
 
 
+def verify_fixed_budget_bundle(data, directory, python):
+    verifier = "scripts/verify_fixed_budget_evidence.py"
+    report = run_bundled_verifier(data, directory, python, verifier)
+    inventory = json.loads((directory / "manifest.json").read_bytes())["files"]
+    expected = DELIVERY_RESULTS["fixed_budget_diagnostic"]
+    require(report["bundle_files_verified"] == len(inventory) == 249
+            and report["verified_cells"] == len(report["cells"]) == expected["recovered_scored_cells"]
+            and report["reconstructed_source_rows"] == 4681
+            and report["original_completed"] is False
+            and report["original_wrapper_execution_errors"] == expected["original_wrapper_execution_errors"],
+            "Fixed-budget per-cell inventory and original failed wrapper verified")
+    groups = report["groups"]
+    by_condition = {condition: {row["arm"]: row["reports_observed"]["fresh_affected"]
+                                for row in groups if row["condition"] == condition}
+                    for condition in expected["fresh_affected"]}
+    require(len(groups) == 11 and by_condition == expected["fresh_affected"] and all(
+        row["reports_observed"]["unavailable_blocked"] == 4
+        and row["reports_observed"]["unaffected_preserved"] == 52
+        and row["reports_observed"]["incorrect_current"] == 0 for row in groups
+    ), "Independent fixed-budget outcomes and safety counts verified")
+    parity = report["graph_exact_flat_context_parity"]
+    require(parity == {str(cap): {"planned": 8, "observed": 8, "matching_contexts": 8} for cap in (4096, 8192)},
+            "All saved graph and exact-flat contexts match at each cap")
+    return {
+        "bundle_files_verified": report["bundle_files_verified"], "bundled_verifier": verifier,
+        "frozen_study_revision": report["frozen_study_revision"], "verified_cells": report["verified_cells"],
+        "reconstructed_source_rows": report["reconstructed_source_rows"], "graph_exact_flat_context_parity": parity,
+        "original_completed": report["original_completed"],
+        "original_wrapper_execution_errors": report["original_wrapper_execution_errors"], "fresh_affected": by_condition,
+    }
+
+
 async def cold_connector(script, scratch):
     from mcp import ClientSession, StdioServerParameters
     from mcp.client.stdio import stdio_client
@@ -316,7 +353,7 @@ def main():
     receipt = {
         "schema_version": 1, "origin": ORIGIN, "started_at_utc": utc_now(), "files": {}, "passed": False,
         "scope": "Public evidence bundles and connector static bytes, offline verification, and MCP initialization and tool discovery.",
-        "revision_scope": "Checkout SHA identifies the expected static files. The model bundle pins its study revision and the delivery bundle lists historical releases.",
+        "revision_scope": "Checkout SHA identifies the expected static files. The model and fixed-budget bundles pin their study revisions. The delivery bundle lists historical releases.",
     }
     stage = "runner_provenance"
     try:
@@ -339,6 +376,14 @@ def main():
             verify_sidecar(archive, delivery[f"evidence/{DELIVERY_ARCHIVE}.sha256"], DELIVERY_ARCHIVE)
             stage = "offline_delivery_verification"
             receipt[stage] = verify_delivery_bundle(archive, temporary / "delivery-extracted", offline_python())
+            receipt[stage]["isolated_linux_network_namespace"] = True
+
+            stage = "fixed_budget_evidence_download"
+            fixed = download_files(opener, source_sha, FIXED_FILES, receipt)
+            archive = fixed[f"evidence/{FIXED_ARCHIVE}"]
+            verify_sidecar(archive, fixed[f"evidence/{FIXED_ARCHIVE}.sha256"], FIXED_ARCHIVE)
+            stage = "offline_fixed_budget_verification"
+            receipt[stage] = verify_fixed_budget_bundle(archive, temporary / "fixed-budget-extracted", offline_python())
             receipt[stage]["isolated_linux_network_namespace"] = True
 
             stage = "connector_download"
@@ -365,7 +410,7 @@ def main():
         receipt["finished_at_utc"] = utc_now()
         (output / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
     if receipt["passed"]:
-        print("Public payload bytes, both offline evidence verifiers, and cold MCP handshake passed")
+        print("Public payload bytes, all three offline evidence verifiers, and cold MCP handshake passed")
     return 0 if receipt["passed"] else 1
 
 

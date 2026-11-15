@@ -102,13 +102,18 @@
       <section class="section" aria-labelledby="fixed-diagnostic">
         <div class="section-title">
           <h2 id="fixed-diagnostic">Fixed-budget diagnostic</h2>
-          <p>The original wrapper failed all 88 publication records after saving scores. A separate read-only audit recovered 88 saved observations. The delivery ZIP preserves both summaries and their provenance.</p>
+          <p>The original wrapper failed all 88 publication records after saving scores. A separate read-only audit recovered 88 saved observations. The per-cell ZIP includes both records, all 88 exact contexts, and the saved arithmetic and receipt evidence.</p>
         </div>
         <ul class="conditions">
           <li><strong>4,096 tokens.</strong> Graph and exact-flat refreshed 15/32 reports each, tying iterative hybrid. BM25 refreshed 5/32 and dense BGE 2/32.</li>
           <li><strong>8,192 tokens.</strong> Graph and exact-flat refreshed 27/32 each, behind iterative hybrid at 28/32. BM25 refreshed 25/32 and dense BGE 10/32.</li>
           <li><strong>Uncapped deterministic reference.</strong> Full context refreshed 32/32. Graph and exact-flat packed identical evidence at both caps.</li>
         </ul>
+        <div class="actions">
+          <a class="button primary" href="proofflow-fixed-budget-evidence.zip" download>Download all 88 cells <span aria-hidden="true">↓</span></a>
+          <a class="button secondary" href="proofflow-fixed-budget-evidence.zip.sha256" download>ZIP SHA-256</a>
+        </div>
+        <p class="table-note">Extract into an empty folder and run <code>python3 scripts/verify_fixed_budget_evidence.py</code> with Python 3.10 or later. The offline verifier recounts the tokens, reconstructs poststates and recalculates the outcomes for every cell.</p>
       </section>
 
       <section class="section" aria-labelledby="conditions">

@@ -60,4 +60,4 @@ python results/fixed-budget-diagnostic-v1/recover_retained_scores.py \
   --original-summary-sha256 RECORDED_SUMMARY_SHA256
 ```
 
-The public artifacts contain each exact capped or uncapped context and an audited per-artifact ledger. Full retained scorer records, poststate snapshots and stores are kept in the private run archive. The tracked March initial records and frozen source reproduce the same starting state without those private files.
+The [public per-cell bundle](PUBLIC_FIXED_BUDGET_EVIDENCE.md) contains every exact context and the recovered ledger. Its standard-library verifier independently recounts tokens, reconstructs all 88 original poststates from their initial records and deltas, and rechecks arithmetic, receipt chains and outcomes. Original path-bearing scorer files, stores and private execution directories remain in the retained run archive.
