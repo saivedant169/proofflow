@@ -19,7 +19,7 @@ From the project root on macOS, with `ffmpeg`, `ffprobe`, `say` and Pillow insta
 - [Narration and timeline](../docs/VIDEO_SCRIPT.md)
 - [Retail v2 results and limits](../docs/RETAIL_V2_RESULTS.md)
 - [Actual MCP-client results](../docs/MCP_AGENT_RESULTS.md)
-- [Previous-version container delivery check](../evidence/video_delivery_v2.json): historical evidence for the earlier film’s exact hash, video MIME type and byte-range playback support.
+- [Local container delivery check](../evidence/video_delivery_v3.json): exact current file hash, video MIME type and byte-range playback support. Earlier delivery checks remain archived in `evidence/`.
 - `render_manifest.json`: exact duration, output and source hashes, scene timings and narration provenance.
 - `media_validation.json` and `quality_review.json`: media metadata and visual/audio validation scope.
 - `captions.srt`: caption sidecar. `poster.jpg`: frame extracted from the film.

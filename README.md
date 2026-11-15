@@ -10,7 +10,7 @@ In the browser, a company report and an EU brief share a revenue calculation. Co
 
 [Watch the two-minute walkthrough](video/proofflow-walkthrough.mp4) · [Narration and evidence references](docs/VIDEO_SCRIPT.md)
 
-The current film briefly shows CSV preview and report creation, then a separately labeled guided correction flow, retail v2 results and saved actual MCP-client evidence. The full CSV correction workflow below is a longer live feature. [Previous-version video delivery evidence](evidence/video_delivery_v2.json) · [Demo narrative](docs/DEMO_SCRIPT.md).
+The current film briefly shows CSV preview and report creation, then a separately labeled guided correction flow, retail v2 results and saved actual MCP-client evidence. The full CSV correction workflow below is a longer live feature. [Verified video delivery](evidence/video_delivery_v3.json) · [Demo narrative](docs/DEMO_SCRIPT.md).
 
 ## Run the application
 
