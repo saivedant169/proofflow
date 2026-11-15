@@ -26,6 +26,12 @@
   list-style: none;
 }
 
+.workflow-handoff {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .workflow-actions .button {
   min-height: 38px;
   padding-inline: 12px;
@@ -101,5 +107,10 @@
     min-height: 40px;
     padding-inline: 5px;
     gap: 5px;
+  }
+
+  .workflow-actions .workflow-handoff .button {
+    width: auto;
+    flex: 1 0 auto;
   }
 }

@@ -20,9 +20,13 @@ const sha256 = bytes => createHash('sha256').update(bytes).digest('hex')
 const url = path => new URL(path, origin).href
 const button = (page, name) => page.getByRole('button', { name, exact: true })
 const downloadButton = page => button(page, 'Download current reports')
+const copyButton = page => button(page, 'Copy checked report')
 const metrics = page => page.locator('.report-panel .metric strong')
 const snapshotNote = page => page.getByRole('status').filter({ hasText: 'Snapshot checked at' })
 const get = (page, path) => page.request.get(url(path), { maxRedirects: 0, timeout })
+const hostedClipboard = process.platform === 'linux' && process.env.GITHUB_ACTIONS === 'true'
+  && process.env.RUNNER_ENVIRONMENT === 'github-hosted'
+const clipboardSentinel = 'ProofFlow hosted acceptance clipboard sentinel'
 
 class CheckFailure extends Error {}
 
@@ -351,6 +355,53 @@ async function checkedDownload(page, state, amounts, fixture) {
   return { path, observation: { status: response.status(), filename, checked_at_utc: checkedAt, sha256: sha256(bytes), bytes: bytes.length, matches_server_bytes: true, matching_report_and_claim_ids: true, no_store: true } }
 }
 
+async function setClipboardSentinel(page) {
+  await page.bringToFront()
+  await page.evaluate(text => navigator.clipboard.writeText(text), clipboardSentinel)
+  check(await page.evaluate(() => navigator.clipboard.readText()) === clipboardSentinel, 'Disposable browser clipboard contains its sentinel')
+}
+
+async function checkedCopy(page, state, amounts) {
+  await setClipboardSentinel(page)
+  const [response] = await Promise.all([responseFor(page, exportPath, 'POST'), copyButton(page).press('Enter')])
+  check(response.status() === 200 && same(response.request().postDataJSON(), exportSelection(state)), 'Copy checks the visible report heads')
+  checkExportHeaders(response)
+  const snapshot = await response.json()
+  await expect(snapshotNote(page)).toContainText('Report copied.')
+  await expect(snapshotNote(page).locator('time')).toHaveAttribute('datetime', snapshot.checked_at)
+  const content = await page.evaluate(() => navigator.clipboard.readText())
+  check(content === snapshot.content && content.includes(`Checked at (UTC): ${snapshot.checked_at}`), 'Real clipboard contains the exact checked snapshot and UTC time')
+  check(content.includes(`Company net revenue: ${amounts[0]} USD`) && content.includes(`Regional net revenue ('NORTH'): ${amounts[1]} USD`), 'Copied snapshot has the expected current amounts')
+  check(reports(state).every(report => content.includes(report.id) && content.includes(report.claims[0].artifact_id)), 'Copied snapshot includes both report and claim artifact IDs')
+  return { status: response.status(), exact_server_text: true, checked_at_utc: snapshot.checked_at, sha256: sha256(content) }
+}
+
+async function staleCopy(page, initial) {
+  await setClipboardSentinel(page)
+  await expect(metrics(page)).toHaveText(['$308.00', '$108.00'])
+  await expect(copyButton(page)).toBeEnabled()
+  const [rejected, reconciled] = await Promise.all([
+    responseFor(page, exportPath, 'POST'), responseFor(page, statePath, 'GET'), copyButton(page).press('Enter'),
+  ])
+  check(rejected.status() === 409 && reconciled.status() === 200, 'Stale copy is refused and reconciles with the saved workspace')
+  checkExportHeaders(rejected)
+  const rejection = await rejected.json()
+  check(same(rejected.request().postDataJSON(), exportSelection(initial)) && same(Object.keys(rejection), ['error']) && rejection.error.code === 'evidence_unavailable', 'Stale copy checks the original report heads and returns no snapshot')
+  await expect(page.getByRole('alert')).toContainText('No report was copied to the clipboard.')
+  await expect(metrics(page)).toHaveText(['Awaiting refresh', 'Awaiting refresh'])
+  await expect(copyButton(page)).toBeDisabled()
+  await expect(snapshotNote(page)).toHaveCount(0)
+  check(await page.evaluate(() => navigator.clipboard.readText()) === clipboardSentinel, 'The refused copy preserved the real clipboard sentinel')
+  return { status: rejected.status(), reconciliation_status: reconciled.status(), clipboard_sentinel_unchanged: true }
+}
+
+async function openSameWorkspace(page) {
+  // An opener copies the selected workspace preference into the new tab.
+  await page.bringToFront()
+  const [popup] = await Promise.all([page.waitForEvent('popup'), page.evaluate(() => { window.open(location.href, '_blank') })])
+  return popup
+}
+
 async function loadFixture(name) {
   const manifest = JSON.parse(await readFile(new URL('acceptance_manifest.json', fixtures), 'utf8'))
   const bytes = await readFile(new URL(name, fixtures))
@@ -388,9 +439,14 @@ async function browserWorkspaces(browser) {
       const restored = await importState(page)
       check(restored.session_id === initial.session_id && restored.generation === initial.generation && same(heads(restored), heads(initial)), 'Reload preserves session, generation and current artifacts')
       firstFile = await checkedDownload(page, initial, ['$308.00', '$108.00'], north)
+      let clipboard = { status: 'skipped', cause: 'Real clipboard check is limited to the disposable GitHub-hosted Linux browser' }
+      if (hostedClipboard) {
+        await desktop.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: origin.origin })
+        clipboard = await checkedCopy(page, initial, ['$308.00', '$108.00'])
+      }
       check(downloads === 1, 'Initial report produced one download event')
       await screenshot(page, 'north-initial-desktop')
-      return { tls_protocol: tls, cookie: { secure: true, http_only: true, same_site: 'Strict' }, fixture_sha256: north.sha, fx: '1.20', revenue_usd_cents: values, accounting: accounting(initial, [8, 8, 11]), native_queries: initial.backend.native_queries, reload_preserved_artifacts: true, export: firstFile.observation }
+      return { tls_protocol: tls, cookie: { secure: true, http_only: true, same_site: 'Strict' }, fixture_sha256: north.sha, fx: '1.20', revenue_usd_cents: values, accounting: accounting(initial, [8, 8, 11]), native_queries: initial.backend.native_queries, reload_preserved_artifacts: true, export: firstFile.observation, clipboard }
     })
 
     const isolated = await step('mobile_session_and_evidence_isolation', async () => {
@@ -409,11 +465,13 @@ async function browserWorkspaces(browser) {
     }, created)
 
     const corrected = await step('second_tab_correction_and_stale_export', async () => {
-      // An opener copies the selected workspace preference into the second tab.
-      const [second] = await Promise.all([page.waitForEvent('popup'), page.evaluate(() => { window.open(location.href, '_blank') })])
+      const second = await openSameWorkspace(page)
+      const copyTab = hostedClipboard ? await openSameWorkspace(page) : null
       const secondErrors = watchErrors(second)
+      const copyErrors = copyTab ? watchErrors(copyTab, true) : []
       try {
         await expect(metrics(second)).toHaveText(['$308.00', '$108.00'])
+        if (copyTab) await expect(metrics(copyTab)).toHaveText(['$308.00', '$108.00'])
         await preview(second, north, 'EUR', '1.30')
         const stale = await publish(second, true)
         check(stale.session_id === initial.session_id && same(exportSelection(stale), exportSelection(initial)), 'Second tab corrects the same session, generation and pending report heads')
@@ -422,6 +480,8 @@ async function browserWorkspaces(browser) {
         const values = reportState(stale, 'stale', [null, null])
         await expect(metrics(second)).toHaveText(['Awaiting refresh', 'Awaiting refresh'])
         await expect(downloadButton(second)).toBeDisabled()
+        const clipboard = copyTab ? await staleCopy(copyTab, initial) : null
+        await page.bringToFront()
         await expect(metrics(page)).toHaveText(['$308.00', '$108.00'])
         await expect(downloadButton(page)).toBeEnabled()
         const before = downloads
@@ -438,9 +498,10 @@ async function browserWorkspaces(browser) {
         await expect(downloadButton(page)).toBeDisabled()
         await expect(snapshotNote(page)).toHaveCount(0)
         await screenshot(page, 'north-stale-export-refused')
-        check(downloads === before && secondErrors.length === 0, 'Stale attempt emitted no download or unexpected popup errors')
-        return { fx: '1.30', affected_artifacts: stale.impact.affected_artifacts.length, accounting: accounting(stale, [8, 0, 0]), same_session_and_pending_heads: true, current_values_withheld: values, stale_export_status: rejected.status(), reconciliation_status: reconciled.status(), download_events: downloads - before }
+        check(downloads === before && secondErrors.length === 0 && copyErrors.length === 0, 'Stale attempt emitted no download or unexpected popup errors')
+        return { fx: '1.30', affected_artifacts: stale.impact.affected_artifacts.length, accounting: accounting(stale, [8, 0, 0]), same_session_and_pending_heads: true, current_values_withheld: values, stale_export_status: rejected.status(), reconciliation_status: reconciled.status(), download_events: downloads - before, clipboard }
       } finally {
+        if (copyTab) await copyTab.close()
         await second.close()
       }
     }, created)
@@ -453,6 +514,7 @@ async function browserWorkspaces(browser) {
       await expect(metrics(page)).toHaveText(['$317.00', '$117.00'])
       await expect(page.locator('.refresh-banner')).toContainText('Fresh recomputation matches.')
       const lastFile = await checkedDownload(page, fresh, ['$317.00', '$117.00'], north)
+      const clipboard = hostedClipboard ? await checkedCopy(page, fresh, ['$317.00', '$117.00']) : null
       check(downloads === 2 && sha256(await readFile(firstFile.path)) === firstFile.observation.sha256, 'Only the two approved downloads occurred and the first snapshot stayed unchanged')
       await screenshot(page, 'north-refreshed-desktop')
       const viewports = []
@@ -460,6 +522,7 @@ async function browserWorkspaces(browser) {
         await page.setViewportSize({ width, height: 844 })
         await page.evaluate(() => window.scrollTo(0, 0))
         await expect(downloadButton(page)).toBeInViewport({ ratio: 1 })
+        await expect(copyButton(page)).toBeInViewport({ ratio: 1 })
         await expect(snapshotNote(page)).toBeInViewport({ ratio: 1 })
         const noOverflow = await downloadButton(page).evaluate(node => {
           const toolbar = node.closest('.workspace-workflow, .report-export')
@@ -474,7 +537,7 @@ async function browserWorkspaces(browser) {
       const restored = await importState(page)
       check(same(exportSelection(restored), exportSelection(fresh)) && same(heads(restored), heads(fresh)), 'Refreshed report heads and artifacts survive reload')
       check(desktopErrors.length === 0, 'Desktop has no unexpected console or runtime errors')
-      return { revenue_usd_cents: values, accounting: accounting(fresh, [0, 4, 11]), numeric_parity: true, preserved_support_artifact: true, new_report_heads: true, reload_preserved_artifacts: true, previous_file_unchanged: true, export: lastFile.observation, viewports }
+      return { revenue_usd_cents: values, accounting: accounting(fresh, [0, 4, 11]), numeric_parity: true, preserved_support_artifact: true, new_report_heads: true, reload_preserved_artifacts: true, previous_file_unchanged: true, export: lastFile.observation, clipboard, viewports }
     }, corrected)
 
     await step('mobile_session_after_desktop_correction', async () => {

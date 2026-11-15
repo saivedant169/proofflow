@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import type { Download, Page, TestInfo } from '@playwright/test'
+import type { BrowserContext, Download, Page, TestInfo } from '@playwright/test'
 import { appendFileSync, readFileSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
@@ -11,6 +11,7 @@ const exportPath = '/api/import/export'
 const statePath = '/api/import/state'
 const runOutput = process.env.PROOFFLOW_E2E_RUN_DIR!
 const testEvidence = new WeakMap<TestInfo, Record<string, unknown>>()
+const clipboardSentinel = 'ProofFlow test clipboard sentinel'
 
 test.afterEach(({}, info) => {
   const evidence = testEvidence.get(info)
@@ -21,6 +22,35 @@ test.afterEach(({}, info) => {
 
 function downloadButton(page: Page) {
   return page.getByRole('button', { name: 'Download current reports', exact: true })
+}
+
+function copyButton(page: Page) {
+  return page.getByRole('button', { name: 'Copy checked report', exact: true })
+}
+
+async function installClipboardBuffer(context: BrowserContext) {
+  // Exercise actual ClipboardItem promises in headless Chromium with a
+  // per-page buffer so local runs never read or change the desktop clipboard.
+  await context.addInitScript(sentinel => {
+    let text = sentinel
+    let pending = Promise.resolve()
+    Object.defineProperty(navigator, 'clipboard', {
+      value: {
+        write(items: ClipboardItem[]) {
+          const write = items[0].getType('text/plain').then(async blob => { text = await blob.text() })
+          pending = write.catch(() => {})
+          return write
+        },
+        async readText() { await pending; return text },
+      },
+    })
+  }, clipboardSentinel)
+}
+
+async function openSameWorkspace(page: Page) {
+  // An opener gives the new tab the same initial workspace preference and session cookie.
+  const [popup] = await Promise.all([page.waitForEvent('popup'), page.evaluate(() => { window.open(location.href, '_blank') })])
+  return popup
 }
 
 function observe(page: Page, expectedFailures: string[] = []) {
@@ -108,12 +138,14 @@ async function expectDownload(page: Page, state: ImportedWorkspaceState, company
   await expect(note).toContainText('This file does not update automatically.')
 }
 
-test('download checks the visible imported report heads and refuses a concurrent CSV correction', async ({ page }, info) => {
+test('checked handoff refuses a concurrent CSV correction without downloading or copying', async ({ page, context }, info) => {
+  await installClipboardBuffer(context)
   const errors = observe(page, [exportPath])
   const downloads: Download[] = []
   page.on('download', download => downloads.push(download))
   await page.goto('/')
   await expect(downloadButton(page)).toHaveCount(0)
+  await expect(copyButton(page)).toHaveCount(0)
   const initial = await publish(page, false)
   expect(initial.backend).toMatchObject({ engine: 'HydraDB OSS', fallback: false })
   expect(initial.backend.native_queries).toBeGreaterThan(0)
@@ -124,17 +156,37 @@ test('download checks the visible imported report heads and refuses a concurrent
   await page.evaluate(() => window.scrollTo(0, 0))
   await page.screenshot({ path: info.outputPath('initial-download.png') })
 
-  // An opener gives the new tab the same initial workspace preference and session cookie.
-  const popup = page.waitForEvent('popup')
-  await page.evaluate(() => { window.open(location.href, '_blank') })
-  const otherTab = await popup
+  const otherTab = await openSameWorkspace(page)
+  const copyTab = await openSameWorkspace(page)
   const otherErrors = observe(otherTab)
+  const copyErrors = observe(copyTab, [exportPath])
   try {
+    const copyMetrics = copyTab.locator('.report-panel .metric strong')
+    await expect(copyMetrics).toHaveText(['$308.00', '$108.00'])
     const stale = await publish(otherTab, true)
     expect(stale.session_id).toBe(initial.session_id)
     expect(stale.generation).toBe(initial.generation)
     await checkPage(otherTab, otherErrors)
     await expect(downloadButton(otherTab)).toBeDisabled()
+    await expect(copyButton(otherTab)).toBeDisabled()
+    await expect(copyMetrics).toHaveText(['$308.00', '$108.00'])
+    await expect(copyButton(copyTab)).toBeEnabled()
+    const [copyRejected, copyReconciled] = await Promise.all([
+      waitForPost(copyTab, exportPath),
+      copyTab.waitForResponse(response => new URL(response.url()).pathname === statePath),
+      copyButton(copyTab).press('Enter'),
+    ])
+    expect(copyRejected.status()).toBe(409)
+    expect(copyRejected.request().postDataJSON()).toEqual(requestFor(initial))
+    expect(copyReconciled.status()).toBe(200)
+    await expect(copyTab.getByRole('alert')).toContainText('No report was copied to the clipboard.')
+    await expect(copyMetrics).toHaveText(['Awaiting refresh', 'Awaiting refresh'])
+    await expect(copyButton(copyTab)).toBeDisabled()
+    await expect(copyTab.getByText('Snapshot checked at', { exact: false })).toHaveCount(0)
+    expect(await copyTab.evaluate(() => navigator.clipboard.readText())).toBe(clipboardSentinel)
+    await checkPage(copyTab, copyErrors)
+    await copyTab.screenshot({ path: info.outputPath('copy-refused.png') })
+
     await expect(metrics).toHaveText(['$308.00', '$108.00'])
     await expect(downloadButton(page)).toBeEnabled()
     const refused = waitForPost(page, exportPath)
@@ -166,6 +218,7 @@ test('download checks the visible imported report heads and refuses a concurrent
       await page.setViewportSize({ width, height: 844 })
       await page.evaluate(() => window.scrollTo(0, 0))
       await expect(downloadButton(page)).toBeInViewport({ ratio: 1 })
+      await expect(copyButton(page)).toBeInViewport({ ratio: 1 })
       await expect(page.getByRole('status').filter({ hasText: 'Snapshot checked at' })).toBeInViewport({ ratio: 1 })
       const workflow = page.getByRole('region', { name: 'Correction workflow', exact: true })
       expect(await workflow.evaluate(node => node.scrollWidth <= node.clientWidth)).toBe(true)
@@ -182,15 +235,18 @@ test('download checks the visible imported report heads and refuses a concurrent
       initial_values_cents: [30800, 10800], refreshed_values_cents: [31700, 11700],
       second_tab_published_correction: true, stale_export_status: 409, refused_attempt_download_events: 0,
       stale_values_withheld: true, new_report_heads: true, downloaded_server_text: true,
+      stale_copy_status: 409, stale_copy_reconciled: true, clipboard_fixture_sentinel_preserved: true,
       file_contains_check_time_and_artifact_ids: true, file_excludes_csv_and_credentials: true,
       snapshot_note_cleared_on_workspace_switch: true, mobile_viewports: [[390, 844], [320, 844]],
     })
   } finally {
+    await copyTab.close()
     await otherTab.close()
   }
 })
 
-test('export unavailable and a failed reconciliation keep reports withheld until reload', async ({ page }, info) => {
+test('checked handoff handles unavailable evidence and early clipboard denial', async ({ page, context }, info) => {
+  await installClipboardBuffer(context)
   const errors = observe(page, [exportPath, statePath])
   const downloads: Download[] = []
   page.on('download', download => downloads.push(download))
@@ -214,14 +270,52 @@ test('export unavailable and a failed reconciliation keep reports withheld until
   await page.getByRole('button', { name: 'Reload state', exact: true }).click()
   await expect(downloadButton(page)).toBeEnabled()
   await expect(page.locator('.report-panel .metric strong')).toHaveText(['$308.00', '$108.00'])
+  await page.evaluate(() => {
+    navigator.clipboard.write = async () => {
+      document.documentElement.dataset.clipboardDenied = 'true'
+      throw new DOMException('Clipboard unavailable in this test', 'NotAllowedError')
+    }
+  })
+  const checked = waitForPost(page, exportPath)
+  await copyButton(page).press('Enter')
+  expect((await checked).status()).toBe(200)
+  await expect(page.getByRole('alert')).toContainText('Could not copy the checked report.')
+  await expect(downloadButton(page)).toBeEnabled()
+  await expect(page.locator('.report-panel .metric strong')).toHaveText(['$308.00', '$108.00'])
+  await expect(page.getByText('Snapshot checked at', { exact: false })).toHaveCount(0)
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(clipboardSentinel)
+
+  // The clipboard may reject before the server settles. Release the server
+  // failure only after the denial so the representation is never read.
+  await page.evaluate(() => { delete document.documentElement.dataset.clipboardDenied })
+  await page.route(`**${exportPath}`, async route => {
+    await expect(page.locator('html')).toHaveAttribute('data-clipboard-denied', 'true')
+    await route.fulfill({
+      status: 503,
+      json: { error: { code: 'backend_unavailable', message: 'HydraDB evidence is unavailable.' } },
+    })
+  }, { times: 1 })
+  const [copyRejected, copyReconciled] = await Promise.all([
+    waitForPost(page, exportPath),
+    page.waitForResponse(response => new URL(response.url()).pathname === statePath),
+    copyButton(page).press('Enter'),
+  ])
+  expect(copyRejected.status()).toBe(503)
+  expect(copyReconciled.status()).toBe(200)
+  await expect(page.getByRole('alert')).toContainText('No report was copied to the clipboard. HydraDB evidence is unavailable.')
+  await expect(page.getByText('Snapshot checked at', { exact: false })).toHaveCount(0)
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(clipboardSentinel)
   await checkPage(page, errors)
   testEvidence.set(info, {
     browser_injected_export_status: 503, browser_injected_reconciliation_failure: true,
     download_events_before_reload: 0, reports_withheld_until_reload: true, restored_values_cents: [30800, 10800],
+    early_clipboard_denial_current_reports_preserved: true,
+    rejected_check_after_early_denial_reconciled: true, clipboard_fixture_sentinel_preserved: true,
   })
 })
 
-test('large CSV revenues preserve exact cents in the reports, evidence, and download', async ({ page }, info) => {
+test('large CSV revenues preserve exact cents in reports, evidence, downloads, and copies', async ({ page, context }, info) => {
+  await installClipboardBuffer(context)
   const errors = observe(page)
   // Nine maximum-size orders and one smaller order per region. NORTH rounds
   // to a safe integer cent amount whose dollar division used to round again.
@@ -245,6 +339,25 @@ test('large CSV revenues preserve exact cents in the reports, evidence, and down
   await expectDownload(page, state, company, region, csvText)
   await page.evaluate(() => window.scrollTo(0, 0))
   await page.screenshot({ path: info.outputPath('exact-current-cents.png') })
+  const copied = waitForPost(page, exportPath)
+  await copyButton(page).press('Enter')
+  const copyResponse = await copied
+  expect(copyResponse.status()).toBe(200)
+  expect(copyResponse.request().postDataJSON()).toEqual(requestFor(state))
+  const snapshot = await copyResponse.json() as ImportExport
+  const copyStatus = page.getByRole('status').filter({ hasText: 'Report copied.' })
+  await expect(copyStatus.locator('time')).toHaveAttribute('datetime', snapshot.checked_at)
+  await expect(copyStatus).toContainText('This snapshot does not update automatically.')
+  const clipboard = await page.evaluate(() => navigator.clipboard.readText())
+  expect(clipboard).toBe(snapshot.content)
+  expect(clipboard).toContain(`Checked at (UTC): ${snapshot.checked_at}`)
+  expect(clipboard).toContain(`Company net revenue: ${company} USD`)
+  expect(clipboard).toContain(`Regional net revenue ('NORTH'): ${region} USD`)
+  for (const report of state.reports) {
+    expect(clipboard).toContain(report.id)
+    expect(clipboard).toContain(report.claims[0].artifact_id)
+  }
+  await page.screenshot({ path: info.outputPath('exact-copied-cents.png') })
 
   await page.getByRole('button', { name: 'Inspect evidence for Company net revenue', exact: true }).click()
   const evidence = page.getByRole('dialog')
@@ -268,7 +381,8 @@ test('large CSV revenues preserve exact cents in the reports, evidence, and down
   await checkPage(page, errors)
   testEvidence.set(info, {
     company_cents_decimal_string: '10000000000000001', regional_safe_integer_cents: 9007199254740901,
-    displayed_and_downloaded_usd: [company, region], exact_evidence_display: true,
+    displayed_downloaded_and_copied_usd: [company, region], exact_evidence_display: true,
+    clipboard_fixture_matches_checked_server_text: true,
     exact_historical_values_after_correction: true, stale_download_disabled: true, mobile_viewport: [320, 844],
   })
 })

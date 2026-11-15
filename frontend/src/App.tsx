@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { ArrowRight, CheckCircle2, CircleAlert, Database, FileUp, LoaderCircle, Play, Plug, Plus, ShieldCheck } from 'lucide-react'
+import { ArrowRight, CheckCircle2, CircleAlert, Copy, Database, FileUp, LoaderCircle, Play, Plug, Plus, ShieldCheck } from 'lucide-react'
 import { api } from './lib/api'
 import { parseUSDCents } from './lib/format'
 import type { ImportExport, ImportExportRequest, ImportedWorkspaceState, ImportRequest, SourceChange, Verification, WorkspaceState } from './lib/types'
@@ -13,6 +13,7 @@ import ImportDrawer from './components/ImportDrawer'
 import './import-workspace.css'
 
 type WorkspaceKind = 'demo' | 'import'
+type ReportDelivery = 'download' | 'copy'
 const exportTimeFormat = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'long', timeZone: 'UTC' })
 
 function preferredWorkspace(): WorkspaceKind {
@@ -51,6 +52,20 @@ function downloadTextFile(file: ImportExport) {
   }
 }
 
+async function writeCheckedReport(snapshot: Promise<ImportExport>): Promise<boolean> {
+  // Start the write during the button gesture. A failed server check rejects
+  // the only clipboard representation before any data can be written.
+  const text = snapshot.then(file => new Blob([file.content], { type: 'text/plain' }))
+  // A browser can deny access before it starts reading the representation.
+  void text.catch(() => {})
+  try {
+    await navigator.clipboard.write([new ClipboardItem({ 'text/plain': text })])
+    return true
+  } catch {
+    return false
+  }
+}
+
 export default function App() {
   const [view, setView] = useState<'workspace' | 'benchmark'>('workspace')
   const [state, setState] = useState<WorkspaceState | null>(null)
@@ -64,7 +79,7 @@ export default function App() {
   const [importDraft, setImportDraft] = useState<{ generation: string; request: ImportRequest } | null>(null)
   const [inspectId, setInspectId] = useState<string | null>(null)
   const [verification, setVerification] = useState<Verification | null>(null)
-  const [exportCheckedAt, setExportCheckedAt] = useState<string | null>(null)
+  const [reportReceipt, setReportReceipt] = useState<{ delivery: ReportDelivery; checkedAt: string } | null>(null)
   const closeSource = useCallback(() => setSourceOpen(false), [])
   const closeImport = useCallback(() => setImportOpen(null), [])
   const closeEvidence = useCallback(() => setInspectId(null), [])
@@ -77,7 +92,7 @@ export default function App() {
   }, [])
   const load = useCallback(async (target: WorkspaceKind = preferredWorkspace()) => {
     setPending('Opening workspace'); setError(null); setKind(target); setUncertain(true)
-    setVerification(null); setInspectId(null); setExportCheckedAt(null)
+    setVerification(null); setInspectId(null); setReportReceipt(null)
     try { acceptState(await (target === 'import' ? api.readImportState() : api.createSession())) }
     catch (cause) { setError(cause instanceof Error ? cause.message : 'The workspace could not start.'); setUncertain(true) }
     finally { setPending(null) }
@@ -85,7 +100,7 @@ export default function App() {
   useEffect(() => { void load() }, [load])
 
   async function mutate(label: string, operation: () => Promise<WorkspaceState>, rethrow = false, target: WorkspaceKind = kind) {
-    setPending(label); setError(null); setVerification(null); setKind(target); setExportCheckedAt(null)
+    setPending(label); setError(null); setVerification(null); setKind(target); setReportReceipt(null)
     try { const next = await operation(); acceptState(next); return next }
     catch (cause) {
       const message = cause instanceof Error ? cause.message : 'The request did not complete.'
@@ -98,7 +113,7 @@ export default function App() {
     } finally { setPending(null) }
   }
   async function verify() {
-    setPending('Checking fresh recomputation'); setError(null); setExportCheckedAt(null)
+    setPending('Checking fresh recomputation'); setError(null); setReportReceipt(null)
     try {
       if (kind === 'import') {
         const result = await api.verifyImport()
@@ -121,8 +136,8 @@ export default function App() {
   const busy = pending !== null
   const workspaceReady = !!state && !uncertain
   const refreshed = !!state?.last_refresh && !hasAffected && !imported?.incomplete_update
-  const downloadRequest = exportRequest(imported)
-  const canDownload = !busy && !uncertain && downloadRequest !== null
+  const snapshotRequest = exportRequest(imported)
+  const canHandoff = !busy && !uncertain && snapshotRequest !== null
   let workflowStep = 1
   let workflowHint = imported ? 'Publish a correction to your orders, refunds or exchange rates.' : 'Try an exchange-rate correction on the sample reports.'
   if (imported?.incomplete_update) {
@@ -132,22 +147,32 @@ export default function App() {
     workflowHint = 'Inspect the affected figures below, then refresh the calculations they depend on.'
   } else if (refreshed) {
     workflowStep = 3
-    workflowHint = imported ? 'Download a snapshot after checking that both reports are current.' : 'Check the saved figures against a fresh calculation.'
+    workflowHint = imported ? 'Download or copy a checked snapshot of both reports.' : 'Check the saved figures against a fresh calculation.'
   }
 
-  async function downloadCurrentReports() {
-    if (!canDownload || !downloadRequest) return
-    setPending('Checking reports for download'); setError(null); setExportCheckedAt(null)
+  async function shareCurrentReports(delivery: ReportDelivery) {
+    if (!canHandoff || !snapshotRequest) return
+    const copying = delivery === 'copy'
+    setPending(copying ? 'Checking reports for copy' : 'Checking reports for download')
+    setError(null); setReportReceipt(null)
     try {
-      const file = await api.exportImport(downloadRequest)
-      downloadTextFile(file)
-      setExportCheckedAt(file.checked_at)
+      const snapshot = api.exportImport(snapshotRequest)
+      const clipboardWrite = copying ? writeCheckedReport(snapshot) : null
+      const file = await snapshot
+      if (clipboardWrite === null) {
+        downloadTextFile(file)
+      } else if (!await clipboardWrite) {
+        setError('Could not copy the checked report. Use Download current reports to save it.')
+        return
+      }
+      setReportReceipt({ delivery, checkedAt: file.checked_at })
     } catch (cause) {
-      const message = cause instanceof Error ? cause.message : 'The download request did not complete.'
+      const message = cause instanceof Error ? cause.message : 'The report check did not complete.'
       setUncertain(true); setVerification(null); setInspectId(null)
       try { acceptState(await api.readImportState()) }
       catch { /* Keep unconfirmed reports withheld until the workspace can be read. */ }
-      setError(`No report file was downloaded. ${message}`)
+      const explanation = copying ? 'No report was copied to the clipboard.' : 'No report file was downloaded.'
+      setError(`${explanation} ${message}`)
     } finally { setPending(null) }
   }
 
@@ -189,16 +214,24 @@ export default function App() {
                 {pending === 'Refreshing affected work' ? <LoaderCircle size={16} className="spin" aria-hidden="true" /> : <span className="workflow-step-number" aria-hidden="true">2</span>}Refresh affected
               </button>
             </li>
-            <li aria-current={workspaceReady && workflowStep === 3 ? 'step' : undefined}>
-              {kind === 'import' ? <button className={`button ${workflowStep === 3 ? 'button-primary' : 'button-secondary'}`} disabled={!canDownload} onClick={() => void downloadCurrentReports()}>
-                {pending === 'Checking reports for download' ? <LoaderCircle size={16} className="spin" aria-hidden="true" /> : <span className="workflow-step-number" aria-hidden="true">3</span>}Download current reports
-              </button> : <button className={`button ${workflowStep === 3 ? 'button-primary' : 'button-secondary'}`} disabled={busy || !workspaceReady || !refreshed} onClick={() => void verify()}>
+            <li aria-current={workspaceReady && workflowStep === 3 ? 'step' : undefined} className={kind === 'import' ? 'workflow-handoff' : undefined}>
+              {kind === 'import' ? <>
+                <button className={`button ${workflowStep === 3 ? 'button-primary' : 'button-secondary'}`} disabled={!canHandoff} onClick={() => void shareCurrentReports('download')}>
+                  {pending === 'Checking reports for download' ? <LoaderCircle size={16} className="spin" aria-hidden="true" /> : <span className="workflow-step-number" aria-hidden="true">3</span>}Download current reports
+                </button>
+                <button className="button button-secondary" disabled={!canHandoff} onClick={() => void shareCurrentReports('copy')}>
+                  {pending === 'Checking reports for copy' ? <LoaderCircle size={16} className="spin" aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}Copy checked report
+                </button>
+              </> : <button className={`button ${workflowStep === 3 ? 'button-primary' : 'button-secondary'}`} disabled={busy || !workspaceReady || !refreshed} onClick={() => void verify()}>
                 {pending === 'Checking fresh recomputation' ? <LoaderCircle size={16} className="spin" aria-hidden="true" /> : <span className="workflow-step-number" aria-hidden="true">3</span>}Check values
               </button>}
             </li>
           </ol>
         </div>
-        {exportCheckedAt && <p className="report-export-status" role="status">Snapshot checked at <time dateTime={exportCheckedAt}>{exportTimeFormat.format(new Date(exportCheckedAt))}</time>. This file does not update automatically.</p>}
+        {reportReceipt && <p className="report-export-status" role="status">
+          {reportReceipt.delivery === 'copy' && 'Report copied. '}
+          Snapshot checked at <time dateTime={reportReceipt.checkedAt}>{exportTimeFormat.format(new Date(reportReceipt.checkedAt))}</time>. {reportReceipt.delivery === 'copy' ? 'This snapshot does not update automatically.' : 'This file does not update automatically.'}
+        </p>}
       </section>
       {error && <div className="error-banner" role="alert"><CircleAlert size={18} /><span>{error}</span><button className="text-button" disabled={busy} onClick={() => void load(kind)}>Reload state</button></div>}
       <div aria-live="polite" className="sr-only">{pending ?? (state ? 'Workspace ready' : 'Workspace unavailable')}</div>
