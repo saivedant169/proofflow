@@ -53,6 +53,12 @@ Do not silently relabel TF-IDF, random embeddings, or bag-of-words vectors as th
 
 Use a predeclared context-token ladder rather than selecting a top-k after viewing test labels. Initial ladder: **512, 1,024, and 2,048 context tokens**, plus an all-record diagnostic. Count rendered record text and provenance headers using one real tokenizer, pinned in the run manifest. If the entire corpus fits within a budget, report that; do not add irrelevant records merely to force a failure.
 
+The initial fixed main budget is **2,048 evidence tokens**, a small per-request context allowance; the entire ladder and all-context control are reported. Standard initial parameters are BM25 `k1=1.5,b=0.75`, hybrid reciprocal-rank constant `60`, and four iterative rounds admitting up to three new records per round. All semantic arms receive exact direct-ID seeding, and those returned records consume their evidence budget. These defaults are fixed before tests; any development-only revision requires a new manifest hash before testing.
+
+Dense model: **BAAI/bge-small-en-v1.5 through FastEmbed ONNX CPU**. To avoid silent 512-token model truncation, split each document with the actual model tokenizer into overlapping 384-token chunks (64-token overlap), score every chunk, and use maximum cosine as the document score. Long queries receive the same safe chunk treatment. Record the maximum untruncated document length, chunk count, installed package version, model directory/revision, and SHA-256 of model/tokenizer files. This gives dense retrieval every metadata field, including relationships at the document tail.
+
+Context identifiers use human-readable logical names plus an immutable version suffix, with collision detection and a saved one-to-one raw-ID map. The same aliases are used in graph, lexical, and dense evidence and in change queries. This avoids opaque UUID/hash length dominating the context while preserving exact version identity.
+
 Use deterministic whole-record packing, identical serialization and tie-breaks. Skip an oversized record and continue packing smaller ranked records, rather than stopping at the first oversized item. A record that cannot fit any budget is a manifest warning; do not silently give only the graph a compact summary.
 
 The same record may support several paths; deduplicate it consistently. Graph path explanations count toward its context. Report selected records, selected token count, full available corpus tokens, and coverage at every budget. Graph over-budget omissions count as misses.
@@ -126,3 +132,9 @@ If graph and fair retrieval tie, report the tie. If an exact flat cache ties, re
 The harness needs a resettable scenario factory, executed report generation, complete record export, source/tool mutation, graph-affected query, selection-driven refresh returning actual calls/values, independent full recompute, and restart support. Gold dependency specifications remain in evaluation data and never enter the runtime graph query.
 
 No results are asserted by this document.
+
+## Shared-graph execution isolation
+
+Each scenario starts from newly executed fixture tools and a unique graph namespace. All retrieval policies are ranked and their context bundles frozen **before any refresh arm runs**. Refresh conditions then receive independent copies of the SQLite manifest and immutable blob files, including source/tool/artifact heads. They share only the original immutable graph history; every new execution/output has a unique ID and appends new edges. An arm's new descendants cannot become ancestors of another arm's original artifacts. No discovery/ranking runs after another arm's refresh. Raw results record this protocol; it is not concurrent multi-tenant testing or database restart evidence.
+
+Application restart T11 reopens the local store and constructs a fresh client before retrieval. Database-container restart durability is a separate infrastructure test. Production currentness refuses unknown/missing ancestry rather than silently supplying a cached answer.

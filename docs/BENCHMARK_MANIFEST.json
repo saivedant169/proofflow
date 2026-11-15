@@ -1,0 +1,1253 @@
+{
+  "configuration": {
+    "benchmark_version": "pilot-v1",
+    "bm25": {
+      "b": 0.75,
+      "k1": 1.5
+    },
+    "budgets": [
+      512,
+      1024,
+      2048
+    ],
+    "claim": "small authored retrieval-and-refresh pilot, not universal graph-store superiority",
+    "dense_chunk_overlap": 64,
+    "dense_chunk_tokens": 384,
+    "dense_document_score": "maximum cosine across all overlapping chunks",
+    "dense_model": "BAAI/bge-small-en-v1.5",
+    "evidence_aliases": "human-readable logical_id plus immutable version suffix; all arms identical",
+    "exact_id_seeding": true,
+    "execution_arms": [
+      "bm25",
+      "dense",
+      "hybrid",
+      "iterative_hybrid",
+      "graph",
+      "exact_flat",
+      "full_context"
+    ],
+    "graph_depth": 15,
+    "heldout_composition_status": "deterministic recipe pilot; not agent-chosen until separate agent run",
+    "iterative_round_width": 3,
+    "iterative_rounds": 4,
+    "main_budget": 2048,
+    "reader": "deterministic transitive reader restricted to returned evidence",
+    "record_serialization": "EvidenceRecord.render/v1",
+    "rrf_constant": 60,
+    "tokenizer": "cl100k_base"
+  },
+  "fixture": {
+    "heldout_recipe": {
+      "description": "New report composition combines artifacts from two earlier independent weekly runs.",
+      "inputs": {
+        "current": "2026-W46:company",
+        "prior": "2026-W45:company",
+        "support": "2026-W46:support"
+      },
+      "name": "cross_period:comparison",
+      "params": {
+        "sections": [
+          {
+            "input": "prior",
+            "key": "prior",
+            "label": "Prior week company revenue",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current",
+            "key": "current",
+            "label": "Current week company revenue",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "support",
+            "label": "Current EU tickets",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "Two-week revenue comparison with current support"
+      },
+      "run": "heldout_composition",
+      "tool": "compose_report"
+    },
+    "periods": [
+      "2026-W44",
+      "2026-W45",
+      "2026-W46"
+    ],
+    "recipes": [
+      {
+        "description": "Gross sales before customer refunds for 2026-W44, by region and currency.",
+        "inputs": {
+          "orders": "source:orders:2026-W44"
+        },
+        "name": "2026-W44:gross",
+        "params": {},
+        "run": "company",
+        "tool": "gross_by_region"
+      },
+      {
+        "description": "Customer refunds matched to their orders for 2026-W44, grouped by region.",
+        "inputs": {
+          "orders": "source:orders:2026-W44",
+          "refunds": "source:refunds:2026-W44"
+        },
+        "name": "2026-W44:refunds",
+        "params": {},
+        "run": "company",
+        "tool": "refunds_by_region"
+      },
+      {
+        "description": "Regional net revenue after refunds in local currencies for 2026-W44.",
+        "inputs": {
+          "gross": "2026-W44:gross",
+          "refunds": "2026-W44:refunds"
+        },
+        "name": "2026-W44:net",
+        "params": {},
+        "run": "company",
+        "tool": "net_by_region"
+      },
+      {
+        "description": "Regional net revenue converted to US dollars for 2026-W44.",
+        "inputs": {
+          "fx": "source:fx:2026-W44",
+          "net": "2026-W44:net"
+        },
+        "name": "2026-W44:usd",
+        "params": {},
+        "run": "company",
+        "tool": "convert_to_usd"
+      },
+      {
+        "description": "Company-wide net revenue in USD for 2026-W44.",
+        "inputs": {
+          "regional": "2026-W44:usd"
+        },
+        "name": "2026-W44:company",
+        "params": {},
+        "run": "company",
+        "tool": "company_total"
+      },
+      {
+        "description": "Support ticket volumes by region for 2026-W44, independent of revenue calculations.",
+        "inputs": {
+          "tickets": "source:tickets:2026-W44"
+        },
+        "name": "2026-W44:support",
+        "params": {},
+        "run": "company",
+        "tool": "support_by_region"
+      },
+      {
+        "description": "Weekly company report covering net revenue and EU support demand for 2026-W44.",
+        "inputs": {
+          "revenue": "2026-W44:company",
+          "support": "2026-W44:support"
+        },
+        "name": "2026-W44:company_brief",
+        "params": {
+          "sections": [
+            {
+              "input": "revenue",
+              "key": "revenue",
+              "label": "Company net revenue",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "input": "support",
+              "key": "eu_support",
+              "label": "EU support tickets",
+              "path": [
+                "regions",
+                "EU",
+                "tickets"
+              ],
+              "unit": "tickets"
+            }
+          ],
+          "title": "Company performance brief — 2026-W44"
+        },
+        "run": "company",
+        "tool": "compose_report"
+      },
+      {
+        "description": "EU operations report for 2026-W44, reusing the regional revenue artifact from the company run.",
+        "inputs": {
+          "regional": "2026-W44:usd",
+          "support": "2026-W44:support"
+        },
+        "name": "2026-W44:eu_brief",
+        "params": {
+          "sections": [
+            {
+              "input": "regional",
+              "key": "net_revenue",
+              "label": "EU net revenue in USD",
+              "path": [
+                "regions",
+                "EU",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "input": "support",
+              "key": "tickets",
+              "label": "EU support tickets",
+              "path": [
+                "regions",
+                "EU",
+                "tickets"
+              ],
+              "unit": "tickets"
+            }
+          ],
+          "title": "EU operations brief — 2026-W44"
+        },
+        "run": "eu_operations",
+        "tool": "compose_report"
+      },
+      {
+        "description": "Support operations report for 2026-W44; contains no revenue or exchange-rate calculation.",
+        "inputs": {
+          "support": "2026-W44:support"
+        },
+        "name": "2026-W44:support_brief",
+        "params": {
+          "sections": [
+            {
+              "input": "support",
+              "key": "eu",
+              "label": "EU customer support volume",
+              "path": [
+                "regions",
+                "EU",
+                "tickets"
+              ],
+              "unit": "tickets"
+            },
+            {
+              "input": "support",
+              "key": "us",
+              "label": "US customer support volume",
+              "path": [
+                "regions",
+                "US",
+                "tickets"
+              ],
+              "unit": "tickets"
+            }
+          ],
+          "title": "Customer support brief — 2026-W44"
+        },
+        "run": "support_operations",
+        "tool": "compose_report"
+      },
+      {
+        "description": "Gross sales before customer refunds for 2026-W45, by region and currency.",
+        "inputs": {
+          "orders": "source:orders:2026-W45"
+        },
+        "name": "2026-W45:gross",
+        "params": {},
+        "run": "company",
+        "tool": "gross_by_region"
+      },
+      {
+        "description": "Customer refunds matched to their orders for 2026-W45, grouped by region.",
+        "inputs": {
+          "orders": "source:orders:2026-W45",
+          "refunds": "source:refunds:2026-W45"
+        },
+        "name": "2026-W45:refunds",
+        "params": {},
+        "run": "company",
+        "tool": "refunds_by_region"
+      },
+      {
+        "description": "Regional net revenue after refunds in local currencies for 2026-W45.",
+        "inputs": {
+          "gross": "2026-W45:gross",
+          "refunds": "2026-W45:refunds"
+        },
+        "name": "2026-W45:net",
+        "params": {},
+        "run": "company",
+        "tool": "net_by_region"
+      },
+      {
+        "description": "Regional net revenue converted to US dollars for 2026-W45.",
+        "inputs": {
+          "fx": "source:fx:2026-W45",
+          "net": "2026-W45:net"
+        },
+        "name": "2026-W45:usd",
+        "params": {},
+        "run": "company",
+        "tool": "convert_to_usd"
+      },
+      {
+        "description": "Company-wide net revenue in USD for 2026-W45.",
+        "inputs": {
+          "regional": "2026-W45:usd"
+        },
+        "name": "2026-W45:company",
+        "params": {},
+        "run": "company",
+        "tool": "company_total"
+      },
+      {
+        "description": "Support ticket volumes by region for 2026-W45, independent of revenue calculations.",
+        "inputs": {
+          "tickets": "source:tickets:2026-W45"
+        },
+        "name": "2026-W45:support",
+        "params": {},
+        "run": "company",
+        "tool": "support_by_region"
+      },
+      {
+        "description": "Weekly company report covering net revenue and EU support demand for 2026-W45.",
+        "inputs": {
+          "revenue": "2026-W45:company",
+          "support": "2026-W45:support"
+        },
+        "name": "2026-W45:company_brief",
+        "params": {
+          "sections": [
+            {
+              "input": "revenue",
+              "key": "revenue",
+              "label": "Company net revenue",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "input": "support",
+              "key": "eu_support",
+              "label": "EU support tickets",
+              "path": [
+                "regions",
+                "EU",
+                "tickets"
+              ],
+              "unit": "tickets"
+            }
+          ],
+          "title": "Company performance brief — 2026-W45"
+        },
+        "run": "company",
+        "tool": "compose_report"
+      },
+      {
+        "description": "EU operations report for 2026-W45, reusing the regional revenue artifact from the company run.",
+        "inputs": {
+          "regional": "2026-W45:usd",
+          "support": "2026-W45:support"
+        },
+        "name": "2026-W45:eu_brief",
+        "params": {
+          "sections": [
+            {
+              "input": "regional",
+              "key": "net_revenue",
+              "label": "EU net revenue in USD",
+              "path": [
+                "regions",
+                "EU",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "input": "support",
+              "key": "tickets",
+              "label": "EU support tickets",
+              "path": [
+                "regions",
+                "EU",
+                "tickets"
+              ],
+              "unit": "tickets"
+            }
+          ],
+          "title": "EU operations brief — 2026-W45"
+        },
+        "run": "eu_operations",
+        "tool": "compose_report"
+      },
+      {
+        "description": "Support operations report for 2026-W45; contains no revenue or exchange-rate calculation.",
+        "inputs": {
+          "support": "2026-W45:support"
+        },
+        "name": "2026-W45:support_brief",
+        "params": {
+          "sections": [
+            {
+              "input": "support",
+              "key": "eu",
+              "label": "EU customer support volume",
+              "path": [
+                "regions",
+                "EU",
+                "tickets"
+              ],
+              "unit": "tickets"
+            },
+            {
+              "input": "support",
+              "key": "us",
+              "label": "US customer support volume",
+              "path": [
+                "regions",
+                "US",
+                "tickets"
+              ],
+              "unit": "tickets"
+            }
+          ],
+          "title": "Customer support brief — 2026-W45"
+        },
+        "run": "support_operations",
+        "tool": "compose_report"
+      },
+      {
+        "description": "Gross sales before customer refunds for 2026-W46, by region and currency.",
+        "inputs": {
+          "orders": "source:orders:2026-W46"
+        },
+        "name": "2026-W46:gross",
+        "params": {},
+        "run": "company",
+        "tool": "gross_by_region"
+      },
+      {
+        "description": "Customer refunds matched to their orders for 2026-W46, grouped by region.",
+        "inputs": {
+          "orders": "source:orders:2026-W46",
+          "refunds": "source:refunds:2026-W46"
+        },
+        "name": "2026-W46:refunds",
+        "params": {},
+        "run": "company",
+        "tool": "refunds_by_region"
+      },
+      {
+        "description": "Regional net revenue after refunds in local currencies for 2026-W46.",
+        "inputs": {
+          "gross": "2026-W46:gross",
+          "refunds": "2026-W46:refunds"
+        },
+        "name": "2026-W46:net",
+        "params": {},
+        "run": "company",
+        "tool": "net_by_region"
+      },
+      {
+        "description": "Regional net revenue converted to US dollars for 2026-W46.",
+        "inputs": {
+          "fx": "source:fx:2026-W46",
+          "net": "2026-W46:net"
+        },
+        "name": "2026-W46:usd",
+        "params": {},
+        "run": "company",
+        "tool": "convert_to_usd"
+      },
+      {
+        "description": "Company-wide net revenue in USD for 2026-W46.",
+        "inputs": {
+          "regional": "2026-W46:usd"
+        },
+        "name": "2026-W46:company",
+        "params": {},
+        "run": "company",
+        "tool": "company_total"
+      },
+      {
+        "description": "Support ticket volumes by region for 2026-W46, independent of revenue calculations.",
+        "inputs": {
+          "tickets": "source:tickets:2026-W46"
+        },
+        "name": "2026-W46:support",
+        "params": {},
+        "run": "company",
+        "tool": "support_by_region"
+      },
+      {
+        "description": "Weekly company report covering net revenue and EU support demand for 2026-W46.",
+        "inputs": {
+          "revenue": "2026-W46:company",
+          "support": "2026-W46:support"
+        },
+        "name": "2026-W46:company_brief",
+        "params": {
+          "sections": [
+            {
+              "input": "revenue",
+              "key": "revenue",
+              "label": "Company net revenue",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "input": "support",
+              "key": "eu_support",
+              "label": "EU support tickets",
+              "path": [
+                "regions",
+                "EU",
+                "tickets"
+              ],
+              "unit": "tickets"
+            }
+          ],
+          "title": "Company performance brief — 2026-W46"
+        },
+        "run": "company",
+        "tool": "compose_report"
+      },
+      {
+        "description": "EU operations report for 2026-W46, reusing the regional revenue artifact from the company run.",
+        "inputs": {
+          "regional": "2026-W46:usd",
+          "support": "2026-W46:support"
+        },
+        "name": "2026-W46:eu_brief",
+        "params": {
+          "sections": [
+            {
+              "input": "regional",
+              "key": "net_revenue",
+              "label": "EU net revenue in USD",
+              "path": [
+                "regions",
+                "EU",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "input": "support",
+              "key": "tickets",
+              "label": "EU support tickets",
+              "path": [
+                "regions",
+                "EU",
+                "tickets"
+              ],
+              "unit": "tickets"
+            }
+          ],
+          "title": "EU operations brief — 2026-W46"
+        },
+        "run": "eu_operations",
+        "tool": "compose_report"
+      },
+      {
+        "description": "Support operations report for 2026-W46; contains no revenue or exchange-rate calculation.",
+        "inputs": {
+          "support": "2026-W46:support"
+        },
+        "name": "2026-W46:support_brief",
+        "params": {
+          "sections": [
+            {
+              "input": "support",
+              "key": "eu",
+              "label": "EU customer support volume",
+              "path": [
+                "regions",
+                "EU",
+                "tickets"
+              ],
+              "unit": "tickets"
+            },
+            {
+              "input": "support",
+              "key": "us",
+              "label": "US customer support volume",
+              "path": [
+                "regions",
+                "US",
+                "tickets"
+              ],
+              "unit": "tickets"
+            }
+          ],
+          "title": "Customer support brief — 2026-W46"
+        },
+        "run": "support_operations",
+        "tool": "compose_report"
+      }
+    ],
+    "scenarios": [
+      {
+        "additional_composition": false,
+        "category": "direct_and_transitive",
+        "description": "Correct the EU order eu-101 amount in week 44; identify saved calculations and briefs requiring revalidation.",
+        "id": "D01",
+        "mutations": [
+          {
+            "operation": "order_delta",
+            "parameters": {
+              "delta": 2500,
+              "order_id": "eu-101"
+            },
+            "source": "orders:2026-W44",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "dev"
+      },
+      {
+        "additional_composition": false,
+        "category": "multi_hop",
+        "description": "Restate the EUR-to-USD exchange rate for week 44 and refresh dependent saved reports.",
+        "id": "D02",
+        "mutations": [
+          {
+            "operation": "rate",
+            "parameters": {
+              "currency": "EUR",
+              "value": "1.12"
+            },
+            "source": "fx:2026-W44",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "dev"
+      },
+      {
+        "additional_composition": false,
+        "category": "cross_run",
+        "description": "Add a refund against eu-102 in week 44; both company and EU briefs may share the result.",
+        "id": "D03",
+        "mutations": [
+          {
+            "operation": "refund",
+            "parameters": {
+              "order_id": "eu-102",
+              "refund_cents": 3000
+            },
+            "source": "refunds:2026-W44",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "dev"
+      },
+      {
+        "additional_composition": false,
+        "category": "independent_branch",
+        "description": "A new EU support ticket arrived in week 44; preserve reusable revenue calculations.",
+        "id": "D04",
+        "mutations": [
+          {
+            "operation": "ticket",
+            "parameters": {
+              "region": "EU",
+              "status": "open",
+              "ticket_id": "late-dev"
+            },
+            "source": "tickets:2026-W44",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "dev"
+      },
+      {
+        "additional_composition": false,
+        "category": "unchanged_value",
+        "description": "Correct two week-44 EU orders by opposite amounts without changing their regional total.",
+        "id": "D05",
+        "mutations": [
+          {
+            "operation": "offset_orders",
+            "parameters": {
+              "delta": 1000,
+              "first": "eu-101",
+              "second": "eu-102"
+            },
+            "source": "orders:2026-W44",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "dev"
+      },
+      {
+        "additional_composition": false,
+        "category": "tool_version",
+        "description": "The gross-sales calculation implementation version changed; revalidate dependent artifacts.",
+        "id": "D06",
+        "mutations": [
+          {
+            "operation": "tool_version",
+            "parameters": {},
+            "source": "",
+            "tool": "gross_by_region"
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "dev"
+      },
+      {
+        "additional_composition": false,
+        "category": "direct_and_transitive",
+        "description": "Correct the US order us-201 amount in week 46 and find every affected saved calculation and report.",
+        "id": "T01",
+        "mutations": [
+          {
+            "operation": "order_delta",
+            "parameters": {
+              "delta": -1700,
+              "order_id": "us-201"
+            },
+            "source": "orders:2026-W46",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "test"
+      },
+      {
+        "additional_composition": false,
+        "category": "cross_run",
+        "description": "A late week-46 UK refund changes evidence reused by later company and EU operations runs.",
+        "id": "T02",
+        "mutations": [
+          {
+            "operation": "refund",
+            "parameters": {
+              "order_id": "uk-301",
+              "refund_cents": 4200
+            },
+            "source": "refunds:2026-W46",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "test"
+      },
+      {
+        "additional_composition": false,
+        "category": "multi_hop",
+        "description": "Correct both EUR and GBP conversion rates for week 46; locate all dependent USD metrics and briefs.",
+        "id": "T03",
+        "mutations": [
+          {
+            "operation": "rates",
+            "parameters": {
+              "EUR": "1.14",
+              "GBP": "1.28"
+            },
+            "source": "fx:2026-W46",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "test"
+      },
+      {
+        "additional_composition": false,
+        "category": "fan_in",
+        "description": "Restate a week-45 EU order used by the already composed company summary.",
+        "id": "T04",
+        "mutations": [
+          {
+            "operation": "order_delta",
+            "parameters": {
+              "delta": 4700,
+              "order_id": "eu-102"
+            },
+            "source": "orders:2026-W45",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "test"
+      },
+      {
+        "additional_composition": false,
+        "category": "independent_branch",
+        "description": "A US customer support ticket arrives in week 46; financial revenue evidence should remain reusable.",
+        "id": "T05",
+        "mutations": [
+          {
+            "operation": "ticket",
+            "parameters": {
+              "region": "US",
+              "status": "closed",
+              "ticket_id": "late-us"
+            },
+            "source": "tickets:2026-W46",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "test"
+      },
+      {
+        "additional_composition": false,
+        "category": "other_scope",
+        "description": "An old week-44 order is corrected. Determine whether week-46 reports require revalidation.",
+        "id": "T06",
+        "mutations": [
+          {
+            "operation": "order_delta",
+            "parameters": {
+              "delta": 1800,
+              "order_id": "uk-301"
+            },
+            "source": "orders:2026-W44",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W46"
+        ],
+        "split": "test"
+      },
+      {
+        "additional_composition": false,
+        "category": "multiple_sources",
+        "description": "A week-45 refund and a week-46 support ticket arrive together; identify their combined impact.",
+        "id": "T07",
+        "mutations": [
+          {
+            "operation": "refund",
+            "parameters": {
+              "order_id": "us-201",
+              "refund_cents": 2500
+            },
+            "source": "refunds:2026-W45",
+            "tool": ""
+          },
+          {
+            "operation": "ticket",
+            "parameters": {
+              "region": "EU",
+              "status": "open",
+              "ticket_id": "late-joint"
+            },
+            "source": "tickets:2026-W46",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "test"
+      },
+      {
+        "additional_composition": false,
+        "category": "unchanged_value",
+        "description": "Two week-45 US order corrections offset, leaving the regional aggregate equal while its inputs changed.",
+        "id": "T08",
+        "mutations": [
+          {
+            "operation": "offset_orders",
+            "parameters": {
+              "delta": 1300,
+              "first": "us-201",
+              "second": "us-202"
+            },
+            "source": "orders:2026-W45",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "test"
+      },
+      {
+        "additional_composition": false,
+        "category": "tool_version",
+        "description": "The currency conversion tool version was replaced. Its code-defined arithmetic is unchanged but prior receipts need revalidation.",
+        "id": "T09",
+        "mutations": [
+          {
+            "operation": "tool_version",
+            "parameters": {},
+            "source": "",
+            "tool": "convert_to_usd"
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "test"
+      },
+      {
+        "additional_composition": false,
+        "category": "missing_source",
+        "description": "The week-46 exchange-rate source is unavailable. Dependent reports must block instead of serving stale numbers.",
+        "id": "T10",
+        "mutations": [
+          {
+            "operation": "remove",
+            "parameters": {},
+            "source": "fx:2026-W46",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "test"
+      },
+      {
+        "additional_composition": false,
+        "category": "restart",
+        "description": "After correcting the week-45 EUR exchange rate, restart the application before deciding what to refresh.",
+        "id": "T11",
+        "mutations": [
+          {
+            "operation": "rate",
+            "parameters": {
+              "currency": "EUR",
+              "value": "1.16"
+            },
+            "source": "fx:2026-W45",
+            "tool": ""
+          }
+        ],
+        "restart": true,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "test"
+      },
+      {
+        "additional_composition": true,
+        "category": "unseen_composition",
+        "description": "A newly composed two-week comparison reuses past artifacts. A week-45 refund correction must reach that new report.",
+        "id": "T12",
+        "mutations": [
+          {
+            "operation": "refund",
+            "parameters": {
+              "order_id": "eu-101",
+              "refund_cents": 1100
+            },
+            "source": "refunds:2026-W45",
+            "tool": ""
+          }
+        ],
+        "restart": false,
+        "scope_periods": [
+          "2026-W44",
+          "2026-W45",
+          "2026-W46"
+        ],
+        "split": "test"
+      }
+    ],
+    "sources": {
+      "fx:2026-W44": {
+        "EUR": "1.08",
+        "GBP": "1.25",
+        "USD": "1.00"
+      },
+      "fx:2026-W45": {
+        "EUR": "1.09",
+        "GBP": "1.25",
+        "USD": "1.00"
+      },
+      "fx:2026-W46": {
+        "EUR": "1.10",
+        "GBP": "1.25",
+        "USD": "1.00"
+      },
+      "orders:2026-W44": [
+        {
+          "currency": "EUR",
+          "gross_cents": 120000,
+          "order_id": "eu-101",
+          "region": "EU"
+        },
+        {
+          "currency": "EUR",
+          "gross_cents": 80000,
+          "order_id": "eu-102",
+          "region": "EU"
+        },
+        {
+          "currency": "USD",
+          "gross_cents": 180000,
+          "order_id": "us-201",
+          "region": "US"
+        },
+        {
+          "currency": "USD",
+          "gross_cents": 60000,
+          "order_id": "us-202",
+          "region": "US"
+        },
+        {
+          "currency": "GBP",
+          "gross_cents": 90000,
+          "order_id": "uk-301",
+          "region": "UK"
+        }
+      ],
+      "orders:2026-W45": [
+        {
+          "currency": "EUR",
+          "gross_cents": 121000,
+          "order_id": "eu-101",
+          "region": "EU"
+        },
+        {
+          "currency": "EUR",
+          "gross_cents": 82000,
+          "order_id": "eu-102",
+          "region": "EU"
+        },
+        {
+          "currency": "USD",
+          "gross_cents": 183000,
+          "order_id": "us-201",
+          "region": "US"
+        },
+        {
+          "currency": "USD",
+          "gross_cents": 64000,
+          "order_id": "us-202",
+          "region": "US"
+        },
+        {
+          "currency": "GBP",
+          "gross_cents": 95000,
+          "order_id": "uk-301",
+          "region": "UK"
+        }
+      ],
+      "orders:2026-W46": [
+        {
+          "currency": "EUR",
+          "gross_cents": 122000,
+          "order_id": "eu-101",
+          "region": "EU"
+        },
+        {
+          "currency": "EUR",
+          "gross_cents": 84000,
+          "order_id": "eu-102",
+          "region": "EU"
+        },
+        {
+          "currency": "USD",
+          "gross_cents": 186000,
+          "order_id": "us-201",
+          "region": "US"
+        },
+        {
+          "currency": "USD",
+          "gross_cents": 68000,
+          "order_id": "us-202",
+          "region": "US"
+        },
+        {
+          "currency": "GBP",
+          "gross_cents": 100000,
+          "order_id": "uk-301",
+          "region": "UK"
+        }
+      ],
+      "refunds:2026-W44": [
+        {
+          "order_id": "eu-101",
+          "refund_cents": 10000
+        },
+        {
+          "order_id": "us-202",
+          "refund_cents": 5000
+        }
+      ],
+      "refunds:2026-W45": [
+        {
+          "order_id": "eu-101",
+          "refund_cents": 10000
+        },
+        {
+          "order_id": "us-202",
+          "refund_cents": 5000
+        }
+      ],
+      "refunds:2026-W46": [
+        {
+          "order_id": "eu-101",
+          "refund_cents": 10000
+        },
+        {
+          "order_id": "us-202",
+          "refund_cents": 5000
+        }
+      ],
+      "tickets:2026-W44": [
+        {
+          "region": "EU",
+          "status": "open",
+          "ticket_id": "t-1"
+        },
+        {
+          "region": "EU",
+          "status": "closed",
+          "ticket_id": "t-2"
+        },
+        {
+          "region": "US",
+          "status": "open",
+          "ticket_id": "t-3"
+        },
+        {
+          "region": "UK",
+          "status": "closed",
+          "ticket_id": "t-4"
+        }
+      ],
+      "tickets:2026-W45": [
+        {
+          "region": "EU",
+          "status": "open",
+          "ticket_id": "t-1"
+        },
+        {
+          "region": "EU",
+          "status": "closed",
+          "ticket_id": "t-2"
+        },
+        {
+          "region": "US",
+          "status": "open",
+          "ticket_id": "t-3"
+        },
+        {
+          "region": "UK",
+          "status": "closed",
+          "ticket_id": "t-4"
+        }
+      ],
+      "tickets:2026-W46": [
+        {
+          "region": "EU",
+          "status": "open",
+          "ticket_id": "t-1"
+        },
+        {
+          "region": "EU",
+          "status": "closed",
+          "ticket_id": "t-2"
+        },
+        {
+          "region": "US",
+          "status": "open",
+          "ticket_id": "t-3"
+        },
+        {
+          "region": "UK",
+          "status": "closed",
+          "ticket_id": "t-4"
+        }
+      ]
+    },
+    "version": "pilot-v1"
+  }
+}
