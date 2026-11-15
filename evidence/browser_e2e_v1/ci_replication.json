@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "scope": "GitHub Actions Linux CI against loopback ProofFlow and pinned HydraDB OSS. No hosted ProofFlow, other browser engine, or user trial was exercised.",
+  "source_commit": "588fb7e148d4b8908b35e9239757dd706b551869",
+  "source_tree": "ecd90f02553b8f813ba94c3338be556ef3d374d0",
+  "workflow": {
+    "name": "Verify ProofFlow",
+    "path": ".github/workflows/ci.yml",
+    "runner": "ubuntu-24.04",
+    "run_id": 43723722414,
+    "run_url": "https://github.com/saivedant169/proofflow/actions/runs/43723722414",
+    "job_id": 132841006317,
+    "job_url": "https://github.com/saivedant169/proofflow/actions/runs/43723722414/job/132841006317",
+    "job": "verify",
+    "conclusion": "success",
+    "successful_steps": 21,
+    "unit_tests": "passed",
+    "saved_model_audit": "passed using saved results; no new model runs",
+    "frontend_build_and_typecheck": "passed"
+  },
+  "artifact": {
+    "id": 14166200034,
+    "name": "verification-evidence",
+    "file": "verification-evidence.zip",
+    "created_at": "2026-11-15T14:23:05Z",
+    "bytes": 59039,
+    "sha256": "3ad7dbea0200d8ec9ce823e6d3b7903918cf801487ca223b038ca59e85b37347",
+    "member_count": 19,
+    "uncompressed_bytes": 560898,
+    "members": {
+      "_temp/proofflow-browser-e2e/proofflow-browser-e2e-8cpwxe/negative-control.json": {
+        "bytes": 433,
+        "sha256": "84e6f4b993bf98bde798b9727a44ea37331fa998dd3c6e4da68c757fa6d9375b"
+      },
+      "_temp/proofflow-browser-e2e/proofflow-browser-e2e-SXbh4B/assertions.jsonl": {
+        "bytes": 1790,
+        "sha256": "985ca5449f9d1bdf8f2617047abd29007a71213b1b9164084b3a59d06c335b3f",
+        "jsonl_records": 6
+      },
+      "proofflow/proofflow/evidence/ci_core_smoke.json": {
+        "bytes": 4208,
+        "sha256": "b7aade06056bd6313df46cf4648f055a2eef90f6dac90acbf38966248ac3753f"
+      },
+      "proofflow/proofflow/evidence/ci_hydra_smoke.json": {
+        "bytes": 4513,
+        "sha256": "82f179bc75e63e87db29d0bc8a578eee3eb3d0e2eeddd2d5f114e00b7e22e3df"
+      },
+      "proofflow/proofflow/evidence/ci_mcp/summary.json": {
+        "bytes": 1862,
+        "sha256": "4f60caaa7aae2caaac2ded3d1fc29373a1a855c1f2da31bbc98418c34dc68e71"
+      },
+      "proofflow/proofflow/evidence/ci_mcp/transcript.json": {
+        "bytes": 465397,
+        "sha256": "3875f28ca32c4947b2294e86157e88f7961a5d66ddd97daf7913e8bc89620fac"
+      },
+      "proofflow/proofflow/evidence/ci_recovery/arithmetic-control.jsonl": {
+        "bytes": 7731,
+        "sha256": "5cc3085a091bd8bb1e63fc9c3e5e257a3260d84171e8f96a85b15d384527715b",
+        "jsonl_records": 61
+      },
+      "proofflow/proofflow/evidence/ci_recovery/arithmetic-fault.jsonl": {
+        "bytes": 1013,
+        "sha256": "c5aee5f14d6f760221d37ddbdd5edce8a0c08760fc29b4d54485c2d35d8b1813",
+        "jsonl_records": 8
+      },
+      "proofflow/proofflow/evidence/ci_recovery/arithmetic-recover.jsonl": {
+        "bytes": 3332,
+        "sha256": "2e9f1e6834535545885038d9b0deb174f8e096137f0ef6728d0b374db6ce4b92",
+        "jsonl_records": 26
+      },
+      "proofflow/proofflow/evidence/ci_recovery/arithmetic-reopen.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "jsonl_records": 0
+      },
+      "proofflow/proofflow/evidence/ci_recovery/arithmetic-setup.jsonl": {
+        "bytes": 4399,
+        "sha256": "e76120c713ddc4458c44a7bca1c56b79cf113a3a8b1558dce4ae7698ba3b230f",
+        "jsonl_records": 35
+      },
+      "proofflow/proofflow/evidence/ci_recovery/blocked-recovery-actions.json": {
+        "bytes": 458,
+        "sha256": "65b307bac38ffc9b78c1e5495d23b541aa2a84ee6a1b4ae7f9316b5c58672c6f"
+      },
+      "proofflow/proofflow/evidence/ci_recovery/control-semantic-lineage.json": {
+        "bytes": 5476,
+        "sha256": "faaf76bee3b0124c03bd5b79b06c909503d1baf747210b931385349e5dbdfba8"
+      },
+      "proofflow/proofflow/evidence/ci_recovery/interrupted-semantic-lineage.json": {
+        "bytes": 5476,
+        "sha256": "faaf76bee3b0124c03bd5b79b06c909503d1baf747210b931385349e5dbdfba8"
+      },
+      "proofflow/proofflow/evidence/ci_recovery/kill-result.json": {
+        "bytes": 114,
+        "sha256": "2ffa02b7f7860b49a0c3ff889de397af641cca99c7899306c13be04b512a4b90"
+      },
+      "proofflow/proofflow/evidence/ci_recovery/lifecycle-accounting.json": {
+        "bytes": 1521,
+        "sha256": "b6f62827146e50d3b5f257c7447e0568d3055313b29a4c073124f2c3181841c1"
+      },
+      "proofflow/proofflow/evidence/ci_recovery/parent-observed-boundary.json": {
+        "bytes": 50224,
+        "sha256": "e1e2810e95a14b4eaca263838b36555a33fb0207016490352e8929ad86f9b0b0"
+      },
+      "proofflow/proofflow/evidence/ci_recovery/run-manifest.json": {
+        "bytes": 1686,
+        "sha256": "10c2b1f77e017ec720d92bff0c3fd155cfc21c8815ce0ea43bb33874cb704a5e"
+      },
+      "proofflow/proofflow/evidence/ci_recovery/summary.json": {
+        "bytes": 1265,
+        "sha256": "daf602100e750c79e2de7bdc6a9d433e71b03f8b5a42ad73067a6fc97ef75290"
+      }
+    }
+  },
+  "browser": {
+    "engine": "chromium",
+    "playwright_version": "1.56.1",
+    "passing_cases": 6,
+    "total_cases": 6,
+    "configured_retries": 0,
+    "curated_copies_byte_identical_to_local_summaries": true,
+    "evidence": {
+      "assertions.jsonl": {
+        "repository_path": "evidence/browser_e2e_v1/linux/assertions.jsonl",
+        "artifact_path": "_temp/proofflow-browser-e2e/proofflow-browser-e2e-SXbh4B/assertions.jsonl",
+        "bytes": 1790,
+        "sha256": "985ca5449f9d1bdf8f2617047abd29007a71213b1b9164084b3a59d06c335b3f",
+        "jsonl_records": 6
+      },
+      "negative-control.json": {
+        "repository_path": "evidence/browser_e2e_v1/linux/negative-control.json",
+        "artifact_path": "_temp/proofflow-browser-e2e/proofflow-browser-e2e-8cpwxe/negative-control.json",
+        "bytes": 433,
+        "sha256": "84e6f4b993bf98bde798b9727a44ea37331fa998dd3c6e4da68c757fa6d9375b"
+      }
+    },
+    "negative_control": {
+      "mutation": "Add one cent to NORTH at EUR 1.30 in convert_to_usd",
+      "expected_rendered_amounts": [
+        "$317.00",
+        "$117.00"
+      ],
+      "observed_rendered_amounts": [
+        "$317.01",
+        "$117.01"
+      ],
+      "playwright_exit_status": 1,
+      "control_command_exit_status": 0,
+      "outcome": "unchanged browser assertion detected the deliberate mutation"
+    }
+  },
+  "probe_summaries": {
+    "core": {
+      "artifact_path": "proofflow/proofflow/evidence/ci_core_smoke.json",
+      "passed_checks": 24,
+      "total_checks": 24,
+      "scope": "Live HydraDB native graph, exact dependency closure, four recorded refresh calls, fresh recomputation parity, application reopen, and missing-source refusal."
+    },
+    "hydra": {
+      "artifact_path": "proofflow/proofflow/evidence/ci_hydra_smoke.json",
+      "passed_checks": 8,
+      "total_checks": 8,
+      "scope": "Native traversal, persisted reads across HydraDB restart, and a successful new write after restart; no graph replay."
+    },
+    "mcp": {
+      "artifact_path": "proofflow/proofflow/evidence/ci_mcp/summary.json",
+      "passed_checks": 20,
+      "total_checks": 20,
+      "scope": "Official SDK client over stdio, five tools, durable workspace after server restart, caller-supplied plans, and zero model calls."
+    },
+    "recovery": {
+      "artifact_path": "proofflow/proofflow/evidence/ci_recovery/summary.json",
+      "passed_checks": 15,
+      "total_checks": 15,
+      "scope": "SIGKILL after the orders commit with refunds still pending, blocked refresh and verification after reopen, then full CSV resubmission and seven recorded refresh calls with parity for eight artifact lineages."
+    }
+  },
+  "previous_attempt": {
+    "record": "evidence/browser_e2e_v1/ci_initial_install_failure.json",
+    "record_sha256": "8aaea8de418f0f91037e70c08e5b6d64940687502185e1dd1e4e349cc806b55d",
+    "source_commit": "f0b51c0925e092c6ab3566c96ebb14abd59e7af4",
+    "run_id": 43723401599,
+    "job_id": 132840032052,
+    "conclusion": "failure before browser tests",
+    "correction": "Pin ubuntu-24.04; unchanged Playwright version, browser assertions, and application code."
+  }
+}

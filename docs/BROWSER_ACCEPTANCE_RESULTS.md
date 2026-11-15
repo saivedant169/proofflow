@@ -25,7 +25,15 @@ The suite and runner are on isolated commit `68f6848569ef5c12dd50e89d10ced7f1bae
 
 Publishable assertion summary SHA-256: `985ca5449f9d1bdf8f2617047abd29007a71213b1b9164084b3a59d06c335b3f`. Publishable negative-control summary SHA-256: `84e6f4b993bf98bde798b9727a44ea37331fa998dd3c6e4da68c757fa6d9375b`. Frozen acceptance fixture manifest SHA-256: `a764314e455a99ddcd551f4e1dec226fb7fa393667a00d1107b2510a1fbed823`. Raw reports, traces, logs, and session state are preserved privately; the summaries omit credentials, cookies, and per-session IDs.
 
-The seven test files were integrated unchanged in `5fd10ae`; their hashes and the curated evidence are in [the run manifest](../evidence/browser_e2e_v1/run_manifest.json). Inspect the [assertion ledger](../evidence/browser_e2e_v1/assertions.jsonl) and [negative-control result](../evidence/browser_e2e_v1/negative-control.json).
+The seven test files were integrated unchanged in `5fd10ae`. Their hashes and the curated macOS evidence are in [the original local run manifest](../evidence/browser_e2e_v1/run_manifest.json), [assertion ledger](../evidence/browser_e2e_v1/assertions.jsonl), and [negative-control result](../evidence/browser_e2e_v1/negative-control.json).
+
+## Linux CI replication
+
+The first integrated [CI run 43723401599](https://github.com/saivedant169/proofflow/actions/runs/43723401599) passed the unit, saved-model audit, native Hydra, core, MCP and recovery checks, then stopped before browser tests: `ubuntu-latest` resolved to Ubuntu 26.04, unsupported by pinned Playwright 1.56.1. The [initial setup failure](../evidence/browser_e2e_v1/ci_initial_install_failure.json) is preserved. Pinning `ubuntu-24.04` corrected the workflow without changing Playwright, the application, or the browser assertions.
+
+On 2026-11-15, [CI run 43723722414, job 132841006317](https://github.com/saivedant169/proofflow/actions/runs/43723722414/job/132841006317), passed on commit `588fb7e148d4b8908b35e9239757dd706b551869`. All six Chromium scenarios passed against ProofFlow and pinned HydraDB OSS on loopback. The unchanged FX test detected $317.01 and $117.01 where it expected $317.00 and $117.00. Playwright exited 1 with the deliberate failure; the control command accepted it and exited 0. The [Linux assertion ledger](../evidence/browser_e2e_v1/linux/assertions.jsonl) and [Linux negative-control result](../evidence/browser_e2e_v1/linux/negative-control.json) are verbatim copies from the CI artifact and byte-identical to the local summaries.
+
+The same job passed the unit tests, saved-model audit, frontend build and typecheck, and all core (24), Hydra (8), MCP (20), and recovery (15) checks. The [CI replication record](../evidence/browser_e2e_v1/ci_replication.json) records the archive paths, byte sizes, and hashes for all 19 files in `verification-evidence.zip` (artifact `14166200034`, SHA-256 `3ad7dbea0200d8ec9ce823e6d3b7903918cf801487ca223b038ca59e85b37347`). The original local manifest retains the CI status at the time it was written.
 
 To reproduce on the Linux CI runner, run after installing the locked Python environment and starting the workflow's pinned HydraDB on loopback:
 
@@ -40,6 +48,4 @@ npm run test:e2e
 npm run test:e2e:negative
 ```
 
-For CI publication, allowlist `assertions.jsonl` and `negative-control.json` from the printed run directories. Linux CI, hosted ProofFlow, and other browser engines were not exercised in this verification. Concurrent load makes the local run durations unsuitable for performance comparisons.
-
-The first integrated CI run [43723401599](https://github.com/saivedant169/proofflow/actions/runs/43723401599) passed the unit, saved-model audit, native Hydra, core, MCP and recovery checks, then stopped before browser tests: `ubuntu-latest` resolved to Ubuntu 26.04, unsupported by pinned Playwright 1.56.1. The workflow now pins Ubuntu 24.04 while retaining the tested browser version. The [initial setup failure](../evidence/browser_e2e_v1/ci_initial_install_failure.json) is preserved; the corrected CI outcome is not presumed.
+For CI publication, allowlist `assertions.jsonl` and `negative-control.json` from the printed run directories. Verification covered local macOS and Linux CI with Chromium. It did not exercise hosted ProofFlow, other browser engines, or user trials. Concurrent load makes the local run durations unsuitable for performance comparisons.
