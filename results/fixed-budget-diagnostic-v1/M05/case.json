@@ -1,0 +1,46 @@
+{
+  "changed_aliases": [
+    "tool:convert_to_usd@f06369159d71"
+  ],
+  "corpus_records": 39,
+  "corpus_sha256": "45ab64d72d7f524b27856df5645c75ed6c8aa164da2121e3d22f5d93f2b85c3d",
+  "corpus_tokens": 14936,
+  "index_build_errors": {},
+  "native": {
+    "namespace": "fixed-budget-diagnostic-v1-0442884d115f46d3aa413572ca1b8c97-M05-discovery",
+    "native_discovery_ms": 26.92591631785035,
+    "native_discovery_queries": 4,
+    "native_membership_aliases": [
+      "artifact:2011-03-01:daily_close@a0ba22e1be05",
+      "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+      "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+      "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+      "artifact:2011-03-01:net_usd@a16f61b7ff36",
+      "artifact:2011-03-01:uk_brief@289dc7ae6404",
+      "artifact:2011-03-02:daily_close@f75693434d9a",
+      "artifact:2011-03-02:gross_total@87fd2e23212e",
+      "artifact:2011-03-02:gross_usd@caf176db8984",
+      "artifact:2011-03-02:net_total@7543f3fd8fbe",
+      "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+      "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+      "artifact:2011-03-03:daily_close@422885646c00",
+      "artifact:2011-03-03:gross_total@d12dbaf88533",
+      "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+      "artifact:2011-03-03:net_total@af4d1c571a22",
+      "artifact:2011-03-03:net_usd@4e9e13393f4c",
+      "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+      "artifact:2011-03-04:daily_close@238e2cf57de1",
+      "artifact:2011-03-04:gross_total@cf3a490f0f91",
+      "artifact:2011-03-04:gross_usd@0cc317235cae",
+      "artifact:2011-03-04:net_total@b9900ecf1a9b",
+      "artifact:2011-03-04:net_usd@d4926afa08d4",
+      "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+      "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+      "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+      "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+    ],
+    "reconstructed_graph_mutations": 391
+  },
+  "query": "The global conversion tool version changed. Reassess saved evidence before reusing the affected reports.",
+  "query_tokens": 35
+}

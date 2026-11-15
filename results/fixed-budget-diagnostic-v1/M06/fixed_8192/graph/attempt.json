@@ -1,0 +1,91 @@
+{
+  "arm": "graph",
+  "cap": 8192,
+  "case_id": "M06",
+  "cell_id": "M06/fixed_8192/graph",
+  "condition": "fixed_8192",
+  "execution_error": {
+    "message": "'verified_report_counts'",
+    "type": "KeyError"
+  },
+  "execution_finished_at": "2026-11-15T20:35:34.852678+00:00",
+  "execution_started_at": "2026-11-15T20:35:23.218797+00:00",
+  "plan": {
+    "context_sha256": "640141a31792b1ece4d9b3a5cab6b563b68b730d0260f6a952b18b40c85f147a",
+    "evidence_tokens": 4472,
+    "index_calls": 0,
+    "ranking_and_packing_ms": 3.677832894027233,
+    "reader_affected": {
+      "exact_match": true,
+      "extra_ids": [],
+      "f1": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "missing_ids": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "tp": 11
+    },
+    "retrieved_affected": {
+      "exact_match": true,
+      "extra_ids": [],
+      "f1": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "missing_ids": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "tp": 11
+    },
+    "retrieved_aliases": [
+      "artifact:2011-03-02:gross@83cbf83c663d",
+      "artifact:2011-03-02:refunds@2706e2d7db4c",
+      "artifact:2011-03-02:gross_usd@caf176db8984",
+      "artifact:2011-03-02:net@2a639419a996",
+      "artifact:2011-03-02:gross_total@87fd2e23212e",
+      "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+      "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+      "artifact:2011-03-02:daily_close@f75693434d9a",
+      "artifact:2011-03-02:net_total@7543f3fd8fbe",
+      "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+      "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+    ],
+    "selected_aliases": [
+      "artifact:2011-03-02:gross@83cbf83c663d",
+      "artifact:2011-03-02:refunds@2706e2d7db4c",
+      "artifact:2011-03-02:gross_usd@caf176db8984",
+      "artifact:2011-03-02:net@2a639419a996",
+      "artifact:2011-03-02:gross_total@87fd2e23212e",
+      "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+      "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+      "artifact:2011-03-02:daily_close@f75693434d9a",
+      "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+      "artifact:2011-03-02:net_total@7543f3fd8fbe",
+      "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+    ],
+    "selected_depths": {
+      "artifact:2011-03-02:daily_close@f75693434d9a": 4,
+      "artifact:2011-03-02:gross@83cbf83c663d": 1,
+      "artifact:2011-03-02:gross_total@87fd2e23212e": 3,
+      "artifact:2011-03-02:gross_usd@caf176db8984": 2,
+      "artifact:2011-03-02:net@2a639419a996": 2,
+      "artifact:2011-03-02:net_total@7543f3fd8fbe": 4,
+      "artifact:2011-03-02:net_usd@a7a98e6cfb6e": 3,
+      "artifact:2011-03-02:refunds@2706e2d7db4c": 1,
+      "artifact:2011-03-02:uk_brief@7b69bf6b2d18": 3,
+      "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9": 4,
+      "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197": 5
+    },
+    "skipped_aliases": []
+  },
+  "planned_report_counts": {
+    "eligible_affected_reports": 4,
+    "eligible_reports": 11,
+    "reports": 11,
+    "unaffected_reports": 7,
+    "unavailable_reports": 0
+  },
+  "planning_finished_at": "2026-11-15T20:24:24.557157+00:00",
+  "planning_started_at": "2026-11-15T20:24:24.552439+00:00",
+  "status": "execution_failed"
+}

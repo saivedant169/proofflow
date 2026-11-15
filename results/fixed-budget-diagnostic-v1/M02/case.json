@@ -1,0 +1,26 @@
+{
+  "changed_aliases": [
+    "source:2011-03-01:fx@75e2bb612f83"
+  ],
+  "corpus_records": 39,
+  "corpus_sha256": "1a9d9976903ec736043fbc6ed2ac870172d6bd13daf09ccec8f72636d15f94b3",
+  "corpus_tokens": 14922,
+  "index_build_errors": {},
+  "native": {
+    "namespace": "fixed-budget-diagnostic-v1-0442884d115f46d3aa413572ca1b8c97-M02-discovery",
+    "native_discovery_ms": 19.230082631111145,
+    "native_discovery_queries": 4,
+    "native_membership_aliases": [
+      "artifact:2011-03-01:daily_close@a0ba22e1be05",
+      "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+      "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+      "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+      "artifact:2011-03-01:net_usd@a16f61b7ff36",
+      "artifact:2011-03-01:uk_brief@289dc7ae6404",
+      "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9"
+    ],
+    "reconstructed_graph_mutations": 391
+  },
+  "query": "The illustrative GBP/USD rate for 2011-03-01 was corrected from 1.25 to 1.29. Refresh affected saved reports.",
+  "query_tokens": 55
+}

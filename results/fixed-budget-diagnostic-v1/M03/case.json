@@ -1,0 +1,31 @@
+{
+  "changed_aliases": [
+    "source:2011-03-03:orders@536b9ae15427",
+    "source:2011-03-03:fx@c204f65afa7f"
+  ],
+  "corpus_records": 39,
+  "corpus_sha256": "45a55796cd3f3a75c1842f403c5eefda9ae0f2cda83ad8fa41959a33b285f078",
+  "corpus_tokens": 14940,
+  "index_build_errors": {},
+  "native": {
+    "namespace": "fixed-budget-diagnostic-v1-0442884d115f46d3aa413572ca1b8c97-M03-discovery",
+    "native_discovery_ms": 24.55625031143427,
+    "native_discovery_queries": 8,
+    "native_membership_aliases": [
+      "artifact:2011-03-03:daily_close@422885646c00",
+      "artifact:2011-03-03:gross@ce3ac58baf77",
+      "artifact:2011-03-03:gross_total@d12dbaf88533",
+      "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+      "artifact:2011-03-03:net@ca5177532da2",
+      "artifact:2011-03-03:net_total@af4d1c571a22",
+      "artifact:2011-03-03:net_usd@4e9e13393f4c",
+      "artifact:2011-03-03:refunds@86aecaa0bac1",
+      "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+      "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+      "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+    ],
+    "reconstructed_graph_mutations": 392
+  },
+  "query": "An order quantity and the illustrative FX rate were corrected on 2011-03-03. Refresh affected saved reports and retain reusable evidence.",
+  "query_tokens": 67
+}

@@ -1,0 +1,27 @@
+{
+  "changed_aliases": [
+    "source:2011-03-03:fx@c204f65afa7f"
+  ],
+  "corpus_records": 39,
+  "corpus_sha256": "57cc4b7fd8a0a79a3593e09f84a7b023d755f4e961d85a2fd943861a2c2e266f",
+  "corpus_tokens": 14932,
+  "index_build_errors": {},
+  "native": {
+    "namespace": "fixed-budget-diagnostic-v1-0442884d115f46d3aa413572ca1b8c97-M07-discovery",
+    "native_discovery_ms": 14.750542119145393,
+    "native_discovery_queries": 4,
+    "native_membership_aliases": [
+      "artifact:2011-03-03:daily_close@422885646c00",
+      "artifact:2011-03-03:gross_total@d12dbaf88533",
+      "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+      "artifact:2011-03-03:net_total@af4d1c571a22",
+      "artifact:2011-03-03:net_usd@4e9e13393f4c",
+      "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+      "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+      "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+    ],
+    "reconstructed_graph_mutations": 391
+  },
+  "query": "The FX source for 2011-03-03 is unavailable. Serve current evidence and identify saved reports that cannot be safely refreshed.",
+  "query_tokens": 48
+}

@@ -1,0 +1,1377 @@
+{
+  "approved_frozen_revision": "4f43dd497a05078edf226de62070778b17d91498",
+  "embedding": {
+    "chunking": {
+      "document_score": "max cosine over chunks",
+      "model_tokens": 384,
+      "overlap": 64,
+      "truncation": "none"
+    },
+    "fastembed_version": "0.9.1",
+    "implementation": "fastembed.TextEmbedding (ONNX, CPU)",
+    "model": "BAAI/bge-small-en-v1.5",
+    "model_file_sha256": {
+      "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+      "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+    },
+    "numpy_version": "2.5.4"
+  },
+  "embedding_snapshot": {
+    "repository": "models--Qdrant--bge-small-en-v1.5-onnx-Q",
+    "revision": "aa8f8b060edb00e03bfdd08813a2949946c8ba55",
+    "special_tokens_sha256": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a"
+  },
+  "finished": true,
+  "finished_at": "2026-11-15T20:40:06.353647+00:00",
+  "freeze_sha256": "cd609ff71f8f74162fb2ae911e8f7cae6d1429db347debff79a1e69fd857f92f",
+  "generative_provider_invocations": 0,
+  "hydra": {
+    "image": "ghcr.io/hydra-db/hydradb:0.4.0@sha256:ab71d651fefee13ebb23eb56d72316065bdca563ff7587442e07be663f2bf880",
+    "url": "http://127.0.0.1:18443"
+  },
+  "integrity_error": null,
+  "package_versions": {
+    "fastembed": "0.9.1",
+    "httpx": "0.28.1",
+    "numpy": "2.5.4",
+    "onnxruntime": "1.32.0",
+    "rank-bm25": "0.2.2",
+    "tiktoken": "0.14.0",
+    "tokenizers": "0.23.3"
+  },
+  "planned_cells": [
+    {
+      "arm": "graph",
+      "cap": 4096,
+      "case_id": "M01",
+      "cell_id": "M01/fixed_4096/graph",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 8192,
+      "case_id": "M01",
+      "cell_id": "M01/fixed_8192/graph",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 4096,
+      "case_id": "M01",
+      "cell_id": "M01/fixed_4096/exact_flat",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 8192,
+      "case_id": "M01",
+      "cell_id": "M01/fixed_8192/exact_flat",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 4096,
+      "case_id": "M01",
+      "cell_id": "M01/fixed_4096/bm25",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 8192,
+      "case_id": "M01",
+      "cell_id": "M01/fixed_8192/bm25",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 4096,
+      "case_id": "M01",
+      "cell_id": "M01/fixed_4096/dense",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 8192,
+      "case_id": "M01",
+      "cell_id": "M01/fixed_8192/dense",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 4096,
+      "case_id": "M01",
+      "cell_id": "M01/fixed_4096/iterative_hybrid",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 8192,
+      "case_id": "M01",
+      "cell_id": "M01/fixed_8192/iterative_hybrid",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "full_context",
+      "cap": null,
+      "case_id": "M01",
+      "cell_id": "M01/uncapped_reference/full_context",
+      "condition": "uncapped_reference",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 4096,
+      "case_id": "M02",
+      "cell_id": "M02/fixed_4096/exact_flat",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 3,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 8,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 8192,
+      "case_id": "M02",
+      "cell_id": "M02/fixed_8192/exact_flat",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 3,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 8,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 4096,
+      "case_id": "M02",
+      "cell_id": "M02/fixed_4096/bm25",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 3,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 8,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 8192,
+      "case_id": "M02",
+      "cell_id": "M02/fixed_8192/bm25",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 3,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 8,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 4096,
+      "case_id": "M02",
+      "cell_id": "M02/fixed_4096/dense",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 3,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 8,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 8192,
+      "case_id": "M02",
+      "cell_id": "M02/fixed_8192/dense",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 3,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 8,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 4096,
+      "case_id": "M02",
+      "cell_id": "M02/fixed_4096/iterative_hybrid",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 3,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 8,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 8192,
+      "case_id": "M02",
+      "cell_id": "M02/fixed_8192/iterative_hybrid",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 3,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 8,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "full_context",
+      "cap": null,
+      "case_id": "M02",
+      "cell_id": "M02/uncapped_reference/full_context",
+      "condition": "uncapped_reference",
+      "planned_report_counts": {
+        "eligible_affected_reports": 3,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 8,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 4096,
+      "case_id": "M02",
+      "cell_id": "M02/fixed_4096/graph",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 3,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 8,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 8192,
+      "case_id": "M02",
+      "cell_id": "M02/fixed_8192/graph",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 3,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 8,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 4096,
+      "case_id": "M03",
+      "cell_id": "M03/fixed_4096/bm25",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 8192,
+      "case_id": "M03",
+      "cell_id": "M03/fixed_8192/bm25",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 4096,
+      "case_id": "M03",
+      "cell_id": "M03/fixed_4096/dense",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 8192,
+      "case_id": "M03",
+      "cell_id": "M03/fixed_8192/dense",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 4096,
+      "case_id": "M03",
+      "cell_id": "M03/fixed_4096/iterative_hybrid",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 8192,
+      "case_id": "M03",
+      "cell_id": "M03/fixed_8192/iterative_hybrid",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "full_context",
+      "cap": null,
+      "case_id": "M03",
+      "cell_id": "M03/uncapped_reference/full_context",
+      "condition": "uncapped_reference",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 4096,
+      "case_id": "M03",
+      "cell_id": "M03/fixed_4096/graph",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 8192,
+      "case_id": "M03",
+      "cell_id": "M03/fixed_8192/graph",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 4096,
+      "case_id": "M03",
+      "cell_id": "M03/fixed_4096/exact_flat",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 8192,
+      "case_id": "M03",
+      "cell_id": "M03/fixed_8192/exact_flat",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 4096,
+      "case_id": "M04",
+      "cell_id": "M04/fixed_4096/dense",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 6,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 5,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 8192,
+      "case_id": "M04",
+      "cell_id": "M04/fixed_8192/dense",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 6,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 5,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 4096,
+      "case_id": "M04",
+      "cell_id": "M04/fixed_4096/iterative_hybrid",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 6,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 5,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 8192,
+      "case_id": "M04",
+      "cell_id": "M04/fixed_8192/iterative_hybrid",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 6,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 5,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "full_context",
+      "cap": null,
+      "case_id": "M04",
+      "cell_id": "M04/uncapped_reference/full_context",
+      "condition": "uncapped_reference",
+      "planned_report_counts": {
+        "eligible_affected_reports": 6,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 5,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 4096,
+      "case_id": "M04",
+      "cell_id": "M04/fixed_4096/graph",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 6,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 5,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 8192,
+      "case_id": "M04",
+      "cell_id": "M04/fixed_8192/graph",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 6,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 5,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 4096,
+      "case_id": "M04",
+      "cell_id": "M04/fixed_4096/exact_flat",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 6,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 5,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 8192,
+      "case_id": "M04",
+      "cell_id": "M04/fixed_8192/exact_flat",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 6,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 5,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 4096,
+      "case_id": "M04",
+      "cell_id": "M04/fixed_4096/bm25",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 6,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 5,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 8192,
+      "case_id": "M04",
+      "cell_id": "M04/fixed_8192/bm25",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 6,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 5,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 4096,
+      "case_id": "M05",
+      "cell_id": "M05/fixed_4096/iterative_hybrid",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 11,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 0,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 8192,
+      "case_id": "M05",
+      "cell_id": "M05/fixed_8192/iterative_hybrid",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 11,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 0,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "full_context",
+      "cap": null,
+      "case_id": "M05",
+      "cell_id": "M05/uncapped_reference/full_context",
+      "condition": "uncapped_reference",
+      "planned_report_counts": {
+        "eligible_affected_reports": 11,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 0,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 4096,
+      "case_id": "M05",
+      "cell_id": "M05/fixed_4096/graph",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 11,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 0,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 8192,
+      "case_id": "M05",
+      "cell_id": "M05/fixed_8192/graph",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 11,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 0,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 4096,
+      "case_id": "M05",
+      "cell_id": "M05/fixed_4096/exact_flat",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 11,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 0,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 8192,
+      "case_id": "M05",
+      "cell_id": "M05/fixed_8192/exact_flat",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 11,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 0,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 4096,
+      "case_id": "M05",
+      "cell_id": "M05/fixed_4096/bm25",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 11,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 0,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 8192,
+      "case_id": "M05",
+      "cell_id": "M05/fixed_8192/bm25",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 11,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 0,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 4096,
+      "case_id": "M05",
+      "cell_id": "M05/fixed_4096/dense",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 11,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 0,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 8192,
+      "case_id": "M05",
+      "cell_id": "M05/fixed_8192/dense",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 11,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 0,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "full_context",
+      "cap": null,
+      "case_id": "M06",
+      "cell_id": "M06/uncapped_reference/full_context",
+      "condition": "uncapped_reference",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 4096,
+      "case_id": "M06",
+      "cell_id": "M06/fixed_4096/graph",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 8192,
+      "case_id": "M06",
+      "cell_id": "M06/fixed_8192/graph",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 4096,
+      "case_id": "M06",
+      "cell_id": "M06/fixed_4096/exact_flat",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 8192,
+      "case_id": "M06",
+      "cell_id": "M06/fixed_8192/exact_flat",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 4096,
+      "case_id": "M06",
+      "cell_id": "M06/fixed_4096/bm25",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 8192,
+      "case_id": "M06",
+      "cell_id": "M06/fixed_8192/bm25",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 4096,
+      "case_id": "M06",
+      "cell_id": "M06/fixed_4096/dense",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 8192,
+      "case_id": "M06",
+      "cell_id": "M06/fixed_8192/dense",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 4096,
+      "case_id": "M06",
+      "cell_id": "M06/fixed_4096/iterative_hybrid",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 8192,
+      "case_id": "M06",
+      "cell_id": "M06/fixed_8192/iterative_hybrid",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 4,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 4096,
+      "case_id": "M07",
+      "cell_id": "M07/fixed_4096/graph",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 7,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 4
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 8192,
+      "case_id": "M07",
+      "cell_id": "M07/fixed_8192/graph",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 7,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 4
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 4096,
+      "case_id": "M07",
+      "cell_id": "M07/fixed_4096/exact_flat",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 7,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 4
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 8192,
+      "case_id": "M07",
+      "cell_id": "M07/fixed_8192/exact_flat",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 7,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 4
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 4096,
+      "case_id": "M07",
+      "cell_id": "M07/fixed_4096/bm25",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 7,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 4
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 8192,
+      "case_id": "M07",
+      "cell_id": "M07/fixed_8192/bm25",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 7,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 4
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 4096,
+      "case_id": "M07",
+      "cell_id": "M07/fixed_4096/dense",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 7,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 4
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 8192,
+      "case_id": "M07",
+      "cell_id": "M07/fixed_8192/dense",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 7,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 4
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 4096,
+      "case_id": "M07",
+      "cell_id": "M07/fixed_4096/iterative_hybrid",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 7,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 4
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 8192,
+      "case_id": "M07",
+      "cell_id": "M07/fixed_8192/iterative_hybrid",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 7,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 4
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "full_context",
+      "cap": null,
+      "case_id": "M07",
+      "cell_id": "M07/uncapped_reference/full_context",
+      "condition": "uncapped_reference",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 7,
+        "reports": 11,
+        "unaffected_reports": 7,
+        "unavailable_reports": 4
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 4096,
+      "case_id": "M08",
+      "cell_id": "M08/fixed_4096/exact_flat",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 11,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "exact_flat",
+      "cap": 8192,
+      "case_id": "M08",
+      "cell_id": "M08/fixed_8192/exact_flat",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 11,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 4096,
+      "case_id": "M08",
+      "cell_id": "M08/fixed_4096/bm25",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 11,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "bm25",
+      "cap": 8192,
+      "case_id": "M08",
+      "cell_id": "M08/fixed_8192/bm25",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 11,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 4096,
+      "case_id": "M08",
+      "cell_id": "M08/fixed_4096/dense",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 11,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "dense",
+      "cap": 8192,
+      "case_id": "M08",
+      "cell_id": "M08/fixed_8192/dense",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 11,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 4096,
+      "case_id": "M08",
+      "cell_id": "M08/fixed_4096/iterative_hybrid",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 11,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "cap": 8192,
+      "case_id": "M08",
+      "cell_id": "M08/fixed_8192/iterative_hybrid",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 11,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "full_context",
+      "cap": null,
+      "case_id": "M08",
+      "cell_id": "M08/uncapped_reference/full_context",
+      "condition": "uncapped_reference",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 11,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 4096,
+      "case_id": "M08",
+      "cell_id": "M08/fixed_4096/graph",
+      "condition": "fixed_4096",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 11,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    },
+    {
+      "arm": "graph",
+      "cap": 8192,
+      "case_id": "M08",
+      "cell_id": "M08/fixed_8192/graph",
+      "condition": "fixed_8192",
+      "planned_report_counts": {
+        "eligible_affected_reports": 0,
+        "eligible_reports": 11,
+        "reports": 11,
+        "unaffected_reports": 11,
+        "unavailable_reports": 0
+      },
+      "status": "unattempted"
+    }
+  ],
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.12.15",
+  "resource_integrity_error": null,
+  "resource_integrity_verified": true,
+  "run_id": "0442884d115f46d3aa413572ca1b8c97",
+  "source_integrity_verified": true,
+  "started_at": "2026-11-15T20:23:05.631379+00:00",
+  "stop_error": null,
+  "study": "fixed-budget-diagnostic-v1",
+  "working_revision_at_finish": "83ad080f8d21a73ff9c28aadcb3329ffbdb8c65f",
+  "working_revision_at_start": "4f43dd497a05078edf226de62070778b17d91498"
+}

@@ -1,0 +1,27 @@
+{
+  "changed_aliases": [
+    "source:2011-03-02:refunds@89c48a6f1c30"
+  ],
+  "corpus_records": 39,
+  "corpus_sha256": "5fbb0125d9c49ae2810ad004c87bcaf06c637e11e24f181872c66865a95de2da",
+  "corpus_tokens": 14929,
+  "index_build_errors": {},
+  "native": {
+    "namespace": "fixed-budget-diagnostic-v1-0442884d115f46d3aa413572ca1b8c97-M01-discovery",
+    "native_discovery_ms": 26.538082864135504,
+    "native_discovery_queries": 4,
+    "native_membership_aliases": [
+      "artifact:2011-03-02:daily_close@f75693434d9a",
+      "artifact:2011-03-02:net@2a639419a996",
+      "artifact:2011-03-02:net_total@7543f3fd8fbe",
+      "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+      "artifact:2011-03-02:refunds@2706e2d7db4c",
+      "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+      "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+      "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+    ],
+    "reconstructed_graph_mutations": 391
+  },
+  "query": "A partial refund was recorded for one 2011-03-02 order. Refresh affected saved reports and retain reusable evidence.",
+  "query_tokens": 50
+}

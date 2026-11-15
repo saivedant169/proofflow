@@ -1,0 +1,37 @@
+{
+  "changed_aliases": [
+    "source:2011-03-01:refunds@13db86401d20",
+    "source:2011-03-04:orders@43f2adfae649"
+  ],
+  "corpus_records": 39,
+  "corpus_sha256": "bae3dd9933644d785b00e23eb20bdf533f0574118f268535f6455292024c168b",
+  "corpus_tokens": 14928,
+  "index_build_errors": {},
+  "native": {
+    "namespace": "fixed-budget-diagnostic-v1-0442884d115f46d3aa413572ca1b8c97-M04-discovery",
+    "native_discovery_ms": 21.322291810065508,
+    "native_discovery_queries": 8,
+    "native_membership_aliases": [
+      "artifact:2011-03-01:daily_close@a0ba22e1be05",
+      "artifact:2011-03-01:net@a8af84b97e2c",
+      "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+      "artifact:2011-03-01:net_usd@a16f61b7ff36",
+      "artifact:2011-03-01:refunds@6bf23cb73689",
+      "artifact:2011-03-01:uk_brief@289dc7ae6404",
+      "artifact:2011-03-04:daily_close@238e2cf57de1",
+      "artifact:2011-03-04:gross@3320d2133b66",
+      "artifact:2011-03-04:gross_total@cf3a490f0f91",
+      "artifact:2011-03-04:gross_usd@0cc317235cae",
+      "artifact:2011-03-04:net@ff29995bc28d",
+      "artifact:2011-03-04:net_total@b9900ecf1a9b",
+      "artifact:2011-03-04:net_usd@d4926afa08d4",
+      "artifact:2011-03-04:refunds@29853c5f0f23",
+      "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+      "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+      "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+    ],
+    "reconstructed_graph_mutations": 392
+  },
+  "query": "A partial refund on 2011-03-01 and an order quantity on 2011-03-04 were corrected. Refresh affected saved reports across the saved runs.",
+  "query_tokens": 75
+}

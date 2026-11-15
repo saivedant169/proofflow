@@ -1,0 +1,454 @@
+{
+  "all_retained_scores_verified": true,
+  "approved_frozen_revision": "4f43dd497a05078edf226de62070778b17d91498",
+  "freeze_integrity_verified": true,
+  "frozen_manifest_sha256": "cd609ff71f8f74162fb2ae911e8f7cae6d1429db347debff79a1e69fd857f92f",
+  "graph_exact_flat_context_parity": {
+    "4096": {
+      "matching_contexts": 8,
+      "observed": 8,
+      "planned": 8
+    },
+    "8192": {
+      "matching_contexts": 8,
+      "observed": 8,
+      "planned": 8
+    }
+  },
+  "groups": [
+    {
+      "absolute_report_conditions_met_in_retained_scores": false,
+      "arm": "graph",
+      "cap": 4096,
+      "condition": "fixed_4096",
+      "evidence_tokens_observed": 25771,
+      "expected_missing_source_refusals": 1,
+      "planned_cells": 8,
+      "planned_contexts_observed": 8,
+      "planned_denominators": {
+        "affected_artifacts": 89,
+        "eligible_affected": 32,
+        "unaffected": 52,
+        "unavailable": 4
+      },
+      "reader_affected": {
+        "fn": 24,
+        "fp": 0,
+        "tp": 65
+      },
+      "reports_observed": {
+        "fresh_affected": 15,
+        "incorrect_current": 0,
+        "unaffected_preserved": 52,
+        "unavailable_blocked": 4
+      },
+      "retrieved_affected": {
+        "fn": 24,
+        "fp": 0,
+        "tp": 65
+      },
+      "safe_empty_missing_selections": 0,
+      "scored_cells": 8,
+      "status_counts": {
+        "recovered_observation": 8
+      },
+      "whole_cases_correct": 4
+    },
+    {
+      "absolute_report_conditions_met_in_retained_scores": false,
+      "arm": "exact_flat",
+      "cap": 4096,
+      "condition": "fixed_4096",
+      "evidence_tokens_observed": 25771,
+      "expected_missing_source_refusals": 1,
+      "planned_cells": 8,
+      "planned_contexts_observed": 8,
+      "planned_denominators": {
+        "affected_artifacts": 89,
+        "eligible_affected": 32,
+        "unaffected": 52,
+        "unavailable": 4
+      },
+      "reader_affected": {
+        "fn": 24,
+        "fp": 0,
+        "tp": 65
+      },
+      "reports_observed": {
+        "fresh_affected": 15,
+        "incorrect_current": 0,
+        "unaffected_preserved": 52,
+        "unavailable_blocked": 4
+      },
+      "retrieved_affected": {
+        "fn": 24,
+        "fp": 0,
+        "tp": 65
+      },
+      "safe_empty_missing_selections": 0,
+      "scored_cells": 8,
+      "status_counts": {
+        "recovered_observation": 8
+      },
+      "whole_cases_correct": 4
+    },
+    {
+      "absolute_report_conditions_met_in_retained_scores": false,
+      "arm": "bm25",
+      "cap": 4096,
+      "condition": "fixed_4096",
+      "evidence_tokens_observed": 32004,
+      "expected_missing_source_refusals": 1,
+      "planned_cells": 8,
+      "planned_contexts_observed": 8,
+      "planned_denominators": {
+        "affected_artifacts": 89,
+        "eligible_affected": 32,
+        "unaffected": 52,
+        "unavailable": 4
+      },
+      "reader_affected": {
+        "fn": 59,
+        "fp": 0,
+        "tp": 30
+      },
+      "reports_observed": {
+        "fresh_affected": 5,
+        "incorrect_current": 0,
+        "unaffected_preserved": 52,
+        "unavailable_blocked": 4
+      },
+      "retrieved_affected": {
+        "fn": 41,
+        "fp": 33,
+        "tp": 48
+      },
+      "safe_empty_missing_selections": 0,
+      "scored_cells": 8,
+      "status_counts": {
+        "recovered_observation": 8
+      },
+      "whole_cases_correct": 2
+    },
+    {
+      "absolute_report_conditions_met_in_retained_scores": false,
+      "arm": "dense",
+      "cap": 4096,
+      "condition": "fixed_4096",
+      "evidence_tokens_observed": 31875,
+      "expected_missing_source_refusals": 1,
+      "planned_cells": 8,
+      "planned_contexts_observed": 8,
+      "planned_denominators": {
+        "affected_artifacts": 89,
+        "eligible_affected": 32,
+        "unaffected": 52,
+        "unavailable": 4
+      },
+      "reader_affected": {
+        "fn": 61,
+        "fp": 0,
+        "tp": 28
+      },
+      "reports_observed": {
+        "fresh_affected": 2,
+        "incorrect_current": 0,
+        "unaffected_preserved": 52,
+        "unavailable_blocked": 4
+      },
+      "retrieved_affected": {
+        "fn": 59,
+        "fp": 56,
+        "tp": 30
+      },
+      "safe_empty_missing_selections": 0,
+      "scored_cells": 8,
+      "status_counts": {
+        "recovered_observation": 8
+      },
+      "whole_cases_correct": 2
+    },
+    {
+      "absolute_report_conditions_met_in_retained_scores": false,
+      "arm": "iterative_hybrid",
+      "cap": 4096,
+      "condition": "fixed_4096",
+      "evidence_tokens_observed": 31836,
+      "expected_missing_source_refusals": 1,
+      "planned_cells": 8,
+      "planned_contexts_observed": 8,
+      "planned_denominators": {
+        "affected_artifacts": 89,
+        "eligible_affected": 32,
+        "unaffected": 52,
+        "unavailable": 4
+      },
+      "reader_affected": {
+        "fn": 26,
+        "fp": 0,
+        "tp": 63
+      },
+      "reports_observed": {
+        "fresh_affected": 15,
+        "incorrect_current": 0,
+        "unaffected_preserved": 52,
+        "unavailable_blocked": 4
+      },
+      "retrieved_affected": {
+        "fn": 26,
+        "fp": 19,
+        "tp": 63
+      },
+      "safe_empty_missing_selections": 0,
+      "scored_cells": 8,
+      "status_counts": {
+        "recovered_observation": 8
+      },
+      "whole_cases_correct": 3
+    },
+    {
+      "absolute_report_conditions_met_in_retained_scores": false,
+      "arm": "graph",
+      "cap": 8192,
+      "condition": "fixed_8192",
+      "evidence_tokens_observed": 34293,
+      "expected_missing_source_refusals": 1,
+      "planned_cells": 8,
+      "planned_contexts_observed": 8,
+      "planned_denominators": {
+        "affected_artifacts": 89,
+        "eligible_affected": 32,
+        "unaffected": 52,
+        "unavailable": 4
+      },
+      "reader_affected": {
+        "fn": 5,
+        "fp": 0,
+        "tp": 84
+      },
+      "reports_observed": {
+        "fresh_affected": 27,
+        "incorrect_current": 0,
+        "unaffected_preserved": 52,
+        "unavailable_blocked": 4
+      },
+      "retrieved_affected": {
+        "fn": 5,
+        "fp": 0,
+        "tp": 84
+      },
+      "safe_empty_missing_selections": 0,
+      "scored_cells": 8,
+      "status_counts": {
+        "recovered_observation": 8
+      },
+      "whole_cases_correct": 7
+    },
+    {
+      "absolute_report_conditions_met_in_retained_scores": false,
+      "arm": "exact_flat",
+      "cap": 8192,
+      "condition": "fixed_8192",
+      "evidence_tokens_observed": 34293,
+      "expected_missing_source_refusals": 1,
+      "planned_cells": 8,
+      "planned_contexts_observed": 8,
+      "planned_denominators": {
+        "affected_artifacts": 89,
+        "eligible_affected": 32,
+        "unaffected": 52,
+        "unavailable": 4
+      },
+      "reader_affected": {
+        "fn": 5,
+        "fp": 0,
+        "tp": 84
+      },
+      "reports_observed": {
+        "fresh_affected": 27,
+        "incorrect_current": 0,
+        "unaffected_preserved": 52,
+        "unavailable_blocked": 4
+      },
+      "retrieved_affected": {
+        "fn": 5,
+        "fp": 0,
+        "tp": 84
+      },
+      "safe_empty_missing_selections": 0,
+      "scored_cells": 8,
+      "status_counts": {
+        "recovered_observation": 8
+      },
+      "whole_cases_correct": 7
+    },
+    {
+      "absolute_report_conditions_met_in_retained_scores": false,
+      "arm": "bm25",
+      "cap": 8192,
+      "condition": "fixed_8192",
+      "evidence_tokens_observed": 64923,
+      "expected_missing_source_refusals": 1,
+      "planned_cells": 8,
+      "planned_contexts_observed": 8,
+      "planned_denominators": {
+        "affected_artifacts": 89,
+        "eligible_affected": 32,
+        "unaffected": 52,
+        "unavailable": 4
+      },
+      "reader_affected": {
+        "fn": 14,
+        "fp": 0,
+        "tp": 75
+      },
+      "reports_observed": {
+        "fresh_affected": 25,
+        "incorrect_current": 0,
+        "unaffected_preserved": 52,
+        "unavailable_blocked": 4
+      },
+      "retrieved_affected": {
+        "fn": 10,
+        "fp": 82,
+        "tp": 79
+      },
+      "safe_empty_missing_selections": 0,
+      "scored_cells": 8,
+      "status_counts": {
+        "recovered_observation": 8
+      },
+      "whole_cases_correct": 6
+    },
+    {
+      "absolute_report_conditions_met_in_retained_scores": false,
+      "arm": "dense",
+      "cap": 8192,
+      "condition": "fixed_8192",
+      "evidence_tokens_observed": 64884,
+      "expected_missing_source_refusals": 1,
+      "planned_cells": 8,
+      "planned_contexts_observed": 8,
+      "planned_denominators": {
+        "affected_artifacts": 89,
+        "eligible_affected": 32,
+        "unaffected": 52,
+        "unavailable": 4
+      },
+      "reader_affected": {
+        "fn": 35,
+        "fp": 0,
+        "tp": 54
+      },
+      "reports_observed": {
+        "fresh_affected": 10,
+        "incorrect_current": 0,
+        "unaffected_preserved": 52,
+        "unavailable_blocked": 4
+      },
+      "retrieved_affected": {
+        "fn": 31,
+        "fp": 113,
+        "tp": 58
+      },
+      "safe_empty_missing_selections": 0,
+      "scored_cells": 8,
+      "status_counts": {
+        "recovered_observation": 8
+      },
+      "whole_cases_correct": 2
+    },
+    {
+      "absolute_report_conditions_met_in_retained_scores": false,
+      "arm": "iterative_hybrid",
+      "cap": 8192,
+      "condition": "fixed_8192",
+      "evidence_tokens_observed": 64716,
+      "expected_missing_source_refusals": 1,
+      "planned_cells": 8,
+      "planned_contexts_observed": 8,
+      "planned_denominators": {
+        "affected_artifacts": 89,
+        "eligible_affected": 32,
+        "unaffected": 52,
+        "unavailable": 4
+      },
+      "reader_affected": {
+        "fn": 5,
+        "fp": 0,
+        "tp": 84
+      },
+      "reports_observed": {
+        "fresh_affected": 28,
+        "incorrect_current": 0,
+        "unaffected_preserved": 52,
+        "unavailable_blocked": 4
+      },
+      "retrieved_affected": {
+        "fn": 5,
+        "fp": 77,
+        "tp": 84
+      },
+      "safe_empty_missing_selections": 0,
+      "scored_cells": 8,
+      "status_counts": {
+        "recovered_observation": 8
+      },
+      "whole_cases_correct": 7
+    },
+    {
+      "absolute_report_conditions_met_in_retained_scores": true,
+      "arm": "full_context",
+      "cap": null,
+      "condition": "uncapped_reference",
+      "evidence_tokens_observed": 119445,
+      "expected_missing_source_refusals": 1,
+      "planned_cells": 8,
+      "planned_contexts_observed": 8,
+      "planned_denominators": {
+        "affected_artifacts": 89,
+        "eligible_affected": 32,
+        "unaffected": 52,
+        "unavailable": 4
+      },
+      "reader_affected": {
+        "fn": 0,
+        "fp": 0,
+        "tp": 89
+      },
+      "reports_observed": {
+        "fresh_affected": 32,
+        "incorrect_current": 0,
+        "unaffected_preserved": 52,
+        "unavailable_blocked": 4
+      },
+      "retrieved_affected": {
+        "fn": 0,
+        "fp": 223,
+        "tp": 89
+      },
+      "safe_empty_missing_selections": 0,
+      "scored_cells": 8,
+      "status_counts": {
+        "recovered_observation": 8
+      },
+      "whole_cases_correct": 8
+    }
+  ],
+  "original_frozen_run_complete": false,
+  "original_run_manifest_sha256": "d3579815f2f2c6d8c7f1948c86badd2e7104288ced930447703b3aee20a3cbb7",
+  "original_run_summary_sha256": "19b100a8bb4892408b4620c3582ac97cf4327c5dd27940707b722cbfcf67cc8b",
+  "original_status_counts": {
+    "execution_failed": 88
+  },
+  "original_wrapper_error": {
+    "message": "'verified_report_counts'",
+    "type": "KeyError"
+  },
+  "planned_cells": 88,
+  "recovery_parser_sha256": "276cb340bfa3d694b1f4e3dfb82f609ba77f34b1d3350a4c14c6a9c3725bf965",
+  "status_counts": {
+    "recovered_observation": 88
+  },
+  "study": "fixed-budget-diagnostic-v1"
+}

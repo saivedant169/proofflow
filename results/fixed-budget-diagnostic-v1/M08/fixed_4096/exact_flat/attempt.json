@@ -1,0 +1,55 @@
+{
+  "arm": "exact_flat",
+  "cap": 4096,
+  "case_id": "M08",
+  "cell_id": "M08/fixed_4096/exact_flat",
+  "condition": "fixed_4096",
+  "execution_error": {
+    "message": "'verified_report_counts'",
+    "type": "KeyError"
+  },
+  "execution_finished_at": "2026-11-15T20:38:39.968639+00:00",
+  "execution_started_at": "2026-11-15T20:38:31.611142+00:00",
+  "plan": {
+    "context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence_tokens": 0,
+    "index_calls": 0,
+    "ranking_and_packing_ms": 0.05333404988050461,
+    "reader_affected": {
+      "exact_match": true,
+      "extra_ids": [],
+      "f1": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "missing_ids": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "tp": 0
+    },
+    "retrieved_affected": {
+      "exact_match": true,
+      "extra_ids": [],
+      "f1": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "missing_ids": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "tp": 0
+    },
+    "retrieved_aliases": [],
+    "selected_aliases": [],
+    "selected_depths": {},
+    "skipped_aliases": []
+  },
+  "planned_report_counts": {
+    "eligible_affected_reports": 0,
+    "eligible_reports": 11,
+    "reports": 11,
+    "unaffected_reports": 11,
+    "unavailable_reports": 0
+  },
+  "planning_finished_at": "2026-11-15T20:24:49.477098+00:00",
+  "planning_started_at": "2026-11-15T20:24:49.476474+00:00",
+  "status": "execution_failed"
+}

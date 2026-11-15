@@ -1,0 +1,30 @@
+{
+  "changed_aliases": [
+    "source:2011-03-02:orders@fd653fcd736a"
+  ],
+  "corpus_records": 39,
+  "corpus_sha256": "196ed47ff2f2337b39e16a5ecc0f5e529bfedb47552c899d7e05c46b866c837e",
+  "corpus_tokens": 14930,
+  "index_build_errors": {},
+  "native": {
+    "namespace": "fixed-budget-diagnostic-v1-0442884d115f46d3aa413572ca1b8c97-M06-discovery",
+    "native_discovery_ms": 17.999667208641768,
+    "native_discovery_queries": 4,
+    "native_membership_aliases": [
+      "artifact:2011-03-02:daily_close@f75693434d9a",
+      "artifact:2011-03-02:gross@83cbf83c663d",
+      "artifact:2011-03-02:gross_total@87fd2e23212e",
+      "artifact:2011-03-02:gross_usd@caf176db8984",
+      "artifact:2011-03-02:net@2a639419a996",
+      "artifact:2011-03-02:net_total@7543f3fd8fbe",
+      "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+      "artifact:2011-03-02:refunds@2706e2d7db4c",
+      "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+      "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+      "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+    ],
+    "reconstructed_graph_mutations": 391
+  },
+  "query": "Two line-total corrections on 2011-03-02 preserve that country's aggregate sales value. Reassess saved evidence validity and refresh affected reports.",
+  "query_tokens": 52
+}

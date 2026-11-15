@@ -1,0 +1,112 @@
+{
+  "arm": "graph",
+  "cap": 4096,
+  "case_id": "M04",
+  "cell_id": "M04/fixed_4096/graph",
+  "condition": "fixed_4096",
+  "execution_error": {
+    "message": "'verified_report_counts'",
+    "type": "KeyError"
+  },
+  "execution_finished_at": "2026-11-15T20:31:43.430832+00:00",
+  "execution_started_at": "2026-11-15T20:31:32.237588+00:00",
+  "plan": {
+    "context_sha256": "07ac18741c45512b832337cda1df78e2472cb368377a033abc25a72d661b396e",
+    "evidence_tokens": 3908,
+    "index_calls": 0,
+    "ranking_and_packing_ms": 7.079957984387875,
+    "reader_affected": {
+      "exact_match": false,
+      "extra_ids": [],
+      "f1": 0.7857142857142858,
+      "fn": 6,
+      "fp": 0,
+      "missing_ids": [
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "precision": 1.0,
+      "recall": 0.6470588235294118,
+      "tp": 11
+    },
+    "retrieved_affected": {
+      "exact_match": false,
+      "extra_ids": [],
+      "f1": 0.7857142857142858,
+      "fn": 6,
+      "fp": 0,
+      "missing_ids": [
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "precision": 1.0,
+      "recall": 0.6470588235294118,
+      "tp": 11
+    },
+    "retrieved_aliases": [
+      "artifact:2011-03-01:refunds@6bf23cb73689",
+      "artifact:2011-03-04:gross@3320d2133b66",
+      "artifact:2011-03-04:refunds@29853c5f0f23",
+      "artifact:2011-03-01:net@a8af84b97e2c",
+      "artifact:2011-03-04:gross_usd@0cc317235cae",
+      "artifact:2011-03-04:net@ff29995bc28d",
+      "artifact:2011-03-01:net_usd@a16f61b7ff36",
+      "artifact:2011-03-04:gross_total@cf3a490f0f91",
+      "artifact:2011-03-04:net_usd@d4926afa08d4",
+      "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+      "artifact:2011-03-01:net_total@9eb2afc6a1d6"
+    ],
+    "selected_aliases": [
+      "artifact:2011-03-01:refunds@6bf23cb73689",
+      "artifact:2011-03-04:gross@3320d2133b66",
+      "artifact:2011-03-04:refunds@29853c5f0f23",
+      "artifact:2011-03-01:net@a8af84b97e2c",
+      "artifact:2011-03-04:gross_usd@0cc317235cae",
+      "artifact:2011-03-04:net@ff29995bc28d",
+      "artifact:2011-03-01:net_usd@a16f61b7ff36",
+      "artifact:2011-03-04:gross_total@cf3a490f0f91",
+      "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+      "artifact:2011-03-04:net_usd@d4926afa08d4",
+      "artifact:2011-03-01:net_total@9eb2afc6a1d6"
+    ],
+    "selected_depths": {
+      "artifact:2011-03-01:net@a8af84b97e2c": 2,
+      "artifact:2011-03-01:net_total@9eb2afc6a1d6": 4,
+      "artifact:2011-03-01:net_usd@a16f61b7ff36": 3,
+      "artifact:2011-03-01:refunds@6bf23cb73689": 1,
+      "artifact:2011-03-04:gross@3320d2133b66": 1,
+      "artifact:2011-03-04:gross_total@cf3a490f0f91": 3,
+      "artifact:2011-03-04:gross_usd@0cc317235cae": 2,
+      "artifact:2011-03-04:net@ff29995bc28d": 2,
+      "artifact:2011-03-04:net_usd@d4926afa08d4": 3,
+      "artifact:2011-03-04:refunds@29853c5f0f23": 1,
+      "artifact:2011-03-04:uk_brief@d8d6526ef53c": 3
+    },
+    "skipped_aliases": [
+      "artifact:2011-03-01:uk_brief@289dc7ae6404",
+      "artifact:2011-03-04:daily_close@238e2cf57de1",
+      "artifact:2011-03-04:net_total@b9900ecf1a9b",
+      "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983",
+      "artifact:2011-03-01:daily_close@a0ba22e1be05",
+      "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9"
+    ]
+  },
+  "planned_report_counts": {
+    "eligible_affected_reports": 6,
+    "eligible_reports": 11,
+    "reports": 11,
+    "unaffected_reports": 5,
+    "unavailable_reports": 0
+  },
+  "planning_finished_at": "2026-11-15T20:23:59.388069+00:00",
+  "planning_started_at": "2026-11-15T20:23:59.380199+00:00",
+  "status": "execution_failed"
+}

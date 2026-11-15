@@ -1,0 +1,16 @@
+{
+  "changed_aliases": [],
+  "corpus_records": 39,
+  "corpus_sha256": "f03f1290455089070fe791bc5457ce7d5643171137bc4ac2c78d53b2e65470eb",
+  "corpus_tokens": 14928,
+  "index_build_errors": {},
+  "native": {
+    "namespace": "fixed-budget-diagnostic-v1-0442884d115f46d3aa413572ca1b8c97-M08-discovery",
+    "native_discovery_ms": 1.281624659895897,
+    "native_discovery_queries": 0,
+    "native_membership_aliases": [],
+    "reconstructed_graph_mutations": 390
+  },
+  "query": "All four daily order sources were republished with reordered rows. Determine whether any saved evidence needs refreshing.",
+  "query_tokens": 25
+}
