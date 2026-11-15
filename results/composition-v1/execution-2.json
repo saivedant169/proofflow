@@ -1,0 +1,136 @@
+{
+  "calls": [
+    {
+      "elapsed_ms": 0.06029196083545685,
+      "inputs": {
+        "company": "31d6f6fdacfe48709a655a054eb552fc:artifact:a8cd23f8b9b59803f9afcdcd0cd1675a58e1072917338e206fa87e831df081ef",
+        "regional_usd": "31d6f6fdacfe48709a655a054eb552fc:artifact:2c1ab94d76d6da5a614b5b340fbf70fa7ae1019fd8c32cef62b1d5c4bae5d644",
+        "support": "31d6f6fdacfe48709a655a054eb552fc:artifact:5acd8020dd2a7118a433abd037c47a78c9797747abe5f3efdb3c9e4a98625fbc"
+      },
+      "invocation_id": "4d13c0e8bcfc400d9d4f73eb52f5f804",
+      "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:4f880cc8aa73c6c3e709436a9096c8a4d3898780979c7033922cdd451c65d63e",
+      "params": {
+        "sections": [
+          {
+            "input": "regional_usd",
+            "key": "eu_net_revenue_usd",
+            "label": "EU net revenue (USD)",
+            "path": [
+              "regions",
+              "EU",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "eu_ticket_count",
+            "label": "EU support ticket count",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          },
+          {
+            "input": "company",
+            "key": "company_revenue_total_usd",
+            "label": "Company revenue total (USD, for context)",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "EU Operations Brief"
+      },
+      "run_id": "model-composition-2",
+      "status": "success",
+      "tool": "compose_report"
+    }
+  ],
+  "claims": [
+    {
+      "artifact_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:2c1ab94d76d6da5a614b5b340fbf70fa7ae1019fd8c32cef62b1d5c4bae5d644",
+      "key": "eu_net_revenue_usd",
+      "label": "EU net revenue (USD)",
+      "path": [
+        "regions",
+        "EU",
+        "usd_cents"
+      ],
+      "reasons": [],
+      "saved_value": 209000,
+      "state": "current",
+      "unit": "USD cents",
+      "value": 209000
+    },
+    {
+      "artifact_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:5acd8020dd2a7118a433abd037c47a78c9797747abe5f3efdb3c9e4a98625fbc",
+      "key": "eu_ticket_count",
+      "label": "EU support ticket count",
+      "path": [
+        "regions",
+        "EU",
+        "tickets"
+      ],
+      "reasons": [],
+      "saved_value": 2,
+      "state": "current",
+      "unit": "tickets",
+      "value": 2
+    },
+    {
+      "artifact_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:a8cd23f8b9b59803f9afcdcd0cd1675a58e1072917338e206fa87e831df081ef",
+      "key": "company_revenue_total_usd",
+      "label": "Company revenue total (USD, for context)",
+      "path": [
+        "usd_cents"
+      ],
+      "reasons": [],
+      "saved_value": 556500,
+      "state": "current",
+      "unit": "USD cents",
+      "value": 556500
+    }
+  ],
+  "report_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:4f880cc8aa73c6c3e709436a9096c8a4d3898780979c7033922cdd451c65d63e",
+  "status": "executed",
+  "steps": [
+    {
+      "artifact_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:4f880cc8aa73c6c3e709436a9096c8a4d3898780979c7033922cdd451c65d63e",
+      "inputs": {
+        "company": "31d6f6fdacfe48709a655a054eb552fc:artifact:a8cd23f8b9b59803f9afcdcd0cd1675a58e1072917338e206fa87e831df081ef",
+        "regional_usd": "31d6f6fdacfe48709a655a054eb552fc:artifact:2c1ab94d76d6da5a614b5b340fbf70fa7ae1019fd8c32cef62b1d5c4bae5d644",
+        "support": "31d6f6fdacfe48709a655a054eb552fc:artifact:5acd8020dd2a7118a433abd037c47a78c9797747abe5f3efdb3c9e4a98625fbc"
+      },
+      "run_id": "model-composition-2",
+      "step_id": "eu_brief",
+      "tool": "compose_report"
+    }
+  ],
+  "value": {
+    "sections": [
+      {
+        "key": "eu_net_revenue_usd",
+        "label": "EU net revenue (USD)",
+        "unit": "USD cents",
+        "value": 209000
+      },
+      {
+        "key": "eu_ticket_count",
+        "label": "EU support ticket count",
+        "unit": "tickets",
+        "value": 2
+      },
+      {
+        "key": "company_revenue_total_usd",
+        "label": "Company revenue total (USD, for context)",
+        "unit": "USD cents",
+        "value": 556500
+      }
+    ],
+    "title": "EU Operations Brief"
+  }
+}

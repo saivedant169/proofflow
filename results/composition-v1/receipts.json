@@ -1,0 +1,286 @@
+[
+  {
+    "elapsed_ms": 0.2631661482155323,
+    "inputs": {
+      "orders": "31d6f6fdacfe48709a655a054eb552fc:source:914e23d2b75b934ce8c853aaeca78a6166f23d561d80c82aaa83a636ea970482"
+    },
+    "output_hash": "29c768fba26a63c4afc2153d3f238ce1a78ad132775067210e4c558eadf77fc3",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:02e740f1de17b5c93b1120ff77c9a307196c5433d6f2104cbefeb099ec1c6a99",
+    "params": {},
+    "run_id": "model-composition-1",
+    "status": "success",
+    "tool": "gross_by_region",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:269b8e6146f737a72eb9a36bffe590aa96dbf8d97767ebb5f3bc176c20273a09"
+  },
+  {
+    "elapsed_ms": 0.6704158149659634,
+    "inputs": {
+      "orders": "31d6f6fdacfe48709a655a054eb552fc:source:914e23d2b75b934ce8c853aaeca78a6166f23d561d80c82aaa83a636ea970482",
+      "refunds": "31d6f6fdacfe48709a655a054eb552fc:source:7c333770eb37b73288bcc874256bf82d691c151f76ae61431ddd42b6e300f168"
+    },
+    "output_hash": "bedda9f8f1d87d1f32d78b7b5fe6643e6e0a7ecd7bfcd5993ffcf4af5bd71c85",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:cd6549ae274dca148634277dd622ac3f83215f294d4d5b3a70203272f0e99a87",
+    "params": {},
+    "run_id": "model-composition-1",
+    "status": "success",
+    "tool": "refunds_by_region",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:daca152df821a64d43d80795b52abd53e98085406a1e6c69c9792f1c56ae4e8a"
+  },
+  {
+    "elapsed_ms": 0.04570791497826576,
+    "inputs": {
+      "gross": "31d6f6fdacfe48709a655a054eb552fc:artifact:02e740f1de17b5c93b1120ff77c9a307196c5433d6f2104cbefeb099ec1c6a99",
+      "refunds": "31d6f6fdacfe48709a655a054eb552fc:artifact:cd6549ae274dca148634277dd622ac3f83215f294d4d5b3a70203272f0e99a87"
+    },
+    "output_hash": "b6dd4e3afc76a0a0addb6452ee36f81e16dce1b5a62aef07a3f328e778b07e0d",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:a5ece5df8ae124c9ff2bfa9bae775ca327e7deb6b1a0b81ca4ca6898fb0e41d0",
+    "params": {},
+    "run_id": "model-composition-1",
+    "status": "success",
+    "tool": "net_by_region",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:077ba3c17c0056a410c5fe3638ef60267578e466552567585982deca82823b8f"
+  },
+  {
+    "elapsed_ms": 0.11833291500806808,
+    "inputs": {
+      "fx": "31d6f6fdacfe48709a655a054eb552fc:source:c3f3a9fc579e39021846808890f2a9870545a41b45afcfb8157c197fd37c90fe",
+      "net": "31d6f6fdacfe48709a655a054eb552fc:artifact:a5ece5df8ae124c9ff2bfa9bae775ca327e7deb6b1a0b81ca4ca6898fb0e41d0"
+    },
+    "output_hash": "526650442cbbbd8b937ad2c64c2143d7f962c451ac307269c78a275e4d0ba2fe",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:2c1ab94d76d6da5a614b5b340fbf70fa7ae1019fd8c32cef62b1d5c4bae5d644",
+    "params": {},
+    "run_id": "model-composition-1",
+    "status": "success",
+    "tool": "convert_to_usd",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:c78b222dc40236afafd222f7cc7438950a6b1179ad4dd169a6b3c1cfc0eb302f"
+  },
+  {
+    "elapsed_ms": 0.030875205993652344,
+    "inputs": {
+      "regional": "31d6f6fdacfe48709a655a054eb552fc:artifact:2c1ab94d76d6da5a614b5b340fbf70fa7ae1019fd8c32cef62b1d5c4bae5d644"
+    },
+    "output_hash": "e52691921262dfaef573b43d4d9ba73714c430f37c407452fe2e761412415173",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:a8cd23f8b9b59803f9afcdcd0cd1675a58e1072917338e206fa87e831df081ef",
+    "params": {},
+    "run_id": "model-composition-1",
+    "status": "success",
+    "tool": "company_total",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:f292d9109171070088c107efc2b4cf2d929961bad569bdcf8968cd8d31b37434"
+  },
+  {
+    "elapsed_ms": 0.38287462666630745,
+    "inputs": {
+      "tickets": "31d6f6fdacfe48709a655a054eb552fc:source:5f2a0265b5ea92ccc0ab18d3426e41047d89b46c5f7285b0b7c54531a1d5acd9"
+    },
+    "output_hash": "7eb0a8839246e1269473f4b65d6a782e9d6ff5a559d67ae098121831445a9271",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:5acd8020dd2a7118a433abd037c47a78c9797747abe5f3efdb3c9e4a98625fbc",
+    "params": {},
+    "run_id": "model-composition-1",
+    "status": "success",
+    "tool": "support_by_region",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:cdf845d61772c018c96cc888cca284ee58d53b77991a061ba21743481a969c99"
+  },
+  {
+    "elapsed_ms": 0.11641718447208405,
+    "inputs": {
+      "company": "31d6f6fdacfe48709a655a054eb552fc:artifact:a8cd23f8b9b59803f9afcdcd0cd1675a58e1072917338e206fa87e831df081ef",
+      "support": "31d6f6fdacfe48709a655a054eb552fc:artifact:5acd8020dd2a7118a433abd037c47a78c9797747abe5f3efdb3c9e4a98625fbc"
+    },
+    "output_hash": "09f3441e67fd53a919e7a189bf43e4863ec6734f2d97ed8ed1a7b0f2465f803c",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:f8271e850585554bdb7b680392da06c1b5b84046920c8ceaf15b57b5e5fd7511",
+    "params": {
+      "sections": [
+        {
+          "input": "company",
+          "key": "company_net_revenue_usd",
+          "label": "Company net revenue (orders less refunds), USD",
+          "path": [
+            "usd_cents"
+          ],
+          "unit": "USD cents"
+        },
+        {
+          "input": "support",
+          "key": "eu_ticket_count",
+          "label": "EU support ticket count",
+          "path": [
+            "regions",
+            "EU",
+            "tickets"
+          ],
+          "unit": "tickets"
+        }
+      ],
+      "title": "Company Revenue Report (USD) with EU Support Workload"
+    },
+    "run_id": "model-composition-1",
+    "status": "success",
+    "tool": "compose_report",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+  },
+  {
+    "elapsed_ms": 0.06029196083545685,
+    "inputs": {
+      "company": "31d6f6fdacfe48709a655a054eb552fc:artifact:a8cd23f8b9b59803f9afcdcd0cd1675a58e1072917338e206fa87e831df081ef",
+      "regional_usd": "31d6f6fdacfe48709a655a054eb552fc:artifact:2c1ab94d76d6da5a614b5b340fbf70fa7ae1019fd8c32cef62b1d5c4bae5d644",
+      "support": "31d6f6fdacfe48709a655a054eb552fc:artifact:5acd8020dd2a7118a433abd037c47a78c9797747abe5f3efdb3c9e4a98625fbc"
+    },
+    "output_hash": "597a2fef26302924a94ec4b654be29c2e1bf9130cd26871d91f1d9a1660656e6",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:4f880cc8aa73c6c3e709436a9096c8a4d3898780979c7033922cdd451c65d63e",
+    "params": {
+      "sections": [
+        {
+          "input": "regional_usd",
+          "key": "eu_net_revenue_usd",
+          "label": "EU net revenue (USD)",
+          "path": [
+            "regions",
+            "EU",
+            "usd_cents"
+          ],
+          "unit": "USD cents"
+        },
+        {
+          "input": "support",
+          "key": "eu_ticket_count",
+          "label": "EU support ticket count",
+          "path": [
+            "regions",
+            "EU",
+            "tickets"
+          ],
+          "unit": "tickets"
+        },
+        {
+          "input": "company",
+          "key": "company_revenue_total_usd",
+          "label": "Company revenue total (USD, for context)",
+          "path": [
+            "usd_cents"
+          ],
+          "unit": "USD cents"
+        }
+      ],
+      "title": "EU Operations Brief"
+    },
+    "run_id": "model-composition-2",
+    "status": "success",
+    "tool": "compose_report",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+  },
+  {
+    "elapsed_ms": 0.07158378139138222,
+    "inputs": {
+      "fx": "31d6f6fdacfe48709a655a054eb552fc:source:3c86802b113f6b878a556b8615a28c8a5023ab420f5fef61d3370ee3cc21f68f",
+      "net": "31d6f6fdacfe48709a655a054eb552fc:artifact:a5ece5df8ae124c9ff2bfa9bae775ca327e7deb6b1a0b81ca4ca6898fb0e41d0"
+    },
+    "output_hash": "f0cc344bc4edb49dc99470ed25483f38058cfdf272af66a2885f2e2ac5d9862f",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:64f81bf0707e2ae294be2f56569feb74bf9af04c5d74cc5d33332052b4d4e216",
+    "params": {},
+    "run_id": "model-composition-refresh",
+    "status": "success",
+    "tool": "convert_to_usd",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:c78b222dc40236afafd222f7cc7438950a6b1179ad4dd169a6b3c1cfc0eb302f"
+  },
+  {
+    "elapsed_ms": 0.008166767656803131,
+    "inputs": {
+      "regional": "31d6f6fdacfe48709a655a054eb552fc:artifact:64f81bf0707e2ae294be2f56569feb74bf9af04c5d74cc5d33332052b4d4e216"
+    },
+    "output_hash": "439b6141d26343359a677bd48ca838b40faf2b8669df843f984f21138a80a689",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:a0bb083aef3877be3336ab8597ede98fc4b1f2ec1a242b6bad9e7864556af808",
+    "params": {},
+    "run_id": "model-composition-refresh",
+    "status": "success",
+    "tool": "company_total",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:f292d9109171070088c107efc2b4cf2d929961bad569bdcf8968cd8d31b37434"
+  },
+  {
+    "elapsed_ms": 0.047999899834394455,
+    "inputs": {
+      "company": "31d6f6fdacfe48709a655a054eb552fc:artifact:a0bb083aef3877be3336ab8597ede98fc4b1f2ec1a242b6bad9e7864556af808",
+      "support": "31d6f6fdacfe48709a655a054eb552fc:artifact:5acd8020dd2a7118a433abd037c47a78c9797747abe5f3efdb3c9e4a98625fbc"
+    },
+    "output_hash": "36c105b3507b4fc3b738853c56c77c9c4b053e0e8b7a95277446a1e724431180",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:221fa4195e582be39e0392aea003746edb06eacef8bd8adaef60fc47260a0fb2",
+    "params": {
+      "sections": [
+        {
+          "input": "company",
+          "key": "company_net_revenue_usd",
+          "label": "Company net revenue (orders less refunds), USD",
+          "path": [
+            "usd_cents"
+          ],
+          "unit": "USD cents"
+        },
+        {
+          "input": "support",
+          "key": "eu_ticket_count",
+          "label": "EU support ticket count",
+          "path": [
+            "regions",
+            "EU",
+            "tickets"
+          ],
+          "unit": "tickets"
+        }
+      ],
+      "title": "Company Revenue Report (USD) with EU Support Workload"
+    },
+    "run_id": "model-composition-refresh",
+    "status": "success",
+    "tool": "compose_report",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+  },
+  {
+    "elapsed_ms": 0.04029087722301483,
+    "inputs": {
+      "company": "31d6f6fdacfe48709a655a054eb552fc:artifact:a0bb083aef3877be3336ab8597ede98fc4b1f2ec1a242b6bad9e7864556af808",
+      "regional_usd": "31d6f6fdacfe48709a655a054eb552fc:artifact:64f81bf0707e2ae294be2f56569feb74bf9af04c5d74cc5d33332052b4d4e216",
+      "support": "31d6f6fdacfe48709a655a054eb552fc:artifact:5acd8020dd2a7118a433abd037c47a78c9797747abe5f3efdb3c9e4a98625fbc"
+    },
+    "output_hash": "7d4bb0f77275135205550b73c8670bff3d3793499e93dd3ed4a9f7f2c00ab496",
+    "output_id": "31d6f6fdacfe48709a655a054eb552fc:artifact:cbb98faf4341c928067176cc65697f47d32ec2750d224313ee85179e35b14402",
+    "params": {
+      "sections": [
+        {
+          "input": "regional_usd",
+          "key": "eu_net_revenue_usd",
+          "label": "EU net revenue (USD)",
+          "path": [
+            "regions",
+            "EU",
+            "usd_cents"
+          ],
+          "unit": "USD cents"
+        },
+        {
+          "input": "support",
+          "key": "eu_ticket_count",
+          "label": "EU support ticket count",
+          "path": [
+            "regions",
+            "EU",
+            "tickets"
+          ],
+          "unit": "tickets"
+        },
+        {
+          "input": "company",
+          "key": "company_revenue_total_usd",
+          "label": "Company revenue total (USD, for context)",
+          "path": [
+            "usd_cents"
+          ],
+          "unit": "USD cents"
+        }
+      ],
+      "title": "EU Operations Brief"
+    },
+    "run_id": "model-composition-refresh",
+    "status": "success",
+    "tool": "compose_report",
+    "tool_version_id": "31d6f6fdacfe48709a655a054eb552fc:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+  }
+]

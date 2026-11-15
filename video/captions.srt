@@ -1,0 +1,119 @@
+1
+00:00:00,000 --> 00:00:03,783
+Reports can look finished after their inputs change.
+
+2
+00:00:03,783 --> 00:00:07,567
+ProofFlow helps analytics agents keep saved work current.
+
+3
+00:00:07,567 --> 00:00:09,931
+These briefs reuse earlier calculations.
+
+4
+00:00:09,931 --> 00:00:14,188
+Every tool records the input versions it actually consumed.
+
+5
+00:00:14,188 --> 00:00:19,094
+HydraDB connects those execution receipts across runs.
+
+6
+00:00:19,094 --> 00:00:25,050
+Correct the euro-to-dollar rate from 1.10 to 1.20.
+
+7
+00:00:25,050 --> 00:00:27,177
+The revenue claims become stale.
+
+8
+00:00:27,177 --> 00:00:32,507
+ProofFlow withholds current values and labels the previous numbers as historical.
+
+9
+00:00:32,507 --> 00:00:33,726
+Open the evidence.
+
+10
+00:00:33,726 --> 00:00:36,979
+HydraDB shows the dependency path from
+
+11
+00:00:36,979 --> 00:00:40,881
+that correction to this calculation and both reports.
+
+12
+00:00:40,881 --> 00:00:42,363
+Refresh affected work.
+
+13
+00:00:42,363 --> 00:00:43,845
+Four tools run.
+
+14
+00:00:43,845 --> 00:00:48,785
+EU revenue becomes two thousand two hundred eighty dollars;
+
+15
+00:00:48,785 --> 00:00:52,737
+company revenue becomes five thousand seven hundred fifty-five.
+
+16
+00:00:52,737 --> 00:00:56,351
+The independent support result stays unchanged.
+
+17
+00:00:56,351 --> 00:01:03,720
+Our frozen pilot has twelve authored scenarios, identical evidence, and a 2,048-token limit.
+
+18
+00:01:03,720 --> 00:01:07,688
+ProofFlow refreshed 16 of 29 affected reports;
+
+19
+00:01:07,688 --> 00:01:14,490
+BM25 refreshed six, dense retrieval one, and iterative hybrid nine.
+
+20
+00:01:14,490 --> 00:01:18,457
+Every method shares the same Hydra-assisted executor.
+
+21
+00:01:18,457 --> 00:01:21,292
+Exact dependency traversal ties ProofFlow.
+
+22
+00:01:21,292 --> 00:01:24,776
+Full context completes all 29.
+
+23
+00:01:24,776 --> 00:01:30,202
+Separately, two actual Fable 5.2 calls chose a seven-tool
+
+24
+00:01:30,202 --> 00:01:35,628
+report workflow, then created a new brief reusing three earlier artifacts.
+
+25
+00:01:35,628 --> 00:01:38,095
+All seventeen composition-and-refresh checks passed.
+
+26
+00:01:38,095 --> 00:01:44,664
+This is recorded local model execution, separate from the guided browser demo.
+
+27
+00:01:44,664 --> 00:01:48,169
+You can also import your own bounded CSV
+
+28
+00:01:48,169 --> 00:01:52,324
+through the command line and reuse this same calculation runtime.
+
+29
+00:01:52,324 --> 00:01:56,071
+ProofFlow: follow what changed, refresh what depends on
+
+30
+00:01:56,071 --> 00:02:00,000
+it, and preserve work that remains valid.

@@ -1,0 +1,98 @@
+{
+  "arm": "dense",
+  "category": "missing_source",
+  "context_sha256": "654cb0148a61e204e7c5a9d64dd199f5d6d395b991e4f766b90034d2e82c6b37",
+  "context_tokens_budgeted": 1913,
+  "corpus_sha256": "a22ff6ae13c16f4e26364458c00e11b17bc2558c6c3db78f92213d224dcd2091",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "654cb0148a61e204e7c5a9d64dd199f5d6d395b991e4f766b90034d2e82c6b37",
+    "provider_result": {
+      "elapsed_seconds": 7.881355207879096,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4075,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4075,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.084488,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 477,
+          "provider": "firstParty",
+          "thinkingTokens": 132,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "Only artifact:2026-W46:usd@092abb7cc465 lists the changed source:fx:2026-W46@7fb66a21f6f2 as a direct input, so it requires revalidation and should block rather than serve its saved numbers. No supplied record takes that USD artifact as an input, so there is no supported downstream propagation. The W44 and W45 USD artifacts depend on their own weeks' FX sources, which are unchanged. The W44 and W45 refunds artifacts depend only on orders and refunds sources. The W46 support brief depends only on the W46 support artifact and has no path to the FX source. This is a revalidation plan only; nothing has been recalculated.",
+        "selected_ids": [
+          "artifact:2026-W46:usd@092abb7cc465"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.084488,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4075,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4075,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4075,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4075,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 477,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 477,
+        "output_tokens_details": {
+          "thinking_tokens": 132
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "Only artifact:2026-W46:usd@092abb7cc465 lists the changed source:fx:2026-W46@7fb66a21f6f2 as a direct input, so it requires revalidation and should block rather than serve its saved numbers. No supplied record takes that USD artifact as an input, so there is no supported downstream propagation. The W44 and W45 USD artifacts depend on their own weeks' FX sources, which are unchanged. The W44 and W45 refunds artifacts depend only on orders and refunds sources. The W46 support brief depends only on the W46 support artifact and has no path to the FX source. This is a revalidation plan only; nothing has been recalculated.",
+    "request_sha256": "03448a9c4cfc2c65888a85266c5953314bd8d832687f70fbb64b044b910eec17",
+    "selected_ids": [
+      "artifact:2026-W46:usd@092abb7cc465"
+    ]
+  },
+  "presented_context_tokens": 1913,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2110,
+  "request_file": "T10/dense/request.json",
+  "request_file_sha256": "a2ef7375a9ed5b913eb1d53b67e08253e6fb8ced974e5f2d566760371903e483",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "276323d8ef9a8d2b16f87be1308379c9aa4307adb1a3498aecfe5dfa5ecac2c2",
+  "retrieval_ms": 11.795500293374062,
+  "scenario": "T10",
+  "status": "planned"
+}

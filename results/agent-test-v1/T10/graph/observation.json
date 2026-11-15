@@ -1,0 +1,104 @@
+{
+  "arm": "graph",
+  "category": "missing_source",
+  "context_sha256": "ff2aac950b22ec6530285fe4cd81c72898fcc953cdca056fa68ab8fc1d7bc7b4",
+  "context_tokens_budgeted": 1344,
+  "corpus_sha256": "a22ff6ae13c16f4e26364458c00e11b17bc2558c6c3db78f92213d224dcd2091",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "ff2aac950b22ec6530285fe4cd81c72898fcc953cdca056fa68ab8fc1d7bc7b4",
+    "provider_result": {
+      "elapsed_seconds": 7.728168874979019,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 3182,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 3182,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.07304,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 548,
+          "provider": "firstParty",
+          "thinkingTokens": 108,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed source:fx:2026-W46@7fb66a21f6f2 is a direct input of artifact:2026-W46:usd@092abb7cc465 (its current version now differs, d14444037348). That change propagates along explicit input paths: company@4d33da03df72 takes usd@092abb7cc465 as input; eu_brief@3f761540b806 takes usd@092abb7cc465 as input; company_brief@add154075434 takes company@4d33da03df72 as input. All four supplied artifacts therefore require revalidation and should block rather than serve their saved numbers. No records were supplied for 2026-W44 or 2026-W45, so nothing is selected for those periods. This is a revalidation plan only; no calculations were run and no claim is made that the values changed.",
+        "selected_ids": [
+          "artifact:2026-W46:usd@092abb7cc465",
+          "artifact:2026-W46:company@4d33da03df72",
+          "artifact:2026-W46:eu_brief@3f761540b806",
+          "artifact:2026-W46:company_brief@add154075434"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.07304,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 3182,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 3182,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 3182,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 3182,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 548,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 548,
+        "output_tokens_details": {
+          "thinking_tokens": 108
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed source:fx:2026-W46@7fb66a21f6f2 is a direct input of artifact:2026-W46:usd@092abb7cc465 (its current version now differs, d14444037348). That change propagates along explicit input paths: company@4d33da03df72 takes usd@092abb7cc465 as input; eu_brief@3f761540b806 takes usd@092abb7cc465 as input; company_brief@add154075434 takes company@4d33da03df72 as input. All four supplied artifacts therefore require revalidation and should block rather than serve their saved numbers. No records were supplied for 2026-W44 or 2026-W45, so nothing is selected for those periods. This is a revalidation plan only; no calculations were run and no claim is made that the values changed.",
+    "request_sha256": "0a2252e4b6783ab633b96489f50fb6c9c37ea0c1e0ede84c537b3958fe891aa5",
+    "selected_ids": [
+      "artifact:2026-W46:usd@092abb7cc465",
+      "artifact:2026-W46:company@4d33da03df72",
+      "artifact:2026-W46:eu_brief@3f761540b806",
+      "artifact:2026-W46:company_brief@add154075434"
+    ]
+  },
+  "presented_context_tokens": 1344,
+  "presented_records": 4,
+  "prompt_tokens_cl100k_estimate": 1524,
+  "request_file": "T10/graph/request.json",
+  "request_file_sha256": "5ac54ebca1ecf21d0b739f1b6cdae0365d2fef6517217ea61a9cf78072b27272",
+  "retrieval_calls": 4,
+  "retrieval_context_sha256": "bef8cfe5f4239a1689e70e42bdf36274a341ff67b3041eaadc2e892df241d97f",
+  "retrieval_ms": 7.239332422614098,
+  "scenario": "T10",
+  "status": "planned"
+}

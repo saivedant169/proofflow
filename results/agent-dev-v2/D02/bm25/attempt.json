@@ -1,0 +1,17 @@
+{
+  "arm": "bm25",
+  "category": "multi_hop",
+  "context_sha256": "557c2ecb34dea3cf5d59a8b6ef9732802c1012011d47d96fb8a0c71e0618bc6b",
+  "context_tokens_budgeted": 1958,
+  "corpus_sha256": "32277476870ea3bd76d168578d673286e24caf1a0da34dc5d7d1b7bf7bc8b814",
+  "presented_context_tokens": 1958,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2183,
+  "request_file": "D02/bm25/request.json",
+  "request_file_sha256": "ba6bfdacfd975e0c51e606c059fa7468dfac35b57d78a7b4fb12279f2f7bfc80",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "de368a97bc4c1b55f59cefac0260fd860e175c305b8a290434b39cf2cc1ea0a1",
+  "retrieval_ms": 0.258082989603281,
+  "scenario": "D02",
+  "started_at": "2026-11-15T09:55:24.204964+00:00"
+}

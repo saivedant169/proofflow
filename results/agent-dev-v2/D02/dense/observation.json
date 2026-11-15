@@ -1,0 +1,98 @@
+{
+  "arm": "dense",
+  "category": "multi_hop",
+  "context_sha256": "c0e8f6cd8fe3e05185599a22763ff3240af91faebee1b73203d60634a2041e17",
+  "context_tokens_budgeted": 2040,
+  "corpus_sha256": "32277476870ea3bd76d168578d673286e24caf1a0da34dc5d7d1b7bf7bc8b814",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "c0e8f6cd8fe3e05185599a22763ff3240af91faebee1b73203d60634a2041e17",
+    "provider_result": {
+      "elapsed_seconds": 7.874614791944623,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4227,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4227,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.08807999999999999,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 506,
+          "provider": "firstParty",
+          "thinkingTokens": 135,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed version source:fx:2026-W44@2489e04abbb7 is a direct input of artifact:2026-W44:usd@f2300a650960, whose record shows that input has since moved to @6977d3a2db5f, so it needs revalidation. No other supplied record has a path to the change: none lists the changed FX version or the W44 usd artifact as an input. The W44 refunds record depends only on W44 orders and refunds sources. The W45 and W46 usd records use their own weeks' FX sources, and the W46 company record depends only on W46 usd. The W45 refunds and W46 gross records depend only on their own weeks' sources. No W44 company-level record was supplied, so none is selected. This is a revalidation plan only; nothing has been recomputed.",
+        "selected_ids": [
+          "artifact:2026-W44:usd@f2300a650960"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.08807999999999999,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4227,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4227,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4227,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4227,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 506,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 506,
+        "output_tokens_details": {
+          "thinking_tokens": 135
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed version source:fx:2026-W44@2489e04abbb7 is a direct input of artifact:2026-W44:usd@f2300a650960, whose record shows that input has since moved to @6977d3a2db5f, so it needs revalidation. No other supplied record has a path to the change: none lists the changed FX version or the W44 usd artifact as an input. The W44 refunds record depends only on W44 orders and refunds sources. The W45 and W46 usd records use their own weeks' FX sources, and the W46 company record depends only on W46 usd. The W45 refunds and W46 gross records depend only on their own weeks' sources. No W44 company-level record was supplied, so none is selected. This is a revalidation plan only; nothing has been recomputed.",
+    "request_sha256": "f3a25c1e1837f7672f0838f66d940cd843eef036f9643dcac445788989368312",
+    "selected_ids": [
+      "artifact:2026-W44:usd@f2300a650960"
+    ]
+  },
+  "presented_context_tokens": 2040,
+  "presented_records": 7,
+  "prompt_tokens_cl100k_estimate": 2232,
+  "request_file": "D02/dense/request.json",
+  "request_file_sha256": "ef8f526c5af848c972bbb619fcac19133dd29679318f2436faf6d948c1f538b3",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "c23d5d19fb01121499db40d0d1bb54f5f92d8839193020a433d61432256806d8",
+  "retrieval_ms": 10.987124871462584,
+  "scenario": "D02",
+  "status": "planned"
+}

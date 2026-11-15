@@ -1,0 +1,100 @@
+{
+  "arm": "dense",
+  "category": "cross_run",
+  "context_sha256": "d27d3340a66f6917e91cfe9e5a7e16e3d578a4a5e6fde95757a2c78e21f5b551",
+  "context_tokens_budgeted": 1869,
+  "corpus_sha256": "6b564b95a2d9fea32c88096a6edc6e45191e9255a32ba870682c9d762562a273",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "d27d3340a66f6917e91cfe9e5a7e16e3d578a4a5e6fde95757a2c78e21f5b551",
+    "provider_result": {
+      "elapsed_seconds": 7.40630599996075,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4046,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4046,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.085024,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 502,
+          "provider": "firstParty",
+          "thinkingTokens": 132,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed source:refunds:2026-W46@a23fa9c2dda7 is a direct input of artifact:2026-W46:refunds@e9e778ccdd93, which is in turn an input of artifact:2026-W46:net@719d34de3014, so both need revalidation in that order. artifact:2026-W46:gross@9df86592d3a2 depends only on the unchanged W46 orders source and its tool, so it is not affected. The W44 and W45 records (W44 refunds, W44 net, W45 net) have no supplied path to the changed id. No company-level or EU operations report records were supplied, so none are selected. This is a revalidation plan only; nothing has been recomputed.",
+        "selected_ids": [
+          "artifact:2026-W46:refunds@e9e778ccdd93",
+          "artifact:2026-W46:net@719d34de3014"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.085024,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4046,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4046,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4046,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4046,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 502,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 502,
+        "output_tokens_details": {
+          "thinking_tokens": 132
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed source:refunds:2026-W46@a23fa9c2dda7 is a direct input of artifact:2026-W46:refunds@e9e778ccdd93, which is in turn an input of artifact:2026-W46:net@719d34de3014, so both need revalidation in that order. artifact:2026-W46:gross@9df86592d3a2 depends only on the unchanged W46 orders source and its tool, so it is not affected. The W44 and W45 records (W44 refunds, W44 net, W45 net) have no supplied path to the changed id. No company-level or EU operations report records were supplied, so none are selected. This is a revalidation plan only; nothing has been recomputed.",
+    "request_sha256": "7eb7cf4675cd5474e62f51ae64c881b99e6ca08cdbc7d4134fad50bb0571b299",
+    "selected_ids": [
+      "artifact:2026-W46:refunds@e9e778ccdd93",
+      "artifact:2026-W46:net@719d34de3014"
+    ]
+  },
+  "presented_context_tokens": 1869,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2057,
+  "request_file": "T02/dense/request.json",
+  "request_file_sha256": "3bfdd7bf3380c332b615daab9ff6a685b7b7c7f7ec8b9423499f496ece401e26",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "811bfed19d70cab6b75baad7f931e6b00c5114e14592e54062a7e79ec45e153d",
+  "retrieval_ms": 10.746750049293041,
+  "scenario": "T02",
+  "status": "planned"
+}

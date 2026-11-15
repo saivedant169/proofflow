@@ -1,0 +1,104 @@
+{
+  "arm": "graph",
+  "category": "multi_hop",
+  "context_sha256": "e49318a810f65f8e2493f54896107d352b3a45db3bc2b76957cd351804f61a29",
+  "context_tokens_budgeted": 1344,
+  "corpus_sha256": "32277476870ea3bd76d168578d673286e24caf1a0da34dc5d7d1b7bf7bc8b814",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "e49318a810f65f8e2493f54896107d352b3a45db3bc2b76957cd351804f61a29",
+    "provider_result": {
+      "elapsed_seconds": 8.149227499961853,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "cacheReadInputTokens": 4124,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.0224808,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 541,
+          "provider": "firstParty",
+          "thinkingTokens": 119,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed FX source version source:fx:2026-W44@2489e04abbb7 is a direct input of artifact:2026-W44:usd@f2300a650960 (its record shows the current FX version is now @6977d3a2db5f). That change propagates along explicit input paths: usd -> company@29481e78093b -> company_brief@8b737a88bfe3, and usd -> eu_brief@00feeb4b8458. All four supplied artifacts therefore need revalidation, listed in dependency order. No records were supplied for 2026-W45 or 2026-W46, so nothing is selected for those periods. This is a revalidation plan only; no calculations were run and it does not assert that the stored numbers changed.",
+        "selected_ids": [
+          "artifact:2026-W44:usd@f2300a650960",
+          "artifact:2026-W44:company@29481e78093b",
+          "artifact:2026-W44:eu_brief@00feeb4b8458",
+          "artifact:2026-W44:company_brief@8b737a88bfe3"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.0224808,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 4124,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 0,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 4124,
+            "input_tokens": 2,
+            "output_tokens": 541,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 541,
+        "output_tokens_details": {
+          "thinking_tokens": 119
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed FX source version source:fx:2026-W44@2489e04abbb7 is a direct input of artifact:2026-W44:usd@f2300a650960 (its record shows the current FX version is now @6977d3a2db5f). That change propagates along explicit input paths: usd -> company@29481e78093b -> company_brief@8b737a88bfe3, and usd -> eu_brief@00feeb4b8458. All four supplied artifacts therefore need revalidation, listed in dependency order. No records were supplied for 2026-W45 or 2026-W46, so nothing is selected for those periods. This is a revalidation plan only; no calculations were run and it does not assert that the stored numbers changed.",
+    "request_sha256": "dc82c6632be41c90e2d8e0b04a1fabe6533484301060ccc64bff8323215ec130",
+    "selected_ids": [
+      "artifact:2026-W44:usd@f2300a650960",
+      "artifact:2026-W44:company@29481e78093b",
+      "artifact:2026-W44:eu_brief@00feeb4b8458",
+      "artifact:2026-W44:company_brief@8b737a88bfe3"
+    ]
+  },
+  "presented_context_tokens": 1344,
+  "presented_records": 4,
+  "prompt_tokens_cl100k_estimate": 1520,
+  "request_file": "D02/graph/request.json",
+  "request_file_sha256": "c7e456037689d8a7f83d944ef3fcc57d03fccb825bdad81e9ec4f722dc85ba67",
+  "retrieval_calls": 4,
+  "retrieval_context_sha256": "90e733ea15b33b80c12a6f651af923b61f48d8119cf6fb5e7f050a9fdb717c1e",
+  "retrieval_ms": 11.804541107267141,
+  "scenario": "D02",
+  "status": "planned"
+}

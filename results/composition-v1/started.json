@@ -1,0 +1,12 @@
+{
+  "code_sha256": {
+    "proofflow/analytics.py": "cca3a122cf9884e38323cfefca105c65fd3a462950994ec9822d76abc413ff86",
+    "proofflow/artifacts.py": "068bc264a5184800dc9bb9f11600977526eeccdb52e7dc9cd6282c7a4bd507e2",
+    "proofflow/composition.py": "bdbf3ada8ff726f3b57a1669e4425d34e2875c4940a79afa7c1e3fc78d2e5624",
+    "proofflow/graph.py": "ba409e28f945dd57b8ab3b7a1b3475c22a17038ef9942f0ce1bf3715c8faf091",
+    "proofflow/runtime.py": "17312dbb90b3d46590cd88466379d9a95a787a292597bf024894d4d0a1e756ba",
+    "scripts/composition_probe.py": "c02b889329db911461653d10b8b5433b9a1e148cadcb4bcf9d174bb830feea41"
+  },
+  "revision": "5ce5441b603d632a0c5a6267396e375e65825e43",
+  "started_at": "2026-11-15T10:01:30.022841+00:00"
+}

@@ -1,0 +1,88 @@
+{
+  "status": "complete",
+  "workspace": "216bb4e0f58f476d93c3d8fd77bdae3a",
+  "source_csv_sha256": "d2d5afbdfc72aa3cc6d1e27dc71fb77bd86818ad349705315b730fb10c677cec",
+  "row_count": 2,
+  "selected_region": "EMEA",
+  "changed_source_version_ids": [],
+  "affected_artifacts": [],
+  "reports": [
+    {
+      "id": "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:e003af5b3326a89035674c3dc10a833a608ae28114ec3a3fb8b95b6a626736a7",
+      "logical_id": "import:report:company",
+      "state": "current",
+      "claims": [
+        {
+          "key": "company_revenue",
+          "label": "Company net revenue",
+          "unit": "USD cents",
+          "value": 30600,
+          "saved_value": 30600,
+          "state": "current",
+          "artifact_id": "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:60220a92ea5f2edc6b9bf16bd1a4537f2cf4d78f4a0ecdbae6d5b43bb8bcf32a",
+          "path": [
+            "usd_cents"
+          ],
+          "reasons": []
+        }
+      ],
+      "recomputation_parity": true
+    },
+    {
+      "id": "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:a184087d31ad6c4da24e3aafb5987235421a57da4789d64963773ab365b2b0f9",
+      "logical_id": "import:report:region",
+      "state": "current",
+      "claims": [
+        {
+          "key": "regional_revenue",
+          "label": "EMEA net revenue",
+          "unit": "USD cents",
+          "value": 21600,
+          "saved_value": 21600,
+          "state": "current",
+          "artifact_id": "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:938e2251ee1b7bb1eae28a279f464be8131aa2ea1b992b069927b8b46a3dfc9b",
+          "path": [
+            "regions",
+            "EMEA",
+            "usd_cents"
+          ],
+          "reasons": []
+        }
+      ],
+      "recomputation_parity": true
+    }
+  ],
+  "refresh": {
+    "replacements": {
+      "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:e003af5b3326a89035674c3dc10a833a608ae28114ec3a3fb8b95b6a626736a7": "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:e003af5b3326a89035674c3dc10a833a608ae28114ec3a3fb8b95b6a626736a7",
+      "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:a184087d31ad6c4da24e3aafb5987235421a57da4789d64963773ab365b2b0f9": "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:a184087d31ad6c4da24e3aafb5987235421a57da4789d64963773ab365b2b0f9",
+      "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:85dd06112874d58c300401eb46118052d0475b9986b5f1a8d6d0b5c38c63e634": "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:85dd06112874d58c300401eb46118052d0475b9986b5f1a8d6d0b5c38c63e634"
+    },
+    "executed": [],
+    "reused": [
+      "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:e003af5b3326a89035674c3dc10a833a608ae28114ec3a3fb8b95b6a626736a7",
+      "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:a184087d31ad6c4da24e3aafb5987235421a57da4789d64963773ab365b2b0f9",
+      "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:85dd06112874d58c300401eb46118052d0475b9986b5f1a8d6d0b5c38c63e634"
+    ],
+    "elapsed_ms": 19.720958080142736
+  },
+  "tool_calls": [],
+  "tool_call_count": 0,
+  "support": {
+    "id": "216bb4e0f58f476d93c3d8fd77bdae3a:artifact:85dd06112874d58c300401eb46118052d0475b9986b5f1a8d6d0b5c38c63e634",
+    "state": "current",
+    "value": {
+      "regions": {
+        "EMEA": {
+          "tickets": 2
+        }
+      }
+    }
+  },
+  "scope": "User-supplied CSV; guided recipes and real analytics. No model or generic SQL execution.",
+  "verification": "Currentness plus clean recipe recomputation; shared arithmetic, not an independent benchmark oracle.",
+  "ticket_semantics": "Per-order counts expanded into synthetic counting rows, not original ticket identifiers.",
+  "atomicity": "Source heads are individually durable; multi-source publication is not transactional.",
+  "hydra_queries": 48,
+  "backend": "HydraDB OSS, native traversal; no fallback"
+}

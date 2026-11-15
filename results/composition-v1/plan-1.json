@@ -1,0 +1,323 @@
+{
+  "payload": {
+    "abstain": false,
+    "output": "report",
+    "rationale": "No saved artifacts exist beyond the four sources, so the full chain is built from them. Revenue is defined as orders less refunds: gross_by_region and refunds_by_region feed net_by_region, which convert_to_usd turns into regional USD using the fx source, and company_total sums into company revenue. support_by_region counts tickets from the tickets source. The report makes two claims: company net revenue (usd_cents, USD cents) and the EU ticket count (regions.EU.tickets, tickets). All values are computed by the tools; none are supplied here.",
+    "steps": [
+      {
+        "id": "gross",
+        "inputs": [
+          {
+            "name": "orders",
+            "ref": "source:orders"
+          }
+        ],
+        "sections": [],
+        "title": null,
+        "tool": "gross_by_region"
+      },
+      {
+        "id": "refunds",
+        "inputs": [
+          {
+            "name": "orders",
+            "ref": "source:orders"
+          },
+          {
+            "name": "refunds",
+            "ref": "source:refunds"
+          }
+        ],
+        "sections": [],
+        "title": null,
+        "tool": "refunds_by_region"
+      },
+      {
+        "id": "net",
+        "inputs": [
+          {
+            "name": "gross",
+            "ref": "gross"
+          },
+          {
+            "name": "refunds",
+            "ref": "refunds"
+          }
+        ],
+        "sections": [],
+        "title": null,
+        "tool": "net_by_region"
+      },
+      {
+        "id": "usd",
+        "inputs": [
+          {
+            "name": "fx",
+            "ref": "source:fx"
+          },
+          {
+            "name": "net",
+            "ref": "net"
+          }
+        ],
+        "sections": [],
+        "title": null,
+        "tool": "convert_to_usd"
+      },
+      {
+        "id": "total",
+        "inputs": [
+          {
+            "name": "regional",
+            "ref": "usd"
+          }
+        ],
+        "sections": [],
+        "title": null,
+        "tool": "company_total"
+      },
+      {
+        "id": "support",
+        "inputs": [
+          {
+            "name": "tickets",
+            "ref": "source:tickets"
+          }
+        ],
+        "sections": [],
+        "title": null,
+        "tool": "support_by_region"
+      },
+      {
+        "id": "report",
+        "inputs": [
+          {
+            "name": "company",
+            "ref": "total"
+          },
+          {
+            "name": "support",
+            "ref": "support"
+          }
+        ],
+        "sections": [
+          {
+            "input": "company",
+            "key": "company_net_revenue_usd",
+            "label": "Company net revenue (orders less refunds), USD",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "eu_ticket_count",
+            "label": "EU support ticket count",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "Company Revenue Report (USD) with EU Support Workload",
+        "tool": "compose_report"
+      }
+    ]
+  },
+  "provider_result": {
+    "elapsed_seconds": 10.833441415801644,
+    "metadata": {
+      "effort": "high",
+      "num_turns": 2,
+      "system_prompt_sha256": "a01cc71e26f768d313ffa43b7d0e6e13692211f242e943a84d7ab5241b013148",
+      "tools_enabled": false
+    },
+    "model": "claude-fable-5-2",
+    "model_usage": {
+      "claude-fable-5-2": {
+        "cacheCreationEphemeral1hInputTokens": 3295,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationInputTokens": 3295,
+        "cacheReadInputTokens": 0,
+        "canonicalModel": "claude-fable-5-2",
+        "contextWindow": 1000000,
+        "costBasis": "list",
+        "costUSD": 0.092936,
+        "inputTokens": 2,
+        "maxOutputTokens": 128000,
+        "outputTokens": 1005,
+        "provider": "firstParty",
+        "thinkingTokens": 134,
+        "webSearchRequests": 0
+      }
+    },
+    "payload": {
+      "abstain": false,
+      "output": "report",
+      "rationale": "No saved artifacts exist beyond the four sources, so the full chain is built from them. Revenue is defined as orders less refunds: gross_by_region and refunds_by_region feed net_by_region, which convert_to_usd turns into regional USD using the fx source, and company_total sums into company revenue. support_by_region counts tickets from the tickets source. The report makes two claims: company net revenue (usd_cents, USD cents) and the EU ticket count (regions.EU.tickets, tickets). All values are computed by the tools; none are supplied here.",
+      "steps": [
+        {
+          "id": "gross",
+          "inputs": [
+            {
+              "name": "orders",
+              "ref": "source:orders"
+            }
+          ],
+          "sections": [],
+          "title": null,
+          "tool": "gross_by_region"
+        },
+        {
+          "id": "refunds",
+          "inputs": [
+            {
+              "name": "orders",
+              "ref": "source:orders"
+            },
+            {
+              "name": "refunds",
+              "ref": "source:refunds"
+            }
+          ],
+          "sections": [],
+          "title": null,
+          "tool": "refunds_by_region"
+        },
+        {
+          "id": "net",
+          "inputs": [
+            {
+              "name": "gross",
+              "ref": "gross"
+            },
+            {
+              "name": "refunds",
+              "ref": "refunds"
+            }
+          ],
+          "sections": [],
+          "title": null,
+          "tool": "net_by_region"
+        },
+        {
+          "id": "usd",
+          "inputs": [
+            {
+              "name": "fx",
+              "ref": "source:fx"
+            },
+            {
+              "name": "net",
+              "ref": "net"
+            }
+          ],
+          "sections": [],
+          "title": null,
+          "tool": "convert_to_usd"
+        },
+        {
+          "id": "total",
+          "inputs": [
+            {
+              "name": "regional",
+              "ref": "usd"
+            }
+          ],
+          "sections": [],
+          "title": null,
+          "tool": "company_total"
+        },
+        {
+          "id": "support",
+          "inputs": [
+            {
+              "name": "tickets",
+              "ref": "source:tickets"
+            }
+          ],
+          "sections": [],
+          "title": null,
+          "tool": "support_by_region"
+        },
+        {
+          "id": "report",
+          "inputs": [
+            {
+              "name": "company",
+              "ref": "total"
+            },
+            {
+              "name": "support",
+              "ref": "support"
+            }
+          ],
+          "sections": [
+            {
+              "input": "company",
+              "key": "company_net_revenue_usd",
+              "label": "Company net revenue (orders less refunds), USD",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "input": "support",
+              "key": "eu_ticket_count",
+              "label": "EU support ticket count",
+              "path": [
+                "regions",
+                "EU",
+                "tickets"
+              ],
+              "unit": "tickets"
+            }
+          ],
+          "title": "Company Revenue Report (USD) with EU Support Workload",
+          "tool": "compose_report"
+        }
+      ]
+    },
+    "provider": "Claude Code CLI (local authenticated process)",
+    "reported_cost_usd": 0.092936,
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3295,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 3295,
+      "cache_read_input_tokens": 0,
+      "fallback_credit": null,
+      "inference_geo": "global",
+      "input_tokens": 2,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 3295,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 3295,
+          "cache_read_input_tokens": 0,
+          "input_tokens": 2,
+          "output_tokens": 1005,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 1005,
+      "output_tokens_details": {
+        "thinking_tokens": 134
+      },
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    }
+  },
+  "request_sha256": "70a40587443034eee45d6ab5c844fe45c079f5fbc4951789c67c8bdd86f811da"
+}

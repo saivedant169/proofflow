@@ -1,0 +1,25 @@
+{
+  "video_seconds": 120,
+  "audio_seconds": 120,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "frames": 3600,
+  "file_bytes": 4964280,
+  "audio_mean_db": -15.7,
+  "audio_peak_db": -1.5,
+  "chapter_frames_reviewed": [
+    "opening",
+    "change",
+    "evidence",
+    "refresh",
+    "benchmark",
+    "composition",
+    "csv",
+    "closing"
+  ],
+  "review_scope": "Representative frames visually inspected; full media/audio decode and stream duration validated. Audio was not manually auditioned.",
+  "narrative_review": "Independent reviewer found no materially misleading numeric or scope claims against saved evidence."
+}

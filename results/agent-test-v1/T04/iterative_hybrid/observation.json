@@ -1,0 +1,102 @@
+{
+  "arm": "iterative_hybrid",
+  "category": "fan_in",
+  "context_sha256": "291f0c1a3d53a058bf390e9218730427f500e0afeac8f9e1eb995a7b1237ea06",
+  "context_tokens_budgeted": 2039,
+  "corpus_sha256": "c0099ac61b0b82147afe7558a0f94aa1eea715bc6718528875cdc3ce90e1ba32",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "291f0c1a3d53a058bf390e9218730427f500e0afeac8f9e1eb995a7b1237ea06",
+    "provider_result": {
+      "elapsed_seconds": 10.236806041095406,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4420,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4420,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.10408800000000001,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 829,
+          "provider": "firstParty",
+          "thinkingTokens": 345,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed version source:orders:2026-W45@3a1ff40427e5 is a direct input to artifact:2026-W45:gross@6a8a874934fc and artifact:2026-W45:refunds@0bc0e7a39a47. artifact:2026-W45:net@35c96896d0f0 takes both of those as inputs, so it is affected transitively. artifact:2026-W45:eu_brief@75969a5c3b3e is not selected: it depends on artifact:2026-W45:usd@8ea5f5b9ddab and artifact:2026-W45:support@e73a4abfe25e, and no record for either is supplied, so no explicit path from the changed source to the brief is supported by the evidence. The W44 gross, W46 gross and W46 company artifacts depend only on W44/W46 inputs and are unaffected. No W45 company summary record is supplied, so none is selected. This is a revalidation plan only, not a claim that any values changed.",
+        "selected_ids": [
+          "artifact:2026-W45:gross@6a8a874934fc",
+          "artifact:2026-W45:refunds@0bc0e7a39a47",
+          "artifact:2026-W45:net@35c96896d0f0"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.10408800000000001,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4420,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4420,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4420,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4420,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 829,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 829,
+        "output_tokens_details": {
+          "thinking_tokens": 345
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed version source:orders:2026-W45@3a1ff40427e5 is a direct input to artifact:2026-W45:gross@6a8a874934fc and artifact:2026-W45:refunds@0bc0e7a39a47. artifact:2026-W45:net@35c96896d0f0 takes both of those as inputs, so it is affected transitively. artifact:2026-W45:eu_brief@75969a5c3b3e is not selected: it depends on artifact:2026-W45:usd@8ea5f5b9ddab and artifact:2026-W45:support@e73a4abfe25e, and no record for either is supplied, so no explicit path from the changed source to the brief is supported by the evidence. The W44 gross, W46 gross and W46 company artifacts depend only on W44/W46 inputs and are unaffected. No W45 company summary record is supplied, so none is selected. This is a revalidation plan only, not a claim that any values changed.",
+    "request_sha256": "8836c13f2ea8d1ea04353eb5e00aebc80e0951335a9b2d7a0cd4d97459f87fcc",
+    "selected_ids": [
+      "artifact:2026-W45:gross@6a8a874934fc",
+      "artifact:2026-W45:refunds@0bc0e7a39a47",
+      "artifact:2026-W45:net@35c96896d0f0"
+    ]
+  },
+  "presented_context_tokens": 2039,
+  "presented_records": 7,
+  "prompt_tokens_cl100k_estimate": 2254,
+  "request_file": "T04/iterative_hybrid/request.json",
+  "request_file_sha256": "e0e5f0dfed839bd524d88d878c15ebf4ded87590deff4117192793e9d8c35066",
+  "retrieval_calls": 8,
+  "retrieval_context_sha256": "541bb8655075917d1ed641af1b0dbcc345fa9f9a14320ee736d3db4fe391d8e7",
+  "retrieval_ms": 78.63120827823877,
+  "scenario": "T04",
+  "status": "planned"
+}

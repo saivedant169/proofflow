@@ -1,0 +1,230 @@
+{
+  "handle_map": {
+    "artifact:company_total:dd96bd43986251b61c95": "31d6f6fdacfe48709a655a054eb552fc:artifact:a8cd23f8b9b59803f9afcdcd0cd1675a58e1072917338e206fa87e831df081ef",
+    "artifact:compose_report:fbb15a331eec5bf2d2d7": "31d6f6fdacfe48709a655a054eb552fc:artifact:f8271e850585554bdb7b680392da06c1b5b84046920c8ceaf15b57b5e5fd7511",
+    "artifact:convert_to_usd:eb27135404d9da2b1469": "31d6f6fdacfe48709a655a054eb552fc:artifact:2c1ab94d76d6da5a614b5b340fbf70fa7ae1019fd8c32cef62b1d5c4bae5d644",
+    "artifact:gross_by_region:9a9d4c47d919f475325c": "31d6f6fdacfe48709a655a054eb552fc:artifact:02e740f1de17b5c93b1120ff77c9a307196c5433d6f2104cbefeb099ec1c6a99",
+    "artifact:net_by_region:15d10b5e8638cd25a577": "31d6f6fdacfe48709a655a054eb552fc:artifact:a5ece5df8ae124c9ff2bfa9bae775ca327e7deb6b1a0b81ca4ca6898fb0e41d0",
+    "artifact:refunds_by_region:d33142ecf1cae50de609": "31d6f6fdacfe48709a655a054eb552fc:artifact:cd6549ae274dca148634277dd622ac3f83215f294d4d5b3a70203272f0e99a87",
+    "artifact:support_by_region:ffcff060c534a171ef4d": "31d6f6fdacfe48709a655a054eb552fc:artifact:5acd8020dd2a7118a433abd037c47a78c9797747abe5f3efdb3c9e4a98625fbc",
+    "source:fx": "31d6f6fdacfe48709a655a054eb552fc:source:c3f3a9fc579e39021846808890f2a9870545a41b45afcfb8157c197fd37c90fe",
+    "source:orders": "31d6f6fdacfe48709a655a054eb552fc:source:914e23d2b75b934ce8c853aaeca78a6166f23d561d80c82aaa83a636ea970482",
+    "source:refunds": "31d6f6fdacfe48709a655a054eb552fc:source:7c333770eb37b73288bcc874256bf82d691c151f76ae61431ddd42b6e300f168",
+    "source:tickets": "31d6f6fdacfe48709a655a054eb552fc:source:5f2a0265b5ea92ccc0ab18d3426e41047d89b46c5f7285b0b7c54531a1d5acd9"
+  },
+  "prompt": {
+    "available": [
+      {
+        "content_sha256": "e52691921262dfaef573b43d4d9ba73714c430f37c407452fe2e761412415173",
+        "description": "Executed from a validated model composition plan",
+        "handle": "artifact:company_total:dd96bd43986251b61c95",
+        "kind": "artifact",
+        "output_paths": {
+          "usd_cents": "USD cents"
+        },
+        "producing_tool": "company_total",
+        "title": "artifact:company_total:dd96bd43986251b61c95",
+        "type": "company_usd"
+      },
+      {
+        "content_sha256": "09f3441e67fd53a919e7a189bf43e4863ec6734f2d97ed8ed1a7b0f2465f803c",
+        "description": "Executed from a validated model composition plan",
+        "handle": "artifact:compose_report:fbb15a331eec5bf2d2d7",
+        "kind": "artifact",
+        "output_paths": {
+          "sections": "structured numeric claims"
+        },
+        "producing_tool": "compose_report",
+        "title": "Company Revenue Report (USD) with EU Support Workload",
+        "type": "report"
+      },
+      {
+        "content_sha256": "526650442cbbbd8b937ad2c64c2143d7f962c451ac307269c78a275e4d0ba2fe",
+        "description": "Executed from a validated model composition plan",
+        "handle": "artifact:convert_to_usd:eb27135404d9da2b1469",
+        "kind": "artifact",
+        "output_paths": {
+          "regions.<region>.usd_cents": "USD cents"
+        },
+        "producing_tool": "convert_to_usd",
+        "title": "artifact:convert_to_usd:eb27135404d9da2b1469",
+        "type": "regional_usd"
+      },
+      {
+        "content_sha256": "29c768fba26a63c4afc2153d3f238ce1a78ad132775067210e4c558eadf77fc3",
+        "description": "Executed from a validated model composition plan",
+        "handle": "artifact:gross_by_region:9a9d4c47d919f475325c",
+        "kind": "artifact",
+        "output_paths": {
+          "regions.<region>.amount_cents": "native-currency cents"
+        },
+        "producing_tool": "gross_by_region",
+        "title": "artifact:gross_by_region:9a9d4c47d919f475325c",
+        "type": "gross_native"
+      },
+      {
+        "content_sha256": "b6dd4e3afc76a0a0addb6452ee36f81e16dce1b5a62aef07a3f328e778b07e0d",
+        "description": "Executed from a validated model composition plan",
+        "handle": "artifact:net_by_region:15d10b5e8638cd25a577",
+        "kind": "artifact",
+        "output_paths": {
+          "regions.<region>.amount_cents": "native-currency cents"
+        },
+        "producing_tool": "net_by_region",
+        "title": "artifact:net_by_region:15d10b5e8638cd25a577",
+        "type": "net_native"
+      },
+      {
+        "content_sha256": "bedda9f8f1d87d1f32d78b7b5fe6643e6e0a7ecd7bfcd5993ffcf4af5bd71c85",
+        "description": "Executed from a validated model composition plan",
+        "handle": "artifact:refunds_by_region:d33142ecf1cae50de609",
+        "kind": "artifact",
+        "output_paths": {
+          "regions.<region>.amount_cents": "native-currency cents"
+        },
+        "producing_tool": "refunds_by_region",
+        "title": "artifact:refunds_by_region:d33142ecf1cae50de609",
+        "type": "refunds_native"
+      },
+      {
+        "content_sha256": "7eb0a8839246e1269473f4b65d6a782e9d6ff5a559d67ae098121831445a9271",
+        "description": "Executed from a validated model composition plan",
+        "handle": "artifact:support_by_region:ffcff060c534a171ef4d",
+        "kind": "artifact",
+        "output_paths": {
+          "regions.<region>.tickets": "tickets"
+        },
+        "producing_tool": "support_by_region",
+        "title": "artifact:support_by_region:ffcff060c534a171ef4d",
+        "type": "support_counts"
+      },
+      {
+        "content_sha256": "493183e7637bc76e0995f3dfc13f2dfe11817bb4463b4bdc1c18287ecf89b02d",
+        "description": "Authored commerce source fx",
+        "handle": "source:fx",
+        "kind": "source",
+        "output_paths": {},
+        "producing_tool": null,
+        "title": "fx",
+        "type": "fx"
+      },
+      {
+        "content_sha256": "18962727f6b52858e7f9cea5259305d519ac7fdaad9e8eb7bd2114b2189831a8",
+        "description": "Authored commerce source orders",
+        "handle": "source:orders",
+        "kind": "source",
+        "output_paths": {},
+        "producing_tool": null,
+        "title": "orders",
+        "type": "orders"
+      },
+      {
+        "content_sha256": "2649889c4198d02d688bcdf29babebca9b40d81198478c1d7fa86b274a10ab74",
+        "description": "Authored commerce source refunds",
+        "handle": "source:refunds",
+        "kind": "source",
+        "output_paths": {},
+        "producing_tool": null,
+        "title": "refunds",
+        "type": "refunds"
+      },
+      {
+        "content_sha256": "bfbe0c7b91a284ab2cc33bfc958f310b16521b2bc0acce5f3bcb4131f0bf3ba8",
+        "description": "Authored commerce source tickets",
+        "handle": "source:tickets",
+        "kind": "source",
+        "output_paths": {},
+        "producing_tool": null,
+        "title": "tickets",
+        "type": "tickets"
+      }
+    ],
+    "regions": [
+      "EU",
+      "UK",
+      "US"
+    ],
+    "task": "Create an EU operations brief from the existing outputs, reusing prior results where possible. Include EU net revenue in USD, EU ticket count, and the company revenue total for context.",
+    "tools": [
+      {
+        "description": "Sum order amounts by region and currency.",
+        "inputs": {
+          "orders": "orders"
+        },
+        "output_paths": {
+          "regions.<region>.amount_cents": "native-currency cents"
+        },
+        "output_type": "gross_native",
+        "tool": "gross_by_region"
+      },
+      {
+        "description": "Join refunds to orders and sum refunded amounts by region.",
+        "inputs": {
+          "orders": "orders",
+          "refunds": "refunds"
+        },
+        "output_paths": {
+          "regions.<region>.amount_cents": "native-currency cents"
+        },
+        "output_type": "refunds_native",
+        "tool": "refunds_by_region"
+      },
+      {
+        "description": "Subtract regional refunds from gross revenue.",
+        "inputs": {
+          "gross": "gross_native",
+          "refunds": "refunds_native"
+        },
+        "output_paths": {
+          "regions.<region>.amount_cents": "native-currency cents"
+        },
+        "output_type": "net_native",
+        "tool": "net_by_region"
+      },
+      {
+        "description": "Convert net regional amounts to USD cents using explicit rates.",
+        "inputs": {
+          "fx": "fx",
+          "net": "net_native"
+        },
+        "output_paths": {
+          "regions.<region>.usd_cents": "USD cents"
+        },
+        "output_type": "regional_usd",
+        "tool": "convert_to_usd"
+      },
+      {
+        "description": "Sum USD regional revenue into company revenue.",
+        "inputs": {
+          "regional": "regional_usd"
+        },
+        "output_paths": {
+          "usd_cents": "USD cents"
+        },
+        "output_type": "company_usd",
+        "tool": "company_total"
+      },
+      {
+        "description": "Count support tickets by region.",
+        "inputs": {
+          "tickets": "tickets"
+        },
+        "output_paths": {
+          "regions.<region>.tickets": "tickets"
+        },
+        "output_type": "support_counts",
+        "tool": "support_by_region"
+      },
+      {
+        "description": "Compose structured numeric claims from explicit artifact inputs.",
+        "inputs": {},
+        "output_paths": {
+          "sections": "structured numeric claims"
+        },
+        "output_type": "report",
+        "tool": "compose_report"
+      }
+    ]
+  },
+  "prompt_sha256": "d3d1f4e06d663efe282a3aa0d5b53655af0523cc4cf105931cdb6153860664a8"
+}

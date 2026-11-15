@@ -1,0 +1,17 @@
+{
+  "arm": "iterative_hybrid",
+  "category": "missing_source",
+  "context_sha256": "9ba3cd42be0327468a1ce5db8031467a5292e804fb2c19d47632bb2a49b71a51",
+  "context_tokens_budgeted": 1909,
+  "corpus_sha256": "a22ff6ae13c16f4e26364458c00e11b17bc2558c6c3db78f92213d224dcd2091",
+  "presented_context_tokens": 1909,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2119,
+  "request_file": "T10/iterative_hybrid/request.json",
+  "request_file_sha256": "d683bdf7a4af5b4a6bb405c1ee71392472189b701f9e92a0b8ce8a4a9c753c11",
+  "retrieval_calls": 6,
+  "retrieval_context_sha256": "acf718445ff0c0f964a54ce962d5cce5e6359e1337fa2f5f565d15323672ef69",
+  "retrieval_ms": 49.35495788231492,
+  "scenario": "T10",
+  "started_at": "2026-11-15T09:58:55.096806+00:00"
+}

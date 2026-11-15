@@ -1,0 +1,98 @@
+{
+  "arm": "bm25",
+  "category": "cross_run",
+  "context_sha256": "d6f5ab7a3c74c27c48b1b95731c43a4e34e786d7cde0b6d967ab4610c1f8a871",
+  "context_tokens_budgeted": 1984,
+  "corpus_sha256": "6b564b95a2d9fea32c88096a6edc6e45191e9255a32ba870682c9d762562a273",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "d6f5ab7a3c74c27c48b1b95731c43a4e34e786d7cde0b6d967ab4610c1f8a871",
+    "provider_result": {
+      "elapsed_seconds": 9.455883332993835,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4449,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4449,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.098672,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 682,
+          "provider": "firstParty",
+          "thinkingTokens": 264,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "Only artifact:2026-W46:refunds@e9e778ccdd93 lists the changed source:refunds:2026-W46@a23fa9c2dda7 as a direct input, so it requires revalidation. No other supplied record has an explicit path to the change. company_brief depends on company@4d33da03df72 and support@bce58d8579f2, and eu_brief depends on usd@092abb7cc465 and support@bce58d8579f2; the records for company, usd and support are not supplied, so no link from them back to the refunds artifact or source can be established without assuming omitted records. Those two briefs may be affected in reality, but the evidence does not support selecting them. support_brief depends only on support. The W46 and W44 gross artifacts depend only on orders sources and the gross_by_region tool, which are unchanged. No W45 records were supplied. This is a plan only; nothing was recomputed.",
+        "selected_ids": [
+          "artifact:2026-W46:refunds@e9e778ccdd93"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.098672,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4449,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4449,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4449,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4449,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 682,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 682,
+        "output_tokens_details": {
+          "thinking_tokens": 264
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "Only artifact:2026-W46:refunds@e9e778ccdd93 lists the changed source:refunds:2026-W46@a23fa9c2dda7 as a direct input, so it requires revalidation. No other supplied record has an explicit path to the change. company_brief depends on company@4d33da03df72 and support@bce58d8579f2, and eu_brief depends on usd@092abb7cc465 and support@bce58d8579f2; the records for company, usd and support are not supplied, so no link from them back to the refunds artifact or source can be established without assuming omitted records. Those two briefs may be affected in reality, but the evidence does not support selecting them. support_brief depends only on support. The W46 and W44 gross artifacts depend only on orders sources and the gross_by_region tool, which are unchanged. No W45 records were supplied. This is a plan only; nothing was recomputed.",
+    "request_sha256": "cb8dab400e49cee5576ec8c81ea2b26bf4ed161546daa838e0dc7d36e74e2a46",
+    "selected_ids": [
+      "artifact:2026-W46:refunds@e9e778ccdd93"
+    ]
+  },
+  "presented_context_tokens": 1984,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2216,
+  "request_file": "T02/bm25/request.json",
+  "request_file_sha256": "f97ee2d5c0275fa70b08b0b81cfe7d80317449f1c132146290ff6b4bec183ab1",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "0d71e4d6a2e83a62df8431a81760187ca49f71d3fd2f0ebb044a6b7d40d798c9",
+  "retrieval_ms": 0.30470872297883034,
+  "scenario": "T02",
+  "status": "planned"
+}

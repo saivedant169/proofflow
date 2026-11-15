@@ -1,20 +1,20 @@
 {
-  "timestamp_utc": "2026-11-15T09:39:07.414200+00:00",
+  "timestamp_utc": "2026-11-15T10:23:15.233971+00:00",
   "backend": "HydraDB OSS live; native graph traversal; no fallback",
-  "case_id": "core-smoke-fe5724222d294912",
+  "case_id": "core-smoke-53652447080a4370",
   "application_reopen_tested": true,
   "database_restart_requested": false,
   "graph_replayed_from_application": false,
   "data": "Authored commerce fixture; actual SQLite tools; staged EUR exchange-rate correction",
   "oracle_scope": "Fresh recipe execution independent of graph/cache, with separate known numeric fixture assertions",
-  "state_directory": ".state/core-smoke-fe5724222d294912",
+  "state_directory": ".state/core-smoke-53652447080a4370",
   "final_state": "fx source intentionally removed at the end to prove missing-source refusal",
   "code_hashes": {
     "analytics.py": "cca3a122cf9884e38323cfefca105c65fd3a462950994ec9822d76abc413ff86",
     "artifacts.py": "068bc264a5184800dc9bb9f11600977526eeccdb52e7dc9cd6282c7a4bd507e2",
-    "graph.py": "48c2ced679cf419208ba5c498819648c67db9b4ab2d263d7332a1ff5beb48eb1",
+    "graph.py": "ba409e28f945dd57b8ab3b7a1b3475c22a17038ef9942f0ce1bf3715c8faf091",
     "models.py": "bf0e046db1615411afa727a70088ecc0bc8e7820318b4582a03d25270e1e49e9",
-    "runtime.py": "06dc175c5c8592c13d67c838ed26bae70b533951e15e38f98faf27d5216db671"
+    "runtime.py": "17312dbb90b3d46590cd88466379d9a95a787a292597bf024894d4d0a1e756ba"
   },
   "checks": {
     "known_initial_eu_cents": true,
@@ -47,45 +47,45 @@
     "fixture_setup": {
       "native_queries": 202,
       "mutation_requests": 85,
-      "elapsed_ms": 1746.863
+      "elapsed_ms": 1746.694
     },
     "source_mutation": {
       "native_queries": 2,
       "mutation_requests": 1,
-      "elapsed_ms": 9.249
+      "elapsed_ms": 9.314
     },
     "impact_and_claim_checks": {
       "native_queries": 16,
       "mutation_requests": 0,
-      "elapsed_ms": 39.871
+      "elapsed_ms": 42.9
     },
     "selective_refresh": {
       "native_queries": 124,
       "mutation_requests": 38,
-      "elapsed_ms": 919.399
+      "elapsed_ms": 906.899
     },
     "post_refresh_verification": {
       "native_queries": 8,
       "mutation_requests": 0,
-      "elapsed_ms": 18.77
+      "elapsed_ms": 28.182
     },
     "application_reopen_new_client": {
       "native_queries": 9,
       "mutation_requests": 0,
-      "elapsed_ms": 17.164
+      "elapsed_ms": 21.737
     },
     "missing_source_refusal": {
       "native_queries": 14,
       "mutation_requests": 1,
-      "elapsed_ms": 34.57
+      "elapsed_ms": 33.626
     }
   },
   "native_queries_total": 375,
   "mutation_requests_total": 125,
-  "elapsed_seconds": 2.82,
+  "elapsed_seconds": 2.84,
   "details": {
-    "namespace": "core-smoke-fe5724222d294912-79359aeb74924f91bfcdf20e9293dbbc",
-    "workspace": "79359aeb74924f91bfcdf20e9293dbbc",
+    "namespace": "core-smoke-53652447080a4370-f4cd72f11e3e4b83ab9f31cd2a90aef7",
+    "workspace": "f4cd72f11e3e4b83ab9f31cd2a90aef7",
     "affected_logical_ids": [
       "metric:company",
       "metric:regional",
@@ -96,27 +96,27 @@
       {
         "tool": "convert_to_usd",
         "status": "success",
-        "elapsed_ms": 0.07
+        "elapsed_ms": 0.074
       },
       {
         "tool": "company_total",
         "status": "success",
-        "elapsed_ms": 0.024
+        "elapsed_ms": 0.038
       },
       {
         "tool": "compose_report",
         "status": "success",
-        "elapsed_ms": 0.031
+        "elapsed_ms": 0.04
       },
       {
         "tool": "compose_report",
         "status": "success",
-        "elapsed_ms": 0.022
+        "elapsed_ms": 0.04
       }
     ],
     "fresh_report_ids": {
-      "report_a": "79359aeb74924f91bfcdf20e9293dbbc:artifact:d95d0c86f7a5e7ef1b88d2abd05c1d3c6fbedb2c372d225d75d8004785138343",
-      "report_b": "79359aeb74924f91bfcdf20e9293dbbc:artifact:b3888c42095a25a38ef56eeddf6bf438e8b65ace085c699fd5ee956ba3820cff"
+      "report_a": "f4cd72f11e3e4b83ab9f31cd2a90aef7:artifact:c8ee94298283d76ce863e2ed1a6481a982c6e216e9cf4e3324fab062b14d96b8",
+      "report_b": "f4cd72f11e3e4b83ab9f31cd2a90aef7:artifact:1cf30d8b57969ed902729c5ace9cd673a9e9794dc25b4c5d6aabaec912376c62"
     }
   },
   "error": null

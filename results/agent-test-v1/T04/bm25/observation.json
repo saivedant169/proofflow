@@ -1,0 +1,100 @@
+{
+  "arm": "bm25",
+  "category": "fan_in",
+  "context_sha256": "c0cd5472bad893154b34411765a786c2c87914c6da423c52322813852629e45b",
+  "context_tokens_budgeted": 1998,
+  "corpus_sha256": "c0099ac61b0b82147afe7558a0f94aa1eea715bc6718528875cdc3ce90e1ba32",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "c0cd5472bad893154b34411765a786c2c87914c6da423c52322813852629e45b",
+    "provider_result": {
+      "elapsed_seconds": 11.01337066711858,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4462,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4462,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.10912,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 938,
+          "provider": "firstParty",
+          "thinkingTokens": 427,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed version source:orders:2026-W45@3a1ff40427e5 is a direct input of artifact:2026-W45:gross@6a8a874934fc and artifact:2026-W45:refunds@0bc0e7a39a47, so both need revalidation. No other supplied record has an explicit path to the change. company_brief@958f33986dbc depends on artifact:2026-W45:company@802152e6e0e0 and eu_brief@75969a5c3b3e depends on artifact:2026-W45:usd@8ea5f5b9ddab, but no records for those intermediates (or for support@e73a4abfe25e) were supplied, so their link back to the orders source cannot be established from this evidence. The task wording suggests the company summary uses the restated order, so both briefs should be rechecked once the intermediate records are available. support_brief@917a014d75b5 depends only on the support artifact, and W44 gross@a8de1424c291 depends on the unchanged W44 orders source; neither is selected. No W46 records were supplied. This is a revalidation plan only, not a claim that any numbers changed.",
+        "selected_ids": [
+          "artifact:2026-W45:gross@6a8a874934fc",
+          "artifact:2026-W45:refunds@0bc0e7a39a47"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.10912,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4462,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4462,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4462,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4462,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 938,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 938,
+        "output_tokens_details": {
+          "thinking_tokens": 427
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed version source:orders:2026-W45@3a1ff40427e5 is a direct input of artifact:2026-W45:gross@6a8a874934fc and artifact:2026-W45:refunds@0bc0e7a39a47, so both need revalidation. No other supplied record has an explicit path to the change. company_brief@958f33986dbc depends on artifact:2026-W45:company@802152e6e0e0 and eu_brief@75969a5c3b3e depends on artifact:2026-W45:usd@8ea5f5b9ddab, but no records for those intermediates (or for support@e73a4abfe25e) were supplied, so their link back to the orders source cannot be established from this evidence. The task wording suggests the company summary uses the restated order, so both briefs should be rechecked once the intermediate records are available. support_brief@917a014d75b5 depends only on the support artifact, and W44 gross@a8de1424c291 depends on the unchanged W44 orders source; neither is selected. No W46 records were supplied. This is a revalidation plan only, not a claim that any numbers changed.",
+    "request_sha256": "d7be55375cb79be0180a6cf5a1a480f7a9d3a3dfba94b9f2a8c394c202b236cb",
+    "selected_ids": [
+      "artifact:2026-W45:gross@6a8a874934fc",
+      "artifact:2026-W45:refunds@0bc0e7a39a47"
+    ]
+  },
+  "presented_context_tokens": 1998,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2228,
+  "request_file": "T04/bm25/request.json",
+  "request_file_sha256": "4874db27b60d11332261d77096ffd034962f4ebdf88df78d1c34089b34fa757e",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "e0eb01ec7549efee95f4c9ec77b6a74f9fdcf4f7835b335f4c1c528b0400f3e3",
+  "retrieval_ms": 0.2377079799771309,
+  "scenario": "T04",
+  "status": "planned"
+}

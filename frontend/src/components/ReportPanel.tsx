@@ -1,0 +1,35 @@
+import { ArrowUpRight, Check, CircleAlert, Layers } from 'lucide-react'
+import type { Claim, WorkspaceState } from '../lib/types'
+import { formatValue } from '../lib/format'
+import Status from './Status'
+
+function Metric({ claim, main = false, onInspect }: { claim?: Claim; main?: boolean; onInspect: (id: string) => void }) {
+  if (!claim) return <div className="metric-missing">This claim is unavailable.</div>
+  const current = claim.state === 'current' && claim.value !== null
+  return <button className={`metric ${main ? 'metric-main' : ''} ${current ? '' : 'metric-withheld'}`} onClick={() => onInspect(claim.artifact_id)} aria-label={`Inspect evidence for ${claim.label}`}>
+    {!main && <span className="metric-label">{claim.label}<ArrowUpRight size={14} /></span>}
+    <strong>{current ? formatValue(claim.value, claim.unit) : claim.state === 'stale' ? 'Awaiting refresh' : 'Unavailable'}</strong>
+    {main && <span className="metric-label">Company revenue · USD <ArrowUpRight size={14} /></span>}
+    {!current && <span className="historical">Previously {formatValue(claim.saved_value, claim.unit)}</span>}
+    {current && !main && <span className="metric-current"><Check size={12} /> Current</span>}
+  </button>
+}
+
+export default function ReportPanel({ state, onInspect }: { state: WorkspaceState; onInspect: (id: string) => void }) {
+  const company = state.reports.find(report => report.key === 'company') ?? state.reports[0]
+  const allClaims = state.reports.flatMap(report => report.claims)
+  const revenue = allClaims.find(claim => claim.key === 'company_revenue')
+  const eu = allClaims.find(claim => claim.key === 'eu_revenue')
+  const support = allClaims.find(claim => claim.key === 'eu_support')
+  const withheld = allClaims.some(claim => claim.state !== 'current')
+  return <section className="report-panel panel" aria-labelledby="report-title">
+    <div className="report-top"><span>{company?.title ?? 'Company weekly report'}</span><Status state={company?.state ?? 'unknown'} compact /></div>
+    <h2 id="report-title">The week, with its working attached.</h2>
+    {withheld && <p className="withheld-notice"><CircleAlert size={17} /><span>A source changed. Affected claims are withheld until recomputed.</span></p>}
+    <Metric claim={revenue} main onInspect={onInspect} />
+    <div className="secondary-metrics"><Metric claim={eu} onInspect={onInspect} /><Metric claim={support} onInspect={onInspect} /></div>
+    <div className="report-provenance"><div className="provenance-title"><Layers size={16} /><strong>Composed from two runs</strong></div>
+      {state.reports.map((report, index) => <button key={report.id} onClick={() => onInspect(report.id)}><span>Run {index + 1} · {report.title}</span><ArrowUpRight size={14} /></button>)}
+    </div>
+  </section>
+}

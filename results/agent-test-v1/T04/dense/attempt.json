@@ -1,0 +1,17 @@
+{
+  "arm": "dense",
+  "category": "fan_in",
+  "context_sha256": "0f48a8d7f2e59fb65b68983e7af4f3f33a72e253fe623a1bc3e26d76e25485dd",
+  "context_tokens_budgeted": 2030,
+  "corpus_sha256": "c0099ac61b0b82147afe7558a0f94aa1eea715bc6718528875cdc3ce90e1ba32",
+  "presented_context_tokens": 2030,
+  "presented_records": 7,
+  "prompt_tokens_cl100k_estimate": 2232,
+  "request_file": "T04/dense/request.json",
+  "request_file_sha256": "2ae9e54e45a08772c00237470b9acafc9c3b6f23b41448762cd23cf9fd4bf3a9",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "fdb6338323bf7bb92dbebbb9d41ec3a770e5ab8c7a332da33a13c6c09332f350",
+  "retrieval_ms": 12.416708748787642,
+  "scenario": "T04",
+  "started_at": "2026-11-15T09:57:16.499042+00:00"
+}

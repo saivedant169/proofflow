@@ -1,0 +1,102 @@
+{
+  "arm": "dense",
+  "category": "fan_in",
+  "context_sha256": "0f48a8d7f2e59fb65b68983e7af4f3f33a72e253fe623a1bc3e26d76e25485dd",
+  "context_tokens_budgeted": 2030,
+  "corpus_sha256": "c0099ac61b0b82147afe7558a0f94aa1eea715bc6718528875cdc3ce90e1ba32",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "0f48a8d7f2e59fb65b68983e7af4f3f33a72e253fe623a1bc3e26d76e25485dd",
+    "provider_result": {
+      "elapsed_seconds": 6.806014707777649,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4343,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4343,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.086696,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 425,
+          "provider": "firstParty",
+          "thinkingTokens": 85,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed version source:orders:2026-W45@3a1ff40427e5 is a direct input of the W45 gross and W45 refunds artifacts. The W45 net artifact takes both of those as inputs, so it is affected transitively. The W44 and W46 artifacts depend only on their own weeks' order and refund sources and on unchanged tool versions, so no path reaches them. The company summary named in the task is not among the supplied records, so it cannot be selected; if it exists, it would need revalidation downstream of W45 net.",
+        "selected_ids": [
+          "artifact:2026-W45:gross@6a8a874934fc",
+          "artifact:2026-W45:refunds@0bc0e7a39a47",
+          "artifact:2026-W45:net@35c96896d0f0"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.086696,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4343,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4343,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4343,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4343,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 425,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 425,
+        "output_tokens_details": {
+          "thinking_tokens": 85
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed version source:orders:2026-W45@3a1ff40427e5 is a direct input of the W45 gross and W45 refunds artifacts. The W45 net artifact takes both of those as inputs, so it is affected transitively. The W44 and W46 artifacts depend only on their own weeks' order and refund sources and on unchanged tool versions, so no path reaches them. The company summary named in the task is not among the supplied records, so it cannot be selected; if it exists, it would need revalidation downstream of W45 net.",
+    "request_sha256": "31d261d390ce761a9e324ac854079d5a694c3ee3fba1d1c63136736cc34c0b4f",
+    "selected_ids": [
+      "artifact:2026-W45:gross@6a8a874934fc",
+      "artifact:2026-W45:refunds@0bc0e7a39a47",
+      "artifact:2026-W45:net@35c96896d0f0"
+    ]
+  },
+  "presented_context_tokens": 2030,
+  "presented_records": 7,
+  "prompt_tokens_cl100k_estimate": 2232,
+  "request_file": "T04/dense/request.json",
+  "request_file_sha256": "2ae9e54e45a08772c00237470b9acafc9c3b6f23b41448762cd23cf9fd4bf3a9",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "fdb6338323bf7bb92dbebbb9d41ec3a770e5ab8c7a332da33a13c6c09332f350",
+  "retrieval_ms": 12.416708748787642,
+  "scenario": "T04",
+  "status": "planned"
+}

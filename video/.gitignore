@@ -1,0 +1,5 @@
+.work/
+*.mp4
+!proofflow-walkthrough.mp4
+*.aiff
+*.wav

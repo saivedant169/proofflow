@@ -1,0 +1,77 @@
+{
+  "code": {
+    "revision": "ac712607584761a872365a458688d50d7a4ea50d",
+    "staged_diff": false,
+    "tracked_diff": true
+  },
+  "configuration": {
+    "benchmark_version": "pilot-v1",
+    "bm25": {
+      "b": 0.75,
+      "k1": 1.5
+    },
+    "budgets": [
+      512,
+      1024,
+      2048
+    ],
+    "claim": "small authored retrieval-and-refresh pilot, not universal graph-store superiority",
+    "dense_chunk_overlap": 64,
+    "dense_chunk_tokens": 384,
+    "dense_document_score": "maximum cosine across all overlapping chunks",
+    "dense_model": "BAAI/bge-small-en-v1.5",
+    "evidence_aliases": "human-readable logical_id plus deterministic content/recipe/input-version digest; all arms identical",
+    "exact_id_seeding": true,
+    "execution_arms": [
+      "bm25",
+      "dense",
+      "hybrid",
+      "iterative_hybrid",
+      "graph",
+      "exact_flat",
+      "full_context"
+    ],
+    "graph_depth": 15,
+    "heldout_composition_status": "deterministic recipe pilot; not agent-chosen until separate agent run",
+    "iterative_round_width": 3,
+    "iterative_rounds": "corpus_size",
+    "main_budget": 2048,
+    "reader": "deterministic transitive reader restricted to returned evidence",
+    "record_serialization": "EvidenceRecord.render/v1",
+    "rrf_constant": 60,
+    "tokenizer": "cl100k_base"
+  },
+  "database": "HydraDB OSS; native bounded FLOW traversals; no memory fallback",
+  "embedding": {
+    "cache_dir": "/Users/saivedanthava/Desktop/HydraDB/proofflow/.cache/fastembed",
+    "chunking": {
+      "document_score": "max cosine over chunks",
+      "model_tokens": 384,
+      "overlap": 64,
+      "truncation": "none"
+    },
+    "fastembed_version": "0.9.1",
+    "implementation": "fastembed.TextEmbedding (ONNX, CPU)",
+    "model": "BAAI/bge-small-en-v1.5",
+    "model_directory": "/Users/saivedanthava/Desktop/HydraDB/proofflow/.cache/fastembed/models--Qdrant--bge-small-en-v1.5-onnx-Q/snapshots/aa8f8b060edb00e03bfdd08813a2949946c8ba55",
+    "model_file_sha256": {
+      "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+      "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+    },
+    "numpy_version": "2.5.4"
+  },
+  "execution_isolation": "Independent SQLite/blob heads, immutable original graph; all rankings frozen before any refresh",
+  "experiment": "deterministic selected-evidence reader followed by actual tool refresh",
+  "finished_at": "2026-11-15T09:43:25.639039+00:00",
+  "fixture_manifest_sha256": "408255c4a93185b7124fe1f213fe76c448eceeae2323fa5bba1f7e7725d21ff4",
+  "numeric_oracle": "Independent Python arithmetic over authored recipes and current fixture data; no runtime arithmetic/graph/cache",
+  "partial_run": true,
+  "scenarios": [
+    "D02"
+  ],
+  "spec_sha256": "f9d06ebbb9e7af23b7c1ab6b1d6fa998124fad7b54dc1821bfd536e35ae0b57e",
+  "split": "dev",
+  "started_at": "2026-11-15T09:43:11.692945+00:00"
+}

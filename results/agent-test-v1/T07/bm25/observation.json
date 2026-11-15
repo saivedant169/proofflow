@@ -1,0 +1,102 @@
+{
+  "arm": "bm25",
+  "category": "multiple_sources",
+  "context_sha256": "127f930715229ca90f4863252f58b56764597ee7c46aa8edf22fb12dc28ecc13",
+  "context_tokens_budgeted": 2030,
+  "corpus_sha256": "ecf0bd539a65b057fc18b53477b17e23393bbc3cfb793f4a08f8f1f1467bef4f",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "127f930715229ca90f4863252f58b56764597ee7c46aa8edf22fb12dc28ecc13",
+    "provider_result": {
+      "elapsed_seconds": 11.364503875374794,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4494,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4494,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.116872,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1119,
+          "provider": "firstParty",
+          "thinkingTokens": 512,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "Three supplied artifacts have an explicit dependency path to a changed version. artifact:2026-W45:refunds@0bc0e7a39a47 lists the changed source:refunds:2026-W45@ac79db72811e as a direct input. artifact:2026-W46:support@bce58d8579f2 lists the changed source:tickets:2026-W46@d82b0f898703 as a direct input. artifact:2026-W46:company_brief@add154075434 takes artifact:2026-W46:support@bce58d8579f2 as an input, so the ticket change reaches it transitively. Not selected: artifact:2026-W45:company_brief@958f33986dbc depends on artifact:2026-W45:company@802152e6e0e0 and artifact:2026-W45:support@e73a4abfe25e; no record for the W45 company artifact is supplied, so no path from the W45 refund change to this brief is supported by the evidence. artifact:2026-W46:refunds@e9e778ccdd93 uses only unchanged W46 orders and refunds sources. artifact:2026-W45:support_brief@917a014d75b5 depends only on W45 support, which is unchanged. No records for 2026-W44 were supplied. This is a revalidation plan only; nothing has been recomputed and no claim is made that the stored numbers changed.",
+        "selected_ids": [
+          "artifact:2026-W45:refunds@0bc0e7a39a47",
+          "artifact:2026-W46:support@bce58d8579f2",
+          "artifact:2026-W46:company_brief@add154075434"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.116872,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4494,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4494,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4494,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4494,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1119,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1119,
+        "output_tokens_details": {
+          "thinking_tokens": 512
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "Three supplied artifacts have an explicit dependency path to a changed version. artifact:2026-W45:refunds@0bc0e7a39a47 lists the changed source:refunds:2026-W45@ac79db72811e as a direct input. artifact:2026-W46:support@bce58d8579f2 lists the changed source:tickets:2026-W46@d82b0f898703 as a direct input. artifact:2026-W46:company_brief@add154075434 takes artifact:2026-W46:support@bce58d8579f2 as an input, so the ticket change reaches it transitively. Not selected: artifact:2026-W45:company_brief@958f33986dbc depends on artifact:2026-W45:company@802152e6e0e0 and artifact:2026-W45:support@e73a4abfe25e; no record for the W45 company artifact is supplied, so no path from the W45 refund change to this brief is supported by the evidence. artifact:2026-W46:refunds@e9e778ccdd93 uses only unchanged W46 orders and refunds sources. artifact:2026-W45:support_brief@917a014d75b5 depends only on W45 support, which is unchanged. No records for 2026-W44 were supplied. This is a revalidation plan only; nothing has been recomputed and no claim is made that the stored numbers changed.",
+    "request_sha256": "54f753145f703472a42a197fefe7935aa2dbc1d03015a345959ba4c6525f2e78",
+    "selected_ids": [
+      "artifact:2026-W45:refunds@0bc0e7a39a47",
+      "artifact:2026-W46:support@bce58d8579f2",
+      "artifact:2026-W46:company_brief@add154075434"
+    ]
+  },
+  "presented_context_tokens": 2030,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2274,
+  "request_file": "T07/bm25/request.json",
+  "request_file_sha256": "e0c3cdbeafb6a1492d4917ba74ecf8d6d8d270978e80b81dd11b0fbd6d7db2b7",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "30aeab3d5e4a0c98e291b0bacab6a2b0fa8f7c92b85b081e26a900823c4bfe12",
+  "retrieval_ms": 0.3209998831152916,
+  "scenario": "T07",
+  "status": "planned"
+}

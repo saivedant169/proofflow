@@ -1,0 +1,160 @@
+{
+  "format": "Edited screenshots of actual application states with narration; not an uninterrupted live recording",
+  "duration_seconds": 120.0,
+  "bytes": 4964280,
+  "sha256": "8a2cd4df5fd368b460405a095a284827c8e9040db74cf86cf79d47b79f1a728d",
+  "source_image_sha256": {
+    "../evidence/ui/workspace-final.jpg": "c108e939bcd16380a5eb2400a5d1ba44879f2927a4ceb1b561c672602bd71a7a",
+    "../evidence/ui/workspace-stale-final.jpg": "f7563cccc534316122f44c49f96f35a88843ab791fbe6d006016955c4230338b",
+    "../evidence/ui/source-drawer.jpg": "0c2706d31a0565906f4893bb8bca1ca050b4a54d6fb19705f4fd0625406c1781",
+    "../evidence/ui/evidence-path-final.jpg": "885ed167a659d3e5e506afe4f0a0a9c1cd2fae9a8c9090fb8a8a85cea19a6322",
+    "../evidence/ui/workspace-refreshed-final.jpg": "65def42bed5a36425e7e137f70613fc87339a80cdf399b54d3a7ccda8ff115b0",
+    "../evidence/ui/benchmark-primary.jpg": "c28fff4c80401f8344dfa88a8be6336e4ec01b638c4e070e650cc401fecec112",
+    "../evidence/ui/recorded-agent-detail.jpg": "e43477f69fdc996f50575379c5770f4b031313c6b9f4b0797eb9956c770b606d"
+  },
+  "narration": {
+    "voice": "Samantha",
+    "rate": 145,
+    "raw_seconds": 110.131021,
+    "speed_adjustment": 0.9593294512195123,
+    "target_seconds": 120.0,
+    "scenes": [
+      {
+        "scene": "opening",
+        "path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/video/.work/opening.aiff",
+        "raw_seconds": 17.694014
+      },
+      {
+        "scene": "change",
+        "path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/video/.work/change.aiff",
+        "raw_seconds": 12.243583
+      },
+      {
+        "scene": "evidence",
+        "path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/video/.work/evidence.aiff",
+        "raw_seconds": 7.410068
+      },
+      {
+        "scene": "refresh",
+        "path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/video/.work/refresh.aiff",
+        "raw_seconds": 14.217234
+      },
+      {
+        "scene": "benchmark",
+        "path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/video/.work/benchmark.aiff",
+        "raw_seconds": 26.645215
+      },
+      {
+        "scene": "composition",
+        "path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/video/.work/composition.aiff",
+        "raw_seconds": 18.455964
+      },
+      {
+        "scene": "csv",
+        "path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/video/.work/csv.aiff",
+        "raw_seconds": 6.724308
+      },
+      {
+        "scene": "closing",
+        "path": "/Users/saivedanthava/Desktop/HydraDB/proofflow/video/.work/closing.aiff",
+        "raw_seconds": 6.740635
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "scene": "opening",
+      "start": 0.0,
+      "end": 19.094147604878735,
+      "image": "../evidence/ui/workspace-final.jpg",
+      "crop_box": [
+        0,
+        85,
+        1536,
+        750
+      ]
+    },
+    {
+      "scene": "change",
+      "start": 19.094147604878735,
+      "end": 32.50679445621411,
+      "image": "../evidence/ui/workspace-stale-final.jpg",
+      "crop_box": [
+        0,
+        250,
+        1536,
+        860
+      ]
+    },
+    {
+      "scene": "evidence",
+      "start": 32.50679445621411,
+      "end": 40.88101056422604,
+      "image": "../evidence/ui/evidence-path-final.jpg",
+      "crop_box": [
+        0,
+        0,
+        1536,
+        750
+      ]
+    },
+    {
+      "scene": "refresh",
+      "start": 40.88101056422604,
+      "end": 56.350980890297926,
+      "image": "../evidence/ui/workspace-refreshed-final.jpg",
+      "crop_box": [
+        0,
+        250,
+        1536,
+        810
+      ]
+    },
+    {
+      "scene": "benchmark",
+      "start": 56.350980890297926,
+      "end": 84.77581357799271,
+      "image": "../evidence/ui/benchmark-primary.jpg",
+      "crop_box": [
+        105,
+        8,
+        1430,
+        805
+      ]
+    },
+    {
+      "scene": "composition",
+      "start": 84.77581357799271,
+      "end": 104.66421387576166,
+      "image": "../evidence/ui/recorded-agent-detail.jpg",
+      "crop_box": [
+        105,
+        300,
+        1430,
+        980
+      ]
+    },
+    {
+      "scene": "csv",
+      "start": 104.66421387576166,
+      "end": 112.32359734819855,
+      "image": null,
+      "crop_box": null
+    },
+    {
+      "scene": "closing",
+      "start": 112.32359734819855,
+      "end": 119.99999999999999,
+      "image": "../evidence/ui/workspace-refreshed-final.jpg",
+      "crop_box": [
+        0,
+        250,
+        1536,
+        810
+      ]
+    }
+  ],
+  "captions": "Burned editorial captions plus an optional embedded text track.",
+  "hosting_url": null,
+  "screens_approved": true
+}

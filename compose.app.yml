@@ -1,0 +1,32 @@
+# Add the application to the local/private HydraDB stack:
+# docker compose -f docker-compose.yml -f compose.app.yml up -d --build
+services:
+  app-state-init:
+    image: alpine:3.22
+    user: "0:0"
+    command: ["sh", "-c", "mkdir -p /data/sessions && chown -R 10001:10001 /data"]
+    volumes:
+      - app-state:/data
+  app:
+    build: .
+    depends_on:
+      hydradb:
+        condition: service_started
+      app-state-init:
+        condition: service_completed_successfully
+    environment:
+      PROOFFLOW_HYDRA_URL: http://hydradb:8443
+      PROOFFLOW_HYDRA_TOKEN_FILE: /run/secrets/hydra_token
+      PROOFFLOW_STATE_DIR: /data/sessions
+      PROOFFLOW_STATIC_DIR: /app/frontend/dist
+      PROOFFLOW_MAX_SESSIONS: "16"
+      PROOFFLOW_SESSION_TTL_SECONDS: "3600"
+    secrets:
+      - hydra_token
+    volumes:
+      - app-state:/data
+    ports:
+      - "127.0.0.1:18080:8000"
+    restart: unless-stopped
+volumes:
+  app-state:

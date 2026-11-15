@@ -1,0 +1,26 @@
+{
+  "kind": "CSV ingestion integration smoke; authored non-EU fixture, not customer data or held-out benchmark",
+  "checked_at": "2026-11-15T10:05:54.479819+00:00",
+  "git_base": "5ce5441b603d632a0c5a6267396e375e65825e43",
+  "source_sha256": {
+    "proofflow/importing.py": "88791861f3df38f34f1100d0b0934f9f9dc311ab1c856e2bff8428f59dc34637",
+    "scripts/import_csv.py": "d83b4da2ac5f1b908eb22096df756b0439e33e6754a0c35c14aa9b01d051fe13"
+  },
+  "checks": {
+    "native_hydra_queries": true,
+    "known_initial_values": [
+      28800,
+      19800
+    ],
+    "known_corrected_values": [
+      30600,
+      21600
+    ],
+    "affected_artifacts": 4,
+    "actual_refresh_tools": 4,
+    "support_identity_preserved": true,
+    "reopened_workspace_each_invocation": true,
+    "row_reordering_executes_zero_tools": true,
+    "no_eu_region_required": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "arm": "dense",
+  "category": "cross_run",
+  "context_sha256": "d27d3340a66f6917e91cfe9e5a7e16e3d578a4a5e6fde95757a2c78e21f5b551",
+  "context_tokens_budgeted": 1869,
+  "corpus_sha256": "6b564b95a2d9fea32c88096a6edc6e45191e9255a32ba870682c9d762562a273",
+  "presented_context_tokens": 1869,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2057,
+  "request_file": "T02/dense/request.json",
+  "request_file_sha256": "3bfdd7bf3380c332b615daab9ff6a685b7b7c7f7ec8b9423499f496ece401e26",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "811bfed19d70cab6b75baad7f931e6b00c5114e14592e54062a7e79ec45e153d",
+  "retrieval_ms": 10.746750049293041,
+  "scenario": "T02",
+  "started_at": "2026-11-15T09:56:48.681388+00:00"
+}

@@ -1,0 +1,141 @@
+{
+  "case_sha256": {
+    "D02": "ce3ec54b192324954c1572925fdcb2252774fb8516ff986fe4cb68f8031cb979"
+  },
+  "code": {
+    "revision": "b03123b16d98ac776bca2c049894630dfe19fb9a",
+    "tracked_changes": true
+  },
+  "code_sha256": {
+    "docs/BENCHMARK_MANIFEST.json": "21fb48da354beac55dc0a0fbfd40068a52fce4656165aba0ea991449290d1269",
+    "proofflow/agent.py": "56e9dd57a50ca611e02f0c2336b37a5cc6aba80e635adbd8989666f3e92075f6",
+    "proofflow/analytics.py": "cca3a122cf9884e38323cfefca105c65fd3a462950994ec9822d76abc413ff86",
+    "proofflow/artifacts.py": "068bc264a5184800dc9bb9f11600977526eeccdb52e7dc9cd6282c7a4bd507e2",
+    "proofflow/eval/cases.py": "c6a7bb617964fb9905c12cb301061474d6753eceffd865e223083897dcee0f3b",
+    "proofflow/eval/execution.py": "402296a8323ffb85f01856ea0edfd7410a8c6255a5a3ae06f3d805ccfe6ed535",
+    "proofflow/eval/retrieval.py": "cba16c3e14c8303d23f187580955c861c48427088c3f69120d30b2ba28edd201",
+    "proofflow/eval/workload.py": "17cbd1d42d424f01c743c65d1a3fdf6a486c48406a0247ea39383e7334876445",
+    "proofflow/graph.py": "ba409e28f945dd57b8ab3b7a1b3475c22a17038ef9942f0ce1bf3715c8faf091",
+    "proofflow/models.py": "bf0e046db1615411afa727a70088ecc0bc8e7820318b4582a03d25270e1e49e9",
+    "proofflow/runtime.py": "17312dbb90b3d46590cd88466379d9a95a787a292597bf024894d4d0a1e756ba",
+    "scripts/agent_compare.py": "6b3d18ce6ba06dc4e0e838b6ae020c7094212a64b046eb17f26683b6f563e9c3"
+  },
+  "configured_total_cost_cap_usd": 4.0,
+  "initial_store_sha256": {
+    "D02": "601241bba4cd9ddfe10a8db4bef7bfa686190fdd4f13f0166d7cccd2e205849f"
+  },
+  "jobs": [
+    {
+      "arm": "bm25",
+      "category": "multi_hop",
+      "context_sha256": "557c2ecb34dea3cf5d59a8b6ef9732802c1012011d47d96fb8a0c71e0618bc6b",
+      "context_tokens_budgeted": 1958,
+      "corpus_sha256": "32277476870ea3bd76d168578d673286e24caf1a0da34dc5d7d1b7bf7bc8b814",
+      "presented_context_tokens": 1958,
+      "presented_records": 6,
+      "prompt_tokens_cl100k_estimate": 2183,
+      "request_file": "D02/bm25/request.json",
+      "request_file_sha256": "ba6bfdacfd975e0c51e606c059fa7468dfac35b57d78a7b4fb12279f2f7bfc80",
+      "retrieval_calls": 1,
+      "retrieval_context_sha256": "de368a97bc4c1b55f59cefac0260fd860e175c305b8a290434b39cf2cc1ea0a1",
+      "retrieval_ms": 0.258082989603281,
+      "scenario": "D02"
+    },
+    {
+      "arm": "dense",
+      "category": "multi_hop",
+      "context_sha256": "c0e8f6cd8fe3e05185599a22763ff3240af91faebee1b73203d60634a2041e17",
+      "context_tokens_budgeted": 2040,
+      "corpus_sha256": "32277476870ea3bd76d168578d673286e24caf1a0da34dc5d7d1b7bf7bc8b814",
+      "presented_context_tokens": 2040,
+      "presented_records": 7,
+      "prompt_tokens_cl100k_estimate": 2232,
+      "request_file": "D02/dense/request.json",
+      "request_file_sha256": "ef8f526c5af848c972bbb619fcac19133dd29679318f2436faf6d948c1f538b3",
+      "retrieval_calls": 1,
+      "retrieval_context_sha256": "c23d5d19fb01121499db40d0d1bb54f5f92d8839193020a433d61432256806d8",
+      "retrieval_ms": 10.987124871462584,
+      "scenario": "D02"
+    },
+    {
+      "arm": "iterative_hybrid",
+      "category": "multi_hop",
+      "context_sha256": "d4ebfc3c5ddf2fa2d5cfff978140b44cdb70bc8dbc616593aacb83ddb64f5f40",
+      "context_tokens_budgeted": 1890,
+      "corpus_sha256": "32277476870ea3bd76d168578d673286e24caf1a0da34dc5d7d1b7bf7bc8b814",
+      "presented_context_tokens": 1890,
+      "presented_records": 6,
+      "prompt_tokens_cl100k_estimate": 2080,
+      "request_file": "D02/iterative_hybrid/request.json",
+      "request_file_sha256": "34604710470993cfc711479b98c8f142928fc77513e0f9287b2c69e10d1a2d34",
+      "retrieval_calls": 6,
+      "retrieval_context_sha256": "748d5ddecf391dc34476e33989478bd3e1ab8062b478b36135957b1addbfb593",
+      "retrieval_ms": 43.852292001247406,
+      "scenario": "D02"
+    },
+    {
+      "arm": "graph",
+      "category": "multi_hop",
+      "context_sha256": "e49318a810f65f8e2493f54896107d352b3a45db3bc2b76957cd351804f61a29",
+      "context_tokens_budgeted": 1344,
+      "corpus_sha256": "32277476870ea3bd76d168578d673286e24caf1a0da34dc5d7d1b7bf7bc8b814",
+      "presented_context_tokens": 1344,
+      "presented_records": 4,
+      "prompt_tokens_cl100k_estimate": 1520,
+      "request_file": "D02/graph/request.json",
+      "request_file_sha256": "c7e456037689d8a7f83d944ef3fcc57d03fccb825bdad81e9ec4f722dc85ba67",
+      "retrieval_calls": 4,
+      "retrieval_context_sha256": "90e733ea15b33b80c12a6f651af923b61f48d8119cf6fb5e7f050a9fdb717c1e",
+      "retrieval_ms": 11.804541107267141,
+      "scenario": "D02"
+    }
+  ],
+  "maximum_planner_calls": 4,
+  "prepared_at": "2026-11-15T09:55:20.703226+00:00",
+  "protocol": {
+    "arm_order": "fixed rotation by case index; all plans frozen before any refresh",
+    "arms": [
+      "bm25",
+      "dense",
+      "iterative_hybrid",
+      "graph"
+    ],
+    "blocking_interpretation": "Missing-source blocking comes from the shared executor and does not establish a planning advantage.",
+    "cases": {
+      "dev": [
+        "D02"
+      ],
+      "test": [
+        "T02",
+        "T04",
+        "T07",
+        "T10"
+      ]
+    },
+    "context_budget": 2048,
+    "effort": "high",
+    "executor": "Every arm uses the same Hydra-assisted currentness and recursive refresh executor.",
+    "max_budget_usd_per_call": 1.0,
+    "model": "claude-fable-5-2",
+    "model_fallback": false,
+    "planner_steps": 1,
+    "primary_metric": "fresh affected reports after actual tool refresh; per-case outcomes retained",
+    "retries": 0,
+    "scope": "Small authored retrieval/planning pilot. Report composition is predefined, not invented by the model.",
+    "secondary_metrics": [
+      "selected artifact precision/recall",
+      "actual tool calls",
+      "latency",
+      "provider usage"
+    ],
+    "timeout_seconds": 180,
+    "token_accounting": "Retrieval budget counts canonical JSONL without file terminator. Provider usage includes CLI/schema/system/cache overhead; cl100k estimates are separate.",
+    "tokenizer": "cl100k_base",
+    "version": "agent-pilot-v1"
+  },
+  "schema_sha256": "6711487b31ad409de95ba6de19065303f4881d8546c3c076b99e9e6c06a4c127",
+  "source": "/Users/saivedanthava/Desktop/HydraDB/proofflow/results/dev-smoke-d02",
+  "source_manifest_sha256": "83af4529ec5f0568f30513954b9eb938848821118f6a65a250db3fe22c667347",
+  "split": "dev",
+  "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03"
+}

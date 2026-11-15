@@ -1,0 +1,17 @@
+{
+  "arm": "graph",
+  "category": "fan_in",
+  "context_sha256": "439caf5e2e226feada9360b1b90862f57243ef8adef14bc0d83cef190dc5a7b8",
+  "context_tokens_budgeted": 1884,
+  "corpus_sha256": "c0099ac61b0b82147afe7558a0f94aa1eea715bc6718528875cdc3ce90e1ba32",
+  "presented_context_tokens": 1884,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2078,
+  "request_file": "T04/graph/request.json",
+  "request_file_sha256": "65b6964276281150318a7bd8b89bc69e41594ce08e96be8436199e54dfa0312c",
+  "retrieval_calls": 4,
+  "retrieval_context_sha256": "5d76153771aefce7338b3cc71c2d84a08b3b9117739b7ba16b16a3d98d8d5ed4",
+  "retrieval_ms": 8.712208364158869,
+  "scenario": "T04",
+  "started_at": "2026-11-15T09:57:33.545304+00:00"
+}

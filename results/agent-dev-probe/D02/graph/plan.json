@@ -1,0 +1,87 @@
+{
+  "selected_ids": [
+    "artifact:2026-W44:usd@f2300a650960",
+    "artifact:2026-W44:company@29481e78093b",
+    "artifact:2026-W44:eu_brief@00feeb4b8458",
+    "artifact:2026-W44:company_brief@8b737a88bfe3"
+  ],
+  "rationale": "The changed version source:fx:2026-W44@2489e04abbb7 is a direct input of artifact:2026-W44:usd@f2300a650960 (its current version is now source:fx:2026-W44@6977d3a2db5f). From there the change propagates along explicit input paths: artifact:2026-W44:company@29481e78093b and artifact:2026-W44:eu_brief@00feeb4b8458 each take the usd artifact as an input, and artifact:2026-W44:company_brief@8b737a88bfe3 takes the company artifact as an input. All four supplied artifacts therefore need revalidation, listed in dependency order. No records were supplied for 2026-W45 or 2026-W46, so nothing is selected for those periods. This is a revalidation plan only; nothing has been recomputed and it does not claim the stored numbers changed.",
+  "abstain": false,
+  "provider_result": {
+    "payload": {
+      "selected_ids": [
+        "artifact:2026-W44:usd@f2300a650960",
+        "artifact:2026-W44:company@29481e78093b",
+        "artifact:2026-W44:eu_brief@00feeb4b8458",
+        "artifact:2026-W44:company_brief@8b737a88bfe3"
+      ],
+      "rationale": "The changed version source:fx:2026-W44@2489e04abbb7 is a direct input of artifact:2026-W44:usd@f2300a650960 (its current version is now source:fx:2026-W44@6977d3a2db5f). From there the change propagates along explicit input paths: artifact:2026-W44:company@29481e78093b and artifact:2026-W44:eu_brief@00feeb4b8458 each take the usd artifact as an input, and artifact:2026-W44:company_brief@8b737a88bfe3 takes the company artifact as an input. All four supplied artifacts therefore need revalidation, listed in dependency order. No records were supplied for 2026-W45 or 2026-W46, so nothing is selected for those periods. This is a revalidation plan only; nothing has been recomputed and it does not claim the stored numbers changed.",
+      "abstain": false
+    },
+    "model_usage": {
+      "claude-fable-5-2": {
+        "inputTokens": 2,
+        "outputTokens": 583,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 4124,
+        "webSearchRequests": 0,
+        "costUSD": 0.08932,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 112,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 4124,
+        "canonicalModel": "claude-fable-5-2",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 4124,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 583,
+      "output_tokens_details": {
+        "thinking_tokens": 112
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 4124,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 583,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 4124,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 4124
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "reported_cost_usd": 0.08932,
+    "provider": "Claude Code CLI (local authenticated process)",
+    "model": "claude-fable-5-2",
+    "elapsed_seconds": 8.311996584292501,
+    "metadata": {
+      "effort": "high",
+      "subtype": "success",
+      "num_turns": 2,
+      "tools_enabled": false,
+      "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03"
+    }
+  },
+  "request_sha256": "dc82c6632be41c90e2d8e0b04a1fabe6533484301060ccc64bff8323215ec130",
+  "context_sha256": "e49318a810f65f8e2493f54896107d352b3a45db3bc2b76957cd351804f61a29"
+}

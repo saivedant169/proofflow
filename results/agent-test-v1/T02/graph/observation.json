@@ -1,0 +1,108 @@
+{
+  "arm": "graph",
+  "category": "cross_run",
+  "context_sha256": "9275263b2bd023e1954d6a55101f72fb4f3df223172e1d4c794cf9a2bf68b61f",
+  "context_tokens_budgeted": 2000,
+  "corpus_sha256": "6b564b95a2d9fea32c88096a6edc6e45191e9255a32ba870682c9d762562a273",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "9275263b2bd023e1954d6a55101f72fb4f3df223172e1d4c794cf9a2bf68b61f",
+    "provider_result": {
+      "elapsed_seconds": 9.393829833250493,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4323,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4323,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.098296,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 723,
+          "provider": "firstParty",
+          "thinkingTokens": 138,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed source:refunds:2026-W46@a23fa9c2dda7 is a direct input of the refunds artifact (e9e778ccdd93), and that record shows it superseded by @957373936999. The change propagates along explicit input links: refunds -> net (719d34de3014) -> usd (092abb7cc465). From usd it reaches both company (4d33da03df72) and eu_brief (3f761540b806), and company feeds company_brief (add154075434). All six supplied artifacts are therefore on a supported dependency path and need revalidation, listed in dependency order. The EU brief is included even though the refund is a UK one, because it depends on the usd artifact as a whole; its saved EU value is not proof that it is still current. No records were supplied for 2026-W44 or 2026-W45, and nothing in the evidence links the W46 refunds source to those periods, so nothing is selected for them. The gross, support and fx inputs are not supplied as artifact records and are not downstream of the change. This is a revalidation plan only; no calculations have been run and no claim is made that the numbers changed.",
+        "selected_ids": [
+          "artifact:2026-W46:refunds@e9e778ccdd93",
+          "artifact:2026-W46:net@719d34de3014",
+          "artifact:2026-W46:usd@092abb7cc465",
+          "artifact:2026-W46:company@4d33da03df72",
+          "artifact:2026-W46:eu_brief@3f761540b806",
+          "artifact:2026-W46:company_brief@add154075434"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.098296,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4323,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4323,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4323,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4323,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 723,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 723,
+        "output_tokens_details": {
+          "thinking_tokens": 138
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed source:refunds:2026-W46@a23fa9c2dda7 is a direct input of the refunds artifact (e9e778ccdd93), and that record shows it superseded by @957373936999. The change propagates along explicit input links: refunds -> net (719d34de3014) -> usd (092abb7cc465). From usd it reaches both company (4d33da03df72) and eu_brief (3f761540b806), and company feeds company_brief (add154075434). All six supplied artifacts are therefore on a supported dependency path and need revalidation, listed in dependency order. The EU brief is included even though the refund is a UK one, because it depends on the usd artifact as a whole; its saved EU value is not proof that it is still current. No records were supplied for 2026-W44 or 2026-W45, and nothing in the evidence links the W46 refunds source to those periods, so nothing is selected for them. The gross, support and fx inputs are not supplied as artifact records and are not downstream of the change. This is a revalidation plan only; no calculations have been run and no claim is made that the numbers changed.",
+    "request_sha256": "276e7f920001776f5f942fe79b3295a960b77bfd0c688293036533fe928c7a7f",
+    "selected_ids": [
+      "artifact:2026-W46:refunds@e9e778ccdd93",
+      "artifact:2026-W46:net@719d34de3014",
+      "artifact:2026-W46:usd@092abb7cc465",
+      "artifact:2026-W46:company@4d33da03df72",
+      "artifact:2026-W46:eu_brief@3f761540b806",
+      "artifact:2026-W46:company_brief@add154075434"
+    ]
+  },
+  "presented_context_tokens": 2000,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2210,
+  "request_file": "T02/graph/request.json",
+  "request_file_sha256": "8199e380b86e096708ad6d73057622ba54bc86db5f6822daa158ac2cb849110c",
+  "retrieval_calls": 4,
+  "retrieval_context_sha256": "211ca8eddbfaaf91f6ac753ee6dc86b35f5089020afc728a5a6c6672842fcf66",
+  "retrieval_ms": 12.814708054065704,
+  "scenario": "T02",
+  "status": "planned"
+}

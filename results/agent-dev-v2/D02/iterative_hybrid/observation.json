@@ -1,0 +1,102 @@
+{
+  "arm": "iterative_hybrid",
+  "category": "multi_hop",
+  "context_sha256": "d4ebfc3c5ddf2fa2d5cfff978140b44cdb70bc8dbc616593aacb83ddb64f5f40",
+  "context_tokens_budgeted": 1890,
+  "corpus_sha256": "32277476870ea3bd76d168578d673286e24caf1a0da34dc5d7d1b7bf7bc8b814",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "d4ebfc3c5ddf2fa2d5cfff978140b44cdb70bc8dbc616593aacb83ddb64f5f40",
+    "provider_result": {
+      "elapsed_seconds": 8.360291874967515,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4003,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4003,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.086536,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 557,
+          "provider": "firstParty",
+          "thinkingTokens": 131,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed source:fx:2026-W44@2489e04abbb7 is a direct input of artifact:2026-W44:usd@f2300a650960 (its record shows the current version is now @6977d3a2db5f). Two supplied artifacts take that usd artifact as an input: artifact:2026-W44:company@29481e78093b and artifact:2026-W44:eu_brief@00feeb4b8458, so both are affected transitively. Not selected: the W45 and W46 usd artifacts use their own week's FX sources and net artifacts, with no path to the W44 FX source; artifact:2026-W44:refunds@f103af315aed depends only on the orders and refunds sources. This is a revalidation plan only; nothing has been recomputed and no claim is made that the stored numbers changed.",
+        "selected_ids": [
+          "artifact:2026-W44:usd@f2300a650960",
+          "artifact:2026-W44:company@29481e78093b",
+          "artifact:2026-W44:eu_brief@00feeb4b8458"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.086536,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4003,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4003,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4003,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4003,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 557,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 557,
+        "output_tokens_details": {
+          "thinking_tokens": 131
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed source:fx:2026-W44@2489e04abbb7 is a direct input of artifact:2026-W44:usd@f2300a650960 (its record shows the current version is now @6977d3a2db5f). Two supplied artifacts take that usd artifact as an input: artifact:2026-W44:company@29481e78093b and artifact:2026-W44:eu_brief@00feeb4b8458, so both are affected transitively. Not selected: the W45 and W46 usd artifacts use their own week's FX sources and net artifacts, with no path to the W44 FX source; artifact:2026-W44:refunds@f103af315aed depends only on the orders and refunds sources. This is a revalidation plan only; nothing has been recomputed and no claim is made that the stored numbers changed.",
+    "request_sha256": "796390cbb8dfa98224c5a95fe21d9238113dda3d0b6eb8a1d9454c63a5117d70",
+    "selected_ids": [
+      "artifact:2026-W44:usd@f2300a650960",
+      "artifact:2026-W44:company@29481e78093b",
+      "artifact:2026-W44:eu_brief@00feeb4b8458"
+    ]
+  },
+  "presented_context_tokens": 1890,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2080,
+  "request_file": "D02/iterative_hybrid/request.json",
+  "request_file_sha256": "34604710470993cfc711479b98c8f142928fc77513e0f9287b2c69e10d1a2d34",
+  "retrieval_calls": 6,
+  "retrieval_context_sha256": "748d5ddecf391dc34476e33989478bd3e1ab8062b478b36135957b1addbfb593",
+  "retrieval_ms": 43.852292001247406,
+  "scenario": "D02",
+  "status": "planned"
+}

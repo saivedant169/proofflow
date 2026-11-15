@@ -1,0 +1,750 @@
+{
+  "arm": "iterative_hybrid",
+  "category": "multi_hop",
+  "context_sha256": "d4ebfc3c5ddf2fa2d5cfff978140b44cdb70bc8dbc616593aacb83ddb64f5f40",
+  "context_tokens_budgeted": 1890,
+  "corpus_sha256": "32277476870ea3bd76d168578d673286e24caf1a0da34dc5d7d1b7bf7bc8b814",
+  "execution": {
+    "affected_report_rate": 0.5,
+    "all_eligible_reports_fresh": false,
+    "all_oracle_unavailable_reports_blocked": true,
+    "blocked_reports": 1,
+    "calls": [
+      {
+        "elapsed_ms": 0.02129189670085907,
+        "inputs": {
+          "fx": "fea08d09ab8a4befb5cbd8f24ecdac56:source:72de8e625433c76991a3f38aab4fb4eb5a8a5ec0c236a4692db00085a10051ee",
+          "net": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:537bd80c245a7aeb68005529db6600fbf2440b5f6758115c5c8fcbbbd7cbac29"
+        },
+        "invocation_id": "8f1ac3f9e25f44efb2194216f2ef2dcc",
+        "output_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:f9e43a17129cdc15370701de26f836bbae81559f5e46171c3c6b8a1f414e622d",
+        "params": {},
+        "run_id": "refresh-d2fd1e1d6805430bb031deb99975d1ee",
+        "status": "success",
+        "tool": "convert_to_usd"
+      },
+      {
+        "elapsed_ms": 0.02275034785270691,
+        "inputs": {
+          "regional": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:f9e43a17129cdc15370701de26f836bbae81559f5e46171c3c6b8a1f414e622d"
+        },
+        "invocation_id": "43becbc122f3411f9d4fce61ae75b08c",
+        "output_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:0abc23aeea38e6f5d7aeb7abce5229372b6d186747e92ddfab55ecb451c73957",
+        "params": {},
+        "run_id": "refresh-d2fd1e1d6805430bb031deb99975d1ee",
+        "status": "success",
+        "tool": "company_total"
+      },
+      {
+        "elapsed_ms": 0.043665990233421326,
+        "inputs": {
+          "regional": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:f9e43a17129cdc15370701de26f836bbae81559f5e46171c3c6b8a1f414e622d",
+          "support": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:59798869e638bc6702ad67724a0f62142c4d5f2710f61f37e827550a6ad9fa4b"
+        },
+        "invocation_id": "341e0686173641188854c9f26b49606b",
+        "output_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:e0409b880cd7c9b711d4698fe17f7ba87f86d2187eea4e7b5e9dd5f924c0fe1d",
+        "params": {
+          "sections": [
+            {
+              "input": "regional",
+              "key": "net_revenue",
+              "label": "EU net revenue in USD",
+              "path": [
+                "regions",
+                "EU",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            },
+            {
+              "input": "support",
+              "key": "tickets",
+              "label": "EU support tickets",
+              "path": [
+                "regions",
+                "EU",
+                "tickets"
+              ],
+              "unit": "tickets"
+            }
+          ],
+          "title": "EU operations brief \u2014 2026-W44"
+        },
+        "run_id": "refresh-d2fd1e1d6805430bb031deb99975d1ee",
+        "status": "success",
+        "tool": "compose_report"
+      }
+    ],
+    "clone_protocol": "Private manifest heads and blobs; shared immutable graph; selections frozen before execution.",
+    "complete_fresh_reports": 8,
+    "correctly_blocked_reports": 0,
+    "eligible_affected_reports": 2,
+    "eligible_reports": 9,
+    "evaluation_elapsed_ms": 752.2465828806162,
+    "failed_tool_calls": 0,
+    "fresh_affected_reports": 1,
+    "fresh_report_rate": 0.8888888888888888,
+    "incorrect_current_reports": 0,
+    "inspection_errors": [],
+    "inspection_graph_queries": 36,
+    "oracle_unavailable_reports": 0,
+    "refresh_completed": true,
+    "refresh_elapsed_ms": 672.9307500645518,
+    "refresh_error": null,
+    "refresh_graph_queries": 92,
+    "refresh_result": {
+      "elapsed_ms": 672.9162498377264,
+      "executed": [
+        "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:f9e43a17129cdc15370701de26f836bbae81559f5e46171c3c6b8a1f414e622d",
+        "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:0abc23aeea38e6f5d7aeb7abce5229372b6d186747e92ddfab55ecb451c73957",
+        "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:e0409b880cd7c9b711d4698fe17f7ba87f86d2187eea4e7b5e9dd5f924c0fe1d"
+      ],
+      "replacements": {
+        "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:22e103a6b5d9a3c3fae7d787fd696fcfeddba6c93338f7f7a8c0eef420d400b9": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:0abc23aeea38e6f5d7aeb7abce5229372b6d186747e92ddfab55ecb451c73957",
+        "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:3cf5502d53fb00ebb9c8d5a888ed53310d031a4d254d0c131a67bf8255c9190b": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:e0409b880cd7c9b711d4698fe17f7ba87f86d2187eea4e7b5e9dd5f924c0fe1d",
+        "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:537bd80c245a7aeb68005529db6600fbf2440b5f6758115c5c8fcbbbd7cbac29": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:537bd80c245a7aeb68005529db6600fbf2440b5f6758115c5c8fcbbbd7cbac29",
+        "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:59798869e638bc6702ad67724a0f62142c4d5f2710f61f37e827550a6ad9fa4b": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:59798869e638bc6702ad67724a0f62142c4d5f2710f61f37e827550a6ad9fa4b",
+        "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:914e70f94c5487ca9b34edbb6b914dcde639c4da52280a4138f6e0c62ca0edb5": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:f9e43a17129cdc15370701de26f836bbae81559f5e46171c3c6b8a1f414e622d",
+        "fea08d09ab8a4befb5cbd8f24ecdac56:source:73399c9f1da319c4addaebb76ec65687db57446be08c6c60b1b9db9585afc60d": "fea08d09ab8a4befb5cbd8f24ecdac56:source:72de8e625433c76991a3f38aab4fb4eb5a8a5ec0c236a4692db00085a10051ee"
+      },
+      "reused": [
+        "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:537bd80c245a7aeb68005529db6600fbf2440b5f6758115c5c8fcbbbd7cbac29",
+        "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:59798869e638bc6702ad67724a0f62142c4d5f2710f61f37e827550a6ad9fa4b"
+      ]
+    },
+    "report_count": 9,
+    "reports": [
+      {
+        "actual_stored_value": {
+          "sections": [
+            {
+              "key": "revenue",
+              "label": "Company net revenue",
+              "unit": "USD cents",
+              "value": 552700
+            },
+            {
+              "key": "eu_support",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "Company performance brief \u2014 2026-W44"
+        },
+        "correctly_blocked": false,
+        "currentness_reasons": [
+          {
+            "current_id": "fea08d09ab8a4befb5cbd8f24ecdac56:source:72de8e625433c76991a3f38aab4fb4eb5a8a5ec0c236a4692db00085a10051ee",
+            "id": "fea08d09ab8a4befb5cbd8f24ecdac56:source:73399c9f1da319c4addaebb76ec65687db57446be08c6c60b1b9db9585afc60d",
+            "logical_id": "source:fx:2026-W44",
+            "reason": "version_changed"
+          }
+        ],
+        "expected_error": null,
+        "expected_revalidation": true,
+        "expected_value": {
+          "sections": [
+            {
+              "key": "revenue",
+              "label": "Company net revenue",
+              "unit": "USD cents",
+              "value": 560300
+            },
+            {
+              "key": "eu_support",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "Company performance brief \u2014 2026-W44"
+        },
+        "fresh_complete": false,
+        "head_content_hash": "764ec0a9587392d188a512904a8b397063a9593fb4b0ef315490fe6439c6e646",
+        "head_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:86cece9c16fd164ba40eab3d92e691a266278f544d1bf05f0989ce618c205438",
+        "inspection_error": null,
+        "logical_id": "artifact:2026-W44:company_brief",
+        "name": "2026-W44:company_brief",
+        "oracle_available": true,
+        "original_alias": "artifact:2026-W44:company_brief@8b737a88bfe3",
+        "original_content_hash": "764ec0a9587392d188a512904a8b397063a9593fb4b0ef315490fe6439c6e646",
+        "original_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:86cece9c16fd164ba40eab3d92e691a266278f544d1bf05f0989ce618c205438",
+        "original_value_matches_oracle": false,
+        "preserved_original_artifact": true,
+        "preserved_original_content": true,
+        "state": "stale",
+        "value_matches_oracle": false
+      },
+      {
+        "actual_stored_value": {
+          "sections": [
+            {
+              "key": "net_revenue",
+              "label": "EU net revenue in USD",
+              "unit": "USD cents",
+              "value": 212800
+            },
+            {
+              "key": "tickets",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "EU operations brief \u2014 2026-W44"
+        },
+        "correctly_blocked": false,
+        "currentness_reasons": [],
+        "expected_error": null,
+        "expected_revalidation": true,
+        "expected_value": {
+          "sections": [
+            {
+              "key": "net_revenue",
+              "label": "EU net revenue in USD",
+              "unit": "USD cents",
+              "value": 212800
+            },
+            {
+              "key": "tickets",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "EU operations brief \u2014 2026-W44"
+        },
+        "fresh_complete": true,
+        "head_content_hash": "4e55bd6572f5d66453bdb4f32d9fa8c7000c9f045dd3aea412d615dacb49f686",
+        "head_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:e0409b880cd7c9b711d4698fe17f7ba87f86d2187eea4e7b5e9dd5f924c0fe1d",
+        "inspection_error": null,
+        "logical_id": "artifact:2026-W44:eu_brief",
+        "name": "2026-W44:eu_brief",
+        "oracle_available": true,
+        "original_alias": "artifact:2026-W44:eu_brief@00feeb4b8458",
+        "original_content_hash": "c5fd1ba2b2e4a8bb3ff9f71384ebf47d99b2ece7803b77545b685de7e2558d0a",
+        "original_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:3cf5502d53fb00ebb9c8d5a888ed53310d031a4d254d0c131a67bf8255c9190b",
+        "original_value_matches_oracle": false,
+        "preserved_original_artifact": false,
+        "preserved_original_content": false,
+        "state": "current",
+        "value_matches_oracle": true
+      },
+      {
+        "actual_stored_value": {
+          "sections": [
+            {
+              "key": "eu",
+              "label": "EU customer support volume",
+              "unit": "tickets",
+              "value": 2
+            },
+            {
+              "key": "us",
+              "label": "US customer support volume",
+              "unit": "tickets",
+              "value": 1
+            }
+          ],
+          "title": "Customer support brief \u2014 2026-W44"
+        },
+        "correctly_blocked": false,
+        "currentness_reasons": [],
+        "expected_error": null,
+        "expected_revalidation": false,
+        "expected_value": {
+          "sections": [
+            {
+              "key": "eu",
+              "label": "EU customer support volume",
+              "unit": "tickets",
+              "value": 2
+            },
+            {
+              "key": "us",
+              "label": "US customer support volume",
+              "unit": "tickets",
+              "value": 1
+            }
+          ],
+          "title": "Customer support brief \u2014 2026-W44"
+        },
+        "fresh_complete": true,
+        "head_content_hash": "3762766a38717d484b84a59473449a70b0c492eb8e2056b656e7d128d91f9cc3",
+        "head_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:37c1777cd0376d34171f249557b8d861cec513b9dab5b3169bd607c73367e3e0",
+        "inspection_error": null,
+        "logical_id": "artifact:2026-W44:support_brief",
+        "name": "2026-W44:support_brief",
+        "oracle_available": true,
+        "original_alias": "artifact:2026-W44:support_brief@0f1e5fc9975b",
+        "original_content_hash": "3762766a38717d484b84a59473449a70b0c492eb8e2056b656e7d128d91f9cc3",
+        "original_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:37c1777cd0376d34171f249557b8d861cec513b9dab5b3169bd607c73367e3e0",
+        "original_value_matches_oracle": true,
+        "preserved_original_artifact": true,
+        "preserved_original_content": true,
+        "state": "current",
+        "value_matches_oracle": true
+      },
+      {
+        "actual_stored_value": {
+          "sections": [
+            {
+              "key": "revenue",
+              "label": "Company net revenue",
+              "unit": "USD cents",
+              "value": 571120
+            },
+            {
+              "key": "eu_support",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "Company performance brief \u2014 2026-W45"
+        },
+        "correctly_blocked": false,
+        "currentness_reasons": [],
+        "expected_error": null,
+        "expected_revalidation": false,
+        "expected_value": {
+          "sections": [
+            {
+              "key": "revenue",
+              "label": "Company net revenue",
+              "unit": "USD cents",
+              "value": 571120
+            },
+            {
+              "key": "eu_support",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "Company performance brief \u2014 2026-W45"
+        },
+        "fresh_complete": true,
+        "head_content_hash": "403c07ea390c64108a79bf591d9bdec3ea4d7e4fb3918ccb7b8e650a4036cbc5",
+        "head_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:ba60ad9e885b708e10aae4a581cd35e7a494ff72f2b178aa613383143d6642e7",
+        "inspection_error": null,
+        "logical_id": "artifact:2026-W45:company_brief",
+        "name": "2026-W45:company_brief",
+        "oracle_available": true,
+        "original_alias": "artifact:2026-W45:company_brief@958f33986dbc",
+        "original_content_hash": "403c07ea390c64108a79bf591d9bdec3ea4d7e4fb3918ccb7b8e650a4036cbc5",
+        "original_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:ba60ad9e885b708e10aae4a581cd35e7a494ff72f2b178aa613383143d6642e7",
+        "original_value_matches_oracle": true,
+        "preserved_original_artifact": true,
+        "preserved_original_content": true,
+        "state": "current",
+        "value_matches_oracle": true
+      },
+      {
+        "actual_stored_value": {
+          "sections": [
+            {
+              "key": "net_revenue",
+              "label": "EU net revenue in USD",
+              "unit": "USD cents",
+              "value": 210370
+            },
+            {
+              "key": "tickets",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "EU operations brief \u2014 2026-W45"
+        },
+        "correctly_blocked": false,
+        "currentness_reasons": [],
+        "expected_error": null,
+        "expected_revalidation": false,
+        "expected_value": {
+          "sections": [
+            {
+              "key": "net_revenue",
+              "label": "EU net revenue in USD",
+              "unit": "USD cents",
+              "value": 210370
+            },
+            {
+              "key": "tickets",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "EU operations brief \u2014 2026-W45"
+        },
+        "fresh_complete": true,
+        "head_content_hash": "d4641adc9f48a23488a7661bbd61022bd916315ac23905252c49f428d3ce92b0",
+        "head_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:099986125d33ce72da622ad18d5e6c926fa157202edc32327304721c737b3ef9",
+        "inspection_error": null,
+        "logical_id": "artifact:2026-W45:eu_brief",
+        "name": "2026-W45:eu_brief",
+        "oracle_available": true,
+        "original_alias": "artifact:2026-W45:eu_brief@75969a5c3b3e",
+        "original_content_hash": "d4641adc9f48a23488a7661bbd61022bd916315ac23905252c49f428d3ce92b0",
+        "original_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:099986125d33ce72da622ad18d5e6c926fa157202edc32327304721c737b3ef9",
+        "original_value_matches_oracle": true,
+        "preserved_original_artifact": true,
+        "preserved_original_content": true,
+        "state": "current",
+        "value_matches_oracle": true
+      },
+      {
+        "actual_stored_value": {
+          "sections": [
+            {
+              "key": "eu",
+              "label": "EU customer support volume",
+              "unit": "tickets",
+              "value": 2
+            },
+            {
+              "key": "us",
+              "label": "US customer support volume",
+              "unit": "tickets",
+              "value": 1
+            }
+          ],
+          "title": "Customer support brief \u2014 2026-W45"
+        },
+        "correctly_blocked": false,
+        "currentness_reasons": [],
+        "expected_error": null,
+        "expected_revalidation": false,
+        "expected_value": {
+          "sections": [
+            {
+              "key": "eu",
+              "label": "EU customer support volume",
+              "unit": "tickets",
+              "value": 2
+            },
+            {
+              "key": "us",
+              "label": "US customer support volume",
+              "unit": "tickets",
+              "value": 1
+            }
+          ],
+          "title": "Customer support brief \u2014 2026-W45"
+        },
+        "fresh_complete": true,
+        "head_content_hash": "039f2642346628b61d183788022fcb949da3ca64804b62080b61268b863fd25c",
+        "head_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:3f63262136cdb1283627aa77c94e7b057641d0d8f4430d6deabc55b2e2df824a",
+        "inspection_error": null,
+        "logical_id": "artifact:2026-W45:support_brief",
+        "name": "2026-W45:support_brief",
+        "oracle_available": true,
+        "original_alias": "artifact:2026-W45:support_brief@917a014d75b5",
+        "original_content_hash": "039f2642346628b61d183788022fcb949da3ca64804b62080b61268b863fd25c",
+        "original_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:3f63262136cdb1283627aa77c94e7b057641d0d8f4430d6deabc55b2e2df824a",
+        "original_value_matches_oracle": true,
+        "preserved_original_artifact": true,
+        "preserved_original_content": true,
+        "state": "current",
+        "value_matches_oracle": true
+      },
+      {
+        "actual_stored_value": {
+          "sections": [
+            {
+              "key": "revenue",
+              "label": "Company net revenue",
+              "unit": "USD cents",
+              "value": 589600
+            },
+            {
+              "key": "eu_support",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "Company performance brief \u2014 2026-W46"
+        },
+        "correctly_blocked": false,
+        "currentness_reasons": [],
+        "expected_error": null,
+        "expected_revalidation": false,
+        "expected_value": {
+          "sections": [
+            {
+              "key": "revenue",
+              "label": "Company net revenue",
+              "unit": "USD cents",
+              "value": 589600
+            },
+            {
+              "key": "eu_support",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "Company performance brief \u2014 2026-W46"
+        },
+        "fresh_complete": true,
+        "head_content_hash": "1af03bd98d687941cbcf95c922c4802afcc48e9261961f3e055eac82c159f9d6",
+        "head_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:d6f8caffdc4ebc3ec900f02f09b0d3fe6c3cf1ad9cdb130f942edc95cd331a1e",
+        "inspection_error": null,
+        "logical_id": "artifact:2026-W46:company_brief",
+        "name": "2026-W46:company_brief",
+        "oracle_available": true,
+        "original_alias": "artifact:2026-W46:company_brief@add154075434",
+        "original_content_hash": "1af03bd98d687941cbcf95c922c4802afcc48e9261961f3e055eac82c159f9d6",
+        "original_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:d6f8caffdc4ebc3ec900f02f09b0d3fe6c3cf1ad9cdb130f942edc95cd331a1e",
+        "original_value_matches_oracle": true,
+        "preserved_original_artifact": true,
+        "preserved_original_content": true,
+        "state": "current",
+        "value_matches_oracle": true
+      },
+      {
+        "actual_stored_value": {
+          "sections": [
+            {
+              "key": "net_revenue",
+              "label": "EU net revenue in USD",
+              "unit": "USD cents",
+              "value": 215600
+            },
+            {
+              "key": "tickets",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "EU operations brief \u2014 2026-W46"
+        },
+        "correctly_blocked": false,
+        "currentness_reasons": [],
+        "expected_error": null,
+        "expected_revalidation": false,
+        "expected_value": {
+          "sections": [
+            {
+              "key": "net_revenue",
+              "label": "EU net revenue in USD",
+              "unit": "USD cents",
+              "value": 215600
+            },
+            {
+              "key": "tickets",
+              "label": "EU support tickets",
+              "unit": "tickets",
+              "value": 2
+            }
+          ],
+          "title": "EU operations brief \u2014 2026-W46"
+        },
+        "fresh_complete": true,
+        "head_content_hash": "21692ea2fa9000a7c1fc1c95c0434634973ecd363bf7922c65db1cbfc3e0674e",
+        "head_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:49c8b9cddc03194fa50527484c33b7ddb5b633fa06e906950e0d0b89633cf252",
+        "inspection_error": null,
+        "logical_id": "artifact:2026-W46:eu_brief",
+        "name": "2026-W46:eu_brief",
+        "oracle_available": true,
+        "original_alias": "artifact:2026-W46:eu_brief@3f761540b806",
+        "original_content_hash": "21692ea2fa9000a7c1fc1c95c0434634973ecd363bf7922c65db1cbfc3e0674e",
+        "original_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:49c8b9cddc03194fa50527484c33b7ddb5b633fa06e906950e0d0b89633cf252",
+        "original_value_matches_oracle": true,
+        "preserved_original_artifact": true,
+        "preserved_original_content": true,
+        "state": "current",
+        "value_matches_oracle": true
+      },
+      {
+        "actual_stored_value": {
+          "sections": [
+            {
+              "key": "eu",
+              "label": "EU customer support volume",
+              "unit": "tickets",
+              "value": 2
+            },
+            {
+              "key": "us",
+              "label": "US customer support volume",
+              "unit": "tickets",
+              "value": 1
+            }
+          ],
+          "title": "Customer support brief \u2014 2026-W46"
+        },
+        "correctly_blocked": false,
+        "currentness_reasons": [],
+        "expected_error": null,
+        "expected_revalidation": false,
+        "expected_value": {
+          "sections": [
+            {
+              "key": "eu",
+              "label": "EU customer support volume",
+              "unit": "tickets",
+              "value": 2
+            },
+            {
+              "key": "us",
+              "label": "US customer support volume",
+              "unit": "tickets",
+              "value": 1
+            }
+          ],
+          "title": "Customer support brief \u2014 2026-W46"
+        },
+        "fresh_complete": true,
+        "head_content_hash": "49b5ae955819b72a2e980ef04e6656ce64146dc933cfb88fc2029f76b0980048",
+        "head_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:0b001107857c9d47c604f90be9afefaf9e44ccbe0bf36445bbf890d39c459320",
+        "inspection_error": null,
+        "logical_id": "artifact:2026-W46:support_brief",
+        "name": "2026-W46:support_brief",
+        "oracle_available": true,
+        "original_alias": "artifact:2026-W46:support_brief@fd9b4c303496",
+        "original_content_hash": "49b5ae955819b72a2e980ef04e6656ce64146dc933cfb88fc2029f76b0980048",
+        "original_id": "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:0b001107857c9d47c604f90be9afefaf9e44ccbe0bf36445bbf890d39c459320",
+        "original_value_matches_oracle": true,
+        "preserved_original_artifact": true,
+        "preserved_original_content": true,
+        "state": "current",
+        "value_matches_oracle": true
+      }
+    ],
+    "scenario_id": "D02",
+    "selected_aliases": [
+      "artifact:2026-W44:usd@f2300a650960",
+      "artifact:2026-W44:company@29481e78093b",
+      "artifact:2026-W44:eu_brief@00feeb4b8458"
+    ],
+    "selected_raw_ids": [
+      "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:914e70f94c5487ca9b34edbb6b914dcde639c4da52280a4138f6e0c62ca0edb5",
+      "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:22e103a6b5d9a3c3fae7d787fd696fcfeddba6c93338f7f7a8c0eef420d400b9",
+      "fea08d09ab8a4befb5cbd8f24ecdac56:artifact:3cf5502d53fb00ebb9c8d5a888ed53310d031a4d254d0c131a67bf8255c9190b"
+    ],
+    "serving_policy": "All arms use the same Hydra-assisted currentness and recursive refresh executor; standalone baseline safety is not evaluated. Stale or unknown reports are blocked, not served.",
+    "stale_reports_remaining": 1,
+    "successful_tool_calls": 3,
+    "tool_calls": 3,
+    "unaffected_report_artifacts_preserved": 7,
+    "unaffected_report_content_preserved": 7,
+    "unaffected_reports": 7,
+    "unknown_reports_remaining": 0,
+    "unpublished_tool_calls": 0,
+    "unresolved_eligible_reports": 1
+  },
+  "impact": {
+    "exact_match": false,
+    "extra_ids": [],
+    "f1": 0.8571428571428571,
+    "fn": 1,
+    "fp": 0,
+    "missing_ids": [
+      "artifact:2026-W44:company_brief@8b737a88bfe3"
+    ],
+    "precision": 1.0,
+    "recall": 0.75,
+    "tp": 3
+  },
+  "plan": {
+    "abstain": false,
+    "context_sha256": "d4ebfc3c5ddf2fa2d5cfff978140b44cdb70bc8dbc616593aacb83ddb64f5f40",
+    "provider_result": {
+      "elapsed_seconds": 8.360291874967515,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4003,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4003,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.086536,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 557,
+          "provider": "firstParty",
+          "thinkingTokens": 131,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed source:fx:2026-W44@2489e04abbb7 is a direct input of artifact:2026-W44:usd@f2300a650960 (its record shows the current version is now @6977d3a2db5f). Two supplied artifacts take that usd artifact as an input: artifact:2026-W44:company@29481e78093b and artifact:2026-W44:eu_brief@00feeb4b8458, so both are affected transitively. Not selected: the W45 and W46 usd artifacts use their own week's FX sources and net artifacts, with no path to the W44 FX source; artifact:2026-W44:refunds@f103af315aed depends only on the orders and refunds sources. This is a revalidation plan only; nothing has been recomputed and no claim is made that the stored numbers changed.",
+        "selected_ids": [
+          "artifact:2026-W44:usd@f2300a650960",
+          "artifact:2026-W44:company@29481e78093b",
+          "artifact:2026-W44:eu_brief@00feeb4b8458"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.086536,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4003,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4003,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4003,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4003,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 557,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 557,
+        "output_tokens_details": {
+          "thinking_tokens": 131
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed source:fx:2026-W44@2489e04abbb7 is a direct input of artifact:2026-W44:usd@f2300a650960 (its record shows the current version is now @6977d3a2db5f). Two supplied artifacts take that usd artifact as an input: artifact:2026-W44:company@29481e78093b and artifact:2026-W44:eu_brief@00feeb4b8458, so both are affected transitively. Not selected: the W45 and W46 usd artifacts use their own week's FX sources and net artifacts, with no path to the W44 FX source; artifact:2026-W44:refunds@f103af315aed depends only on the orders and refunds sources. This is a revalidation plan only; nothing has been recomputed and no claim is made that the stored numbers changed.",
+    "request_sha256": "796390cbb8dfa98224c5a95fe21d9238113dda3d0b6eb8a1d9454c63a5117d70",
+    "selected_ids": [
+      "artifact:2026-W44:usd@f2300a650960",
+      "artifact:2026-W44:company@29481e78093b",
+      "artifact:2026-W44:eu_brief@00feeb4b8458"
+    ]
+  },
+  "presented_context_tokens": 1890,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2080,
+  "request_file": "D02/iterative_hybrid/request.json",
+  "request_file_sha256": "34604710470993cfc711479b98c8f142928fc77513e0f9287b2c69e10d1a2d34",
+  "retrieval_calls": 6,
+  "retrieval_context_sha256": "748d5ddecf391dc34476e33989478bd3e1ab8062b478b36135957b1addbfb593",
+  "retrieval_ms": 43.852292001247406,
+  "scenario": "D02",
+  "status": "planned"
+}

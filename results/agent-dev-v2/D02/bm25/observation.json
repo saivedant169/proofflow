@@ -1,0 +1,98 @@
+{
+  "arm": "bm25",
+  "category": "multi_hop",
+  "context_sha256": "557c2ecb34dea3cf5d59a8b6ef9732802c1012011d47d96fb8a0c71e0618bc6b",
+  "context_tokens_budgeted": 1958,
+  "corpus_sha256": "32277476870ea3bd76d168578d673286e24caf1a0da34dc5d7d1b7bf7bc8b814",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "557c2ecb34dea3cf5d59a8b6ef9732802c1012011d47d96fb8a0c71e0618bc6b",
+    "provider_result": {
+      "elapsed_seconds": 7.698101374786347,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4327,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4327,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.08772,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 457,
+          "provider": "firstParty",
+          "thinkingTokens": 127,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "Only artifact:2026-W44:usd@f2300a650960 lists the changed source:fx:2026-W44@2489e04abbb7 as a direct input (its current version is now 6977d3a2db5f), so it requires revalidation. The W45 and W46 USD artifacts depend on their own week's FX sources and net artifacts, none of which changed. The three support briefs depend only on support artifacts and the compose_report tool, with no path to the changed FX source. No supplied record consumes the W44 USD artifact, so no further downstream propagation is supported by the evidence. This is a revalidation plan only; nothing has been recalculated.",
+        "selected_ids": [
+          "artifact:2026-W44:usd@f2300a650960"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.08772,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4327,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4327,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4327,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4327,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 457,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 457,
+        "output_tokens_details": {
+          "thinking_tokens": 127
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "Only artifact:2026-W44:usd@f2300a650960 lists the changed source:fx:2026-W44@2489e04abbb7 as a direct input (its current version is now 6977d3a2db5f), so it requires revalidation. The W45 and W46 USD artifacts depend on their own week's FX sources and net artifacts, none of which changed. The three support briefs depend only on support artifacts and the compose_report tool, with no path to the changed FX source. No supplied record consumes the W44 USD artifact, so no further downstream propagation is supported by the evidence. This is a revalidation plan only; nothing has been recalculated.",
+    "request_sha256": "8e82143693e811fd169c3390bc1546661ccac9d4aaba29ef2d7614b8979c1fb1",
+    "selected_ids": [
+      "artifact:2026-W44:usd@f2300a650960"
+    ]
+  },
+  "presented_context_tokens": 1958,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2183,
+  "request_file": "D02/bm25/request.json",
+  "request_file_sha256": "ba6bfdacfd975e0c51e606c059fa7468dfac35b57d78a7b4fb12279f2f7bfc80",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "de368a97bc4c1b55f59cefac0260fd860e175c305b8a290434b39cf2cc1ea0a1",
+  "retrieval_ms": 0.258082989603281,
+  "scenario": "D02",
+  "status": "planned"
+}

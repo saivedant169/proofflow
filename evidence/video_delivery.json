@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": {
+    "video_content_matches_release": true,
+    "video_mime_type": true,
+    "video_http_ok": true,
+    "video_seeking_supported": true
+  },
+  "tested_at": "2026-11-15T10:29:22.799500+00:00",
+  "url": "http://127.0.0.1:18080/walkthrough.mp4",
+  "bytes": 4964280,
+  "sha256": "8a2cd4df5fd368b460405a095a284827c8e9040db74cf86cf79d47b79f1a728d",
+  "content_type": "video/mp4",
+  "content_range": "bytes 0-1023/4964280"
+}

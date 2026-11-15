@@ -1,0 +1,100 @@
+{
+  "arm": "bm25",
+  "category": "missing_source",
+  "context_sha256": "803f9153f73826f1d2fb3b316ef502fca205b73a751764dd3dc0dee0d43ae181",
+  "context_tokens_budgeted": 1959,
+  "corpus_sha256": "a22ff6ae13c16f4e26364458c00e11b17bc2558c6c3db78f92213d224dcd2091",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "803f9153f73826f1d2fb3b316ef502fca205b73a751764dd3dc0dee0d43ae181",
+    "provider_result": {
+      "elapsed_seconds": 6.83652429189533,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4486,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4486,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.090464,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 462,
+          "provider": "firstParty",
+          "thinkingTokens": 102,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed FX source source:fx:2026-W46@7fb66a21f6f2 is a direct input of artifact:2026-W46:usd@092abb7cc465, which is in turn a direct input of artifact:2026-W46:eu_brief@3f761540b806, so both require revalidation (and should block rather than serve stale numbers). artifact:2026-W46:support@bce58d8579f2 depends only on the tickets source and its own tool, and the W44, W45 and W46 support briefs depend only on support artifacts and compose_report, so no supplied path links them to the changed FX source. This is a revalidation plan only; nothing has been recomputed.",
+        "selected_ids": [
+          "artifact:2026-W46:usd@092abb7cc465",
+          "artifact:2026-W46:eu_brief@3f761540b806"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.090464,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4486,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4486,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4486,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4486,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 462,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 462,
+        "output_tokens_details": {
+          "thinking_tokens": 102
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed FX source source:fx:2026-W46@7fb66a21f6f2 is a direct input of artifact:2026-W46:usd@092abb7cc465, which is in turn a direct input of artifact:2026-W46:eu_brief@3f761540b806, so both require revalidation (and should block rather than serve stale numbers). artifact:2026-W46:support@bce58d8579f2 depends only on the tickets source and its own tool, and the W44, W45 and W46 support briefs depend only on support artifacts and compose_report, so no supplied path links them to the changed FX source. This is a revalidation plan only; nothing has been recomputed.",
+    "request_sha256": "33bbc79b9b69671aaf1467bf9d9cb238a8c29103aae81f0fa23ad9b7ce1cc75a",
+    "selected_ids": [
+      "artifact:2026-W46:usd@092abb7cc465",
+      "artifact:2026-W46:eu_brief@3f761540b806"
+    ]
+  },
+  "presented_context_tokens": 1959,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2205,
+  "request_file": "T10/bm25/request.json",
+  "request_file_sha256": "7a6a004ca643477609b4740c26b1343d9d200e16ec88616958f325b48f49d8e1",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "bc100b6e3bf53a70eccaceedd98c7cfa0a68cf3e764f0cc5854d1f3e6bb4d8c9",
+  "retrieval_ms": 0.2915831282734871,
+  "scenario": "T10",
+  "status": "planned"
+}

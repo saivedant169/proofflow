@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "checks": {
+    "health_reads_real_hydra": true,
+    "built_interface_served": true,
+    "compiled_assets_load": true,
+    "unknown_api_is_not_spa": true,
+    "initial_actual_values": true,
+    "changed_claims_withheld": true,
+    "native_impact_four_artifacts": true,
+    "correct_refreshed_values": true,
+    "four_actual_tools_and_support_preserved": true,
+    "independent_refresh_parity": true,
+    "app_restart_preserves_browser_session": true,
+    "app_restart_preserves_artifact_ids": true,
+    "app_restart_reads_current_values": true,
+    "missing_source_refresh_refused": true,
+    "missing_source_never_serves_current_revenue": true,
+    "reset_recovers_new_generation": true
+  },
+  "failure": null,
+  "tested_at": "2026-11-15T10:18:18.733900+00:00",
+  "url": "http://127.0.0.1:18080",
+  "app_restart_requested": true,
+  "elapsed_seconds": 6.884,
+  "scope": "Actual HTTP requests to the built application container, pinned HydraDB, persistent app volume; no model calls."
+}

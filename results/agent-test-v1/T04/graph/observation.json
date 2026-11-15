@@ -1,0 +1,108 @@
+{
+  "arm": "graph",
+  "category": "fan_in",
+  "context_sha256": "439caf5e2e226feada9360b1b90862f57243ef8adef14bc0d83cef190dc5a7b8",
+  "context_tokens_budgeted": 1884,
+  "corpus_sha256": "c0099ac61b0b82147afe7558a0f94aa1eea715bc6718528875cdc3ce90e1ba32",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "439caf5e2e226feada9360b1b90862f57243ef8adef14bc0d83cef190dc5a7b8",
+    "provider_result": {
+      "elapsed_seconds": 7.970841332804412,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4044,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4044,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.090152,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 631,
+          "provider": "firstParty",
+          "thinkingTokens": 108,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "The changed version source:orders:2026-W45@3a1ff40427e5 is a direct input to both gross@6a8a874934fc and refunds@0bc0e7a39a47. net@35c96896d0f0 takes both of those as inputs, usd@8ea5f5b9ddab takes net, and company@802152e6e0e0 and eu_brief@75969a5c3b3e each take usd. All six supplied artifacts are therefore on an explicit dependency path from the change and need revalidation, listed in dependency order. eu_brief also depends on a support artifact that has no supplied record; this does not affect the selection because its path through usd is sufficient. No records were supplied for 2026-W44 or 2026-W46, so nothing is selected for those periods. This is a revalidation plan only; nothing has been recomputed and no claim is made that the stored values changed.",
+        "selected_ids": [
+          "artifact:2026-W45:gross@6a8a874934fc",
+          "artifact:2026-W45:refunds@0bc0e7a39a47",
+          "artifact:2026-W45:net@35c96896d0f0",
+          "artifact:2026-W45:usd@8ea5f5b9ddab",
+          "artifact:2026-W45:company@802152e6e0e0",
+          "artifact:2026-W45:eu_brief@75969a5c3b3e"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.090152,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4044,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4044,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4044,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4044,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 631,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 631,
+        "output_tokens_details": {
+          "thinking_tokens": 108
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "The changed version source:orders:2026-W45@3a1ff40427e5 is a direct input to both gross@6a8a874934fc and refunds@0bc0e7a39a47. net@35c96896d0f0 takes both of those as inputs, usd@8ea5f5b9ddab takes net, and company@802152e6e0e0 and eu_brief@75969a5c3b3e each take usd. All six supplied artifacts are therefore on an explicit dependency path from the change and need revalidation, listed in dependency order. eu_brief also depends on a support artifact that has no supplied record; this does not affect the selection because its path through usd is sufficient. No records were supplied for 2026-W44 or 2026-W46, so nothing is selected for those periods. This is a revalidation plan only; nothing has been recomputed and no claim is made that the stored values changed.",
+    "request_sha256": "58416587eb8ee0121e0adabf71d237d96f9b42fdf0c05d6561b973c10ac15e5f",
+    "selected_ids": [
+      "artifact:2026-W45:gross@6a8a874934fc",
+      "artifact:2026-W45:refunds@0bc0e7a39a47",
+      "artifact:2026-W45:net@35c96896d0f0",
+      "artifact:2026-W45:usd@8ea5f5b9ddab",
+      "artifact:2026-W45:company@802152e6e0e0",
+      "artifact:2026-W45:eu_brief@75969a5c3b3e"
+    ]
+  },
+  "presented_context_tokens": 1884,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2078,
+  "request_file": "T04/graph/request.json",
+  "request_file_sha256": "65b6964276281150318a7bd8b89bc69e41594ce08e96be8436199e54dfa0312c",
+  "retrieval_calls": 4,
+  "retrieval_context_sha256": "5d76153771aefce7338b3cc71c2d84a08b3b9117739b7ba16b16a3d98d8d5ed4",
+  "retrieval_ms": 8.712208364158869,
+  "scenario": "T04",
+  "status": "planned"
+}

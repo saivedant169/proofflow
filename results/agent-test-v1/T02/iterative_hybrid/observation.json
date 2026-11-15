@@ -1,0 +1,100 @@
+{
+  "arm": "iterative_hybrid",
+  "category": "cross_run",
+  "context_sha256": "38b3a3a50fb6c2011bdfca43317d3b991e8330407b0740b12fa5885fe113e3f3",
+  "context_tokens_budgeted": 1989,
+  "corpus_sha256": "6b564b95a2d9fea32c88096a6edc6e45191e9255a32ba870682c9d762562a273",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "38b3a3a50fb6c2011bdfca43317d3b991e8330407b0740b12fa5885fe113e3f3",
+    "provider_result": {
+      "elapsed_seconds": 11.009580499958247,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4374,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4374,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.109672,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 987,
+          "provider": "firstParty",
+          "thinkingTokens": 410,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "Two supplied artifacts have an explicit dependency path to the changed source:refunds:2026-W46@a23fa9c2dda7. artifact:2026-W46:refunds@e9e778ccdd93 lists it directly as an input, and artifact:2026-W46:net@719d34de3014 lists that refunds artifact as an input.\n\nNot selected:\n- artifact:2026-W46:gross@9df86592d3a2 and artifact:2026-W45:gross@6a8a874934fc depend only on orders sources and the unchanged gross_by_region tool.\n- artifact:2026-W46:eu_brief@3f761540b806 depends on artifact:2026-W46:usd@092abb7cc465 and artifact:2026-W46:support@bce58d8579f2. Neither record is supplied, so no explicit path links it to the changed refunds source.\n- artifact:2026-W46:company_brief@add154075434 depends on artifact:2026-W46:company@4d33da03df72 and the same support artifact. Those records are also not supplied, so no path is supported.\n\nThe two briefs may be affected in practice, but confirming that would need the missing usd and company records. No 2026-W44 records were supplied. This is a revalidation plan only; nothing was recomputed and no claim is made that the stored numbers changed.",
+        "selected_ids": [
+          "artifact:2026-W46:refunds@e9e778ccdd93",
+          "artifact:2026-W46:net@719d34de3014"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.109672,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4374,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4374,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4374,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4374,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 987,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 987,
+        "output_tokens_details": {
+          "thinking_tokens": 410
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "Two supplied artifacts have an explicit dependency path to the changed source:refunds:2026-W46@a23fa9c2dda7. artifact:2026-W46:refunds@e9e778ccdd93 lists it directly as an input, and artifact:2026-W46:net@719d34de3014 lists that refunds artifact as an input.\n\nNot selected:\n- artifact:2026-W46:gross@9df86592d3a2 and artifact:2026-W45:gross@6a8a874934fc depend only on orders sources and the unchanged gross_by_region tool.\n- artifact:2026-W46:eu_brief@3f761540b806 depends on artifact:2026-W46:usd@092abb7cc465 and artifact:2026-W46:support@bce58d8579f2. Neither record is supplied, so no explicit path links it to the changed refunds source.\n- artifact:2026-W46:company_brief@add154075434 depends on artifact:2026-W46:company@4d33da03df72 and the same support artifact. Those records are also not supplied, so no path is supported.\n\nThe two briefs may be affected in practice, but confirming that would need the missing usd and company records. No 2026-W44 records were supplied. This is a revalidation plan only; nothing was recomputed and no claim is made that the stored numbers changed.",
+    "request_sha256": "f04d1dea3a10661a5fefd7bcdcb0ab5f4a795207a111d02cb19f11f86e1d1fcb",
+    "selected_ids": [
+      "artifact:2026-W46:refunds@e9e778ccdd93",
+      "artifact:2026-W46:net@719d34de3014"
+    ]
+  },
+  "presented_context_tokens": 1989,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2207,
+  "request_file": "T02/iterative_hybrid/request.json",
+  "request_file_sha256": "addc2c9e9f6617bef22bfc9eda215c918957a2ea56fcb4dd02f740b68c379038",
+  "retrieval_calls": 6,
+  "retrieval_context_sha256": "cf7a699e0494912b194ff877aa52ee12e27cadfdabfdf5fd77db7853c19028d2",
+  "retrieval_ms": 45.854249969124794,
+  "scenario": "T02",
+  "status": "planned"
+}

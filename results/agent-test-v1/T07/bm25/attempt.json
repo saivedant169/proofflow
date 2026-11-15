@@ -1,0 +1,17 @@
+{
+  "arm": "bm25",
+  "category": "multiple_sources",
+  "context_sha256": "127f930715229ca90f4863252f58b56764597ee7c46aa8edf22fb12dc28ecc13",
+  "context_tokens_budgeted": 2030,
+  "corpus_sha256": "ecf0bd539a65b057fc18b53477b17e23393bbc3cfb793f4a08f8f1f1467bef4f",
+  "presented_context_tokens": 2030,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2274,
+  "request_file": "T07/bm25/request.json",
+  "request_file_sha256": "e0c3cdbeafb6a1492d4917ba74ecf8d6d8d270978e80b81dd11b0fbd6d7db2b7",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "30aeab3d5e4a0c98e291b0bacab6a2b0fa8f7c92b85b081e26a900823c4bfe12",
+  "retrieval_ms": 0.3209998831152916,
+  "scenario": "T07",
+  "started_at": "2026-11-15T09:58:12.480459+00:00"
+}

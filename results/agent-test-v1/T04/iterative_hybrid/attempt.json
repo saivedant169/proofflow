@@ -1,0 +1,17 @@
+{
+  "arm": "iterative_hybrid",
+  "category": "fan_in",
+  "context_sha256": "291f0c1a3d53a058bf390e9218730427f500e0afeac8f9e1eb995a7b1237ea06",
+  "context_tokens_budgeted": 2039,
+  "corpus_sha256": "c0099ac61b0b82147afe7558a0f94aa1eea715bc6718528875cdc3ce90e1ba32",
+  "presented_context_tokens": 2039,
+  "presented_records": 7,
+  "prompt_tokens_cl100k_estimate": 2254,
+  "request_file": "T04/iterative_hybrid/request.json",
+  "request_file_sha256": "e0e5f0dfed839bd524d88d878c15ebf4ded87590deff4117192793e9d8c35066",
+  "retrieval_calls": 8,
+  "retrieval_context_sha256": "541bb8655075917d1ed641af1b0dbcc345fa9f9a14320ee736d3db4fe391d8e7",
+  "retrieval_ms": 78.63120827823877,
+  "scenario": "T04",
+  "started_at": "2026-11-15T09:57:23.307166+00:00"
+}

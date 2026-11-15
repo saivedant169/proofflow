@@ -1,0 +1,108 @@
+{
+  "arm": "graph",
+  "category": "multiple_sources",
+  "context_sha256": "51be67bd167145edef66a3312c0fefcf3a222dab4c5ed705b950d646413e9f76",
+  "context_tokens_budgeted": 2039,
+  "corpus_sha256": "ecf0bd539a65b057fc18b53477b17e23393bbc3cfb793f4a08f8f1f1467bef4f",
+  "plan": {
+    "abstain": false,
+    "context_sha256": "51be67bd167145edef66a3312c0fefcf3a222dab4c5ed705b950d646413e9f76",
+    "provider_result": {
+      "elapsed_seconds": 9.712103249970824,
+      "metadata": {
+        "effort": "high",
+        "num_turns": 2,
+        "subtype": "success",
+        "system_prompt_sha256": "f2901ccef73b412eb075b80dce46dde8d49dc9b82ca1e57d706434a3f3cd5b03",
+        "tools_enabled": false
+      },
+      "model": "claude-fable-5-2",
+      "model_usage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 4405,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 4405,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": 0.10724800000000001,
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 914,
+          "provider": "firstParty",
+          "thinkingTokens": 308,
+          "webSearchRequests": 0
+        }
+      },
+      "payload": {
+        "abstain": false,
+        "rationale": "All six supplied artifacts have an explicit dependency path to a changed source version. Refund chain: source:refunds:2026-W45@ac79db72811e is a direct input of artifact:2026-W45:refunds@0bc0e7a39a47, which is an input of artifact:2026-W45:net@35c96896d0f0, which is an input of artifact:2026-W45:usd@8ea5f5b9ddab. Ticket chain: source:tickets:2026-W46@d82b0f898703 is a direct input of artifact:2026-W46:support@bce58d8579f2, which is an input of both artifact:2026-W46:company_brief@add154075434 and artifact:2026-W46:eu_brief@3f761540b806. The W46 briefs are selected only through the support artifact; the supplied evidence has no record linking the W45 refund chain to artifact:2026-W46:company or artifact:2026-W46:usd, so no cross-week path is assumed. No 2026-W44 artifacts were supplied. This is a revalidation plan only; nothing has been recomputed and the stored values are not claimed to have changed.",
+        "selected_ids": [
+          "artifact:2026-W45:refunds@0bc0e7a39a47",
+          "artifact:2026-W45:net@35c96896d0f0",
+          "artifact:2026-W45:usd@8ea5f5b9ddab",
+          "artifact:2026-W46:support@bce58d8579f2",
+          "artifact:2026-W46:company_brief@add154075434",
+          "artifact:2026-W46:eu_brief@3f761540b806"
+        ]
+      },
+      "provider": "Claude Code CLI (local authenticated process)",
+      "reported_cost_usd": 0.10724800000000001,
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 4405,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 4405,
+        "cache_read_input_tokens": 960,
+        "fallback_credit": null,
+        "inference_geo": "global",
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 4405,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 4405,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 914,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 914,
+        "output_tokens_details": {
+          "thinking_tokens": 308
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        },
+        "service_tier": "standard",
+        "speed": "standard"
+      }
+    },
+    "rationale": "All six supplied artifacts have an explicit dependency path to a changed source version. Refund chain: source:refunds:2026-W45@ac79db72811e is a direct input of artifact:2026-W45:refunds@0bc0e7a39a47, which is an input of artifact:2026-W45:net@35c96896d0f0, which is an input of artifact:2026-W45:usd@8ea5f5b9ddab. Ticket chain: source:tickets:2026-W46@d82b0f898703 is a direct input of artifact:2026-W46:support@bce58d8579f2, which is an input of both artifact:2026-W46:company_brief@add154075434 and artifact:2026-W46:eu_brief@3f761540b806. The W46 briefs are selected only through the support artifact; the supplied evidence has no record linking the W45 refund chain to artifact:2026-W46:company or artifact:2026-W46:usd, so no cross-week path is assumed. No 2026-W44 artifacts were supplied. This is a revalidation plan only; nothing has been recomputed and the stored values are not claimed to have changed.",
+    "request_sha256": "f26f88639544669faf6b52dede1aaa5a708c29df90881a02317dc429a1c01b98",
+    "selected_ids": [
+      "artifact:2026-W45:refunds@0bc0e7a39a47",
+      "artifact:2026-W45:net@35c96896d0f0",
+      "artifact:2026-W45:usd@8ea5f5b9ddab",
+      "artifact:2026-W46:support@bce58d8579f2",
+      "artifact:2026-W46:company_brief@add154075434",
+      "artifact:2026-W46:eu_brief@3f761540b806"
+    ]
+  },
+  "presented_context_tokens": 2039,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2268,
+  "request_file": "T07/graph/request.json",
+  "request_file_sha256": "b15399fddeca72f03ac727845be5445f1b8d081aeeeab8249269c6e178f78698",
+  "retrieval_calls": 8,
+  "retrieval_context_sha256": "84462886d524053fb41cdd4cbdd0c5d86bd72ce1a2ca8f46edc631e67353e144",
+  "retrieval_ms": 18.25116667896509,
+  "scenario": "T07",
+  "status": "planned"
+}

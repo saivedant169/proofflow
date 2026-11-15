@@ -1,0 +1,15 @@
+.git
+.env
+.state
+.venv
+.cache
+**/__pycache__
+**/*.pyc
+.pytest_cache
+results
+frontend/node_modules
+frontend/dist
+frontend/design
+docs
+tests
+video/.work

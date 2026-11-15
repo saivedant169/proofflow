@@ -1,0 +1,17 @@
+{
+  "arm": "bm25",
+  "category": "missing_source",
+  "context_sha256": "803f9153f73826f1d2fb3b316ef502fca205b73a751764dd3dc0dee0d43ae181",
+  "context_tokens_budgeted": 1959,
+  "corpus_sha256": "a22ff6ae13c16f4e26364458c00e11b17bc2558c6c3db78f92213d224dcd2091",
+  "presented_context_tokens": 1959,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2205,
+  "request_file": "T10/bm25/request.json",
+  "request_file_sha256": "7a6a004ca643477609b4740c26b1343d9d200e16ec88616958f325b48f49d8e1",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "bc100b6e3bf53a70eccaceedd98c7cfa0a68cf3e764f0cc5854d1f3e6bb4d8c9",
+  "retrieval_ms": 0.2915831282734871,
+  "scenario": "T10",
+  "started_at": "2026-11-15T09:58:40.375622+00:00"
+}

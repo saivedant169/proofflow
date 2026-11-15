@@ -1,0 +1,17 @@
+{
+  "arm": "bm25",
+  "category": "cross_run",
+  "context_sha256": "d6f5ab7a3c74c27c48b1b95731c43a4e34e786d7cde0b6d967ab4610c1f8a871",
+  "context_tokens_budgeted": 1984,
+  "corpus_sha256": "6b564b95a2d9fea32c88096a6edc6e45191e9255a32ba870682c9d762562a273",
+  "presented_context_tokens": 1984,
+  "presented_records": 6,
+  "prompt_tokens_cl100k_estimate": 2216,
+  "request_file": "T02/bm25/request.json",
+  "request_file_sha256": "f97ee2d5c0275fa70b08b0b81cfe7d80317449f1c132146290ff6b4bec183ab1",
+  "retrieval_calls": 1,
+  "retrieval_context_sha256": "0d71e4d6a2e83a62df8431a81760187ca49f71d3fd2f0ebb044a6b7d40d798c9",
+  "retrieval_ms": 0.30470872297883034,
+  "scenario": "T02",
+  "started_at": "2026-11-15T09:56:39.223233+00:00"
+}
