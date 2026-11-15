@@ -7,6 +7,7 @@ when integrating with a resettable benchmark scenario.
 from __future__ import annotations
 
 import argparse
+from dataclasses import asdict
 import json
 from pathlib import Path
 
@@ -29,8 +30,19 @@ def main() -> None:
                            context_text=data["context_text"], allowed_artifact_ids=tuple(data["allowed_artifact_ids"]))
     provider = ClaudeCLIProvider(model=args.model, effort=args.effort, timeout_seconds=args.timeout,
                                   max_budget_usd=args.max_budget_usd)
-    result = plan_refresh(provider, request)
     args.output.parent.mkdir(parents=True, exist_ok=True)
+    if args.output.exists():
+        raise ValueError("Refusing to overwrite a prior model observation")
+    try:
+        result = plan_refresh(provider, request)
+    except Exception as exc:
+        provider_result = getattr(exc, "provider_result", None)
+        failure = {"status": "failed", "error_type": type(exc).__name__, "error": str(exc),
+                   "provider_result": asdict(provider_result) if provider_result else None,
+                   "provider_evidence": getattr(exc, "evidence", {}),
+                   "no_retry": True, "request": str(args.request)}
+        args.output.write_text(json.dumps(failure, indent=2) + "\n")
+        raise
     args.output.write_text(json.dumps(result.to_dict(), indent=2) + "\n")
     print(json.dumps({"model": result.provider_result.model, "selected_ids": result.selected_ids,
                       "abstain": result.abstain, "output": str(args.output),

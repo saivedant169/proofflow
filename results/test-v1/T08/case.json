@@ -1,0 +1,1633 @@
+{
+  "alias_to_raw": {
+    "artifact:2026-W44:company@29481e78093b": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:42b66257f4cf37a711cd03bf4308ea6007dca9f866b6ee49dc051fbe05ee7e90",
+    "artifact:2026-W44:company_brief@8b737a88bfe3": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:f51fdb6f0cab3edcc660f7e6de3fc7f119984a5605589f2f21fd28785a647a3d",
+    "artifact:2026-W44:eu_brief@00feeb4b8458": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:a015dbb5d569b8bf4a2ff1d887ac6472eb6fad128fc817e61eae06b159663d55",
+    "artifact:2026-W44:gross@a8de1424c291": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:e2a456093b71783870dd92f02224ab11e751d61a4c0232a4cafbc47c9e11fa9a",
+    "artifact:2026-W44:net@e7a4b83adf14": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:051f20f64e7ffac84831d2b793bca24e6936251dfaf8ca718a0f67fad28909ab",
+    "artifact:2026-W44:refunds@f103af315aed": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:02e21dd9bfa6aeb96b56ae5a7818090ce778b1a9c2fdbde5393b2770e874dd0d",
+    "artifact:2026-W44:support@87a21b785831": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:58545179c40a1c1036a7ee786b859b07f6302dba3db67ad686cb058bdbf33704",
+    "artifact:2026-W44:support_brief@0f1e5fc9975b": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:2d0551339e7dbea39b2e3b9a6d53ff5f80328bb67c2be79fa9c511fce0170765",
+    "artifact:2026-W44:usd@f2300a650960": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:b01e1a946a171737f10b4c3ffb0ef178eb1e11cb06ea383094cee5e4ac50adaf",
+    "artifact:2026-W45:company@802152e6e0e0": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:c85e519528f67094463ed1d2b64a8cab7f5590ff149470df384a9b9b8bafad6d",
+    "artifact:2026-W45:company_brief@958f33986dbc": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:31c6f258aa9cb4d849aade0c8f9526f1d244196e0e6ec10a094d17c75e646f52",
+    "artifact:2026-W45:eu_brief@75969a5c3b3e": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:2acb418e7d0c8cd2c9a20b065b9dd1ba8b0687bd744f08e206ea529b9182d153",
+    "artifact:2026-W45:gross@6a8a874934fc": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:59ada2a0249f85931b852f2060e0c8659a0c1863eddc9e82818b0a3cf230b4ea",
+    "artifact:2026-W45:net@35c96896d0f0": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:719206de9854dbb98aadce9fdfeb683542b238086769adf2bda84cdbd4280109",
+    "artifact:2026-W45:refunds@0bc0e7a39a47": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:b314407be82b09e85569e59a4edc3c60d38418a8573ddfa9efd1a0b8d03f17be",
+    "artifact:2026-W45:support@e73a4abfe25e": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:d3950ae03da7d8c7765230dee448ea2ad7c94fb2a475f2346dc4647c0722216d",
+    "artifact:2026-W45:support_brief@917a014d75b5": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:b305846e9ff23946ca336396f763e7c9c395fea065969311eb79fe86440906b7",
+    "artifact:2026-W45:usd@8ea5f5b9ddab": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:fd09867ac33a778b93aa537fb5e72eb8a9117a841d90ffd7aac80eaaa4df0526",
+    "artifact:2026-W46:company@4d33da03df72": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:ae42b0ef9a84e0ce2cf079796df9dd93c24841ef9b421983eb55825a85b57bd5",
+    "artifact:2026-W46:company_brief@add154075434": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:ad40797a2a0e423cd21db71a30d8762267dcc61889c7bfbaed6eb62565839a58",
+    "artifact:2026-W46:eu_brief@3f761540b806": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:8d1dc92e1c52779028d96b8587c92e3f8da597c1df4936d0dfba8394fab305b1",
+    "artifact:2026-W46:gross@9df86592d3a2": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:b4688670a0e48f6baab2c73d568f231c1caf600884685db5765346308e6ad829",
+    "artifact:2026-W46:net@719d34de3014": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:2d40927ed0fa2eb1f1bd91c3f5aa43486e0d9d8b6a4bfa690f773cc11a572fa5",
+    "artifact:2026-W46:refunds@e9e778ccdd93": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:2aa3a7cc0d24f131347fa2e7f5d1b2de0212a2c2f9541b76b3e7c576ee1b1443",
+    "artifact:2026-W46:support@bce58d8579f2": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:dc7f54698ee6b191c717b76e1e70427bb378dd946ceb028c8c33724897b05fc9",
+    "artifact:2026-W46:support_brief@fd9b4c303496": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:25f57a4d90f7a68edf0d9485ed0abeea61ea23f66a47d93457737fb6289bec43",
+    "artifact:2026-W46:usd@092abb7cc465": "2d4ca8a0bb034f06a50599c8ffca4246:artifact:fa86f6d969257868dd41cd417ff388209728a40012138aa7c5283b72a127e927",
+    "source:fx:2026-W44@2489e04abbb7": "2d4ca8a0bb034f06a50599c8ffca4246:source:73399c9f1da319c4addaebb76ec65687db57446be08c6c60b1b9db9585afc60d",
+    "source:fx:2026-W45@7683d7f26a54": "2d4ca8a0bb034f06a50599c8ffca4246:source:8b18a19185cee80e3fbc8cdb72b55b31de3455b12b849e1ed42a3e0f36ced904",
+    "source:fx:2026-W46@7fb66a21f6f2": "2d4ca8a0bb034f06a50599c8ffca4246:source:81cb69fd73767924e96a9c68a87fc701685f9388793651dca6f5d70aabd7a62b",
+    "source:orders:2026-W44@2a08113296fb": "2d4ca8a0bb034f06a50599c8ffca4246:source:f157cace3ec609ea40e1a9c648d41829fb92fd66634df82bbab5462a32f64b33",
+    "source:orders:2026-W45@2ad26f36333f": "2d4ca8a0bb034f06a50599c8ffca4246:source:7145f8fb0348597b14f430ef0b93440a859a397e53773113bb17714d8a8d555e",
+    "source:orders:2026-W45@3a1ff40427e5": "2d4ca8a0bb034f06a50599c8ffca4246:source:245e272e82bed9e8b4bf6a0bfe2adf484e54955c2beb4bc509d024b603d3b057",
+    "source:orders:2026-W46@d94a1e5c8df2": "2d4ca8a0bb034f06a50599c8ffca4246:source:ff54803b89e66591c721f2038132e7611aef5c7bd3a41e6f4ac41d59f3e4ac7f",
+    "source:refunds:2026-W44@ee73aa1dd32f": "2d4ca8a0bb034f06a50599c8ffca4246:source:1e92e74116b091fbccd2e8099c94b90042ca8386fdd3a525b741803869db8d5c",
+    "source:refunds:2026-W45@ac79db72811e": "2d4ca8a0bb034f06a50599c8ffca4246:source:f7020f6c8cce6230227e4f4a164f09a9620a97befc1eb651c134b0e600074405",
+    "source:refunds:2026-W46@a23fa9c2dda7": "2d4ca8a0bb034f06a50599c8ffca4246:source:d05b53e1a2f9a37bd0b7a4f00d9b7ad2f25d8ab763948120fa9d607c1884a5fd",
+    "source:tickets:2026-W44@b358b0e0eca8": "2d4ca8a0bb034f06a50599c8ffca4246:source:8d950210be28b32c8c730f9bc929e3d408d24d74e1c245a8a1cd85d4364e34d2",
+    "source:tickets:2026-W45@e1e01d418bd4": "2d4ca8a0bb034f06a50599c8ffca4246:source:8bbe5988e41ec4ae7f60c663ab6b4ea0afca59f67c706794e56eb6c8f4ea628e",
+    "source:tickets:2026-W46@d82b0f898703": "2d4ca8a0bb034f06a50599c8ffca4246:source:0044bc81c921127f01390b87cf9513810cfcbc922bfe8f928e0e8d24db3e26bc",
+    "tool:company_total@fcdb2990803d": "2d4ca8a0bb034f06a50599c8ffca4246:tool:f292d9109171070088c107efc2b4cf2d929961bad569bdcf8968cd8d31b37434",
+    "tool:compose_report@f1c27467f0de": "2d4ca8a0bb034f06a50599c8ffca4246:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee",
+    "tool:convert_to_usd@f06369159d71": "2d4ca8a0bb034f06a50599c8ffca4246:tool:c78b222dc40236afafd222f7cc7438950a6b1179ad4dd169a6b3c1cfc0eb302f",
+    "tool:gross_by_region@52ea04f90794": "2d4ca8a0bb034f06a50599c8ffca4246:tool:269b8e6146f737a72eb9a36bffe590aa96dbf8d97767ebb5f3bc176c20273a09",
+    "tool:net_by_region@4ab70497c81e": "2d4ca8a0bb034f06a50599c8ffca4246:tool:077ba3c17c0056a410c5fe3638ef60267578e466552567585982deca82823b8f",
+    "tool:refunds_by_region@d563234386bf": "2d4ca8a0bb034f06a50599c8ffca4246:tool:daca152df821a64d43d80795b52abd53e98085406a1e6c69c9792f1c56ae4e8a",
+    "tool:support_by_region@c5bcff4e54a0": "2d4ca8a0bb034f06a50599c8ffca4246:tool:cdf845d61772c018c96cc888cca284ee58d53b77991a061ba21743481a969c99"
+  },
+  "corpus_records": 27,
+  "corpus_sha256": "ed28d4bebf291bb1162e0edcdb6e7014f08ced139520789dbc6ff7065f8d5045",
+  "corpus_tokens": 8461,
+  "dense_chunks": 46,
+  "evidence": [
+    {
+      "current_direct_versions": {
+        "artifact:2026-W44:usd@f2300a650960": "artifact:2026-W44:usd@f2300a650960",
+        "tool:company_total@fcdb2990803d": "tool:company_total@fcdb2990803d"
+      },
+      "description": "Company-wide net revenue in USD for 2026-W44.",
+      "id": "artifact:2026-W44:company@29481e78093b",
+      "input_labels": {
+        "artifact:2026-W44:usd@f2300a650960": "artifact:2026-W44:usd"
+      },
+      "inputs": [
+        "artifact:2026-W44:usd@f2300a650960"
+      ],
+      "logical_id": "artifact:2026-W44:company",
+      "parameters": {},
+      "result": {
+        "usd_cents": 552700
+      },
+      "title": "artifact:2026-W44:company",
+      "tool": "company_total",
+      "tool_version_id": "tool:company_total@fcdb2990803d"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W44:company@29481e78093b": "artifact:2026-W44:company@29481e78093b",
+        "artifact:2026-W44:support@87a21b785831": "artifact:2026-W44:support@87a21b785831",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Weekly company report covering net revenue and EU support demand for 2026-W44.",
+      "id": "artifact:2026-W44:company_brief@8b737a88bfe3",
+      "input_labels": {
+        "artifact:2026-W44:company@29481e78093b": "artifact:2026-W44:company",
+        "artifact:2026-W44:support@87a21b785831": "artifact:2026-W44:support"
+      },
+      "inputs": [
+        "artifact:2026-W44:company@29481e78093b",
+        "artifact:2026-W44:support@87a21b785831"
+      ],
+      "logical_id": "artifact:2026-W44:company_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "revenue",
+            "key": "revenue",
+            "label": "Company net revenue",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "eu_support",
+            "label": "EU support tickets",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "Company performance brief — 2026-W44"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "revenue",
+            "label": "Company net revenue",
+            "unit": "USD cents",
+            "value": 552700
+          },
+          {
+            "key": "eu_support",
+            "label": "EU support tickets",
+            "unit": "tickets",
+            "value": 2
+          }
+        ],
+        "title": "Company performance brief — 2026-W44"
+      },
+      "title": "Company performance brief — 2026-W44",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W44:support@87a21b785831": "artifact:2026-W44:support@87a21b785831",
+        "artifact:2026-W44:usd@f2300a650960": "artifact:2026-W44:usd@f2300a650960",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "EU operations report for 2026-W44, reusing the regional revenue artifact from the company run.",
+      "id": "artifact:2026-W44:eu_brief@00feeb4b8458",
+      "input_labels": {
+        "artifact:2026-W44:support@87a21b785831": "artifact:2026-W44:support",
+        "artifact:2026-W44:usd@f2300a650960": "artifact:2026-W44:usd"
+      },
+      "inputs": [
+        "artifact:2026-W44:usd@f2300a650960",
+        "artifact:2026-W44:support@87a21b785831"
+      ],
+      "logical_id": "artifact:2026-W44:eu_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "regional",
+            "key": "net_revenue",
+            "label": "EU net revenue in USD",
+            "path": [
+              "regions",
+              "EU",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "tickets",
+            "label": "EU support tickets",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "EU operations brief — 2026-W44"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "net_revenue",
+            "label": "EU net revenue in USD",
+            "unit": "USD cents",
+            "value": 205200
+          },
+          {
+            "key": "tickets",
+            "label": "EU support tickets",
+            "unit": "tickets",
+            "value": 2
+          }
+        ],
+        "title": "EU operations brief — 2026-W44"
+      },
+      "title": "EU operations brief — 2026-W44",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "source:orders:2026-W44@2a08113296fb": "source:orders:2026-W44@2a08113296fb",
+        "tool:gross_by_region@52ea04f90794": "tool:gross_by_region@52ea04f90794"
+      },
+      "description": "Gross sales before customer refunds for 2026-W44, by region and currency.",
+      "id": "artifact:2026-W44:gross@a8de1424c291",
+      "input_labels": {
+        "source:orders:2026-W44@2a08113296fb": "source:orders:2026-W44"
+      },
+      "inputs": [
+        "source:orders:2026-W44@2a08113296fb"
+      ],
+      "logical_id": "artifact:2026-W44:gross",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "amount_cents": 200000,
+            "currency": "EUR"
+          },
+          "UK": {
+            "amount_cents": 90000,
+            "currency": "GBP"
+          },
+          "US": {
+            "amount_cents": 240000,
+            "currency": "USD"
+          }
+        }
+      },
+      "title": "artifact:2026-W44:gross",
+      "tool": "gross_by_region",
+      "tool_version_id": "tool:gross_by_region@52ea04f90794"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W44:gross@a8de1424c291": "artifact:2026-W44:gross@a8de1424c291",
+        "artifact:2026-W44:refunds@f103af315aed": "artifact:2026-W44:refunds@f103af315aed",
+        "tool:net_by_region@4ab70497c81e": "tool:net_by_region@4ab70497c81e"
+      },
+      "description": "Regional net revenue after refunds in local currencies for 2026-W44.",
+      "id": "artifact:2026-W44:net@e7a4b83adf14",
+      "input_labels": {
+        "artifact:2026-W44:gross@a8de1424c291": "artifact:2026-W44:gross",
+        "artifact:2026-W44:refunds@f103af315aed": "artifact:2026-W44:refunds"
+      },
+      "inputs": [
+        "artifact:2026-W44:gross@a8de1424c291",
+        "artifact:2026-W44:refunds@f103af315aed"
+      ],
+      "logical_id": "artifact:2026-W44:net",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "amount_cents": 190000,
+            "currency": "EUR"
+          },
+          "UK": {
+            "amount_cents": 90000,
+            "currency": "GBP"
+          },
+          "US": {
+            "amount_cents": 235000,
+            "currency": "USD"
+          }
+        }
+      },
+      "title": "artifact:2026-W44:net",
+      "tool": "net_by_region",
+      "tool_version_id": "tool:net_by_region@4ab70497c81e"
+    },
+    {
+      "current_direct_versions": {
+        "source:orders:2026-W44@2a08113296fb": "source:orders:2026-W44@2a08113296fb",
+        "source:refunds:2026-W44@ee73aa1dd32f": "source:refunds:2026-W44@ee73aa1dd32f",
+        "tool:refunds_by_region@d563234386bf": "tool:refunds_by_region@d563234386bf"
+      },
+      "description": "Customer refunds matched to their orders for 2026-W44, grouped by region.",
+      "id": "artifact:2026-W44:refunds@f103af315aed",
+      "input_labels": {
+        "source:orders:2026-W44@2a08113296fb": "source:orders:2026-W44",
+        "source:refunds:2026-W44@ee73aa1dd32f": "source:refunds:2026-W44"
+      },
+      "inputs": [
+        "source:orders:2026-W44@2a08113296fb",
+        "source:refunds:2026-W44@ee73aa1dd32f"
+      ],
+      "logical_id": "artifact:2026-W44:refunds",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "amount_cents": 10000,
+            "currency": "EUR"
+          },
+          "US": {
+            "amount_cents": 5000,
+            "currency": "USD"
+          }
+        }
+      },
+      "title": "artifact:2026-W44:refunds",
+      "tool": "refunds_by_region",
+      "tool_version_id": "tool:refunds_by_region@d563234386bf"
+    },
+    {
+      "current_direct_versions": {
+        "source:tickets:2026-W44@b358b0e0eca8": "source:tickets:2026-W44@b358b0e0eca8",
+        "tool:support_by_region@c5bcff4e54a0": "tool:support_by_region@c5bcff4e54a0"
+      },
+      "description": "Support ticket volumes by region for 2026-W44, independent of revenue calculations.",
+      "id": "artifact:2026-W44:support@87a21b785831",
+      "input_labels": {
+        "source:tickets:2026-W44@b358b0e0eca8": "source:tickets:2026-W44"
+      },
+      "inputs": [
+        "source:tickets:2026-W44@b358b0e0eca8"
+      ],
+      "logical_id": "artifact:2026-W44:support",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "tickets": 2
+          },
+          "UK": {
+            "tickets": 1
+          },
+          "US": {
+            "tickets": 1
+          }
+        }
+      },
+      "title": "artifact:2026-W44:support",
+      "tool": "support_by_region",
+      "tool_version_id": "tool:support_by_region@c5bcff4e54a0"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W44:support@87a21b785831": "artifact:2026-W44:support@87a21b785831",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Support operations report for 2026-W44; contains no revenue or exchange-rate calculation.",
+      "id": "artifact:2026-W44:support_brief@0f1e5fc9975b",
+      "input_labels": {
+        "artifact:2026-W44:support@87a21b785831": "artifact:2026-W44:support"
+      },
+      "inputs": [
+        "artifact:2026-W44:support@87a21b785831"
+      ],
+      "logical_id": "artifact:2026-W44:support_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "support",
+            "key": "eu",
+            "label": "EU customer support volume",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          },
+          {
+            "input": "support",
+            "key": "us",
+            "label": "US customer support volume",
+            "path": [
+              "regions",
+              "US",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "Customer support brief — 2026-W44"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "eu",
+            "label": "EU customer support volume",
+            "unit": "tickets",
+            "value": 2
+          },
+          {
+            "key": "us",
+            "label": "US customer support volume",
+            "unit": "tickets",
+            "value": 1
+          }
+        ],
+        "title": "Customer support brief — 2026-W44"
+      },
+      "title": "Customer support brief — 2026-W44",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W44:net@e7a4b83adf14": "artifact:2026-W44:net@e7a4b83adf14",
+        "source:fx:2026-W44@2489e04abbb7": "source:fx:2026-W44@2489e04abbb7",
+        "tool:convert_to_usd@f06369159d71": "tool:convert_to_usd@f06369159d71"
+      },
+      "description": "Regional net revenue converted to US dollars for 2026-W44.",
+      "id": "artifact:2026-W44:usd@f2300a650960",
+      "input_labels": {
+        "artifact:2026-W44:net@e7a4b83adf14": "artifact:2026-W44:net",
+        "source:fx:2026-W44@2489e04abbb7": "source:fx:2026-W44"
+      },
+      "inputs": [
+        "source:fx:2026-W44@2489e04abbb7",
+        "artifact:2026-W44:net@e7a4b83adf14"
+      ],
+      "logical_id": "artifact:2026-W44:usd",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "usd_cents": 205200
+          },
+          "UK": {
+            "usd_cents": 112500
+          },
+          "US": {
+            "usd_cents": 235000
+          }
+        }
+      },
+      "title": "artifact:2026-W44:usd",
+      "tool": "convert_to_usd",
+      "tool_version_id": "tool:convert_to_usd@f06369159d71"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W45:usd@8ea5f5b9ddab": "artifact:2026-W45:usd@8ea5f5b9ddab",
+        "tool:company_total@fcdb2990803d": "tool:company_total@fcdb2990803d"
+      },
+      "description": "Company-wide net revenue in USD for 2026-W45.",
+      "id": "artifact:2026-W45:company@802152e6e0e0",
+      "input_labels": {
+        "artifact:2026-W45:usd@8ea5f5b9ddab": "artifact:2026-W45:usd"
+      },
+      "inputs": [
+        "artifact:2026-W45:usd@8ea5f5b9ddab"
+      ],
+      "logical_id": "artifact:2026-W45:company",
+      "parameters": {},
+      "result": {
+        "usd_cents": 571120
+      },
+      "title": "artifact:2026-W45:company",
+      "tool": "company_total",
+      "tool_version_id": "tool:company_total@fcdb2990803d"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W45:company@802152e6e0e0": "artifact:2026-W45:company@802152e6e0e0",
+        "artifact:2026-W45:support@e73a4abfe25e": "artifact:2026-W45:support@e73a4abfe25e",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Weekly company report covering net revenue and EU support demand for 2026-W45.",
+      "id": "artifact:2026-W45:company_brief@958f33986dbc",
+      "input_labels": {
+        "artifact:2026-W45:company@802152e6e0e0": "artifact:2026-W45:company",
+        "artifact:2026-W45:support@e73a4abfe25e": "artifact:2026-W45:support"
+      },
+      "inputs": [
+        "artifact:2026-W45:company@802152e6e0e0",
+        "artifact:2026-W45:support@e73a4abfe25e"
+      ],
+      "logical_id": "artifact:2026-W45:company_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "revenue",
+            "key": "revenue",
+            "label": "Company net revenue",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "eu_support",
+            "label": "EU support tickets",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "Company performance brief — 2026-W45"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "revenue",
+            "label": "Company net revenue",
+            "unit": "USD cents",
+            "value": 571120
+          },
+          {
+            "key": "eu_support",
+            "label": "EU support tickets",
+            "unit": "tickets",
+            "value": 2
+          }
+        ],
+        "title": "Company performance brief — 2026-W45"
+      },
+      "title": "Company performance brief — 2026-W45",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W45:support@e73a4abfe25e": "artifact:2026-W45:support@e73a4abfe25e",
+        "artifact:2026-W45:usd@8ea5f5b9ddab": "artifact:2026-W45:usd@8ea5f5b9ddab",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "EU operations report for 2026-W45, reusing the regional revenue artifact from the company run.",
+      "id": "artifact:2026-W45:eu_brief@75969a5c3b3e",
+      "input_labels": {
+        "artifact:2026-W45:support@e73a4abfe25e": "artifact:2026-W45:support",
+        "artifact:2026-W45:usd@8ea5f5b9ddab": "artifact:2026-W45:usd"
+      },
+      "inputs": [
+        "artifact:2026-W45:usd@8ea5f5b9ddab",
+        "artifact:2026-W45:support@e73a4abfe25e"
+      ],
+      "logical_id": "artifact:2026-W45:eu_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "regional",
+            "key": "net_revenue",
+            "label": "EU net revenue in USD",
+            "path": [
+              "regions",
+              "EU",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "tickets",
+            "label": "EU support tickets",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "EU operations brief — 2026-W45"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "net_revenue",
+            "label": "EU net revenue in USD",
+            "unit": "USD cents",
+            "value": 210370
+          },
+          {
+            "key": "tickets",
+            "label": "EU support tickets",
+            "unit": "tickets",
+            "value": 2
+          }
+        ],
+        "title": "EU operations brief — 2026-W45"
+      },
+      "title": "EU operations brief — 2026-W45",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "source:orders:2026-W45@3a1ff40427e5": "source:orders:2026-W45@2ad26f36333f",
+        "tool:gross_by_region@52ea04f90794": "tool:gross_by_region@52ea04f90794"
+      },
+      "description": "Gross sales before customer refunds for 2026-W45, by region and currency.",
+      "id": "artifact:2026-W45:gross@6a8a874934fc",
+      "input_labels": {
+        "source:orders:2026-W45@3a1ff40427e5": "source:orders:2026-W45"
+      },
+      "inputs": [
+        "source:orders:2026-W45@3a1ff40427e5"
+      ],
+      "logical_id": "artifact:2026-W45:gross",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "amount_cents": 203000,
+            "currency": "EUR"
+          },
+          "UK": {
+            "amount_cents": 95000,
+            "currency": "GBP"
+          },
+          "US": {
+            "amount_cents": 247000,
+            "currency": "USD"
+          }
+        }
+      },
+      "title": "artifact:2026-W45:gross",
+      "tool": "gross_by_region",
+      "tool_version_id": "tool:gross_by_region@52ea04f90794"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W45:gross@6a8a874934fc": "artifact:2026-W45:gross@6a8a874934fc",
+        "artifact:2026-W45:refunds@0bc0e7a39a47": "artifact:2026-W45:refunds@0bc0e7a39a47",
+        "tool:net_by_region@4ab70497c81e": "tool:net_by_region@4ab70497c81e"
+      },
+      "description": "Regional net revenue after refunds in local currencies for 2026-W45.",
+      "id": "artifact:2026-W45:net@35c96896d0f0",
+      "input_labels": {
+        "artifact:2026-W45:gross@6a8a874934fc": "artifact:2026-W45:gross",
+        "artifact:2026-W45:refunds@0bc0e7a39a47": "artifact:2026-W45:refunds"
+      },
+      "inputs": [
+        "artifact:2026-W45:gross@6a8a874934fc",
+        "artifact:2026-W45:refunds@0bc0e7a39a47"
+      ],
+      "logical_id": "artifact:2026-W45:net",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "amount_cents": 193000,
+            "currency": "EUR"
+          },
+          "UK": {
+            "amount_cents": 95000,
+            "currency": "GBP"
+          },
+          "US": {
+            "amount_cents": 242000,
+            "currency": "USD"
+          }
+        }
+      },
+      "title": "artifact:2026-W45:net",
+      "tool": "net_by_region",
+      "tool_version_id": "tool:net_by_region@4ab70497c81e"
+    },
+    {
+      "current_direct_versions": {
+        "source:orders:2026-W45@3a1ff40427e5": "source:orders:2026-W45@2ad26f36333f",
+        "source:refunds:2026-W45@ac79db72811e": "source:refunds:2026-W45@ac79db72811e",
+        "tool:refunds_by_region@d563234386bf": "tool:refunds_by_region@d563234386bf"
+      },
+      "description": "Customer refunds matched to their orders for 2026-W45, grouped by region.",
+      "id": "artifact:2026-W45:refunds@0bc0e7a39a47",
+      "input_labels": {
+        "source:orders:2026-W45@3a1ff40427e5": "source:orders:2026-W45",
+        "source:refunds:2026-W45@ac79db72811e": "source:refunds:2026-W45"
+      },
+      "inputs": [
+        "source:orders:2026-W45@3a1ff40427e5",
+        "source:refunds:2026-W45@ac79db72811e"
+      ],
+      "logical_id": "artifact:2026-W45:refunds",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "amount_cents": 10000,
+            "currency": "EUR"
+          },
+          "US": {
+            "amount_cents": 5000,
+            "currency": "USD"
+          }
+        }
+      },
+      "title": "artifact:2026-W45:refunds",
+      "tool": "refunds_by_region",
+      "tool_version_id": "tool:refunds_by_region@d563234386bf"
+    },
+    {
+      "current_direct_versions": {
+        "source:tickets:2026-W45@e1e01d418bd4": "source:tickets:2026-W45@e1e01d418bd4",
+        "tool:support_by_region@c5bcff4e54a0": "tool:support_by_region@c5bcff4e54a0"
+      },
+      "description": "Support ticket volumes by region for 2026-W45, independent of revenue calculations.",
+      "id": "artifact:2026-W45:support@e73a4abfe25e",
+      "input_labels": {
+        "source:tickets:2026-W45@e1e01d418bd4": "source:tickets:2026-W45"
+      },
+      "inputs": [
+        "source:tickets:2026-W45@e1e01d418bd4"
+      ],
+      "logical_id": "artifact:2026-W45:support",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "tickets": 2
+          },
+          "UK": {
+            "tickets": 1
+          },
+          "US": {
+            "tickets": 1
+          }
+        }
+      },
+      "title": "artifact:2026-W45:support",
+      "tool": "support_by_region",
+      "tool_version_id": "tool:support_by_region@c5bcff4e54a0"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W45:support@e73a4abfe25e": "artifact:2026-W45:support@e73a4abfe25e",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Support operations report for 2026-W45; contains no revenue or exchange-rate calculation.",
+      "id": "artifact:2026-W45:support_brief@917a014d75b5",
+      "input_labels": {
+        "artifact:2026-W45:support@e73a4abfe25e": "artifact:2026-W45:support"
+      },
+      "inputs": [
+        "artifact:2026-W45:support@e73a4abfe25e"
+      ],
+      "logical_id": "artifact:2026-W45:support_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "support",
+            "key": "eu",
+            "label": "EU customer support volume",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          },
+          {
+            "input": "support",
+            "key": "us",
+            "label": "US customer support volume",
+            "path": [
+              "regions",
+              "US",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "Customer support brief — 2026-W45"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "eu",
+            "label": "EU customer support volume",
+            "unit": "tickets",
+            "value": 2
+          },
+          {
+            "key": "us",
+            "label": "US customer support volume",
+            "unit": "tickets",
+            "value": 1
+          }
+        ],
+        "title": "Customer support brief — 2026-W45"
+      },
+      "title": "Customer support brief — 2026-W45",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W45:net@35c96896d0f0": "artifact:2026-W45:net@35c96896d0f0",
+        "source:fx:2026-W45@7683d7f26a54": "source:fx:2026-W45@7683d7f26a54",
+        "tool:convert_to_usd@f06369159d71": "tool:convert_to_usd@f06369159d71"
+      },
+      "description": "Regional net revenue converted to US dollars for 2026-W45.",
+      "id": "artifact:2026-W45:usd@8ea5f5b9ddab",
+      "input_labels": {
+        "artifact:2026-W45:net@35c96896d0f0": "artifact:2026-W45:net",
+        "source:fx:2026-W45@7683d7f26a54": "source:fx:2026-W45"
+      },
+      "inputs": [
+        "source:fx:2026-W45@7683d7f26a54",
+        "artifact:2026-W45:net@35c96896d0f0"
+      ],
+      "logical_id": "artifact:2026-W45:usd",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "usd_cents": 210370
+          },
+          "UK": {
+            "usd_cents": 118750
+          },
+          "US": {
+            "usd_cents": 242000
+          }
+        }
+      },
+      "title": "artifact:2026-W45:usd",
+      "tool": "convert_to_usd",
+      "tool_version_id": "tool:convert_to_usd@f06369159d71"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W46:usd@092abb7cc465": "artifact:2026-W46:usd@092abb7cc465",
+        "tool:company_total@fcdb2990803d": "tool:company_total@fcdb2990803d"
+      },
+      "description": "Company-wide net revenue in USD for 2026-W46.",
+      "id": "artifact:2026-W46:company@4d33da03df72",
+      "input_labels": {
+        "artifact:2026-W46:usd@092abb7cc465": "artifact:2026-W46:usd"
+      },
+      "inputs": [
+        "artifact:2026-W46:usd@092abb7cc465"
+      ],
+      "logical_id": "artifact:2026-W46:company",
+      "parameters": {},
+      "result": {
+        "usd_cents": 589600
+      },
+      "title": "artifact:2026-W46:company",
+      "tool": "company_total",
+      "tool_version_id": "tool:company_total@fcdb2990803d"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W46:company@4d33da03df72": "artifact:2026-W46:company@4d33da03df72",
+        "artifact:2026-W46:support@bce58d8579f2": "artifact:2026-W46:support@bce58d8579f2",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Weekly company report covering net revenue and EU support demand for 2026-W46.",
+      "id": "artifact:2026-W46:company_brief@add154075434",
+      "input_labels": {
+        "artifact:2026-W46:company@4d33da03df72": "artifact:2026-W46:company",
+        "artifact:2026-W46:support@bce58d8579f2": "artifact:2026-W46:support"
+      },
+      "inputs": [
+        "artifact:2026-W46:company@4d33da03df72",
+        "artifact:2026-W46:support@bce58d8579f2"
+      ],
+      "logical_id": "artifact:2026-W46:company_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "revenue",
+            "key": "revenue",
+            "label": "Company net revenue",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "eu_support",
+            "label": "EU support tickets",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "Company performance brief — 2026-W46"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "revenue",
+            "label": "Company net revenue",
+            "unit": "USD cents",
+            "value": 589600
+          },
+          {
+            "key": "eu_support",
+            "label": "EU support tickets",
+            "unit": "tickets",
+            "value": 2
+          }
+        ],
+        "title": "Company performance brief — 2026-W46"
+      },
+      "title": "Company performance brief — 2026-W46",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W46:support@bce58d8579f2": "artifact:2026-W46:support@bce58d8579f2",
+        "artifact:2026-W46:usd@092abb7cc465": "artifact:2026-W46:usd@092abb7cc465",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "EU operations report for 2026-W46, reusing the regional revenue artifact from the company run.",
+      "id": "artifact:2026-W46:eu_brief@3f761540b806",
+      "input_labels": {
+        "artifact:2026-W46:support@bce58d8579f2": "artifact:2026-W46:support",
+        "artifact:2026-W46:usd@092abb7cc465": "artifact:2026-W46:usd"
+      },
+      "inputs": [
+        "artifact:2026-W46:usd@092abb7cc465",
+        "artifact:2026-W46:support@bce58d8579f2"
+      ],
+      "logical_id": "artifact:2026-W46:eu_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "regional",
+            "key": "net_revenue",
+            "label": "EU net revenue in USD",
+            "path": [
+              "regions",
+              "EU",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "tickets",
+            "label": "EU support tickets",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "EU operations brief — 2026-W46"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "net_revenue",
+            "label": "EU net revenue in USD",
+            "unit": "USD cents",
+            "value": 215600
+          },
+          {
+            "key": "tickets",
+            "label": "EU support tickets",
+            "unit": "tickets",
+            "value": 2
+          }
+        ],
+        "title": "EU operations brief — 2026-W46"
+      },
+      "title": "EU operations brief — 2026-W46",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "source:orders:2026-W46@d94a1e5c8df2": "source:orders:2026-W46@d94a1e5c8df2",
+        "tool:gross_by_region@52ea04f90794": "tool:gross_by_region@52ea04f90794"
+      },
+      "description": "Gross sales before customer refunds for 2026-W46, by region and currency.",
+      "id": "artifact:2026-W46:gross@9df86592d3a2",
+      "input_labels": {
+        "source:orders:2026-W46@d94a1e5c8df2": "source:orders:2026-W46"
+      },
+      "inputs": [
+        "source:orders:2026-W46@d94a1e5c8df2"
+      ],
+      "logical_id": "artifact:2026-W46:gross",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "amount_cents": 206000,
+            "currency": "EUR"
+          },
+          "UK": {
+            "amount_cents": 100000,
+            "currency": "GBP"
+          },
+          "US": {
+            "amount_cents": 254000,
+            "currency": "USD"
+          }
+        }
+      },
+      "title": "artifact:2026-W46:gross",
+      "tool": "gross_by_region",
+      "tool_version_id": "tool:gross_by_region@52ea04f90794"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W46:gross@9df86592d3a2": "artifact:2026-W46:gross@9df86592d3a2",
+        "artifact:2026-W46:refunds@e9e778ccdd93": "artifact:2026-W46:refunds@e9e778ccdd93",
+        "tool:net_by_region@4ab70497c81e": "tool:net_by_region@4ab70497c81e"
+      },
+      "description": "Regional net revenue after refunds in local currencies for 2026-W46.",
+      "id": "artifact:2026-W46:net@719d34de3014",
+      "input_labels": {
+        "artifact:2026-W46:gross@9df86592d3a2": "artifact:2026-W46:gross",
+        "artifact:2026-W46:refunds@e9e778ccdd93": "artifact:2026-W46:refunds"
+      },
+      "inputs": [
+        "artifact:2026-W46:gross@9df86592d3a2",
+        "artifact:2026-W46:refunds@e9e778ccdd93"
+      ],
+      "logical_id": "artifact:2026-W46:net",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "amount_cents": 196000,
+            "currency": "EUR"
+          },
+          "UK": {
+            "amount_cents": 100000,
+            "currency": "GBP"
+          },
+          "US": {
+            "amount_cents": 249000,
+            "currency": "USD"
+          }
+        }
+      },
+      "title": "artifact:2026-W46:net",
+      "tool": "net_by_region",
+      "tool_version_id": "tool:net_by_region@4ab70497c81e"
+    },
+    {
+      "current_direct_versions": {
+        "source:orders:2026-W46@d94a1e5c8df2": "source:orders:2026-W46@d94a1e5c8df2",
+        "source:refunds:2026-W46@a23fa9c2dda7": "source:refunds:2026-W46@a23fa9c2dda7",
+        "tool:refunds_by_region@d563234386bf": "tool:refunds_by_region@d563234386bf"
+      },
+      "description": "Customer refunds matched to their orders for 2026-W46, grouped by region.",
+      "id": "artifact:2026-W46:refunds@e9e778ccdd93",
+      "input_labels": {
+        "source:orders:2026-W46@d94a1e5c8df2": "source:orders:2026-W46",
+        "source:refunds:2026-W46@a23fa9c2dda7": "source:refunds:2026-W46"
+      },
+      "inputs": [
+        "source:orders:2026-W46@d94a1e5c8df2",
+        "source:refunds:2026-W46@a23fa9c2dda7"
+      ],
+      "logical_id": "artifact:2026-W46:refunds",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "amount_cents": 10000,
+            "currency": "EUR"
+          },
+          "US": {
+            "amount_cents": 5000,
+            "currency": "USD"
+          }
+        }
+      },
+      "title": "artifact:2026-W46:refunds",
+      "tool": "refunds_by_region",
+      "tool_version_id": "tool:refunds_by_region@d563234386bf"
+    },
+    {
+      "current_direct_versions": {
+        "source:tickets:2026-W46@d82b0f898703": "source:tickets:2026-W46@d82b0f898703",
+        "tool:support_by_region@c5bcff4e54a0": "tool:support_by_region@c5bcff4e54a0"
+      },
+      "description": "Support ticket volumes by region for 2026-W46, independent of revenue calculations.",
+      "id": "artifact:2026-W46:support@bce58d8579f2",
+      "input_labels": {
+        "source:tickets:2026-W46@d82b0f898703": "source:tickets:2026-W46"
+      },
+      "inputs": [
+        "source:tickets:2026-W46@d82b0f898703"
+      ],
+      "logical_id": "artifact:2026-W46:support",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "tickets": 2
+          },
+          "UK": {
+            "tickets": 1
+          },
+          "US": {
+            "tickets": 1
+          }
+        }
+      },
+      "title": "artifact:2026-W46:support",
+      "tool": "support_by_region",
+      "tool_version_id": "tool:support_by_region@c5bcff4e54a0"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W46:support@bce58d8579f2": "artifact:2026-W46:support@bce58d8579f2",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Support operations report for 2026-W46; contains no revenue or exchange-rate calculation.",
+      "id": "artifact:2026-W46:support_brief@fd9b4c303496",
+      "input_labels": {
+        "artifact:2026-W46:support@bce58d8579f2": "artifact:2026-W46:support"
+      },
+      "inputs": [
+        "artifact:2026-W46:support@bce58d8579f2"
+      ],
+      "logical_id": "artifact:2026-W46:support_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "support",
+            "key": "eu",
+            "label": "EU customer support volume",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          },
+          {
+            "input": "support",
+            "key": "us",
+            "label": "US customer support volume",
+            "path": [
+              "regions",
+              "US",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "Customer support brief — 2026-W46"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "eu",
+            "label": "EU customer support volume",
+            "unit": "tickets",
+            "value": 2
+          },
+          {
+            "key": "us",
+            "label": "US customer support volume",
+            "unit": "tickets",
+            "value": 1
+          }
+        ],
+        "title": "Customer support brief — 2026-W46"
+      },
+      "title": "Customer support brief — 2026-W46",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2026-W46:net@719d34de3014": "artifact:2026-W46:net@719d34de3014",
+        "source:fx:2026-W46@7fb66a21f6f2": "source:fx:2026-W46@7fb66a21f6f2",
+        "tool:convert_to_usd@f06369159d71": "tool:convert_to_usd@f06369159d71"
+      },
+      "description": "Regional net revenue converted to US dollars for 2026-W46.",
+      "id": "artifact:2026-W46:usd@092abb7cc465",
+      "input_labels": {
+        "artifact:2026-W46:net@719d34de3014": "artifact:2026-W46:net",
+        "source:fx:2026-W46@7fb66a21f6f2": "source:fx:2026-W46"
+      },
+      "inputs": [
+        "source:fx:2026-W46@7fb66a21f6f2",
+        "artifact:2026-W46:net@719d34de3014"
+      ],
+      "logical_id": "artifact:2026-W46:usd",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EU": {
+            "usd_cents": 215600
+          },
+          "UK": {
+            "usd_cents": 125000
+          },
+          "US": {
+            "usd_cents": 249000
+          }
+        }
+      },
+      "title": "artifact:2026-W46:usd",
+      "tool": "convert_to_usd",
+      "tool_version_id": "tool:convert_to_usd@f06369159d71"
+    }
+  ],
+  "expected_revalidation_ids": [
+    "artifact:2026-W45:company@802152e6e0e0",
+    "artifact:2026-W45:company_brief@958f33986dbc",
+    "artifact:2026-W45:eu_brief@75969a5c3b3e",
+    "artifact:2026-W45:gross@6a8a874934fc",
+    "artifact:2026-W45:net@35c96896d0f0",
+    "artifact:2026-W45:refunds@0bc0e7a39a47",
+    "artifact:2026-W45:usd@8ea5f5b9ddab"
+  ],
+  "graph_namespace": "pilot-T08-2d4ca8a0bb034f06a50599c8ffca4246",
+  "index_build_ms": 112.78383294120431,
+  "max_dense_document_tokens": 634,
+  "numeric_oracle_errors": {},
+  "numeric_oracle_values": {
+    "2026-W44:company": {
+      "usd_cents": 552700
+    },
+    "2026-W44:company_brief": {
+      "sections": [
+        {
+          "key": "revenue",
+          "label": "Company net revenue",
+          "unit": "USD cents",
+          "value": 552700
+        },
+        {
+          "key": "eu_support",
+          "label": "EU support tickets",
+          "unit": "tickets",
+          "value": 2
+        }
+      ],
+      "title": "Company performance brief — 2026-W44"
+    },
+    "2026-W44:eu_brief": {
+      "sections": [
+        {
+          "key": "net_revenue",
+          "label": "EU net revenue in USD",
+          "unit": "USD cents",
+          "value": 205200
+        },
+        {
+          "key": "tickets",
+          "label": "EU support tickets",
+          "unit": "tickets",
+          "value": 2
+        }
+      ],
+      "title": "EU operations brief — 2026-W44"
+    },
+    "2026-W44:gross": {
+      "regions": {
+        "EU": {
+          "amount_cents": 200000,
+          "currency": "EUR"
+        },
+        "UK": {
+          "amount_cents": 90000,
+          "currency": "GBP"
+        },
+        "US": {
+          "amount_cents": 240000,
+          "currency": "USD"
+        }
+      }
+    },
+    "2026-W44:net": {
+      "regions": {
+        "EU": {
+          "amount_cents": 190000,
+          "currency": "EUR"
+        },
+        "UK": {
+          "amount_cents": 90000,
+          "currency": "GBP"
+        },
+        "US": {
+          "amount_cents": 235000,
+          "currency": "USD"
+        }
+      }
+    },
+    "2026-W44:refunds": {
+      "regions": {
+        "EU": {
+          "amount_cents": 10000,
+          "currency": "EUR"
+        },
+        "US": {
+          "amount_cents": 5000,
+          "currency": "USD"
+        }
+      }
+    },
+    "2026-W44:support": {
+      "regions": {
+        "EU": {
+          "tickets": 2
+        },
+        "UK": {
+          "tickets": 1
+        },
+        "US": {
+          "tickets": 1
+        }
+      }
+    },
+    "2026-W44:support_brief": {
+      "sections": [
+        {
+          "key": "eu",
+          "label": "EU customer support volume",
+          "unit": "tickets",
+          "value": 2
+        },
+        {
+          "key": "us",
+          "label": "US customer support volume",
+          "unit": "tickets",
+          "value": 1
+        }
+      ],
+      "title": "Customer support brief — 2026-W44"
+    },
+    "2026-W44:usd": {
+      "regions": {
+        "EU": {
+          "usd_cents": 205200
+        },
+        "UK": {
+          "usd_cents": 112500
+        },
+        "US": {
+          "usd_cents": 235000
+        }
+      }
+    },
+    "2026-W45:company": {
+      "usd_cents": 571120
+    },
+    "2026-W45:company_brief": {
+      "sections": [
+        {
+          "key": "revenue",
+          "label": "Company net revenue",
+          "unit": "USD cents",
+          "value": 571120
+        },
+        {
+          "key": "eu_support",
+          "label": "EU support tickets",
+          "unit": "tickets",
+          "value": 2
+        }
+      ],
+      "title": "Company performance brief — 2026-W45"
+    },
+    "2026-W45:eu_brief": {
+      "sections": [
+        {
+          "key": "net_revenue",
+          "label": "EU net revenue in USD",
+          "unit": "USD cents",
+          "value": 210370
+        },
+        {
+          "key": "tickets",
+          "label": "EU support tickets",
+          "unit": "tickets",
+          "value": 2
+        }
+      ],
+      "title": "EU operations brief — 2026-W45"
+    },
+    "2026-W45:gross": {
+      "regions": {
+        "EU": {
+          "amount_cents": 203000,
+          "currency": "EUR"
+        },
+        "UK": {
+          "amount_cents": 95000,
+          "currency": "GBP"
+        },
+        "US": {
+          "amount_cents": 247000,
+          "currency": "USD"
+        }
+      }
+    },
+    "2026-W45:net": {
+      "regions": {
+        "EU": {
+          "amount_cents": 193000,
+          "currency": "EUR"
+        },
+        "UK": {
+          "amount_cents": 95000,
+          "currency": "GBP"
+        },
+        "US": {
+          "amount_cents": 242000,
+          "currency": "USD"
+        }
+      }
+    },
+    "2026-W45:refunds": {
+      "regions": {
+        "EU": {
+          "amount_cents": 10000,
+          "currency": "EUR"
+        },
+        "US": {
+          "amount_cents": 5000,
+          "currency": "USD"
+        }
+      }
+    },
+    "2026-W45:support": {
+      "regions": {
+        "EU": {
+          "tickets": 2
+        },
+        "UK": {
+          "tickets": 1
+        },
+        "US": {
+          "tickets": 1
+        }
+      }
+    },
+    "2026-W45:support_brief": {
+      "sections": [
+        {
+          "key": "eu",
+          "label": "EU customer support volume",
+          "unit": "tickets",
+          "value": 2
+        },
+        {
+          "key": "us",
+          "label": "US customer support volume",
+          "unit": "tickets",
+          "value": 1
+        }
+      ],
+      "title": "Customer support brief — 2026-W45"
+    },
+    "2026-W45:usd": {
+      "regions": {
+        "EU": {
+          "usd_cents": 210370
+        },
+        "UK": {
+          "usd_cents": 118750
+        },
+        "US": {
+          "usd_cents": 242000
+        }
+      }
+    },
+    "2026-W46:company": {
+      "usd_cents": 589600
+    },
+    "2026-W46:company_brief": {
+      "sections": [
+        {
+          "key": "revenue",
+          "label": "Company net revenue",
+          "unit": "USD cents",
+          "value": 589600
+        },
+        {
+          "key": "eu_support",
+          "label": "EU support tickets",
+          "unit": "tickets",
+          "value": 2
+        }
+      ],
+      "title": "Company performance brief — 2026-W46"
+    },
+    "2026-W46:eu_brief": {
+      "sections": [
+        {
+          "key": "net_revenue",
+          "label": "EU net revenue in USD",
+          "unit": "USD cents",
+          "value": 215600
+        },
+        {
+          "key": "tickets",
+          "label": "EU support tickets",
+          "unit": "tickets",
+          "value": 2
+        }
+      ],
+      "title": "EU operations brief — 2026-W46"
+    },
+    "2026-W46:gross": {
+      "regions": {
+        "EU": {
+          "amount_cents": 206000,
+          "currency": "EUR"
+        },
+        "UK": {
+          "amount_cents": 100000,
+          "currency": "GBP"
+        },
+        "US": {
+          "amount_cents": 254000,
+          "currency": "USD"
+        }
+      }
+    },
+    "2026-W46:net": {
+      "regions": {
+        "EU": {
+          "amount_cents": 196000,
+          "currency": "EUR"
+        },
+        "UK": {
+          "amount_cents": 100000,
+          "currency": "GBP"
+        },
+        "US": {
+          "amount_cents": 249000,
+          "currency": "USD"
+        }
+      }
+    },
+    "2026-W46:refunds": {
+      "regions": {
+        "EU": {
+          "amount_cents": 10000,
+          "currency": "EUR"
+        },
+        "US": {
+          "amount_cents": 5000,
+          "currency": "USD"
+        }
+      }
+    },
+    "2026-W46:support": {
+      "regions": {
+        "EU": {
+          "tickets": 2
+        },
+        "UK": {
+          "tickets": 1
+        },
+        "US": {
+          "tickets": 1
+        }
+      }
+    },
+    "2026-W46:support_brief": {
+      "sections": [
+        {
+          "key": "eu",
+          "label": "EU customer support volume",
+          "unit": "tickets",
+          "value": 2
+        },
+        {
+          "key": "us",
+          "label": "US customer support volume",
+          "unit": "tickets",
+          "value": 1
+        }
+      ],
+      "title": "Customer support brief — 2026-W46"
+    },
+    "2026-W46:usd": {
+      "regions": {
+        "EU": {
+          "usd_cents": 215600
+        },
+        "UK": {
+          "usd_cents": 125000
+        },
+        "US": {
+          "usd_cents": 249000
+        }
+      }
+    }
+  },
+  "query": {
+    "changed_ids": [
+      "source:orders:2026-W45@3a1ff40427e5"
+    ],
+    "text": "Two week-45 US order corrections offset, leaving the regional aggregate equal while its inputs changed.\nTask: identify saved calculation and report artifacts requiring revalidation. Requested periods: 2026-W44, 2026-W45, 2026-W46."
+  },
+  "scenario": {
+    "additional_composition": false,
+    "category": "unchanged_value",
+    "description": "Two week-45 US order corrections offset, leaving the regional aggregate equal while its inputs changed.",
+    "id": "T08",
+    "mutations": [
+      {
+        "operation": "offset_orders",
+        "parameters": {
+          "delta": 1300,
+          "first": "us-201",
+          "second": "us-202"
+        },
+        "source": "orders:2026-W45",
+        "tool": ""
+      }
+    ],
+    "restart": false,
+    "scope_periods": [
+      "2026-W44",
+      "2026-W45",
+      "2026-W46"
+    ],
+    "split": "test"
+  }
+}

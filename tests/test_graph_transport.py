@@ -36,3 +36,15 @@ def test_detects_collision_before_mutating():
         g.query = lambda *a, **kw: [{"key": "someone-elses-key", "kind": "source", "payload": "{}"}]
         with pytest.raises(GraphError, match="collision"):
             g.put_node("my-key", "source", {})
+
+
+def test_container_secret_file_is_used_and_missing_file_fails_closed(tmp_path, monkeypatch):
+    token_file = tmp_path / "hydra-token"
+    token_file.write_text("container-test-only\n")
+    monkeypatch.delenv("PROOFFLOW_HYDRA_TOKEN", raising=False)
+    monkeypatch.setenv("PROOFFLOW_HYDRA_TOKEN_FILE", str(token_file))
+    with HydraGraph() as graph:
+        assert graph.client.headers["Authorization"] == "Bearer container-test-only"
+    token_file.unlink()
+    with pytest.raises(GraphError, match="cannot be read"):
+        HydraGraph()

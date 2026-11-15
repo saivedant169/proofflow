@@ -118,3 +118,24 @@ def test_cli_auth_failure_or_model_fallback_not_counted_as_success(monkeypatch):
     monkeypatch.setattr("proofflow.agent.subprocess.run", run)
     with pytest.raises(AgentProviderError, match="differs"):
         plan_refresh(ClaudeCLIProvider(), request())
+
+
+def test_mixed_model_usage_is_not_labeled_as_requested_model(monkeypatch):
+    def run(command, **kwargs):
+        return SimpleNamespace(returncode=0, stdout=json.dumps({
+            "structured_output": payload(), "modelUsage": {
+                "claude-fable-5-2": {"canonicalModel": "claude-fable-5-2"},
+                "fallback": {"canonicalModel": "different-model"},
+            }, "total_cost_usd": 0.25,
+        }))
+    monkeypatch.setattr("proofflow.agent.subprocess.run", run)
+    with pytest.raises(AgentProviderError) as error:
+        plan_refresh(ClaudeCLIProvider(), request())
+    assert error.value.evidence["total_cost_usd"] == 0.25
+
+
+def test_invalid_model_plan_preserves_paid_usage():
+    provider = StubProvider(payload(selected_ids=["hidden-gold-id"]))
+    with pytest.raises(AgentProtocolError) as error:
+        plan_refresh(provider, request())
+    assert error.value.provider_result.payload["selected_ids"] == ["hidden-gold-id"]

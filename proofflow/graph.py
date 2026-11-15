@@ -51,7 +51,16 @@ class HydraGraph:
         settings = _local_settings()
         self.url = (url or os.environ.get("PROOFFLOW_HYDRA_URL") or
                     settings.get("PROOFFLOW_HYDRA_URL", "http://127.0.0.1:18443")).rstrip("/")
-        token = token or os.environ.get("PROOFFLOW_HYDRA_TOKEN") or settings.get("PROOFFLOW_HYDRA_TOKEN")
+        token = token or os.environ.get("PROOFFLOW_HYDRA_TOKEN")
+        token_file = os.environ.get("PROOFFLOW_HYDRA_TOKEN_FILE")
+        if not token and token_file:
+            try:
+                token = Path(token_file).read_text().strip()
+            except OSError as exc:
+                raise GraphError("Configured HydraDB token file cannot be read") from exc
+            if not token:
+                raise GraphError("Configured HydraDB token file is empty")
+        token = token or settings.get("PROOFFLOW_HYDRA_TOKEN")
         if not token:
             raise GraphError("HydraDB token is not configured; run scripts/init_local.py locally.")
         if not namespace or len(namespace) > 180:

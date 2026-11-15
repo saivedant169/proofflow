@@ -250,11 +250,18 @@ class ProofFlowRuntime:
                     else:
                         receipt = self.store.read(record.metadata["receipt_id"])
                         rebound = {name: visit(input_id) for name, input_id in receipt["inputs"].items()}
+                        calls_before = len(self.calls)
                         output = self.execute(receipt["tool"], rebound, receipt["params"],
                                               logical_id=record.logical_id, run_id=run_id, reuse=True,
                                               description=record.metadata.get("description", ""))
                         replacements[node_id] = output.id
-                        executed.append(output.id)
+                        # Old handles remain stale after a prior refresh. execute()
+                        # may resolve them to an already-current head without a
+                        # tool call; report reuse rather than a fictitious rerun.
+                        if len(self.calls) > calls_before:
+                            executed.append(output.id)
+                        else:
+                            reused.append(output.id)
                 else:
                     raise InvalidInputError(f"Cannot refresh a {record.kind} record")
                 visiting.remove(node_id)

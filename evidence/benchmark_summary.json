@@ -1,0 +1,3515 @@
+{
+  "by_case": {
+    "T01": {
+      "category": "direct_and_transitive",
+      "corpus_records": 27,
+      "corpus_tokens": 8459,
+      "description": "Correct the US order us-201 amount in week 46 and find every affected saved calculation and report.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "dense": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "full_context": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 7
+        },
+        "graph": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 3
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 2038,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:net@719d34de3014",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "dense": {
+          "context_tokens": 2002,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:net@719d34de3014",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "direct_id": {
+          "context_tokens": 574,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:net@719d34de3014",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 1843,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.923076923076923,
+            "fn": 1,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company_brief@add154075434"
+            ],
+            "precision": 1.0,
+            "recall": 0.8571428571428571,
+            "tp": 6
+          }
+        },
+        "graph": {
+          "context_tokens": 1843,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.923076923076923,
+            "fn": 1,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company_brief@add154075434"
+            ],
+            "precision": 1.0,
+            "recall": 0.8571428571428571,
+            "tp": 6
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 574,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:net@719d34de3014",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "hybrid": {
+          "context_tokens": 2022,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:net@719d34de3014",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 1933,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.6,
+            "fn": 4,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.42857142857142855,
+            "tp": 3
+          }
+        }
+      }
+    },
+    "T02": {
+      "category": "cross_run",
+      "corpus_records": 27,
+      "corpus_tokens": 8460,
+      "description": "A late week-46 UK refund changes evidence reused by later company and EU operations runs.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 1
+        },
+        "dense": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "full_context": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "graph": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 1984,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.2857142857142857,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:net@719d34de3014",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tp": 1
+          }
+        },
+        "dense": {
+          "context_tokens": 1869,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.5,
+            "fn": 4,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "tp": 2
+          }
+        },
+        "direct_id": {
+          "context_tokens": 320,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.2857142857142857,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:net@719d34de3014",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tp": 1
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 2000,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 6
+          }
+        },
+        "graph": {
+          "context_tokens": 2000,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 6
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 320,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.2857142857142857,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:net@719d34de3014",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "tp": 1
+          }
+        },
+        "hybrid": {
+          "context_tokens": 1989,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.5,
+            "fn": 4,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "tp": 2
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 1989,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.5,
+            "fn": 4,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:usd@092abb7cc465"
+            ],
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "tp": 2
+          }
+        }
+      }
+    },
+    "T03": {
+      "category": "multi_hop",
+      "corpus_records": 27,
+      "corpus_tokens": 8462,
+      "description": "Correct both EUR and GBP conversion rates for week 46; locate all dependent USD metrics and briefs.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 1
+        },
+        "dense": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 1
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        },
+        "full_context": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        },
+        "graph": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        },
+        "hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 1
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 3
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 1875,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "dense": {
+          "context_tokens": 1899,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "direct_id": {
+          "context_tokens": 315,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 1348,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 4
+          }
+        },
+        "graph": {
+          "context_tokens": 1348,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 4
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 315,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "hybrid": {
+          "context_tokens": 2011,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 2036,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.8571428571428571,
+            "fn": 1,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company_brief@add154075434"
+            ],
+            "precision": 1.0,
+            "recall": 0.75,
+            "tp": 3
+          }
+        }
+      }
+    },
+    "T04": {
+      "category": "fan_in",
+      "corpus_records": 27,
+      "corpus_tokens": 8461,
+      "description": "Restate a week-45 EU order used by the already composed company summary.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "dense": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 3
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "full_context": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 7
+        },
+        "graph": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 3
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 1998,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "dense": {
+          "context_tokens": 2030,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.6,
+            "fn": 4,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:usd@8ea5f5b9ddab"
+            ],
+            "precision": 1.0,
+            "recall": 0.42857142857142855,
+            "tp": 3
+          }
+        },
+        "direct_id": {
+          "context_tokens": 565,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 1884,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.923076923076923,
+            "fn": 1,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company_brief@958f33986dbc"
+            ],
+            "precision": 1.0,
+            "recall": 0.8571428571428571,
+            "tp": 6
+          }
+        },
+        "graph": {
+          "context_tokens": 1884,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.923076923076923,
+            "fn": 1,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company_brief@958f33986dbc"
+            ],
+            "precision": 1.0,
+            "recall": 0.8571428571428571,
+            "tp": 6
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 565,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "hybrid": {
+          "context_tokens": 1921,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 2039,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.6,
+            "fn": 4,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:usd@8ea5f5b9ddab"
+            ],
+            "precision": 1.0,
+            "recall": 0.42857142857142855,
+            "tp": 3
+          }
+        }
+      }
+    },
+    "T05": {
+      "category": "independent_branch",
+      "corpus_records": 27,
+      "corpus_tokens": 8464,
+      "description": "A US customer support ticket arrives in week 46; financial revenue evidence should remain reusable.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 3
+        },
+        "dense": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 3,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        },
+        "full_context": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 3,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        },
+        "graph": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 3,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        },
+        "hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 3,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 1871,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.8571428571428571,
+            "fn": 1,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.75,
+            "tp": 3
+          }
+        },
+        "dense": {
+          "context_tokens": 1895,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.6666666666666666,
+            "fn": 2,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.5,
+            "tp": 2
+          }
+        },
+        "direct_id": {
+          "context_tokens": 228,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:support_brief@fd9b4c303496"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 1396,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 4
+          }
+        },
+        "graph": {
+          "context_tokens": 1396,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 4
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 228,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:support_brief@fd9b4c303496"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "hybrid": {
+          "context_tokens": 1950,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.6666666666666666,
+            "fn": 2,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.5,
+            "tp": 2
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 1958,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 4
+          }
+        }
+      }
+    },
+    "T06": {
+      "category": "other_scope",
+      "corpus_records": 9,
+      "corpus_tokens": 2820,
+      "description": "An old week-44 order is corrected. Determine whether week-46 reports require revalidation.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 3,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 3,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 0
+        },
+        "dense": {
+          "complete_fresh_reports": 3,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 3,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 0
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 3,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 3,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 0
+        },
+        "full_context": {
+          "complete_fresh_reports": 3,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 3,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 0
+        },
+        "graph": {
+          "complete_fresh_reports": 3,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 3,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 0
+        },
+        "hybrid": {
+          "complete_fresh_reports": 3,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 3,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 0
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 3,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 3,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 0
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 1973,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 0
+          }
+        },
+        "dense": {
+          "context_tokens": 1942,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 0
+          }
+        },
+        "direct_id": {
+          "context_tokens": 0,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 0
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 0,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 0
+          }
+        },
+        "graph": {
+          "context_tokens": 0,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 0
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 0,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 0
+          }
+        },
+        "hybrid": {
+          "context_tokens": 1946,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 0
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 1946,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 0
+          }
+        }
+      }
+    },
+    "T07": {
+      "category": "multiple_sources",
+      "corpus_records": 27,
+      "corpus_tokens": 8464,
+      "description": "A week-45 refund and a week-46 support ticket arrive together; identify their combined impact.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 5,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 5,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 3
+        },
+        "dense": {
+          "complete_fresh_reports": 4,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 5,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 3
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 6,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 5,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "full_context": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 5,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 5,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 10
+        },
+        "graph": {
+          "complete_fresh_reports": 6,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 5,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "hybrid": {
+          "complete_fresh_reports": 5,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 5,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 3
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 6,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 5,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 5
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 2030,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4615384615384615,
+            "fn": 7,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:support_brief@fd9b4c303496"
+            ],
+            "precision": 1.0,
+            "recall": 0.3,
+            "tp": 3
+          }
+        },
+        "dense": {
+          "context_tokens": 2039,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4615384615384615,
+            "fn": 7,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:usd@8ea5f5b9ddab",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:support_brief@fd9b4c303496"
+            ],
+            "precision": 1.0,
+            "recall": 0.3,
+            "tp": 3
+          }
+        },
+        "direct_id": {
+          "context_tokens": 545,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.33333333333333337,
+            "fn": 8,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:support_brief@fd9b4c303496"
+            ],
+            "precision": 1.0,
+            "recall": 0.2,
+            "tp": 2
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 2039,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.7499999999999999,
+            "fn": 4,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W46:support_brief@fd9b4c303496"
+            ],
+            "precision": 1.0,
+            "recall": 0.6,
+            "tp": 6
+          }
+        },
+        "graph": {
+          "context_tokens": 2039,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.7499999999999999,
+            "fn": 4,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W46:support_brief@fd9b4c303496"
+            ],
+            "precision": 1.0,
+            "recall": 0.6,
+            "tp": 6
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 545,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.33333333333333337,
+            "fn": 8,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806",
+              "artifact:2026-W46:support_brief@fd9b4c303496"
+            ],
+            "precision": 1.0,
+            "recall": 0.2,
+            "tp": 2
+          }
+        },
+        "hybrid": {
+          "context_tokens": 2017,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4615384615384615,
+            "fn": 7,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.3,
+            "tp": 3
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 2038,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.6666666666666666,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:usd@8ea5f5b9ddab",
+              "artifact:2026-W46:support_brief@fd9b4c303496"
+            ],
+            "precision": 1.0,
+            "recall": 0.5,
+            "tp": 5
+          }
+        }
+      }
+    },
+    "T08": {
+      "category": "unchanged_value",
+      "corpus_records": 27,
+      "corpus_tokens": 8461,
+      "description": "Two week-45 US order corrections offset, leaving the regional aggregate equal while its inputs changed.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "dense": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "full_context": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 7
+        },
+        "graph": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 2001,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "dense": {
+          "context_tokens": 1911,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "direct_id": {
+          "context_tokens": 565,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 1884,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.923076923076923,
+            "fn": 1,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company_brief@958f33986dbc"
+            ],
+            "precision": 1.0,
+            "recall": 0.8571428571428571,
+            "tp": 6
+          }
+        },
+        "graph": {
+          "context_tokens": 1884,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.923076923076923,
+            "fn": 1,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company_brief@958f33986dbc"
+            ],
+            "precision": 1.0,
+            "recall": 0.8571428571428571,
+            "tp": 6
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 565,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "hybrid": {
+          "context_tokens": 1921,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 2039,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.7272727272727273,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e"
+            ],
+            "precision": 1.0,
+            "recall": 0.5714285714285714,
+            "tp": 4
+          }
+        }
+      }
+    },
+    "T09": {
+      "category": "tool_version",
+      "corpus_records": 27,
+      "corpus_tokens": 8466,
+      "description": "The currency conversion tool version was replaced. Its code-defined arithmetic is unchanged but prior receipts need revalidation.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 5,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 6,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 6
+        },
+        "dense": {
+          "complete_fresh_reports": 3,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 6,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 4,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 6,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 7
+        },
+        "full_context": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 6,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 6,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 12
+        },
+        "graph": {
+          "complete_fresh_reports": 4,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 6,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 7
+        },
+        "hybrid": {
+          "complete_fresh_reports": 4,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 6,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 4,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 6,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 7
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 2023,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.6666666666666666,
+            "fn": 6,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W44:company_brief@8b737a88bfe3",
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.5,
+            "tp": 6
+          }
+        },
+        "dense": {
+          "context_tokens": 2041,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.5,
+            "fn": 8,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W44:company@29481e78093b",
+              "artifact:2026-W44:company_brief@8b737a88bfe3",
+              "artifact:2026-W44:eu_brief@00feeb4b8458",
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "tp": 4
+          }
+        },
+        "direct_id": {
+          "context_tokens": 960,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 9,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W44:company@29481e78093b",
+              "artifact:2026-W44:company_brief@8b737a88bfe3",
+              "artifact:2026-W44:eu_brief@00feeb4b8458",
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 3
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 1999,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.7368421052631579,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W44:company_brief@8b737a88bfe3",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.5833333333333334,
+            "tp": 7
+          }
+        },
+        "graph": {
+          "context_tokens": 1999,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.7368421052631579,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W44:company_brief@8b737a88bfe3",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.5833333333333334,
+            "tp": 7
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 960,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 9,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W44:company@29481e78093b",
+              "artifact:2026-W44:company_brief@8b737a88bfe3",
+              "artifact:2026-W44:eu_brief@00feeb4b8458",
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 3
+          }
+        },
+        "hybrid": {
+          "context_tokens": 1943,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.5,
+            "fn": 8,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W44:company@29481e78093b",
+              "artifact:2026-W44:company_brief@8b737a88bfe3",
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "tp": 4
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 1999,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.7368421052631579,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W44:company_brief@8b737a88bfe3",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.5833333333333334,
+            "tp": 7
+          }
+        }
+      }
+    },
+    "T10": {
+      "category": "missing_source",
+      "corpus_records": 27,
+      "corpus_tokens": 8458,
+      "description": "The week-46 exchange-rate source is unavailable. Dependent reports must block instead of serving stale numbers.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 2,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 7,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 2,
+          "refresh_error": {
+            "message": "Source no longer available: source:fx:2026-W46",
+            "type": "MissingEvidenceError"
+          },
+          "tool_calls": 0
+        },
+        "dense": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 2,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 7,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 2,
+          "refresh_error": {
+            "message": "Source no longer available: source:fx:2026-W46",
+            "type": "MissingEvidenceError"
+          },
+          "tool_calls": 0
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 2,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 7,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 2,
+          "refresh_error": {
+            "message": "Source no longer available: source:fx:2026-W46",
+            "type": "MissingEvidenceError"
+          },
+          "tool_calls": 0
+        },
+        "full_context": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 2,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 7,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 2,
+          "refresh_error": {
+            "message": "Source no longer available: source:fx:2026-W46",
+            "type": "MissingEvidenceError"
+          },
+          "tool_calls": 0
+        },
+        "graph": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 2,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 7,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 2,
+          "refresh_error": {
+            "message": "Source no longer available: source:fx:2026-W46",
+            "type": "MissingEvidenceError"
+          },
+          "tool_calls": 0
+        },
+        "hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 2,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 7,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 2,
+          "refresh_error": {
+            "message": "Source no longer available: source:fx:2026-W46",
+            "type": "MissingEvidenceError"
+          },
+          "tool_calls": 0
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 2,
+          "eligible_affected_reports": 0,
+          "eligible_reports": 7,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 2,
+          "refresh_error": {
+            "message": "Source no longer available: source:fx:2026-W46",
+            "type": "MissingEvidenceError"
+          },
+          "tool_calls": 0
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 1959,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.6666666666666666,
+            "fn": 2,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434"
+            ],
+            "precision": 1.0,
+            "recall": 0.5,
+            "tp": 2
+          }
+        },
+        "dense": {
+          "context_tokens": 1913,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "direct_id": {
+          "context_tokens": 311,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 1344,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 4
+          }
+        },
+        "graph": {
+          "context_tokens": 1344,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 4
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 311,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "hybrid": {
+          "context_tokens": 1951,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company@4d33da03df72",
+              "artifact:2026-W46:company_brief@add154075434",
+              "artifact:2026-W46:eu_brief@3f761540b806"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 1909,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.8571428571428571,
+            "fn": 1,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W46:company_brief@add154075434"
+            ],
+            "precision": 1.0,
+            "recall": 0.75,
+            "tp": 3
+          }
+        }
+      }
+    },
+    "T11": {
+      "category": "restart",
+      "corpus_records": 27,
+      "corpus_tokens": 8462,
+      "description": "After correcting the week-45 EUR exchange rate, restart the application before deciding what to refresh.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "dense": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 1
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        },
+        "full_context": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        },
+        "graph": {
+          "complete_fresh_reports": 9,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 2,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        },
+        "hybrid": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 2,
+          "eligible_reports": 9,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 3
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 2013,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.6666666666666666,
+            "fn": 2,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc"
+            ],
+            "precision": 1.0,
+            "recall": 0.5,
+            "tp": 2
+          }
+        },
+        "dense": {
+          "context_tokens": 1920,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "direct_id": {
+          "context_tokens": 323,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 1397,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 4
+          }
+        },
+        "graph": {
+          "context_tokens": 1397,
+          "impact": {
+            "exact_match": true,
+            "extra_ids": [],
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "missing_ids": [],
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 4
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 323,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e"
+            ],
+            "precision": 1.0,
+            "recall": 0.25,
+            "tp": 1
+          }
+        },
+        "hybrid": {
+          "context_tokens": 1983,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.6666666666666666,
+            "fn": 2,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc"
+            ],
+            "precision": 1.0,
+            "recall": 0.5,
+            "tp": 2
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 1931,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.8571428571428571,
+            "fn": 1,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company_brief@958f33986dbc"
+            ],
+            "precision": 1.0,
+            "recall": 0.75,
+            "tp": 3
+          }
+        }
+      }
+    },
+    "T12": {
+      "category": "unseen_composition",
+      "corpus_records": 28,
+      "corpus_tokens": 8984,
+      "description": "A newly composed two-week comparison reuses past artifacts. A week-45 refund correction must reach that new report.",
+      "execution": {
+        "bm25": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 10,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 1
+        },
+        "dense": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 10,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "exact_flat": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 10,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 5
+        },
+        "full_context": {
+          "complete_fresh_reports": 10,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 10,
+          "fresh_affected_reports": 3,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 7
+        },
+        "graph": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 10,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 5
+        },
+        "hybrid": {
+          "complete_fresh_reports": 7,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 10,
+          "fresh_affected_reports": 0,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 2
+        },
+        "iterative_hybrid": {
+          "complete_fresh_reports": 8,
+          "correctly_blocked_reports": 0,
+          "eligible_affected_reports": 3,
+          "eligible_reports": 10,
+          "fresh_affected_reports": 1,
+          "incorrect_current_reports": 0,
+          "oracle_unavailable_reports": 0,
+          "refresh_error": null,
+          "tool_calls": 4
+        }
+      },
+      "retrieval": {
+        "bm25": {
+          "context_tokens": 1918,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.25,
+            "fn": 6,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab",
+              "artifact:cross_period:comparison@28d64106f4bb"
+            ],
+            "precision": 1.0,
+            "recall": 0.14285714285714285,
+            "tp": 1
+          }
+        },
+        "dense": {
+          "context_tokens": 1934,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:usd@8ea5f5b9ddab",
+              "artifact:cross_period:comparison@28d64106f4bb"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "direct_id": {
+          "context_tokens": 317,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.25,
+            "fn": 6,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab",
+              "artifact:cross_period:comparison@28d64106f4bb"
+            ],
+            "precision": 1.0,
+            "recall": 0.14285714285714285,
+            "tp": 1
+          }
+        },
+        "exact_flat": {
+          "context_tokens": 1636,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.8333333333333333,
+            "fn": 2,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:cross_period:comparison@28d64106f4bb"
+            ],
+            "precision": 1.0,
+            "recall": 0.7142857142857143,
+            "tp": 5
+          }
+        },
+        "graph": {
+          "context_tokens": 1636,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.8333333333333333,
+            "fn": 2,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:cross_period:comparison@28d64106f4bb"
+            ],
+            "precision": 1.0,
+            "recall": 0.7142857142857143,
+            "tp": 5
+          }
+        },
+        "graph_direct": {
+          "context_tokens": 317,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.25,
+            "fn": 6,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:net@35c96896d0f0",
+              "artifact:2026-W45:usd@8ea5f5b9ddab",
+              "artifact:cross_period:comparison@28d64106f4bb"
+            ],
+            "precision": 1.0,
+            "recall": 0.14285714285714285,
+            "tp": 1
+          }
+        },
+        "hybrid": {
+          "context_tokens": 1989,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.4444444444444445,
+            "fn": 5,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:2026-W45:eu_brief@75969a5c3b3e",
+              "artifact:2026-W45:usd@8ea5f5b9ddab",
+              "artifact:cross_period:comparison@28d64106f4bb"
+            ],
+            "precision": 1.0,
+            "recall": 0.2857142857142857,
+            "tp": 2
+          }
+        },
+        "iterative_hybrid": {
+          "context_tokens": 1940,
+          "impact": {
+            "exact_match": false,
+            "extra_ids": [],
+            "f1": 0.7272727272727273,
+            "fn": 3,
+            "fp": 0,
+            "missing_ids": [
+              "artifact:2026-W45:company@802152e6e0e0",
+              "artifact:2026-W45:company_brief@958f33986dbc",
+              "artifact:cross_period:comparison@28d64106f4bb"
+            ],
+            "precision": 1.0,
+            "recall": 0.5714285714285714,
+            "tp": 4
+          }
+        }
+      }
+    }
+  },
+  "execution": {
+    "bm25": {
+      "complete_fresh_reports": 78,
+      "correctly_blocked_reports": 2,
+      "eligible_affected_reports": 29,
+      "eligible_reports": 101,
+      "fresh_affected_reports": 6,
+      "incorrect_current_reports": 0,
+      "inspection_errors": 0,
+      "inspection_graph_queries": 412,
+      "mean_refresh_ms": 435.15412843165296,
+      "oracle_unavailable_reports": 2,
+      "refresh_graph_queries": 636,
+      "report_count": 103,
+      "scenarios": 12,
+      "scenarios_all_eligible_reports_fresh": 2,
+      "scenarios_refresh_completed": 11,
+      "scenarios_with_refresh_error": 1,
+      "tool_calls": 23,
+      "unaffected_report_artifacts_preserved": 72,
+      "unaffected_reports": 72
+    },
+    "dense": {
+      "complete_fresh_reports": 73,
+      "correctly_blocked_reports": 2,
+      "eligible_affected_reports": 29,
+      "eligible_reports": 101,
+      "fresh_affected_reports": 1,
+      "incorrect_current_reports": 0,
+      "inspection_errors": 0,
+      "inspection_graph_queries": 412,
+      "mean_refresh_ms": 394.35205546518165,
+      "oracle_unavailable_reports": 2,
+      "refresh_graph_queries": 596,
+      "report_count": 103,
+      "scenarios": 12,
+      "scenarios_all_eligible_reports_fresh": 2,
+      "scenarios_refresh_completed": 11,
+      "scenarios_with_refresh_error": 1,
+      "tool_calls": 22,
+      "unaffected_report_artifacts_preserved": 72,
+      "unaffected_reports": 72
+    },
+    "exact_flat": {
+      "complete_fresh_reports": 88,
+      "correctly_blocked_reports": 2,
+      "eligible_affected_reports": 29,
+      "eligible_reports": 101,
+      "fresh_affected_reports": 16,
+      "incorrect_current_reports": 0,
+      "inspection_errors": 0,
+      "inspection_graph_queries": 412,
+      "mean_refresh_ms": 1022.321100657185,
+      "oracle_unavailable_reports": 2,
+      "refresh_graph_queries": 1572,
+      "report_count": 103,
+      "scenarios": 12,
+      "scenarios_all_eligible_reports_fresh": 6,
+      "scenarios_refresh_completed": 11,
+      "scenarios_with_refresh_error": 1,
+      "tool_calls": 54,
+      "unaffected_report_artifacts_preserved": 72,
+      "unaffected_reports": 72
+    },
+    "full_context": {
+      "complete_fresh_reports": 101,
+      "correctly_blocked_reports": 2,
+      "eligible_affected_reports": 29,
+      "eligible_reports": 101,
+      "fresh_affected_reports": 29,
+      "incorrect_current_reports": 0,
+      "inspection_errors": 0,
+      "inspection_graph_queries": 412,
+      "mean_refresh_ms": 1312.444586888887,
+      "oracle_unavailable_reports": 2,
+      "refresh_graph_queries": 2032,
+      "report_count": 103,
+      "scenarios": 12,
+      "scenarios_all_eligible_reports_fresh": 12,
+      "scenarios_refresh_completed": 11,
+      "scenarios_with_refresh_error": 1,
+      "tool_calls": 68,
+      "unaffected_report_artifacts_preserved": 72,
+      "unaffected_reports": 72
+    },
+    "graph": {
+      "complete_fresh_reports": 88,
+      "correctly_blocked_reports": 2,
+      "eligible_affected_reports": 29,
+      "eligible_reports": 101,
+      "fresh_affected_reports": 16,
+      "incorrect_current_reports": 0,
+      "inspection_errors": 0,
+      "inspection_graph_queries": 412,
+      "mean_refresh_ms": 1024.034715179975,
+      "oracle_unavailable_reports": 2,
+      "refresh_graph_queries": 1572,
+      "report_count": 103,
+      "scenarios": 12,
+      "scenarios_all_eligible_reports_fresh": 6,
+      "scenarios_refresh_completed": 11,
+      "scenarios_with_refresh_error": 1,
+      "tool_calls": 54,
+      "unaffected_report_artifacts_preserved": 72,
+      "unaffected_reports": 72
+    },
+    "hybrid": {
+      "complete_fresh_reports": 76,
+      "correctly_blocked_reports": 2,
+      "eligible_affected_reports": 29,
+      "eligible_reports": 101,
+      "fresh_affected_reports": 4,
+      "incorrect_current_reports": 0,
+      "inspection_errors": 0,
+      "inspection_graph_queries": 412,
+      "mean_refresh_ms": 389.62944100300473,
+      "oracle_unavailable_reports": 2,
+      "refresh_graph_queries": 600,
+      "report_count": 103,
+      "scenarios": 12,
+      "scenarios_all_eligible_reports_fresh": 2,
+      "scenarios_refresh_completed": 11,
+      "scenarios_with_refresh_error": 1,
+      "tool_calls": 22,
+      "unaffected_report_artifacts_preserved": 72,
+      "unaffected_reports": 72
+    },
+    "iterative_hybrid": {
+      "complete_fresh_reports": 81,
+      "correctly_blocked_reports": 2,
+      "eligible_affected_reports": 29,
+      "eligible_reports": 101,
+      "fresh_affected_reports": 9,
+      "incorrect_current_reports": 0,
+      "inspection_errors": 0,
+      "inspection_graph_queries": 412,
+      "mean_refresh_ms": 707.9365731915459,
+      "oracle_unavailable_reports": 2,
+      "refresh_graph_queries": 1100,
+      "report_count": 103,
+      "scenarios": 12,
+      "scenarios_all_eligible_reports_fresh": 3,
+      "scenarios_refresh_completed": 11,
+      "scenarios_with_refresh_error": 1,
+      "tool_calls": 38,
+      "unaffected_report_artifacts_preserved": 72,
+      "unaffected_reports": 72
+    }
+  },
+  "generated_at": "2026-11-15T09:50:47.479987+00:00",
+  "retrieval": {
+    "bm25": {
+      "1024": {
+        "exact_affected_sets": 1,
+        "false_negatives": 53,
+        "false_positives": 0,
+        "mean_context_tokens": 953.6666666666666,
+        "mean_f1": 0.4779761904761905,
+        "mean_precision": 1.0,
+        "mean_recall": 0.34305555555555556,
+        "mean_retrieval_ms": 0.2908924361690879,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 19
+      },
+      "2048": {
+        "exact_affected_sets": 1,
+        "false_negatives": 47,
+        "false_positives": 0,
+        "mean_context_tokens": 1973.5833333333333,
+        "mean_f1": 0.5489774114774115,
+        "mean_precision": 1.0,
+        "mean_recall": 0.41388888888888886,
+        "mean_retrieval_ms": 0.2908924361690879,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 25
+      },
+      "512": {
+        "exact_affected_sets": 1,
+        "false_negatives": 60,
+        "false_positives": 0,
+        "mean_context_tokens": 403.25,
+        "mean_f1": 0.374003774003774,
+        "mean_precision": 1.0,
+        "mean_recall": 0.2642857142857143,
+        "mean_retrieval_ms": 0.2908924361690879,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 12
+      },
+      "all": {
+        "exact_affected_sets": 12,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "mean_context_tokens": 8035.083333333333,
+        "mean_f1": 1.0,
+        "mean_precision": 1.0,
+        "mean_recall": 1.0,
+        "mean_retrieval_ms": 0.2908924361690879,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 72
+      }
+    },
+    "dense": {
+      "1024": {
+        "exact_affected_sets": 1,
+        "false_negatives": 51,
+        "false_positives": 0,
+        "mean_context_tokens": 975.8333333333334,
+        "mean_f1": 0.5004985754985755,
+        "mean_precision": 1.0,
+        "mean_recall": 0.35634920634920636,
+        "mean_retrieval_ms": 13.525409856811166,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 21
+      },
+      "2048": {
+        "exact_affected_sets": 1,
+        "false_negatives": 49,
+        "false_positives": 0,
+        "mean_context_tokens": 1949.5833333333333,
+        "mean_f1": 0.5217948717948718,
+        "mean_precision": 1.0,
+        "mean_recall": 0.3751984126984127,
+        "mean_retrieval_ms": 13.525409856811166,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 23
+      },
+      "512": {
+        "exact_affected_sets": 1,
+        "false_negatives": 60,
+        "false_positives": 0,
+        "mean_context_tokens": 401.75,
+        "mean_f1": 0.374003774003774,
+        "mean_precision": 1.0,
+        "mean_recall": 0.2642857142857143,
+        "mean_retrieval_ms": 13.525409856811166,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 12
+      },
+      "all": {
+        "exact_affected_sets": 12,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "mean_context_tokens": 8035.083333333333,
+        "mean_f1": 1.0,
+        "mean_precision": 1.0,
+        "mean_recall": 1.0,
+        "mean_retrieval_ms": 13.525409856811166,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 72
+      }
+    },
+    "direct_id": {
+      "1024": {
+        "exact_affected_sets": 1,
+        "false_negatives": 55,
+        "false_positives": 0,
+        "mean_context_tokens": 418.5833333333333,
+        "mean_f1": 0.43353174603174605,
+        "mean_precision": 1.0,
+        "mean_recall": 0.3013888888888889,
+        "mean_retrieval_ms": 0.0,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 17
+      },
+      "2048": {
+        "exact_affected_sets": 1,
+        "false_negatives": 55,
+        "false_positives": 0,
+        "mean_context_tokens": 418.5833333333333,
+        "mean_f1": 0.43353174603174605,
+        "mean_precision": 1.0,
+        "mean_recall": 0.3013888888888889,
+        "mean_retrieval_ms": 0.0,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 17
+      },
+      "512": {
+        "exact_affected_sets": 1,
+        "false_negatives": 61,
+        "false_positives": 0,
+        "mean_context_tokens": 266.75,
+        "mean_f1": 0.3517815517815518,
+        "mean_precision": 1.0,
+        "mean_recall": 0.24345238095238095,
+        "mean_retrieval_ms": 0.0,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 11
+      },
+      "all": {
+        "exact_affected_sets": 1,
+        "false_negatives": 55,
+        "false_positives": 0,
+        "mean_context_tokens": 418.5833333333333,
+        "mean_f1": 0.43353174603174605,
+        "mean_precision": 1.0,
+        "mean_recall": 0.3013888888888889,
+        "mean_retrieval_ms": 0.0,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 17
+      }
+    },
+    "exact_flat": {
+      "1024": {
+        "exact_affected_sets": 1,
+        "false_negatives": 39,
+        "false_positives": 0,
+        "mean_context_tokens": 860.0833333333334,
+        "mean_f1": 0.6963980463980464,
+        "mean_precision": 1.0,
+        "mean_recall": 0.5636904761904762,
+        "mean_retrieval_ms": 0.01972223011155923,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 33
+      },
+      "2048": {
+        "exact_affected_sets": 6,
+        "false_negatives": 14,
+        "false_positives": 0,
+        "mean_context_tokens": 1564.1666666666667,
+        "mean_f1": 0.924117183985605,
+        "mean_precision": 1.0,
+        "mean_recall": 0.8724206349206349,
+        "mean_retrieval_ms": 0.01972223011155923,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 58
+      },
+      "512": {
+        "exact_affected_sets": 1,
+        "false_negatives": 60,
+        "false_positives": 0,
+        "mean_context_tokens": 336.25,
+        "mean_f1": 0.374003774003774,
+        "mean_precision": 1.0,
+        "mean_recall": 0.2642857142857143,
+        "mean_retrieval_ms": 0.01972223011155923,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 12
+      },
+      "all": {
+        "exact_affected_sets": 12,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "mean_context_tokens": 2037.6666666666667,
+        "mean_f1": 1.0,
+        "mean_precision": 1.0,
+        "mean_recall": 1.0,
+        "mean_retrieval_ms": 0.01972223011155923,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 72
+      }
+    },
+    "full_context": {
+      "all": {
+        "exact_affected_sets": 12,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "mean_context_tokens": 8035.083333333333,
+        "mean_f1": 1.0,
+        "mean_precision": 1.0,
+        "mean_recall": 1.0,
+        "mean_retrieval_ms": 0.0,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 72
+      }
+    },
+    "graph": {
+      "1024": {
+        "exact_affected_sets": 1,
+        "false_negatives": 39,
+        "false_positives": 0,
+        "mean_context_tokens": 860.0833333333334,
+        "mean_f1": 0.6963980463980464,
+        "mean_precision": 1.0,
+        "mean_recall": 0.5636904761904762,
+        "mean_retrieval_ms": 10.532829832906524,
+        "scenarios": 12,
+        "total_retrieval_calls": 52,
+        "true_positives": 33
+      },
+      "2048": {
+        "exact_affected_sets": 6,
+        "false_negatives": 14,
+        "false_positives": 0,
+        "mean_context_tokens": 1564.1666666666667,
+        "mean_f1": 0.924117183985605,
+        "mean_precision": 1.0,
+        "mean_recall": 0.8724206349206349,
+        "mean_retrieval_ms": 10.532829832906524,
+        "scenarios": 12,
+        "total_retrieval_calls": 52,
+        "true_positives": 58
+      },
+      "512": {
+        "exact_affected_sets": 1,
+        "false_negatives": 60,
+        "false_positives": 0,
+        "mean_context_tokens": 336.25,
+        "mean_f1": 0.374003774003774,
+        "mean_precision": 1.0,
+        "mean_recall": 0.2642857142857143,
+        "mean_retrieval_ms": 10.532829832906524,
+        "scenarios": 12,
+        "total_retrieval_calls": 52,
+        "true_positives": 12
+      },
+      "all": {
+        "exact_affected_sets": 12,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "mean_context_tokens": 2037.6666666666667,
+        "mean_f1": 1.0,
+        "mean_precision": 1.0,
+        "mean_recall": 1.0,
+        "mean_retrieval_ms": 10.532829832906524,
+        "scenarios": 12,
+        "total_retrieval_calls": 52,
+        "true_positives": 72
+      }
+    },
+    "graph_direct": {
+      "1024": {
+        "exact_affected_sets": 1,
+        "false_negatives": 55,
+        "false_positives": 0,
+        "mean_context_tokens": 418.5833333333333,
+        "mean_f1": 0.43353174603174605,
+        "mean_precision": 1.0,
+        "mean_recall": 0.3013888888888889,
+        "mean_retrieval_ms": 5.748232554954787,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 17
+      },
+      "2048": {
+        "exact_affected_sets": 1,
+        "false_negatives": 55,
+        "false_positives": 0,
+        "mean_context_tokens": 418.5833333333333,
+        "mean_f1": 0.43353174603174605,
+        "mean_precision": 1.0,
+        "mean_recall": 0.3013888888888889,
+        "mean_retrieval_ms": 5.748232554954787,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 17
+      },
+      "512": {
+        "exact_affected_sets": 1,
+        "false_negatives": 61,
+        "false_positives": 0,
+        "mean_context_tokens": 266.75,
+        "mean_f1": 0.3517815517815518,
+        "mean_precision": 1.0,
+        "mean_recall": 0.24345238095238095,
+        "mean_retrieval_ms": 5.748232554954787,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 11
+      },
+      "all": {
+        "exact_affected_sets": 1,
+        "false_negatives": 55,
+        "false_positives": 0,
+        "mean_context_tokens": 418.5833333333333,
+        "mean_f1": 0.43353174603174605,
+        "mean_precision": 1.0,
+        "mean_recall": 0.3013888888888889,
+        "mean_retrieval_ms": 5.748232554954787,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 17
+      }
+    },
+    "hybrid": {
+      "1024": {
+        "exact_affected_sets": 1,
+        "false_negatives": 54,
+        "false_positives": 0,
+        "mean_context_tokens": 951.3333333333334,
+        "mean_f1": 0.45575396825396824,
+        "mean_precision": 1.0,
+        "mean_recall": 0.32222222222222224,
+        "mean_retrieval_ms": 13.837930862791836,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 18
+      },
+      "2048": {
+        "exact_affected_sets": 1,
+        "false_negatives": 49,
+        "false_positives": 0,
+        "mean_context_tokens": 1970.25,
+        "mean_f1": 0.531054131054131,
+        "mean_precision": 1.0,
+        "mean_recall": 0.3841269841269841,
+        "mean_retrieval_ms": 13.837930862791836,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 23
+      },
+      "512": {
+        "exact_affected_sets": 1,
+        "false_negatives": 60,
+        "false_positives": 0,
+        "mean_context_tokens": 401.75,
+        "mean_f1": 0.374003774003774,
+        "mean_precision": 1.0,
+        "mean_recall": 0.2642857142857143,
+        "mean_retrieval_ms": 13.837930862791836,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 12
+      },
+      "all": {
+        "exact_affected_sets": 12,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "mean_context_tokens": 8035.083333333333,
+        "mean_f1": 1.0,
+        "mean_precision": 1.0,
+        "mean_recall": 1.0,
+        "mean_retrieval_ms": 13.837930862791836,
+        "scenarios": 12,
+        "total_retrieval_calls": 12,
+        "true_positives": 72
+      }
+    },
+    "iterative_hybrid": {
+      "1024": {
+        "exact_affected_sets": 1,
+        "false_negatives": 54,
+        "false_positives": 0,
+        "mean_context_tokens": 956.6666666666666,
+        "mean_f1": 0.45575396825396824,
+        "mean_precision": 1.0,
+        "mean_recall": 0.32222222222222224,
+        "mean_retrieval_ms": 26.4360832516104,
+        "scenarios": 12,
+        "total_retrieval_calls": 52,
+        "true_positives": 18
+      },
+      "2048": {
+        "exact_affected_sets": 2,
+        "false_negatives": 31,
+        "false_positives": 0,
+        "mean_context_tokens": 1979.75,
+        "mean_f1": 0.7607902331586542,
+        "mean_precision": 1.0,
+        "mean_recall": 0.6388888888888888,
+        "mean_retrieval_ms": 75.6383160672461,
+        "scenarios": 12,
+        "total_retrieval_calls": 82,
+        "true_positives": 41
+      },
+      "512": {
+        "exact_affected_sets": 1,
+        "false_negatives": 60,
+        "false_positives": 0,
+        "mean_context_tokens": 404.0833333333333,
+        "mean_f1": 0.374003774003774,
+        "mean_precision": 1.0,
+        "mean_recall": 0.2642857142857143,
+        "mean_retrieval_ms": 36.73130580379317,
+        "scenarios": 12,
+        "total_retrieval_calls": 48,
+        "true_positives": 12
+      },
+      "all": {
+        "exact_affected_sets": 12,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "mean_context_tokens": 8035.083333333333,
+        "mean_f1": 1.0,
+        "mean_precision": 1.0,
+        "mean_recall": 1.0,
+        "mean_retrieval_ms": 234.86487159971148,
+        "scenarios": 12,
+        "total_retrieval_calls": 230,
+        "true_positives": 72
+      }
+    }
+  },
+  "run_manifest": {
+    "code": {
+      "revision": "b03123b16d98ac776bca2c049894630dfe19fb9a",
+      "staged_diff": false,
+      "tracked_diff": false
+    },
+    "configuration": {
+      "benchmark_version": "pilot-v1",
+      "bm25": {
+        "b": 0.75,
+        "k1": 1.5
+      },
+      "budgets": [
+        512,
+        1024,
+        2048
+      ],
+      "claim": "small authored retrieval-and-refresh pilot, not universal graph-store superiority",
+      "dense_chunk_overlap": 64,
+      "dense_chunk_tokens": 384,
+      "dense_document_score": "maximum cosine across all overlapping chunks",
+      "dense_model": "BAAI/bge-small-en-v1.5",
+      "evidence_aliases": "human-readable logical_id plus deterministic content/recipe/input-version digest; all arms identical",
+      "exact_id_seeding": true,
+      "execution_arms": [
+        "bm25",
+        "dense",
+        "hybrid",
+        "iterative_hybrid",
+        "graph",
+        "exact_flat",
+        "full_context"
+      ],
+      "graph_depth": 15,
+      "heldout_composition_status": "deterministic recipe pilot; not agent-chosen until separate agent run",
+      "iterative_round_width": 3,
+      "iterative_rounds": "corpus_size",
+      "main_budget": 2048,
+      "reader": "deterministic transitive reader restricted to returned evidence",
+      "record_serialization": "EvidenceRecord.render/v1",
+      "rrf_constant": 60,
+      "shared_executor": "Hydra-assisted currentness and recursive refresh for all arms; standalone baseline safety not evaluated",
+      "tokenizer": "cl100k_base"
+    },
+    "database": "HydraDB OSS; native bounded FLOW traversals; no memory fallback",
+    "embedding": {
+      "cache_dir": "/Users/saivedanthava/Desktop/HydraDB/proofflow/.cache/fastembed",
+      "chunking": {
+        "document_score": "max cosine over chunks",
+        "model_tokens": 384,
+        "overlap": 64,
+        "truncation": "none"
+      },
+      "fastembed_version": "0.9.1",
+      "implementation": "fastembed.TextEmbedding (ONNX, CPU)",
+      "model": "BAAI/bge-small-en-v1.5",
+      "model_directory": "/Users/saivedanthava/Desktop/HydraDB/proofflow/.cache/fastembed/models--Qdrant--bge-small-en-v1.5-onnx-Q/snapshots/aa8f8b060edb00e03bfdd08813a2949946c8ba55",
+      "model_file_sha256": {
+        "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+        "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+        "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+      },
+      "numpy_version": "2.5.4"
+    },
+    "execution_isolation": "Independent SQLite/blob heads, immutable original graph; all rankings frozen before any refresh",
+    "experiment": "deterministic selected-evidence reader followed by actual tool refresh",
+    "finished_at": "2026-11-15T09:50:00.093139+00:00",
+    "fixture_manifest_sha256": "21fb48da354beac55dc0a0fbfd40068a52fce4656165aba0ea991449290d1269",
+    "numeric_oracle": "Independent Python arithmetic over authored recipes and current fixture data; no runtime arithmetic/graph/cache",
+    "partial_run": false,
+    "scenarios": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05",
+      "T06",
+      "T07",
+      "T08",
+      "T09",
+      "T10",
+      "T11",
+      "T12"
+    ],
+    "shared_executor": "Hydra-assisted currentness and recursive refresh for every arm; standalone baseline safety not evaluated",
+    "spec_sha256": "b056f55908f427ed52ebf2066e93e905b4a9547f8da5afed6f284458f94b3a28",
+    "split": "test",
+    "started_at": "2026-11-15T09:47:23.534743+00:00"
+  },
+  "scenarios": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09",
+    "T10",
+    "T11",
+    "T12"
+  ],
+  "scope": "Twelve authored scenarios; deterministic evidence reader plus actual tool refresh, not an LLM-agent evaluation.",
+  "shared_executor": "All arms use the same Hydra-assisted currentness and recursive refresh executor. Standalone baseline safety is not evaluated.",
+  "source_directory": "results/test-v1",
+  "source_sha256": {
+    "execution.jsonl": "0a7fe59803952391a482173dda43c311c168d1cde6f6d320a0e088e7d3eb98b3",
+    "retrieval.jsonl": "bf501de83fed498ed00c4aef5a7f4e0113c5437880144d36aa027bb2a59980e0",
+    "run_manifest.json": "b72d4f37694d077cc855b7dc33b9cef89b4aa5fea208e26428bf3e578bfedd14"
+  }
+}

@@ -175,6 +175,21 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(len(self.runtime.calls), before)
         self.assertEqual(result.executed, ())
 
+    def test_repeated_old_handle_refresh_after_reopen_reports_reuse(self):
+        self.runtime.set_source("fx", {**DEMO_SOURCES["fx"], "EUR": "1.20"})
+        old_report = self.nodes["report_b"].id
+        first = self.runtime.refresh([old_report])
+        current_report = first.replacements[old_report]
+        self.store.close()
+        self.store = ArtifactStore(self.temp.name)
+        self.runtime = ProofFlowRuntime(self.store, self.graph)
+        before = len(self.runtime.calls)
+        second = self.runtime.refresh([old_report])
+        self.assertEqual(len(self.runtime.calls) - before, 0)
+        self.assertEqual(second.executed, ())
+        self.assertEqual(second.replacements[old_report], current_report)
+        self.assertIn(current_report, second.reused)
+
     def test_failed_tool_never_publishes_output(self):
         bad = self.runtime.set_source("bad-fx", {"EUR": "NaN", "USD": "1", "GBP": "1"})
         with self.assertRaises(ValueError):

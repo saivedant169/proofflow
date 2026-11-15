@@ -24,9 +24,15 @@ if TYPE_CHECKING:
 class AgentProtocolError(RuntimeError):
     """Malformed or unsupported plans must not trigger runtime actions."""
 
+    provider_result: ProviderResult | None = None
+
 
 class AgentProviderError(RuntimeError):
     """The model was unavailable or did not return an accepted response."""
+
+    def __init__(self, message: str, *, evidence: Mapping[str, Any] | None = None):
+        super().__init__(message)
+        self.evidence = dict(evidence or {})
 
 
 PLAN_SCHEMA: dict[str, Any] = {
@@ -166,7 +172,13 @@ def _validate_payload(payload: Mapping[str, Any], allowed_ids: set[str]) -> tupl
 def plan_refresh(provider: PlanProvider, request: AgentRequest) -> AgentPlan:
     prompt = request.prompt()
     result = provider.generate(prompt, PLAN_SCHEMA)
-    selected, rationale, abstain = _validate_payload(result.payload, set(request.allowed_artifact_ids))
+    try:
+        selected, rationale, abstain = _validate_payload(result.payload, set(request.allowed_artifact_ids))
+    except AgentProtocolError as exc:
+        # An invalid model answer is still a paid observation. Preserve its
+        # usage and original payload rather than treating it as a missing call.
+        exc.provider_result = result
+        raise
     return AgentPlan(selected, rationale, abstain, result, _sha(prompt), _sha(request.context_text))
 
 
@@ -237,17 +249,27 @@ class ClaudeCLIProvider:
             completed = subprocess.run(command, input=prompt, text=True, capture_output=True,
                                        timeout=self.timeout_seconds, cwd=self.cwd, check=False)
         except subprocess.TimeoutExpired as exc:
-            raise AgentProviderError("Claude CLI exceeded the bounded timeout; no plan executed") from exc
+            raise AgentProviderError("Claude CLI exceeded the bounded timeout; no plan executed", evidence={
+                "elapsed_seconds": time.monotonic() - start, "usage_unknown": True,
+                "configured_max_budget_usd": self.max_budget_usd}) from exc
         except OSError as exc:
-            raise AgentProviderError("Claude CLI is unavailable; no substitute model was used") from exc
+            raise AgentProviderError("Claude CLI is unavailable; no substitute model was used", evidence={
+                "elapsed_seconds": time.monotonic() - start, "process_started": False}) from exc
         elapsed = time.monotonic() - start
         try:
             envelope = json.loads(completed.stdout)
         except json.JSONDecodeError as exc:
-            raise AgentProviderError("Claude CLI did not return a JSON result") from exc
+            raise AgentProviderError("Claude CLI did not return a JSON result", evidence={
+                "returncode": completed.returncode, "elapsed_seconds": elapsed,
+                "stdout_sha256": _sha(completed.stdout), "stderr_sha256": _sha(completed.stderr),
+                "usage_unknown": True}) from exc
+        evidence = ({key: envelope.get(key) for key in
+                     ("is_error", "subtype", "num_turns", "modelUsage", "usage", "total_cost_usd")}
+                    if isinstance(envelope, dict) else {"usage_unknown": True})
+        evidence.update(returncode=completed.returncode, elapsed_seconds=elapsed)
         if not isinstance(envelope, dict) or completed.returncode or envelope.get("is_error"):
             detail = str(envelope.get("result", "provider failure"))[:400] if isinstance(envelope, dict) else "provider failure"
-            raise AgentProviderError(f"Claude CLI failed; no plan executed: {detail}")
+            raise AgentProviderError(f"Claude CLI failed; no plan executed: {detail}", evidence=evidence)
         payload = envelope.get("structured_output")
         if payload is None:
             # Some CLI versions return the schema-valid object as result text.
@@ -258,14 +280,14 @@ class ClaudeCLIProvider:
             except json.JSONDecodeError:
                 payload = None
         if not isinstance(payload, dict):
-            raise AgentProviderError("Claude CLI returned no structured plan")
+            raise AgentProviderError("Claude CLI returned no structured plan", evidence=evidence)
         model_usage = envelope.get("modelUsage", {})
         if not isinstance(model_usage, dict) or not model_usage:
-            raise AgentProviderError("Claude CLI omitted actual model usage; refusing an untraceable comparison")
+            raise AgentProviderError("Claude CLI omitted actual model usage; refusing an untraceable comparison", evidence=evidence)
         canonical_models = {data.get("canonicalModel", key) for key, data in model_usage.items()
                             if isinstance(data, dict)}
-        if self.model not in canonical_models:
-            raise AgentProviderError("Returned model differs from the requested model; no silent fallback allowed")
+        if canonical_models != {self.model}:
+            raise AgentProviderError("Returned model differs from the requested model; no silent fallback allowed", evidence=evidence)
         return ProviderResult(payload=payload, model_usage=model_usage, usage=envelope.get("usage", {}),
                               reported_cost_usd=envelope.get("total_cost_usd"),
                               provider="Claude Code CLI (local authenticated process)", model=self.model,
