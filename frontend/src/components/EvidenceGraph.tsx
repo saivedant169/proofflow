@@ -101,13 +101,18 @@ export default function EvidenceGraph({ state, onInspect }: { state: WorkspaceSt
         {graph.nodes.map(node => {
           const position = graph.positions.get(node.id)!
           const stale = affected.has(node.id) || changed.has(node.id)
-          return <button key={node.id} className={`graph-node ${stale ? 'graph-node-affected' : ''} ${reports.has(node.id) ? 'graph-node-report' : ''}`} style={{ left: position.x, top: position.y, width: graph.nodeW }} onClick={() => onInspect(node.id)} title={`${node.label} · ${node.state}`}>
+          const isSource = node.kind === 'source'
+          const Node = isSource ? 'div' : 'button'
+          return <Node key={node.id} className={`graph-node ${isSource ? 'graph-node-source' : ''} ${stale ? 'graph-node-affected' : ''} ${reports.has(node.id) ? 'graph-node-report' : ''}`} style={{ left: position.x, top: position.y, width: graph.nodeW }} onClick={isSource ? undefined : () => onInspect(node.id)} title={`${node.label} · ${node.state}`}>
             <NodeIcon node={node} reportIds={reports} /><span>{displayLabel(node)}</span>
-          </button>
+          </Node>
         })}
         {!graph.nodes.length && <p className="graph-empty">No complete execution relationships are available.</p>}
       </div>
     </div>
-    <div className="graph-foot"><span><MousePointer2 size={13} /><span className="mobile-graph-hint">Scroll to explore · </span>Select a node to inspect its evidence</span><span>{hasChange ? pending ? `${affected.size} affected artifacts` : state.last_refresh ? `${state.last_refresh.executed_artifact_ids.length} artifacts revalidated` : 'Refreshed evidence is current' : 'Receipt-derived dependencies'}</span></div>
+    <div className="graph-foot">
+      <span><MousePointer2 size={13} aria-hidden="true" /><span><span className="mobile-graph-hint">Scroll to explore. </span>Select a calculation or report to inspect its evidence.</span></span>
+      <span>{hasChange ? pending ? `${affected.size} affected artifacts` : state.last_refresh ? `${state.last_refresh.executed_artifact_ids.length} artifacts revalidated` : 'Refreshed evidence is current' : 'Receipt-derived dependencies'}</span>
+    </div>
   </section>
 }
