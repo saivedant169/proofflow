@@ -4,23 +4,26 @@
 
 ## Current six-tool hosted release
 
-The hosted runtime is `327dc602cbb255c07201ffb85bcfc656476b382e`, Linux AMD64 image `sha256:7942a2441d932792000acfc50358a82f2ec7a1c949922f5ac1b9e6e679b83042`. The evidence below identifies the deployed runtime by that source revision and image.
+The hosted runtime is `34465e90b826ab40ccc3acf0ac6302c91c020dc2`, Linux AMD64 image `sha256:feb5938180fa3e39dbf6107e085b207cdfa107fe58600cf31f8d8f9ab4186dc4`. The API and six-tool connector match the earlier `327dc60` release byte for byte.
 
 The connector adds `inspect_evidence`. An agent can select a saved report or calculation, follow its recorded artifact inputs, identify the native path behind a stale report and inspect an unchanged calculation before refreshing. The generation-bound read checks currentness and producing receipts under the owning session lock. Its evidence fields are limited to selected artifact metadata, typed input identifiers and hashes, producing receipt metadata and bounded recorded changed-source paths. Independent source review found identical syntax trees for 13 functions underlying the existing operations. [Tool contract](AGENT_QUICKSTART.md#six-hosted-csv-tools).
 
 | Check | Observed result and scope |
 | --- | --- |
-| Release CI | First attempt: **560 Python tests**, **nine Chromium workflows**, all **24 job steps**, three ZIP verifiers and the one-cent negative control passed. [CI run](https://github.com/saivedant169/proofflow/actions/runs/43771442936). |
-| Exact local image | **82 checks across 36 HTTP responses**, plus **45 connector contract checks**, passed against the packaged image. |
+| Release CI | First attempt: **575 Python tests**, **nine Chromium workflows**, all **24 job steps**, three ZIP verifiers and the one-cent negative control passed. [CI run](https://github.com/saivedant169/proofflow/actions/runs/43774924896). |
+| Exact local image | **86 checks across 38 HTTP responses**, plus **45 connector contract checks**, passed against the packaged image. |
 | Deployed runtime | **21 read-only host checks** verified the expected image, retained state volumes and unchanged HydraDB container. |
-| Canonical downloaded connector | A stock MCP client passed **35 scripted checks**, with **zero model calls**, using two fresh synthetic workspaces. It traversed selected evidence, observed stale refusal, refreshed and exported; the saved scheduler response contained **two reused and four executed artifact IDs**. |
-| External HTTPS acceptance | First attempt: **11 Chrome steps**, **13 guided HTTP checks**, and **12 byte-matched public downloads** passed. All three ZIPs passed offline verification. A stock client with a fresh cache discovered exactly **six tools**, with **zero tool calls** in that discovery check. The separate receipt audit passed **87 assertions** across all three jobs. [Hosted acceptance](https://github.com/saivedant169/proofflow/actions/runs/43772376825). |
+| External HTTPS acceptance | First attempt: **11 Chrome steps**, **13 guided HTTP checks**, and **14 byte-matched public paths** passed, including the navigation receipt and its checksum. All three ZIPs passed offline verification. A stock client with a fresh cache discovered exactly **six tools** and made **zero tool calls**. [Hosted acceptance](https://github.com/saivedant169/proofflow/actions/runs/43775678392). |
 
-The 35-check scripted connector run used the two-row NORTH/SOUTH fixture. Company and NORTH revenue changed from **$308 / $108** to **$317 / $117**, with four recorded refresh calls and eleven verification calculations. Its saved response retains the exact reused and executed artifact lists. The three public ZIPs retain their earlier bytes and frozen study scopes. GitHub workflow links require repository access.
+GitHub workflow links require repository access. The three public ZIPs retain their earlier bytes and frozen study scopes.
 
-The deployment wrapper exited 1 while recording its final status, after the application replacement helper and public HTTPS health check succeeded. The operator did not repeat deployment. The independent 21-check host observation verified the live image and retained state after that wrapper failure.
+## Evidence navigation on `327dc60`
 
-A separate Fable 5.2 trial on this release passed **8 of 8** frozen evidence-navigation obligations. The model followed a discovered typed artifact input, explained a stale claim using its native FX path, verified net reuse in the actual refresh response, and exported the checked amounts. [Audited model trial on `327dc60`](HOSTED_EVIDENCE_NAVIGATION_RESULTS.md).
+On `327dc60`, a stock client passed **35 scripted checks** with zero model calls. On the two-row NORTH/SOUTH fixture, company and NORTH revenue changed from **$308 / $108** to **$317 / $117**, with four recorded refresh calls and eleven verification calculations. The refresh response recorded two reused and four executed artifact IDs. The external receipt audit for that release passed 87 assertions across all three jobs. [Earlier hosted acceptance](https://github.com/saivedant169/proofflow/actions/runs/43772376825).
+
+The deployment wrapper for `327dc60` exited 1 while recording its final status, after the application replacement helper and public HTTPS health check succeeded. The operator did not repeat deployment. Its independent 21-check host observation verified the live image and retained state.
+
+A separate Fable 5.2 trial on `327dc60` passed **8 of 8** frozen evidence-navigation obligations. The model followed a discovered typed artifact input, explained a stale claim using its native FX path, verified net reuse in the actual refresh response and exported the checked amounts. [Audited model trial](HOSTED_EVIDENCE_NAVIGATION_RESULTS.md).
 
 ## Recorded five-tool hosted connector release
 
