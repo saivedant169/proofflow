@@ -38,7 +38,7 @@ The archive also preserves the original incomplete summary, the independently re
 | 4,096 | 15/32 | 15/32 | 5/32 | 2/32 | 15/32 |
 | 8,192 | 27/32 | 27/32 | 25/32 | 10/32 | 28/32 |
 
-The uncapped deterministic reference completed 32/32. Every capped method fell short of that result. Graph and exact-flat packed identical evidence across all eight cases at both caps. The diagnostic ran without model calls and is separate from the model study.
+The uncapped deterministic reference completed 32/32. Every capped method fell short of that result. Graph and exact-flat packed identical evidence across all eight cases at both caps. The diagnostic used local BGE embedding inference and no generative model calls. It is separate from the model study.
 
 The paired comparison is one authored workflow, and the hosted extract is one date and one country. The interrupted-update test killed the API child between committed source updates, while HydraDB remained running. The historical restart concerned the application container. These observations measure functional behavior and artifact reuse. Human adoption, relative compute cost, production load, and uninterrupted availability were outside the runs.
 
