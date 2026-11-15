@@ -63,18 +63,20 @@ order_id,region,currency,gross_cents,refund_cents,ticket_count
 n1,NORTH,EUR,10000,1000,3
 s1,SOUTH,USD,20000,0,1
 
-Save the generation and both report IDs from the create result. Publish the same CSV with EUR → USD set to "1.30". Inspect both reports and attempt a checked export using the original IDs. Then refresh the reports and export using the fresh IDs. Show both totals and the actual refresh call count.</pre>
+Save the generation and both report IDs from the create result. Call update_csv with rates {"EUR":"1.30"} and region "NORTH". Omit csv_text for this rate-only correction. Inspect both reports and attempt a checked export using the original IDs. Then refresh the reports and export using the fresh IDs. Show both totals and the actual refresh call count.</pre>
     <p>The initial totals should be <strong>$308.00 company</strong> and <strong>$108.00 NORTH</strong>. The correction withholds stale values and blocks the old export. After four recorded refresh calls, the checked snapshot should show <strong>$317.00 company</strong> and <strong>$117.00 NORTH</strong>.</p>
 
     <h2>Tools and session</h2>
     <ul>
       <li><code>create_csv_reports</code> creates the two fixed revenue reports in the active session.</li>
       <li><code>inspect_reports</code> returns immutable IDs, claim currentness, and impact.</li>
-      <li><code>update_csv</code> publishes the full corrected CSV and supplied exchange rates.</li>
+      <li><code>update_csv</code> publishes corrected rows and rates. For a rate-only correction, omit <code>csv_text</code> and pass the existing region and all required rates.</li>
       <li><code>refresh_reports</code> recomputes affected work and returns actual execution counts.</li>
       <li><code>export_current_reports</code> checks the given generation and both report IDs, then returns plain-text snapshot content.</li>
     </ul>
-    <p>The one-week hosted demo shares capacity with browser sessions. Idle sessions expire after one hour. The connector keeps its session cookie in local process memory. Restarting the process loses that cookie, so explicitly create reports again to start a fresh CSV workspace. Creating again in the same process replaces the active import.</p>
+    <p>The connector keeps only the exact CSV text from the last confirmed create or update in memory. The host can omit that text from a later rate-only tool call in the same process. The connector checks the hosted session, workspace and CSV digest, then sends the cached bytes with the supplied rates. Provide the full corrected CSV when rows change.</p>
+    <p>If a write result is uncertain or the workspace reports an incomplete update, the connector discards its CSV cache. Start a fresh connector process and explicitly create reports with the intended CSV before changing or exporting reports again.</p>
+    <p>The one-week hosted demo shares capacity with browser sessions. Idle sessions expire after one hour. The connector keeps its session cookie in local process memory. Restarting clears the cookie and CSV cache. Explicitly create reports again to start a fresh CSV workspace. Creating again in the same process replaces the active import.</p>
   </main>
 </body>
 </html>

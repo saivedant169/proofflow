@@ -5,6 +5,9 @@
 """Local stdio connector for the hosted ProofFlow CSV reports."""
 from __future__ import annotations
 
+from contextlib import contextmanager
+from dataclasses import dataclass, field
+from hashlib import sha256
 import json
 from threading import Lock
 from typing import Any
@@ -18,6 +21,7 @@ ORIGIN = "https://proofflow.arnavbule.in"
 MAX_CSV_BYTES = 1024 * 1024
 MAX_RESPONSE_BYTES = 2 * 1024 * 1024
 SESSION_COOKIE = "proofflow_session"
+RESTART_WORKSPACE = "Restart the connector and explicitly create reports with the full CSV."
 CREATE = "/api/import/create"
 STATE = "/api/import/state"
 UPDATE = "/api/import/update"
@@ -117,27 +121,179 @@ def report_state(state: dict) -> dict:
         raise ToolError("The hosted API returned an unexpected report state.") from None
 
 
+@dataclass(frozen=True)
+class ConfirmedCsv:
+    text: str = field(repr=False)
+    digest: str
+    generation: str
+    region: str
+
+
+class RequestRefused(ToolError):
+    def __init__(self, status: int, message: str):
+        super().__init__(message)
+        self.status = status
+
+
 class HostedCsvAPI:
-    """Own one private browser session for the lifetime of a connector process."""
+    """Own one private session and at most one confirmed CSV per process."""
 
     def __init__(self, client: httpx.Client):
         self.client = client
         self.lock = Lock()
         self.session_attempted = False
-        self.session_ready = False
+        self.session_id: str | None = None
+        self.confirmed_csv: ConfirmedCsv | None = None
+        self.writes_blocked = False
+
+    def _block_writes(self):
+        self.confirmed_csv = None
+        self.writes_blocked = True
+
+    @contextmanager
+    def _confirm_mutation(self):
+        try:
+            yield
+        except ToolError as error:
+            status = error.status if isinstance(error, RequestRefused) else None
+            # These two limits are enforced before the hosted write handler.
+            # Other failures can occur after source or report heads changed.
+            if status in {413, 429}:
+                raise
+            self._block_writes()
+            if status == 401:
+                raise
+            raise ToolError(f"The connector could not confirm the hosted write. {RESTART_WORKSPACE}") from None
+
+    def _require_writable(self):
+        if self.writes_blocked:
+            raise ToolError("This connector cannot confirm the workspace for another write or checked export. "
+                            + RESTART_WORKSPACE)
+
+    def _cookie_id(self):
+        cookies = [cookie for cookie in self.client.cookies.jar if cookie.name == SESSION_COOKIE]
+        if len(cookies) == 1:
+            cookie = cookies[0]
+            if (cookie.secure and cookie.path == "/" and cookie.domain.lstrip(".") == self.client.base_url.host
+                    and not cookie.is_expired()):
+                return cookie.value or None
+        return None
+
+    def _require_session(self, *, create: bool = False):
+        if create and not self.session_attempted:
+            self.session_attempted = True
+            if any(cookie.name == SESSION_COOKIE for cookie in self.client.cookies.jar):
+                raise ToolError("Start the connector with a fresh session before creating CSV reports.")
+            self._request("POST", "/api/session")
+            self.session_id = self._cookie_id()
+        if self.session_id is None:
+            if self.session_attempted:
+                raise ToolError("A hosted session is unavailable. Restart the connector and create reports again.")
+            raise ToolError("Create CSV reports to open a fresh hosted session.")
+        if self._cookie_id() != self.session_id:
+            self._lose_session()
+            raise ToolError("The connector's hosted session changed. Restart the connector and create reports again.")
+
+    def _lose_session(self):
+        self._block_writes()
+        self.session_attempted = True
+        self.session_id = None
+
+    def _session_request(self, method, path, payload=None):
+        self._require_session()
+        try:
+            return self._request(method, path, payload)
+        except RequestRefused as error:
+            if error.status == 401:
+                self._lose_session()
+                raise
+            if error.status == 404 and self.confirmed_csv is not None:
+                self._block_writes()
+            raise
+        finally:
+            if self.session_id is not None:
+                self._require_session()
+
+    def _state(self, raw):
+        if raw.get("session_id") != self.session_id:
+            self._lose_session()
+            raise ToolError("The hosted response belonged to a different session. Restart the connector.")
+        if raw.get("incomplete_update") is True:
+            self._block_writes()
+        state = report_state(raw)
+        if type(state["incomplete_update"]) is not bool:
+            raise ToolError("The hosted API returned an unexpected report state.")
+        return state
+
+    def _match_confirmed(self, state):
+        confirmed = self.confirmed_csv
+        if (state["incomplete_update"] or (confirmed is not None and (
+                state["generation"], state["dataset"]["source_csv_sha256"], state["dataset"]["selected_region"]
+        ) != (confirmed.generation, confirmed.digest, confirmed.region))):
+            self._block_writes()
+            return False
+        return True
+
+    def publish_csv(self, path, csv_text, rates, region):
+        with self.lock:
+            self._require_writable()
+            confirmed = self.confirmed_csv
+            reuse = path == UPDATE and csv_text is None
+            if reuse:
+                if confirmed is None:
+                    raise ToolError("No confirmed CSV is available in this process. Create reports with the full CSV first.")
+                if rates is None or region is None:
+                    raise ToolError("Provide explicit rates and the selected region when omitting csv_text.")
+                if region != confirmed.region:
+                    raise ToolError("Keep the selected region for a rate-only correction.")
+                csv_text = confirmed.text
+            payload = csv_payload(csv_text, rates, region)
+            if path == CREATE:
+                self._require_session(create=True)
+            elif confirmed is None:
+                raise ToolError("Create reports with the full CSV before updating this workspace.")
+            if reuse:
+                state = self._state(self._session_request("GET", STATE))
+                if not self._match_confirmed(state):
+                    self._require_writable()
+            digest = sha256(csv_text.encode("utf-8")).hexdigest()
+            with self._confirm_mutation():
+                state = self._state(self._session_request("POST", path, payload))
+                dataset = state["dataset"]
+                generation, selected_region = state["generation"], dataset["selected_region"]
+                if (state["incomplete_update"] or not isinstance(generation, str) or not generation
+                        or not isinstance(selected_region, str) or not selected_region
+                        or dataset["source_csv_sha256"] != digest
+                        or (region is not None and selected_region != region)
+                        or (confirmed is not None and path == UPDATE
+                            and (generation, selected_region) != (confirmed.generation, confirmed.region))
+                        or (confirmed is not None and path == CREATE and generation == confirmed.generation)
+                        or state["last_operation"]["kind"] != ("create" if path == CREATE else "update")):
+                    raise ToolError("The hosted response did not confirm the submitted CSV and workspace.")
+            self.confirmed_csv = ConfirmedCsv(csv_text, digest, generation, selected_region)
+            return state
 
     def call(self, method: str, path: str, payload: dict | None = None) -> dict:
         with self.lock:
-            if path == CREATE and not self.session_attempted:
-                self.session_attempted = True
-                self._request("POST", "/api/session")
-                self.session_ready = any(cookie.name == SESSION_COOKIE and cookie.secure
-                                         for cookie in self.client.cookies.jar)
-            if not self.session_ready:
-                if self.session_attempted:
-                    raise ToolError("A hosted session could not be opened. Restart the connector before creating reports again.")
-                raise ToolError("Create CSV reports to open a fresh hosted session.")
-            return self._request(method, path, payload)
+            if path != STATE:
+                self._require_writable()
+            if path == REFRESH:
+                self._require_session()
+                if self.confirmed_csv is None:
+                    raise ToolError("Create reports with the full CSV before refreshing this workspace.")
+                with self._confirm_mutation():
+                    state = self._state(self._session_request(method, path, payload))
+                    if not self._match_confirmed(state):
+                        self._require_writable()
+                    if state["last_operation"]["kind"] != "refresh" or state["last_refresh"] is None:
+                        raise ToolError("The hosted response did not confirm the refresh.")
+                    return state
+            response = self._session_request(method, path, payload)
+            if path == STATE:
+                state = self._state(response)
+                self._match_confirmed(state)
+                return state
+            return response
 
     def _request(self, method: str, path: str, payload: dict | None = None) -> dict:
         try:
@@ -145,7 +301,8 @@ class HostedCsvAPI:
                 if response.status_code != 200:
                     if response.status_code == 409 and path == EXPORT:
                         raise ToolError("The hosted API refused this report snapshot (409). No export was returned. Inspect reports before choosing current report IDs.")
-                    raise ToolError(STATUS_ERRORS.get(response.status_code, "The hosted API did not complete the request. Inspect reports before repeating a write."))
+                    raise RequestRefused(response.status_code, STATUS_ERRORS.get(
+                        response.status_code, "The hosted API did not complete the request."))
                 if path == "/api/session":
                     return {}  # Only the cookie jar keeps the session credential.
                 data = bytearray()
@@ -155,7 +312,7 @@ class HostedCsvAPI:
                     data.extend(chunk)
             result = json.loads(data)
         except httpx.RequestError:
-            raise ToolError("The hosted API could not be reached or the response was interrupted. Inspect reports before repeating a write.") from None
+            raise ToolError("The hosted API could not be reached or the response was interrupted.") from None
         except (ValueError, RecursionError):
             raise ToolError("The hosted API returned an unexpected response.") from None
         if not isinstance(result, dict):
@@ -168,7 +325,8 @@ def build_server(client: httpx.Client) -> MCPServer:
     server = HostedCsvServer("ProofFlow Hosted CSV", log_level="WARNING", subscriptions=False, instructions=(
         "Use synthetic or nonsensitive CSV data. The connector sends your CSV to hosted ProofFlow. "
         "Create saves two fixed revenue reports (company and selected region). Update publishes a correction "
-        "without recalculating. Stale claims and incomplete updates have no current value. Refresh recalculates affected work. "
+        "without recalculating. For a rate-only update in the same process, omit csv_text and pass rates and region. "
+        "Stale claims and incomplete updates have no current value. Refresh recalculates affected work. "
         "Export verifies both selected report IDs and their workspace generation before returning snapshot text."
     ))
 
@@ -176,22 +334,23 @@ def build_server(client: httpx.Client) -> MCPServer:
     def create_csv_reports(csv_text: str, rates: dict[str, str] | None = None,
                            region: str | None = None) -> dict[str, Any]:
         """Send CSV text to hosted ProofFlow and create company and selected-region revenue reports. Required columns: order_id,region,currency,gross_cents. Optional: refund_cents,ticket_count. Provide EUR/GBP USD rates as decimal strings. Creating again replaces the active imported workspace."""
-        return report_state(api.call("POST", CREATE, csv_payload(csv_text, rates, region)))
+        return api.publish_csv(CREATE, csv_text, rates, region)
 
     @server.tool()
     def inspect_reports() -> dict[str, Any]:
         """Inspect currentness, impact, and immutable IDs for the two reports in this connector's workspace."""
-        return report_state(api.call("GET", STATE))
+        return api.call("GET", STATE)
 
     @server.tool()
-    def update_csv(csv_text: str, rates: dict[str, str] | None = None, region: str | None = None) -> dict[str, Any]:
-        """Publish the full corrected CSV or exchange rates for the existing region and inspect the affected reports. This does not refresh saved calculations."""
-        return report_state(api.call("POST", UPDATE, csv_payload(csv_text, rates, region)))
+    def update_csv(csv_text: str | None = None, rates: dict[str, str] | None = None,
+                   region: str | None = None) -> dict[str, Any]:
+        """Publish a corrected CSV, or omit csv_text for a rate-only correction in this process after a confirmed load. For a rate-only correction pass all needed rates as decimals and the existing region. Refresh is a separate step."""
+        return api.publish_csv(UPDATE, csv_text, rates, region)
 
     @server.tool()
     def refresh_reports() -> dict[str, Any]:
         """Refresh affected calculations for the two saved reports, reusing valid work and returning the actual call count."""
-        return report_state(api.call("POST", REFRESH))
+        return api.call("POST", REFRESH)
 
     @server.tool()
     def export_current_reports(generation: str, report_ids: dict[str, str]) -> dict[str, Any]:
