@@ -312,12 +312,22 @@ def create_app(state_dir: str | Path | None = None, graph_factory: Callable[...,
 
             application.mount("/evidence", StaticFiles(directory=evidence, html=True), name="public-evidence")
 
+        agent = directory / "agent"
+        if agent.is_dir() and not agent.is_symlink():
+            @application.get("/agent", include_in_schema=False)
+            def hosted_csv_connector_index():
+                return RedirectResponse("/agent/", status_code=308)
+
+            application.mount("/agent", StaticFiles(directory=agent, html=True), name="hosted-csv-connector")
+
         @application.get("/{path:path}")
         def spa(path: str):
             if path == "api" or path.startswith("api/"):
                 return error("not_found", "API route not found", 404)
             if path == "evidence" or path.startswith("evidence/"):
                 return error("not_found", "Evidence package has not been built", 404)
+            if path == "agent" or path.startswith("agent/"):
+                return error("not_found", "Hosted CSV connector has not been built", 404)
             candidate = (directory / path).resolve()
             if candidate.is_relative_to(directory) and candidate.is_file():
                 return FileResponse(candidate)

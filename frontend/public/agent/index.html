@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Set up the ProofFlow Hosted CSV connector and verify your reports from an MCP host.">
+  <title>Hosted CSV connector | ProofFlow</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.55 Inter, system-ui, sans-serif; color: #101318; }
+    body { margin: 0; }
+    header { border-bottom: 1px solid #d9dfe8; }
+    main, header div { width: min(100% - 2.5rem, 46rem); margin: auto; }
+    header div { padding-block: 1rem; }
+    main { padding-block: 2.75rem; }
+    h1, h2 { line-height: 1.13; letter-spacing: -.03em; }
+    h1 { font-size: clamp(2.1rem, 6vw, 3.2rem); margin: 0; }
+    h2 { font-size: 1.5rem; margin: 2.2rem 0 .6rem; }
+    a { color: #224bd8; text-underline-offset: .18em; }
+    a:focus-visible { outline: 3px solid #3159dc; outline-offset: 4px; }
+    .wordmark { color: inherit; font-size: 1.3rem; font-weight: 750; text-decoration: none; }
+    .download { background: #224bd8; color: white; text-decoration: none; padding: .55rem .85rem; border-radius: .45rem; }
+    .links { display: flex; flex-wrap: wrap; gap: .8rem 1rem; align-items: center; margin-block: 1.3rem 2.4rem; }
+    .info { background: #f3f6fb; border: 1px solid #d9dfe8; padding: .9rem 1rem; border-radius: .5rem; }
+    pre { overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; background: #f3f6fb; border: 1px solid #d9dfe8; border-radius: .5rem; padding: .85rem; font: .89rem/1.5 ui-monospace, monospace; }
+    li + li { margin-top: .35rem; }
+  </style>
+</head>
+<body>
+  <header><div><a class="wordmark" href="/">ProofFlow</a></div></header>
+  <main>
+    <h1>Hosted CSV connector</h1>
+    <p>Create and refresh company and regional revenue reports from a local MCP host. Five guided tools use the same hosted workflow as the browser.</p>
+    <div class="links">
+      <a class="download" href="proofflow_csv_mcp.py" download>Download Python script</a>
+      <a href="proofflow_csv_mcp.py.sha256" download>SHA-256 checksum</a>
+    </div>
+    <p class="info"><strong>Use synthetic or nonsensitive CSV rows.</strong> The connector sends your CSV and exchange rates to hosted ProofFlow. ProofFlow runs the calculations without a model call. The MCP host may send tool inputs and outputs to its configured model.</p>
+
+    <h2>Install in a local MCP host</h2>
+    <p>Install <code>uv</code> and save the script. In Claude Code, replace the example path with the location of your downloaded file.</p>
+    <pre><code>claude mcp add --transport stdio proofflow-csv -- uv run --no-project --script /absolute/path/proofflow_csv_mcp.py</code></pre>
+    <details>
+      <summary>Configuration for other local stdio hosts</summary>
+      <pre><code>{
+  "mcpServers": {
+    "proofflow-csv": {
+      "command": "uv",
+      "args": ["run", "--no-project", "--script", "/absolute/path/proofflow_csv_mcp.py"]
+    }
+  }
+}</code></pre>
+    </details>
+    <p>The script declares <code>mcp==2.3.0</code> and <code>httpx==0.28.1</code> and requires Python 3.11 or newer. You can inspect it before running it. It connects to this demo without a ProofFlow account, repository checkout, or HydraDB key.</p>
+
+    <h2>Try a correction</h2>
+    <p>Paste this synthetic task into your MCP host.</p>
+    <pre>Use the ProofFlow Hosted CSV connector to create reports for NORTH with EUR → USD set to "1.20".
+
+order_id,region,currency,gross_cents,refund_cents,ticket_count
+n1,NORTH,EUR,10000,1000,3
+s1,SOUTH,USD,20000,0,1
+
+Save the generation and both report IDs from the create result. Publish the same CSV with EUR → USD set to "1.30". Inspect both reports and attempt a checked export using the original IDs. Then refresh the reports and export using the fresh IDs. Show both totals and the actual refresh call count.</pre>
+    <p>The initial totals should be <strong>$308.00 company</strong> and <strong>$108.00 NORTH</strong>. The correction withholds stale values and blocks the old export. After four recorded refresh calls, the checked snapshot should show <strong>$317.00 company</strong> and <strong>$117.00 NORTH</strong>.</p>
+
+    <h2>Tools and session</h2>
+    <ul>
+      <li><code>create_csv_reports</code> creates the two fixed revenue reports in the active session.</li>
+      <li><code>inspect_reports</code> returns immutable IDs, claim currentness, and impact.</li>
+      <li><code>update_csv</code> publishes the full corrected CSV and supplied exchange rates.</li>
+      <li><code>refresh_reports</code> recomputes affected work and returns actual execution counts.</li>
+      <li><code>export_current_reports</code> checks the given generation and both report IDs, then returns plain-text snapshot content.</li>
+    </ul>
+    <p>The one-week hosted demo shares capacity with browser sessions. Idle sessions expire after one hour. The connector keeps its session cookie in local process memory. Restarting the process loses that cookie, so explicitly create reports again to start a fresh CSV workspace. Creating again in the same process replaces the active import.</p>
+  </main>
+</body>
+</html>
