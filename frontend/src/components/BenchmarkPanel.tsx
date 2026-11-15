@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ArrowUpRight, FileJson, Info } from 'lucide-react'
 import summary from '../../../evidence/benchmark_summary.json'
 import RecordedAgent from './RecordedAgent'
+import RetailBenchmark from './RetailBenchmark'
 
 type Budget = '512' | '1024' | '2048' | 'all'
 const names: Record<string, string> = { graph: 'ProofFlow · HydraDB', bm25: 'BM25', dense: 'Dense · BGE', hybrid: 'Hybrid', iterative_hybrid: 'Iterative hybrid', exact_flat: 'Exact dependency cache' }
@@ -11,7 +12,9 @@ export default function BenchmarkPanel() {
   const [budget, setBudget] = useState<Budget>('2048')
   const data = summary.retrieval
   return <main className="benchmark-page">
-    <div className="benchmark-intro"><h1>Evidence earns its place.</h1><p>Twelve frozen scenarios. The same records. A real dense baseline.<br />A useful advantage, with the limits in view.</p></div>
+    <div className="benchmark-intro"><h1>Evidence earns its place.</h1><p>Two separate frozen evaluations. The same records within each comparison.<br />Real calculations, with the limits in view.</p></div>
+    <RetailBenchmark />
+    <div className="pilot-divider"><h2>Original authored pilot</h2><p>Twelve authored scenarios. The controls below apply only to the original pilot.</p></div>
     <section className="benchmark-section panel"><div className="benchmark-controls"><div><h2>Affected evidence recovered</h2><p>Mean recall across 12 authored held-out scenarios</p></div><label>Evidence budget<select value={budget} onChange={event => setBudget(event.target.value as Budget)}><option value="512">512 tokens</option><option value="1024">1,024 tokens</option><option value="2048">2,048 tokens · primary</option><option value="all">Unlimited · diagnostic</option></select></label></div>
       <div className="benchmark-table-scroll"><table className="benchmark-table"><thead><tr><th>Evidence selection</th><th>Recall</th><th>Complete affected set</th><th>Mean evidence tokens</th></tr></thead><tbody>{arms.map(arm => {
         const row = data[arm][budget]

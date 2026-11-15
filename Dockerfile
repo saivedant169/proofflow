@@ -5,6 +5,7 @@ RUN npm ci
 COPY frontend/ ./
 COPY evidence/benchmark_summary.json /build/evidence/benchmark_summary.json
 COPY evidence/agent_composition.json /build/evidence/agent_composition.json
+COPY evidence/retail_v2_summary.json /build/evidence/retail_v2_summary.json
 RUN npm run build
 
 FROM python:3.12-slim
