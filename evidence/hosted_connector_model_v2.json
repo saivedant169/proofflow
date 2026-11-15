@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "study": "hosted CSV connector model trial V2",
+  "scope": "One guided model trial on a reused positive-sales fixture. The model issued the calls and the hosted service calculated its fixed reports.",
+  "overall_pass": true,
+  "operator_launches": 1,
+  "verified_stages": 7,
+  "planned_stages": 7,
+  "unattempted_stages": 0,
+  "unexpected_tool_errors": 0,
+  "observed_duplicate_or_retried_mcp_calls": 0,
+  "guard_blocks": 0,
+  "provider_internal_transport_retries": "unobserved",
+  "started_utc": "2026-11-15T22:25:02.489877+00:00",
+  "finished_utc": "2026-11-15T22:27:22.665757+00:00",
+  "cli_duration_seconds": 139.448,
+  "wall_seconds": 140.176,
+  "process_exit": 0,
+  "cli_result_subtype": "success",
+  "cli_stop_reason": "end_turn",
+  "timeout": false,
+  "cli_turns": 8,
+  "model": {
+    "requested": "claude-fable-5-2",
+    "observed_on_all_tool_uses": "claude-fable-5-2",
+    "requested_effort": "high",
+    "effort_seen_in_dummy_wire": "high",
+    "cli_version": "2.1.325",
+    "exact_five_connector_tools": true
+  },
+  "budget": {
+    "planning_allowance_usd": 3,
+    "cli_estimated_stop_setting_usd": 2,
+    "cli_reported_list_cost_estimate_usd": 1.4368254,
+    "bill_observed": false,
+    "cli_budget_stop_reported": false,
+    "usage": {
+      "input_tokens": 16,
+      "cache_creation_input_tokens": 41447,
+      "cache_read_input_tokens": 243727,
+      "output_tokens": 18120,
+      "provider_input_exposure": 285190
+    },
+    "cache_creation_one_hour_input_tokens": 41447
+  },
+  "host": {
+    "origin": "https://proofflow.arnavbule.in",
+    "operator_verified_release": "c2c19c1397026e136bf7648ddb0604a4d2ea6d7f",
+    "operator_verified_image": "sha256:9973b5414c4f23b3ded11a7357a494f89fb568c5e049119c363a58163377b39f",
+    "read_only_host_checks_passed": 21,
+    "hosted_acceptance_run": 43768541029,
+    "canonical_release_fingerprints_match": true
+  },
+  "connector": {
+    "bytes": 18841,
+    "sha256": "758f0f20b115e239741fd239b2c826104b0681399c21aea106d4bec0b505e996",
+    "protocol": "stdio"
+  },
+  "fixture": {
+    "date": "2011-01-16",
+    "sha256": "7b45308e83161fa41aace37b1bd9f7f6390566b65a45bb2a0dd9aaf0b8ae69b8",
+    "bytes": 28429,
+    "rows": 642,
+    "invoices": 25,
+    "selected_region": "United Kingdom",
+    "initial_gbp_usd": "1.25",
+    "corrected_gbp_usd": "1.30"
+  },
+  "stages": [
+    {
+      "stage": 1,
+      "tool": "create_csv_reports",
+      "status": "verified",
+      "exact_model_supplied_csv": true,
+      "report_values_usd_cents": {
+        "company": 905258,
+        "region": 905258
+      },
+      "both_report_claims_current": true,
+      "preflight_calculations": 8,
+      "recorded_executions": 8,
+      "verification_calculations": 11,
+      "reported_native_hydra_without_fallback": true
+    },
+    {
+      "stage": 2,
+      "tool": "inspect_reports",
+      "status": "verified",
+      "report_values_usd_cents": {
+        "company": 905258,
+        "region": 905258
+      },
+      "both_report_claims_current": true,
+      "same_generation_report_and_claim_ids": true
+    },
+    {
+      "stage": 3,
+      "tool": "update_csv",
+      "status": "verified",
+      "csv_text_argument": "omitted",
+      "same_confirmed_csv_digest_and_rows": true,
+      "same_generation_report_and_claim_ids": true,
+      "changed_sources": 1,
+      "affected_artifacts": 4,
+      "affected_matches_both_prior_reports_and_claims": true,
+      "preflight_calculations": 8,
+      "recorded_executions": 0,
+      "verification_calculations": 0
+    },
+    {
+      "stage": 4,
+      "tool": "inspect_reports",
+      "status": "verified",
+      "report_values_usd_cents": {
+        "company": null,
+        "region": null
+      },
+      "both_report_claims_stale": true,
+      "same_generation_report_and_claim_ids": true
+    },
+    {
+      "stage": 5,
+      "tool": "export_current_reports",
+      "status": "verified_expected_refusal",
+      "exact_previously_inspected_selection": true,
+      "hosted_http_status": 409,
+      "export_returned": false
+    },
+    {
+      "stage": 6,
+      "tool": "refresh_reports",
+      "status": "verified",
+      "report_values_usd_cents": {
+        "company": 941468,
+        "region": 941468
+      },
+      "both_report_claims_current": true,
+      "same_generation_new_report_and_claim_ids": true,
+      "preflight_calculations": 0,
+      "recorded_executions": 4,
+      "verification_calculations": 11,
+      "reused_artifacts": 2,
+      "numeric_parity": true,
+      "unchanged_support": true
+    },
+    {
+      "stage": 7,
+      "tool": "export_current_reports",
+      "status": "verified",
+      "exact_refreshed_selection": true,
+      "report_values_usd_cents": {
+        "company": 941468,
+        "region": 941468
+      },
+      "both_report_and_claim_id_pairs_match": true,
+      "checked_at_utc": "2026-11-15T22:27:17.298738+00:00",
+      "export_content_bytes": 820,
+      "export_content_sha256": "50258119c7be60c160dcaadee19b94ac97ac72631b51fcd85f8dbf3eff1e0b0b"
+    }
+  ],
+  "final_narrative_matches_amounts_refusal_refresh_and_checked_export": true,
+  "earlier_v1": {
+    "verified_stages": 2,
+    "planned_stages": 7,
+    "end_to_end_pass": false,
+    "independent_receipt_sha256": "45b853d69bb3f7ba92611940310c93a5c1bcf4ded895d366d1d0e2c12773a002"
+  },
+  "limitations": "The model omitted CSV from the correction tool call. The connector still sent the full cached CSV to the hosted API. This measures one guided integration on a reused fixture. V1 never attempted correction. Comparative end-to-end model cost, generalization, statistical learning and human use remain unmeasured.",
+  "freeze": {
+    "frozen_at_utc": "2026-11-15T22:21:55.665222+00:00",
+    "frozen_packet_sha256": "3bb0ff8e0d34a20614a499b5479033c0d00152ecfa6bf68fd2102e2cd5bb7b9f",
+    "original_protocol_sha256": "8b26fba4aebf9bc04cf683d09adebd2fd0ff2c9792d6af697fcdafbf3deb994f",
+    "exact_task_prompt_sha256": "22536fe2403bbe279b74ef79af4d6037c9c8f567b3a29ea20c8d3d3cd2c8576a",
+    "exact_system_instruction_sha256": "32f4d96e0a6cc6964eeb20b56ba6c8b35188c88a6bca14a1d126b2ace571a0e9",
+    "independent_sanitized_source_receipt_sha256": "f0428aab6ec85529ff99ddf44c5ae184d56bf373e84d85f8d09317ed7d7a4fbc"
+  }
+}

@@ -1,6 +1,6 @@
 # ProofFlow submission draft
 
-The hosted app runs revision `b13f23892405efb856c8d4ca0e6abc94a1eca77c`. External checks verified report handoff by clipboard and file, both evidence downloads and CSV connector discovery. The organizer posted the form. Submission is deferred while the source remains private. [Live app](https://proofflow.arnavbule.in) · [Two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Hosted verification](HOSTED_DELIVERY.md).
+The hosted app runs revision `c2c19c1397026e136bf7648ddb0604a4d2ea6d7f`. External checks verified report handoff by clipboard and file, three evidence downloads and CSV connector discovery. The organizer posted the form. Submission is deferred while the source remains private. [Live app](https://proofflow.arnavbule.in) · [Two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Hosted verification](HOSTED_DELIVERY.md).
 
 ## Project and track
 
@@ -34,7 +34,7 @@ Five local stdio MCP tools expose source loading, preparation, client-selected p
 
 The downloadable CSV connector lets a local MCP host create and inspect the browser’s fixed revenue reports, publish a correction, refresh affected work and return a checked text snapshot. A fresh external stock client downloaded the script and discovered all five tools without invoking them. An earlier stock-client run exercised the same script against the previous hosted CSV API with synthetic data and passed 21 checks. [Public connector setup](https://proofflow.arnavbule.in/agent/) · [Check scopes](HOSTED_DELIVERY.md).
 
-In one guided model trial on the hosted connector, Fable 5.2 created and inspected both reports from the exact 642-row CSV. Both showed $9,052.58. The model ended normally after **2 of 7** planned steps, citing a budget estimate. Correction, stale inspection, old export refusal, refresh and checked export went unattempted. [Partial result and bounds](HOSTED_CONNECTOR_MODEL_V1_RESULTS.md).
+The updated connector can reuse the confirmed CSV for a rate-only correction in the same process. In one guided model trial it verified **7 of 7** prescribed stages on the same 642-row file used in V1. The hosted service refused the old export with HTTP 409, then refreshed and exported **$9,414.68** for both reports. V1 verified **2 of 7** stages and ended normally before attempting a correction. [V2 trial and scope](HOSTED_CONNECTOR_MODEL_V2_RESULTS.md) · [V1 partial result](HOSTED_CONNECTOR_MODEL_V1_RESULTS.md).
 
 ## Live demonstration
 
@@ -81,9 +81,9 @@ The original public model package includes saved study inputs, poststates, provi
 
 The separate 52-payload delivery archive covers the saved `0535ba6`, `fdee9c9` and `92da58c` releases and the recorded retail CSV, paired recalculation, interrupted update and fixed-budget checks. It verifies those saved observations. Current browser acceptance uses its own hosted receipt. [Delivery archive and verification instructions](PUBLIC_DELIVERY_EVIDENCE.md).
 
-- **Current hosted release.** The external runner passed 11 Chrome steps and 13 guided HTTP checks. Chrome verified the exact server snapshot on the clipboard and observed that the stale copy refusal preserved its existing contents. Ten public download responses matched the checkout. The application-only replacement passed 21 read-only host checks. [Hosted verification](HOSTED_DELIVERY.md).
+- **Current hosted release.** The external runner passed 11 Chrome steps and 13 guided HTTP checks. Chrome verified the exact server snapshot on the clipboard and observed that a stale copy refusal preserved its existing contents. Twelve public download responses matched the checkout. The application-only replacement passed 21 read-only host checks. [Hosted verification](HOSTED_DELIVERY.md).
 - **Hosted retail CSV.** One external Chrome run on `92da58c` uploaded 642 UCI Online Retail positive-sales lines from January 16, 2011. After a staged GBP rate correction, the old export was refused and both checked reports matched the independent oracle at $9,414.68. All eligible rows were from the United Kingdom. [Observed workflow and scope](REAL_PARTITION_RESULTS.md).
-- **Current release CI.** The first attempt passed 488 Python tests and nine default Chromium workflows across 23 successful job steps. The one-cent control detected both arithmetic differences. [Linux CI run, private repository access required](https://github.com/saivedant169/proofflow/actions/runs/43761386190).
+- **Current release CI.** The first attempt passed 507 Python tests and nine Chromium workflows across 24 successful job steps. The one-cent control detected the deliberate error. [Linux CI run, private repository access required](https://github.com/saivedant169/proofflow/actions/runs/43767784998).
 - **Earlier hosted acceptance.** The `fdee9c9` release passed 11 external Chrome steps and 13 guided HTTP checks, including the CSV correction and checked download. [V2 receipt](../evidence/hosted_delivery_v2.json).
 - **Earlier hosted restart.** The `0535ba6` app restart passed 87 checks across 12 HTTP responses, restoring saved CSV reports before a new correction and refresh. [Historical receipt](../evidence/hosted_delivery_v1.json).
 - [Native persistence](../evidence/hydra_smoke.json): database restart, persisted traversal and a new write.
@@ -98,8 +98,8 @@ The browser supports two fixed reports, at most 1 MiB/1,000 rows, USD/EUR/GBP an
 ## Delivery fields
 
 - **Source.** ProofFlow’s GitHub repository is private. The organizer requires an open-source repository, and no approved private-source route has been identified. [saivedant169/proofflow](https://github.com/saivedant169/proofflow) · [Organizer announcements](https://discord.com/channels/1489825700079734845/1490004148530450622).
-- **Hosted app.** The running release was verified at revision `b13f23892405efb856c8d4ca0e6abc94a1eca77c`. [ProofFlow](https://proofflow.arnavbule.in) · [Hosted verification receipt](../evidence/hosted_delivery_v4.json).
+- **Hosted app.** The running release was verified at revision `c2c19c1397026e136bf7648ddb0604a4d2ea6d7f`. [ProofFlow](https://proofflow.arnavbule.in) · [Hosted verification](HOSTED_DELIVERY.md).
 - **Video.** The hosted walkthrough passed external playback and seeking checks. The organizer requires a Loom. Acceptance of the hosted MP4 as a substitute remains unconfirmed. [120-second walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4).
 - **CSV connector.** The setup page, downloadable script and checksum were verified over public HTTPS. [Connector setup](https://proofflow.arnavbule.in/agent/).
-- **Public evidence.** The model and delivery ZIPs each include an offline verifier. [Evidence page](https://proofflow.arnavbule.in/evidence/).
+- **Public evidence.** The model, delivery and fixed-budget ZIPs each include an offline verifier. [Evidence page](https://proofflow.arnavbule.in/evidence/).
 - **Event and submission.** The organizer posted the form and set a deadline of 16 November 2026 at 09:00 IST. Submission is deferred. [HydraDB Hackathon](https://luma.com/bqwllms4) · [Organizer’s submission form](https://forms.gle/9brHhy7BC229tw868).

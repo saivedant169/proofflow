@@ -140,9 +140,11 @@ Python integrations can use `ProofFlowRuntime.set_source`, `execute`, `currentne
 
 The downloadable Python connector lets a local MCP host create, inspect, correct, refresh and export the same two guided CSV revenue reports as the browser. Install `uv` and use Python 3.11 or newer. Verify the script against its companion checksum and configure the host to launch it over stdio. The connector sends the supplied CSV to the demo service over HTTPS and opens one session per process. The service expires idle sessions after one hour. No repository checkout, ProofFlow account or HydraDB key is required. [Connector setup](https://proofflow.arnavbule.in/agent/) · [Python script](https://proofflow.arnavbule.in/agent/proofflow_csv_mcp.py) · [Checksum](https://proofflow.arnavbule.in/agent/proofflow_csv_mcp.py.sha256).
 
-An external runner downloaded the connector, matched its bytes to the release, and discovered all five tools with a stock MCP client in a fresh environment. An earlier stock-client run using the same script against the live CSV API passed 21 checks, including stale and cross-session export refusal. Both runs used scripted clients. [Delivery and check scopes](docs/HOSTED_DELIVERY.md).
+An external runner downloaded the updated connector, matched its bytes to the release, and discovered all five tools with a stock MCP client in a fresh environment. The earlier connector’s scripted run against the live CSV API passed 21 checks, including stale and cross-session export refusal. [Delivery and check scopes](docs/HOSTED_DELIVERY.md).
 
-In one separate guided model trial, Fable 5.2 created and inspected the two reports from the 642-row retail CSV. That verified **2 of 7** planned steps at **$9,052.58** company and UK revenue. The model stopped before correction, citing its budget estimate. Five steps remained unattempted. [Partial result and protocol](docs/HOSTED_CONNECTOR_MODEL_V1_RESULTS.md).
+For a rate-only correction after a confirmed load in the same connector process, call `update_csv` with the existing region and all required rates. Omit `csv_text` to reuse the confirmed file. Provide the full CSV to change rows. [Connector instructions](https://proofflow.arnavbule.in/agent/).
+
+One guided Fable 5.2 run with this connector verified **7 of 7** prescribed stages on the same 642-row CSV used in V1. The hosted service refused the old export with HTTP 409 and returned checked company and UK values of **$9,414.68** after refresh. V1 verified **2 of 7** and stopped normally before correction, citing its budget estimate. [V2 result and bounds](docs/HOSTED_CONNECTOR_MODEL_V2_RESULTS.md) · [V1 partial result](docs/HOSTED_CONNECTOR_MODEL_V1_RESULTS.md).
 
 ### Local typed planning and composition
 

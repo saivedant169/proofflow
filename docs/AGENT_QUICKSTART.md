@@ -1,5 +1,7 @@
 # Use ProofFlow from a local agent
 
+For guided revenue reports through the public demo, use the downloadable CSV connector. It supports rate-only corrections using the last CSV confirmed in the same process. The setup and model trial are separate from the local typed planner below. [Hosted connector setup](https://proofflow.arnavbule.in/agent/) · [Guided model trial](HOSTED_CONNECTOR_MODEL_V2_RESULTS.md).
+
 The stdio MCP server lets a host choose analytics plans over its own CSV data. ProofFlow executes the registered tools, records their consumed inputs in HydraDB, and checks whether saved results are still current. When a model is used, it runs in your MCP host; this server invokes no model and makes no paid model calls.
 
 From the repository root, start the local HydraDB service and install the optional MCP dependency, pinned to `mcp==2.3.0`:
