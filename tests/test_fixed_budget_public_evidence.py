@@ -4,8 +4,10 @@ from hashlib import sha256
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
+from urllib.parse import urlsplit
 from zipfile import ZipFile
 
 import pytest
@@ -36,6 +38,17 @@ def verify(directory):
         [sys.executable, "-E", "-s", "-S", str(directory / "scripts/verify_fixed_budget_evidence.py")],
         cwd=directory, env={"PATH": os.defpath}, capture_output=True, text=True, timeout=60, check=False,
     )
+
+
+def test_local_guide_links_resolve_in_repository_and_archive(extracted):
+    def targets(document, root):
+        links = (urlsplit(link) for link in re.findall(r"\]\(([^)\s]+)\)", document.read_text()))
+        local = {(document.parent / link.path).resolve() for link in links if not (link.scheme or link.netloc)}
+        assert local and all(path.is_file() for path in local)
+        return {path.relative_to(root) for path in local}
+
+    guide = ROOT / "docs/PUBLIC_FIXED_BUDGET_EVIDENCE.md"
+    assert targets(guide, ROOT) == targets(extracted / "README.md", extracted)
 
 
 def test_portable_fixed_budget_verifier_and_unchanged_prior_archives(extracted):

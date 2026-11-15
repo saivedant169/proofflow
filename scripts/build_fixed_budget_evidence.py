@@ -72,6 +72,9 @@ def export_witnesses(private):
 
 
 def public_copy(path, original):
+    if path == Path("README.md"):
+        # The repository guide lives in docs/. The bundle README lives at its root.
+        return re.sub(rb"(?<=\]\()\.\./", b"", original), []
     if path not in fixed.redacted_paths():
         return original, []
     record = audit.load(ROOT / path)
