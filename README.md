@@ -8,9 +8,9 @@ In the browser, a company report and an EU brief share a revenue calculation. Co
 
 ![ProofFlow workspace](evidence/ui/workspace-final.jpg)
 
-[Watch the two-minute functional walkthrough](video/proofflow-walkthrough.mp4) · [Original narration and evidence references](docs/VIDEO_SCRIPT.md)
+[Watch the two-minute walkthrough](video/proofflow-walkthrough.mp4) · [Narration and evidence references](docs/VIDEO_SCRIPT.md)
 
-The recording predates retail v2 and shows the original pilot. [Updated retail/MCP demo narrative](docs/DEMO_SCRIPT.md).
+The current film includes the guided browser workflow, retail v2 results and saved actual MCP-client evidence. The browser CSV workflow below is an additional live feature. [Verified video delivery](evidence/video_delivery_v2.json) · [Demo narrative](docs/DEMO_SCRIPT.md).
 
 ## Run the application
 
@@ -78,6 +78,18 @@ In a separate recorded experiment, Fable 5.2 chose a seven-tool company-report w
 The model chooses a bounded plan. Registered tools calculate values; validation rejects unknown handles, forward references, unsupported operations and mismatched claim units. No arbitrary model-generated code or SQL executes. [Plans, receipts and checks](docs/COMPOSITION.md) distinguish the recorded local model run from the guided browser interface.
 
 ## Use your own CSV
+
+In the running app, select **Use your data**, choose a UTF-8 file or paste the complete CSV, supply the required EUR/GBP→USD rates, and select the report region. Choose **Validate CSV**, inspect the non-persisting preview, then **Create reports**. The guided calculation creates company and selected-region net-revenue reports; it makes no live model call or arbitrary query. CSV contents are sent to this ProofFlow server and saved in an isolated imported workspace.
+
+Use **Update CSV → Validate CSV → Publish correction** to replace the full input. Publishing changes source versions and withholds affected revenue; **Refresh affected** performs the calculations, and **Check values** verifies the result. Reordered identical rows preserve artifact identities and record no refresh calls. **Guided demo** and **Open your CSV** switch between independent workspaces. The selected region stays fixed within an imported workspace; **Import another CSV** starts one for another region. After a page reload, reselect or paste the complete CSV when updating; saved workspace values and rates persist, but the upload form does not repopulate the CSV text.
+
+Browser verification against Docker revision `a2eb61b` covered NORTH revenue changing from **$308 company / $108 regional** at EUR 1.20 to **$317 / $117** at 1.30, with four refresh calls; a zero-support APAC input produced **$163.75 / $93.75** without inventing a support claim. Malformed and oversized input was rejected, including after a valid preview. Imported state survived application restart, and the flow was inspected at 390px and 1536px widths. These are authored functional cases, not additional benchmark results. [Browser checklist and captures](docs/UI_FIDELITY.md#browser-csv-import-verification).
+
+One preview followed by creation performs **8 preview preflight + 8 create preflight + 8 recorded calls + 11 verification calculations = 35 calculations**. The creation response alone reports 27; preview is a separate operation. Updates validate again but do not automatically refresh. Counts cover registered arithmetic invocations, not all parsing, storage or graph-query work.
+
+The importer accepts at most **1 MiB, 1,000 order rows and 10,000 total ticket counts**, with USD/EUR/GBP, unique order IDs and one currency per region. Money is nonnegative integer cents; refunds cannot exceed gross amounts. Exchange rates are supplied by the caller, not fetched. Both browser reports contain revenue only; support remains a separate artifact. The same schema is available through the CLI below and the [five-tool MCP interface](docs/AGENT_QUICKSTART.md).
+
+### Command-line import
 
 Install the Python package with the locked development dependencies:
 

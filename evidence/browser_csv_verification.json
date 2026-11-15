@@ -1,0 +1,116 @@
+{
+  "recorded_at": "2026-11-15T12:21:06.447938+00:00",
+  "application_revision": "a2eb61bd9236bb81dd0cf6ddff54a7a2de54a851",
+  "target": "http://127.0.0.1:18080",
+  "method": "Builder-controlled browser checks against the locally built Docker application and native HydraDB. These are observed workflow assertions, not an automated end-to-end test suite or independent customer trial.",
+  "fixture_manifest": "fixtures/browser_csv_v1/acceptance_manifest.json",
+  "checks": [
+    {
+      "name": "NORTH preview and creation",
+      "passed": true,
+      "observed": "EUR/USD 1.20; company $308.00, NORTH $108.00. Preview reports 8 validation calculations; create reports 8 validation, 8 recorded and 11 verification calculations."
+    },
+    {
+      "name": "Source correction withholds stale amounts",
+      "passed": true,
+      "observed": "EUR/USD 1.30 publication identifies four affected artifacts. Previous $308/$108 amounts are historical, not current."
+    },
+    {
+      "name": "Native path inspection",
+      "passed": true,
+      "observed": "NORTH evidence path connects explicit exchange rates through convert_to_usd to the regional artifact."
+    },
+    {
+      "name": "Selective refresh",
+      "passed": true,
+      "observed": "Four recorded calls and 11 verification calculations; company $317.00 and NORTH $117.00; support preserved."
+    },
+    {
+      "name": "Browser reload",
+      "passed": true,
+      "observed": "Imported NORTH workspace, current values and explicit rate 1.30 restored. CSV text is not repopulated in the upload form."
+    },
+    {
+      "name": "Canonical row reorder",
+      "passed": true,
+      "observed": "Reordered CSV at rate 1.30 gives no changed sources and no recorded calls; eight validation calculations remain disclosed."
+    },
+    {
+      "name": "Malformed input",
+      "passed": true,
+      "observed": "Invalid gross_cents rejected before publication."
+    },
+    {
+      "name": "Oversized input",
+      "passed": true,
+      "observed": "1,048,577-byte CSV rejected, including after a successful preview; previous readiness/create state cleared."
+    },
+    {
+      "name": "Zero-support dynamic region",
+      "passed": true,
+      "observed": "APAC/GBP fixture at 1.25 produces company $163.75 and APAC $93.75; money-only reports do not invent a support claim."
+    },
+    {
+      "name": "Mobile layout",
+      "passed": true,
+      "observed": "At 390x844, page and scroll widths both 390; workspace and update drawer controls usable."
+    },
+    {
+      "name": "Application-container restart",
+      "passed": true,
+      "observed": "After restarting only the app container and reloading, APAC values $163.75/$93.75 remain current."
+    },
+    {
+      "name": "Guided/imported separation",
+      "passed": true,
+      "observed": "Guided demo retains $5,565 company/$2,090 EU/support 2; returning to imported workspace retains APAC values."
+    },
+    {
+      "name": "Wide desktop layout",
+      "passed": true,
+      "observed": "At 1536x1024 all graph columns and reports are visible. Temporary viewport override reset after checks."
+    }
+  ],
+  "limitations": [
+    "Local fixture data only; no public hosting or customer adoption trial.",
+    "The browser workflow uses seven typed analytics tools and bounded CSV input, not arbitrary report generation.",
+    "Screenshots document selected states and do not replace raw benchmark or automated backend evidence."
+  ],
+  "screenshots": [
+    {
+      "path": "evidence/ui/csv-created-desktop.jpg",
+      "sha256": "df7206f46e76dc795326b82dd1d2394fe6dcf12b310b88f35df54eec0b498558",
+      "bytes": 128567
+    },
+    {
+      "path": "evidence/ui/csv-mobile-update.jpg",
+      "sha256": "27b0a741eecfc214a9b5cbe2ce0669a3d5ca6b8f0573b963f55175126d522acc",
+      "bytes": 41140
+    },
+    {
+      "path": "evidence/ui/csv-mobile-workspace.jpg",
+      "sha256": "16ff1913a5113976be3d6de5cbbd4f2de15109fb3d6f2c7c89c0007464c17ffa",
+      "bytes": 48029
+    },
+    {
+      "path": "evidence/ui/csv-preview-desktop.jpg",
+      "sha256": "98eac5cf086a31deda1ce6ba59d3d66e4e6b504958e0171196111945aabbef5f",
+      "bytes": 90487
+    },
+    {
+      "path": "evidence/ui/csv-refreshed-desktop.jpg",
+      "sha256": "da5f2226d27c028c44cdf4ffd9537e6986808b89f1597c8a71f2e330473a3f48",
+      "bytes": 135232
+    },
+    {
+      "path": "evidence/ui/csv-stale-desktop.jpg",
+      "sha256": "9b1c188b2d90042449dcbf09e444d7ffd6d7d935a95914831c73ed0a6ae76af4",
+      "bytes": 146893
+    },
+    {
+      "path": "evidence/ui/csv-workspace-wide.jpg",
+      "sha256": "d6288ac1ac7679471a285c870017a16476ec4e5800d21e4808965123515e70ef",
+      "bytes": 119767
+    }
+  ]
+}

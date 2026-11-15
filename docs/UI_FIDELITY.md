@@ -49,3 +49,32 @@ The final implementation is faithfully verified against the accepted visual desi
 The compiled Docker application at revision `7f110c6` was checked again in IAB on 15 November. The new retail section reads the audited `evidence/retail_v2_summary.json`; it separates complete production closure, per-case graph-matched allowances, and the fixed 2,048-token diagnostic. All three tables were expanded and inspected. The 38/38 fresh reports and 4/4 unavailable blocks have separate columns. The exact-flat tie, shared executor, fixed-budget 2/10 refusal/no-op result, and failed development efficiency gate remain visible.
 
 Changing the original pilot selector to 512 and back to 2,048 changed only its own recall table; retail metrics remained unchanged. At 390×844, page width and scroll width were both 390px. The comparison table scrolled horizontally within its container to expose all numeric columns. Desktop and mobile captures are `evidence/ui/retail-v2-desktop.jpg` and `evidence/ui/retail-v2-mobile.jpg`. The temporary viewport override was reset, and the original working workspace was verified after returning from Benchmark. No remote deployment was performed.
+
+
+## Browser CSV import verification
+
+The builder completed an **interactive CUA/IAB browser check** against the actual Docker application at revision **`a2eb61b`** on 15 November 2026. The [machine-readable ledger](../evidence/browser_csv_verification.json) records thirteen observed checks and the screenshot hashes. These are interactive observations, not automated end-to-end tests. They are not additional retrieval benchmark cases. Screenshots retain selected states; rows without a dedicated capture are explicitly identified as session observations.
+
+The input cases were authored and frozen in [the browser CSV acceptance manifest](../fixtures/browser_csv_v1/acceptance_manifest.json) before implementation. The flow is **Use your data → Validate CSV → Create reports**, then **Update CSV → Validate CSV → Publish correction → Refresh affected**. It creates two guided revenue reports and makes no live model call.
+
+| Interactive check | Browser-observed outcome | Retained capture |
+|---|---|---|
+| NORTH preview | Valid EUR 1.20 input showed the chosen region and non-persisting preview, with eight validation calculations and zero recorded tool calls | [Preview](../evidence/ui/csv-preview-desktop.jpg) |
+| NORTH creation | Company revenue **$308**, NORTH revenue **$108**; both reports current | [Created reports](../evidence/ui/csv-created-desktop.jpg) |
+| Source-only correction | Publishing EUR 1.30 withheld affected current revenue before refresh | [Stale reports](../evidence/ui/csv-stale-desktop.jpg) |
+| Native path inspection | NORTH evidence connected the supplied FX source through `convert_to_usd` to the regional artifact | Observed during the browser session; no dedicated path screenshot retained |
+| Selective refresh | Four recorded calls produced **$317 company / $117 NORTH**; current values verified and support preserved | [Refreshed reports](../evidence/ui/csv-refreshed-desktop.jpg) |
+| Browser reload | Current NORTH values and rate 1.30 returned after reload; CSV text was not repopulated in the upload form | Observed during the browser session; no dedicated reload screenshot retained |
+| Canonical row reordering | Equivalent reordered CSV made no source change and recorded zero refresh calls; existing artifact identities were preserved | Observed during the browser session; no dedicated screenshot retained |
+| Invalid input | Malformed and >1 MiB CSV were rejected, including invalid input supplied after a previously valid preview | Observed during the browser session; no dedicated screenshot retained |
+| Zero-support input | APAC input produced revenue-only reports **$163.75 company / $93.75 APAC**, without inventing a support claim | [APAC wide workspace](../evidence/ui/csv-workspace-wide.jpg) |
+| Application restart | Imported workspace and current results remained available after the application container restarted | Observed during the browser session; no dedicated restart screenshot retained |
+| Workspace separation | Switching between Guided demo and Open your CSV preserved their independent state | Observed during the browser session |
+| Mobile workspace and correction | The workspace and update drawer were inspected and legible at **390px** width | [Mobile workspace](../evidence/ui/csv-mobile-workspace.jpg), [mobile update](../evidence/ui/csv-mobile-update.jpg) |
+| Wide desktop | Imported reports, graph and controls were inspected and legible at **1536px** width | [Wide workspace](../evidence/ui/csv-workspace-wide.jpg) |
+
+The UI separates the last operation's validation, recorded execution and verification counts. A first preview-and-create path performs **8 preview preflight + 8 create preflight + 8 recorded tool calls + 11 verification calculations = 35**. Creation alone reports **27** because preview is a separate operation. A source-only update validates but does not refresh; a no-op update still validates. These are registered arithmetic invocations, not a claim to count all parsing, graph-query or storage work.
+
+Route counts remain distinct: the CLI performs **16 preflight + 11 verification + recorded calls** for a successful two-report import; MCP `load_csv` performs **8 preflight** calculations per load. The prior CLI accounting correction and original benchmark/MCP recordings are retained. No old raw result was rewritten to imply the newer explicit counters were present at recording time.
+
+The browser boundary is one UTF-8 CSV up to **1 MiB and 1,000 order rows**, at most **10,000 total ticket counts**, USD/EUR/GBP, caller-supplied rates, unique order IDs and one currency per region. Both reports contain revenue only; support remains a separate artifact. An existing imported workspace keeps its selected region. This verification establishes the listed local functional behavior, not production scale, customer use, arbitrary-query support or a live hosted model. Hosting remains on hold, and repository visibility remains private.

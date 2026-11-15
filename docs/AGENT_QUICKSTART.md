@@ -77,6 +77,16 @@ Execution counters count recorded runtime tool calls. Each **MCP `load_csv`** pe
 
 Plans contain at most 12 steps. Snapshot tokens expire after ten minutes, with at most 32 pending snapshots per workspace; consumed or stale snapshots require a new `prepare` call. Explicit artifact selections are limited to 16 distinct IDs. Source heads are individually durable: loading several source versions is not a distributed transaction, and a database failure must not be reported as a successful load.
 
+## Try the same schema in the browser
+
+For a guided calculation without an agent host, open the local app and select **Use your data**. Choose a UTF-8 CSV or paste its complete contents, supply EUR/GBP→USD rates if used, choose a region, then **Validate CSV → Create reports**. The preview does not persist a workspace. Creation saves two revenue reports: company total and the selected region. This browser route uses fixed recipes and no live model; the MCP host continues to choose its own typed plans.
+
+**Update CSV → Validate CSV → Publish correction** changes source versions without recomputing reports. Inspect the stale values, then use **Refresh affected** and **Check values**. The guided demo and imported workspace stay independent. The selected region is fixed for an existing import; start another import to change it. After reload, resupply the complete CSV for an update; saved values and rates persist, but raw CSV text is not restored into the form. CSV data goes to the ProofFlow server; it is not sent to a model by this browser flow.
+
+The browser uses the same bounded schema: at most 1 MiB, 1,000 rows and 10,000 expanded ticket counts; USD/EUR/GBP only; one currency per region; integer cents; caller-supplied rates. Revenue-only reports work for a zero-ticket region without fabricating a support claim. This does not remove the MCP tool catalog's documented restriction on explicitly selecting an absent support region.
+
+One successful preview plus create performs **8 preview preflight + 8 create preflight + 8 recorded + 11 verification = 35 calculations**. The create operation itself reports 27. Browser updates perform eight preflight calculations; refresh adds its actual recorded calls plus eleven verification calculations. Each optional preview is separate. CLI remains sixteen preflight plus eleven verification plus recorded calls; MCP `load_csv` remains eight preflight per load. [Browser verification and screenshots](UI_FIDELITY.md#browser-csv-import-verification) document the interactive checks against Docker revision `a2eb61b`; these are functional cases, not a model benchmark.
+
 ## Evidence and verification status
 
 The [stock-client process check](../results/mcp-v1/summary.json) passed **20 checks** through a separate stdio process. It verifies the five tools, caller-supplied composition, reuse, changed-source refresh, restart persistence, stale-plan refusal and unavailable-Hydra errors. It makes no model calls and does not demonstrate a model discovering its own plan.

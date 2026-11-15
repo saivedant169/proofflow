@@ -63,6 +63,16 @@ For a longer live walkthrough, remove FX to show refused refresh with current su
 
 **Accounting correction:** earlier generic eight-preflight-per-CSV-load wording understated the CLI's existing second validation pass and report verification. The explicit counters now expose that work. MCP `load_csv` remains eight per load, so the video's actual-client count of **16 preflight calculations across two loads** remains correct. Original raw captures and all benchmark/MCP results are retained unchanged.
 
+## Optional live browser CSV segment
+
+The encoded two-minute film above is unchanged. For an additional live demonstration, select **Use your data**, upload or paste `fixtures/browser_csv_v1/valid_non_eu.csv`, set EUR→USD to **1.20** and region **NORTH**, then **Validate CSV → Create reports**. Preview publishes nothing. The saved reports show **$308 company revenue and $108 NORTH revenue**.
+
+Open **Update CSV**, supply the complete input with rate **1.30**, validate and **Publish correction**. Revenue becomes stale before any refresh. **Refresh affected** executes four tools and updates the reports to **$317 / $117**; **Check values** verifies the saved values. A reordered equivalent CSV preserves identities with zero recorded refresh calls, while validation still runs. The browser's imported workspace and guided demo are independent and survive application restart.
+
+Show the accounting label: **8 preview preflight + 8 create preflight + 8 recorded + 11 verification = 35 calculations** across initial preview and creation; creation alone reports 27. Each update validates again. Keep this distinct from CLI's sixteen preflight plus eleven verification and MCP's eight preflight per load. The actual MCP evidence in the film remains correct.
+
+The browser supports two guided revenue reports, UTF-8 CSV up to 1 MiB/1,000 rows, USD/EUR/GBP and one currency per region. Ticket counts are bounded to 10,000 and remain a separate artifact; zero-ticket inputs can still produce revenue reports. Rates are supplied by the caller. There is no arbitrary query or live model call. Docker revision `a2eb61b` was inspected interactively at 390px and 1536px, including invalid input after preview and the zero-support APAC case. [Browser checklist and captures](UI_FIDELITY.md#browser-csv-import-verification).
+
 ## Evidence
 
 - [Retail v2 results](RETAIL_V2_RESULTS.md), [frozen protocol](RETAIL_V2_SPEC.md), [audited summary](../evidence/retail_v2_summary.json), and [dataset attribution](../fixtures/retail_v2/DATASET_NOTICE.md)

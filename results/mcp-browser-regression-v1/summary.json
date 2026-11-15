@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "checks": {
+    "stock_client_discovered_five_tools": true,
+    "caller_csv_four_sources_zero_recorded_runtime_calls": true,
+    "no_preset_reports_created": true,
+    "company_arithmetic_known": true,
+    "first_plan_seven_actual_tools": true,
+    "second_request_reuses_prior_run": true,
+    "fx_change_native_impact_exactly_four": true,
+    "stale_snapshot_refused": true,
+    "stale_values_withheld": true,
+    "four_actual_refresh_calls": true,
+    "updated_arithmetic_known": true,
+    "support_reused_unchanged": true,
+    "original_handles_repeat_zero_calls": true,
+    "reordered_csv_zero_changes": true,
+    "reordered_csv_zero_calls": true,
+    "filesystem_path_refused": true,
+    "unknown_handles_refused": true,
+    "restarted_server_reads_durable_current_reports": true,
+    "unregistered_operation_refused": true,
+    "hydra_failure_has_no_answer": true
+  },
+  "error": null,
+  "model_calls": 0,
+  "transport": "stdio",
+  "sdk": "mcp==2.3.0",
+  "client_boundary": "Official SDK Client launches separate ProofFlow server processes; no direct server imports",
+  "elapsed_seconds": 5.883953167125583,
+  "finished_at": "2026-11-15T12:06:58.696043+00:00",
+  "code_sha256": {
+    "proofflow/mcp_server.py": "fd18f2e90b697808221dcd5113e74cafd33c5c571f0e2af404036bd9481849e9",
+    "scripts/mcp_smoke.py": "8da73367cd2bf8cdbcfea5185b0daf6d175c288b1cf965fd9644bf80bfcc83cd"
+  },
+  "scope": "Caller-supplied CSV and client-supplied plans; proves interoperability and execution, not autonomous planning",
+  "csv_preflight_calculations": 24,
+  "recorded_runtime_tool_calls": 12,
+  "accounting_scope": "Every CSV load performs eight unrecorded preflight tool calculations. The correction cycle uses 8 preflight + 4 recorded refresh calls; equivalent-row reorder uses 8 preflight + 0 recorded refresh calls. No zero-total-compute claim."
+}
