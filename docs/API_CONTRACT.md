@@ -1,6 +1,6 @@
 # ProofFlow browser API contract
 
-Same-origin JSON API. Browser session is an opaque HTTP-only cookie `proofflow_session`; fetch with normal same-origin credentials. No API/model/Hydra keys go to the browser. All demonstrated tools execute locally against the authored dataset. This is a guided workflow, not a hosted LLM endpoint.
+Same-origin JSON API. Browser session is an opaque HTTP-only cookie `proofflow_session`; fetch with normal same-origin credentials. No API/model/Hydra keys go to the browser. Tools execute on the server: the demo uses an authored dataset, while the separate import workflow uses supplied CSV rows. Both are guided workflows without a browser model call.
 
 ## Routes
 
@@ -70,5 +70,66 @@ Error responses are `{error:{code,message}}`; validation errors use the same env
 Default persistent session limit is 16, configurable through `PROOFFLOW_MAX_SESSIONS`. The application runs as one worker; each session mutation is locked. Static files are served from `PROOFFLOW_STATIC_DIR` (default `frontend/dist`) only after frontend exists. Unknown `/api/*` paths remain API errors rather than SPA routes.
 
 The limit bounds live sessions, not lifetime visitors. Idle sessions expire after `PROOFFLOW_SESSION_TTL_SECONDS` (default 3600); expired owned session directories are reclaimed when capacity is checked. In-flight requests and requests waiting for the same session are protected from reclamation. Persisted last-seen timestamps preserve this behavior across application restarts. Failed initializations release their reserved capacity. Expired browsers receive 401 on state and can start a new demo with `POST /api/session`.
+
+## Browser CSV workspace
+
+The separate `/api/import/*` workflow uses the same opaque session cookie and session lock. It leaves guided-demo routes unchanged. The server generates the import workspace identity; requests never supply filesystem paths or workspace IDs. Missing active import returns 404, missing cookie returns 401. Creating a new import replaces the active imported workspace, while update preserves its immutable history. The workflow is guided execution, without a browser model call.
+
+CSV request body for preview/create/update:
+
+```json
+{"csv_text":"order_id,region,currency,gross_cents,refund_cents,ticket_count\na,NORTH,EUR,10000,1000,3\nb,SOUTH,USD,20000,0,1\n","rates":{"EUR":"1.20"},"region":"NORTH"}
+```
+
+`csv_text` is required. `rates` defaults to `{}`; EUR/GBP require explicit positive USD-rate strings. USD is 1. `region` is optional for preview/create and defaults to the first sorted actual region. On update it must resolve to the workspace's existing selected region. Limits: 1 MiB UTF-8 CSV, 1,000 rows, 10,000 expanded ticket-count rows. Required fields: `order_id,region,currency,gross_cents`; optional `refund_cents,ticket_count`. Rates, counts and CSV structure use the existing strict CLI parser. Money is integer cents. No default or inferred non-USD exchange rate is supplied.
+
+| Method/path | Input | Output |
+|---|---|---|
+| POST `/api/import/preview` | CSV request | Validated preview, no import/graph publication |
+| POST `/api/import/create` | CSV request | New imported workspace state with two guided money reports |
+| GET `/api/import/state` | none | Active persisted imported workspace state |
+| POST `/api/import/update` | CSV request | Source-only publication, affected artifacts and stale claims; no automatic refresh |
+| POST `/api/import/refresh` | `{}` | Refresh both reports plus independent support artifact, returning imported state |
+| POST `/api/import/verify` | `{}` | Existing verification shape plus `accounting` for this operation |
+| GET `/api/import/evidence/{artifact_id}` | owned immutable artifact ID | Existing evidence shape, using this import workspace only |
+
+Preview shape:
+
+```ts
+{
+  valid:true, persisted:false, content_sha256:string, row_count:number,
+  regions:string[], currencies:string[], selected_region:string,
+  rates:Record<string,string>, supported_ticket_regions:string[],
+  preflight_calculation_count:8, recorded_tool_calls:0,
+  accounting:{preflight_calculation_count:8,recorded_tool_call_count:0,
+              verification_calculation_count:0,total_calculation_count:8}
+}
+```
+
+Imported state retains the demo's `session_id`, `generation`, `created_at`, `backend`, `reports`, `graph`, `executions`, `impact`, `last_refresh`, and `notices` shapes, with these differences/additions:
+
+```ts
+{
+  mode:"guided_csv_import",
+  dataset:{label:"Imported CSV",selected_region:string,regions:string[],
+    currencies:string[],row_count:number,source_csv_sha256:string,
+    sources:SourceState[]}, // source names: orders/refunds/fx/tickets
+  reports:Array<Report & {key:"company"|"region"}>,
+  incomplete_update:boolean,
+  last_operation:{kind:"create"|"update"|"refresh"|"verify",
+    preflight_calculation_count:number,recorded_tool_call_count:number,
+    verification_calculation_count:number,total_calculation_count:number,
+    changed_source_count:number,noop:boolean,elapsed_ms:number,
+    tool_calls:ToolCall[]}
+}
+```
+
+Each imported report contains one USD-cent claim: company total or selected region. Support remains a separate actual artifact; no zero-ticket claim is fabricated. All graph nodes/edges and receipts derive from executed work. `incomplete_update` marks a failed multi-source publication; refresh refuses until the same corrected CSV is successfully resubmitted. `source_csv_sha256` describes the last successful load, not a failed partial update.
+
+Counters count registered analytics invocations, not total CPU work. Preview performs 8 preflight calculations. Create independently revalidates (8), executes the guided recipe (8 recorded calls), and verifies the two report recipes (11 unrecorded calculations). Thus a preview followed by create performs both sets of validation. Update performs 8 preflight calculations and 0 recorded calls; it leaves affected reports stale. Refresh records only actual changed tool executions, plus 11 separate verification calculations. Verification alone performs 11 recipe calculations. A no-op update/reorder still validates; it is not a zero-total-compute claim. `total_calculation_count` sums the three disclosed categories for that operation only.
+
+Failures use the existing error envelope, with no assumed counters. Do not display a failed operation as zero work or substitute optimistic state. Re-fetch state after recovery; a backend failure remains an error. Five acceptance inputs and expected numeric/identity semantics are frozen in `fixtures/browser_csv_v1/acceptance_manifest.json` before implementation/testing.
+
+Import POST bodies also have an 8 MiB JSON transport cap (413), allowing JSON escaping overhead while bounding buffering. The stricter decoded CSV limit remains 1 MiB (400). Interrupted verification returns 409 without accounting because a partially evaluated recipe's count is not reported as zero. The local CLI retains its public constructed-dataset validation boundary: parsing plus `apply_import` perform 16 preflight calculations there, reported explicitly alongside recorded and verification calls. Browser create safely avoids that repeated pass by passing only its direct parsed result to the internal publication helper; output semantics remain the same.
 
 Set server-only `PROOFFLOW_COOKIE_SECURE=true` for HTTPS hosting. Cookie security does not rely on unverified forwarded headers. Local HTTP defaults to a non-Secure cookie; both modes retain HttpOnly and SameSite=Strict.

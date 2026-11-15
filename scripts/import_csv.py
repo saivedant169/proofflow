@@ -59,6 +59,12 @@ def main() -> int:
             try:
                 with HydraGraph(namespace=f"csv-import-{store.workspace}") as graph:
                     result = apply_import(ProofFlowRuntime(store, graph), dataset)
+                    # This CLI validates once while parsing and again at the
+                    # public constructed-dataset import boundary. Keep both.
+                    result["preflight_calculation_count"] += 8
+                    result["recorded_tool_call_count"] = result["tool_call_count"]
+                    result["total_calculation_count"] = (result["preflight_calculation_count"]
+                        + result["recorded_tool_call_count"] + result["verification_calculation_count"])
                     result["hydra_queries"] = graph.queries
                     result["backend"] = "HydraDB OSS, native traversal; no fallback"
             finally:

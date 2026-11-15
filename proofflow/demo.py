@@ -501,6 +501,8 @@ class SessionManager:
             old.rate_limit()
             metadata = {"session_id": old.id, "generation": uuid.uuid4().hex,
                         "created_at": now(), "last_seen_unix": time.time(), "ready": False}
+            if "import" in old.metadata:
+                metadata["import"] = deepcopy(old.metadata["import"])
             fresh = DemoSession(old.directory, metadata, self.graph_factory)
             try:
                 fresh.seed()

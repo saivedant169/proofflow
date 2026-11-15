@@ -14,12 +14,63 @@ from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from .analytics import AnalyticsError
+from .browser_import import active_import, create_import, preview as preview_import
 from .demo import ActionLimit, SessionCapacity, SessionManager, SessionMissing
 from .graph import GraphError, HydraGraph
 from .models import InvalidInputError, MissingEvidenceError
 
 
 COOKIE = "proofflow_session"
+
+
+class ImportBodyLimit:
+    """Bound JSON transport before FastAPI buffers it; CSV has a tighter limit."""
+
+    def __init__(self, app, max_bytes: int = 8 * 1024 * 1024):
+        self.app = app
+        self.max_bytes = max_bytes
+
+    async def __call__(self, scope, receive, send):
+        if (scope["type"] != "http" or scope.get("method") != "POST"
+                or not scope.get("path", "").startswith("/api/import/")):
+            return await self.app(scope, receive, send)
+
+        async def reject():
+            response = JSONResponse({"error": {"code": "invalid_input",
+                "message": "Import request exceeds the 8 MiB JSON transport limit"}}, status_code=413)
+            await response(scope, receive, send)
+
+        for key, value in scope.get("headers", []):
+            if key.lower() == b"content-length":
+                try:
+                    if int(value) > self.max_bytes:
+                        return await reject()
+                except ValueError:
+                    pass
+        chunks = []
+        total = 0
+        while True:
+            message = await receive()
+            if message["type"] == "http.disconnect":
+                return
+            chunk = message.get("body", b"")
+            total += len(chunk)
+            if total > self.max_bytes:
+                return await reject()
+            chunks.append(chunk)
+            if not message.get("more_body", False):
+                break
+        body = b"".join(chunks)
+        delivered = False
+
+        async def replay():
+            nonlocal delivered
+            if not delivered:
+                delivered = True
+                return {"type": "http.request", "body": body, "more_body": False}
+            return await receive()
+
+        await self.app(scope, replay, send)
 
 
 def create_app(state_dir: str | Path | None = None, graph_factory: Callable[..., Any] | None = None,
@@ -38,6 +89,7 @@ def create_app(state_dir: str | Path | None = None, graph_factory: Callable[...,
         manager.close()
 
     application = FastAPI(title="ProofFlow", version="0.1.0", lifespan=lifespan)
+    application.add_middleware(ImportBodyLimit)
     application.state.manager = manager
 
     def error(code: str, message: str, status: int):
@@ -148,6 +200,53 @@ def create_app(state_dir: str | Path | None = None, graph_factory: Callable[...,
         except (OSError, ValueError):
             return error("benchmark_unavailable", "The published benchmark summary could not be read", 503)
         return JSONResponse(data)
+
+    @application.post("/api/import/preview")
+    def import_preview(request: Request, payload: dict):
+        with manager.session(sid(request)) as current:
+            current.rate_limit()
+            return preview_import(payload)
+
+    @application.post("/api/import/create")
+    def import_create(request: Request, payload: dict):
+        with manager.session(sid(request)) as current:
+            current.rate_limit()
+            return create_import(current, payload, factory)
+
+    @application.get("/api/import/state")
+    def import_state(request: Request):
+        with manager.session(sid(request)) as current, active_import(current, factory) as imported:
+            return imported.state()
+
+    @application.post("/api/import/update")
+    def import_update(request: Request, payload: dict):
+        with manager.session(sid(request)) as current:
+            current.rate_limit()
+            with active_import(current, factory) as imported:
+                return imported.update(payload)
+
+    @application.post("/api/import/refresh")
+    def import_refresh(request: Request, payload: dict | None = None):
+        if payload:
+            raise InvalidInputError("Imported refresh does not accept parameters")
+        with manager.session(sid(request)) as current:
+            current.rate_limit()
+            with active_import(current, factory) as imported:
+                return imported.refresh()
+
+    @application.post("/api/import/verify")
+    def import_verify(request: Request, payload: dict | None = None):
+        if payload:
+            raise InvalidInputError("Imported verification does not accept parameters")
+        with manager.session(sid(request)) as current:
+            current.rate_limit()
+            with active_import(current, factory) as imported:
+                return imported.verify()
+
+    @application.get("/api/import/evidence/{artifact_id:path}")
+    def import_evidence(request: Request, artifact_id: str):
+        with manager.session(sid(request)) as current, active_import(current, factory) as imported:
+            return imported.evidence(artifact_id)
 
     directory = Path(static_dir or os.environ.get("PROOFFLOW_STATIC_DIR", "frontend/dist")).resolve()
     if directory.is_dir():

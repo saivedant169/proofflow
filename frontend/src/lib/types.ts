@@ -63,7 +63,7 @@ export interface Execution {
 }
 
 export interface ChangeRecord {
-  kind: SourceChange['kind'];
+  kind: SourceChange['kind'] | 'csv';
   label: string;
   previous_source_id: string | null;
   current_source_id: string | null;
@@ -96,13 +96,65 @@ export interface RefreshSummary {
   graph_queries: number;
 }
 
-export interface WorkspaceState {
+export interface WorkspaceDataset {
+  label: string;
+  sources: SourceSnapshot[];
+}
+
+export type CurrencyCode = 'USD' | 'EUR' | 'GBP';
+
+export interface ImportedDataset extends WorkspaceDataset {
+  selected_region: string;
+  regions: string[];
+  currencies: CurrencyCode[];
+  row_count: number;
+  source_csv_sha256: string;
+}
+
+/** Calculations performed for validation are separate from published runtime calls. */
+export interface CalculationAccounting {
+  preflight_calculation_count: number;
+  recorded_tool_call_count: number;
+  verification_calculation_count: number;
+  total_calculation_count: number;
+}
+
+export interface ImportRequest {
+  csv_text: string;
+  /** Non-USD rates must be explicit; the client never supplies inferred values. */
+  rates?: Partial<Record<CurrencyCode, string>>;
+  region?: string;
+}
+
+export interface ImportPreview {
+  valid: true;
+  persisted: false;
+  content_sha256: string;
+  row_count: number;
+  regions: string[];
+  currencies: CurrencyCode[];
+  selected_region: string;
+  rates: Partial<Record<CurrencyCode, string>>;
+  supported_ticket_regions: string[];
+  preflight_calculation_count: number;
+  recorded_tool_calls: 0;
+  accounting: CalculationAccounting;
+}
+
+export interface ImportOperation extends CalculationAccounting {
+  kind: 'create' | 'update' | 'refresh' | 'verify';
+  changed_source_count: number;
+  noop: boolean;
+  elapsed_ms: number;
+  tool_calls: ToolCall[];
+}
+
+interface WorkspaceBase {
   session_id: string;
   generation: string;
   created_at: string;
-  mode: 'guided_real_execution';
   backend: { engine: string; native_queries: number; fallback: false };
-  dataset: { label: string; sources: SourceSnapshot[] };
+  dataset: WorkspaceDataset;
   reports: Report[];
   impact: {
     change: ChangeRecord | null;
@@ -114,6 +166,20 @@ export interface WorkspaceState {
   last_refresh: RefreshSummary | null;
   notices: string[];
 }
+
+export interface GuidedWorkspaceState extends WorkspaceBase {
+  mode: 'guided_real_execution';
+}
+
+export interface ImportedWorkspaceState extends WorkspaceBase {
+  mode: 'guided_csv_import';
+  dataset: ImportedDataset;
+  last_operation: ImportOperation;
+  /** A failed source publication must be repaired by a successful CSV update. */
+  incomplete_update: boolean;
+}
+
+export type WorkspaceState = GuidedWorkspaceState | ImportedWorkspaceState;
 
 export type SourceChange =
   | { kind: 'fx'; value: string }
@@ -132,6 +198,10 @@ export interface Verification {
     error: string | JSONObject | null;
   }[];
   scope: string;
+}
+
+export interface ImportVerification extends Verification {
+  accounting: ImportOperation;
 }
 
 export interface ArtifactEvidence {

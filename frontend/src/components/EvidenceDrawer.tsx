@@ -5,17 +5,19 @@ import type { Evidence } from '../lib/types'
 import Drawer from './Drawer'
 import Status from './Status'
 
-export default function EvidenceDrawer({ artifactId, onClose }: { artifactId: string; onClose: () => void }) {
+export default function EvidenceDrawer({ artifactId, onClose, imported = false, incompleteImport = false }: { artifactId: string; onClose: () => void; imported?: boolean; incompleteImport?: boolean }) {
   const [evidence, setEvidence] = useState<Evidence | null>(null)
   const [error, setError] = useState<string | null>(null)
   useEffect(() => {
     const abort = new AbortController()
     setEvidence(null); setError(null)
-    api.readEvidence(artifactId, { signal: abort.signal }).then(setEvidence).catch(cause => { if (!abort.signal.aborted) setError(cause.message) })
+    const read = imported ? api.readImportEvidence : api.readEvidence
+    read(artifactId, { signal: abort.signal }).then(setEvidence).catch(cause => { if (!abort.signal.aborted) setError(cause.message) })
     return () => abort.abort()
-  }, [artifactId])
+  }, [artifactId, imported])
   const title = evidence ? String(evidence.artifact.metadata.title ?? evidence.artifact.logical_id) : 'Inspect evidence'
   return <Drawer title="Inspect evidence" subtitle="The inputs behind the result." onClose={onClose} wide>
+    {incompleteImport && <div className="inline-error" role="status">CSV publication is incomplete. This is prior artifact evidence, not a repaired report. Artifact currentness below describes its saved dependencies; the workspace is blocked until the full corrected CSV is published.</div>}
     {!evidence && !error && <div className="drawer-loading"><LoaderCircle className="spin" />Reading persisted evidence…</div>}
     {error && <div className="inline-error" role="alert">{error}</div>}
     {evidence && <div className="evidence-details"><div className="evidence-name"><h3>{title}</h3><Status state={evidence.artifact.state} /></div>

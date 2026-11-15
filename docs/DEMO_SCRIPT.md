@@ -59,7 +59,9 @@ The earlier local composition bridge is also preserved: two Fable calls, a seven
 
 The original twelve-case deterministic pilot remains **16/29 graph, 6/29 BM25, 1/29 dense and 9/29 iterative**, at 2,048 evidence tokens. Its separate sixteen-call model pilot remains **5/9, 1/9, 0/9 and 2/9**, respectively. They are not pooled with retail v2 or counted as MCP-client trajectories.
 
-For a longer live walkthrough, remove FX to show refused refresh with current support, then reset to restore the fixture. A restart clip can show preserved session and artifact IDs; database restart evidence separately verifies persisted paths and a new write. The CSV CLI can show correction propagation and row-order replay with zero new recorded refresh calls; each load still performs eight arithmetic preflight checks.
+For a longer live walkthrough, remove FX to show refused refresh with current support, then reset to restore the fixture. A restart clip can show preserved session and artifact IDs; database restart evidence separately verifies persisted paths and a new write. The CSV CLI can show correction propagation and row-order replay with zero new recorded refresh calls. Each successful two-report CLI invocation still performs **16 arithmetic preflight calculations** (parse eight + public import eight) plus **11 report-verification calculations**. A replay with zero recorded refresh calls therefore still performs those 27 validation/verification calculations.
+
+**Accounting correction:** earlier generic eight-preflight-per-CSV-load wording understated the CLI's existing second validation pass and report verification. The explicit counters now expose that work. MCP `load_csv` remains eight per load, so the video's actual-client count of **16 preflight calculations across two loads** remains correct. Original raw captures and all benchmark/MCP results are retained unchanged.
 
 ## Evidence
 

@@ -186,6 +186,43 @@ def apply_import(runtime: ProofFlowRuntime, dataset: ImportedDataset) -> dict[st
     sequence within one process. No API accepts filesystem paths through here.
     """
     _preflight(dataset)
+    result = _apply_preflighted_import(runtime, dataset)
+    result["preflight_calculation_count"] = 8
+    return result
+
+
+def recipe_calculation_count(runtime: ProofFlowRuntime, artifact_id: str) -> int:
+    """Count successful full_recompute tool calls, including repeated DAG inputs.
+
+    This follows the saved recipe, as full_recompute does. It does no arithmetic
+    and is used only alongside a successful verification of that same recipe.
+    """
+    visiting = set()
+
+    def count(node_id: str) -> int:
+        if node_id in visiting:
+            raise CSVImportError("Cannot count a cyclic verification recipe")
+        record = runtime.store.get(node_id)
+        if record.kind == "source":
+            return 0
+        if record.kind != "artifact":
+            raise CSVImportError("Verification recipe has an unsupported record")
+        visiting.add(node_id)
+        receipt = runtime.store.read(record.metadata["receipt_id"])
+        result = 1 + sum(count(value) for value in receipt["inputs"].values())
+        visiting.remove(node_id)
+        return result
+
+    return count(artifact_id)
+
+
+def _apply_preflighted_import(runtime: ProofFlowRuntime, dataset: ImportedDataset) -> dict[str, Any]:
+    """Internal publication after this request's parse_csv/_preflight succeeded.
+
+    Browser requests call this only with the direct result of parse_csv, while
+    the public apply_import validates independently constructed datasets above.
+    Never accept serialized ImportedDataset objects through an API boundary.
+    """
     with runtime._lock:
         if any(not head.logical_id.startswith(("source:csv:", "tool:", "import:"))
                for head in runtime.store.heads()):
@@ -223,11 +260,13 @@ def apply_import(runtime: ProofFlowRuntime, dataset: ImportedDataset) -> dict[st
             runtime.execute("compose_report", {"revenue": regional.id}, region_params,
                             logical_id=REGION_REPORT, run_id="csv-region-run")
         reports = []
+        verification_calculations = 0
         for logical_id in [COMPANY_REPORT, REGION_REPORT]:
             record = runtime.store.get_head(logical_id)
             state = runtime.currentness(record.id)
             saved = runtime.store.read(record.id)
             parity = saved == runtime.full_recompute(record.id)
+            verification_calculations += recipe_calculation_count(runtime, record.id)
             if not state.is_current or not parity:
                 raise CSVImportError("Import did not produce current reports with recomputation parity")
             reports.append({"id": record.id, "logical_id": logical_id, "state": state.state,
@@ -242,6 +281,8 @@ def apply_import(runtime: ProofFlowRuntime, dataset: ImportedDataset) -> dict[st
                 "affected_artifacts": [record.to_dict() for record in affected],
                 "reports": reports, "refresh": refresh,
                 "tool_calls": runtime.calls[before:], "tool_call_count": len(runtime.calls) - before,
+                "preflight_calculation_count": 0,
+                "verification_calculation_count": verification_calculations,
                 "support": {"id": support.id, "state": support_state.state,
                             "value": runtime.store.read(support.id)},
                 "scope": "User-supplied CSV; guided recipes and real analytics. No model or generic SQL execution.",

@@ -72,7 +72,7 @@ export default function EvidenceGraph({ state, onInspect }: { state: WorkspaceSt
   const affected = new Set(state.impact.affected_artifacts.map(artifact => artifact.id))
   const changed = new Set(state.impact.changed_source_ids)
   const hasChange = !!state.impact.change
-  const pending = state.reports.some(report => report.state !== 'current')
+  const pending = state.reports.some(report => report.state !== 'current') || state.graph.nodes.some(node => node.current_head && node.kind === 'artifact' && node.state !== 'current')
   return <section className="graph-panel panel" aria-labelledby="graph-title">
     <div className="graph-heading"><div><h2 id="graph-title">Evidence, connected</h2><p>Inputs actually consumed by your tools</p></div><span className="graph-live"><i />HydraDB</span></div>
     <div ref={scroll} className="graph-scroll" tabIndex={0} aria-label="Execution dependency graph. Scroll horizontally on small screens to explore every calculation.">

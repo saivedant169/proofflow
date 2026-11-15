@@ -6,6 +6,8 @@ import { toolLabels } from '../lib/format'
 function runLabel(runId: string) {
   if (runId === 'run-A') return 'Run 1 · Company report'
   if (runId === 'run-B') return 'Run 2 · Reused results'
+  if (runId === 'csv-company-run') return 'CSV · Company report'
+  if (runId === 'csv-region-run') return 'CSV · Regional report'
   if (runId.startsWith('refresh-')) return 'Selective refresh'
   return runId
 }

@@ -79,7 +79,9 @@ The local CSV integration also uses real HydraDB. Its entry point is `scripts/im
 uv run python scripts/import_csv.py orders.csv --workspace my-orders --region APAC --fx EUR=1.10
 ```
 
-Rerunning the same workspace refreshes affected reports. CSV input stays local and does not call a model. The authored non-EU [integration check](../results/import-smoke-v1/verification.json) verified a correction, four recorded refresh calls, unchanged support identity and zero recorded refresh calls after row reordering. Each CSV load separately performs eight arithmetic preflight checks, including an unchanged import. This is a CLI integration, not a browser upload feature.
+Rerunning the same workspace refreshes affected reports. CSV input stays local and does not call a model. The authored non-EU [integration check](../results/import-smoke-v1/verification.json) verified a correction, four recorded refresh calls, unchanged support identity and zero recorded refresh calls after row reordering. Each successful two-report CLI invocation separately performs **16 preflight calculations** (parse eight + public-import eight) and **11 verification calculations**, including an unchanged import. Recorded runtime calls remain a separate count; a row-order replay with zero recorded refresh calls still has 27 validation/verification calculations. This is a CLI integration, not a browser upload feature.
+
+**Accounting correction:** the earlier generic eight-preflight-per-load wording was incomplete for this CLI. Both validation passes and report verification already existed; the counters now disclose them. MCP `load_csv` remains eight preflight calculations per load and does not automatically verify report recipes. The CLI exposes `preflight_calculation_count`, `recorded_tool_call_count`, `verification_calculation_count` and their sum as `total_calculation_count`. Original raw captures, benchmark measurements and the two-load MCP accounting remain unchanged.
 
 ## Recovery and delivery status
 

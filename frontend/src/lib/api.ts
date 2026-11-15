@@ -1,4 +1,7 @@
-import type { Evidence, Health, SourceChange, Verification, WorkspaceState } from './types';
+import type {
+  Evidence, Health, ImportedWorkspaceState, ImportPreview, ImportRequest,
+  ImportVerification, SourceChange, Verification, WorkspaceState,
+} from './types';
 
 export class APIError extends Error {
   readonly status: number;
@@ -27,10 +30,35 @@ function malformed(): never {
   throw new APIError('The server returned incomplete evidence. No current result was accepted.', 502, 'invalid_response');
 }
 
+function isCount(value: unknown): value is number {
+  return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0;
+}
+
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every(item => typeof item === 'string');
+}
+
+function accounting(value: unknown): void {
+  if (!isRecord(value) || !isCount(value.preflight_calculation_count)
+    || !isCount(value.recorded_tool_call_count) || !isCount(value.verification_calculation_count)
+    || !isCount(value.total_calculation_count)
+    || value.total_calculation_count !== value.preflight_calculation_count
+      + value.recorded_tool_call_count + value.verification_calculation_count) malformed();
+}
+
+function importOperation(value: unknown): void {
+  accounting(value);
+  if (!isRecord(value) || !['create', 'update', 'refresh', 'verify'].includes(String(value.kind))
+    || !isCount(value.changed_source_count) || typeof value.noop !== 'boolean'
+    || typeof value.elapsed_ms !== 'number' || !Number.isFinite(value.elapsed_ms) || value.elapsed_ms < 0
+    || !Array.isArray(value.tool_calls)) malformed();
+}
+
 /** Check the serving invariant at the UI boundary; never turn missing evidence into mock data. */
 function workspace(value: unknown): WorkspaceState {
   if (!isRecord(value) || typeof value.session_id !== 'string' || typeof value.generation !== 'string'
-    || value.mode !== 'guided_real_execution' || !isRecord(value.backend) || value.backend.fallback !== false
+    || !['guided_real_execution', 'guided_csv_import'].includes(String(value.mode))
+    || !isRecord(value.backend) || value.backend.fallback !== false
     || !isRecord(value.dataset) || !Array.isArray(value.dataset.sources) || !Array.isArray(value.reports)
     || !isRecord(value.impact) || !Array.isArray(value.impact.affected_artifacts)
     || !Array.isArray(value.impact.changed_source_ids) || !isRecord(value.graph)
@@ -50,7 +78,19 @@ function workspace(value: unknown): WorkspaceState {
     || typeof value.last_refresh.executed_count !== 'number'
     || !Array.isArray(value.last_refresh.tool_calls)
     || ![true, false, null].includes(value.last_refresh.numeric_parity as boolean | null))) malformed();
+  if (value.mode === 'guided_csv_import') {
+    if (typeof value.dataset.selected_region !== 'string' || !isStringArray(value.dataset.regions)
+      || !isStringArray(value.dataset.currencies) || !isCount(value.dataset.row_count)
+      || typeof value.dataset.source_csv_sha256 !== 'string' || typeof value.incomplete_update !== 'boolean') malformed();
+    importOperation(value.last_operation);
+  }
   return value as unknown as WorkspaceState;
+}
+
+function importedWorkspace(value: unknown): ImportedWorkspaceState {
+  const state = workspace(value);
+  if (state.mode !== 'guided_csv_import') malformed();
+  return state;
 }
 
 async function request(path: string, method: 'GET' | 'POST', body?: unknown, options: RequestOptions = {}): Promise<unknown> {
@@ -67,7 +107,7 @@ async function request(path: string, method: 'GET' | 'POST', body?: unknown, opt
   } catch (error) {
     // Preserve cancellation so an unmounted view does not announce a connection failure.
     if (error instanceof Error && error.name === 'AbortError') throw error;
-    throw new APIError('Could not reach ProofFlow. Your saved results have not been replaced.');
+    throw new APIError('Could not reach ProofFlow. Reload the workspace to confirm its latest state.');
   }
   let payload: unknown;
   try {
@@ -106,8 +146,7 @@ export async function reset(options?: RequestOptions): Promise<WorkspaceState> {
   return workspace(await request('/api/reset', 'POST', {}, options));
 }
 
-export async function verify(options?: RequestOptions): Promise<Verification> {
-  const value = await request('/api/verify', 'POST', {}, options);
+function verification(value: unknown): Verification {
   if (!isRecord(value) || typeof value.passed !== 'boolean' || !Array.isArray(value.reports)
     || typeof value.scope !== 'string') malformed();
   for (const report of value.reports) {
@@ -117,12 +156,65 @@ export async function verify(options?: RequestOptions): Promise<Verification> {
   return value as unknown as Verification;
 }
 
-export async function readEvidence(artifactId: string, options?: RequestOptions): Promise<Evidence> {
-  if (!artifactId) throw new APIError('Choose an artifact to inspect.', 400, 'missing_artifact');
-  const value = await request(`/api/evidence/${encodeURIComponent(artifactId)}`, 'GET', undefined, options);
+export async function verify(options?: RequestOptions): Promise<Verification> {
+  return verification(await request('/api/verify', 'POST', {}, options));
+}
+
+function evidence(value: unknown, artifactId: string): Evidence {
   if (!isRecord(value) || !isRecord(value.artifact) || value.artifact.id !== artifactId
     || !Array.isArray(value.paths) || !(value.receipt === null || isRecord(value.receipt))) malformed();
   return value as unknown as Evidence;
+}
+
+export async function readEvidence(artifactId: string, options?: RequestOptions): Promise<Evidence> {
+  if (!artifactId) throw new APIError('Choose an artifact to inspect.', 400, 'missing_artifact');
+  return evidence(await request(`/api/evidence/${encodeURIComponent(artifactId)}`, 'GET', undefined, options), artifactId);
+}
+
+export async function previewImport(input: ImportRequest, options?: RequestOptions): Promise<ImportPreview> {
+  const value = await request('/api/import/preview', 'POST', input, options);
+  if (!isRecord(value) || value.valid !== true || value.persisted !== false
+    || typeof value.content_sha256 !== 'string' || !isCount(value.row_count)
+    || !isStringArray(value.regions) || !isStringArray(value.currencies)
+    || typeof value.selected_region !== 'string' || !isRecord(value.rates)
+    || !Object.values(value.rates).every(rate => typeof rate === 'string')
+    || !isStringArray(value.supported_ticket_regions) || !isCount(value.preflight_calculation_count)
+    || value.recorded_tool_calls !== 0) malformed();
+  accounting(value.accounting);
+  if (!isRecord(value.accounting) || value.accounting.recorded_tool_call_count !== 0
+    || value.accounting.verification_calculation_count !== 0
+    || value.accounting.preflight_calculation_count !== value.preflight_calculation_count) malformed();
+  return value as unknown as ImportPreview;
+}
+
+export async function createImport(input: ImportRequest, options?: RequestOptions): Promise<ImportedWorkspaceState> {
+  return importedWorkspace(await request('/api/import/create', 'POST', input, options));
+}
+
+export async function readImportState(options?: RequestOptions): Promise<ImportedWorkspaceState> {
+  return importedWorkspace(await request('/api/import/state', 'GET', undefined, options));
+}
+
+export async function updateImport(input: ImportRequest, options?: RequestOptions): Promise<ImportedWorkspaceState> {
+  return importedWorkspace(await request('/api/import/update', 'POST', input, options));
+}
+
+export async function refreshImport(options?: RequestOptions): Promise<ImportedWorkspaceState> {
+  return importedWorkspace(await request('/api/import/refresh', 'POST', {}, options));
+}
+
+export async function verifyImport(options?: RequestOptions): Promise<ImportVerification> {
+  const value = await request('/api/import/verify', 'POST', {}, options);
+  verification(value);
+  if (!isRecord(value)) malformed();
+  importOperation(value.accounting);
+  if (!isRecord(value.accounting) || value.accounting.kind !== 'verify') malformed();
+  return value as unknown as ImportVerification;
+}
+
+export async function readImportEvidence(artifactId: string, options?: RequestOptions): Promise<Evidence> {
+  if (!artifactId) throw new APIError('Choose an artifact to inspect.', 400, 'missing_artifact');
+  return evidence(await request(`/api/import/evidence/${encodeURIComponent(artifactId)}`, 'GET', undefined, options), artifactId);
 }
 
 export async function health(options?: RequestOptions): Promise<Health> {
@@ -131,4 +223,7 @@ export async function health(options?: RequestOptions): Promise<Health> {
   return value as unknown as Health;
 }
 
-export const api = { createSession, readState, applyChange, refresh, reset, verify, readEvidence, health };
+export const api = {
+  createSession, readState, applyChange, refresh, reset, verify, readEvidence, health,
+  previewImport, createImport, readImportState, updateImport, refreshImport, verifyImport, readImportEvidence,
+};

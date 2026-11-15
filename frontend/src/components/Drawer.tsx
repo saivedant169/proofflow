@@ -12,7 +12,7 @@ export default function Drawer({ title, subtitle, onClose, children, wide = fals
     const listener = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose()
       if (event.key === 'Tab' && panel.current) {
-        const controls = Array.from(panel.current.querySelectorAll<HTMLElement>('button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea, a[href], [tabindex="0"]'))
+        const controls = Array.from(panel.current.querySelectorAll<HTMLElement>('button:not([disabled]), input:not([disabled]):not([tabindex="-1"]), select:not([disabled]), textarea:not([disabled]), a[href], [tabindex="0"]'))
         const first = controls[0], last = controls[controls.length - 1]
         if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus() }
         if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
