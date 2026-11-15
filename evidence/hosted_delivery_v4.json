@@ -1,0 +1,330 @@
+{
+  "schema_version": 4,
+  "canonical_origin": "https://proofflow.arnavbule.in",
+  "release": {
+    "source_revision": "b13f23892405efb856c8d4ca0e6abc94a1eca77c",
+    "platform": "linux/amd64",
+    "app_image_id": "sha256:6899dcbe1a3af480c999b0014118befa9ea5d517adf73f1e1816165915220efc",
+    "app_image_archive_sha256": "9c51940a56840892698f88bee5d6909f5696853458f42697d9ec37c21e9fa798",
+    "source_archive_sha256": "a8b017a24b28341ac940ef514b6ce07aac282226fe7d0ada42f87ef7a289ba70"
+  },
+  "host_runtime_observation": {
+    "verified_at_utc": "2026-11-15T21:10:36.460920+00:00",
+    "captured_at_utc": "2026-11-15T21:10:35.778611+00:00",
+    "checks_passed": 21,
+    "scope": "Read-only observations after application container replacement",
+    "running_revision_and_image_match_release": true,
+    "hydradb_container_and_start_time_unchanged": true,
+    "application_and_hydradb_volumes_retained": true,
+    "public_health": {
+      "status": "ok",
+      "backend": "HydraDB OSS"
+    }
+  },
+  "local_image_smoke": {
+    "tested_at_utc": "2026-11-15T21:05:14.241538+00:00",
+    "checks_passed": 54,
+    "http_responses": 26,
+    "scope": "Exact AMD64 app image under local emulation with a separate app state volume"
+  },
+  "release_ci": {
+    "run_url": "https://github.com/saivedant169/proofflow/actions/runs/43761386190",
+    "run_access": "Private GitHub repository. Permissions required.",
+    "run_attempt": 1,
+    "successful_job_steps": 23,
+    "python_passed": 488,
+    "chromium_passed": 9,
+    "chromium_config": "Checked-in Playwright configuration with default timeouts and zero retries",
+    "one_cent_negative_control_confirmed": true
+  },
+  "external_acceptance": {
+    "run_url": "https://github.com/saivedant169/proofflow/actions/runs/43762066168",
+    "run_access": "Private GitHub repository. Permissions required.",
+    "run_attempt": 1,
+    "conclusion": "success",
+    "runner": "GitHub-hosted Ubuntu 24.04",
+    "checkout_source_revision": "b13f23892405efb856c8d4ca0e6abc94a1eca77c",
+    "deployed_runtime_revision": "b13f23892405efb856c8d4ca0e6abc94a1eca77c",
+    "chrome_steps_passed": 11,
+    "guided_http_checks_passed": 13,
+    "browser": {
+      "name": "Google Chrome",
+      "version": "157.0.8103.50"
+    },
+    "browser_network": {
+      "resolver": "System DNS",
+      "hosts_file_override": false,
+      "browser_resolver_override": false,
+      "tls_validation": "Enabled",
+      "health": {
+        "status": 200,
+        "backend": "HydraDB OSS"
+      },
+      "byte_match_to_checked_out_build": true
+    },
+    "served_frontend": {
+      "index_sha256": "045387d20b5be03bd05ced43c2514e7fe4a0b0c7cad1e98a7565428813f41e46",
+      "assets": [
+        {
+          "path": "/assets/index-CA6GVj0B.js",
+          "bytes": 407407,
+          "sha256": "264c5d623abde47f7a6223c89078372a6eccddc2a03d6382540b3e1dafe3def7",
+          "status": 200
+        },
+        {
+          "path": "/assets/index-D3-yCp9X.css",
+          "bytes": 36227,
+          "sha256": "5ab746b4eca0646c0a72750a81d499e2eeb801dc953ce0c41c3610a154c1044e",
+          "status": 200
+        }
+      ]
+    },
+    "browser_finished_at_utc": "2026-11-15T21:10:25.471Z",
+    "guided_http_finished_at_utc": "2026-11-15T21:09:35.844493+00:00",
+    "walkthrough": {
+      "bytes": 5064373,
+      "sha256": "5d9c1dc53519097121527dad6d35dd9e34310ae45b634445eb6bb6e156584393",
+      "range_status": 206,
+      "content_range": "bytes 0-1023/5064373",
+      "prefix_matches": true,
+      "duration_seconds": 120,
+      "seek_target_seconds": 75,
+      "continued_to_seconds": 75.33
+    },
+    "csv_revenue_handoff": {
+      "revenue_columns": [
+        "company",
+        "NORTH"
+      ],
+      "initial_eur_to_usd": "1.20",
+      "initial_usd_cents": [
+        30800,
+        10800
+      ],
+      "corrected_eur_to_usd": "1.30",
+      "affected_artifacts": 4,
+      "current_values_withheld": [
+        null,
+        null
+      ],
+      "stale_download_status": 409,
+      "stale_downloads": 0,
+      "refreshed_usd_cents": [
+        31700,
+        11700
+      ],
+      "refresh_accounting": {
+        "preflight": 0,
+        "recorded_calls": 4,
+        "verification": 11,
+        "total": 15
+      },
+      "refreshed_download_status": 200,
+      "refreshed_download_matches_report_and_claim_ids": true,
+      "preserved_support_artifact": true,
+      "clipboard": {
+        "scope": "Native clipboard of the disposable Linux Chrome test context. Each successful copy was checked against the server snapshot.",
+        "initial_copy": {
+          "status": 200,
+          "exact_server_text": true,
+          "checked_at_utc": "2026-11-15T21:09:55.175938+00:00",
+          "sha256": "22ab21d02d9feda45365dc2fb217a3c286aff3c548c9d5cad794f83f95cd4d7b"
+        },
+        "stale_copy": {
+          "status": 409,
+          "reconciliation_status": 200,
+          "clipboard_sentinel_unchanged": true
+        },
+        "refreshed_copy": {
+          "status": 200,
+          "exact_server_text": true,
+          "checked_at_utc": "2026-11-15T21:10:20.800837+00:00",
+          "sha256": "6ff205be6bd854ca21c02eb7cef9b3d1fe7b89a7097d3236bd27e78f69b7d261"
+        }
+      },
+      "other_context_revenue_columns": [
+        "company",
+        "APAC"
+      ],
+      "other_context_revenue_usd_cents": [
+        16375,
+        9375
+      ],
+      "other_context_foreign_evidence_status": 404,
+      "narrow_viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "no_horizontal_overflow": true
+        },
+        {
+          "width": 320,
+          "height": 844,
+          "no_horizontal_overflow": true
+        }
+      ]
+    },
+    "archived_github_artifacts": [
+      {
+        "url": "https://github.com/saivedant169/proofflow/actions/runs/43762066168/artifacts/14181220801",
+        "access": "Private GitHub repository. Permissions required.",
+        "archive_sha256": "ae0c96627aacd750948c942646e78e771b6a29a70f2f046d89f95fe6648f7ee5"
+      },
+      {
+        "url": "https://github.com/saivedant169/proofflow/actions/runs/43762066168/artifacts/14180731419",
+        "access": "Private GitHub repository. Permissions required.",
+        "archive_sha256": "652f43e85c89aa1ac4ce7ae3716ad37bf2732727f4fcdc3e9753f424e99dea4b"
+      },
+      {
+        "url": "https://github.com/saivedant169/proofflow/actions/runs/43762066168/artifacts/14180033655",
+        "access": "Private GitHub repository. Permissions required.",
+        "archive_sha256": "0eee76cc043f01993f8823f8259ea820f6d7f664fa9f9c23146475cea2b705bd"
+      }
+    ]
+  },
+  "public_downloads": {
+    "finished_at_utc": "2026-11-15T21:09:43.070886+00:00",
+    "matching_responses": 10,
+    "network": {
+      "resolver": "System DNS",
+      "address_families": [
+        "AF_INET"
+      ],
+      "hosts_file_override": false,
+      "proxy_enabled": false,
+      "certificate_and_hostname_validation": true,
+      "anonymous": true
+    },
+    "files": {
+      "/evidence/": {
+        "status": 200,
+        "bytes": 9521,
+        "sha256": "e41fb1610e897f066b78a13bf699c1a93c6b1f01a374881317ef5135b6360611",
+        "byte_match": true,
+        "set_cookie_present": false
+      },
+      "/evidence/evidence.css": {
+        "status": 200,
+        "bytes": 6375,
+        "sha256": "857095b393fed43c020c076e9dea18e45a6dcea4e689d5e035be4f9c4661e672",
+        "byte_match": true,
+        "set_cookie_present": false
+      },
+      "/evidence/proofflow-model-evidence.zip": {
+        "status": 200,
+        "bytes": 5664791,
+        "sha256": "996d670a4d49929ff4eefc01441e8fa05d29099a45e109f4e73b3dbbf9c40be7",
+        "byte_match": true,
+        "set_cookie_present": false
+      },
+      "/evidence/proofflow-model-evidence.zip.sha256": {
+        "status": 200,
+        "bytes": 95,
+        "sha256": "1cd448724a30944328faa45b9369eef13f85722738d255fbef355e0104865e02",
+        "byte_match": true,
+        "set_cookie_present": false
+      },
+      "/evidence/proofflow-delivery-evidence.zip": {
+        "status": 200,
+        "bytes": 132671,
+        "sha256": "a04416f1232112b253c9953e974f606b66882a895b55b8d7f1cfdaf87e293791",
+        "byte_match": true,
+        "set_cookie_present": false
+      },
+      "/evidence/proofflow-delivery-evidence.zip.sha256": {
+        "status": 200,
+        "bytes": 98,
+        "sha256": "607e3e07d137d584ffb016742fcc80655085491cef3831a058192ceb3e01f6eb",
+        "byte_match": true,
+        "set_cookie_present": false
+      },
+      "/agent/": {
+        "status": 200,
+        "bytes": 5347,
+        "sha256": "c48a509cff9ccac03cfa305d92f3f188fb0eb879b95e54677bdb52bee503ff33",
+        "byte_match": true,
+        "set_cookie_present": false
+      },
+      "/agent/index.html": {
+        "status": 200,
+        "bytes": 5347,
+        "sha256": "c48a509cff9ccac03cfa305d92f3f188fb0eb879b95e54677bdb52bee503ff33",
+        "byte_match": true,
+        "set_cookie_present": false
+      },
+      "/agent/proofflow_csv_mcp.py": {
+        "status": 200,
+        "bytes": 11532,
+        "sha256": "59e9db0ca368aaeecaac3819b32dacc3f1cf77e589a2d55a71a2c4c21900ef11",
+        "byte_match": true,
+        "set_cookie_present": false
+      },
+      "/agent/proofflow_csv_mcp.py.sha256": {
+        "status": 200,
+        "bytes": 87,
+        "sha256": "416aee5405c224b6472685c5af7e04acf5d6f0b0f8c3059fe304c6c7089902a4",
+        "byte_match": true,
+        "set_cookie_present": false
+      }
+    },
+    "connector_redirect_status": 308,
+    "connector_redirect_location": "/agent/",
+    "offline_model_bundle_verification": {
+      "bundle_files_verified": 346,
+      "model_study_payloads_verified": 152,
+      "scored_cells": 48,
+      "reconstructed_source_rows": 4681,
+      "bundled_verifier": "scripts/verify_public_evidence.py",
+      "frozen_study_revision": "3fa9f850bbecdccf068bbda7e90cd0497e79b460",
+      "isolated_linux_network_namespace": true
+    },
+    "offline_delivery_bundle_verification": {
+      "bundle_files_verified": 52,
+      "bundled_verifier": "verify_delivery_evidence.py",
+      "historical_hosted_release_revisions": [
+        "0535ba672b4b31c563c13d95df03285a73a4d736",
+        "fdee9c999a1a5c62de4cf624f9bcc42ba6c124a6",
+        "92da58c806a07d2577aef27bf5c967e7751325a0"
+      ],
+      "isolated_linux_network_namespace": true
+    },
+    "cold_connector_handshake": {
+      "mcp_client_version": "2.3.0",
+      "negotiated_protocol": "2025-11-25",
+      "tools": [
+        "create_csv_reports",
+        "export_current_reports",
+        "inspect_reports",
+        "refresh_reports",
+        "update_csv"
+      ],
+      "fresh_uv_cache": true,
+      "empty_working_directory": true,
+      "pep723_uv_launch": true,
+      "methods": [
+        "initialize",
+        "notifications/initialized",
+        "tools/list"
+      ],
+      "tool_calls": 0,
+      "session_or_cookie_fields_in_output": false
+    }
+  },
+  "earlier_hosted_delivery_receipts": [
+    "hosted_delivery_v3.json",
+    "hosted_delivery_v2.json",
+    "hosted_delivery_v1.json"
+  ],
+  "archived_source_receipt_sha256": {
+    "image_manifest": "5c2db6e7131b0c043f04158053c368cf1678ad600bbac6fc9fb08f9759b5cd11",
+    "host_runtime": "14d5afb9064594be4886e4dc7000bcf76bce9487dc83bd74f9bf3a6abc4d42e8",
+    "local_image_smoke": "d955dc4f654c5378cdc64d0e2e38fad6cf3a38c2bf64d51147a5daaa68a1d6cc",
+    "release_ci": "6ba34f86ad7c513952bc719a49adf3a494694561c22e9867451bf59c43d5a638",
+    "external_browser_receipt": "a6ad44029278e81b96537c48453c616e7452223da934bbdfd1deb369dba13aea",
+    "external_browser_observation": "5a2074b032673aefa2f6652cf04f6841338e21474bb4cf65a6f03bebbda1ec06",
+    "external_guided_receipt": "c5f079e459c43a72d54bf84bf48bca498d0715823e6572b758b121270d4387c6",
+    "external_guided_observation": "1ee6041e7c4445d4663d1e3218dd87d32f3ea6f24b7905a146e11cad611c53c0",
+    "external_public_download_receipt": "bb1d2da3509f0d1daec1821c0036eae28bb5e4f3750d10adc86cbc2d1f93620b",
+    "external_public_download_observation": "b124a3155f00f2d6cd4e054d025dd1a49354768a631c889798eb58a4b0f712ba"
+  }
+}

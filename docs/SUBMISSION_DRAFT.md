@@ -1,6 +1,6 @@
 # ProofFlow submission draft
 
-The hosted app runs revision `92da58c806a07d2577aef27bf5c967e7751325a0`. External checks verified the browser workflow, public evidence download and CSV connector discovery. Approved judge access to the private repository and the organizer’s form remain pending. [Live app](https://proofflow.arnavbule.in) · [Two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Hosted verification](HOSTED_DELIVERY.md).
+The hosted app runs revision `b13f23892405efb856c8d4ca0e6abc94a1eca77c`. External checks verified report handoff by clipboard and file, both evidence downloads and CSV connector discovery. Approved judge access to the private repository and the organizer’s form remain pending. [Live app](https://proofflow.arnavbule.in) · [Two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Hosted verification](HOSTED_DELIVERY.md).
 
 ## Project and track
 
@@ -12,11 +12,13 @@ The hosted app runs revision `92da58c806a07d2577aef27bf5c967e7751325a0`. Externa
 
 In a frozen 48-invocation actual-model study, ProofFlow refreshed **32/32 affected reports**, matching full context at **39.33% of its provider input exposure**, excluding the no-op case. At matched per-case evidence allowances, BM25 refreshed 25/32, BGE vector retrieval 5/32 and iterative hybrid 28/32. Exact-flat traversal also achieved 32/32. All methods share the same safe executor. [Results and limits](MODEL_COMPARISON_RESULTS.md).
 
+The separate deterministic diagnostic reused the eight March cases. At **4,096 → 8,192 receipt tokens**, fresh reports out of 32 were graph and exact-flat **15 → 27**, iterative hybrid **15 → 28**, BM25 **5 → 25**, and BGE **2 → 10**. The uncapped reference refreshed **32/32**. Every capped method missed reports at both limits. The audited results preserve the original wrapper failures and the independently recovered scores. [Fixed-budget results](FIXED_BUDGET_DIAGNOSTIC_RESULTS.md).
+
 ## Problem and first user
 
 A saved agent report can be relevant and still be out of date. When an exchange rate, refund or tool changes, later reports may reuse calculations made from earlier inputs. The analyst needs to know which figures are still usable, which require repair, and why.
 
-In a recurring commerce revenue handoff, an analyst may need to correct an input after saving company and regional figures. ProofFlow checks those figures against their recorded dependencies when reading or downloading the reports. The analyst supplies the underlying business data. Customer demand and time savings have not yet been measured.
+In a recurring commerce revenue handoff, an analyst may need to correct an input after saving company and regional figures. ProofFlow checks those figures against their recorded dependencies when reading, copying or downloading the reports. The analyst supplies the underlying business data. Customer demand and time savings have not yet been measured.
 
 A prospective comparison against a competent full-recalculation workflow found a correctness and stale-handoff tie on a small three-currency close. ProofFlow's additional result was preserving unaffected artifact heads and receipts and returning exact dependency paths from each corrected source to the prior reports. The full validation and verification work is reported separately from recorded refresh calls. [Comparison and limits](WORKFLOW_COMPARISON_RESULTS.md).
 
@@ -26,7 +28,7 @@ Seven registered tools perform SQLite aggregations, Decimal currency calculation
 
 The browser accepts a bounded CSV, previews it without publishing, and creates two revenue-only reports for the company and selected region. Publishing a correction changes sources and withholds affected monetary values. Refresh brings recoverable reports up to date; independent support remains reusable. The guided sample and imported workspace are separate.
 
-**Download current reports** in the CSV workspace creates a static, UTC-timestamped text file with the two USD figures, their labels, and immutable report and claim artifact IDs. The server checks that the displayed workspace generation and both report IDs still match, and that both reports and their claims are current. A stale claim, incomplete source publication, unavailable evidence, or a newer workspace or report version in another tab blocks the download.
+**Copy checked report** puts the two current USD figures and their immutable report and claim IDs on the clipboard as a timestamped text snapshot. **Download current reports** saves the same format to a text file. For either action, the server checks that the displayed workspace generation and both report IDs match and that both reports and claims are current. A stale claim, incomplete source publication or unavailable evidence blocks the handoff. The snapshot records the UTC check time and stays fixed after copying or download.
 
 Five local stdio MCP tools expose source loading, preparation, client-selected plan execution, currentness inspection and refresh. The external model chooses a bounded plan; registered tools compute the numbers. The server makes no model calls and accepts no arbitrary code or SQL. A recorded Fable 5.2/high MCP client completed one corrected trajectory with 32 checks, cross-run composition and reuse; its first launch-configuration failure is retained. [Agent quickstart](AGENT_QUICKSTART.md) · [Client evidence](MCP_AGENT_RESULTS.md).
 
@@ -36,7 +38,7 @@ The downloadable CSV connector lets a local MCP host create and inspect the brow
 
 1. Upload the authored two-row NORTH/SOUTH CSV with EUR→USD at 1.20. The current company and NORTH reports are **$308 / $108**.
 2. Publish the same CSV with the corrected rate 1.30. Four artifacts become stale, current monetary values are withheld, and native graph evidence explains the impact. Support remains current.
-3. Refresh the affected work. Four recorded tool calls produce **$317 / $117**, verified against independent arithmetic. Validation and verification calculations are counted separately; four recorded calls are not the complete computation cost. Choose **Download current reports** to capture the refreshed figures and their artifact IDs for the handoff.
+3. Refresh the affected work. Four recorded tool calls produce **$317 / $117**, verified against independent arithmetic. Validation and verification calculations add to the four recorded calls. Choose **Copy checked report** and paste the snapshot, or **Download current reports** to save the refreshed figures, artifact IDs and UTC check time.
 
 The 120-second film shows this CSV preview/creation briefly, then explicitly switches to a separate guided fixture, the audited 48-invocation model comparison and recorded MCP evidence. Earlier deterministic failures remain visible in a separate limits card. Those fixtures and experiments are not pooled. [Watch the hosted video](https://proofflow.arnavbule.in/walkthrough.mp4) · [Narration](VIDEO_SCRIPT.md).
 
@@ -73,11 +75,13 @@ The evidence supports explicit dependency context over relevance ranking for thi
 
 ## Verification and scope
 
-The public results package includes saved study inputs, poststates, provider counters, earlier failures, an explicit publication manifest and an offline Python verifier. The four evidence files matched the release bytes. The verifier ran in an isolated Linux network namespace and checked 346 bundle files, including the model audit of 152 payloads and all 48 scored cells. [Public evidence and download](https://proofflow.arnavbule.in/evidence/) · [Verification instructions](PUBLIC_EVIDENCE.md).
+The original public model package includes saved study inputs, poststates, provider counters, earlier failures, an explicit publication manifest and an offline Python verifier. The ZIP retained its bytes. The verifier ran in an isolated Linux network namespace and checked 346 bundle files, including 152 model payloads and all 48 scored cells. [Public model ZIP and verification instructions](PUBLIC_EVIDENCE.md).
 
-- **Current hosted release.** The external runner passed 11 Chrome steps and 13 guided HTTP checks. Eight public download responses matched the checkout, and a fresh stock client discovered all five connector tools. The application-only replacement passed 21 read-only host checks. [Hosted verification](HOSTED_DELIVERY.md).
-- **Hosted retail CSV.** One external Chrome run uploaded 642 UCI Online Retail positive-sales lines from January 16, 2011. After a staged GBP rate correction, the old export was refused and both checked reports matched the independent oracle at $9,414.68. All eligible rows were from the United Kingdom. [Observed workflow and scope](REAL_PARTITION_RESULTS.md).
-- **Current release CI.** The first attempt passed 473 Python tests and nine default Chromium workflows across 22 successful job steps. The one-cent control detected both arithmetic differences. [Linux CI run, private repository access required](https://github.com/saivedant169/proofflow/actions/runs/43757568426).
+The separate 52-payload delivery archive covers the saved `0535ba6`, `fdee9c9` and `92da58c` releases and the recorded retail CSV, paired recalculation, interrupted update and fixed-budget checks. It verifies those saved observations. Current browser acceptance uses its own hosted receipt. [Delivery archive and verification instructions](PUBLIC_DELIVERY_EVIDENCE.md).
+
+- **Current hosted release.** The external runner passed 11 Chrome steps and 13 guided HTTP checks. Chrome verified the exact server snapshot on the clipboard and observed that the stale copy refusal preserved its existing contents. Ten public download responses matched the checkout. The application-only replacement passed 21 read-only host checks. [Hosted verification](HOSTED_DELIVERY.md).
+- **Hosted retail CSV.** One external Chrome run on `92da58c` uploaded 642 UCI Online Retail positive-sales lines from January 16, 2011. After a staged GBP rate correction, the old export was refused and both checked reports matched the independent oracle at $9,414.68. All eligible rows were from the United Kingdom. [Observed workflow and scope](REAL_PARTITION_RESULTS.md).
+- **Current release CI.** The first attempt passed 488 Python tests and nine default Chromium workflows across 23 successful job steps. The one-cent control detected both arithmetic differences. [Linux CI run, private repository access required](https://github.com/saivedant169/proofflow/actions/runs/43761386190).
 - **Earlier hosted acceptance.** The `fdee9c9` release passed 11 external Chrome steps and 13 guided HTTP checks, including the CSV correction and checked download. [V2 receipt](../evidence/hosted_delivery_v2.json).
 - **Earlier hosted restart.** The `0535ba6` app restart passed 87 checks across 12 HTTP responses, restoring saved CSV reports before a new correction and refresh. [Historical receipt](../evidence/hosted_delivery_v1.json).
 - [Native persistence](../evidence/hydra_smoke.json): database restart, persisted traversal and a new write.
@@ -92,8 +96,8 @@ The browser supports two fixed reports, at most 1 MiB/1,000 rows, USD/EUR/GBP an
 ## Delivery fields
 
 - **Private source.** Approved judge access remains pending. [saivedant169/proofflow](https://github.com/saivedant169/proofflow).
-- **Hosted app.** The running release was verified at revision `92da58c806a07d2577aef27bf5c967e7751325a0`. [ProofFlow](https://proofflow.arnavbule.in) · [Hosted verification receipt](../evidence/hosted_delivery_v3.json).
+- **Hosted app.** The running release was verified at revision `b13f23892405efb856c8d4ca0e6abc94a1eca77c`. [ProofFlow](https://proofflow.arnavbule.in) · [Hosted verification receipt](../evidence/hosted_delivery_v4.json).
 - **Video.** The served file matched the packaged film, the server returned the expected byte range, and external Chrome checked playback and seeking. [120-second walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4).
 - **CSV connector.** The setup page, downloadable script and checksum were verified over public HTTPS. [Connector setup](https://proofflow.arnavbule.in/agent/).
-- **Public results package.** The release-matched ZIP includes saved model evidence and the offline verifier. [Evidence page](https://proofflow.arnavbule.in/evidence/).
+- **Public evidence.** The model and delivery ZIPs each include an offline verifier. [Evidence page](https://proofflow.arnavbule.in/evidence/).
 - **Event.** The organizer’s form and final required fields remain unverified. The recorded deadline is 16 November 2026, 09:00 IST. Submission receipt pending. [HydraDB Hackathon](https://luma.com/bqwllms4).
