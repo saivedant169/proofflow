@@ -1,0 +1,132 @@
+{
+  "company": [
+    {
+      "edges": [
+        {
+          "kind": "CONSUMED",
+          "source": "662ea78f059441ab8a35991326e96c9b:source:11ab82cfc3a617d57280cbf8de01380a9cb665299c71fb949786f64caca4336c",
+          "target": "662ea78f059441ab8a35991326e96c9b:execution:1b5b54816e4edd27db4bf3e09c6dd85a945df7e012e098f6e2ac83ecd2eabbd8"
+        },
+        {
+          "kind": "PRODUCED",
+          "source": "662ea78f059441ab8a35991326e96c9b:execution:1b5b54816e4edd27db4bf3e09c6dd85a945df7e012e098f6e2ac83ecd2eabbd8",
+          "target": "662ea78f059441ab8a35991326e96c9b:artifact:9f3e27aa2d7d7769c99ccf1348003ef046eb2a4a3a590df814f5488ff2aadabd"
+        },
+        {
+          "kind": "CONSUMED",
+          "source": "662ea78f059441ab8a35991326e96c9b:artifact:9f3e27aa2d7d7769c99ccf1348003ef046eb2a4a3a590df814f5488ff2aadabd",
+          "target": "662ea78f059441ab8a35991326e96c9b:execution:160460b46d63b96521fafe77d89b58650dfdcecda2ebf9bfde38d0a04f1bee73"
+        },
+        {
+          "kind": "PRODUCED",
+          "source": "662ea78f059441ab8a35991326e96c9b:execution:160460b46d63b96521fafe77d89b58650dfdcecda2ebf9bfde38d0a04f1bee73",
+          "target": "662ea78f059441ab8a35991326e96c9b:artifact:11d4523a9bafb807afd3de738a2e70cba5cd1b12e111a29ceb0bcc1d9992c83c"
+        },
+        {
+          "kind": "CONSUMED",
+          "source": "662ea78f059441ab8a35991326e96c9b:artifact:11d4523a9bafb807afd3de738a2e70cba5cd1b12e111a29ceb0bcc1d9992c83c",
+          "target": "662ea78f059441ab8a35991326e96c9b:execution:041408d8f53a790ee0c9826a7b5b573b35a2e1ae31569bce48df8474bf838a41"
+        },
+        {
+          "kind": "PRODUCED",
+          "source": "662ea78f059441ab8a35991326e96c9b:execution:041408d8f53a790ee0c9826a7b5b573b35a2e1ae31569bce48df8474bf838a41",
+          "target": "662ea78f059441ab8a35991326e96c9b:artifact:8087ee519c15480453785fc1e731858b8c782bd90a5ef01ccbef779cd89d27b7"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:source:11ab82cfc3a617d57280cbf8de01380a9cb665299c71fb949786f64caca4336c",
+          "kind": "source",
+          "label": "Explicit exchange rates"
+        },
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:execution:1b5b54816e4edd27db4bf3e09c6dd85a945df7e012e098f6e2ac83ecd2eabbd8",
+          "kind": "execution",
+          "label": "Execute convert_to_usd"
+        },
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:artifact:9f3e27aa2d7d7769c99ccf1348003ef046eb2a4a3a590df814f5488ff2aadabd",
+          "kind": "artifact",
+          "label": "Regional USD revenue"
+        },
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:execution:160460b46d63b96521fafe77d89b58650dfdcecda2ebf9bfde38d0a04f1bee73",
+          "kind": "execution",
+          "label": "Execute company_total"
+        },
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:artifact:11d4523a9bafb807afd3de738a2e70cba5cd1b12e111a29ceb0bcc1d9992c83c",
+          "kind": "artifact",
+          "label": "Company revenue"
+        },
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:execution:041408d8f53a790ee0c9826a7b5b573b35a2e1ae31569bce48df8474bf838a41",
+          "kind": "execution",
+          "label": "Execute compose_report"
+        },
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:artifact:8087ee519c15480453785fc1e731858b8c782bd90a5ef01ccbef779cd89d27b7",
+          "kind": "artifact",
+          "label": "Imported company revenue"
+        }
+      ],
+      "source_id": "662ea78f059441ab8a35991326e96c9b:source:11ab82cfc3a617d57280cbf8de01380a9cb665299c71fb949786f64caca4336c",
+      "target_id": "662ea78f059441ab8a35991326e96c9b:artifact:8087ee519c15480453785fc1e731858b8c782bd90a5ef01ccbef779cd89d27b7"
+    }
+  ],
+  "region": [
+    {
+      "edges": [
+        {
+          "kind": "CONSUMED",
+          "source": "662ea78f059441ab8a35991326e96c9b:source:11ab82cfc3a617d57280cbf8de01380a9cb665299c71fb949786f64caca4336c",
+          "target": "662ea78f059441ab8a35991326e96c9b:execution:1b5b54816e4edd27db4bf3e09c6dd85a945df7e012e098f6e2ac83ecd2eabbd8"
+        },
+        {
+          "kind": "PRODUCED",
+          "source": "662ea78f059441ab8a35991326e96c9b:execution:1b5b54816e4edd27db4bf3e09c6dd85a945df7e012e098f6e2ac83ecd2eabbd8",
+          "target": "662ea78f059441ab8a35991326e96c9b:artifact:9f3e27aa2d7d7769c99ccf1348003ef046eb2a4a3a590df814f5488ff2aadabd"
+        },
+        {
+          "kind": "CONSUMED",
+          "source": "662ea78f059441ab8a35991326e96c9b:artifact:9f3e27aa2d7d7769c99ccf1348003ef046eb2a4a3a590df814f5488ff2aadabd",
+          "target": "662ea78f059441ab8a35991326e96c9b:execution:2fc5227b5ccef30edb40924d391efb4d6b414ec7b6b0133db6ecac487e48e678"
+        },
+        {
+          "kind": "PRODUCED",
+          "source": "662ea78f059441ab8a35991326e96c9b:execution:2fc5227b5ccef30edb40924d391efb4d6b414ec7b6b0133db6ecac487e48e678",
+          "target": "662ea78f059441ab8a35991326e96c9b:artifact:e19bd2d97d4dd74821c3f13272387396cb5f8aa8e3670ffdaec77103c05b1439"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:source:11ab82cfc3a617d57280cbf8de01380a9cb665299c71fb949786f64caca4336c",
+          "kind": "source",
+          "label": "Explicit exchange rates"
+        },
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:execution:1b5b54816e4edd27db4bf3e09c6dd85a945df7e012e098f6e2ac83ecd2eabbd8",
+          "kind": "execution",
+          "label": "Execute convert_to_usd"
+        },
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:artifact:9f3e27aa2d7d7769c99ccf1348003ef046eb2a4a3a590df814f5488ff2aadabd",
+          "kind": "artifact",
+          "label": "Regional USD revenue"
+        },
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:execution:2fc5227b5ccef30edb40924d391efb4d6b414ec7b6b0133db6ecac487e48e678",
+          "kind": "execution",
+          "label": "Execute compose_report"
+        },
+        {
+          "id": "662ea78f059441ab8a35991326e96c9b:artifact:e19bd2d97d4dd74821c3f13272387396cb5f8aa8e3670ffdaec77103c05b1439",
+          "kind": "artifact",
+          "label": "NORTH revenue brief"
+        }
+      ],
+      "source_id": "662ea78f059441ab8a35991326e96c9b:source:11ab82cfc3a617d57280cbf8de01380a9cb665299c71fb949786f64caca4336c",
+      "target_id": "662ea78f059441ab8a35991326e96c9b:artifact:e19bd2d97d4dd74821c3f13272387396cb5f8aa8e3670ffdaec77103c05b1439"
+    }
+  ]
+}

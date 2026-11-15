@@ -40,7 +40,7 @@ function observe(page: Page, expectedFailures: string[] = []) {
 async function checkPage(page: Page, errors: string[]) {
   await expect(page).toHaveTitle(/ProofFlow/)
   expect(new URL(page.url()).origin).toBe(origin)
-  await expect(page.getByRole('heading', { name: 'A change should travel.' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Keep revenue reports current', exact: true })).toBeVisible()
   await expect(page.locator('vite-error-overlay, nextjs-portal')).toHaveCount(0)
   expect(errors).toEqual([])
 }
@@ -167,7 +167,8 @@ test('download checks the visible imported report heads and refuses a concurrent
       await page.evaluate(() => window.scrollTo(0, 0))
       await expect(downloadButton(page)).toBeInViewport({ ratio: 1 })
       await expect(page.getByRole('status').filter({ hasText: 'Snapshot checked at' })).toBeInViewport({ ratio: 1 })
-      expect(await page.locator('.report-export').evaluate(node => node.scrollWidth <= node.clientWidth)).toBe(true)
+      const workflow = page.getByRole('region', { name: 'Correction workflow', exact: true })
+      expect(await workflow.evaluate(node => node.scrollWidth <= node.clientWidth)).toBe(true)
       await page.screenshot({ path: info.outputPath(`refreshed-${width}px.png`) })
     }
 

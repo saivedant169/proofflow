@@ -1,0 +1,218 @@
+{
+  "fx-correction": {
+    "input_revision_sha256": "92610d36e095729522387b5c5e29964c4b60e1fcce9d8c378895d1369923a163",
+    "old_values_equal": [
+      "gross",
+      "net",
+      "refunds",
+      "support"
+    ],
+    "outputs": {
+      "company": 63679,
+      "company_report": 63679,
+      "gross": {
+        "NORTH": 22601,
+        "SOUTH": 24500,
+        "WEST": 13100
+      },
+      "net": {
+        "NORTH": 22001,
+        "SOUTH": 23300,
+        "WEST": 12502
+      },
+      "refunds": {
+        "NORTH": 600,
+        "SOUTH": 1200,
+        "WEST": 598
+      },
+      "region_report": 24751,
+      "regional": {
+        "NORTH": 24751,
+        "SOUTH": 23300,
+        "WEST": 15628
+      },
+      "support": {
+        "NORTH": 3,
+        "SOUTH": 3,
+        "WEST": 6
+      }
+    },
+    "recalculation": {
+      "fresh_logical_outputs": [
+        "company",
+        "company_report",
+        "gross",
+        "net",
+        "refunds",
+        "region_report",
+        "regional",
+        "support"
+      ],
+      "full_csv_scans": 1,
+      "input_validation_passed": true,
+      "reconciliation_controls": {
+        "company_report_reconciles_to_region_plus_remaining_regions": true,
+        "grouped_net_matches_row_net_for_each_region": true,
+        "selected_report_matches_converted_region": true,
+        "support_matches_input_control_total": true
+      },
+      "region_currencies": {
+        "NORTH": "EUR",
+        "SOUTH": "USD",
+        "WEST": "GBP"
+      },
+      "validated_rows": 9
+    },
+    "snapshot_sha256": "e94da3e0cc910e218e8d7c859ac3dc5fbac38bd97f962872647b0099f29035dd",
+    "source": {
+      "csv_sha256": "cc30dc5dcfc47010f069fd8eba78b4b5f8e763d30eeb288d637b55ee3d19aaed",
+      "rates": {
+        "EUR": "1.125",
+        "GBP": "1.25"
+      },
+      "region": "NORTH"
+    }
+  },
+  "initial": {
+    "input_revision_sha256": "fe87577a4778ac58fdea0e95e69edb66b950bf8243b515b6bcb0097f8b6bb4ca",
+    "old_values_equal": [],
+    "outputs": {
+      "company": 63129,
+      "company_report": 63129,
+      "gross": {
+        "NORTH": 22601,
+        "SOUTH": 24500,
+        "WEST": 13100
+      },
+      "net": {
+        "NORTH": 22001,
+        "SOUTH": 23300,
+        "WEST": 12502
+      },
+      "refunds": {
+        "NORTH": 600,
+        "SOUTH": 1200,
+        "WEST": 598
+      },
+      "region_report": 24201,
+      "regional": {
+        "NORTH": 24201,
+        "SOUTH": 23300,
+        "WEST": 15628
+      },
+      "support": {
+        "NORTH": 3,
+        "SOUTH": 3,
+        "WEST": 6
+      }
+    },
+    "recalculation": {
+      "fresh_logical_outputs": [
+        "company",
+        "company_report",
+        "gross",
+        "net",
+        "refunds",
+        "region_report",
+        "regional",
+        "support"
+      ],
+      "full_csv_scans": 1,
+      "input_validation_passed": true,
+      "reconciliation_controls": {
+        "company_report_reconciles_to_region_plus_remaining_regions": true,
+        "grouped_net_matches_row_net_for_each_region": true,
+        "selected_report_matches_converted_region": true,
+        "support_matches_input_control_total": true
+      },
+      "region_currencies": {
+        "NORTH": "EUR",
+        "SOUTH": "USD",
+        "WEST": "GBP"
+      },
+      "validated_rows": 9
+    },
+    "snapshot_sha256": "2d7f06c22cd23930421deb322bb31d9a1ea5933136a4614b9fe8ede9fa8ad1c1",
+    "source": {
+      "csv_sha256": "cc30dc5dcfc47010f069fd8eba78b4b5f8e763d30eeb288d637b55ee3d19aaed",
+      "rates": {
+        "EUR": "1.10",
+        "GBP": "1.25"
+      },
+      "region": "NORTH"
+    }
+  },
+  "refund-correction": {
+    "input_revision_sha256": "961361ece95c3b93345f6fa38a7f0dedf035b8d964d97b92653ec9819783f17c",
+    "old_values_equal": [
+      "gross",
+      "region_report",
+      "support"
+    ],
+    "outputs": {
+      "company": 63179,
+      "company_report": 63179,
+      "gross": {
+        "NORTH": 22601,
+        "SOUTH": 24500,
+        "WEST": 13100
+      },
+      "net": {
+        "NORTH": 22001,
+        "SOUTH": 22800,
+        "WEST": 12502
+      },
+      "refunds": {
+        "NORTH": 600,
+        "SOUTH": 1700,
+        "WEST": 598
+      },
+      "region_report": 24751,
+      "regional": {
+        "NORTH": 24751,
+        "SOUTH": 22800,
+        "WEST": 15628
+      },
+      "support": {
+        "NORTH": 3,
+        "SOUTH": 3,
+        "WEST": 6
+      }
+    },
+    "recalculation": {
+      "fresh_logical_outputs": [
+        "company",
+        "company_report",
+        "gross",
+        "net",
+        "refunds",
+        "region_report",
+        "regional",
+        "support"
+      ],
+      "full_csv_scans": 1,
+      "input_validation_passed": true,
+      "reconciliation_controls": {
+        "company_report_reconciles_to_region_plus_remaining_regions": true,
+        "grouped_net_matches_row_net_for_each_region": true,
+        "selected_report_matches_converted_region": true,
+        "support_matches_input_control_total": true
+      },
+      "region_currencies": {
+        "NORTH": "EUR",
+        "SOUTH": "USD",
+        "WEST": "GBP"
+      },
+      "validated_rows": 9
+    },
+    "snapshot_sha256": "e06cfde16f01f0dad8a1272a0050cb13ace84b9d82198ef36cca7bf765e7a4b6",
+    "source": {
+      "csv_sha256": "990e3b2c6d03e34c132d47537e63c3f3b36c7c5e3181769dc35d7cc4f80ea574",
+      "rates": {
+        "EUR": "1.125",
+        "GBP": "1.25"
+      },
+      "region": "NORTH"
+    }
+  }
+}

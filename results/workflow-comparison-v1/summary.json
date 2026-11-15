@@ -1,0 +1,219 @@
+{
+  "attempts": [
+    {
+      "arm_status": {
+        "ordinary": "passed",
+        "proofflow": "passed"
+      },
+      "manifest": "attempt-001/run.json",
+      "operations": "attempt-001/operations.jsonl",
+      "status": "passed"
+    }
+  ],
+  "freeze_sha256": "9fb9d68b60bd32b9e594849fc5f4c88fab1bd06c80575674c74bb3cbb0e8c616",
+  "handoffs": {
+    "ordinary": {
+      "current_accepted": 3,
+      "old_file_integrity_checks_passed": 3,
+      "stale_rejected_without_content": 4
+    },
+    "proofflow": {
+      "current_accepted": 3,
+      "old_file_integrity_checks_passed": 3,
+      "stale_rejected_without_content": 4
+    }
+  },
+  "order_rows_per_phase": 9,
+  "phases": [
+    {
+      "company_usd_cents": 63129,
+      "csv_sha256": "cc30dc5dcfc47010f069fd8eba78b4b5f8e763d30eeb288d637b55ee3d19aaed",
+      "id": "initial",
+      "input_revision_sha256": "fe87577a4778ac58fdea0e95e69edb66b950bf8243b515b6bcb0097f8b6bb4ca",
+      "oracle_outputs_matched_per_arm": 8,
+      "ordinary": {
+        "fresh_logical_outputs": 8,
+        "input_validation_scans": 1,
+        "passed_reconciliation_controls": 4,
+        "validated_rows": 9
+      },
+      "proofflow": {
+        "affected_outputs": [],
+        "arithmetic": {
+          "preflight": 16,
+          "recorded": 8,
+          "total": 35,
+          "verification": 11
+        },
+        "current_claims_withheld_after_update": 0,
+        "native_paths_from_superseded_source_to_reports": {},
+        "new_recorded_outputs": [
+          "company",
+          "company_report",
+          "gross",
+          "net",
+          "refunds",
+          "region_report",
+          "regional",
+          "support"
+        ],
+        "retained_heads_and_receipts": []
+      },
+      "rates": {
+        "EUR": "1.10",
+        "GBP": "1.25"
+      },
+      "selected_region_usd_cents": 24201,
+      "snapshots": {
+        "ordinary": {
+          "file": "attempt-001/ordinary-initial.txt",
+          "sha256": "2d7f06c22cd23930421deb322bb31d9a1ea5933136a4614b9fe8ede9fa8ad1c1"
+        },
+        "proofflow": {
+          "file": "attempt-001/proofflow-initial.txt",
+          "sha256": "8b7892d6b9aedb2bac43208b79fa7b5c62e8cd33014fa7145b23bd15d1e05ddb"
+        }
+      },
+      "workspace": "cold"
+    },
+    {
+      "company_usd_cents": 63679,
+      "csv_sha256": "cc30dc5dcfc47010f069fd8eba78b4b5f8e763d30eeb288d637b55ee3d19aaed",
+      "id": "fx-correction",
+      "input_revision_sha256": "92610d36e095729522387b5c5e29964c4b60e1fcce9d8c378895d1369923a163",
+      "oracle_outputs_matched_per_arm": 8,
+      "ordinary": {
+        "fresh_logical_outputs": 8,
+        "input_validation_scans": 1,
+        "passed_reconciliation_controls": 4,
+        "validated_rows": 9
+      },
+      "proofflow": {
+        "affected_outputs": [
+          "company",
+          "company_report",
+          "region_report",
+          "regional"
+        ],
+        "arithmetic": {
+          "preflight": 16,
+          "recorded": 4,
+          "total": 31,
+          "verification": 11
+        },
+        "current_claims_withheld_after_update": 2,
+        "native_paths_from_superseded_source_to_reports": {
+          "company": 1,
+          "region": 1
+        },
+        "new_recorded_outputs": [
+          "company",
+          "company_report",
+          "region_report",
+          "regional"
+        ],
+        "retained_heads_and_receipts": [
+          "gross",
+          "net",
+          "refunds",
+          "support"
+        ]
+      },
+      "rates": {
+        "EUR": "1.125",
+        "GBP": "1.25"
+      },
+      "selected_region_usd_cents": 24751,
+      "snapshots": {
+        "ordinary": {
+          "file": "attempt-001/ordinary-fx-correction.txt",
+          "sha256": "e94da3e0cc910e218e8d7c859ac3dc5fbac38bd97f962872647b0099f29035dd"
+        },
+        "proofflow": {
+          "file": "attempt-001/proofflow-fx-correction.txt",
+          "sha256": "3ab613c36f36a26a3be17187293fa5c228dc891fa991d95f73d90289f998c446"
+        }
+      },
+      "workspace": "warm"
+    },
+    {
+      "company_usd_cents": 63179,
+      "csv_sha256": "990e3b2c6d03e34c132d47537e63c3f3b36c7c5e3181769dc35d7cc4f80ea574",
+      "id": "refund-correction",
+      "input_revision_sha256": "961361ece95c3b93345f6fa38a7f0dedf035b8d964d97b92653ec9819783f17c",
+      "oracle_outputs_matched_per_arm": 8,
+      "ordinary": {
+        "fresh_logical_outputs": 8,
+        "input_validation_scans": 1,
+        "passed_reconciliation_controls": 4,
+        "validated_rows": 9
+      },
+      "proofflow": {
+        "affected_outputs": [
+          "company",
+          "company_report",
+          "net",
+          "refunds",
+          "region_report",
+          "regional"
+        ],
+        "arithmetic": {
+          "preflight": 16,
+          "recorded": 6,
+          "total": 33,
+          "verification": 11
+        },
+        "current_claims_withheld_after_update": 2,
+        "native_paths_from_superseded_source_to_reports": {
+          "company": 1,
+          "region": 1
+        },
+        "new_recorded_outputs": [
+          "company",
+          "company_report",
+          "net",
+          "refunds",
+          "region_report",
+          "regional"
+        ],
+        "retained_heads_and_receipts": [
+          "gross",
+          "support"
+        ]
+      },
+      "rates": {
+        "EUR": "1.125",
+        "GBP": "1.25"
+      },
+      "selected_region_usd_cents": 24751,
+      "snapshots": {
+        "ordinary": {
+          "file": "attempt-001/ordinary-refund-correction.txt",
+          "sha256": "e06cfde16f01f0dad8a1272a0050cb13ace84b9d82198ef36cca7bf765e7a4b6"
+        },
+        "proofflow": {
+          "file": "attempt-001/proofflow-refund-correction.txt",
+          "sha256": "f1c66cd1adc9a569a09f33807e0920799f7310ab2f51df062e2a799661be8fd7"
+        }
+      },
+      "workspace": "warm"
+    }
+  ],
+  "proofflow_demo_bootstrap_arithmetic": {
+    "preflight": 0,
+    "recorded": 8,
+    "verification": 0
+  },
+  "proofflow_first_session_plus_initial_arithmetic_total": 43,
+  "protocol": "workflow-comparison-v1",
+  "runtime_patch_sha256": "f5681017ca160aa2fcdac08b5a0a028b73c46b78e3a82a2a1e605d7231af499e",
+  "scope": "Builder-run probe of an authored synthetic dataset, one paired execution, zero model calls.",
+  "selected_region": "NORTH",
+  "status": "passed",
+  "two_warm_corrections": {
+    "ordinary_fresh_logical_outputs": 16,
+    "proofflow_new_recorded_outputs": 10,
+    "proofflow_registered_arithmetic_invocations": 64,
+    "proofflow_retained_heads_and_receipts": 6
+  }
+}

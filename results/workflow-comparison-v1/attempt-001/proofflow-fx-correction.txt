@@ -1,0 +1,12 @@
+ProofFlow current revenue reports
+Checked at (UTC): 2026-11-15T19:18:36.970867+00:00
+Snapshot only. Both reports and their revenue claims were current at the check time.
+This file will not update after subsequent changes.
+
+Company net revenue: $636.79 USD
+Report artifact ID: 662ea78f059441ab8a35991326e96c9b:artifact:c5a030d0eb876de8efaf981b5685ba1503bb6eb3936606413f56ada64be10884
+Claim artifact ID: 662ea78f059441ab8a35991326e96c9b:artifact:824869e2d0c601fcce787a4190f3b8257dbb2d9df3629a63e714e3c722e22a86
+
+Regional net revenue ('NORTH'): $247.51 USD
+Report artifact ID: 662ea78f059441ab8a35991326e96c9b:artifact:6b6be28ded9cdf4ed819a46555f53967bb112ab5724e6a286c2402b58a4a6cd2
+Claim artifact ID: 662ea78f059441ab8a35991326e96c9b:artifact:e72bae88ec8f82268f4e523d7f6d037a0e31d4491a4321fcd8a5dca90865c41e

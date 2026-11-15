@@ -1,0 +1,59 @@
+{
+  "protocol": "workflow-comparison-v1",
+  "origin": "Authored synthetic small commerce close. All identifiers and amounts are fictional.",
+  "selected_region": "NORTH",
+  "region_currencies": {"NORTH": "EUR", "SOUTH": "USD", "WEST": "GBP"},
+  "cases": [
+    {
+      "id": "initial",
+      "csv": "base.csv",
+      "rates": {"EUR": "1.10", "GBP": "1.25"},
+      "changed_source": null,
+      "affected_outputs": [],
+      "expected": {
+        "gross": {"NORTH": 22601, "SOUTH": 24500, "WEST": 13100},
+        "refunds": {"NORTH": 600, "SOUTH": 1200, "WEST": 598},
+        "net": {"NORTH": 22001, "SOUTH": 23300, "WEST": 12502},
+        "regional": {"NORTH": 24201, "SOUTH": 23300, "WEST": 15628},
+        "company": 63129,
+        "support": {"NORTH": 3, "SOUTH": 3, "WEST": 6},
+        "company_report": 63129,
+        "region_report": 24201
+      }
+    },
+    {
+      "id": "fx-correction",
+      "csv": "base.csv",
+      "rates": {"EUR": "1.125", "GBP": "1.25"},
+      "changed_source": "fx",
+      "affected_outputs": ["regional", "company", "company_report", "region_report"],
+      "expected": {
+        "gross": {"NORTH": 22601, "SOUTH": 24500, "WEST": 13100},
+        "refunds": {"NORTH": 600, "SOUTH": 1200, "WEST": 598},
+        "net": {"NORTH": 22001, "SOUTH": 23300, "WEST": 12502},
+        "regional": {"NORTH": 24751, "SOUTH": 23300, "WEST": 15628},
+        "company": 63679,
+        "support": {"NORTH": 3, "SOUTH": 3, "WEST": 6},
+        "company_report": 63679,
+        "region_report": 24751
+      }
+    },
+    {
+      "id": "refund-correction",
+      "csv": "refund-corrected.csv",
+      "rates": {"EUR": "1.125", "GBP": "1.25"},
+      "changed_source": "refunds",
+      "affected_outputs": ["refunds", "net", "regional", "company", "company_report", "region_report"],
+      "expected": {
+        "gross": {"NORTH": 22601, "SOUTH": 24500, "WEST": 13100},
+        "refunds": {"NORTH": 600, "SOUTH": 1700, "WEST": 598},
+        "net": {"NORTH": 22001, "SOUTH": 22800, "WEST": 12502},
+        "regional": {"NORTH": 24751, "SOUTH": 22800, "WEST": 15628},
+        "company": 63179,
+        "support": {"NORTH": 3, "SOUTH": 3, "WEST": 6},
+        "company_report": 63179,
+        "region_report": 24751
+      }
+    }
+  ]
+}

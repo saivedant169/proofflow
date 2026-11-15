@@ -1,0 +1,58 @@
+{
+  "accounting": {
+    "fresh_logical_outputs": [
+      "company",
+      "company_report",
+      "gross",
+      "net",
+      "refunds",
+      "region_report",
+      "regional",
+      "support"
+    ],
+    "full_csv_scans": 1,
+    "input_validation_passed": true,
+    "reconciliation_controls": {
+      "company_report_reconciles_to_region_plus_remaining_regions": true,
+      "grouped_net_matches_row_net_for_each_region": true,
+      "selected_report_matches_converted_region": true,
+      "support_matches_input_control_total": true
+    },
+    "region_currencies": {
+      "NORTH": "EUR",
+      "SOUTH": "USD",
+      "WEST": "GBP"
+    },
+    "validated_rows": 9
+  },
+  "outputs": {
+    "company": 63679,
+    "company_report": 63679,
+    "gross": {
+      "NORTH": 22601,
+      "SOUTH": 24500,
+      "WEST": 13100
+    },
+    "net": {
+      "NORTH": 22001,
+      "SOUTH": 23300,
+      "WEST": 12502
+    },
+    "refunds": {
+      "NORTH": 600,
+      "SOUTH": 1200,
+      "WEST": 598
+    },
+    "region_report": 24751,
+    "regional": {
+      "NORTH": 24751,
+      "SOUTH": 23300,
+      "WEST": 15628
+    },
+    "support": {
+      "NORTH": 3,
+      "SOUTH": 3,
+      "WEST": 6
+    }
+  }
+}

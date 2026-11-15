@@ -1,0 +1,35 @@
+{
+  "accounting": {
+    "preflight_calculation_count": 8,
+    "recorded_tool_call_count": 0,
+    "total_calculation_count": 8,
+    "verification_calculation_count": 0
+  },
+  "content_sha256": "990e3b2c6d03e34c132d47537e63c3f3b36c7c5e3181769dc35d7cc4f80ea574",
+  "currencies": [
+    "EUR",
+    "GBP",
+    "USD"
+  ],
+  "persisted": false,
+  "preflight_calculation_count": 8,
+  "rates": {
+    "EUR": "1.125",
+    "GBP": "1.25",
+    "USD": "1"
+  },
+  "recorded_tool_calls": 0,
+  "regions": [
+    "NORTH",
+    "SOUTH",
+    "WEST"
+  ],
+  "row_count": 9,
+  "selected_region": "NORTH",
+  "supported_ticket_regions": [
+    "NORTH",
+    "SOUTH",
+    "WEST"
+  ],
+  "valid": true
+}

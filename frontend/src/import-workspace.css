@@ -1,16 +1,66 @@
-.report-export {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 14px;
+.workspace-workflow {
   margin-bottom: 16px;
 }
 
-.report-export p {
+.workflow-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+}
+
+.workflow-hint {
+  flex: 1 1 300px;
+  color: #424954;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.workflow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workflow-actions .button {
+  min-height: 38px;
+  padding-inline: 12px;
+  font-size: 12px;
+}
+
+.workflow-step-number {
+  display: grid;
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.report-export-status {
+  margin-top: 8px;
   color: var(--muted);
   font-size: 12px;
   line-height: 1.5;
+}
+
+.import-report-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+}
+
+.import-report-note .text-link,
+.import-report-note .status {
+  font-size: 11px;
 }
 
 .report-panel .metric strong,
@@ -32,5 +82,24 @@
   .report-panel .metric .metric-long-amount {
     font-size: clamp(18px, 6vw, 25px);
     letter-spacing: -.5px;
+  }
+}
+
+@media (max-width: 520px) {
+  .workflow-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .workflow-actions li:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .workflow-actions .button {
+    width: 100%;
+    min-height: 40px;
+    padding-inline: 5px;
+    gap: 5px;
   }
 }

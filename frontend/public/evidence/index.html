@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ProofFlow’s saved model benchmark, public results bundle, and offline verification instructions.">
+    <title>Benchmark evidence | ProofFlow</title>
+    <link rel="stylesheet" href="evidence.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to results</a>
+    <header class="topbar">
+      <div class="container topbar-content">
+        <a class="wordmark" href="/" aria-label="ProofFlow workspace">ProofFlow</a>
+        <nav aria-label="Site navigation">
+          <a href="/">Workspace</a>
+          <a aria-current="page" href="/evidence/">Evidence</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="container" tabindex="-1">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="study-date"><time datetime="2026-11-15">15 November 2026</time> model study</p>
+          <h1 id="page-title">Verify the benchmark results</h1>
+          <p class="intro">Recheck 48 saved model runs across eight cases and six evidence selection methods. The ZIP includes the source rows, saved outcomes and an offline verifier.</p>
+          <div class="actions">
+            <a class="button primary" href="proofflow-model-evidence.zip" download>Download evidence ZIP <span aria-hidden="true">↓</span></a>
+            <a class="button secondary" href="#verify">Verify offline</a>
+          </div>
+        </div>
+        <div class="highlights">
+          <dl>
+            <div>
+              <dt>Recoverable affected reports refreshed by graph</dt>
+              <dd>32<span>/32</span></dd>
+            </div>
+            <div>
+              <dt>Graph input exposure relative to full context</dt>
+              <dd>39.33<span>%</span></dd>
+              <dd class="metric-note">75,422 ÷ 191,774 provider input tokens across M01–M07</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="model-study">
+        <div class="section-title">
+          <h2 id="model-study">Saved model comparison</h2>
+          <p>A refreshed report passed independent checks for arithmetic, currentness and provenance.</p>
+        </div>
+        <table class="outcomes">
+          <thead>
+            <tr>
+              <th scope="col">Evidence selection</th>
+              <th scope="col">Fresh affected reports</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Graph</th><td><progress max="32" value="32" aria-hidden="true"></progress><span>32/32</span></td></tr>
+            <tr><th scope="row">Exact-flat traversal</th><td><progress max="32" value="32" aria-hidden="true"></progress><span>32/32</span></td></tr>
+            <tr><th scope="row">Full context</th><td><progress max="32" value="32" aria-hidden="true"></progress><span>32/32</span></td></tr>
+            <tr><th scope="row">BM25</th><td><progress max="32" value="25" aria-hidden="true"></progress><span>25/32</span></td></tr>
+            <tr><th scope="row">Dense BGE</th><td><progress max="32" value="5" aria-hidden="true"></progress><span>5/32</span></td></tr>
+            <tr><th scope="row">Iterative hybrid</th><td><progress max="32" value="28" aria-hidden="true"></progress><span>28/32</span></td></tr>
+          </tbody>
+        </table>
+        <p class="table-note">Every method blocked 4/4 unavailable reports and preserved all 52 unaffected report identities.</p>
+      </section>
+
+      <section class="section" aria-labelledby="earlier-studies">
+        <div class="section-title">
+          <h2 id="earlier-studies">Earlier budget failures</h2>
+          <p>These deterministic results use separate workloads and evidence budgets.</p>
+        </div>
+        <ul class="prior-studies">
+          <li><strong>16/29</strong><div><h3>Authored pilot</h3><p>Graph refreshed 16 recoverable reports at a fixed 2,048-token cap.</p></div></li>
+          <li><strong>8/38</strong><div><h3>Retail test</h3><p>Graph refreshed 8 recoverable reports at the same fixed cap.</p></div></li>
+          <li><strong>60.79%</strong><div><h3>Retail development</h3><p>Graph used 6,752 of 11,107 full-context evidence tokens and failed the 40% maximum.</p></div></li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="conditions">
+        <div class="section-title"><h2 id="conditions">Study conditions and limits</h2></div>
+        <ul class="conditions">
+          <li>Each case used one model sample per method. Graph and exact-flat received byte-identical prompts in all eight cases.</li>
+          <li>Each case’s complete graph closure set the five capped methods’ shared evidence allowance. Full context received the complete corpus.</li>
+          <li>Every method used the same Hydra-assisted refresh and currentness executor. Standalone vector safety and graph-engine superiority are outside the comparison’s scope.</li>
+          <li>Provider input exposure includes uncached input, cache writes and cache reads. The primary ratio excludes the canonical no-op (M08).</li>
+        </ul>
+      </section>
+
+      <section class="verify section" id="verify" aria-labelledby="verification-heading">
+        <div class="section-title">
+          <h2 id="verification-heading">Verify offline</h2>
+          <p>Use Python 3.10 or later. The bundle includes both verifier scripts and all reconstruction inputs.</p>
+        </div>
+        <ol>
+          <li>Download the <a href="proofflow-model-evidence.zip" download>evidence ZIP</a> and <a href="proofflow-model-evidence.zip.sha256" download>SHA-256 file</a>. Match them with <code>shasum -a 256 -c</code> on macOS or <code>sha256sum -c</code> on Linux, followed by the checksum filename.</li>
+          <li>Extract the ZIP, open a terminal in the extracted folder and run <code class="command">python3 scripts/verify_public_evidence.py</code></li>
+        </ol>
+        <p>The verifier checks file hashes and independently recalculates report values from 4,681 source rows. It traces receipts and reconciles provider accounting across 48 cells and 152 saved model-study payloads. Its scope is the saved observation. Live model replication, provider attestation and HydraDB replay require separate evidence.</p>
+        <p class="provenance">Study revision <code>3fa9f85</code>. The manifest records redacted host-local paths and updated hash bindings. The retail data attribution is included in the ZIP.</p>
+      </section>
+    </main>
+  </body>
+</html>

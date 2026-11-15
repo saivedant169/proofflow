@@ -1,0 +1,176 @@
+{
+  "backend": {
+    "engine": "HydraDB OSS",
+    "fallback": false,
+    "native_queries": 322
+  },
+  "executions": [
+    {
+      "elapsed_ms": 0.25587528944015503,
+      "id": "7f5c7e484716421aaf6e4cf4438dc1f8:execution:94e96b165583a6b6dc28b9b83c2cdc88eecd4c34e08b34a1787a483e59e45831",
+      "inputs": {
+        "orders": "7f5c7e484716421aaf6e4cf4438dc1f8:source:914e23d2b75b934ce8c853aaeca78a6166f23d561d80c82aaa83a636ea970482"
+      },
+      "output_hash": "29c768fba26a63c4afc2153d3f238ce1a78ad132775067210e4c558eadf77fc3",
+      "output_id": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:1d6fd8d238a5b0c6bfdb7da5d0ea270e9b44f5fe7a31f90329f10b40d9c2064c",
+      "params": {},
+      "run_id": "run-A",
+      "status": "success",
+      "tool": "gross_by_region",
+      "tool_version_id": "7f5c7e484716421aaf6e4cf4438dc1f8:tool:269b8e6146f737a72eb9a36bffe590aa96dbf8d97767ebb5f3bc176c20273a09"
+    },
+    {
+      "elapsed_ms": 0.32133283093571663,
+      "id": "7f5c7e484716421aaf6e4cf4438dc1f8:execution:11b231a4f2a3f51bb4169ae3ccb2d58266cd19cff4af7cf632bc7e6c017b60aa",
+      "inputs": {
+        "orders": "7f5c7e484716421aaf6e4cf4438dc1f8:source:914e23d2b75b934ce8c853aaeca78a6166f23d561d80c82aaa83a636ea970482",
+        "refunds": "7f5c7e484716421aaf6e4cf4438dc1f8:source:7c333770eb37b73288bcc874256bf82d691c151f76ae61431ddd42b6e300f168"
+      },
+      "output_hash": "bedda9f8f1d87d1f32d78b7b5fe6643e6e0a7ecd7bfcd5993ffcf4af5bd71c85",
+      "output_id": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:3a9cbdc4c4eea534aa88e70f1b0e716ca1396b165421c7d00ce53046111bca12",
+      "params": {},
+      "run_id": "run-A",
+      "status": "success",
+      "tool": "refunds_by_region",
+      "tool_version_id": "7f5c7e484716421aaf6e4cf4438dc1f8:tool:daca152df821a64d43d80795b52abd53e98085406a1e6c69c9792f1c56ae4e8a"
+    },
+    {
+      "elapsed_ms": 0.22954074665904045,
+      "id": "7f5c7e484716421aaf6e4cf4438dc1f8:execution:7b91d4e0b96af1d4c8bb5da50a96eb44c553c33ec96d8b30436c7b75076852bc",
+      "inputs": {
+        "gross": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:1d6fd8d238a5b0c6bfdb7da5d0ea270e9b44f5fe7a31f90329f10b40d9c2064c",
+        "refunds": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:3a9cbdc4c4eea534aa88e70f1b0e716ca1396b165421c7d00ce53046111bca12"
+      },
+      "output_hash": "b6dd4e3afc76a0a0addb6452ee36f81e16dce1b5a62aef07a3f328e778b07e0d",
+      "output_id": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:500614fb196ba10f307b4f2424a0bcdd6ea3e03f40bdad53183b6619e1bd8a94",
+      "params": {},
+      "run_id": "run-A",
+      "status": "success",
+      "tool": "net_by_region",
+      "tool_version_id": "7f5c7e484716421aaf6e4cf4438dc1f8:tool:077ba3c17c0056a410c5fe3638ef60267578e466552567585982deca82823b8f"
+    },
+    {
+      "elapsed_ms": 0.10304106399416924,
+      "id": "7f5c7e484716421aaf6e4cf4438dc1f8:execution:e4c8cbd8685a62f8adaddc27e0b4ae0fab6179e61d4f2cb68d94ea6b6c17b4e6",
+      "inputs": {
+        "fx": "7f5c7e484716421aaf6e4cf4438dc1f8:source:c3f3a9fc579e39021846808890f2a9870545a41b45afcfb8157c197fd37c90fe",
+        "net": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:500614fb196ba10f307b4f2424a0bcdd6ea3e03f40bdad53183b6619e1bd8a94"
+      },
+      "output_hash": "526650442cbbbd8b937ad2c64c2143d7f962c451ac307269c78a275e4d0ba2fe",
+      "output_id": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:d6ee4371aa62b2a850287b6fb3b9f3b345f88169791a6620fa5afb6d42137154",
+      "params": {},
+      "run_id": "run-A",
+      "status": "success",
+      "tool": "convert_to_usd",
+      "tool_version_id": "7f5c7e484716421aaf6e4cf4438dc1f8:tool:c78b222dc40236afafd222f7cc7438950a6b1179ad4dd169a6b3c1cfc0eb302f"
+    },
+    {
+      "elapsed_ms": 0.14899997040629387,
+      "id": "7f5c7e484716421aaf6e4cf4438dc1f8:execution:617713e5f0ae30c9725bae59f13d060a8eb754aa0a718ce258c828576b54ef9e",
+      "inputs": {
+        "regional": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:d6ee4371aa62b2a850287b6fb3b9f3b345f88169791a6620fa5afb6d42137154"
+      },
+      "output_hash": "e52691921262dfaef573b43d4d9ba73714c430f37c407452fe2e761412415173",
+      "output_id": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:f5216d29ad7ec024164d7770132d1574a131d68f5f938601379350c2c519db8d",
+      "params": {},
+      "run_id": "run-A",
+      "status": "success",
+      "tool": "company_total",
+      "tool_version_id": "7f5c7e484716421aaf6e4cf4438dc1f8:tool:f292d9109171070088c107efc2b4cf2d929961bad569bdcf8968cd8d31b37434"
+    },
+    {
+      "elapsed_ms": 0.4219580441713333,
+      "id": "7f5c7e484716421aaf6e4cf4438dc1f8:execution:292a3028cc505814ff8bb9ad479ca2202dd7642bc987a6aae3729afbfc18940d",
+      "inputs": {
+        "tickets": "7f5c7e484716421aaf6e4cf4438dc1f8:source:5f2a0265b5ea92ccc0ab18d3426e41047d89b46c5f7285b0b7c54531a1d5acd9"
+      },
+      "output_hash": "7eb0a8839246e1269473f4b65d6a782e9d6ff5a559d67ae098121831445a9271",
+      "output_id": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:25d9970f23137d9944ba2ec1d800bf36b5510a493d891219d53613221682582d",
+      "params": {},
+      "run_id": "run-A",
+      "status": "success",
+      "tool": "support_by_region",
+      "tool_version_id": "7f5c7e484716421aaf6e4cf4438dc1f8:tool:cdf845d61772c018c96cc888cca284ee58d53b77991a061ba21743481a969c99"
+    },
+    {
+      "elapsed_ms": 0.21462514996528625,
+      "id": "7f5c7e484716421aaf6e4cf4438dc1f8:execution:745c7a2d2395932597ec46d6eb09ec44dcc5a19dccf8a35270d3bef37eedecc0",
+      "inputs": {
+        "revenue": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:f5216d29ad7ec024164d7770132d1574a131d68f5f938601379350c2c519db8d",
+        "support": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:25d9970f23137d9944ba2ec1d800bf36b5510a493d891219d53613221682582d"
+      },
+      "output_hash": "0f3fe476bfe97f0b4dddf114898274ec0acd4ef2f56ba480efb25c48c25a6377",
+      "output_id": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:db5b0ad3ce91a2e279f981f4cd372dd0178ba060cbf87d1e1226651c987dab18",
+      "params": {
+        "sections": [
+          {
+            "input": "revenue",
+            "key": "company_revenue",
+            "label": "Company revenue",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "eu_support",
+            "label": "EU support tickets",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "Company weekly report"
+      },
+      "run_id": "run-A",
+      "status": "success",
+      "tool": "compose_report",
+      "tool_version_id": "7f5c7e484716421aaf6e4cf4438dc1f8:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+    },
+    {
+      "elapsed_ms": 0.2647498622536659,
+      "id": "7f5c7e484716421aaf6e4cf4438dc1f8:execution:8ca0724bd5e3adb893fb58615495570f6538879315621ed88c10dbb42279ad7b",
+      "inputs": {
+        "revenue": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:d6ee4371aa62b2a850287b6fb3b9f3b345f88169791a6620fa5afb6d42137154",
+        "support": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:25d9970f23137d9944ba2ec1d800bf36b5510a493d891219d53613221682582d"
+      },
+      "output_hash": "2a8db4f209ba78ed89e50931c831c6c2d2bb2ac9d7bbf65911065798d0b951c1",
+      "output_id": "7f5c7e484716421aaf6e4cf4438dc1f8:artifact:ae993e7b1ee5b3ccb039d9c5c47fd8ecbc695870c99b6280567a216e25e8bcc6",
+      "params": {
+        "sections": [
+          {
+            "input": "revenue",
+            "key": "eu_revenue",
+            "label": "EU revenue",
+            "path": [
+              "regions",
+              "EU",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "eu_support",
+            "label": "EU support tickets",
+            "path": [
+              "regions",
+              "EU",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "EU operations brief"
+      },
+      "run_id": "run-B",
+      "status": "success",
+      "tool": "compose_report",
+      "tool_version_id": "7f5c7e484716421aaf6e4cf4438dc1f8:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+    }
+  ]
+}

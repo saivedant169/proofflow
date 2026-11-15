@@ -1,0 +1,29 @@
+{
+  "arm_status": {
+    "ordinary": "passed",
+    "proofflow": "passed"
+  },
+  "attempt": 1,
+  "backend": {
+    "connection": "local Docker loopback TCP 18443",
+    "container_status": "running",
+    "engine": "HydraDB OSS 0.4.0",
+    "image_digest": "sha256:ab71d651fefee13ebb23eb56d72316065bdca563ff7587442e07be663f2bf880"
+  },
+  "errors": {},
+  "finished_at_utc": "2026-11-15T19:19:14.934227+00:00",
+  "freeze_sha256": "9fb9d68b60bd32b9e594849fc5f4c88fab1bd06c80575674c74bb3cbb0e8c616",
+  "model_calls": 0,
+  "reason": "First prospective paired run on pinned local HydraDB OSS",
+  "source_commit": "57eacf744f88a9d1b31451f78f8a8c4ef5fa9c1f",
+  "started_at_utc": "2026-11-15T19:17:40.984512+00:00",
+  "status": "passed",
+  "versions": {
+    "fastapi": "0.163.0",
+    "httpx": "0.28.1",
+    "machine": "arm64",
+    "python": "3.12.15",
+    "starlette": "1.10.0",
+    "system": "Darwin"
+  }
+}

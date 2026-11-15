@@ -331,6 +331,40 @@ def test_graph_outage_is_a_real_failure_for_health_and_state(client, factory):
     assert_error(client.get("/api/state"), 503)
 
 
+def test_public_evidence_is_an_isolated_static_tree(tmp_path, factory):
+    static = tmp_path / "static"
+    evidence = static / "evidence"
+    evidence.mkdir(parents=True)
+    (static / "index.html").write_text("ProofFlow application")
+    (static / "private-file.txt").write_text("not part of the evidence package")
+    (evidence / "index.html").write_text("ProofFlow independently verifiable evidence")
+    (evidence / "manifest.json").write_text('{"files": []}')
+    (evidence / "outside.txt").symlink_to(static / "private-file.txt")
+    app = create_app(state_dir=tmp_path / "sessions", graph_factory=factory, static_dir=static)
+    with TestClient(app) as client:
+        redirect = client.get("/evidence", follow_redirects=False)
+        assert redirect.status_code in {307, 308}
+        assert redirect.headers["location"].endswith("/evidence/")
+        page = client.get("/evidence/")
+        assert page.status_code == 200
+        assert "independently verifiable evidence" in page.text
+        assert client.get("/evidence/manifest.json").json() == {"files": []}
+        assert_error(client.get("/evidence/missing.json"), 404)
+        assert_error(client.get("/evidence/outside.txt"), 404)
+        assert_error(client.get("/evidence/%2e%2e%2fprivate-file.txt"), 404)
+        assert not client.cookies
+
+
+def test_unbuilt_public_evidence_does_not_return_the_application(tmp_path, factory):
+    static = tmp_path / "static"
+    static.mkdir()
+    (static / "index.html").write_text("ProofFlow application")
+    app = create_app(state_dir=tmp_path / "sessions", graph_factory=factory, static_dir=static)
+    with TestClient(app) as client:
+        assert_error(client.get("/evidence/"), 404)
+        assert_error(client.get("/evidence/not-built.zip"), 404)
+
+
 def test_evidence_endpoint_returns_actual_record_and_path(client):
     initial = seed(client)
     target = reports(initial)["eu"]["id"]

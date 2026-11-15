@@ -39,7 +39,7 @@ function watch(page: Page) {
 function expectedFailure(page: Page, pathname: string) { expectedNetworkErrors.get(page)!.add(pathname) }
 async function appHealthy(page: Page) {
   await expect(page).toHaveTitle(/ProofFlow/)
-  await expect(page.getByRole('heading', { name: 'A change should travel.' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Keep revenue reports current', exact: true })).toBeVisible()
   await expect(page.locator('vite-error-overlay, nextjs-portal')).toHaveCount(0)
   expect(errors.get(page), 'Unexplained application console/runtime errors').toEqual([])
 }

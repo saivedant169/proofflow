@@ -1,0 +1,459 @@
+{
+  "company": {
+    "artifact": {
+      "content_hash": "72d92abe060eafc373c176d7d62ca6eb3d36600c1f6d67313845305b4bb842e9",
+      "created_at": "2026-11-15T19:18:33.762627+00:00",
+      "id": "662ea78f059441ab8a35991326e96c9b:artifact:824869e2d0c601fcce787a4190f3b8257dbb2d9df3629a63e714e3c722e22a86",
+      "kind": "artifact",
+      "logical_id": "import:metric:company",
+      "metadata": {
+        "description": "Sum USD regional revenue into company revenue.",
+        "inputs": {
+          "regional": "662ea78f059441ab8a35991326e96c9b:artifact:e72bae88ec8f82268f4e523d7f6d037a0e31d4491a4321fcd8a5dca90865c41e"
+        },
+        "params": {},
+        "receipt_id": "662ea78f059441ab8a35991326e96c9b:execution:670fc67c2edaf69ac255c048f366d35e6820fecbe7a8dc9e6d40bd60a9bbd7c1",
+        "run_id": "refresh-3d9a6e1ee7694968a36e3206df188eca",
+        "title": "import:metric:company",
+        "tool": "company_total",
+        "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:f292d9109171070088c107efc2b4cf2d929961bad569bdcf8968cd8d31b37434"
+      },
+      "saved_value": {
+        "usd_cents": 63679
+      },
+      "state": "current"
+    },
+    "paths": [],
+    "receipt": {
+      "elapsed_ms": 0.02458319067955017,
+      "id": "662ea78f059441ab8a35991326e96c9b:execution:670fc67c2edaf69ac255c048f366d35e6820fecbe7a8dc9e6d40bd60a9bbd7c1",
+      "inputs": {
+        "regional": "662ea78f059441ab8a35991326e96c9b:artifact:e72bae88ec8f82268f4e523d7f6d037a0e31d4491a4321fcd8a5dca90865c41e"
+      },
+      "output_hash": "72d92abe060eafc373c176d7d62ca6eb3d36600c1f6d67313845305b4bb842e9",
+      "output_id": "662ea78f059441ab8a35991326e96c9b:artifact:824869e2d0c601fcce787a4190f3b8257dbb2d9df3629a63e714e3c722e22a86",
+      "params": {},
+      "run_id": "refresh-3d9a6e1ee7694968a36e3206df188eca",
+      "status": "success",
+      "tool": "company_total",
+      "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:f292d9109171070088c107efc2b4cf2d929961bad569bdcf8968cd8d31b37434"
+    }
+  },
+  "company_report": {
+    "artifact": {
+      "content_hash": "5939cfa5bab6f56803c41012529235f4ffb9081306192d1df11bd1e9eabdae19",
+      "created_at": "2026-11-15T19:18:33.967161+00:00",
+      "id": "662ea78f059441ab8a35991326e96c9b:artifact:c5a030d0eb876de8efaf981b5685ba1503bb6eb3936606413f56ada64be10884",
+      "kind": "artifact",
+      "logical_id": "import:report:company",
+      "metadata": {
+        "description": "Compose structured numeric claims from explicit artifact inputs.",
+        "inputs": {
+          "revenue": "662ea78f059441ab8a35991326e96c9b:artifact:824869e2d0c601fcce787a4190f3b8257dbb2d9df3629a63e714e3c722e22a86"
+        },
+        "params": {
+          "sections": [
+            {
+              "input": "revenue",
+              "key": "company_revenue",
+              "label": "Company net revenue",
+              "path": [
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ],
+          "title": "Imported company revenue"
+        },
+        "receipt_id": "662ea78f059441ab8a35991326e96c9b:execution:5db0e057cab065649d7dbce059668ef9fea25780dc1f1d179efc2e035affe24e",
+        "run_id": "refresh-3d9a6e1ee7694968a36e3206df188eca",
+        "title": "Imported company revenue",
+        "tool": "compose_report",
+        "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+      },
+      "saved_value": {
+        "sections": [
+          {
+            "key": "company_revenue",
+            "label": "Company net revenue",
+            "unit": "USD cents",
+            "value": 63679
+          }
+        ],
+        "title": "Imported company revenue"
+      },
+      "state": "current"
+    },
+    "paths": [],
+    "receipt": {
+      "elapsed_ms": 0.02787495031952858,
+      "id": "662ea78f059441ab8a35991326e96c9b:execution:5db0e057cab065649d7dbce059668ef9fea25780dc1f1d179efc2e035affe24e",
+      "inputs": {
+        "revenue": "662ea78f059441ab8a35991326e96c9b:artifact:824869e2d0c601fcce787a4190f3b8257dbb2d9df3629a63e714e3c722e22a86"
+      },
+      "output_hash": "5939cfa5bab6f56803c41012529235f4ffb9081306192d1df11bd1e9eabdae19",
+      "output_id": "662ea78f059441ab8a35991326e96c9b:artifact:c5a030d0eb876de8efaf981b5685ba1503bb6eb3936606413f56ada64be10884",
+      "params": {
+        "sections": [
+          {
+            "input": "revenue",
+            "key": "company_revenue",
+            "label": "Company net revenue",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "Imported company revenue"
+      },
+      "run_id": "refresh-3d9a6e1ee7694968a36e3206df188eca",
+      "status": "success",
+      "tool": "compose_report",
+      "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+    }
+  },
+  "gross": {
+    "artifact": {
+      "content_hash": "5244b31c674850081ce2bec0506826689593c8c349b53b98407420c7064af474",
+      "created_at": "2026-11-15T19:17:55.521456+00:00",
+      "id": "662ea78f059441ab8a35991326e96c9b:artifact:76a9ae5f234bcfa6d8f0583c55ba71053267bebfb21814bcac11d5cd537e3b34",
+      "kind": "artifact",
+      "logical_id": "import:metric:gross",
+      "metadata": {
+        "description": "Sum order amounts by region and currency.",
+        "inputs": {
+          "orders": "662ea78f059441ab8a35991326e96c9b:source:4e3a120087603b53b8dcfb6c30852fdf44e8650995ad6c64a54ab16d6dd28844"
+        },
+        "params": {},
+        "receipt_id": "662ea78f059441ab8a35991326e96c9b:execution:a8e2d33b77f2c8edc58b814f79e4c370df0ad9a6a5cf5ec5d1fa2a5e257f2c41",
+        "run_id": "csv-company-run",
+        "title": "import:metric:gross",
+        "tool": "gross_by_region",
+        "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:269b8e6146f737a72eb9a36bffe590aa96dbf8d97767ebb5f3bc176c20273a09"
+      },
+      "saved_value": {
+        "regions": {
+          "NORTH": {
+            "amount_cents": 22601,
+            "currency": "EUR"
+          },
+          "SOUTH": {
+            "amount_cents": 24500,
+            "currency": "USD"
+          },
+          "WEST": {
+            "amount_cents": 13100,
+            "currency": "GBP"
+          }
+        }
+      },
+      "state": "current"
+    },
+    "paths": [],
+    "receipt": {
+      "elapsed_ms": 0.612333882600069,
+      "id": "662ea78f059441ab8a35991326e96c9b:execution:a8e2d33b77f2c8edc58b814f79e4c370df0ad9a6a5cf5ec5d1fa2a5e257f2c41",
+      "inputs": {
+        "orders": "662ea78f059441ab8a35991326e96c9b:source:4e3a120087603b53b8dcfb6c30852fdf44e8650995ad6c64a54ab16d6dd28844"
+      },
+      "output_hash": "5244b31c674850081ce2bec0506826689593c8c349b53b98407420c7064af474",
+      "output_id": "662ea78f059441ab8a35991326e96c9b:artifact:76a9ae5f234bcfa6d8f0583c55ba71053267bebfb21814bcac11d5cd537e3b34",
+      "params": {},
+      "run_id": "csv-company-run",
+      "status": "success",
+      "tool": "gross_by_region",
+      "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:269b8e6146f737a72eb9a36bffe590aa96dbf8d97767ebb5f3bc176c20273a09"
+    }
+  },
+  "net": {
+    "artifact": {
+      "content_hash": "7a46ac89b0d338e95ebc5d819b5c22fd0ea53fae91557c1c9afca01b364cda20",
+      "created_at": "2026-11-15T19:18:02.702932+00:00",
+      "id": "662ea78f059441ab8a35991326e96c9b:artifact:ad0beb07599f2d27cb2d33bca09b69572198343c8613f972c3f19d8646ec71d5",
+      "kind": "artifact",
+      "logical_id": "import:metric:net",
+      "metadata": {
+        "description": "Subtract regional refunds from gross revenue.",
+        "inputs": {
+          "gross": "662ea78f059441ab8a35991326e96c9b:artifact:76a9ae5f234bcfa6d8f0583c55ba71053267bebfb21814bcac11d5cd537e3b34",
+          "refunds": "662ea78f059441ab8a35991326e96c9b:artifact:9ac892dfdeacfbda7daa159212ab9b06b0a5645ebc1d641ddaa226aad7b9390e"
+        },
+        "params": {},
+        "receipt_id": "662ea78f059441ab8a35991326e96c9b:execution:9d73792750a6ff6593b4e0eb4054bec17dfd670ec7fd17c77d0bc19d788c6966",
+        "run_id": "csv-company-run",
+        "title": "import:metric:net",
+        "tool": "net_by_region",
+        "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:077ba3c17c0056a410c5fe3638ef60267578e466552567585982deca82823b8f"
+      },
+      "saved_value": {
+        "regions": {
+          "NORTH": {
+            "amount_cents": 22001,
+            "currency": "EUR"
+          },
+          "SOUTH": {
+            "amount_cents": 23300,
+            "currency": "USD"
+          },
+          "WEST": {
+            "amount_cents": 12502,
+            "currency": "GBP"
+          }
+        }
+      },
+      "state": "current"
+    },
+    "paths": [],
+    "receipt": {
+      "elapsed_ms": 0.3330828621983528,
+      "id": "662ea78f059441ab8a35991326e96c9b:execution:9d73792750a6ff6593b4e0eb4054bec17dfd670ec7fd17c77d0bc19d788c6966",
+      "inputs": {
+        "gross": "662ea78f059441ab8a35991326e96c9b:artifact:76a9ae5f234bcfa6d8f0583c55ba71053267bebfb21814bcac11d5cd537e3b34",
+        "refunds": "662ea78f059441ab8a35991326e96c9b:artifact:9ac892dfdeacfbda7daa159212ab9b06b0a5645ebc1d641ddaa226aad7b9390e"
+      },
+      "output_hash": "7a46ac89b0d338e95ebc5d819b5c22fd0ea53fae91557c1c9afca01b364cda20",
+      "output_id": "662ea78f059441ab8a35991326e96c9b:artifact:ad0beb07599f2d27cb2d33bca09b69572198343c8613f972c3f19d8646ec71d5",
+      "params": {},
+      "run_id": "csv-company-run",
+      "status": "success",
+      "tool": "net_by_region",
+      "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:077ba3c17c0056a410c5fe3638ef60267578e466552567585982deca82823b8f"
+    }
+  },
+  "refunds": {
+    "artifact": {
+      "content_hash": "d42edc620ff1ca8c7c3c8d0ad25d03c84cd5a4059dde31264d10f4022ded3550",
+      "created_at": "2026-11-15T19:17:56.560836+00:00",
+      "id": "662ea78f059441ab8a35991326e96c9b:artifact:9ac892dfdeacfbda7daa159212ab9b06b0a5645ebc1d641ddaa226aad7b9390e",
+      "kind": "artifact",
+      "logical_id": "import:metric:refunds",
+      "metadata": {
+        "description": "Join refunds to orders and sum refunded amounts by region.",
+        "inputs": {
+          "orders": "662ea78f059441ab8a35991326e96c9b:source:4e3a120087603b53b8dcfb6c30852fdf44e8650995ad6c64a54ab16d6dd28844",
+          "refunds": "662ea78f059441ab8a35991326e96c9b:source:e4889eca2b24bf4b4c783d115b6ccf5ea3a2fd4b36cc1888014ee60d5b83f026"
+        },
+        "params": {},
+        "receipt_id": "662ea78f059441ab8a35991326e96c9b:execution:fc15ea7f0086bf8a4e483659c60256a3318292af8b6ed1b095ab03109fe2986f",
+        "run_id": "csv-company-run",
+        "title": "import:metric:refunds",
+        "tool": "refunds_by_region",
+        "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:daca152df821a64d43d80795b52abd53e98085406a1e6c69c9792f1c56ae4e8a"
+      },
+      "saved_value": {
+        "regions": {
+          "NORTH": {
+            "amount_cents": 600,
+            "currency": "EUR"
+          },
+          "SOUTH": {
+            "amount_cents": 1200,
+            "currency": "USD"
+          },
+          "WEST": {
+            "amount_cents": 598,
+            "currency": "GBP"
+          }
+        }
+      },
+      "state": "current"
+    },
+    "paths": [],
+    "receipt": {
+      "elapsed_ms": 2.150624990463257,
+      "id": "662ea78f059441ab8a35991326e96c9b:execution:fc15ea7f0086bf8a4e483659c60256a3318292af8b6ed1b095ab03109fe2986f",
+      "inputs": {
+        "orders": "662ea78f059441ab8a35991326e96c9b:source:4e3a120087603b53b8dcfb6c30852fdf44e8650995ad6c64a54ab16d6dd28844",
+        "refunds": "662ea78f059441ab8a35991326e96c9b:source:e4889eca2b24bf4b4c783d115b6ccf5ea3a2fd4b36cc1888014ee60d5b83f026"
+      },
+      "output_hash": "d42edc620ff1ca8c7c3c8d0ad25d03c84cd5a4059dde31264d10f4022ded3550",
+      "output_id": "662ea78f059441ab8a35991326e96c9b:artifact:9ac892dfdeacfbda7daa159212ab9b06b0a5645ebc1d641ddaa226aad7b9390e",
+      "params": {},
+      "run_id": "csv-company-run",
+      "status": "success",
+      "tool": "refunds_by_region",
+      "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:daca152df821a64d43d80795b52abd53e98085406a1e6c69c9792f1c56ae4e8a"
+    }
+  },
+  "region_report": {
+    "artifact": {
+      "content_hash": "c433bd5ba079ea53d479bb0e31cc04802d8ba7d371b4ce5a8ba8ef1b28b95f84",
+      "created_at": "2026-11-15T19:18:34.294523+00:00",
+      "id": "662ea78f059441ab8a35991326e96c9b:artifact:6b6be28ded9cdf4ed819a46555f53967bb112ab5724e6a286c2402b58a4a6cd2",
+      "kind": "artifact",
+      "logical_id": "import:report:region",
+      "metadata": {
+        "description": "Compose structured numeric claims from explicit artifact inputs.",
+        "inputs": {
+          "revenue": "662ea78f059441ab8a35991326e96c9b:artifact:e72bae88ec8f82268f4e523d7f6d037a0e31d4491a4321fcd8a5dca90865c41e"
+        },
+        "params": {
+          "sections": [
+            {
+              "input": "revenue",
+              "key": "regional_revenue",
+              "label": "NORTH net revenue",
+              "path": [
+                "regions",
+                "NORTH",
+                "usd_cents"
+              ],
+              "unit": "USD cents"
+            }
+          ],
+          "title": "NORTH revenue brief"
+        },
+        "receipt_id": "662ea78f059441ab8a35991326e96c9b:execution:66918db1c7e592641a05bf33948eaf92f2cec45199bb38e81cf9e81934bbc11c",
+        "run_id": "refresh-3d9a6e1ee7694968a36e3206df188eca",
+        "title": "NORTH revenue brief",
+        "tool": "compose_report",
+        "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+      },
+      "saved_value": {
+        "sections": [
+          {
+            "key": "regional_revenue",
+            "label": "NORTH net revenue",
+            "unit": "USD cents",
+            "value": 24751
+          }
+        ],
+        "title": "NORTH revenue brief"
+      },
+      "state": "current"
+    },
+    "paths": [],
+    "receipt": {
+      "elapsed_ms": 0.025417190045118332,
+      "id": "662ea78f059441ab8a35991326e96c9b:execution:66918db1c7e592641a05bf33948eaf92f2cec45199bb38e81cf9e81934bbc11c",
+      "inputs": {
+        "revenue": "662ea78f059441ab8a35991326e96c9b:artifact:e72bae88ec8f82268f4e523d7f6d037a0e31d4491a4321fcd8a5dca90865c41e"
+      },
+      "output_hash": "c433bd5ba079ea53d479bb0e31cc04802d8ba7d371b4ce5a8ba8ef1b28b95f84",
+      "output_id": "662ea78f059441ab8a35991326e96c9b:artifact:6b6be28ded9cdf4ed819a46555f53967bb112ab5724e6a286c2402b58a4a6cd2",
+      "params": {
+        "sections": [
+          {
+            "input": "revenue",
+            "key": "regional_revenue",
+            "label": "NORTH net revenue",
+            "path": [
+              "regions",
+              "NORTH",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "NORTH revenue brief"
+      },
+      "run_id": "refresh-3d9a6e1ee7694968a36e3206df188eca",
+      "status": "success",
+      "tool": "compose_report",
+      "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+    }
+  },
+  "regional": {
+    "artifact": {
+      "content_hash": "a84b03f79cac04ccee8a9d878545197c7850025848146709f0175ea22bfd73b8",
+      "created_at": "2026-11-15T19:18:33.532304+00:00",
+      "id": "662ea78f059441ab8a35991326e96c9b:artifact:e72bae88ec8f82268f4e523d7f6d037a0e31d4491a4321fcd8a5dca90865c41e",
+      "kind": "artifact",
+      "logical_id": "import:metric:regional",
+      "metadata": {
+        "description": "Convert net regional amounts to USD cents using explicit rates.",
+        "inputs": {
+          "fx": "662ea78f059441ab8a35991326e96c9b:source:debf1436ad430ba8cce37cd4a79c34f55af3a79c1b21cfe9a1907bbd26075671",
+          "net": "662ea78f059441ab8a35991326e96c9b:artifact:ad0beb07599f2d27cb2d33bca09b69572198343c8613f972c3f19d8646ec71d5"
+        },
+        "params": {},
+        "receipt_id": "662ea78f059441ab8a35991326e96c9b:execution:5d0ae87368a8fd3f0aa39f2bff52ba374f42f1267f380cd2e27e09a5cc28d03d",
+        "run_id": "refresh-3d9a6e1ee7694968a36e3206df188eca",
+        "title": "import:metric:regional",
+        "tool": "convert_to_usd",
+        "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:c78b222dc40236afafd222f7cc7438950a6b1179ad4dd169a6b3c1cfc0eb302f"
+      },
+      "saved_value": {
+        "regions": {
+          "NORTH": {
+            "usd_cents": 24751
+          },
+          "SOUTH": {
+            "usd_cents": 23300
+          },
+          "WEST": {
+            "usd_cents": 15628
+          }
+        }
+      },
+      "state": "current"
+    },
+    "paths": [],
+    "receipt": {
+      "elapsed_ms": 0.081624835729599,
+      "id": "662ea78f059441ab8a35991326e96c9b:execution:5d0ae87368a8fd3f0aa39f2bff52ba374f42f1267f380cd2e27e09a5cc28d03d",
+      "inputs": {
+        "fx": "662ea78f059441ab8a35991326e96c9b:source:debf1436ad430ba8cce37cd4a79c34f55af3a79c1b21cfe9a1907bbd26075671",
+        "net": "662ea78f059441ab8a35991326e96c9b:artifact:ad0beb07599f2d27cb2d33bca09b69572198343c8613f972c3f19d8646ec71d5"
+      },
+      "output_hash": "a84b03f79cac04ccee8a9d878545197c7850025848146709f0175ea22bfd73b8",
+      "output_id": "662ea78f059441ab8a35991326e96c9b:artifact:e72bae88ec8f82268f4e523d7f6d037a0e31d4491a4321fcd8a5dca90865c41e",
+      "params": {},
+      "run_id": "refresh-3d9a6e1ee7694968a36e3206df188eca",
+      "status": "success",
+      "tool": "convert_to_usd",
+      "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:c78b222dc40236afafd222f7cc7438950a6b1179ad4dd169a6b3c1cfc0eb302f"
+    }
+  },
+  "support": {
+    "artifact": {
+      "content_hash": "481da6d4331b44e0c4ddca15bbccdb95b5a6bb45adce0b7836eb3b7ec6f090c0",
+      "created_at": "2026-11-15T19:18:12.119350+00:00",
+      "id": "662ea78f059441ab8a35991326e96c9b:artifact:ef8f99b904a679b0cab0b65a7329c398da3cb402f152693a22335208851498d3",
+      "kind": "artifact",
+      "logical_id": "import:metric:support",
+      "metadata": {
+        "description": "Count support tickets by region.",
+        "inputs": {
+          "tickets": "662ea78f059441ab8a35991326e96c9b:source:f3af1ec766b749f079ea17c0b9ddfcb6e4fc2a3283c2c80d6bc608ddf1a05bce"
+        },
+        "params": {},
+        "receipt_id": "662ea78f059441ab8a35991326e96c9b:execution:fb624cdcbdea409d3a88effbad7b73bad4e919adb3fbe6cbd42aeb025495b35a",
+        "run_id": "csv-company-run",
+        "title": "import:metric:support",
+        "tool": "support_by_region",
+        "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:cdf845d61772c018c96cc888cca284ee58d53b77991a061ba21743481a969c99"
+      },
+      "saved_value": {
+        "regions": {
+          "NORTH": {
+            "tickets": 3
+          },
+          "SOUTH": {
+            "tickets": 3
+          },
+          "WEST": {
+            "tickets": 6
+          }
+        }
+      },
+      "state": "current"
+    },
+    "paths": [],
+    "receipt": {
+      "elapsed_ms": 0.4458748735487461,
+      "id": "662ea78f059441ab8a35991326e96c9b:execution:fb624cdcbdea409d3a88effbad7b73bad4e919adb3fbe6cbd42aeb025495b35a",
+      "inputs": {
+        "tickets": "662ea78f059441ab8a35991326e96c9b:source:f3af1ec766b749f079ea17c0b9ddfcb6e4fc2a3283c2c80d6bc608ddf1a05bce"
+      },
+      "output_hash": "481da6d4331b44e0c4ddca15bbccdb95b5a6bb45adce0b7836eb3b7ec6f090c0",
+      "output_id": "662ea78f059441ab8a35991326e96c9b:artifact:ef8f99b904a679b0cab0b65a7329c398da3cb402f152693a22335208851498d3",
+      "params": {},
+      "run_id": "csv-company-run",
+      "status": "success",
+      "tool": "support_by_region",
+      "tool_version_id": "662ea78f059441ab8a35991326e96c9b:tool:cdf845d61772c018c96cc888cca284ee58d53b77991a061ba21743481a969c99"
+    }
+  }
+}

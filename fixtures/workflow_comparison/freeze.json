@@ -1,0 +1,80 @@
+{
+  "files": {
+    "docker-compose.yml": {
+      "bytes": 1244,
+      "sha256": "c17d712e472099d0819d99a99c931a060d836ee55070e66ea7f254ac6d148664"
+    },
+    "docs/WORKFLOW_COMPARISON_PROTOCOL.md": {
+      "bytes": 9339,
+      "sha256": "009685a4d2c40fb185066434236ce469a6cce32347a97d9c70dae4e6de9c6aba"
+    },
+    "fixtures/workflow_comparison/base.csv": {
+      "bytes": 298,
+      "sha256": "cc30dc5dcfc47010f069fd8eba78b4b5f8e763d30eeb288d637b55ee3d19aaed"
+    },
+    "fixtures/workflow_comparison/cases.json": {
+      "bytes": 2238,
+      "sha256": "4bdc4e3f73ead036beb801b7ac1e7e3f2c26f2df1a6fd370017d64033dc04bc2"
+    },
+    "fixtures/workflow_comparison/refund-corrected.csv": {
+      "bytes": 299,
+      "sha256": "990e3b2c6d03e34c132d47537e63c3f3b36c7c5e3181769dc35d7cc4f80ea574"
+    },
+    "proofflow/__init__.py": {
+      "bytes": 96,
+      "sha256": "d725363c445f433c1d21df0cbc62bd418f7f065b171b0c1752afdf903b56036e"
+    },
+    "proofflow/analytics.py": {
+      "bytes": 14929,
+      "sha256": "cca3a122cf9884e38323cfefca105c65fd3a462950994ec9822d76abc413ff86"
+    },
+    "proofflow/api.py": {
+      "bytes": 13815,
+      "sha256": "6cf318926bef1b5f4c2815de4930d6e728c5693f55fcaf70a7e04e9757b030e2"
+    },
+    "proofflow/artifacts.py": {
+      "bytes": 6534,
+      "sha256": "068bc264a5184800dc9bb9f11600977526eeccdb52e7dc9cd6282c7a4bd507e2"
+    },
+    "proofflow/browser_import.py": {
+      "bytes": 18923,
+      "sha256": "72f485744786991326923dcc77e10e84060d562fd6733cb426f1aef6214d56cb"
+    },
+    "proofflow/demo.py": {
+      "bytes": 26660,
+      "sha256": "0eefd3cbc3804c6da2aad9afef957f9dcf096003e8f50c031c9f8b914e9cd22b"
+    },
+    "proofflow/graph.py": {
+      "bytes": 9742,
+      "sha256": "ba409e28f945dd57b8ab3b7a1b3475c22a17038ef9942f0ce1bf3715c8faf091"
+    },
+    "proofflow/importing.py": {
+      "bytes": 15582,
+      "sha256": "b83876a054779c09a12f81f29e4c9864a3ccbb535569e14069f44628d385a87e"
+    },
+    "proofflow/models.py": {
+      "bytes": 1298,
+      "sha256": "bf0e046db1615411afa727a70088ecc0bc8e7820318b4582a03d25270e1e49e9"
+    },
+    "proofflow/runtime.py": {
+      "bytes": 19158,
+      "sha256": "17312dbb90b3d46590cd88466379d9a95a787a292597bf024894d4d0a1e756ba"
+    },
+    "pyproject.toml": {
+      "bytes": 661,
+      "sha256": "af3414d9e897a7693fb404c389ff63f8c10b889c71d79854576821d435d593a4"
+    },
+    "scripts/workflow_comparison.py": {
+      "bytes": 40281,
+      "sha256": "4543393525ef373a1cc2408bbbc26656b535c43af49b3cf93d3cd3cf296328a6"
+    },
+    "uv.lock": {
+      "bytes": 445060,
+      "sha256": "2fe701a65b9df2fcb0c5e8c4df9788dfd6ebd727bb925b3628f48d12055bc1df"
+    }
+  },
+  "frozen_at_utc": "2026-11-15T19:17:14.920969+00:00",
+  "protocol": "workflow-comparison-v1",
+  "runtime_paths_diff": "proofflow/api.py",
+  "source_commit": "57eacf744f88a9d1b31451f78f8a8c4ef5fa9c1f"
+}

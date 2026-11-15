@@ -9,7 +9,7 @@ from typing import Any, Callable
 
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, StrictStr
 from starlette.datastructures import MutableHeaders
@@ -304,10 +304,20 @@ def create_app(state_dir: str | Path | None = None, graph_factory: Callable[...,
         if assets.is_dir():
             application.mount("/assets", StaticFiles(directory=assets), name="assets")
 
+        evidence = directory / "evidence"
+        if evidence.is_dir():
+            @application.get("/evidence", include_in_schema=False)
+            def public_evidence_index():
+                return RedirectResponse("/evidence/", status_code=308)
+
+            application.mount("/evidence", StaticFiles(directory=evidence, html=True), name="public-evidence")
+
         @application.get("/{path:path}")
         def spa(path: str):
             if path == "api" or path.startswith("api/"):
                 return error("not_found", "API route not found", 404)
+            if path == "evidence" or path.startswith("evidence/"):
+                return error("not_found", "Evidence package has not been built", 404)
             candidate = (directory / path).resolve()
             if candidate.is_relative_to(directory) and candidate.is_file():
                 return FileResponse(candidate)

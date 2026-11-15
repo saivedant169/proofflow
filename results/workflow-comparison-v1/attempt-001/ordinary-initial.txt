@@ -1,0 +1,6 @@
+Current revenue report snapshot
+Input revision SHA-256: fe87577a4778ac58fdea0e95e69edb66b950bf8243b515b6bcb0097f8b6bb4ca
+Calculated at (UTC): 2026-11-15T19:17:41.020428+00:00
+Static snapshot. Compare the input revision with the latest shared version before handing off as current.
+Company net revenue: $631.29 USD
+Regional net revenue ('NORTH'): $242.01 USD

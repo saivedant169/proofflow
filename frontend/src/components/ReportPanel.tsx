@@ -27,16 +27,20 @@ export default function ReportPanel({ state, onInspect }: { state: WorkspaceStat
   const regional = allClaims.find(claim => claim.key === 'eu_revenue' || claim.key === 'regional_revenue')
   const support = allClaims.find(claim => claim.key === 'eu_support')
   const withheld = allClaims.some(claim => claim.state !== 'current')
-  const blocked = state.mode === 'guided_csv_import' && state.incomplete_update
+  const imported = state.mode === 'guided_csv_import'
+  const blocked = imported && state.incomplete_update
+  const importedSupport = imported ? state.graph.nodes.find(node => node.current_head && node.logical_id === 'import:metric:support') : undefined
   return <section className="report-panel panel" aria-labelledby="report-title">
-    <div className="report-top"><span>{company?.title ?? 'Company weekly report'}</span><Status state={blocked ? 'unknown' : company?.state ?? 'unknown'} compact /></div>
-    <h2 id="report-title">{state.mode === 'guided_csv_import' ? 'Your numbers, with their working attached.' : 'The week, with its working attached.'}</h2>
-    {withheld && <p className="withheld-notice"><CircleAlert size={17} /><span>A source changed. Affected claims are withheld until recomputed.</span></p>}
+    <div className="report-top"><h2 id="report-title">Saved reports</h2><Status state={blocked ? 'unknown' : company?.state ?? 'unknown'} compact /></div>
+    {withheld && <p className="withheld-notice"><CircleAlert size={17} aria-hidden="true" /><span>Affected figures are withheld until refreshed. Previous values are historical.</span></p>}
     <Metric claim={revenue} main blocked={blocked} onInspect={onInspect} />
     <div className="secondary-metrics"><Metric claim={regional} blocked={blocked} onInspect={onInspect} />{support && <Metric claim={support} blocked={blocked} onInspect={onInspect} />}</div>
-    {state.mode === 'guided_csv_import' && <p className="import-report-note">Revenue-only reports. Supplied ticket counts remain a separate, inspectable calculation.</p>}
-    <div className="report-provenance"><div className="provenance-title"><Layers size={16} /><strong>{state.mode === 'guided_csv_import' ? 'Reports with saved evidence' : 'Composed from two runs'}</strong></div>
-      {state.reports.map((report, index) => <button key={report.id} onClick={() => onInspect(report.id)}><span>Run {index + 1} · {report.title}</span><ArrowUpRight size={14} /></button>)}
+    {importedSupport && <div className="import-report-note">
+      <button className="text-link" onClick={() => onInspect(importedSupport.id)}>View separate support calculation<ArrowUpRight size={14} aria-hidden="true" /></button>
+      <Status state={blocked ? 'unknown' : importedSupport.state} compact />
+    </div>}
+    <div className="report-provenance"><div className="provenance-title"><Layers size={16} aria-hidden="true" /><strong>Inspect report evidence</strong></div>
+      {state.reports.map(report => <button key={report.id} onClick={() => onInspect(report.id)}><span>{report.title}</span><ArrowUpRight size={14} aria-hidden="true" /></button>)}
     </div>
   </section>
 }

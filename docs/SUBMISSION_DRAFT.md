@@ -18,6 +18,8 @@ A saved agent report can be relevant and still be out of date. When an exchange 
 
 In a recurring commerce revenue handoff, an analyst may need to correct an input after saving company and regional figures. ProofFlow checks those figures against their recorded dependencies when reading or downloading the reports. The analyst supplies the underlying business data. Customer demand and time savings have not yet been measured.
 
+A prospective comparison against a competent full-recalculation workflow found a correctness and stale-handoff tie on a small three-currency close. ProofFlow's additional result was preserving unaffected artifact heads and receipts and returning exact dependency paths from each corrected source to the prior reports. The full validation and verification work is reported separately from recorded refresh calls. [Comparison and limits](WORKFLOW_COMPARISON_RESULTS.md).
+
 ## What works
 
 Seven registered tools perform SQLite aggregations, Decimal currency calculations and typed report composition. Immutable source, tool and artifact versions record exact consumed inputs and execution receipts. HydraDB-native traversal finds affected descendants and upstream evidence. Refresh recalculates prerequisites and rebinds downstream reports to current intermediate results.
@@ -68,6 +70,8 @@ HydraDB OSS v0.4.0 stores the native dependency relationships between consumed i
 The evidence supports explicit dependency context over relevance ranking for this workload. The exact-flat control shows that a correct recursive flat representation can reproduce the outcomes; we do not claim storage-engine-exclusive correctness.
 
 ## Verification and scope
+
+The [public results package](https://proofflow.arnavbule.in/evidence/) includes saved study inputs, poststates, provider counters, earlier failures, an explicit publication manifest and an offline Python verifier. It provides inspectable results without access to the private application repository. [Verification instructions and public-copy transformations](PUBLIC_EVIDENCE.md).
 
 - [Hosted delivery](HOSTED_DELIVERY.md): the custom domain passed 13 guided HTTP checks and a Chrome check of guided correction and refresh. Separate IP-based runs passed 13 guided HTTP checks, eight Chrome acceptance groups and 87 restart checks over 12 HTTP responses. These functional checks from the builder network are separate from the benchmark results.
 - [Native persistence](../evidence/hydra_smoke.json): database restart, persisted traversal and a new write.
