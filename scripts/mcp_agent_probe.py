@@ -16,8 +16,10 @@ import io
 import json
 import os
 from pathlib import Path
+import queue
 import signal
 import subprocess
+import threading
 import time
 import uuid
 from typing import Any
@@ -26,6 +28,9 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = "claude-fable-5-2"
 TOOLS = tuple(f"mcp__proofflow__{name}" for name in ("load_csv", "prepare", "execute_plan", "inspect", "refresh"))
+ISOLATION_SETTINGS = {"disableAllHooks": True, "claudeMdExcludes": ["**"],
+                      "autoMemoryEnabled": False, "syncClaudeAiPlugins": False,
+                      "syncClaudeAiSkills": False, "disableWorkflows": True}
 CSV = ("order_id,region,currency,gross_cents,refund_cents,ticket_count\n"
        "a,NORTH,EUR,10000,1000,3\n"
        "b,SOUTH,USD,20000,0,1\n")
@@ -89,6 +94,38 @@ def code_hashes() -> dict[str, str]:
     return {str(path.relative_to(ROOT)): sha(path.read_bytes()) for path in files if path.is_file()}
 
 
+def isolation_settings() -> dict[str, Any]:
+    # Plugin registry metadata only; never read authentication files. Keep
+    # plugin identifiers in the local run settings, not the published summary.
+    registry = Path.home() / ".claude/plugins/installed_plugins.json"
+    installed = read_json(registry).get("plugins", {}) if registry.is_file() else {}
+    return {**ISOLATION_SETTINGS, "enabledPlugins": {
+        name: False for name in installed if isinstance(name, str) and not name.endswith("@builtin")}}
+
+
+def client_environment() -> dict[str, str]:
+    env = dict(os.environ)
+    # Safe mode suppresses even explicitly configured MCP. SIMPLE/bare also
+    # suppresses OAuth/keychain auth. Restricted mode and explicit settings
+    # provide the intended isolation while preserving managed policy.
+    for key in ("CLAUDE_CODE_SAFE_MODE", "CLAUDE_CODE_SIMPLE", "PROOFFLOW_HYDRA_TOKEN"):
+        env.pop(key, None)
+    return env
+
+
+def private_directory(directory: Path) -> Path:
+    key = read_json(directory / "prepared.json")["local_config_key"]
+    if not isinstance(key, str) or not key.startswith("mcp-agent-config-") or not key.replace("-", "").isalnum():
+        raise ValueError("Invalid local configuration key")
+    return ROOT / ".state" / key
+
+
+def server_environment(frozen: dict[str, Any]) -> dict[str, str]:
+    return {"PROOFFLOW_HYDRA_URL": "http://127.0.0.1:18443",
+            "PROOFFLOW_HYDRA_TOKEN_FILE": str(ROOT / ".state/hydra-token"),
+            "PROOFFLOW_MCP_STATE_DIR": str(ROOT / ".state" / frozen["local_state_key"])}
+
+
 def prepare(output: Path) -> dict[str, Any]:
     state = git_state()
     if state["tracked_changes"]:
@@ -100,7 +137,11 @@ def prepare(output: Path) -> dict[str, Any]:
     output.mkdir(parents=True, exist_ok=False)
     nonce = uuid.uuid4().hex[:12]
     workspace = "client-" + nonce
-    state_dir = ROOT / ".state" / ("mcp-agent-" + nonce)
+    state_key = "mcp-agent-" + nonce
+    config_key = "mcp-agent-config-" + nonce
+    private = ROOT / ".state" / config_key
+    private.mkdir(parents=True, exist_ok=False)
+    state_dir = ROOT / ".state" / state_key
     if state_dir.exists():
         raise ValueError("Probe state must be new; no seeded artifacts are allowed")
     token_file = ROOT / ".state/hydra-token"
@@ -111,30 +152,135 @@ def prepare(output: Path) -> dict[str, Any]:
                   "PROOFFLOW_MCP_STATE_DIR": str(state_dir)}
     config = {"mcpServers": {"proofflow": {"command": str(ROOT / ".venv/bin/python"),
                "args": ["-m", "proofflow.mcp_server"], "env": server_env}}}
-    write_json(output / "mcp-config.json", config)
+    write_json(private / "mcp-config.json", config)
+    settings = isolation_settings()
+    write_json(private / "client-settings.json", settings)
     (output / "prompt.txt").write_text(prompt(workspace))
     (output / "system-prompt.txt").write_text(SYSTEM)
-    frozen = {"version": "mcp-agent-integration-v1", "code": state, "code_sha256": code_hashes(),
-              "workspace": workspace, "state_dir": str(state_dir), "server_env": server_env,
+    failed_summary = ROOT / "results/mcp-agent-v1/summary.json"
+    prior = read_json(failed_summary) if failed_summary.is_file() else {}
+    frozen = {"version": "mcp-agent-integration-v2", "code": state, "code_sha256": code_hashes(),
+              "workspace": workspace, "local_config_key": config_key, "local_state_key": state_key,
+              "server_configuration": {"command": ".venv/bin/python (resolved locally)",
+                  "args": ["-m", "proofflow.mcp_server"], "hydra_url": "http://127.0.0.1:18443",
+                  "token_file": ".state/hydra-token", "state_directory": ".state/" + state_key},
+              "settings_summary": {**ISOLATION_SETTINGS, "local_plugin_disable_count": len(settings["enabledPlugins"]),
+                                   "managed_policy": "Preserved; no managed controls bypassed"},
               "model": MODEL, "effort": "high", "timeout_seconds": 600, "max_budget_usd": 4.0,
               "allowed_tools": list(TOOLS), "client_attempts": 1, "retries": 0, "fallback": False,
               "prepared_at": datetime.now(timezone.utc).isoformat(),
               "artifact_sha256": {name: sha((output / name).read_bytes()) for name in
-                                   ("prompt.txt", "system-prompt.txt", "mcp-config.json")},
+                                   ("prompt.txt", "system-prompt.txt")},
+              "private_config_sha256": {name: sha((private / name).read_bytes()) for name in
+                                        ("mcp-config.json", "client-settings.json")},
+              "infrastructure_correction": {
+                  "previous_attempt": "results/mcp-agent-v1", "previous_passed": prior.get("passed"),
+                  "previous_reported_cost_usd": prior.get("reported_cost_usd"),
+                  "previous_summary_sha256": sha(failed_summary.read_bytes()) if failed_summary.is_file() else None,
+                  "reason": "v1 --safe-mode suppressed explicit MCP servers; v2 uses restricted mode and frozen per-run settings",
+                  "overall_attempt_number": 2, "task_prompt_changed": False},
+              "isolation": "Empty builtin tools; only explicit local MCP; restricted mode; no user/project/local settings; per-run hooks/memory/plugin exclusions. Managed policy remains authoritative.",
               "scope": "Single client-model integration demonstration over authored CSV; not a performance benchmark",
               "oracle_boundary": "Known arithmetic and required outcomes exist only in the post-run verifier, never in the prompt",
               "server_model_calls": 0}
     write_json(output / "prepared.json", frozen)
+    preflight(output)
     return frozen
 
 
 def command(directory: Path) -> list[str]:
-    return ["claude", "-p", "--model", MODEL, "--effort", "high", "--safe-mode", "--tools", "",
-            "--strict-mcp-config", "--mcp-config", str(directory / "mcp-config.json"),
+    private = private_directory(directory)
+    return ["claude", "-p", "--model", MODEL, "--effort", "high", "--restricted", "--tools", "",
+            "--setting-sources", "", "--settings", str(private / "client-settings.json"),
+            "--strict-mcp-config", "--mcp-config", str(private / "mcp-config.json"),
             "--allowedTools", ",".join(TOOLS), "--permission-mode", "dontAsk",
             "--disable-slash-commands", "--no-session-persistence", "--no-chrome",
             "--output-format", "stream-json", "--verbose", "--max-budget-usd", "4",
             "--system-prompt", SYSTEM]
+
+
+def preflight(directory: Path) -> dict[str, Any]:
+    """Official SDK initialize/mcp_status controls only; send no user message.
+
+    The control framing follows anthropics/claude-agent-sdk-python query.py.
+    A separate empty state directory ensures health checks cannot seed the
+    actual trajectory. Raw controls stay local; the summary contains no account
+    or user-plugin metadata. Managed settings are never modified or bypassed.
+    """
+    private = private_directory(directory)
+    config = read_json(private / "mcp-config.json")
+    config["mcpServers"]["proofflow"]["env"]["PROOFFLOW_MCP_STATE_DIR"] = str(private / "preflight-state")
+    write_json(private / "preflight-mcp-config.json", config)
+    argv = command(directory)
+    argv[argv.index("--mcp-config") + 1] = str(private / "preflight-mcp-config.json")
+    argv += ["--input-format", "stream-json"]
+    events: list[str] = []
+    messages: queue.Queue = queue.Queue()
+    responses, failure = {}, None
+    with (private / "preflight-stderr.log").open("w") as stderr:
+        process = subprocess.Popen(argv, cwd=ROOT, env=client_environment(), stdin=subprocess.PIPE,
+                                   stdout=subprocess.PIPE, stderr=stderr, text=True, start_new_session=True)
+        def read() -> None:
+            for line in process.stdout:
+                events.append(line)
+                try:
+                    messages.put(json.loads(line))
+                except json.JSONDecodeError:
+                    pass
+        reader = threading.Thread(target=read, daemon=True)
+        reader.start()
+        deadline = time.monotonic() + 30
+        def control(identifier: str, request: dict[str, Any]) -> dict[str, Any]:
+            process.stdin.write(json.dumps({"type": "control_request", "request_id": identifier, "request": request}) + "\n")
+            process.stdin.flush()
+            while time.monotonic() < deadline:
+                event = messages.get(timeout=max(.01, deadline - time.monotonic()))
+                if isinstance(event, dict) and event.get("type") == "control_response" and event.get("response", {}).get("request_id") == identifier:
+                    responses[identifier] = event["response"]
+                    return event["response"]
+            raise TimeoutError("MCP initialization exceeded 30 seconds")
+        servers = []
+        try:
+            initialized = control("preflight-init", {"subtype": "initialize", "hooks": None, "skills": []})
+            if initialized.get("subtype") != "success":
+                raise ValueError("CLI control initialization failed")
+            for index in range(30):
+                status = control(f"preflight-status-{index}", {"subtype": "mcp_status"})
+                servers = status.get("response", {}).get("mcpServers", [])
+                if servers and all(server.get("status") != "pending" for server in servers):
+                    break
+                time.sleep(.2)
+        except Exception as exc:
+            failure = {"type": type(exc).__name__, "message": str(exc)}
+        finally:
+            process.stdin.close()
+            try:
+                process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                os.killpg(process.pid, signal.SIGTERM)
+                try:
+                    process.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    os.killpg(process.pid, signal.SIGKILL)
+                    process.wait()
+            reader.join(timeout=1)
+    (private / "preflight-control-events.jsonl").write_text("".join(events))
+    curated = [{"name": server.get("name"), "status": server.get("status"),
+                "tools": sorted(tool["name"] for tool in server.get("tools", []))} for server in servers]
+    passed = (failure is None and len(curated) == 1 and curated[0]["name"] == "proofflow"
+              and curated[0]["status"] == "connected"
+              and set(curated[0]["tools"]) == {tool.removeprefix("mcp__proofflow__") for tool in TOOLS})
+    result = {"passed": passed, "servers": curated, "error": failure,
+              "user_messages_sent": 0, "model_queries_sent": 0,
+              "client_command_sha256": sha(json.dumps(command(directory))),
+              "raw_control_sha256": sha("".join(events)),
+              "raw_artifact_location": "Ignored .state local configuration directory; not for submission",
+              "source": "https://github.com/anthropics/claude-agent-sdk-python/blob/main/src/claude_agent_sdk/_internal/query.py",
+              "finished_at": datetime.now(timezone.utc).isoformat()}
+    write_json(directory / "preflight.json", result)
+    if not passed:
+        raise ValueError("MCP-only preflight failed; no paid model attempt is permitted")
+    return result
 
 
 def decoded_body(value: Any) -> dict[str, Any] | None:
@@ -193,6 +339,22 @@ def parse_events(path: Path) -> dict[str, Any]:
                                and event.get("type") == "system" and event.get("subtype") == "init"]}
 
 
+def submission_event(event: dict[str, Any]) -> dict[str, Any] | None:
+    """Keep tool/model evidence; exclude unrelated local/account initialization."""
+    if event.get("type") in {"assistant", "user"}:
+        return {"type": event["type"], "message": event.get("message", {})}
+    if event.get("type") == "result":
+        keys = ("type", "subtype", "is_error", "duration_ms", "duration_api_ms", "num_turns", "result",
+                "total_cost_usd", "usage", "modelUsage", "permission_denials", "stop_reason")
+        return {key: event[key] for key in keys if key in event}
+    if event.get("type") == "system" and event.get("subtype") == "init":
+        keys = ("type", "subtype", "model", "permissionMode", "tools", "claude_code_version")
+        return {**{key: event[key] for key in keys if key in event},
+                "mcp_servers": [{"name": server.get("name"), "status": server.get("status")}
+                                for server in event.get("mcp_servers", [])]}
+    return None
+
+
 def metric_values(claims: list[dict[str, Any]], *, historical: bool = False) -> dict[str, Any]:
     paths = {("usd_cents",): "company_usd_cents", ("regions", "NORTH", "usd_cents"): "north_usd_cents",
              ("regions", "NORTH", "tickets"): "north_tickets"}
@@ -242,10 +404,10 @@ def audit_state(frozen: dict[str, Any], transcript: dict[str, Any]) -> dict[str,
     from proofflow.graph import HydraGraph
     from proofflow.mcp_server import ProofFlowMCP
 
-    server_env = frozen["server_env"]
+    server_env = server_environment(frozen)
     os.environ.pop("PROOFFLOW_HYDRA_TOKEN", None)
     os.environ.update(server_env)
-    facade = ProofFlowMCP(frozen["state_dir"])
+    facade = ProofFlowMCP(server_env["PROOFFLOW_MCP_STATE_DIR"])
     calls = transcript["calls"]
     successful = [call for call in calls if call.get("response") and not call["response"]["is_error"]
                   and call["response"]["body"] is not None]
@@ -328,20 +490,26 @@ def audit_state(frozen: dict[str, Any], transcript: dict[str, Any]) -> dict[str,
 def run(directory: Path) -> dict[str, Any]:
     directory = directory.resolve()
     frozen = read_json(directory / "prepared.json")
+    private = private_directory(directory)
     if git_state()["tracked_changes"] or frozen["code_sha256"] != code_hashes():
         raise ValueError("Code changed or is uncommitted; this frozen attempt cannot run")
     for name, digest in frozen["artifact_sha256"].items():
         if digest != sha((directory / name).read_bytes()):
             raise ValueError("Frozen prompt or MCP configuration changed")
-    if Path(frozen["state_dir"]).exists():
+    for name, digest in frozen["private_config_sha256"].items():
+        if digest != sha((private / name).read_bytes()):
+            raise ValueError("Frozen private client settings or MCP configuration changed")
+    connection = read_json(directory / "preflight.json")
+    if not connection.get("passed") or connection.get("client_command_sha256") != sha(json.dumps(command(directory))):
+        raise ValueError("The exact isolated client command has not passed a no-model MCP preflight")
+    if Path(server_environment(frozen)["PROOFFLOW_MCP_STATE_DIR"]).exists():
         raise ValueError("Probe state already exists; refusing to reuse any prior data")
     with (directory / "started.json").open("x") as stream:
         json.dump({"started_at": datetime.now(timezone.utc).isoformat(), "code": git_state()}, stream)
-    env = dict(os.environ)
-    env.pop("PROOFFLOW_HYDRA_TOKEN", None)
+    env = client_environment()
     started = time.monotonic()
     error, returncode = None, None
-    with (directory / "client-events.jsonl").open("w") as stdout, (directory / "client-stderr.log").open("w") as stderr:
+    with (private / "client-events.jsonl").open("w") as stdout, (private / "client-stderr.log").open("w") as stderr:
         try:
             process = subprocess.Popen(command(directory), cwd=ROOT, env=env, stdin=subprocess.PIPE,
                                        stdout=stdout, stderr=stderr, text=True, start_new_session=True)
@@ -358,8 +526,23 @@ def run(directory: Path) -> dict[str, Any]:
             returncode = process.returncode
         except OSError as exc:
             error = {"type": type(exc).__name__, "message": str(exc)}
-    transcript = parse_events(directory / "client-events.jsonl")
-    write_json(directory / "tool-transcript.json", transcript)
+    raw_events = private / "client-events.jsonl"
+    transcript = parse_events(raw_events)
+    write_json(private / "tool-transcript.json", transcript)
+    public_transcript = {**transcript, "initialization": [submission_event(event) for event in transcript["initialization"]],
+                         "final": submission_event(transcript["final"]) if transcript["final"] else None,
+                         "privacy": "Initialization metadata redacted; original tool requests/responses retained; unmodified raw stream stays in ignored .state"}
+    write_json(directory / "tool-transcript.json", public_transcript)
+    submitted = []
+    for line in raw_events.read_text().splitlines():
+        try:
+            event = json.loads(line)
+            clean = submission_event(event) if isinstance(event, dict) else None
+            if clean is not None:
+                submitted.append(json.dumps(clean))
+        except json.JSONDecodeError:
+            pass
+    (directory / "client-events.jsonl").write_text("\n".join(submitted) + "\n")
     final = transcript["final"] or {}
     model_usage = final.get("modelUsage") or {}
     actual_models = {value.get("canonicalModel", key) for key, value in model_usage.items() if isinstance(value, dict)}
@@ -368,6 +551,10 @@ def run(directory: Path) -> dict[str, Any]:
               "successful_final_result": bool(final) and not final.get("is_error") and final.get("subtype") == "success",
               "actual_model_exactly_requested": actual_models == {MODEL},
               "model_usage_recorded": bool(model_usage)}
+    checks["client_initialized_exactly_five_mcp_tools"] = any(
+        set(event.get("tools", [])) == set(TOOLS)
+        and {(server.get("name"), server.get("status")) for server in event.get("mcp_servers", [])} == {("proofflow", "connected")}
+        for event in transcript["initialization"])
     try:
         audit = audit_state(frozen, transcript)
     except Exception as exc:
@@ -383,6 +570,12 @@ def run(directory: Path) -> dict[str, Any]:
                "server_model_calls": 0, "recorded_runtime_calls": audit.get("recorded_runtime_calls"),
                "csv_preflight_calculations": audit.get("csv_preflight_calculations"),
                "attempts": 1, "retries": 0, "fallback": False,
+               "overall_attempt_number": 2,
+               "infrastructure_correction": frozen.get("infrastructure_correction"),
+               "attempt_count_scope": "One paid trajectory in v2; failed v1 is a separate retained paid attempt. No automatic retry inside either attempt.",
+               "raw_client_events_sha256": sha(raw_events.read_bytes()),
+               "submitted_client_events_sha256": sha((directory / "client-events.jsonl").read_bytes()),
+               "artifact_privacy": "Raw streams, stderr, account/plugin initialization and environment-specific settings remain under ignored .state; submitted traces remove unrelated initialization metadata",
                "finished_at": datetime.now(timezone.utc).isoformat(), "code": frozen["code"],
                "scope": frozen["scope"], "accounting_scope": audit.get("accounting_scope"),
                "limitations": ["Authored two-row workflow and one model trajectory; not a general agent benchmark.",

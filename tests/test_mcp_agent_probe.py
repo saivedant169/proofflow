@@ -15,12 +15,17 @@ def test_client_prompt_has_source_data_but_no_gold_answers_or_recipe():
 
 
 def test_cli_allows_only_explicit_five_mcp_tools(tmp_path):
+    probe.write_json(tmp_path / "prepared.json", {"local_config_key": "mcp-agent-config-test"})
+    private = probe.ROOT / ".state/mcp-agent-config-test"
     command = probe.command(tmp_path)
     assert command[command.index("--tools") + 1] == ""
     assert set(command[command.index("--allowedTools") + 1].split(",")) == set(probe.TOOLS)
     assert len(probe.TOOLS) == 5
-    assert command[command.index("--mcp-config") + 1] == str(tmp_path / "mcp-config.json")
-    assert "--strict-mcp-config" in command and "--safe-mode" in command
+    assert command[command.index("--mcp-config") + 1] == str(private / "mcp-config.json")
+    assert "--strict-mcp-config" in command and "--restricted" in command
+    assert "--safe-mode" not in command and "--bare" not in command
+    assert command[command.index("--setting-sources") + 1] == ""
+    assert command[command.index("--settings") + 1] == str(private / "client-settings.json")
     assert command[command.index("--permission-mode") + 1] == "dontAsk"
     assert command[command.index("--model") + 1] == "claude-fable-5-2"
     assert command[command.index("--max-budget-usd") + 1] == "4"
@@ -79,3 +84,28 @@ def test_equivalent_csv_and_rates_are_accepted_without_accepting_changed_data():
     assert probe.rate_matches({"EUR": "1.2", "USD": "1.0"}, "1.20")
     assert not probe.rate_matches({"EUR": "1.3"}, "1.20")
     assert not probe.rate_matches({"EUR": "1.2", "GBP": "1"}, "1.20")
+
+
+def test_isolation_preserves_oauth_and_disables_optional_customization(monkeypatch):
+    monkeypatch.setenv("CLAUDE_CODE_SAFE_MODE", "1")
+    monkeypatch.setenv("CLAUDE_CODE_SIMPLE", "1")
+    monkeypatch.setenv("PROOFFLOW_HYDRA_TOKEN", "test-only-not-a-credential")
+    env = probe.client_environment()
+    assert not {"CLAUDE_CODE_SAFE_MODE", "CLAUDE_CODE_SIMPLE", "PROOFFLOW_HYDRA_TOKEN"} & set(env)
+    assert probe.ISOLATION_SETTINGS["disableAllHooks"] is True
+    assert probe.ISOLATION_SETTINGS["claudeMdExcludes"] == ["**"]
+    assert probe.ISOLATION_SETTINGS["syncClaudeAiPlugins"] is False
+
+
+def test_submission_trace_excludes_unrelated_initialization_metadata():
+    event = {"type": "system", "subtype": "init", "model": probe.MODEL, "tools": list(probe.TOOLS),
+             "plugins": [{"name": "private-plugin", "path": "/Users/private/plugins"}],
+             "accountInfo": {"email": "private@example.invalid"}, "cwd": "/Users/private/project",
+             "mcp_servers": [{"name": "proofflow", "status": "connected", "private_config": "hidden"}]}
+    clean = probe.submission_event(event)
+    assert not {"plugins", "accountInfo", "cwd"} & set(clean)
+    assert clean["tools"] == list(probe.TOOLS)
+    assert clean["mcp_servers"] == [{"name": "proofflow", "status": "connected"}]
+    tool_event = {"type": "assistant", "session_id": "unrelated", "message": {"content": [
+        {"type": "tool_use", "id": "call-id", "name": probe.TOOLS[0], "input": {"csv_text": probe.CSV}}]}}
+    assert probe.submission_event(tool_event)["message"] == tool_event["message"]

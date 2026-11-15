@@ -1,0 +1,101 @@
+{
+  "accounting_scope": null,
+  "actual_models": [
+    "claude-fable-5-2"
+  ],
+  "attempts": 1,
+  "audit_checks": {
+    "all_tool_results_present_and_successful": true,
+    "one_refresh_request": false,
+    "one_workspace": true,
+    "only_five_allowed_client_tools": false,
+    "server_model_calls_zero": true,
+    "two_client_chosen_compositions": false,
+    "two_csv_loads": false
+  },
+  "checks": {
+    "actual_model_exactly_requested": true,
+    "client_process_succeeded": true,
+    "model_usage_recorded": true,
+    "stream_valid": true,
+    "successful_final_result": true
+  },
+  "cli_num_turns": 1,
+  "client_model": "claude-fable-5-2",
+  "client_tool_requests": 0,
+  "code": {
+    "revision": "4bff48ff0276a52678c23ec62652aa2f46a3894b",
+    "tracked_changes": false
+  },
+  "csv_preflight_calculations": null,
+  "effort": "high",
+  "elapsed_seconds": 8.179201500024647,
+  "error": null,
+  "fallback": false,
+  "finished_at": "2026-11-15T11:09:10.948961+00:00",
+  "limitations": [
+    "Authored two-row workflow and one model trajectory; not a general agent benchmark.",
+    "Server model_calls=0 describes the MCP server; the Claude client makes paid model calls.",
+    "Reported cost is provider list accounting, not a subscription billing statement."
+  ],
+  "model_usage": {
+    "claude-fable-5-2": {
+      "cacheCreationEphemeral1hInputTokens": 1233,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationInputTokens": 1233,
+      "cacheReadInputTokens": 0,
+      "canonicalModel": "claude-fable-5-2",
+      "contextWindow": 1000000,
+      "costBasis": "list",
+      "costUSD": 0.037143999999999996,
+      "inputTokens": 2,
+      "maxOutputTokens": 128000,
+      "outputTokens": 435,
+      "provider": "firstParty",
+      "thinkingTokens": 132,
+      "webSearchRequests": 0
+    }
+  },
+  "passed": false,
+  "recorded_runtime_calls": null,
+  "reported_cost_usd": 0.037143999999999996,
+  "retries": 0,
+  "returncode": 0,
+  "scope": "Single client-model integration demonstration over authored CSV; not a performance benchmark",
+  "server_model_calls": 0,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 1233,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 1233,
+    "cache_read_input_tokens": 0,
+    "fallback_credit": null,
+    "inference_geo": "global",
+    "input_tokens": 2,
+    "iterations": [
+      {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 1233,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 1233,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 2,
+        "output_tokens": 435,
+        "type": "message"
+      }
+    ],
+    "output_tokens": 435,
+    "output_tokens_details": {
+      "thinking_tokens": 132
+    },
+    "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 0
+    },
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "usage_unknown": false
+}

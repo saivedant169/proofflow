@@ -1,0 +1,2202 @@
+{
+  "alias_to_raw": {
+    "artifact:2011-02:country_brief@463ad891b8d3": "12fdae03e5ac4f2f94484042c82dd246:artifact:53ce441c49071efdc69132e6cc1b4be18e1cebb6ef4904a402be8d34bef58dcd",
+    "artifact:2011-02:gross@87839d07c50d": "12fdae03e5ac4f2f94484042c82dd246:artifact:5322ed74a02b396f261a191e67cc7b6e4e13d8f181d7ea1070f9053576242c66",
+    "artifact:2011-02:gross_net_brief@f7739bd575c3": "12fdae03e5ac4f2f94484042c82dd246:artifact:b2e59ec59fcc3517d4763a2a39096ed0b1d030b902bfb539d445c532f512d60c",
+    "artifact:2011-02:gross_total@7caee44a3a47": "12fdae03e5ac4f2f94484042c82dd246:artifact:c578609aa7d16b988feb1a6c00176e17049c63a7ab272ade1943cd755cc5aa8a",
+    "artifact:2011-02:gross_usd@ad78db6877c3": "12fdae03e5ac4f2f94484042c82dd246:artifact:edbf053d42ae285d733146df89f50f3de356dbefc640fe2eb41ddfd9a0288e0e",
+    "artifact:2011-02:net@69f1ba8e8791": "12fdae03e5ac4f2f94484042c82dd246:artifact:64b20c8bcca02d5cd6666433bc296f75a23c85ea50ccf4c449f21d83e741ffb8",
+    "artifact:2011-02:net_total@704d300a9acc": "12fdae03e5ac4f2f94484042c82dd246:artifact:2350ad693677c1922604d6a552640b30e1914dec873551dd13a9b32fd143b864",
+    "artifact:2011-02:net_usd@516d99f6beef": "12fdae03e5ac4f2f94484042c82dd246:artifact:76e9536ba725c009dd624554c069807a12c0da5f2763c3903d6c07df6661489f",
+    "artifact:2011-02:refunds@b3ceb33636b4": "12fdae03e5ac4f2f94484042c82dd246:artifact:d337b20350dc9ca5abb9b0786774cefe942e4e6ced23f9f9a267f2572c93ac68",
+    "artifact:2011-05:country_brief@219e265e8b99": "12fdae03e5ac4f2f94484042c82dd246:artifact:429c055344e8f93c7591b73bf189b76a9121b82ba36549ee8fa0409e08e49044",
+    "artifact:2011-05:gross@e053804aff8b": "12fdae03e5ac4f2f94484042c82dd246:artifact:08616e1a6a663b591c5fe8c2542cc854c50ebffa98d7f7475ae5ed34817387cb",
+    "artifact:2011-05:gross_net_brief@43b6f35c199b": "12fdae03e5ac4f2f94484042c82dd246:artifact:b1c718d3e4db533ecef472945a46638d5c27b2e7a083a57f13042450beec221b",
+    "artifact:2011-05:gross_total@f920c96bf2fd": "12fdae03e5ac4f2f94484042c82dd246:artifact:e1617ad850535222ec8268260236368f94bc85ef8755b0521c262117c93b1319",
+    "artifact:2011-05:gross_usd@ab0ad7a6b293": "12fdae03e5ac4f2f94484042c82dd246:artifact:728f7549e77a3577ea250e9ac5ea388a03a138e610f6bff229455a69bc2543a9",
+    "artifact:2011-05:net@178f6ffc9a77": "12fdae03e5ac4f2f94484042c82dd246:artifact:5c81a7016380acafcff15a787523a237e87ef6c2ccce148f2d3b6e14a7317659",
+    "artifact:2011-05:net_total@87ad6e1430eb": "12fdae03e5ac4f2f94484042c82dd246:artifact:93baabced62d17975d9a1a17813eec473a536e9cf61ff2b8f7936c952c94a6bc",
+    "artifact:2011-05:net_usd@a320a0a8c164": "12fdae03e5ac4f2f94484042c82dd246:artifact:a953637091d26b0257d1fa48633f63c4afd7069c68839bb7f7c560827f5a7cfa",
+    "artifact:2011-05:refunds@7c179b71693f": "12fdae03e5ac4f2f94484042c82dd246:artifact:abc0eea6acf281b9c8fa755928d24659b7dc869f526783e90d478eec629fcb4b",
+    "artifact:2011-08:country_brief@aa06479afd3d": "12fdae03e5ac4f2f94484042c82dd246:artifact:2db01abf98d4e1f83eb0f54a3d686075ac6e1d88bfacf2959ae452eda6ae50e5",
+    "artifact:2011-08:gross@f1b82ed65f00": "12fdae03e5ac4f2f94484042c82dd246:artifact:031f619c4247a8b29e3564036d33fe3e1698c31ceb53ccfa1b153e461a031c40",
+    "artifact:2011-08:gross_net_brief@1d1dd068ac7c": "12fdae03e5ac4f2f94484042c82dd246:artifact:50e9310cf4bfcdad5a4173bd5f9d36b26b931faf478d63e3a05524c89abbaa5c",
+    "artifact:2011-08:gross_total@9533c5647650": "12fdae03e5ac4f2f94484042c82dd246:artifact:fab889ce51453e19ce2ca477b65f974fafff3d622a8c427f4e2562d271606382",
+    "artifact:2011-08:gross_usd@e06e6f69ace2": "12fdae03e5ac4f2f94484042c82dd246:artifact:165a92e14696f9d21492972b3de744ce8d11a8fdc0e3e6b46fcd0acc5c15f483",
+    "artifact:2011-08:net@67e298298788": "12fdae03e5ac4f2f94484042c82dd246:artifact:549335d3f96e8e4109898d0a4d161159c40ae279119c4948fca908ee0540ce68",
+    "artifact:2011-08:net_total@032281b00ff8": "12fdae03e5ac4f2f94484042c82dd246:artifact:574b1071ea4628e3fdda6e3078bbd30cb9c3e8c022bc27f514d5e39833a17c75",
+    "artifact:2011-08:net_usd@471d5e838f6c": "12fdae03e5ac4f2f94484042c82dd246:artifact:3e1457877483f0bf4d5bbf31aff712e1408e6b0379638fdaa0a3f63638abd4a4",
+    "artifact:2011-08:refunds@4ec7a33aacc6": "12fdae03e5ac4f2f94484042c82dd246:artifact:70f3b7b5d4abbcff46aa209a607e5aec207c090a03ddb96c2cff3c3d2f67573d",
+    "artifact:2011-11:country_brief@40e223fa1724": "12fdae03e5ac4f2f94484042c82dd246:artifact:2573311f6f06defbf7890a86b05c0edf6271bfdd4e8538f8a9e1e11906659efe",
+    "artifact:2011-11:gross@f2490adbc200": "12fdae03e5ac4f2f94484042c82dd246:artifact:220ca1fce65961c11bea5715ca81f677bcf1d1d4afc0c1e476c21bf48f07a4fb",
+    "artifact:2011-11:gross_net_brief@892dc15d8550": "12fdae03e5ac4f2f94484042c82dd246:artifact:a7bdb676a7eb27cafbc839e089947f8fa91234479faf1636ff1c2d53ec80299b",
+    "artifact:2011-11:gross_total@b508e4c95d18": "12fdae03e5ac4f2f94484042c82dd246:artifact:38cbb9c97719544295920c94e9191366edc6fdd3458c63567b198e95d1ba1db1",
+    "artifact:2011-11:gross_usd@5965afcad765": "12fdae03e5ac4f2f94484042c82dd246:artifact:8f59d11084201c78602ee2540a0353e6e8bc2e3e71d40f872b08ab6a43497f02",
+    "artifact:2011-11:net@c4e5eb29db22": "12fdae03e5ac4f2f94484042c82dd246:artifact:16cb52a58428fc3620c50b7eb43647803fef482fd4237d12d57e8e32598da11d",
+    "artifact:2011-11:net_total@64a39e065956": "12fdae03e5ac4f2f94484042c82dd246:artifact:ec15a8560276040a6058b9572110312f501bf3ccf9246ef63db40f4835ccdb03",
+    "artifact:2011-11:net_usd@661e7cb4ee0d": "12fdae03e5ac4f2f94484042c82dd246:artifact:225ad5d342c2b7065e8600fca164bf175433107b4f5e8ee9ef85f26a00dfd0c7",
+    "artifact:2011-11:refunds@a26adb5ef528": "12fdae03e5ac4f2f94484042c82dd246:artifact:12807170a9cd0eefd8a9f879e34d9c0ef58ab68c90fd73dd4962fda4ce808855",
+    "artifact:cross:2011-02:2011-05:three_input@6002586582f5": "12fdae03e5ac4f2f94484042c82dd246:artifact:99ff0e04ee23336ce25ae3cde6ea27c63e944e005f63a4d2dfdd1620a8d36518",
+    "artifact:cross:2011-05:2011-08:three_input@7376288ebd81": "12fdae03e5ac4f2f94484042c82dd246:artifact:0bef9aec8dc3e92dd41dbdaef5936e5ce847f0f92d349854d448ac59e49d4a99",
+    "artifact:cross:2011-08:2011-11:three_input@c19a49fed593": "12fdae03e5ac4f2f94484042c82dd246:artifact:0aeba53528d97539b57363f6b7e4c9121e6b031e9be12ec8fcfdd4f55c5f249d",
+    "source:2011-02:fx@d3cfeed92457": "12fdae03e5ac4f2f94484042c82dd246:source:0cd094da0cbc0459a43f0610ffd7a5f9da9298c37fee5885ea7142f61144862a",
+    "source:2011-02:orders@a6be3786cafd": "12fdae03e5ac4f2f94484042c82dd246:source:cba240ab82fb0255271c4337921cac3aa1af7a39f3c333efdce925971d79a857",
+    "source:2011-02:refunds@6d713100f205": "12fdae03e5ac4f2f94484042c82dd246:source:c8f3cfe13777fb69628a15b8146b9b39c055907a9dafaf4e7b00f33fc503a556",
+    "source:2011-02:tickets@95f6b8ce356b": "12fdae03e5ac4f2f94484042c82dd246:source:18ec9b7102b713423669f64e989e9ef6a268497841595608ed64e0c319152f97",
+    "source:2011-05:fx@ab007592f180": "12fdae03e5ac4f2f94484042c82dd246:source:0f22fe9504602d5af7608bbb8be7decff3fe8315529616d2244a800e435e5747",
+    "source:2011-05:orders@abd07c6ff6d3": "12fdae03e5ac4f2f94484042c82dd246:source:68c5d7b64abc4a52ae5941c0a5e38ad4b02c80a1c9f97f192a3b4b84883277de",
+    "source:2011-05:refunds@918679dd0201": "12fdae03e5ac4f2f94484042c82dd246:source:8806abdf3d1804e4aadd4fb3480f65bf0bdabb791bd292cd93f5b9932bcc85d2",
+    "source:2011-05:tickets@482f39619ad5": "12fdae03e5ac4f2f94484042c82dd246:source:b42db94a914e1e5ccb1df255519ca59e0c29c993391ee7649ef7b6d648eb3275",
+    "source:2011-08:fx@2268822c15ee": "12fdae03e5ac4f2f94484042c82dd246:source:f06241267b97ee17bb03cefa880257727090d929bf54c0e91ba5c210d459cbb6",
+    "source:2011-08:orders@07ecce859404": "12fdae03e5ac4f2f94484042c82dd246:source:4cfcd1a37f741c5585627698fceda4e4e2d68bb3e5028058b2712b3e0cff171f",
+    "source:2011-08:refunds@dbaaaa415939": "12fdae03e5ac4f2f94484042c82dd246:source:552936de92c248c41c8f0fb8d8e558eb01409b309faa829068d71317f99ab7d9",
+    "source:2011-08:tickets@7e0452724399": "12fdae03e5ac4f2f94484042c82dd246:source:ffe15bb9006f748d03a48f67febac5e4f477b4f3c0ff31e6cce52e567ca084d7",
+    "source:2011-11:fx@8dd0e290f1b5": "12fdae03e5ac4f2f94484042c82dd246:source:a0b25ec6e6b638e74a5537c8786fa96e0517220f4e64a3789608bc9d2984e82f",
+    "source:2011-11:fx@9ed1b5933b39": "12fdae03e5ac4f2f94484042c82dd246:source:63df87fa191574141c1042e7f5bbbc9524fb80015380f58a1df34be4f9cea7be",
+    "source:2011-11:orders@48a346319c5d": "12fdae03e5ac4f2f94484042c82dd246:source:96000b9fb5e7ec12ff2f5c55f9a69c84a2c8ec6604d9f258b673b436b189814e",
+    "source:2011-11:refunds@feff1341ea51": "12fdae03e5ac4f2f94484042c82dd246:source:6bac08480690573f91549b5dd49f7b8137377902757a9de922fa18a8e35b9418",
+    "source:2011-11:tickets@86304c4a2bc9": "12fdae03e5ac4f2f94484042c82dd246:source:f57e163170c9002b7be65409b7535c9c4019ba55d6d4b1a2543328a9cfc3860d",
+    "tool:company_total@fcdb2990803d": "12fdae03e5ac4f2f94484042c82dd246:tool:f292d9109171070088c107efc2b4cf2d929961bad569bdcf8968cd8d31b37434",
+    "tool:compose_report@f1c27467f0de": "12fdae03e5ac4f2f94484042c82dd246:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee",
+    "tool:convert_to_usd@f06369159d71": "12fdae03e5ac4f2f94484042c82dd246:tool:c78b222dc40236afafd222f7cc7438950a6b1179ad4dd169a6b3c1cfc0eb302f",
+    "tool:gross_by_region@52ea04f90794": "12fdae03e5ac4f2f94484042c82dd246:tool:269b8e6146f737a72eb9a36bffe590aa96dbf8d97767ebb5f3bc176c20273a09",
+    "tool:net_by_region@4ab70497c81e": "12fdae03e5ac4f2f94484042c82dd246:tool:077ba3c17c0056a410c5fe3638ef60267578e466552567585982deca82823b8f",
+    "tool:refunds_by_region@d563234386bf": "12fdae03e5ac4f2f94484042c82dd246:tool:daca152df821a64d43d80795b52abd53e98085406a1e6c69c9792f1c56ae4e8a"
+  },
+  "candidate_names": [
+    "2011-02:country_brief",
+    "2011-02:gross",
+    "2011-02:gross_net_brief",
+    "2011-02:gross_total",
+    "2011-02:gross_usd",
+    "2011-02:net",
+    "2011-02:net_total",
+    "2011-02:net_usd",
+    "2011-02:refunds",
+    "2011-05:country_brief",
+    "2011-05:gross",
+    "2011-05:gross_net_brief",
+    "2011-05:gross_total",
+    "2011-05:gross_usd",
+    "2011-05:net",
+    "2011-05:net_total",
+    "2011-05:net_usd",
+    "2011-05:refunds",
+    "2011-08:country_brief",
+    "2011-08:gross",
+    "2011-08:gross_net_brief",
+    "2011-08:gross_total",
+    "2011-08:gross_usd",
+    "2011-08:net",
+    "2011-08:net_total",
+    "2011-08:net_usd",
+    "2011-08:refunds",
+    "2011-11:country_brief",
+    "2011-11:gross",
+    "2011-11:gross_net_brief",
+    "2011-11:gross_total",
+    "2011-11:gross_usd",
+    "2011-11:net",
+    "2011-11:net_total",
+    "2011-11:net_usd",
+    "2011-11:refunds",
+    "cross:2011-02:2011-05:three_input",
+    "cross:2011-05:2011-08:three_input",
+    "cross:2011-08:2011-11:three_input"
+  ],
+  "case_total_ms": 31203.62133299932,
+  "comparison": {
+    "complete": true,
+    "exact_production_closures": true,
+    "expected_affected_count": 7,
+    "full_context_tokens": 12868,
+    "graph_context_tokens": 2590,
+    "graph_full_context_ratio": 0.20127447932856699,
+    "oracle_correct": true,
+    "production_correctness_pass": true,
+    "production_endstate_parity": true,
+    "scenario": "R04"
+  },
+  "corpus_records": 39,
+  "corpus_sha256": "81e9b7fae631a7d30cbbcf91f011ffce83ea7a6d08df95090609009fb796ebe5",
+  "corpus_tokens": 12868,
+  "costs": {
+    "bm25_index_ms": 2.5879996828734875,
+    "dense_index_ms": 3685.0711251609027,
+    "export_ms": 4.539499990642071,
+    "fixture_graph_mutations": 394,
+    "fixture_graph_queries": 984,
+    "fixture_ms": 8796.283584088087,
+    "graph_budget_determination_ms": 15.524584334343672,
+    "graph_discovery_ms": 13.104584068059921,
+    "mutation_graph_queries": 2,
+    "mutation_ms": 12.616625055670738,
+    "oracle_ms": 0.9380839765071869,
+    "ranking_reuse": "one immutable ranking per base arm reused across budget diagnostics; graph-matched budget is a shared diagnostic parameter"
+  },
+  "embedding": {
+    "chunks": 66,
+    "document_tokens_maximum": 865
+  },
+  "evidence": [
+    {
+      "current_direct_versions": {
+        "artifact:2011-02:gross_usd@ad78db6877c3": "artifact:2011-02:gross_usd@ad78db6877c3",
+        "artifact:2011-02:net_usd@516d99f6beef": "artifact:2011-02:net_usd@516d99f6beef",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Country-specific brief for United Kingdom, 2011-02; both monetary artifacts reused from the earlier snapshot run.",
+      "id": "artifact:2011-02:country_brief@463ad891b8d3",
+      "input_labels": {
+        "artifact:2011-02:gross_usd@ad78db6877c3": "artifact:2011-02:gross_usd",
+        "artifact:2011-02:net_usd@516d99f6beef": "artifact:2011-02:net_usd"
+      },
+      "inputs": [
+        "artifact:2011-02:gross_usd@ad78db6877c3",
+        "artifact:2011-02:net_usd@516d99f6beef"
+      ],
+      "logical_id": "artifact:2011-02:country_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "United Kingdom sampled gross sales",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "United Kingdom sales less staged refunds",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "United Kingdom positive-sales sample for 2011-02"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "gross",
+            "label": "United Kingdom sampled gross sales",
+            "unit": "USD cents",
+            "value": 901659
+          },
+          {
+            "key": "net",
+            "label": "United Kingdom sales less staged refunds",
+            "unit": "USD cents",
+            "value": 901659
+          }
+        ],
+        "title": "United Kingdom positive-sales sample for 2011-02"
+      },
+      "title": "United Kingdom positive-sales sample for 2011-02",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "source:2011-02:orders@a6be3786cafd": "source:2011-02:orders@a6be3786cafd",
+        "tool:gross_by_region@52ea04f90794": "tool:gross_by_region@52ea04f90794"
+      },
+      "description": "Positive sampled gross sales by country in GBP; 2011-02.",
+      "id": "artifact:2011-02:gross@87839d07c50d",
+      "input_labels": {
+        "source:2011-02:orders@a6be3786cafd": "source:2011-02:orders"
+      },
+      "inputs": [
+        "source:2011-02:orders@a6be3786cafd"
+      ],
+      "logical_id": "artifact:2011-02:gross",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "United Kingdom": {
+            "amount_cents": 721327,
+            "currency": "GBP"
+          }
+        }
+      },
+      "title": "artifact:2011-02:gross",
+      "tool": "gross_by_region",
+      "tool_version_id": "tool:gross_by_region@52ea04f90794"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-02:gross_total@7caee44a3a47": "artifact:2011-02:gross_total@7caee44a3a47",
+        "artifact:2011-02:net_total@704d300a9acc": "artifact:2011-02:net_total@704d300a9acc",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Two parallel monetary branches for the actual sampled invoices from 2011-02.",
+      "id": "artifact:2011-02:gross_net_brief@f7739bd575c3",
+      "input_labels": {
+        "artifact:2011-02:gross_total@7caee44a3a47": "artifact:2011-02:gross_total",
+        "artifact:2011-02:net_total@704d300a9acc": "artifact:2011-02:net_total"
+      },
+      "inputs": [
+        "artifact:2011-02:gross_total@7caee44a3a47",
+        "artifact:2011-02:net_total@704d300a9acc"
+      ],
+      "logical_id": "artifact:2011-02:gross_net_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "Sample gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "Sample sales less staged refunds",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "2011-02 positive-sales sample gross and net brief"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "gross",
+            "label": "Sample gross sales",
+            "unit": "USD cents",
+            "value": 901659
+          },
+          {
+            "key": "net",
+            "label": "Sample sales less staged refunds",
+            "unit": "USD cents",
+            "value": 901659
+          }
+        ],
+        "title": "2011-02 positive-sales sample gross and net brief"
+      },
+      "title": "2011-02 positive-sales sample gross and net brief",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-02:gross_usd@ad78db6877c3": "artifact:2011-02:gross_usd@ad78db6877c3",
+        "tool:company_total@fcdb2990803d": "tool:company_total@fcdb2990803d"
+      },
+      "description": "Whole selected sample gross sales in USD; 2011-02.",
+      "id": "artifact:2011-02:gross_total@7caee44a3a47",
+      "input_labels": {
+        "artifact:2011-02:gross_usd@ad78db6877c3": "artifact:2011-02:gross_usd"
+      },
+      "inputs": [
+        "artifact:2011-02:gross_usd@ad78db6877c3"
+      ],
+      "logical_id": "artifact:2011-02:gross_total",
+      "parameters": {},
+      "result": {
+        "usd_cents": 901659
+      },
+      "title": "artifact:2011-02:gross_total",
+      "tool": "company_total",
+      "tool_version_id": "tool:company_total@fcdb2990803d"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-02:gross@87839d07c50d": "artifact:2011-02:gross@87839d07c50d",
+        "source:2011-02:fx@d3cfeed92457": "source:2011-02:fx@d3cfeed92457",
+        "tool:convert_to_usd@f06369159d71": "tool:convert_to_usd@f06369159d71"
+      },
+      "description": "Gross sales converted directly to USD, without the net-sales branch; 2011-02.",
+      "id": "artifact:2011-02:gross_usd@ad78db6877c3",
+      "input_labels": {
+        "artifact:2011-02:gross@87839d07c50d": "artifact:2011-02:gross",
+        "source:2011-02:fx@d3cfeed92457": "source:2011-02:fx"
+      },
+      "inputs": [
+        "source:2011-02:fx@d3cfeed92457",
+        "artifact:2011-02:gross@87839d07c50d"
+      ],
+      "logical_id": "artifact:2011-02:gross_usd",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "United Kingdom": {
+            "usd_cents": 901659
+          }
+        }
+      },
+      "title": "artifact:2011-02:gross_usd",
+      "tool": "convert_to_usd",
+      "tool_version_id": "tool:convert_to_usd@f06369159d71"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-02:gross@87839d07c50d": "artifact:2011-02:gross@87839d07c50d",
+        "artifact:2011-02:refunds@b3ceb33636b4": "artifact:2011-02:refunds@b3ceb33636b4",
+        "tool:net_by_region@4ab70497c81e": "tool:net_by_region@4ab70497c81e"
+      },
+      "description": "Sampled gross sales less staged refunds in GBP; 2011-02.",
+      "id": "artifact:2011-02:net@69f1ba8e8791",
+      "input_labels": {
+        "artifact:2011-02:gross@87839d07c50d": "artifact:2011-02:gross",
+        "artifact:2011-02:refunds@b3ceb33636b4": "artifact:2011-02:refunds"
+      },
+      "inputs": [
+        "artifact:2011-02:gross@87839d07c50d",
+        "artifact:2011-02:refunds@b3ceb33636b4"
+      ],
+      "logical_id": "artifact:2011-02:net",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "United Kingdom": {
+            "amount_cents": 721327,
+            "currency": "GBP"
+          }
+        }
+      },
+      "title": "artifact:2011-02:net",
+      "tool": "net_by_region",
+      "tool_version_id": "tool:net_by_region@4ab70497c81e"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-02:net_usd@516d99f6beef": "artifact:2011-02:net_usd@516d99f6beef",
+        "tool:company_total@fcdb2990803d": "tool:company_total@fcdb2990803d"
+      },
+      "description": "Whole selected sample net sales in USD; 2011-02.",
+      "id": "artifact:2011-02:net_total@704d300a9acc",
+      "input_labels": {
+        "artifact:2011-02:net_usd@516d99f6beef": "artifact:2011-02:net_usd"
+      },
+      "inputs": [
+        "artifact:2011-02:net_usd@516d99f6beef"
+      ],
+      "logical_id": "artifact:2011-02:net_total",
+      "parameters": {},
+      "result": {
+        "usd_cents": 901659
+      },
+      "title": "artifact:2011-02:net_total",
+      "tool": "company_total",
+      "tool_version_id": "tool:company_total@fcdb2990803d"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-02:net@69f1ba8e8791": "artifact:2011-02:net@69f1ba8e8791",
+        "source:2011-02:fx@d3cfeed92457": "source:2011-02:fx@d3cfeed92457",
+        "tool:convert_to_usd@f06369159d71": "tool:convert_to_usd@f06369159d71"
+      },
+      "description": "Net sales converted to USD after staged refunds; 2011-02.",
+      "id": "artifact:2011-02:net_usd@516d99f6beef",
+      "input_labels": {
+        "artifact:2011-02:net@69f1ba8e8791": "artifact:2011-02:net",
+        "source:2011-02:fx@d3cfeed92457": "source:2011-02:fx"
+      },
+      "inputs": [
+        "source:2011-02:fx@d3cfeed92457",
+        "artifact:2011-02:net@69f1ba8e8791"
+      ],
+      "logical_id": "artifact:2011-02:net_usd",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "United Kingdom": {
+            "usd_cents": 901659
+          }
+        }
+      },
+      "title": "artifact:2011-02:net_usd",
+      "tool": "convert_to_usd",
+      "tool_version_id": "tool:convert_to_usd@f06369159d71"
+    },
+    {
+      "current_direct_versions": {
+        "source:2011-02:orders@a6be3786cafd": "source:2011-02:orders@a6be3786cafd",
+        "source:2011-02:refunds@6d713100f205": "source:2011-02:refunds@6d713100f205",
+        "tool:refunds_by_region@d563234386bf": "tool:refunds_by_region@d563234386bf"
+      },
+      "description": "Staged refunds, initially empty, by country in GBP; 2011-02.",
+      "id": "artifact:2011-02:refunds@b3ceb33636b4",
+      "input_labels": {
+        "source:2011-02:orders@a6be3786cafd": "source:2011-02:orders",
+        "source:2011-02:refunds@6d713100f205": "source:2011-02:refunds"
+      },
+      "inputs": [
+        "source:2011-02:orders@a6be3786cafd",
+        "source:2011-02:refunds@6d713100f205"
+      ],
+      "logical_id": "artifact:2011-02:refunds",
+      "parameters": {},
+      "result": {
+        "regions": {}
+      },
+      "title": "artifact:2011-02:refunds",
+      "tool": "refunds_by_region",
+      "tool_version_id": "tool:refunds_by_region@d563234386bf"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-05:gross_usd@ab0ad7a6b293": "artifact:2011-05:gross_usd@ab0ad7a6b293",
+        "artifact:2011-05:net_usd@a320a0a8c164": "artifact:2011-05:net_usd@a320a0a8c164",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Country-specific brief for France, 2011-05; both monetary artifacts reused from the earlier snapshot run.",
+      "id": "artifact:2011-05:country_brief@219e265e8b99",
+      "input_labels": {
+        "artifact:2011-05:gross_usd@ab0ad7a6b293": "artifact:2011-05:gross_usd",
+        "artifact:2011-05:net_usd@a320a0a8c164": "artifact:2011-05:net_usd"
+      },
+      "inputs": [
+        "artifact:2011-05:gross_usd@ab0ad7a6b293",
+        "artifact:2011-05:net_usd@a320a0a8c164"
+      ],
+      "logical_id": "artifact:2011-05:country_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "France sampled gross sales",
+            "path": [
+              "regions",
+              "France",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "France sales less staged refunds",
+            "path": [
+              "regions",
+              "France",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "France positive-sales sample for 2011-05"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "gross",
+            "label": "France sampled gross sales",
+            "unit": "USD cents",
+            "value": 116688
+          },
+          {
+            "key": "net",
+            "label": "France sales less staged refunds",
+            "unit": "USD cents",
+            "value": 116688
+          }
+        ],
+        "title": "France positive-sales sample for 2011-05"
+      },
+      "title": "France positive-sales sample for 2011-05",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "source:2011-05:orders@abd07c6ff6d3": "source:2011-05:orders@abd07c6ff6d3",
+        "tool:gross_by_region@52ea04f90794": "tool:gross_by_region@52ea04f90794"
+      },
+      "description": "Positive sampled gross sales by country in GBP; 2011-05.",
+      "id": "artifact:2011-05:gross@e053804aff8b",
+      "input_labels": {
+        "source:2011-05:orders@abd07c6ff6d3": "source:2011-05:orders"
+      },
+      "inputs": [
+        "source:2011-05:orders@abd07c6ff6d3"
+      ],
+      "logical_id": "artifact:2011-05:gross",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "France": {
+            "amount_cents": 93350,
+            "currency": "GBP"
+          },
+          "United Kingdom": {
+            "amount_cents": 728976,
+            "currency": "GBP"
+          }
+        }
+      },
+      "title": "artifact:2011-05:gross",
+      "tool": "gross_by_region",
+      "tool_version_id": "tool:gross_by_region@52ea04f90794"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-05:gross_total@f920c96bf2fd": "artifact:2011-05:gross_total@f920c96bf2fd",
+        "artifact:2011-05:net_total@87ad6e1430eb": "artifact:2011-05:net_total@87ad6e1430eb",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Two parallel monetary branches for the actual sampled invoices from 2011-05.",
+      "id": "artifact:2011-05:gross_net_brief@43b6f35c199b",
+      "input_labels": {
+        "artifact:2011-05:gross_total@f920c96bf2fd": "artifact:2011-05:gross_total",
+        "artifact:2011-05:net_total@87ad6e1430eb": "artifact:2011-05:net_total"
+      },
+      "inputs": [
+        "artifact:2011-05:gross_total@f920c96bf2fd",
+        "artifact:2011-05:net_total@87ad6e1430eb"
+      ],
+      "logical_id": "artifact:2011-05:gross_net_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "Sample gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "Sample sales less staged refunds",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "2011-05 positive-sales sample gross and net brief"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "gross",
+            "label": "Sample gross sales",
+            "unit": "USD cents",
+            "value": 1027908
+          },
+          {
+            "key": "net",
+            "label": "Sample sales less staged refunds",
+            "unit": "USD cents",
+            "value": 1027908
+          }
+        ],
+        "title": "2011-05 positive-sales sample gross and net brief"
+      },
+      "title": "2011-05 positive-sales sample gross and net brief",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-05:gross_usd@ab0ad7a6b293": "artifact:2011-05:gross_usd@ab0ad7a6b293",
+        "tool:company_total@fcdb2990803d": "tool:company_total@fcdb2990803d"
+      },
+      "description": "Whole selected sample gross sales in USD; 2011-05.",
+      "id": "artifact:2011-05:gross_total@f920c96bf2fd",
+      "input_labels": {
+        "artifact:2011-05:gross_usd@ab0ad7a6b293": "artifact:2011-05:gross_usd"
+      },
+      "inputs": [
+        "artifact:2011-05:gross_usd@ab0ad7a6b293"
+      ],
+      "logical_id": "artifact:2011-05:gross_total",
+      "parameters": {},
+      "result": {
+        "usd_cents": 1027908
+      },
+      "title": "artifact:2011-05:gross_total",
+      "tool": "company_total",
+      "tool_version_id": "tool:company_total@fcdb2990803d"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-05:gross@e053804aff8b": "artifact:2011-05:gross@e053804aff8b",
+        "source:2011-05:fx@ab007592f180": "source:2011-05:fx@ab007592f180",
+        "tool:convert_to_usd@f06369159d71": "tool:convert_to_usd@f06369159d71"
+      },
+      "description": "Gross sales converted directly to USD, without the net-sales branch; 2011-05.",
+      "id": "artifact:2011-05:gross_usd@ab0ad7a6b293",
+      "input_labels": {
+        "artifact:2011-05:gross@e053804aff8b": "artifact:2011-05:gross",
+        "source:2011-05:fx@ab007592f180": "source:2011-05:fx"
+      },
+      "inputs": [
+        "source:2011-05:fx@ab007592f180",
+        "artifact:2011-05:gross@e053804aff8b"
+      ],
+      "logical_id": "artifact:2011-05:gross_usd",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "France": {
+            "usd_cents": 116688
+          },
+          "United Kingdom": {
+            "usd_cents": 911220
+          }
+        }
+      },
+      "title": "artifact:2011-05:gross_usd",
+      "tool": "convert_to_usd",
+      "tool_version_id": "tool:convert_to_usd@f06369159d71"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-05:gross@e053804aff8b": "artifact:2011-05:gross@e053804aff8b",
+        "artifact:2011-05:refunds@7c179b71693f": "artifact:2011-05:refunds@7c179b71693f",
+        "tool:net_by_region@4ab70497c81e": "tool:net_by_region@4ab70497c81e"
+      },
+      "description": "Sampled gross sales less staged refunds in GBP; 2011-05.",
+      "id": "artifact:2011-05:net@178f6ffc9a77",
+      "input_labels": {
+        "artifact:2011-05:gross@e053804aff8b": "artifact:2011-05:gross",
+        "artifact:2011-05:refunds@7c179b71693f": "artifact:2011-05:refunds"
+      },
+      "inputs": [
+        "artifact:2011-05:gross@e053804aff8b",
+        "artifact:2011-05:refunds@7c179b71693f"
+      ],
+      "logical_id": "artifact:2011-05:net",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "France": {
+            "amount_cents": 93350,
+            "currency": "GBP"
+          },
+          "United Kingdom": {
+            "amount_cents": 728976,
+            "currency": "GBP"
+          }
+        }
+      },
+      "title": "artifact:2011-05:net",
+      "tool": "net_by_region",
+      "tool_version_id": "tool:net_by_region@4ab70497c81e"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-05:net_usd@a320a0a8c164": "artifact:2011-05:net_usd@a320a0a8c164",
+        "tool:company_total@fcdb2990803d": "tool:company_total@fcdb2990803d"
+      },
+      "description": "Whole selected sample net sales in USD; 2011-05.",
+      "id": "artifact:2011-05:net_total@87ad6e1430eb",
+      "input_labels": {
+        "artifact:2011-05:net_usd@a320a0a8c164": "artifact:2011-05:net_usd"
+      },
+      "inputs": [
+        "artifact:2011-05:net_usd@a320a0a8c164"
+      ],
+      "logical_id": "artifact:2011-05:net_total",
+      "parameters": {},
+      "result": {
+        "usd_cents": 1027908
+      },
+      "title": "artifact:2011-05:net_total",
+      "tool": "company_total",
+      "tool_version_id": "tool:company_total@fcdb2990803d"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-05:net@178f6ffc9a77": "artifact:2011-05:net@178f6ffc9a77",
+        "source:2011-05:fx@ab007592f180": "source:2011-05:fx@ab007592f180",
+        "tool:convert_to_usd@f06369159d71": "tool:convert_to_usd@f06369159d71"
+      },
+      "description": "Net sales converted to USD after staged refunds; 2011-05.",
+      "id": "artifact:2011-05:net_usd@a320a0a8c164",
+      "input_labels": {
+        "artifact:2011-05:net@178f6ffc9a77": "artifact:2011-05:net",
+        "source:2011-05:fx@ab007592f180": "source:2011-05:fx"
+      },
+      "inputs": [
+        "source:2011-05:fx@ab007592f180",
+        "artifact:2011-05:net@178f6ffc9a77"
+      ],
+      "logical_id": "artifact:2011-05:net_usd",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "France": {
+            "usd_cents": 116688
+          },
+          "United Kingdom": {
+            "usd_cents": 911220
+          }
+        }
+      },
+      "title": "artifact:2011-05:net_usd",
+      "tool": "convert_to_usd",
+      "tool_version_id": "tool:convert_to_usd@f06369159d71"
+    },
+    {
+      "current_direct_versions": {
+        "source:2011-05:orders@abd07c6ff6d3": "source:2011-05:orders@abd07c6ff6d3",
+        "source:2011-05:refunds@918679dd0201": "source:2011-05:refunds@918679dd0201",
+        "tool:refunds_by_region@d563234386bf": "tool:refunds_by_region@d563234386bf"
+      },
+      "description": "Staged refunds, initially empty, by country in GBP; 2011-05.",
+      "id": "artifact:2011-05:refunds@7c179b71693f",
+      "input_labels": {
+        "source:2011-05:orders@abd07c6ff6d3": "source:2011-05:orders",
+        "source:2011-05:refunds@918679dd0201": "source:2011-05:refunds"
+      },
+      "inputs": [
+        "source:2011-05:orders@abd07c6ff6d3",
+        "source:2011-05:refunds@918679dd0201"
+      ],
+      "logical_id": "artifact:2011-05:refunds",
+      "parameters": {},
+      "result": {
+        "regions": {}
+      },
+      "title": "artifact:2011-05:refunds",
+      "tool": "refunds_by_region",
+      "tool_version_id": "tool:refunds_by_region@d563234386bf"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-08:gross_usd@e06e6f69ace2": "artifact:2011-08:gross_usd@e06e6f69ace2",
+        "artifact:2011-08:net_usd@471d5e838f6c": "artifact:2011-08:net_usd@471d5e838f6c",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Country-specific brief for United Kingdom, 2011-08; both monetary artifacts reused from the earlier snapshot run.",
+      "id": "artifact:2011-08:country_brief@aa06479afd3d",
+      "input_labels": {
+        "artifact:2011-08:gross_usd@e06e6f69ace2": "artifact:2011-08:gross_usd",
+        "artifact:2011-08:net_usd@471d5e838f6c": "artifact:2011-08:net_usd"
+      },
+      "inputs": [
+        "artifact:2011-08:gross_usd@e06e6f69ace2",
+        "artifact:2011-08:net_usd@471d5e838f6c"
+      ],
+      "logical_id": "artifact:2011-08:country_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "United Kingdom sampled gross sales",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "United Kingdom sales less staged refunds",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "United Kingdom positive-sales sample for 2011-08"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "gross",
+            "label": "United Kingdom sampled gross sales",
+            "unit": "USD cents",
+            "value": 458868
+          },
+          {
+            "key": "net",
+            "label": "United Kingdom sales less staged refunds",
+            "unit": "USD cents",
+            "value": 458868
+          }
+        ],
+        "title": "United Kingdom positive-sales sample for 2011-08"
+      },
+      "title": "United Kingdom positive-sales sample for 2011-08",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "source:2011-08:orders@07ecce859404": "source:2011-08:orders@07ecce859404",
+        "tool:gross_by_region@52ea04f90794": "tool:gross_by_region@52ea04f90794"
+      },
+      "description": "Positive sampled gross sales by country in GBP; 2011-08.",
+      "id": "artifact:2011-08:gross@f1b82ed65f00",
+      "input_labels": {
+        "source:2011-08:orders@07ecce859404": "source:2011-08:orders"
+      },
+      "inputs": [
+        "source:2011-08:orders@07ecce859404"
+      ],
+      "logical_id": "artifact:2011-08:gross",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "United Kingdom": {
+            "amount_cents": 367094,
+            "currency": "GBP"
+          }
+        }
+      },
+      "title": "artifact:2011-08:gross",
+      "tool": "gross_by_region",
+      "tool_version_id": "tool:gross_by_region@52ea04f90794"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-08:gross_total@9533c5647650": "artifact:2011-08:gross_total@9533c5647650",
+        "artifact:2011-08:net_total@032281b00ff8": "artifact:2011-08:net_total@032281b00ff8",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Two parallel monetary branches for the actual sampled invoices from 2011-08.",
+      "id": "artifact:2011-08:gross_net_brief@1d1dd068ac7c",
+      "input_labels": {
+        "artifact:2011-08:gross_total@9533c5647650": "artifact:2011-08:gross_total",
+        "artifact:2011-08:net_total@032281b00ff8": "artifact:2011-08:net_total"
+      },
+      "inputs": [
+        "artifact:2011-08:gross_total@9533c5647650",
+        "artifact:2011-08:net_total@032281b00ff8"
+      ],
+      "logical_id": "artifact:2011-08:gross_net_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "Sample gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "Sample sales less staged refunds",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "2011-08 positive-sales sample gross and net brief"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "gross",
+            "label": "Sample gross sales",
+            "unit": "USD cents",
+            "value": 458868
+          },
+          {
+            "key": "net",
+            "label": "Sample sales less staged refunds",
+            "unit": "USD cents",
+            "value": 458868
+          }
+        ],
+        "title": "2011-08 positive-sales sample gross and net brief"
+      },
+      "title": "2011-08 positive-sales sample gross and net brief",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-08:gross_usd@e06e6f69ace2": "artifact:2011-08:gross_usd@e06e6f69ace2",
+        "tool:company_total@fcdb2990803d": "tool:company_total@fcdb2990803d"
+      },
+      "description": "Whole selected sample gross sales in USD; 2011-08.",
+      "id": "artifact:2011-08:gross_total@9533c5647650",
+      "input_labels": {
+        "artifact:2011-08:gross_usd@e06e6f69ace2": "artifact:2011-08:gross_usd"
+      },
+      "inputs": [
+        "artifact:2011-08:gross_usd@e06e6f69ace2"
+      ],
+      "logical_id": "artifact:2011-08:gross_total",
+      "parameters": {},
+      "result": {
+        "usd_cents": 458868
+      },
+      "title": "artifact:2011-08:gross_total",
+      "tool": "company_total",
+      "tool_version_id": "tool:company_total@fcdb2990803d"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-08:gross@f1b82ed65f00": "artifact:2011-08:gross@f1b82ed65f00",
+        "source:2011-08:fx@2268822c15ee": "source:2011-08:fx@2268822c15ee",
+        "tool:convert_to_usd@f06369159d71": "tool:convert_to_usd@f06369159d71"
+      },
+      "description": "Gross sales converted directly to USD, without the net-sales branch; 2011-08.",
+      "id": "artifact:2011-08:gross_usd@e06e6f69ace2",
+      "input_labels": {
+        "artifact:2011-08:gross@f1b82ed65f00": "artifact:2011-08:gross",
+        "source:2011-08:fx@2268822c15ee": "source:2011-08:fx"
+      },
+      "inputs": [
+        "source:2011-08:fx@2268822c15ee",
+        "artifact:2011-08:gross@f1b82ed65f00"
+      ],
+      "logical_id": "artifact:2011-08:gross_usd",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "United Kingdom": {
+            "usd_cents": 458868
+          }
+        }
+      },
+      "title": "artifact:2011-08:gross_usd",
+      "tool": "convert_to_usd",
+      "tool_version_id": "tool:convert_to_usd@f06369159d71"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-08:gross@f1b82ed65f00": "artifact:2011-08:gross@f1b82ed65f00",
+        "artifact:2011-08:refunds@4ec7a33aacc6": "artifact:2011-08:refunds@4ec7a33aacc6",
+        "tool:net_by_region@4ab70497c81e": "tool:net_by_region@4ab70497c81e"
+      },
+      "description": "Sampled gross sales less staged refunds in GBP; 2011-08.",
+      "id": "artifact:2011-08:net@67e298298788",
+      "input_labels": {
+        "artifact:2011-08:gross@f1b82ed65f00": "artifact:2011-08:gross",
+        "artifact:2011-08:refunds@4ec7a33aacc6": "artifact:2011-08:refunds"
+      },
+      "inputs": [
+        "artifact:2011-08:gross@f1b82ed65f00",
+        "artifact:2011-08:refunds@4ec7a33aacc6"
+      ],
+      "logical_id": "artifact:2011-08:net",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "United Kingdom": {
+            "amount_cents": 367094,
+            "currency": "GBP"
+          }
+        }
+      },
+      "title": "artifact:2011-08:net",
+      "tool": "net_by_region",
+      "tool_version_id": "tool:net_by_region@4ab70497c81e"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-08:net_usd@471d5e838f6c": "artifact:2011-08:net_usd@471d5e838f6c",
+        "tool:company_total@fcdb2990803d": "tool:company_total@fcdb2990803d"
+      },
+      "description": "Whole selected sample net sales in USD; 2011-08.",
+      "id": "artifact:2011-08:net_total@032281b00ff8",
+      "input_labels": {
+        "artifact:2011-08:net_usd@471d5e838f6c": "artifact:2011-08:net_usd"
+      },
+      "inputs": [
+        "artifact:2011-08:net_usd@471d5e838f6c"
+      ],
+      "logical_id": "artifact:2011-08:net_total",
+      "parameters": {},
+      "result": {
+        "usd_cents": 458868
+      },
+      "title": "artifact:2011-08:net_total",
+      "tool": "company_total",
+      "tool_version_id": "tool:company_total@fcdb2990803d"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-08:net@67e298298788": "artifact:2011-08:net@67e298298788",
+        "source:2011-08:fx@2268822c15ee": "source:2011-08:fx@2268822c15ee",
+        "tool:convert_to_usd@f06369159d71": "tool:convert_to_usd@f06369159d71"
+      },
+      "description": "Net sales converted to USD after staged refunds; 2011-08.",
+      "id": "artifact:2011-08:net_usd@471d5e838f6c",
+      "input_labels": {
+        "artifact:2011-08:net@67e298298788": "artifact:2011-08:net",
+        "source:2011-08:fx@2268822c15ee": "source:2011-08:fx"
+      },
+      "inputs": [
+        "source:2011-08:fx@2268822c15ee",
+        "artifact:2011-08:net@67e298298788"
+      ],
+      "logical_id": "artifact:2011-08:net_usd",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "United Kingdom": {
+            "usd_cents": 458868
+          }
+        }
+      },
+      "title": "artifact:2011-08:net_usd",
+      "tool": "convert_to_usd",
+      "tool_version_id": "tool:convert_to_usd@f06369159d71"
+    },
+    {
+      "current_direct_versions": {
+        "source:2011-08:orders@07ecce859404": "source:2011-08:orders@07ecce859404",
+        "source:2011-08:refunds@dbaaaa415939": "source:2011-08:refunds@dbaaaa415939",
+        "tool:refunds_by_region@d563234386bf": "tool:refunds_by_region@d563234386bf"
+      },
+      "description": "Staged refunds, initially empty, by country in GBP; 2011-08.",
+      "id": "artifact:2011-08:refunds@4ec7a33aacc6",
+      "input_labels": {
+        "source:2011-08:orders@07ecce859404": "source:2011-08:orders",
+        "source:2011-08:refunds@dbaaaa415939": "source:2011-08:refunds"
+      },
+      "inputs": [
+        "source:2011-08:orders@07ecce859404",
+        "source:2011-08:refunds@dbaaaa415939"
+      ],
+      "logical_id": "artifact:2011-08:refunds",
+      "parameters": {},
+      "result": {
+        "regions": {}
+      },
+      "title": "artifact:2011-08:refunds",
+      "tool": "refunds_by_region",
+      "tool_version_id": "tool:refunds_by_region@d563234386bf"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-11:gross_usd@5965afcad765": "artifact:2011-11:gross_usd@5965afcad765",
+        "artifact:2011-11:net_usd@661e7cb4ee0d": "artifact:2011-11:net_usd@661e7cb4ee0d",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Country-specific brief for EIRE, 2011-11; both monetary artifacts reused from the earlier snapshot run.",
+      "id": "artifact:2011-11:country_brief@40e223fa1724",
+      "input_labels": {
+        "artifact:2011-11:gross_usd@5965afcad765": "artifact:2011-11:gross_usd",
+        "artifact:2011-11:net_usd@661e7cb4ee0d": "artifact:2011-11:net_usd"
+      },
+      "inputs": [
+        "artifact:2011-11:gross_usd@5965afcad765",
+        "artifact:2011-11:net_usd@661e7cb4ee0d"
+      ],
+      "logical_id": "artifact:2011-11:country_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "EIRE sampled gross sales",
+            "path": [
+              "regions",
+              "EIRE",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "EIRE sales less staged refunds",
+            "path": [
+              "regions",
+              "EIRE",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "EIRE positive-sales sample for 2011-11"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "gross",
+            "label": "EIRE sampled gross sales",
+            "unit": "USD cents",
+            "value": 65535
+          },
+          {
+            "key": "net",
+            "label": "EIRE sales less staged refunds",
+            "unit": "USD cents",
+            "value": 65535
+          }
+        ],
+        "title": "EIRE positive-sales sample for 2011-11"
+      },
+      "title": "EIRE positive-sales sample for 2011-11",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "source:2011-11:orders@48a346319c5d": "source:2011-11:orders@48a346319c5d",
+        "tool:gross_by_region@52ea04f90794": "tool:gross_by_region@52ea04f90794"
+      },
+      "description": "Positive sampled gross sales by country in GBP; 2011-11.",
+      "id": "artifact:2011-11:gross@f2490adbc200",
+      "input_labels": {
+        "source:2011-11:orders@48a346319c5d": "source:2011-11:orders"
+      },
+      "inputs": [
+        "source:2011-11:orders@48a346319c5d"
+      ],
+      "logical_id": "artifact:2011-11:gross",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EIRE": {
+            "amount_cents": 52428,
+            "currency": "GBP"
+          },
+          "Netherlands": {
+            "amount_cents": 29000,
+            "currency": "GBP"
+          },
+          "United Kingdom": {
+            "amount_cents": 211894,
+            "currency": "GBP"
+          }
+        }
+      },
+      "title": "artifact:2011-11:gross",
+      "tool": "gross_by_region",
+      "tool_version_id": "tool:gross_by_region@52ea04f90794"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-11:gross_total@b508e4c95d18": "artifact:2011-11:gross_total@b508e4c95d18",
+        "artifact:2011-11:net_total@64a39e065956": "artifact:2011-11:net_total@64a39e065956",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Two parallel monetary branches for the actual sampled invoices from 2011-11.",
+      "id": "artifact:2011-11:gross_net_brief@892dc15d8550",
+      "input_labels": {
+        "artifact:2011-11:gross_total@b508e4c95d18": "artifact:2011-11:gross_total",
+        "artifact:2011-11:net_total@64a39e065956": "artifact:2011-11:net_total"
+      },
+      "inputs": [
+        "artifact:2011-11:gross_total@b508e4c95d18",
+        "artifact:2011-11:net_total@64a39e065956"
+      ],
+      "logical_id": "artifact:2011-11:gross_net_brief",
+      "parameters": {
+        "sections": [
+          {
+            "input": "gross",
+            "key": "gross",
+            "label": "Sample gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "net",
+            "key": "net",
+            "label": "Sample sales less staged refunds",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "2011-11 positive-sales sample gross and net brief"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "gross",
+            "label": "Sample gross sales",
+            "unit": "USD cents",
+            "value": 366653
+          },
+          {
+            "key": "net",
+            "label": "Sample sales less staged refunds",
+            "unit": "USD cents",
+            "value": 366653
+          }
+        ],
+        "title": "2011-11 positive-sales sample gross and net brief"
+      },
+      "title": "2011-11 positive-sales sample gross and net brief",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-11:gross_usd@5965afcad765": "artifact:2011-11:gross_usd@5965afcad765",
+        "tool:company_total@fcdb2990803d": "tool:company_total@fcdb2990803d"
+      },
+      "description": "Whole selected sample gross sales in USD; 2011-11.",
+      "id": "artifact:2011-11:gross_total@b508e4c95d18",
+      "input_labels": {
+        "artifact:2011-11:gross_usd@5965afcad765": "artifact:2011-11:gross_usd"
+      },
+      "inputs": [
+        "artifact:2011-11:gross_usd@5965afcad765"
+      ],
+      "logical_id": "artifact:2011-11:gross_total",
+      "parameters": {},
+      "result": {
+        "usd_cents": 366653
+      },
+      "title": "artifact:2011-11:gross_total",
+      "tool": "company_total",
+      "tool_version_id": "tool:company_total@fcdb2990803d"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-11:gross@f2490adbc200": "artifact:2011-11:gross@f2490adbc200",
+        "source:2011-11:fx@8dd0e290f1b5": "source:2011-11:fx@9ed1b5933b39",
+        "tool:convert_to_usd@f06369159d71": "tool:convert_to_usd@f06369159d71"
+      },
+      "description": "Gross sales converted directly to USD, without the net-sales branch; 2011-11.",
+      "id": "artifact:2011-11:gross_usd@5965afcad765",
+      "input_labels": {
+        "artifact:2011-11:gross@f2490adbc200": "artifact:2011-11:gross",
+        "source:2011-11:fx@8dd0e290f1b5": "source:2011-11:fx"
+      },
+      "inputs": [
+        "source:2011-11:fx@8dd0e290f1b5",
+        "artifact:2011-11:gross@f2490adbc200"
+      ],
+      "logical_id": "artifact:2011-11:gross_usd",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EIRE": {
+            "usd_cents": 65535
+          },
+          "Netherlands": {
+            "usd_cents": 36250
+          },
+          "United Kingdom": {
+            "usd_cents": 264868
+          }
+        }
+      },
+      "title": "artifact:2011-11:gross_usd",
+      "tool": "convert_to_usd",
+      "tool_version_id": "tool:convert_to_usd@f06369159d71"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-11:gross@f2490adbc200": "artifact:2011-11:gross@f2490adbc200",
+        "artifact:2011-11:refunds@a26adb5ef528": "artifact:2011-11:refunds@a26adb5ef528",
+        "tool:net_by_region@4ab70497c81e": "tool:net_by_region@4ab70497c81e"
+      },
+      "description": "Sampled gross sales less staged refunds in GBP; 2011-11.",
+      "id": "artifact:2011-11:net@c4e5eb29db22",
+      "input_labels": {
+        "artifact:2011-11:gross@f2490adbc200": "artifact:2011-11:gross",
+        "artifact:2011-11:refunds@a26adb5ef528": "artifact:2011-11:refunds"
+      },
+      "inputs": [
+        "artifact:2011-11:gross@f2490adbc200",
+        "artifact:2011-11:refunds@a26adb5ef528"
+      ],
+      "logical_id": "artifact:2011-11:net",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EIRE": {
+            "amount_cents": 52428,
+            "currency": "GBP"
+          },
+          "Netherlands": {
+            "amount_cents": 29000,
+            "currency": "GBP"
+          },
+          "United Kingdom": {
+            "amount_cents": 211894,
+            "currency": "GBP"
+          }
+        }
+      },
+      "title": "artifact:2011-11:net",
+      "tool": "net_by_region",
+      "tool_version_id": "tool:net_by_region@4ab70497c81e"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-11:net_usd@661e7cb4ee0d": "artifact:2011-11:net_usd@661e7cb4ee0d",
+        "tool:company_total@fcdb2990803d": "tool:company_total@fcdb2990803d"
+      },
+      "description": "Whole selected sample net sales in USD; 2011-11.",
+      "id": "artifact:2011-11:net_total@64a39e065956",
+      "input_labels": {
+        "artifact:2011-11:net_usd@661e7cb4ee0d": "artifact:2011-11:net_usd"
+      },
+      "inputs": [
+        "artifact:2011-11:net_usd@661e7cb4ee0d"
+      ],
+      "logical_id": "artifact:2011-11:net_total",
+      "parameters": {},
+      "result": {
+        "usd_cents": 366653
+      },
+      "title": "artifact:2011-11:net_total",
+      "tool": "company_total",
+      "tool_version_id": "tool:company_total@fcdb2990803d"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-11:net@c4e5eb29db22": "artifact:2011-11:net@c4e5eb29db22",
+        "source:2011-11:fx@8dd0e290f1b5": "source:2011-11:fx@9ed1b5933b39",
+        "tool:convert_to_usd@f06369159d71": "tool:convert_to_usd@f06369159d71"
+      },
+      "description": "Net sales converted to USD after staged refunds; 2011-11.",
+      "id": "artifact:2011-11:net_usd@661e7cb4ee0d",
+      "input_labels": {
+        "artifact:2011-11:net@c4e5eb29db22": "artifact:2011-11:net",
+        "source:2011-11:fx@8dd0e290f1b5": "source:2011-11:fx"
+      },
+      "inputs": [
+        "source:2011-11:fx@8dd0e290f1b5",
+        "artifact:2011-11:net@c4e5eb29db22"
+      ],
+      "logical_id": "artifact:2011-11:net_usd",
+      "parameters": {},
+      "result": {
+        "regions": {
+          "EIRE": {
+            "usd_cents": 65535
+          },
+          "Netherlands": {
+            "usd_cents": 36250
+          },
+          "United Kingdom": {
+            "usd_cents": 264868
+          }
+        }
+      },
+      "title": "artifact:2011-11:net_usd",
+      "tool": "convert_to_usd",
+      "tool_version_id": "tool:convert_to_usd@f06369159d71"
+    },
+    {
+      "current_direct_versions": {
+        "source:2011-11:orders@48a346319c5d": "source:2011-11:orders@48a346319c5d",
+        "source:2011-11:refunds@feff1341ea51": "source:2011-11:refunds@feff1341ea51",
+        "tool:refunds_by_region@d563234386bf": "tool:refunds_by_region@d563234386bf"
+      },
+      "description": "Staged refunds, initially empty, by country in GBP; 2011-11.",
+      "id": "artifact:2011-11:refunds@a26adb5ef528",
+      "input_labels": {
+        "source:2011-11:orders@48a346319c5d": "source:2011-11:orders",
+        "source:2011-11:refunds@feff1341ea51": "source:2011-11:refunds"
+      },
+      "inputs": [
+        "source:2011-11:orders@48a346319c5d",
+        "source:2011-11:refunds@feff1341ea51"
+      ],
+      "logical_id": "artifact:2011-11:refunds",
+      "parameters": {},
+      "result": {
+        "regions": {}
+      },
+      "title": "artifact:2011-11:refunds",
+      "tool": "refunds_by_region",
+      "tool_version_id": "tool:refunds_by_region@d563234386bf"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-02:net_total@704d300a9acc": "artifact:2011-02:net_total@704d300a9acc",
+        "artifact:2011-05:gross_total@f920c96bf2fd": "artifact:2011-05:gross_total@f920c96bf2fd",
+        "artifact:2011-05:net_usd@a320a0a8c164": "artifact:2011-05:net_usd@a320a0a8c164",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Three-input composition reuses gross and net artifacts from two independent dated snapshot runs.",
+      "id": "artifact:cross:2011-02:2011-05:three_input@6002586582f5",
+      "input_labels": {
+        "artifact:2011-02:net_total@704d300a9acc": "artifact:2011-02:net_total",
+        "artifact:2011-05:gross_total@f920c96bf2fd": "artifact:2011-05:gross_total",
+        "artifact:2011-05:net_usd@a320a0a8c164": "artifact:2011-05:net_usd"
+      },
+      "inputs": [
+        "artifact:2011-05:net_usd@a320a0a8c164",
+        "artifact:2011-05:gross_total@f920c96bf2fd",
+        "artifact:2011-02:net_total@704d300a9acc"
+      ],
+      "logical_id": "artifact:cross:2011-02:2011-05:three_input",
+      "parameters": {
+        "sections": [
+          {
+            "input": "previous_net",
+            "key": "previous_net",
+            "label": "2011-02 sample net sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_gross",
+            "key": "current_gross",
+            "label": "2011-05 sample gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_country_net",
+            "key": "current_country_net",
+            "label": "2011-05 France sample net sales",
+            "path": [
+              "regions",
+              "France",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "Sample comparison 2011-02 and 2011-05"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "previous_net",
+            "label": "2011-02 sample net sales",
+            "unit": "USD cents",
+            "value": 901659
+          },
+          {
+            "key": "current_gross",
+            "label": "2011-05 sample gross sales",
+            "unit": "USD cents",
+            "value": 1027908
+          },
+          {
+            "key": "current_country_net",
+            "label": "2011-05 France sample net sales",
+            "unit": "USD cents",
+            "value": 116688
+          }
+        ],
+        "title": "Sample comparison 2011-02 and 2011-05"
+      },
+      "title": "Sample comparison 2011-02 and 2011-05",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-05:net_total@87ad6e1430eb": "artifact:2011-05:net_total@87ad6e1430eb",
+        "artifact:2011-08:gross_total@9533c5647650": "artifact:2011-08:gross_total@9533c5647650",
+        "artifact:2011-08:net_usd@471d5e838f6c": "artifact:2011-08:net_usd@471d5e838f6c",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Three-input composition reuses gross and net artifacts from two independent dated snapshot runs.",
+      "id": "artifact:cross:2011-05:2011-08:three_input@7376288ebd81",
+      "input_labels": {
+        "artifact:2011-05:net_total@87ad6e1430eb": "artifact:2011-05:net_total",
+        "artifact:2011-08:gross_total@9533c5647650": "artifact:2011-08:gross_total",
+        "artifact:2011-08:net_usd@471d5e838f6c": "artifact:2011-08:net_usd"
+      },
+      "inputs": [
+        "artifact:2011-08:net_usd@471d5e838f6c",
+        "artifact:2011-08:gross_total@9533c5647650",
+        "artifact:2011-05:net_total@87ad6e1430eb"
+      ],
+      "logical_id": "artifact:cross:2011-05:2011-08:three_input",
+      "parameters": {
+        "sections": [
+          {
+            "input": "previous_net",
+            "key": "previous_net",
+            "label": "2011-05 sample net sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_gross",
+            "key": "current_gross",
+            "label": "2011-08 sample gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_country_net",
+            "key": "current_country_net",
+            "label": "2011-08 United Kingdom sample net sales",
+            "path": [
+              "regions",
+              "United Kingdom",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "Sample comparison 2011-05 and 2011-08"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "previous_net",
+            "label": "2011-05 sample net sales",
+            "unit": "USD cents",
+            "value": 1027908
+          },
+          {
+            "key": "current_gross",
+            "label": "2011-08 sample gross sales",
+            "unit": "USD cents",
+            "value": 458868
+          },
+          {
+            "key": "current_country_net",
+            "label": "2011-08 United Kingdom sample net sales",
+            "unit": "USD cents",
+            "value": 458868
+          }
+        ],
+        "title": "Sample comparison 2011-05 and 2011-08"
+      },
+      "title": "Sample comparison 2011-05 and 2011-08",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    },
+    {
+      "current_direct_versions": {
+        "artifact:2011-08:net_total@032281b00ff8": "artifact:2011-08:net_total@032281b00ff8",
+        "artifact:2011-11:gross_total@b508e4c95d18": "artifact:2011-11:gross_total@b508e4c95d18",
+        "artifact:2011-11:net_usd@661e7cb4ee0d": "artifact:2011-11:net_usd@661e7cb4ee0d",
+        "tool:compose_report@f1c27467f0de": "tool:compose_report@f1c27467f0de"
+      },
+      "description": "Three-input composition reuses gross and net artifacts from two independent dated snapshot runs.",
+      "id": "artifact:cross:2011-08:2011-11:three_input@c19a49fed593",
+      "input_labels": {
+        "artifact:2011-08:net_total@032281b00ff8": "artifact:2011-08:net_total",
+        "artifact:2011-11:gross_total@b508e4c95d18": "artifact:2011-11:gross_total",
+        "artifact:2011-11:net_usd@661e7cb4ee0d": "artifact:2011-11:net_usd"
+      },
+      "inputs": [
+        "artifact:2011-11:net_usd@661e7cb4ee0d",
+        "artifact:2011-11:gross_total@b508e4c95d18",
+        "artifact:2011-08:net_total@032281b00ff8"
+      ],
+      "logical_id": "artifact:cross:2011-08:2011-11:three_input",
+      "parameters": {
+        "sections": [
+          {
+            "input": "previous_net",
+            "key": "previous_net",
+            "label": "2011-08 sample net sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_gross",
+            "key": "current_gross",
+            "label": "2011-11 sample gross sales",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "current_country_net",
+            "key": "current_country_net",
+            "label": "2011-11 EIRE sample net sales",
+            "path": [
+              "regions",
+              "EIRE",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          }
+        ],
+        "title": "Sample comparison 2011-08 and 2011-11"
+      },
+      "result": {
+        "sections": [
+          {
+            "key": "previous_net",
+            "label": "2011-08 sample net sales",
+            "unit": "USD cents",
+            "value": 458868
+          },
+          {
+            "key": "current_gross",
+            "label": "2011-11 sample gross sales",
+            "unit": "USD cents",
+            "value": 366653
+          },
+          {
+            "key": "current_country_net",
+            "label": "2011-11 EIRE sample net sales",
+            "unit": "USD cents",
+            "value": 65535
+          }
+        ],
+        "title": "Sample comparison 2011-08 and 2011-11"
+      },
+      "title": "Sample comparison 2011-08 and 2011-11",
+      "tool": "compose_report",
+      "tool_version_id": "tool:compose_report@f1c27467f0de"
+    }
+  ],
+  "execution_order": [
+    [
+      "bm25",
+      "fixed_2048"
+    ],
+    [
+      "dense",
+      "fixed_2048"
+    ],
+    [
+      "iterative_hybrid",
+      "fixed_2048"
+    ],
+    [
+      "graph",
+      "fixed_2048"
+    ],
+    [
+      "exact_flat",
+      "fixed_2048"
+    ],
+    [
+      "graph",
+      "unlimited"
+    ],
+    [
+      "exact_flat",
+      "unlimited"
+    ],
+    [
+      "full_context",
+      "unlimited"
+    ],
+    [
+      "bm25",
+      "graph_matched"
+    ],
+    [
+      "dense",
+      "graph_matched"
+    ],
+    [
+      "iterative_hybrid",
+      "graph_matched"
+    ]
+  ],
+  "expected_affected_ids": [
+    "artifact:2011-11:country_brief@40e223fa1724",
+    "artifact:2011-11:gross_net_brief@892dc15d8550",
+    "artifact:2011-11:gross_total@b508e4c95d18",
+    "artifact:2011-11:gross_usd@5965afcad765",
+    "artifact:2011-11:net_total@64a39e065956",
+    "artifact:2011-11:net_usd@661e7cb4ee0d",
+    "artifact:cross:2011-08:2011-11:three_input@c19a49fed593"
+  ],
+  "expected_affected_names": [
+    "2011-11:country_brief",
+    "2011-11:gross_net_brief",
+    "2011-11:gross_total",
+    "2011-11:gross_usd",
+    "2011-11:net_total",
+    "2011-11:net_usd",
+    "cross:2011-08:2011-11:three_input"
+  ],
+  "graph_discovery_error": null,
+  "graph_matched_budget": 2590,
+  "graph_namespace": "retail-v2-R04-12fdae03e5ac4f2f94484042c82dd246",
+  "mutation_audit": [
+    {
+      "after_sha256": "9d496b422025837471be217726666254790a7c1bf9c8cca718646c6ea96920df",
+      "before_sha256": "cb3971be50451f5da408d189c52d84311088dba59875e632074260495c4cce85",
+      "current_id": "12fdae03e5ac4f2f94484042c82dd246:source:63df87fa191574141c1042e7f5bbbc9524fb80015380f58a1df34be4f9cea7be",
+      "expected_changed": true,
+      "kind": "source",
+      "logical_id": "source:2011-11:fx",
+      "observed_changed": true,
+      "original_id": "12fdae03e5ac4f2f94484042c82dd246:source:a0b25ec6e6b638e74a5537c8786fa96e0517220f4e64a3789608bc9d2984e82f"
+    }
+  ],
+  "native_graph_ids": [
+    "artifact:2011-11:country_brief@40e223fa1724",
+    "artifact:2011-11:gross_net_brief@892dc15d8550",
+    "artifact:2011-11:gross_total@b508e4c95d18",
+    "artifact:2011-11:gross_usd@5965afcad765",
+    "artifact:2011-11:net_total@64a39e065956",
+    "artifact:2011-11:net_usd@661e7cb4ee0d",
+    "artifact:cross:2011-08:2011-11:three_input@c19a49fed593"
+  ],
+  "native_graph_impact": {
+    "exact_match": true,
+    "extra_ids": [],
+    "f1": 1.0,
+    "fn": 0,
+    "fp": 0,
+    "missing_ids": [],
+    "precision": 1.0,
+    "recall": 1.0,
+    "tp": 7
+  },
+  "numeric_oracle_errors": {},
+  "numeric_oracle_values": {
+    "2011-02:country_brief": {
+      "sections": [
+        {
+          "key": "gross",
+          "label": "United Kingdom sampled gross sales",
+          "unit": "USD cents",
+          "value": 901659
+        },
+        {
+          "key": "net",
+          "label": "United Kingdom sales less staged refunds",
+          "unit": "USD cents",
+          "value": 901659
+        }
+      ],
+      "title": "United Kingdom positive-sales sample for 2011-02"
+    },
+    "2011-02:gross": {
+      "regions": {
+        "United Kingdom": {
+          "amount_cents": 721327,
+          "currency": "GBP"
+        }
+      }
+    },
+    "2011-02:gross_net_brief": {
+      "sections": [
+        {
+          "key": "gross",
+          "label": "Sample gross sales",
+          "unit": "USD cents",
+          "value": 901659
+        },
+        {
+          "key": "net",
+          "label": "Sample sales less staged refunds",
+          "unit": "USD cents",
+          "value": 901659
+        }
+      ],
+      "title": "2011-02 positive-sales sample gross and net brief"
+    },
+    "2011-02:gross_total": {
+      "usd_cents": 901659
+    },
+    "2011-02:gross_usd": {
+      "regions": {
+        "United Kingdom": {
+          "usd_cents": 901659
+        }
+      }
+    },
+    "2011-02:net": {
+      "regions": {
+        "United Kingdom": {
+          "amount_cents": 721327,
+          "currency": "GBP"
+        }
+      }
+    },
+    "2011-02:net_total": {
+      "usd_cents": 901659
+    },
+    "2011-02:net_usd": {
+      "regions": {
+        "United Kingdom": {
+          "usd_cents": 901659
+        }
+      }
+    },
+    "2011-02:refunds": {
+      "regions": {}
+    },
+    "2011-05:country_brief": {
+      "sections": [
+        {
+          "key": "gross",
+          "label": "France sampled gross sales",
+          "unit": "USD cents",
+          "value": 116688
+        },
+        {
+          "key": "net",
+          "label": "France sales less staged refunds",
+          "unit": "USD cents",
+          "value": 116688
+        }
+      ],
+      "title": "France positive-sales sample for 2011-05"
+    },
+    "2011-05:gross": {
+      "regions": {
+        "France": {
+          "amount_cents": 93350,
+          "currency": "GBP"
+        },
+        "United Kingdom": {
+          "amount_cents": 728976,
+          "currency": "GBP"
+        }
+      }
+    },
+    "2011-05:gross_net_brief": {
+      "sections": [
+        {
+          "key": "gross",
+          "label": "Sample gross sales",
+          "unit": "USD cents",
+          "value": 1027908
+        },
+        {
+          "key": "net",
+          "label": "Sample sales less staged refunds",
+          "unit": "USD cents",
+          "value": 1027908
+        }
+      ],
+      "title": "2011-05 positive-sales sample gross and net brief"
+    },
+    "2011-05:gross_total": {
+      "usd_cents": 1027908
+    },
+    "2011-05:gross_usd": {
+      "regions": {
+        "France": {
+          "usd_cents": 116688
+        },
+        "United Kingdom": {
+          "usd_cents": 911220
+        }
+      }
+    },
+    "2011-05:net": {
+      "regions": {
+        "France": {
+          "amount_cents": 93350,
+          "currency": "GBP"
+        },
+        "United Kingdom": {
+          "amount_cents": 728976,
+          "currency": "GBP"
+        }
+      }
+    },
+    "2011-05:net_total": {
+      "usd_cents": 1027908
+    },
+    "2011-05:net_usd": {
+      "regions": {
+        "France": {
+          "usd_cents": 116688
+        },
+        "United Kingdom": {
+          "usd_cents": 911220
+        }
+      }
+    },
+    "2011-05:refunds": {
+      "regions": {}
+    },
+    "2011-08:country_brief": {
+      "sections": [
+        {
+          "key": "gross",
+          "label": "United Kingdom sampled gross sales",
+          "unit": "USD cents",
+          "value": 458868
+        },
+        {
+          "key": "net",
+          "label": "United Kingdom sales less staged refunds",
+          "unit": "USD cents",
+          "value": 458868
+        }
+      ],
+      "title": "United Kingdom positive-sales sample for 2011-08"
+    },
+    "2011-08:gross": {
+      "regions": {
+        "United Kingdom": {
+          "amount_cents": 367094,
+          "currency": "GBP"
+        }
+      }
+    },
+    "2011-08:gross_net_brief": {
+      "sections": [
+        {
+          "key": "gross",
+          "label": "Sample gross sales",
+          "unit": "USD cents",
+          "value": 458868
+        },
+        {
+          "key": "net",
+          "label": "Sample sales less staged refunds",
+          "unit": "USD cents",
+          "value": 458868
+        }
+      ],
+      "title": "2011-08 positive-sales sample gross and net brief"
+    },
+    "2011-08:gross_total": {
+      "usd_cents": 458868
+    },
+    "2011-08:gross_usd": {
+      "regions": {
+        "United Kingdom": {
+          "usd_cents": 458868
+        }
+      }
+    },
+    "2011-08:net": {
+      "regions": {
+        "United Kingdom": {
+          "amount_cents": 367094,
+          "currency": "GBP"
+        }
+      }
+    },
+    "2011-08:net_total": {
+      "usd_cents": 458868
+    },
+    "2011-08:net_usd": {
+      "regions": {
+        "United Kingdom": {
+          "usd_cents": 458868
+        }
+      }
+    },
+    "2011-08:refunds": {
+      "regions": {}
+    },
+    "2011-11:country_brief": {
+      "sections": [
+        {
+          "key": "gross",
+          "label": "EIRE sampled gross sales",
+          "unit": "USD cents",
+          "value": 68681
+        },
+        {
+          "key": "net",
+          "label": "EIRE sales less staged refunds",
+          "unit": "USD cents",
+          "value": 68681
+        }
+      ],
+      "title": "EIRE positive-sales sample for 2011-11"
+    },
+    "2011-11:gross": {
+      "regions": {
+        "EIRE": {
+          "amount_cents": 52428,
+          "currency": "GBP"
+        },
+        "Netherlands": {
+          "amount_cents": 29000,
+          "currency": "GBP"
+        },
+        "United Kingdom": {
+          "amount_cents": 211894,
+          "currency": "GBP"
+        }
+      }
+    },
+    "2011-11:gross_net_brief": {
+      "sections": [
+        {
+          "key": "gross",
+          "label": "Sample gross sales",
+          "unit": "USD cents",
+          "value": 384252
+        },
+        {
+          "key": "net",
+          "label": "Sample sales less staged refunds",
+          "unit": "USD cents",
+          "value": 384252
+        }
+      ],
+      "title": "2011-11 positive-sales sample gross and net brief"
+    },
+    "2011-11:gross_total": {
+      "usd_cents": 384252
+    },
+    "2011-11:gross_usd": {
+      "regions": {
+        "EIRE": {
+          "usd_cents": 68681
+        },
+        "Netherlands": {
+          "usd_cents": 37990
+        },
+        "United Kingdom": {
+          "usd_cents": 277581
+        }
+      }
+    },
+    "2011-11:net": {
+      "regions": {
+        "EIRE": {
+          "amount_cents": 52428,
+          "currency": "GBP"
+        },
+        "Netherlands": {
+          "amount_cents": 29000,
+          "currency": "GBP"
+        },
+        "United Kingdom": {
+          "amount_cents": 211894,
+          "currency": "GBP"
+        }
+      }
+    },
+    "2011-11:net_total": {
+      "usd_cents": 384252
+    },
+    "2011-11:net_usd": {
+      "regions": {
+        "EIRE": {
+          "usd_cents": 68681
+        },
+        "Netherlands": {
+          "usd_cents": 37990
+        },
+        "United Kingdom": {
+          "usd_cents": 277581
+        }
+      }
+    },
+    "2011-11:refunds": {
+      "regions": {}
+    },
+    "cross:2011-02:2011-05:three_input": {
+      "sections": [
+        {
+          "key": "previous_net",
+          "label": "2011-02 sample net sales",
+          "unit": "USD cents",
+          "value": 901659
+        },
+        {
+          "key": "current_gross",
+          "label": "2011-05 sample gross sales",
+          "unit": "USD cents",
+          "value": 1027908
+        },
+        {
+          "key": "current_country_net",
+          "label": "2011-05 France sample net sales",
+          "unit": "USD cents",
+          "value": 116688
+        }
+      ],
+      "title": "Sample comparison 2011-02 and 2011-05"
+    },
+    "cross:2011-05:2011-08:three_input": {
+      "sections": [
+        {
+          "key": "previous_net",
+          "label": "2011-05 sample net sales",
+          "unit": "USD cents",
+          "value": 1027908
+        },
+        {
+          "key": "current_gross",
+          "label": "2011-08 sample gross sales",
+          "unit": "USD cents",
+          "value": 458868
+        },
+        {
+          "key": "current_country_net",
+          "label": "2011-08 United Kingdom sample net sales",
+          "unit": "USD cents",
+          "value": 458868
+        }
+      ],
+      "title": "Sample comparison 2011-05 and 2011-08"
+    },
+    "cross:2011-08:2011-11:three_input": {
+      "sections": [
+        {
+          "key": "previous_net",
+          "label": "2011-08 sample net sales",
+          "unit": "USD cents",
+          "value": 458868
+        },
+        {
+          "key": "current_gross",
+          "label": "2011-11 sample gross sales",
+          "unit": "USD cents",
+          "value": 384252
+        },
+        {
+          "key": "current_country_net",
+          "label": "2011-11 EIRE sample net sales",
+          "unit": "USD cents",
+          "value": 68681
+        }
+      ],
+      "title": "Sample comparison 2011-08 and 2011-11"
+    }
+  },
+  "query": {
+    "changed_ids": [
+      "source:2011-11:fx@8dd0e290f1b5"
+    ],
+    "text": "Correct the illustrative GBP-to-USD rate in 2011-11 to 1.31; earlier partition evidence stays usable.\nIdentify saved calculations and reports requiring revalidation. Requested partitions: 2011-02, 2011-05, 2011-08, 2011-11."
+  },
+  "scenario": {
+    "category": "fx_partition",
+    "description": "Correct the illustrative GBP-to-USD rate in 2011-11 to 1.31; earlier partition evidence stays usable.",
+    "id": "R04",
+    "mutations": [
+      {
+        "operation": "fx_set",
+        "parameters": {
+          "GBP": "1.31"
+        },
+        "source": "2011-11:fx",
+        "tool": ""
+      }
+    ],
+    "restart": false,
+    "scope_partitions": [
+      "2011-02",
+      "2011-05",
+      "2011-08",
+      "2011-11"
+    ],
+    "split": "test"
+  }
+}

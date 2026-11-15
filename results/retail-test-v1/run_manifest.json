@@ -1,0 +1,153 @@
+{
+  "code": {
+    "revision": "4bff48ff0276a52678c23ec62652aa2f46a3894b",
+    "status_porcelain": ""
+  },
+  "configuration": {
+    "benchmark_version": "retail-v2",
+    "bm25": {
+      "b": 0.75,
+      "k1": 1.5
+    },
+    "budget_conditions": [
+      "graph_matched",
+      "fixed_2048"
+    ],
+    "change_oracle": "independently compare canonical source values and declared tool versions; assert observed transitions match; then use initial IDs for shared query roots",
+    "claim_scope": "authored mutations and compositions over a frozen subset of public retail transactions; not independent observed production incidents",
+    "dense_cache": "clear encoder passage/query memo at each case; model weights loaded once",
+    "dense_chunk_overlap": 64,
+    "dense_chunk_tokens": 384,
+    "dense_document_score": "maximum cosine across all overlapping chunks",
+    "dense_model": "BAAI/bge-small-en-v1.5",
+    "evidence_aliases": "unchanged deterministic logical/content/recipe/input-version aliases from pilot-v1",
+    "exact_id_seeding": true,
+    "execution_order": "rotate the predeclared arm list by SHA256(case_id) modulo its length",
+    "expected_refusal": "one unchanged batch refresh; exact MissingEvidenceError naming an actually removed source may pass only if every available artifact is fresh+oracle-equal and every unavailable artifact blocks; refusal remains visible",
+    "fixed_budget": 2048,
+    "fixed_budget_closure_controls": [
+      "graph",
+      "exact_flat"
+    ],
+    "graph_matched_budget": "measured serialized unlimited graph closure tokens for this case; may be zero; adaptive diagnostic",
+    "iterative_round_width": 3,
+    "iterative_rounds": "corpus_size",
+    "primary_closure": "each production arm must also identify the exact independently declared affected set; recursive repair cannot hide omitted closure evidence",
+    "primary_correctness": "all planned cases; graph, exact_flat and full_context oracle-correct and equal semantic endstates for every scoped artifact; unexpected errors/incomplete runs fail",
+    "primary_ratio": "sum(graph evidence tokens) / sum(full_context evidence tokens) over every planned case",
+    "primary_token_ratio_maximum": 0.4,
+    "production_arms": [
+      "graph",
+      "exact_flat",
+      "full_context"
+    ],
+    "reader": "unchanged deterministic transitive reader restricted to returned evidence",
+    "record_serialization": "unchanged EvidenceRecord.render/v1",
+    "retrieval_arms": [
+      "bm25",
+      "dense",
+      "iterative_hybrid"
+    ],
+    "rrf_constant": 60,
+    "scope": "candidate scope applied equally before packing; independent dependency oracle closes full declarations before filtering",
+    "semantic_endstate": "logical artifact name, currentness state, stored JSON value, original artifact preservation; raw UUIDs excluded",
+    "shared_executor": "Every arm uses Hydra-assisted currentness and recursive refresh; standalone BM25/vector safety and LLM task success are not evaluated.",
+    "tokenizer": "cl100k_base"
+  },
+  "database": "HydraDB OSS native FLOW traversal; no fallback",
+  "elapsed_ms": 346673.35520870984,
+  "embedding": {
+    "cache_dir": "/Users/saivedanthava/Desktop/HydraDB/proofflow/.cache/fastembed",
+    "chunking": {
+      "document_score": "max cosine over chunks",
+      "model_tokens": 384,
+      "overlap": 64,
+      "truncation": "none"
+    },
+    "fastembed_version": "0.9.1",
+    "implementation": "fastembed.TextEmbedding (ONNX, CPU)",
+    "model": "BAAI/bge-small-en-v1.5",
+    "model_directory": "/Users/saivedanthava/Desktop/HydraDB/proofflow/.cache/fastembed/models--Qdrant--bge-small-en-v1.5-onnx-Q/snapshots/aa8f8b060edb00e03bfdd08813a2949946c8ba55",
+    "model_file_sha256": {
+      "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+      "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+    },
+    "numpy_version": "2.5.4"
+  },
+  "embedding_setup_ms": 377.54245894029737,
+  "end_code_sha256": {
+    "proofflow/__init__.py": "d725363c445f433c1d21df0cbc62bd418f7f065b171b0c1752afdf903b56036e",
+    "proofflow/agent.py": "56e9dd57a50ca611e02f0c2336b37a5cc6aba80e635adbd8989666f3e92075f6",
+    "proofflow/analytics.py": "cca3a122cf9884e38323cfefca105c65fd3a462950994ec9822d76abc413ff86",
+    "proofflow/api.py": "1102bd3a5c47921ccc85b1b62f28959c2f6def65ca70915996fec85035bcefb9",
+    "proofflow/artifacts.py": "068bc264a5184800dc9bb9f11600977526eeccdb52e7dc9cd6282c7a4bd507e2",
+    "proofflow/composition.py": "bdbf3ada8ff726f3b57a1669e4425d34e2875c4940a79afa7c1e3fc78d2e5624",
+    "proofflow/demo.py": "d629c523dbdd8fa7f89c5cfd785314478bbba1af140dbc7a41646e96cd364103",
+    "proofflow/eval/__init__.py": "4f24e6241d888bd4aa7003e9b33d686886fafe159b141e3a73293e819fb3efc6",
+    "proofflow/eval/cases.py": "c6a7bb617964fb9905c12cb301061474d6753eceffd865e223083897dcee0f3b",
+    "proofflow/eval/config.py": "e995edfa508152db58f1b2e857b2563cfba7b9ef11fe842d9f088cc88337e51f",
+    "proofflow/eval/execution.py": "402296a8323ffb85f01856ea0edfd7410a8c6255a5a3ae06f3d805ccfe6ed535",
+    "proofflow/eval/oracle.py": "aec88e9266f2c688c19934209dc7cc4280312766537366d0b5f02c7b652c525c",
+    "proofflow/eval/retail_data.py": "12312131e930ef22e94449e9765abe01bb508585b353c93db362172426ad29ac",
+    "proofflow/eval/retail_oracle.py": "8e776b8add59ad18a814382630abd2666b0248b0a25dfc2dd463a95727c3224a",
+    "proofflow/eval/retail_runner.py": "f0677c7f5f3ab4999f2501fab73bb4eb9e8e3d7bb284a6c6fc8a8cceeadba47c",
+    "proofflow/eval/retrieval.py": "cba16c3e14c8303d23f187580955c861c48427088c3f69120d30b2ba28edd201",
+    "proofflow/eval/runner.py": "8f2d491a492a3259950cfd2f2be90de58566a53fa01f47afc314f05e0dde6d6e",
+    "proofflow/eval/workload.py": "17cbd1d42d424f01c743c65d1a3fdf6a486c48406a0247ea39383e7334876445",
+    "proofflow/graph.py": "ba409e28f945dd57b8ab3b7a1b3475c22a17038ef9942f0ce1bf3715c8faf091",
+    "proofflow/importing.py": "88791861f3df38f34f1100d0b0934f9f9dc311ab1c856e2bff8428f59dc34637",
+    "proofflow/mcp_server.py": "fd18f2e90b697808221dcd5113e74cafd33c5c571f0e2af404036bd9481849e9",
+    "proofflow/models.py": "bf0e046db1615411afa727a70088ecc0bc8e7820318b4582a03d25270e1e49e9",
+    "proofflow/runtime.py": "17312dbb90b3d46590cd88466379d9a95a787a292597bf024894d4d0a1e756ba",
+    "pyproject.toml": "af3414d9e897a7693fb404c389ff63f8c10b889c71d79854576821d435d593a4",
+    "scripts/agent_compare.py": "6b3d18ce6ba06dc4e0e838b6ae020c7094212a64b046eb17f26683b6f563e9c3",
+    "scripts/agent_probe.py": "710cb4e023620041cc1c41402bea1a433a6b195aad3dc9433c33d3d3a52b60e9",
+    "scripts/composition_probe.py": "c02b889329db911461653d10b8b5433b9a1e148cadcb4bcf9d174bb830feea41",
+    "scripts/core_smoke.py": "b23a254497384ab509e705f72eb40614a70dfb945b29d576a15ad8df8ecd0e79",
+    "scripts/deployment_smoke.py": "a56954f0becfd0a50658d66452ea9ac7b8f96a39dfce3f83382c1b3e31ecbf0b",
+    "scripts/hydra_smoke.py": "0de049295e840762edfd4f70150d86ee30268ebd795254ef02802da184529a79",
+    "scripts/import_csv.py": "d83b4da2ac5f1b908eb22096df756b0439e33e6754a0c35c14aa9b01d051fe13",
+    "scripts/init_local.py": "a65254f1c329a620fd953bca1fe9687585ba4e03490b1b209c1f9ed3c5f44899",
+    "scripts/mcp_agent_probe.py": "68df6e64ae7e56d01cbacc2425dfa6e998ae223461a80cd99317b5ccdaea9a81",
+    "scripts/mcp_smoke.py": "8da73367cd2bf8cdbcfea5185b0daf6d175c288b1cf965fd9644bf80bfcc83cd",
+    "scripts/prepare_retail_v2.py": "68e41cd423b5e815c6faf12a0d24fb94fa8bad659b80d8de16d8dc47b673d3d9",
+    "scripts/summarize_agent.py": "8f80193a4d5a9d1c12b4dbb3fcf11cc84c77bb9ec41441ad4ec5c11848d3962d",
+    "scripts/summarize_benchmark.py": "df7a6500d4eae3ce5d4aeaf01eb4a40fd66a72626f1ae2cec66c2763f5f475be",
+    "uv.lock": "2fe701a65b9df2fcb0c5e8c4df9788dfd6ebd727bb925b3628f48d12055bc1df"
+  },
+  "finished": true,
+  "finished_at": "2026-11-15T11:14:48.180566+00:00",
+  "fixture_manifest_sha256": "2502b8d70e29c9992fd5c852a62cdb7c2fefb39972c22fa27513287812d000d4",
+  "freeze_integrity_error": null,
+  "isolation": "private manifest heads/blobs, shared immutable original graph; all selections frozen before arm executions",
+  "partial_run": false,
+  "planned_cases": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10"
+  ],
+  "selected_cases": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10"
+  ],
+  "shared_executor": "Every arm uses Hydra-assisted currentness and recursive refresh; standalone BM25/vector safety and LLM task success are not evaluated.",
+  "split": "test",
+  "started_at": "2026-11-15T11:09:01.917219+00:00"
+}

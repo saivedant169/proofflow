@@ -1,0 +1,11 @@
+{
+  "source_stream_sha256": "dce97e1a474ca63fb18120debddbfbd1e0706577427af513ac72d534b45d2f16",
+  "initialization": {
+    "tools": [],
+    "mcp_servers": [],
+    "model": "claude-fable-5-2",
+    "permissionMode": "dontAsk"
+  },
+  "client_result": "I couldn't run any of this task: the ProofFlow MCP tools, including `prepare`, are not available to me in this session, so there was nothing to call.\n\nNothing was loaded, computed, saved or refreshed in workspace `client-ea26973fa797`:\n\n- **Reports:** neither the company report nor the NORTH operations brief was created, so there are no saved report IDs or run IDs.\n- **Reuse:** no artifacts exist to reuse, because the first run never happened.\n- **Correction:** the 1.30 rate reload, the currentness inspections and the joint refresh were not performed.\n- **Failure:** the blocker is tool availability, before any ProofFlow call was made.\n\nI have not supplied any revenue or ticket figures, since those must come from the server tools.\n\nTo proceed, the ProofFlow MCP server needs to be connected to this session. Once the tools are visible, I can run the full sequence as you described.",
+  "interpretation": "The isolated v1 CLI configuration suppressed MCP. No ProofFlow tool call or source mutation occurred. Raw initialization remains privately archived; this extract omits unrelated session/account metadata."
+}
