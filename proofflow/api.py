@@ -11,6 +11,8 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel, Field, StrictStr
+from starlette.datastructures import MutableHeaders
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from .analytics import AnalyticsError
@@ -21,6 +23,46 @@ from .models import InvalidInputError, MissingEvidenceError
 
 
 COOKIE = "proofflow_session"
+REPORT_EXPORT_PATH = "/api/import/export"
+
+
+class ExportReportIds(BaseModel, extra="forbid"):
+    company: StrictStr = Field(min_length=1)
+    region: StrictStr = Field(min_length=1)
+
+
+class ExportRequest(BaseModel, extra="forbid"):
+    generation: StrictStr = Field(min_length=1)
+    report_ids: ExportReportIds
+
+
+class ReportExportResponses:
+    """Keep the snapshot and its errors out of caches, including an unexpected 500."""
+
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http" or scope.get("path") != REPORT_EXPORT_PATH:
+            return await self.app(scope, receive, send)
+
+        started = False
+
+        async def send_uncached(message):
+            nonlocal started
+            if message["type"] == "http.response.start":
+                MutableHeaders(scope=message)["Cache-Control"] = "no-store"
+                started = True
+            await send(message)
+
+        try:
+            await self.app(scope, receive, send_uncached)
+        except Exception:
+            if not started:
+                response = JSONResponse({"error": {"code": "export_unavailable",
+                    "message": "The report snapshot could not be prepared"}}, status_code=500)
+                await response(scope, receive, send_uncached)
+            raise
 
 
 class ImportBodyLimit:
@@ -90,6 +132,7 @@ def create_app(state_dir: str | Path | None = None, graph_factory: Callable[...,
 
     application = FastAPI(title="ProofFlow", version="0.1.0", lifespan=lifespan)
     application.add_middleware(ImportBodyLimit)
+    application.add_middleware(ReportExportResponses)
     application.state.manager = manager
 
     def error(code: str, message: str, status: int):
@@ -242,6 +285,13 @@ def create_app(state_dir: str | Path | None = None, graph_factory: Callable[...,
             current.rate_limit()
             with active_import(current, factory) as imported:
                 return imported.verify()
+
+    @application.post(REPORT_EXPORT_PATH)
+    def import_export(request: Request, payload: ExportRequest):
+        with manager.session(sid(request)) as current:
+            current.rate_limit()
+            with active_import(current, factory) as imported:
+                return imported.export_reports(payload.generation, payload.report_ids.model_dump())
 
     @application.get("/api/import/evidence/{artifact_id:path}")
     def import_evidence(request: Request, artifact_id: str):

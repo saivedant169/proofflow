@@ -12,7 +12,7 @@ from .demo import DemoSession, ID_PATTERN, SessionMissing, now
 from .importing import (COMPANY_REPORT, REGION_REPORT, SUPPORT_ARTIFACT, CSVImportError,
                         MAX_BYTES, ImportedDataset, _apply_preflighted_import,
                         parse_csv, recipe_calculation_count)
-from .models import MissingEvidenceError
+from .models import InvalidInputError, MissingEvidenceError
 from .runtime import ProofFlowRuntime
 
 
@@ -139,6 +139,58 @@ class BrowserImport:
                             "Ticket counts expand into synthetic counting rows; no missing zero-ticket claim is fabricated.",
                             "Counters separate input preflight, recorded execution and fresh-recipe verification.",
                             "CSV source versions publish individually; an incomplete update must be resubmitted before refresh."]}
+
+    def export_reports(self, generation: str, report_ids: dict[str, str]) -> dict[str, str]:
+        if generation != self.metadata["workspace_id"]:
+            raise MissingEvidenceError("The imported workspace has changed since these reports were shown")
+        if self.metadata.get("incomplete_update"):
+            raise MissingEvidenceError("Complete the CSV update before preparing a report snapshot")
+
+        unavailable = "Both imported reports and their revenue claims must be current and complete"
+        try:
+            company, region = (record for _, record in self.reports())
+            if (company is None or region is None
+                    or company.id != report_ids["company"] or region.id != report_ids["region"]):
+                raise MissingEvidenceError(unavailable)
+            selected_region = self.metadata["dataset"]["selected_region"]
+            if not isinstance(selected_region, str) or not selected_region:
+                raise MissingEvidenceError(unavailable)
+
+            lines = []
+            for record, claim_key, label in (
+                (company, "company_revenue", "Company net revenue"),
+                (region, "regional_revenue", f"Regional net revenue ({selected_region!r})"),
+            ):
+                if not self.runtime.currentness(record.id).is_current:
+                    raise MissingEvidenceError(unavailable)
+                claims = [claim for claim in self.runtime.report_claims(record.id) if claim["key"] == claim_key]
+                if len(claims) != 1:
+                    raise MissingEvidenceError(unavailable)
+                claim = claims[0]
+                cents = claim.get("value")
+                artifact_id = record.metadata["inputs"]["revenue"]
+                if (claim.get("state") != "current" or claim.get("unit") != "USD cents"
+                        or type(cents) is not int or claim.get("artifact_id") != artifact_id):
+                    raise MissingEvidenceError(unavailable)
+                dollars, remainder = divmod(abs(cents), 100)
+                sign = "-" if cents < 0 else ""
+                lines.extend((f"{label}: {sign}${dollars:,}.{remainder:02d} USD",
+                              f"Report artifact ID: {record.id}",
+                              f"Claim artifact ID: {artifact_id}", ""))
+        except (MissingEvidenceError, InvalidInputError, KeyError, TypeError, ValueError) as exc:
+            raise MissingEvidenceError(unavailable) from exc
+
+        checked_at = now()
+        content = "\n".join((
+            "ProofFlow current revenue reports",
+            f"Checked at (UTC): {checked_at}",
+            "Snapshot only. Both reports and their revenue claims were current at the check time.",
+            "This file will not update after subsequent changes.",
+            "",
+            *lines,
+        ))
+        return {"filename": "proofflow-current-reports.txt", "media_type": "text/plain;charset=utf-8",
+                "checked_at": checked_at, "content": content}
 
     def update(self, payload: dict) -> dict:
         started = time.perf_counter()
