@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import type { BrowserContext, Download, Page, TestInfo } from '@playwright/test'
+import type { BrowserContext, Download, Page, Request, Response, TestInfo } from '@playwright/test'
 import { appendFileSync, readFileSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
@@ -77,6 +77,40 @@ async function checkPage(page: Page, errors: string[]) {
 
 function waitForPost(page: Page, pathname: string) {
   return page.waitForResponse(response => new URL(response.url()).pathname === pathname && response.request().method() === 'POST')
+}
+
+function traceCheckedCopy(page: Page) {
+  const started = performance.now()
+  const events: Record<string, string | number>[] = []
+  function mark(event: string, details: Record<string, string | number> = {}) {
+    events.push({ elapsed_ms: Math.round(performance.now() - started), event, ...details })
+  }
+  function network(event: string, request: Request, status?: number) {
+    const endpoint = new URL(request.url())
+    const method = request.method()
+    const isExport = method === 'POST' && endpoint.pathname === exportPath
+    const isReconciliation = method === 'GET' && endpoint.pathname === statePath
+    if (endpoint.origin !== origin || (!isExport && !isReconciliation)) return
+    const failure = request.failure()?.errorText
+    mark(event, {
+      method, path: endpoint.pathname,
+      ...(status === undefined ? {} : { status }),
+      ...(failure && /^net::ERR_[A-Z0-9_]+$/.test(failure) ? { failure } : {}),
+    })
+  }
+  const onRequest = (request: Request) => network('request_started', request)
+  const onResponse = (response: Response) => network('response_arrived', response.request(), response.status())
+  const onFinished = (request: Request) => network('request_finished', request)
+  const onFailed = (request: Request) => network('request_failed', request)
+  page.on('request', onRequest).on('response', onResponse)
+  page.on('requestfinished', onFinished).on('requestfailed', onFailed)
+  return {
+    events, mark,
+    dispose() {
+      page.off('request', onRequest).off('response', onResponse)
+      page.off('requestfinished', onFinished).off('requestfailed', onFailed)
+    },
+  }
 }
 
 async function publish(page: Page, correction: boolean, {
@@ -288,24 +322,40 @@ test('checked handoff handles unavailable evidence and early clipboard denial', 
   // The clipboard may reject before the server settles. Release the server
   // failure only after the denial so the representation is never read.
   await page.evaluate(() => { delete document.documentElement.dataset.clipboardDenied })
-  await page.route(`**${exportPath}`, async route => {
-    await expect(page.locator('html')).toHaveAttribute('data-clipboard-denied', 'true')
-    await route.fulfill({
-      status: 503,
-      json: { error: { code: 'backend_unavailable', message: 'HydraDB evidence is unavailable.' } },
-    })
-  }, { times: 1 })
-  const [copyRejected, copyReconciled] = await Promise.all([
-    waitForPost(page, exportPath),
-    page.waitForResponse(response => new URL(response.url()).pathname === statePath),
-    copyButton(page).press('Enter'),
-  ])
-  expect(copyRejected.status()).toBe(503)
-  expect(copyReconciled.status()).toBe(200)
-  await expect(page.getByRole('alert')).toContainText('No report was copied to the clipboard. HydraDB evidence is unavailable.')
-  await expect(page.getByText('Snapshot checked at', { exact: false })).toHaveCount(0)
-  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(clipboardSentinel)
-  await checkPage(page, errors)
+  const trace = traceCheckedCopy(page)
+  try {
+    await page.route(`**${exportPath}`, async route => {
+      trace.mark('export_fixture_intercepted')
+      await expect(page.locator('html')).toHaveAttribute('data-clipboard-denied', 'true')
+      trace.mark('clipboard_denial_observed')
+      await route.fulfill({
+        status: 503,
+        json: { error: { code: 'backend_unavailable', message: 'HydraDB evidence is unavailable.' } },
+      })
+      trace.mark('export_fixture_fulfilled')
+    }, { times: 1 })
+    trace.mark('keyboard_copy_started')
+    const [copyRejected, copyReconciled] = await Promise.all([
+      waitForPost(page, exportPath),
+      page.waitForResponse(response => new URL(response.url()).pathname === statePath),
+      copyButton(page).press('Enter').then(() => trace.mark('keyboard_copy_returned')),
+    ])
+    expect(copyRejected.status()).toBe(503)
+    expect(copyReconciled.status()).toBe(200)
+    await expect(page.getByRole('alert')).toContainText('No report was copied to the clipboard. HydraDB evidence is unavailable.')
+    await expect(page.getByText('Snapshot checked at', { exact: false })).toHaveCount(0)
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(clipboardSentinel)
+    await checkPage(page, errors)
+  } catch (cause) {
+    const browser = await page.evaluate(() => ({
+      clipboard_denied: document.documentElement.dataset.clipboardDenied === 'true',
+      copy_pending: document.querySelector('[aria-live="polite"].sr-only')?.textContent === 'Checking reports for copy',
+    })).catch(() => null)
+    console.error('checked_copy_failure_timeline', JSON.stringify({ events: trace.events, browser }))
+    throw cause
+  } finally {
+    trace.dispose()
+  }
   testEvidence.set(info, {
     browser_injected_export_status: 503, browser_injected_reconciliation_failure: true,
     download_events_before_reload: 0, reports_withheld_until_reload: true, restored_values_cents: [30800, 10800],
