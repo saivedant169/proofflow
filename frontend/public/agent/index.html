@@ -37,8 +37,11 @@
     <p class="info"><strong>Use synthetic or nonsensitive CSV rows.</strong> The connector sends your CSV and exchange rates to hosted ProofFlow. ProofFlow runs the calculations without a model call. The MCP host may send tool inputs and outputs to its configured model.</p>
 
     <h2>Install in a local MCP host</h2>
-    <p>Install <code>uv</code> and save the script. In Claude Code, replace the example path with the location of your downloaded file.</p>
-    <pre><code>claude mcp add --transport stdio proofflow-csv -- uv run --no-project --script /absolute/path/proofflow_csv_mcp.py</code></pre>
+    <p>Save both files in Downloads. From that folder, verify the script against its checksum.</p>
+    <pre><code>cd "$HOME/Downloads"
+shasum -a 256 -c proofflow_csv_mcp.py.sha256</code></pre>
+    <p>Install <code>uv</code>. In Claude Code, replace the quoted example path with the location of your downloaded script.</p>
+    <pre><code>claude mcp add --transport stdio proofflow-csv -- uv run --no-project --script "/absolute/path/proofflow_csv_mcp.py"</code></pre>
     <details>
       <summary>Configuration for other local stdio hosts</summary>
       <pre><code>{

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { ArrowRight, CheckCircle2, CircleAlert, Database, FileUp, LoaderCircle, Play, Plus, ShieldCheck } from 'lucide-react'
+import { ArrowRight, CheckCircle2, CircleAlert, Database, FileUp, LoaderCircle, Play, Plug, Plus, ShieldCheck } from 'lucide-react'
 import { api } from './lib/api'
 import { parseUSDCents } from './lib/format'
 import type { ImportExport, ImportExportRequest, ImportedWorkspaceState, ImportRequest, SourceChange, Verification, WorkspaceState } from './lib/types'
@@ -162,6 +162,7 @@ export default function App() {
           <div className="intro-resources">
             <a className="text-link" href="/walkthrough.mp4"><Play size={15} aria-hidden="true" />Watch walkthrough</a>
             <a className="text-link" href="/evidence/"><ShieldCheck size={16} aria-hidden="true" />Evidence &amp; verification</a>
+            <a className="text-link" href="/agent/"><Plug size={16} aria-hidden="true" />Connect an agent</a>
           </div>
         </div>
       </section>

@@ -39,7 +39,7 @@ h1 { font-size: clamp(34px, 3.3vw, 49px); line-height: 1.12; font-weight: 750; l
 .intro p { max-width: 720px; margin-top: 0; }
 .intro-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px 19px; }
 .intro-resources { display: flex; flex-wrap: wrap; align-items: center; gap: 0 19px; }
-.intro-actions .text-link { min-height: 38px; }
+.intro-actions .text-link { min-height: 38px; white-space: nowrap; }
 .panel { border: 1px solid var(--line); border-radius: 9px; }
 .workspace-grid { display: grid; grid-template-columns: minmax(330px, .38fr) minmax(0, .62fr); gap: 16px; align-items: stretch; }
 .report-panel { padding: 24px; min-height: 455px; background: #fff; display: flex; flex-direction: column; }
