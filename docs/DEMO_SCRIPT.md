@@ -1,24 +1,25 @@
 # ProofFlow: retail v2 demo narrative
 
-This two-minute narrative combines the verified browser workflow with the audited retail evidence and five-tool MCP integration. The [existing 120-second functional walkthrough](../video/proofflow-walkthrough.mp4) was recorded before retail v2 and remains available at `/walkthrough.mp4` in the application image. Its benchmark shots are from the original pilot; the updated narrative below is distinct from that recording. Hosting is on hold and will be handled by the project owner. The repository remains private.
+The current [120-second walkthrough](../video/proofflow-walkthrough.mp4) combines the verified browser workflow, retail v2 results and the actual five-tool MCP-client integration. It is an edited sequence of real application captures and clearly labeled saved-evidence cards, with local narration. The application image exposes the video at `/walkthrough.mp4`. Hosting is on hold and will be handled by the project owner; the repository remains private.
 
 ## Two-minute sequence
 
-Use the verified local app at **http://127.0.0.1:18080**, starting from **New workspace**. This browser fixture is authored commerce data, separate from the external retail transactions used in the benchmark.
+The browser fixture uses authored commerce data, separate from the external retail transactions in the benchmark. The table follows the actual encoded film; times are rounded to hundredths of a second.
 
-| Time | Action | Narration |
+| Time | Visual | Narration |
 |---|---|---|
-| 0:00–0:10 | Show the company report and EU brief, with two recorded runs. | “Agents reuse prior work. But when an input changes, which saved numbers can they still trust? ProofFlow keeps the dependencies attached.” |
-| 0:10–0:25 | Inspect EU revenue, then **Change a source → Exchange rate → 1.20 → Apply correction**. | “This brief reuses a calculation from another run. Correct the euro rate: HydraDB follows the actual consumed inputs across both reports.” |
-| 0:25–0:39 | Show four affected artifacts, withheld revenue and unchanged support. | “Revenue is withheld until revalidated. The independent support count stays current. These paths come from native Hydra queries.” |
-| 0:39–0:55 | Click **Refresh affected**, then show updated claims and activity. | “Four real tools refresh the dependent work. Company revenue becomes $5,755; EU revenue becomes $2,280. Support keeps the same artifact.” |
-| 0:55–1:06 | Click **Check values**; show current claims and evidence. | “Independent recomputation matches. New reports bind to new intermediate versions. Missing evidence blocks the calculation instead of becoming a guessed answer.” |
-| 1:06–1:27 | Open the Retail v2 benchmark and show the complete-path result, graph-matched table and token total. | “On ten held-out retail cases, complete dependencies refresh all thirty-eight recoverable affected reports and block four unavailable ones. With the same per-case allowance, BM25 completes nineteen, dense eight, iterative hybrid thirty-three. Evidence uses sixty-nine percent fewer tokens than full context.” |
-| 1:27–1:41 | Show exact-flat tie, fixed-2,048 diagnostic and development result. | “Exact dependency traversal ties. At two thousand forty-eight tokens, graph completes only eight reports. We retain that shortfall and the failed development efficiency gate.” |
-| 1:41–1:56 | Show the five-tool MCP quickstart and saved actual-client evidence. | “An existing agent can load data, choose typed plans, inspect and refresh. One real Claude client reused prior artifacts and corrected both reports. That is a separate integration, not this benchmark.” |
-| 1:56–2:00 | Return to the verified report. | “ProofFlow: current evidence across agent runs.” |
+| 0:00.00–0:10.47 | Company report and EU brief, composed from two runs. | “Agents reuse prior work. When an input changes, which saved numbers can they still trust? ProofFlow keeps the dependencies attached across runs.” |
+| 0:10.47–0:21.75 | Source correction drawer, then withheld revenue and unchanged support. | “Correct the euro exchange rate. Revenue becomes stale and is withheld. The independent support count stays current, while previous revenue remains clearly historical.” |
+| 0:21.75–0:29.27 | Actual HydraDB evidence drawer and consumed-input path. | “HydraDB traces the inputs each tool actually consumed, linking this calculation to both reports.” |
+| 0:29.27–0:42.92 | Revalidated company and EU values; support remains unchanged. | “Four tools refresh the dependent work. Company revenue becomes five thousand seven hundred fifty-five dollars; EU revenue, two thousand two hundred eighty. Independent recomputation matches.” |
+| 0:42.92–0:58.45 | Actual retail v2 application summary, with data and experiment scope. | “Now a separate retail experiment: six hundred forty public transaction lines, four dated partitions, and ten authored cases. Complete dependencies refresh thirty-eight recoverable reports and block four unavailable ones.” |
+| 0:58.45–1:10.56 | Saved-evidence card: complete closure and graph-matched retrieval baselines. | “With identical records and the graph's per-case allowance, BM25 completes nineteen, dense eight, and iterative hybrid thirty-three. All methods share the same executor.” |
+| 1:10.56–1:21.32 | Saved-evidence card: evidence-token reduction, equal calculation counts and scope. | “Evidence uses sixty-nine point four one percent fewer tokens than full context. Exact dependency traversal ties. The calculations still run.” |
+| 1:21.32–1:32.82 | Saved-evidence card: fixed 2,048-token shortfall and failed development gate. | “At a fixed two-thousand-forty-eight-token limit, graph completes only eight reports. The earlier development efficiency gate failed. Both limitations remain visible.” |
+| 1:32.82–1:55.79 | Saved actual-client evidence: five tools, 32 checks, 9 requests and 12 runtime calls. | “An actual Claude client uses five MCP tools to load data, choose plans, inspect and refresh. It reuses prior artifacts on authored two-row input. After a launch-configuration fix, one trajectory passed thirty-two checks, with nine requests and twelve recorded runtime calls. Its first configuration failure is retained.” |
+| 1:55.79–1:60.00 | Return to the verified report. | “ProofFlow: current evidence across agent runs.” |
 
-Use actual application views or clearly labeled saved evidence for the benchmark and client shots. The updated Retail v2 panel has been checked on desktop and mobile; its numbers come from the audited summary. Do not imply the browser runs a model or benchmark on demand. The final frame can carry a hosted URL only after the owner deploys and verifies it.
+The benchmark and client cards display saved evidence; the browser does not run a model or benchmark on demand. The film has no deployment URL. For a live demonstration, use the verified local app at **http://127.0.0.1:18080** and start from **New workspace**. The complete narration and source references are in [VIDEO_SCRIPT.md](VIDEO_SCRIPT.md).
 
 ## Required evidence captions
 

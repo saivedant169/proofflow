@@ -18,7 +18,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
+ROOT = (HERE / json.loads((HERE / "manifest.json").read_text())["source_root"]).resolve()
 WORK = HERE / ".work"
 INK = "#101318"
 MUTED = "#59616e"
@@ -46,7 +46,7 @@ def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
 
 
 def resolve_image(value: str) -> Path:
-    path = (HERE / value).resolve()
+    path = (ROOT / value).resolve()
     if not path.is_relative_to(ROOT):
         raise ValueError("Screenshot must be inside the ProofFlow project")
     if not path.is_file():
@@ -84,6 +84,82 @@ def csv_panel(width: int, height: int) -> Image.Image:
     return canvas
 
 
+def evidence_card(kind: str, width: int, height: int) -> Image.Image:
+    data = json.loads((HERE / "evidence_extract.json").read_text())
+    canvas = Image.new("RGB", (width, height), "white")
+    draw = ImageDraw.Draw(canvas)
+    draw.text((75, 25), "SAVED EXECUTION EVIDENCE", font=font(20, True), fill=BLUE)
+    def line(text, y, size=28, color=MUTED, bold=False):
+        draw.text((75, y), text, font=font(size, bold), fill=color)
+    def metric(x, y, value, label, color=BLUE):
+        draw.text((x, y), value, font=font(64, True), fill=color)
+        draw.text((x, y+83), label, font=font(25), fill=MUTED)
+    def band(y, text, fill="#f2f5f9", color=MUTED, size=24):
+        draw.rounded_rectangle((60, y, width-60, y+75), radius=10, fill=fill)
+        draw.text((82,y+23),text,font=font(size),fill=color)
+    if kind == "matched":
+        line("Complete dependencies versus retrieval", 75, 43, INK, True)
+        line("Recoverable affected reports refreshed · 10 held-out retail cases", 135, 26)
+        rows = data["matched"]
+        names = {"graph":"ProofFlow / HydraDB", "exact_flat":"Exact dependency traversal", "bm25":"BM25", "dense":"Dense BGE", "iterative_hybrid":"Iterative hybrid"}
+        ordered=[next(a for a in rows if a["arm"]==name) for name in names]
+        for i,row in enumerate(ordered):
+            y=203+i*73
+            c=BLUE if row["arm"]=="graph" else "#8693b6" if row["arm"]=="exact_flat" else "#adb4c2"
+            if i==0: draw.rounded_rectangle((60,y-7,width-60,y+61),radius=8,fill="#f2f4fc")
+            draw.text((80,y+9),names[row["arm"]],font=font(28,i==0),fill=INK)
+            draw.rounded_rectangle((680,y+12,1380,y+43),radius=5,fill="#eceff4")
+            draw.rounded_rectangle((680,y+12,680+round(700*row["fresh_affected_reports"]/38),y+43),radius=5,fill=c)
+            draw.text((1450,y),f'{row["fresh_affected_reports"]} / 38',font=font(35,True),fill=c if i<2 else INK)
+        line("Same records · Shared Hydra-assisted currentness and refresh executor", 595, 26)
+        line("Allowance set by complete graph closure before comparator runs: 0–9,611 tokens", 646, 25)
+        band(700,"Exact dependency traversal ties ProofFlow. Both use explicit dependencies.",size=25)
+    elif kind == "tokens":
+        p=data["primary"]
+        line("Less evidence, complete refresh",75,45,INK,True)
+        metric(75,170,f'{100*p["token_savings_fraction"]:.2f}%',"fewer evidence tokens than full context")
+        metric(1000,170,f'{p["graph_tokens"]:,}',"graph evidence tokens")
+        metric(1000,365,f'{p["full_context_tokens"]:,}',"full-context evidence tokens")
+        line("All 38 recoverable affected reports refreshed", 390, 32, INK, True)
+        line("4 unavailable reports correctly blocked", 442, 28)
+        band(535,"Complete graph, exact traversal and full context each execute 101 tools.",size=25)
+        line("Aggregate includes a no-op. Excluding it: 33.99% of full-context evidence.",645,25)
+        line("Evidence-token reduction; not model-cost savings. No model runs in this benchmark.",700,25)
+    elif kind == "limits":
+        line("Two limits, retained in the results",75,45,INK,True)
+        draw.rounded_rectangle((60,160,850,530),radius=12,fill="#f4f5f8")
+        draw.rounded_rectangle((895,160,width-60,530),radius=12,fill="#fbf6e9")
+        draw.text((85,185),"Fixed 2,048-token condition",font=font(31,True),fill=INK)
+        draw.text((85,245),"8 / 38",font=font(70,True),fill=BLUE)
+        draw.text((85,335),"ProofFlow affected reports refreshed",font=font(25),fill=MUTED)
+        draw.text((85,400),"BM25 1 · Dense 0 · Iterative 4",font=font(25),fill=INK)
+        draw.text((85,456),"Exact dependency traversal also 8/38",font=font(23),fill=MUTED)
+        draw.text((920,185),"Development efficiency gate",font=font(31,True),fill=INK)
+        draw.text((920,245),"FAILED",font=font(61,True),fill="#806517")
+        draw.text((920,335),"60.79% of full-context evidence",font=font(27),fill=INK)
+        draw.text((920,400),"Unchanged target: ≤40%",font=font(27),fill=MUTED)
+        draw.text((920,456),"Correctness passed on 4 development cases",font=font(23),fill=MUTED)
+        line("At the fixed cap, every arm's 2/10 correct endstates are refusal + no-op.",590,26)
+        line("Development is separate from held-out test. Its no-op-excluded ratio is 81.07%.",645,25)
+        line("Full per-case results and limitations remain in the accompanying report.",700,25)
+    elif kind == "mcp":
+        m=data["mcp"]
+        line("A Claude client chose and executed both plans",75,43,INK,True)
+        line("Fable 5.2/high · One local run after configuration fix · Authored two-row CSV",140,27)
+        metric(75,215,f'{m["passed_checks"]} / {m["total_checks"]}',"recorded checks passed")
+        metric(660,215,str(m["requests"]),"MCP requests")
+        metric(1200,215,str(m["runtime_calls"]),"recorded runtime calls")
+        line("Five tools: load_csv · prepare · execute_plan · inspect · refresh",390,31,INK,True)
+        line("7 initial calculations + 1 reused composition + 4 affected refresh calls",450,27)
+        line("Two CSV loads also perform 16 arithmetic preflight calculations.",506,26)
+        band(570,"First launch failed before tool discovery. That configuration failure is retained.",fill="#fbf6e9",size=25)
+        line("Server makes no model calls; the external Claude client does. Separate from retail.",680,25)
+        line("One local integration demonstration; not a general agent-reliability result.",730,24)
+    else:
+        raise ValueError(f"Unknown evidence card: {kind}")
+    return canvas
+
+
 def make_base(scene: dict, index: int, total: int, width: int, height: int) -> Image.Image:
     frame = Image.new("RGB", (width, height), "#ffffff")
     draw = ImageDraw.Draw(frame)
@@ -100,6 +176,8 @@ def make_base(scene: dict, index: int, total: int, width: int, height: int) -> I
             if len(box) != 4 or not (0 <= box[0] < box[2] <= capture.width and 0 <= box[1] < box[3] <= capture.height):
                 raise ValueError(f"Invalid crop bounds for {scene['id']}")
             capture = capture.crop(box)
+    elif scene.get("card"):
+        capture = evidence_card(scene["card"], 1760, 790)
     elif scene["id"] == "csv":
         capture = csv_panel(1760, 790)
     else:
@@ -110,18 +188,20 @@ def make_base(scene: dict, index: int, total: int, width: int, height: int) -> I
     size = (round(capture.width * ratio), round(capture.height * ratio))
     capture = capture.resize(size, Image.Resampling.LANCZOS)
     frame.paste(capture, ((width - size[0]) // 2, 87 + (available[1] - size[1]) // 2))
-    draw.text((40, height - 28), "Edited app captures · Authored demo data · Real execution evidence", font=font(16), fill=MUTED)
+    draw.text((40, height - 28), scene.get("footer", "Edited app captures · Saved evidence"), font=font(16), fill=MUTED)
     return frame
 
 
 def chunks(text: str, max_words: int = 14) -> list[str]:
+    for phrase in ("B M twenty-five", "Hydra D B", "E U", "C S V", "M C P"):
+        text = text.replace(phrase, phrase.replace(" ", "~"))
     pieces = []
     for sentence in re.split(r"(?<=[.!?;])\s+", text):
         words = sentence.split()
         remaining_chunks = math.ceil(len(words) / max_words)
         while words:
             take = math.ceil(len(words) / remaining_chunks)
-            pieces.append(" ".join(words[:take]))
+            pieces.append(" ".join(words[:take]).replace("~", " "))
             words = words[take:]
             remaining_chunks -= 1
     return pieces
@@ -138,10 +218,12 @@ def timestamp(seconds: float) -> str:
 def display_caption(text: str) -> str:
     replacements = {
         "Hydra D B": "HydraDB", "E U": "EU", "C S V": "CSV",
-        "B M twenty-five": "BM25", "Fable five point two": "Fable 5.2",
+        "B M twenty-five": "BM25", "Fable five point two": "Fable 5.2", "M C P": "MCP",
         "one point one zero": "1.10", "one point two zero": "1.20",
         "two-thousand-forty-eight-token": "2,048-token",
         "sixteen of twenty-nine": "16 of 29", "all twenty-nine": "all 29",
+        "thirty-eight": "38", "thirty-two": "32", "two-thousand-forty-eight-token": "2,048-token",
+        "sixty-nine point four one percent": "69.41%",
     }
     for spoken, written in replacements.items():
         text = text.replace(spoken, written)
@@ -156,7 +238,7 @@ def main() -> None:
     manifest = json.loads(args.manifest.read_text())
     scenes = manifest["scenes"]
     if not args.audio_only and manifest.get("screens_approved") is not True:
-        raise ValueError("Final render waits for parent approval of the exact screen captures")
+        raise ValueError("Source screenshots must be marked as reviewed before rendering")
     if not args.audio_only:
         for scene in scenes:
             if scene.get("image"):
@@ -186,6 +268,8 @@ def main() -> None:
         return
 
     width, height = int(manifest["width"]), int(manifest["height"])
+    for old_frame in WORK.glob("frame-*.png"):
+        old_frame.unlink()
     frame_entries, subtitle_entries, sound_entries, source_hashes, timing = [], [], [], {}, []
     cursor = 0.0
     for index, (scene, recorded) in enumerate(zip(scenes, narration)):
@@ -252,7 +336,10 @@ def main() -> None:
                 "bytes": destination.stat().st_size, "sha256": digest(destination),
                 "source_image_sha256": source_hashes, "narration": audio_data, "scenes": timing,
                 "captions": "Burned editorial captions plus an optional embedded text track.",
-                "hosting_url": manifest.get("hosting_url"), "screens_approved": True}
+                "hosting_url": manifest.get("hosting_url"), "screens_approved": True,
+                "release_approved": manifest.get("release_approved", False), "predecessor_video_sha256": manifest.get("original_video_sha256"),
+                "source_evidence_sha256": {name: digest(ROOT / name) for name in manifest["source_evidence"]},
+                "evidence_extract_sha256": digest(HERE / "evidence_extract.json")}
     (HERE / "render_manifest.json").write_text(json.dumps(metadata, indent=2) + "\n")
     print(json.dumps({"video": str(destination), "duration_seconds": metadata["duration_seconds"],
                       "megabytes": metadata["bytes"] / 1_000_000}), flush=True)

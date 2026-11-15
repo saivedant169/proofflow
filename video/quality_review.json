@@ -1,25 +1,18 @@
 {
-  "video_seconds": 120,
-  "audio_seconds": 120,
+  "duration_seconds": 120,
+  "video_frames": 3600,
   "resolution": [
     1920,
     1080
   ],
-  "fps": 30,
-  "frames": 3600,
-  "file_bytes": 4964280,
-  "audio_mean_db": -15.7,
+  "file_bytes": 5151087,
+  "audio_mean_db": -15.9,
   "audio_peak_db": -1.5,
-  "chapter_frames_reviewed": [
-    "opening",
-    "change",
-    "evidence",
-    "refresh",
-    "benchmark",
-    "composition",
-    "csv",
-    "closing"
-  ],
-  "review_scope": "Representative frames visually inspected; full media/audio decode and stream duration validated. Audio was not manually auditioned.",
-  "narrative_review": "Independent reviewer found no materially misleading numeric or scope claims against saved evidence."
+  "unique_caption_frames": 30,
+  "audio_review": "Decoded all audio samples and measured loudness, peak and duration. Narration text was checked against saved evidence. Not manually auditioned.",
+  "release_approved": true,
+  "visual_review": "All 30 unique caption frames inspected on contact sheets; all ten chapter midpoints and final video frame checked. No altered UI values, clipping, fake execution log, or invented hosting address.",
+  "narration_words": 236,
+  "sha256": "100f6bb9399b48498b829b23264c508e9fd70e07994138df4b295db7dd927d8b",
+  "predecessor_sha256": "8a2cd4df5fd368b460405a095a284827c8e9040db74cf86cf79d47b79f1a728d"
 }

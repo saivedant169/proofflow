@@ -1,62 +1,74 @@
-# ProofFlow walkthrough script
+# ProofFlow retail v2 walkthrough script
 
-A two-minute edited walkthrough using actual browser captures and saved execution evidence. Narration is generated locally with macOS Samantha; no voice impersonation or outside service is used. It is not presented as an uninterrupted live recording.
+The current two-minute film combines actual application captures with clearly labeled cards derived from saved retail and MCP execution evidence. Narration is generated locally with macOS Samantha. It is an edited walkthrough, not an uninterrupted live recording.
 
-The browser workflow is guided. The model-chosen composition is a separate, explicitly recorded local experiment. The repository remains private.
+## 1. Which saved numbers can an agent still trust?
 
-## 1. Saved work can outlive its inputs.
+Time: 0.00–10.47 seconds. Visual: `../evidence/ui/workspace-final.jpg`.
 
-**Visual:** ../evidence/ui/workspace-final.jpg
+Agents reuse prior work. When an input changes, which saved numbers can they still trust? ProofFlow keeps the dependencies attached across runs.
 
-Reports can look finished after their inputs change. ProofFlow helps analytics agents keep saved work current. These briefs reuse earlier calculations. Every tool records the input versions it actually consumed. Hydra D B connects those execution receipts across runs.
+## 2. Changed revenue is withheld. Current support is preserved.
 
-## 2. A correction makes dependent claims stale.
+Time: 10.47–21.75 seconds. Visual: `../evidence/ui/workspace-stale-final.jpg`.
 
-**Visual:** ../evidence/ui/source-drawer.jpg, then ../evidence/ui/workspace-stale-final.jpg
+Correct the euro exchange rate. Revenue becomes stale and is withheld. The independent support count stays current, while previous revenue remains clearly historical.
 
-Correct the euro-to-dollar rate from one point one zero to one point two zero. The revenue claims become stale. ProofFlow withholds current values and labels the previous numbers as historical.
+## 3. Native HydraDB queries explain the affected work.
 
-## 3. The path is queried from HydraDB.
+Time: 21.75–29.27 seconds. Visual: `../evidence/ui/evidence-path-final.jpg`.
 
-**Visual:** ../evidence/ui/evidence-path-final.jpg
+Hydra D B traces the inputs each tool actually consumed, linking this calculation to both reports.
 
-Open the evidence. Hydra D B shows the dependency path from that correction to this calculation and both reports.
+## 4. Four tools refresh both dependent reports.
 
-## 4. Four tools. Two updated reports. Preserved support.
+Time: 29.27–42.92 seconds. Visual: `../evidence/ui/workspace-refreshed-final.jpg`.
 
-**Visual:** ../evidence/ui/workspace-refreshed-final.jpg
+Four tools refresh the dependent work. Company revenue becomes five thousand seven hundred fifty-five dollars; E U revenue, two thousand two hundred eighty. Independent recomputation matches.
 
-Refresh affected work. Four tools run. E U revenue becomes two thousand two hundred eighty dollars; company revenue becomes five thousand seven hundred fifty-five. The independent support result stays unchanged.
+## 5. A separate experiment on public retail transactions.
 
-## 5. Measured against fair retrieval baselines.
+Time: 42.92–58.45 seconds. Visual: `../evidence/ui/retail-v2-desktop.jpg`.
 
-**Visual:** ../evidence/ui/benchmark-primary.jpg
+Now a separate retail experiment: six hundred forty public transaction lines, four dated partitions, and ten authored cases. Complete dependencies refresh thirty-eight recoverable reports and block four unavailable ones.
 
-Our frozen pilot has twelve authored scenarios, identical evidence, and a two-thousand-forty-eight-token limit. ProofFlow refreshed sixteen of twenty-nine affected reports; B M twenty-five refreshed six, dense retrieval one, and iterative hybrid nine. Every method shares the same Hydra-assisted executor. Exact dependency traversal ties ProofFlow. Full context completes all twenty-nine.
+## 6. Equal per-case evidence allowances. Real tool refresh.
 
-## 6. A model chose the workflow. Tools calculated the values.
+Time: 58.45–70.56 seconds. Visual: Saved-evidence card: matched.
 
-**Visual:** ../evidence/ui/recorded-agent-detail.jpg
+With identical records and the graph's per-case allowance, B M twenty-five completes nineteen, dense eight, and iterative hybrid thirty-three. All methods share the same executor.
 
-Separately, two actual Fable five point two calls chose a seven-tool report workflow, then created a new brief reusing three earlier artifacts. All seventeen composition-and-refresh checks passed. This is recorded local model execution, separate from the guided browser demo.
+## 7. 69.41% fewer evidence tokens than full context.
 
-## 7. Bring your own CSV through the CLI.
+Time: 70.56–81.32 seconds. Visual: Saved-evidence card: tokens.
 
-**Visual:** A command example and schema drawn from the verified CSV importer; not a fabricated execution log.
+Evidence uses sixty-nine point four one percent fewer tokens than full context. Exact dependency traversal ties. The calculations still run.
 
-You can also import your own bounded C S V through the command line and reuse this same calculation runtime.
+## 8. The constrained result and development failure stay visible.
 
-## 8. ProofFlow — current evidence for analytics agents.
+Time: 81.32–92.82 seconds. Visual: Saved-evidence card: limits.
 
-**Visual:** ../evidence/ui/workspace-refreshed-final.jpg
+At a fixed two-thousand-forty-eight-token limit, graph completes only eight reports. The earlier development efficiency gate failed. Both limitations remain visible.
 
-ProofFlow: follow what changed, refresh what depends on it, and preserve work that remains valid.
+## 9. A real client uses ProofFlow through five MCP tools.
+
+Time: 92.82–115.79 seconds. Visual: Saved-evidence card: mcp.
+
+An actual Claude client uses five M C P tools to load data, choose plans, inspect and refresh. It reuses prior artifacts on authored two-row input. After a launch-configuration fix, one trajectory passed thirty-two checks, with nine requests and twelve recorded runtime calls. Its first configuration failure is retained.
+
+## 10. ProofFlow — current evidence across agent runs.
+
+Time: 115.79–120.00 seconds. Visual: `../evidence/ui/workspace-refreshed-final.jpg`.
+
+ProofFlow: current evidence across agent runs.
 
 ## Evidence and production notes
 
-- Benchmark: `docs/BENCHMARK_RESULTS.md`, frozen 12-case pilot, 2,048 evidence tokens. Show the exact-flat tie, 29/29 full-context ceiling, and common Hydra-assisted executor visibly.
-- Model workflow: `evidence/agent_composition.json`; two actual Fable 5.2/high calls, 17/17 checks, recorded locally. This is not the browser running a live hosted model.
-- CSV integration: `scripts/import_csv.py` and `results/import-smoke-v1/verification.json`; supports bounded user-provided files. The verification data is authored, not customer evidence.
-- The final film closes with “ProofFlow — current evidence for analytics agents.” No deployment URL was available at render time, so the video has no hosting address. A verified URL can be added to the closing title before a later render.
-- The final screenshots passed browser workflow and visual review. The source drawer precedes the stale view; selected regions are cropped for legibility. Captions and graphics must not alter the saved application values.
-- Rendered length: 120 seconds at 1920 × 1080, 30 fps. The 241-word script uses a locally generated Samantha narration with gentle pacing adjustment. The MP4 includes burned captions and an optional embedded caption track. Exact media measurements and source hashes are in `video/render_manifest.json` and `video/media_validation.json`.
+- Browser correction uses the authored guided fixture; retail is a separate public-data sample with authored changes, deterministic tools and no model calls.
+- Complete graph and exact dependency traversal tie: 38/38 recoverable affected reports and 4/4 unavailable reports blocked. Retrieval comparators receive the full graph closure allowance before execution, 0–9,611 tokens, with the same records and shared Hydra-assisted executor.
+- The 69.41% reduction is evidence tokens versus full context across ten cases, including one no-op. Excluding the no-op, graph uses 33.99% of full-context evidence. Complete graph, exact traversal and full context each execute 101 tools.
+- The fixed 2,048-token graph condition completes 8/38. The development efficiency result is a retained failure: 60.79% against an unchanged ≤40% gate. Full details: [retail results](RETAIL_V2_RESULTS.md).
+- The MCP segment shows one local Fable 5.2/high trajectory after a launch-configuration fix, on authored two-row input. The first configuration failure is retained. Nine requests produce 12 recorded runtime calls and 16 additional CSV arithmetic preflight calculations; 32 recorded checks pass. The external client calls the model; the server does not. Full details: [MCP results](MCP_AGENT_RESULTS.md).
+- The video contains no deployment address. Hosting remains with the project owner and the source repository remains private.
+- Rendered duration is exactly 120 seconds at 1920 × 1080 and 30 fps. Narration has 236 words. Captions are burned into the frames and also available as an embedded text track and SRT sidecar.
+- Source hashes, timing and encoding data are recorded in `video/render_manifest.json`, `video/media_validation.json` and `video/quality_review.json`.

@@ -1,0 +1,133 @@
+{
+  "primary": {
+    "blocked_unavailable_reports": 4,
+    "correctness_cases": 10,
+    "eligible_affected_artifacts": 101,
+    "eligible_affected_reports": 38,
+    "freeze_integrity_verified": true,
+    "fresh_affected_artifacts": 101,
+    "fresh_affected_reports": 38,
+    "full_context_tokens": 128729,
+    "graph_tokens": 39375,
+    "incorrect_current_artifacts": 0,
+    "passed": true,
+    "planned_cases": 10,
+    "threshold": 0.4,
+    "token_ratio": 0.30587513303140706,
+    "token_savings_fraction": 0.6941248669685929,
+    "unavailable_reports": 4
+  },
+  "nonempty_impact": {
+    "cases": 9,
+    "full_context_tokens": 115859,
+    "graph_tokens": 39375,
+    "mean_per_case_ratio": 0.3397673187338551,
+    "token_ratio": 0.3398527520520633
+  },
+  "development": {
+    "blocked_unavailable_reports": 0,
+    "correctness_cases": 4,
+    "eligible_affected_artifacts": 21,
+    "eligible_affected_reports": 6,
+    "freeze_integrity_verified": true,
+    "fresh_affected_artifacts": 21,
+    "fresh_affected_reports": 6,
+    "full_context_tokens": 11107,
+    "graph_tokens": 6752,
+    "incorrect_current_artifacts": 0,
+    "meaning": "The unchanged prospective 40% efficiency gate failed on development; correctness passed. Development is not pooled with test.",
+    "nonempty_impact": {
+      "cases": 3,
+      "full_context_tokens": 8329,
+      "graph_tokens": 6752,
+      "mean_per_case_ratio": 0.8106709792286508,
+      "token_ratio": 0.8106615440028815
+    },
+    "passed": false,
+    "planned_cases": 4,
+    "raw_counts": {
+      "execution": 44,
+      "retrieval": 44
+    },
+    "raw_directory": "results/retail-dev-v1",
+    "threshold": 0.4,
+    "token_ratio": 0.6079049248221842,
+    "token_savings_fraction": 0.39209507517781583,
+    "unavailable_reports": 0
+  },
+  "matched": [
+    {
+      "arm": "graph",
+      "label": "ProofFlow / HydraDB",
+      "fresh_affected_reports": 38,
+      "context_tokens_total": 39375,
+      "tool_calls": 101
+    },
+    {
+      "arm": "exact_flat",
+      "label": "Exact flat traversal",
+      "fresh_affected_reports": 38,
+      "context_tokens_total": 39375,
+      "tool_calls": 101
+    },
+    {
+      "arm": "bm25",
+      "label": "BM25",
+      "fresh_affected_reports": 19,
+      "context_tokens_total": 38543,
+      "tool_calls": 63
+    },
+    {
+      "arm": "dense",
+      "label": "Dense BGE",
+      "fresh_affected_reports": 8,
+      "context_tokens_total": 38665,
+      "tool_calls": 48
+    },
+    {
+      "arm": "iterative_hybrid",
+      "label": "Iterative hybrid",
+      "fresh_affected_reports": 33,
+      "context_tokens_total": 38910,
+      "tool_calls": 96
+    }
+  ],
+  "fixed": [
+    {
+      "arm": "graph",
+      "label": "ProofFlow / HydraDB",
+      "fresh_affected_reports": 8
+    },
+    {
+      "arm": "exact_flat",
+      "label": "Exact flat traversal",
+      "fresh_affected_reports": 8
+    },
+    {
+      "arm": "bm25",
+      "label": "BM25",
+      "fresh_affected_reports": 1
+    },
+    {
+      "arm": "dense",
+      "label": "Dense BGE",
+      "fresh_affected_reports": 0
+    },
+    {
+      "arm": "iterative_hybrid",
+      "label": "Iterative hybrid",
+      "fresh_affected_reports": 4
+    }
+  ],
+  "mcp": {
+    "model": "claude-fable-5-2",
+    "effort": "high",
+    "passed_checks": 32,
+    "total_checks": 32,
+    "requests": 9,
+    "runtime_calls": 12,
+    "preflight_calculations": 16,
+    "previous_passed": false,
+    "server_model_calls": 0
+  }
+}

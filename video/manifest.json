@@ -1,7 +1,9 @@
 {
-  "title": "ProofFlow walkthrough",
-  "format": "Edited screenshots of actual application states with narration; not an uninterrupted live recording",
+  "title": "ProofFlow retail v2 walkthrough",
+  "format": "Edited actual application captures and labeled saved-evidence cards with local narration; not an uninterrupted live recording",
+  "source_root": "..",
   "screens_approved": true,
+  "release_approved": true,
   "voice": "Samantha",
   "rate": 145,
   "target_duration_seconds": 120,
@@ -12,102 +14,129 @@
   "scenes": [
     {
       "id": "opening",
-      "title": "Saved work can outlive its inputs.",
-      "image": "../evidence/ui/workspace-final.jpg",
-      "narration": "Reports can look finished after their inputs change. ProofFlow helps analytics agents keep saved work current. These briefs reuse earlier calculations. Every tool records the input versions it actually consumed. Hydra D B connects those execution receipts across runs.",
+      "title": "Which saved numbers can an agent still trust?",
+      "image": "evidence/ui/workspace-final.jpg",
+      "narration": "Agents reuse prior work. When an input changes, which saved numbers can they still trust? ProofFlow keeps the dependencies attached across runs.",
       "crop_box": [
         0,
         85,
         1536,
         750
-      ]
+      ],
+      "footer": "Edited app capture \u00b7 Authored browser fixture"
     },
     {
       "id": "change",
-      "title": "A correction makes dependent claims stale.",
-      "image": "../evidence/ui/workspace-stale-final.jpg",
-      "narration": "Correct the euro-to-dollar rate from one point one zero to one point two zero. The revenue claims become stale. ProofFlow withholds current values and labels the previous numbers as historical.",
+      "title": "Changed revenue is withheld. Current support is preserved.",
+      "image": "evidence/ui/workspace-stale-final.jpg",
+      "narration": "Correct the euro exchange rate. Revenue becomes stale and is withheld. The independent support count stays current, while previous revenue remains clearly historical.",
       "crop_box": [
         0,
         250,
         1536,
         860
       ],
-      "lead_image": "../evidence/ui/source-drawer.jpg",
+      "lead_image": "evidence/ui/source-drawer.jpg",
       "lead_crop_box": [
         0,
         0,
         1536,
         840
       ],
-      "lead_caption_count": 1
+      "lead_caption_count": 1,
+      "footer": "Edited app capture \u00b7 Authored browser fixture"
     },
     {
       "id": "evidence",
-      "title": "The path is queried from HydraDB.",
-      "image": "../evidence/ui/evidence-path-final.jpg",
-      "narration": "Open the evidence. Hydra D B shows the dependency path from that correction to this calculation and both reports.",
+      "title": "Native HydraDB queries explain the affected work.",
+      "image": "evidence/ui/evidence-path-final.jpg",
+      "narration": "Hydra D B traces the inputs each tool actually consumed, linking this calculation to both reports.",
       "crop_box": [
         0,
         0,
         1536,
         750
-      ]
+      ],
+      "footer": "Edited app capture \u00b7 Authored browser fixture"
     },
     {
       "id": "refresh",
-      "title": "Four tools. Two updated reports. Preserved support.",
-      "image": "../evidence/ui/workspace-refreshed-final.jpg",
-      "narration": "Refresh affected work. Four tools run. E U revenue becomes two thousand two hundred eighty dollars; company revenue becomes five thousand seven hundred fifty-five. The independent support result stays unchanged.",
+      "title": "Four tools refresh both dependent reports.",
+      "image": "evidence/ui/workspace-refreshed-final.jpg",
+      "narration": "Four tools refresh the dependent work. Company revenue becomes five thousand seven hundred fifty-five dollars; E U revenue, two thousand two hundred eighty. Independent recomputation matches.",
       "crop_box": [
         0,
         250,
         1536,
         810
-      ]
+      ],
+      "footer": "Edited app capture \u00b7 Authored browser fixture"
     },
     {
-      "id": "benchmark",
-      "title": "Measured against fair retrieval baselines.",
-      "image": "../evidence/ui/benchmark-primary.jpg",
-      "narration": "Our frozen pilot has twelve authored scenarios, identical evidence, and a two-thousand-forty-eight-token limit. ProofFlow refreshed sixteen of twenty-nine affected reports; B M twenty-five refreshed six, dense retrieval one, and iterative hybrid nine. Every method shares the same Hydra-assisted executor. Exact dependency traversal ties ProofFlow. Full context completes all twenty-nine.",
+      "id": "retail",
+      "title": "A separate experiment on public retail transactions.",
+      "image": "evidence/ui/retail-v2-desktop.jpg",
+      "narration": "Now a separate retail experiment: six hundred forty public transaction lines, four dated partitions, and ten authored cases. Complete dependencies refresh thirty-eight recoverable reports and block four unavailable ones.",
       "crop_box": [
-        105,
-        8,
-        1430,
-        805
-      ]
+        0,
+        240,
+        1280,
+        615
+      ],
+      "footer": "Edited app capture \u00b7 Public retail sample \u00b7 Authored changes \u00b7 Deterministic tools"
     },
     {
-      "id": "composition",
-      "title": "A model chose the workflow. Tools calculated the values.",
-      "image": "../evidence/ui/recorded-agent-detail.jpg",
-      "narration": "Separately, two actual Fable five point two calls chose a seven-tool report workflow, then created a new brief reusing three earlier artifacts. All seventeen composition-and-refresh checks passed. This is recorded local model execution, separate from the guided browser demo.",
-      "crop_box": [
-        105,
-        300,
-        1430,
-        980
-      ]
-    },
-    {
-      "id": "csv",
-      "title": "Bring your own CSV through the CLI.",
+      "id": "matched",
+      "title": "Equal per-case evidence allowances. Real tool refresh.",
       "image": null,
-      "narration": "You can also import your own bounded C S V through the command line and reuse this same calculation runtime."
+      "narration": "With identical records and the graph's per-case allowance, B M twenty-five completes nineteen, dense eight, and iterative hybrid thirty-three. All methods share the same executor.",
+      "card": "matched",
+      "footer": "Saved execution evidence \u00b7 Recorded local results \u00b7 Full scope in the accompanying report"
+    },
+    {
+      "id": "tokens",
+      "title": "69.41% fewer evidence tokens than full context.",
+      "image": null,
+      "narration": "Evidence uses sixty-nine point four one percent fewer tokens than full context. Exact dependency traversal ties. The calculations still run.",
+      "card": "tokens",
+      "footer": "Saved execution evidence \u00b7 Recorded local results \u00b7 Full scope in the accompanying report"
+    },
+    {
+      "id": "limits",
+      "title": "The constrained result and development failure stay visible.",
+      "image": null,
+      "narration": "At a fixed two-thousand-forty-eight-token limit, graph completes only eight reports. The earlier development efficiency gate failed. Both limitations remain visible.",
+      "card": "limits",
+      "footer": "Saved execution evidence \u00b7 Recorded local results \u00b7 Full scope in the accompanying report"
+    },
+    {
+      "id": "mcp",
+      "title": "A real client uses ProofFlow through five MCP tools.",
+      "image": null,
+      "narration": "An actual Claude client uses five M C P tools to load data, choose plans, inspect and refresh. It reuses prior artifacts on authored two-row input. After a launch-configuration fix, one trajectory passed thirty-two checks, with nine requests and twelve recorded runtime calls. Its first configuration failure is retained.",
+      "card": "mcp",
+      "footer": "Saved execution evidence \u00b7 Recorded local results \u00b7 Full scope in the accompanying report"
     },
     {
       "id": "closing",
-      "title": "ProofFlow \u2014 current evidence for analytics agents.",
-      "image": "../evidence/ui/workspace-refreshed-final.jpg",
-      "narration": "ProofFlow: follow what changed, refresh what depends on it, and preserve work that remains valid.",
+      "title": "ProofFlow \u2014 current evidence across agent runs.",
+      "image": "evidence/ui/workspace-refreshed-final.jpg",
+      "narration": "ProofFlow: current evidence across agent runs.",
       "crop_box": [
         0,
         250,
         1536,
         810
-      ]
+      ],
+      "footer": "Edited app capture \u00b7 Authored browser fixture"
     }
   ],
-  "approval_basis": "Parent approved exact final captures after actual browser workflow and view_image review."
+  "source_evidence": [
+    "evidence/retail_v2_summary.json",
+    "results/retail-dev-v1/summary.json",
+    "results/mcp-agent-v2/summary.json",
+    "results/mcp-agent-v2/independent-audit.json",
+    "results/mcp-agent-v1/configuration_failure.json"
+  ],
+  "original_video_sha256": "8a2cd4df5fd368b460405a095a284827c8e9040db74cf86cf79d47b79f1a728d"
 }

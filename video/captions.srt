@@ -1,119 +1,119 @@
 1
-00:00:00,000 --> 00:00:03,783
-Reports can look finished after their inputs change.
+00:00:00,000 --> 00:00:01,785
+Agents reuse prior work.
 
 2
-00:00:03,783 --> 00:00:07,567
-ProofFlow helps analytics agents keep saved work current.
+00:00:01,785 --> 00:00:06,694
+When an input changes, which saved numbers can they still trust?
 
 3
-00:00:07,567 --> 00:00:09,931
-These briefs reuse earlier calculations.
+00:00:06,694 --> 00:00:10,468
+ProofFlow keeps the dependencies attached across runs.
 
 4
-00:00:09,931 --> 00:00:14,188
-Every tool records the input versions it actually consumed.
+00:00:10,468 --> 00:00:12,778
+Correct the euro exchange rate.
 
 5
-00:00:14,188 --> 00:00:19,094
-HydraDB connects those execution receipts across runs.
+00:00:12,778 --> 00:00:15,551
+Revenue becomes stale and is withheld.
 
 6
-00:00:19,094 --> 00:00:25,050
-Correct the euro-to-dollar rate from 1.10 to 1.20.
+00:00:15,551 --> 00:00:21,746
+The independent support count stays current, while previous revenue remains clearly historical.
 
 7
-00:00:25,050 --> 00:00:27,177
-The revenue claims become stale.
+00:00:21,746 --> 00:00:29,274
+HydraDB traces the inputs each tool actually consumed, linking this calculation to both reports.
 
 8
-00:00:27,177 --> 00:00:32,507
-ProofFlow withholds current values and labels the previous numbers as historical.
+00:00:29,274 --> 00:00:32,272
+Four tools refresh the dependent work.
 
 9
-00:00:32,507 --> 00:00:33,726
-Open the evidence.
+00:00:32,272 --> 00:00:36,770
+Company revenue becomes five thousand seven hundred fifty-five dollars;
 
 10
-00:00:33,726 --> 00:00:36,979
-HydraDB shows the dependency path from
+00:00:36,770 --> 00:00:40,767
+EU revenue, two thousand two hundred eighty.
 
 11
-00:00:36,979 --> 00:00:40,881
-that correction to this calculation and both reports.
+00:00:40,767 --> 00:00:42,916
+Independent recomputation matches.
 
 12
-00:00:40,881 --> 00:00:42,363
-Refresh affected work.
+00:00:42,916 --> 00:00:47,535
+Now a separate retail experiment: six hundred forty public
 
 13
-00:00:42,363 --> 00:00:43,845
-Four tools run.
+00:00:47,535 --> 00:00:52,155
+transaction lines, four dated partitions, and ten authored cases.
 
 14
-00:00:43,845 --> 00:00:48,785
-EU revenue becomes two thousand two hundred eighty dollars;
+00:00:52,155 --> 00:00:58,450
+Complete dependencies refresh 38 recoverable reports and block four unavailable ones.
 
 15
-00:00:48,785 --> 00:00:52,737
-company revenue becomes five thousand seven hundred fifty-five.
+00:00:58,450 --> 00:01:03,490
+With identical records and the graph's per-case allowance, BM25
 
 16
-00:00:52,737 --> 00:00:56,351
-The independent support result stays unchanged.
+00:01:03,490 --> 00:01:07,156
+completes nineteen, dense eight, and iterative hybrid thirty-three.
 
 17
-00:00:56,351 --> 00:01:03,720
-Our frozen pilot has twelve authored scenarios, identical evidence, and a 2,048-token limit.
+00:01:07,156 --> 00:01:10,555
+All methods share the same executor.
 
 18
-00:01:03,720 --> 00:01:07,688
-ProofFlow refreshed 16 of 29 affected reports;
+00:01:10,555 --> 00:01:16,626
+Evidence uses 69.41% fewer tokens than full context.
 
 19
-00:01:07,688 --> 00:01:14,490
-BM25 refreshed six, dense retrieval one, and iterative hybrid nine.
+00:01:16,626 --> 00:01:18,650
+Exact dependency traversal ties.
 
 20
-00:01:14,490 --> 00:01:18,457
-Every method shares the same Hydra-assisted executor.
+00:01:18,650 --> 00:01:21,324
+The calculations still run.
 
 21
-00:01:18,457 --> 00:01:21,292
-Exact dependency traversal ties ProofFlow.
+00:01:21,324 --> 00:01:26,747
+At a fixed 2,048-token limit, graph completes only eight reports.
 
 22
-00:01:21,292 --> 00:01:24,776
-Full context completes all 29.
+00:01:26,747 --> 00:01:30,002
+The earlier development efficiency gate failed.
 
 23
-00:01:24,776 --> 00:01:30,202
-Separately, two actual Fable 5.2 calls chose a seven-tool
+00:01:30,002 --> 00:01:32,821
+Both limitations remain visible.
 
 24
-00:01:30,202 --> 00:01:35,628
-report workflow, then created a new brief reusing three earlier artifacts.
+00:01:32,821 --> 00:01:37,376
+An actual Claude client uses five MCP tools
 
 25
-00:01:35,628 --> 00:01:38,095
-All seventeen composition-and-refresh checks passed.
+00:01:37,376 --> 00:01:41,020
+to load data, choose plans, inspect and refresh.
 
 26
-00:01:38,095 --> 00:01:44,664
-This is recorded local model execution, separate from the guided browser demo.
+00:01:41,020 --> 00:01:44,664
+It reuses prior artifacts on authored two-row input.
 
 27
-00:01:44,664 --> 00:01:48,169
-You can also import your own bounded CSV
+00:01:44,664 --> 00:01:48,764
+After a launch-configuration fix, one trajectory passed 32 checks,
 
 28
-00:01:48,169 --> 00:01:52,324
-through the command line and reuse this same calculation runtime.
+00:01:48,764 --> 00:01:52,408
+with nine requests and twelve recorded runtime calls.
 
 29
-00:01:52,324 --> 00:01:56,071
-ProofFlow: follow what changed, refresh what depends on
+00:01:52,408 --> 00:01:55,791
+Its first configuration failure is retained.
 
 30
-00:01:56,071 --> 00:02:00,000
-it, and preserve work that remains valid.
+00:01:55,791 --> 00:02:00,000
+ProofFlow: current evidence across agent runs.
