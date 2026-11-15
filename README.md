@@ -2,11 +2,15 @@
 
 **Current evidence for analytics agents.** ProofFlow records the inputs tools actually consume, follows their dependencies in HydraDB, and refreshes saved results when those inputs change—even when another agent run has reused them.
 
-A company report and an EU brief share a revenue calculation. Correct the exchange rate and ProofFlow withholds their outdated claims, shows the dependency path, and recomputes the affected work. The independent support calculation stays reusable.
+In the audited retail benchmark, the complete dependency path refreshed **38/38 recoverable affected reports** and correctly blocked **4/4 unavailable reports**, using **69.41% fewer evidence tokens than full context**. At the same per-case evidence allowance, BM25 refreshed 19/38, dense BGE 8/38 and iterative hybrid 33/38. Exact flat dependency traversal ties ProofFlow; every arm uses the same Hydra-assisted executor. [Results and limits](docs/RETAIL_V2_RESULTS.md).
+
+In the browser, a company report and an EU brief share a revenue calculation. Correct the exchange rate and ProofFlow withholds outdated claims, shows the dependency path, and refreshes affected work. The independent support calculation stays reusable. For an external agent, five MCP tools expose the same source loading, typed planning, inspection and refresh. The browser fixture, retail benchmark and agent experiments are distinct.
 
 ![ProofFlow workspace](evidence/ui/workspace-final.jpg)
 
-[Watch the two-minute walkthrough](video/proofflow-walkthrough.mp4) · [Narration and evidence references](docs/VIDEO_SCRIPT.md)
+[Watch the two-minute functional walkthrough](video/proofflow-walkthrough.mp4) · [Original narration and evidence references](docs/VIDEO_SCRIPT.md)
+
+The recording predates retail v2 and shows the original pilot. [Updated retail/MCP demo narrative](docs/DEMO_SCRIPT.md).
 
 ## Run the application
 
@@ -29,23 +33,43 @@ The guided browser workflow executes real SQLite calculations and native HydraDB
 
 Four tools execute during refresh. A missing required source blocks the dependent claims. [Packaged deployment evidence](evidence/deployment_smoke.json) verifies the HTTP workflow and session/artifact persistence after an application-container restart.
 
-## What the benchmark establishes
+## Retail benchmark: complete evidence and constrained controls
 
-The comparison was frozen before testing. All methods receive the same records, direct dependency identifiers, scope, exact-ID facility and evidence budget. Dense retrieval uses real `BAAI/bge-small-en-v1.5` embeddings with tokenizer-aware overlapping chunks.
+Retail v2 uses **640 UCI Online Retail positive-sales lines in four dated partitions**, ten authored interventions and declared report compositions. Registered tools perform the calculations; no LLM participates. The frozen test exposes 39 artifacts, including 11 reports, per case. All arms receive the same records, direct dependency identifiers, scope, exact-ID facility, deterministic reader and **Hydra-assisted currentness and recursive refresh executor**. Dense retrieval uses actual `BAAI/bge-small-en-v1.5` embeddings with tokenizer-aware chunks.
 
-On **12 authored held-out scenarios at 2,048 evidence tokens**:
+The complete dependency path refreshes **38/38 recoverable affected reports**, blocks **4/4 unavailable reports**, and matches full-context values and currentness on every scoped artifact. **10/10 correct endstates includes an expected refusal and a no-op**, not ten newly completed answers. Graph evidence totals **39,375 vs 128,729 full-context tokens: 69.41% fewer**. Its 30.59% ratio passes the unchanged aggregate ≤40% gate; excluding the no-op, the ratio is 33.99%. R06 and R08 exceed 40% individually. Graph, exact-flat and full context each execute 101 tools; the reduction is evidence tokens, not tool calls or measured model cost.
 
-| Evidence selector | Affected artifact recall | Fresh affected reports |
+For the comparison below, each case's complete graph closure sets the evidence allowance **before comparator execution**. Allowances vary from **0 to 9,611 tokens**; this is not a fixed 2,048-token result.
+
+| Evidence selector | Mean affected-set recall | Fresh affected reports | Correct endstate cases |
+|---|---:|---:|---:|
+| ProofFlow / HydraDB | 100.00% | **38/38** | 10/10 |
+| Exact flat dependency traversal | 100.00% | 38/38 | 10/10 |
+| BM25 | 53.78% | 19/38 | 3/10 |
+| Dense BGE | 43.77% | 8/38 | 2/10 |
+| Iterative hybrid | 92.91% | 33/38 | 6/10 |
+
+The separate **fixed 2,048-token diagnostic** remains incomplete:
+
+| Evidence selector | Fresh affected reports | Correct endstate cases |
 |---|---:|---:|
-| BM25 | 41.4% | 6/29 |
-| Dense BGE | 37.5% | 1/29 |
-| Iterative hybrid | 63.9% | 9/29 |
-| ProofFlow / HydraDB | **87.2%** | **16/29** |
-| Exact flat dependency traversal | 87.2% | 16/29 |
+| ProofFlow / HydraDB | 8/38 | 2/10 |
+| Exact flat dependency traversal | 8/38 | 2/10 |
+| BM25 | 1/38 | 2/10 |
+| Dense BGE | 0/38 | 2/10 |
+| Iterative hybrid | 4/38 | 2/10 |
 
-The exact dependency control ties ProofFlow. Every selector uses the same **Hydra-assisted currentness and recursive refresh executor**. This measures dependency-based evidence selection, not a unique correctness advantage of the database engine or standalone baseline safety. The fixed budget still leaves some reports unresolved; all-record context completes 29/29. The [complete results](docs/BENCHMARK_RESULTS.md) retain every case, failure, denominator, budget level and raw context.
+Every fixed-budget arm's two correct endstates are the **expected-refusal case R07 and no-op R09**. None is a fully refreshed affected-report case. Missing-source blocking and zero incorrect-current artifacts are shared executor properties, not unique graph-planner successes.
 
-A separate **16-call actual-model comparison** used Fable 5.2/high with the same prompt and context budget across four prespecified cases. Fresh affected reports were **5/9 for graph**, 2/9 for iterative hybrid, 1/9 for BM25, and 0/9 for dense. These are single-sample, small-workload results; see [model results and usage](docs/AGENT_RESULTS.md).
+The **development efficiency gate failed**: graph/full evidence was **60.79%**, above the unchanged 40% threshold; excluding its no-op gives 81.07%. Development correctness passed, but that failure is retained and is not pooled with held-out test. Exact-flat traversal ties the graph on all test endstates. The result supports explicit dependencies, not exclusive correctness from the storage engine. FX, refunds and corrections are staged assumptions over a bounded positive-sales sample, not observed historical incidents or customer validation.
+
+[Audited results, all cases and raw records](docs/RETAIL_V2_RESULTS.md) · [Frozen protocol](docs/RETAIL_V2_SPEC.md) · [Machine-readable summary](evidence/retail_v2_summary.json) · [Dataset attribution](fixtures/retail_v2/DATASET_NOTICE.md)
+
+## Earlier pilots, reported separately
+
+The original deterministic pilot used **12 authored scenarios at 2,048 evidence tokens**. Fresh affected reports were graph **16/29**, iterative hybrid **9/29**, BM25 **6/29**, dense **1/29**; exact-flat tied graph and full context completed 29/29. Graph's affected-artifact recall was 87.2%. These cases are not pooled with retail v2. [Original results](docs/BENCHMARK_RESULTS.md).
+
+The separate **16-call actual-model pilot** used Fable 5.2/high across four prespecified cases, with the same prompt and evidence budget. Graph completed **5/9**, iterative hybrid **2/9**, BM25 **1/9**, dense **0/9** affected reports. All sixteen planning attempts completed without model failure or abstention; graph still left four recoverable reports unresolved. This single-sample pilot does not establish broad model-performance, latency or cost superiority. [Model results and usage](docs/AGENT_RESULTS.md).
 
 ## An agent can compose the work
 
@@ -83,7 +107,11 @@ uv sync --frozen --extra mcp
 .venv/bin/python -m proofflow.mcp_server
 ```
 
-Configure your host using the [agent quickstart](docs/AGENT_QUICKSTART.md). The [stock-client process check](results/mcp-v1/summary.json) passed 20 checks, including cross-run reuse, changed-source refresh, process restart, stale-plan refusal and unavailable-Hydra errors. CSV validation work is counted separately from recorded refresh calls. This is a trusted local integration, not a public model endpoint.
+Configure your host using the [agent quickstart](docs/AGENT_QUICKSTART.md). The [stock-client process check](results/mcp-v1/summary.json) passed 20 checks, including cross-run reuse, changed-source refresh, process restart, stale-plan refusal and unavailable-Hydra errors. This check uses caller-supplied plans and makes no model calls. CSV validation work is counted separately from recorded refresh calls. This is a trusted local integration, not a public model endpoint.
+
+A real **Fable 5.2/high Claude Code client** then completed one corrected MCP trajectory with **32 recorded checks passed**: nine MCP requests across ten CLI turns, two client-chosen reports, cross-run reuse, source correction, stale inspection and refresh. It executed seven initial tools, one reused-artifact composition and four refresh tools: **12 recorded calls**, plus **16 CSV arithmetic preflight checks**. The server makes zero model calls; the external client makes the model calls.
+
+The [first attempt](results/mcp-agent-v1/README.md) remains a configuration failure: its launch suppressed MCP tool discovery and produced zero tool calls. The corrected attempt used the same task, apart from a fresh workspace nonce. Provider list accounting totals **$0.847042 across both attempts** ($0.809898 corrected, $0.037144 failed). This is one authored two-row integration, not a general agent benchmark or subscription billing statement. [Client evidence and audit](docs/MCP_AGENT_RESULTS.md).
 
 ## How it works
 
@@ -111,17 +139,19 @@ uv run python scripts/core_smoke.py
 uv run python scripts/deployment_smoke.py --restart-app
 uv run python -m proofflow.eval.runner --split test --allow-test --output results/reproduction
 uv run python scripts/summarize_benchmark.py --input results/reproduction
+uv run python scripts/summarize_retail.py
 ```
 
 The restart checks act only on this project's Compose services. Benchmark runs refuse to overwrite results, and held-out runs require a clean, committed tracked tree. Local model experiments use the authenticated Claude CLI; their instructions, costs and frozen protocols are documented separately. Ordinary browser use and tests need no model credentials.
 
-- [Methodology and freeze](docs/BENCHMARK_SPEC.md)
+- [Retail protocol and freeze](docs/RETAIL_V2_SPEC.md)
+- [Original pilot methodology](docs/BENCHMARK_SPEC.md)
 - [Native HydraDB persistence evidence](evidence/hydra_smoke.json)
 - [Core numeric and cross-run evidence](evidence/core_smoke.json)
 - [Deployment and recovery](docs/DEPLOYMENT.md)
 - [Browser verification](docs/UI_FIDELITY.md)
 
-The repository remains private. A hosted URL and final submission receipt are not claimed until verified. Local database listeners bind only to localhost; hosted deployments should expose the application through HTTPS and keep HydraDB private. The demo uses one application worker, bounded sessions and a configurable idle expiry.
+The repository remains private. Hosting is on hold and will be handled by the project owner. No hosted URL or final submission receipt is claimed. Local database listeners bind only to localhost; hosted deployments should expose the application through HTTPS and keep HydraDB private. The demo uses one application worker, bounded sessions and a configurable idle expiry.
 
 ## License
 

@@ -1,0 +1,1037 @@
+{
+  "accounting_scope": "CSV preflight arithmetic is additional compute; recorded runtime counts do not include it",
+  "checks": {
+    "all_tool_results_present_and_successful": true,
+    "both_original_reports_selected_for_refresh": true,
+    "both_reports_in_native_change_response": true,
+    "client_inspected_current_replacements": true,
+    "client_inspected_stale_claims_before_refresh": true,
+    "client_supplied_only_requested_csv_and_rates": true,
+    "distinct_client_composition_runs": true,
+    "four_native_affected_artifacts": true,
+    "four_recorded_refresh_calculations": true,
+    "independent_native_impact_matches_change_response": true,
+    "independent_original_values_match_oracle": true,
+    "independent_replacements_current_and_correct": true,
+    "initial_tool_computed_values": true,
+    "load_did_not_create_preset_reports": true,
+    "native_change_query_used": true,
+    "native_queries_no_fallback": true,
+    "new_brief_reuses_earlier_artifacts": true,
+    "one_refresh_request": true,
+    "one_workspace": true,
+    "only_five_allowed_client_tools": true,
+    "only_fx_source_changed": true,
+    "refresh_preserved_support_artifact": true,
+    "server_model_calls_zero": true,
+    "two_client_chosen_compositions": true,
+    "two_csv_loads": true,
+    "two_distinct_replacements": true
+  },
+  "csv_preflight_calculations": 16,
+  "independent_final_inspection": {
+    "artifacts": [
+      {
+        "claims": [
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:0e6605edf09f181c10d41a251f2df759a7741120d4ef24bd04ddb01d827ef67e",
+            "key": "company_net_usd_cents",
+            "label": "Total company net revenue",
+            "path": [
+              "usd_cents"
+            ],
+            "reasons": [],
+            "saved_value": 31700,
+            "state": "current",
+            "unit": "USD cents",
+            "value": 31700
+          },
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:198ef558e84dcd2c82d2a5123be59b6f2df9dcdf03bbe6b79c5c53f8cc4377e4",
+            "key": "north_net_usd_cents",
+            "label": "NORTH net revenue",
+            "path": [
+              "regions",
+              "NORTH",
+              "usd_cents"
+            ],
+            "reasons": [],
+            "saved_value": 11700,
+            "state": "current",
+            "unit": "USD cents",
+            "value": 11700
+          },
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf",
+            "key": "north_ticket_count",
+            "label": "NORTH support ticket count",
+            "path": [
+              "regions",
+              "NORTH",
+              "tickets"
+            ],
+            "reasons": [],
+            "saved_value": 3,
+            "state": "current",
+            "unit": "tickets",
+            "value": 3
+          }
+        ],
+        "content_hash": "4eb879314901fc605f3c0bf3b70f6544d4e5b18d143c7a1e4341e05f8e3071bb",
+        "created_at": "2026-11-15T11:29:07.981731+00:00",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:af0c96a0fcdfe0a549e8d375d43a2a806d070eae52dd9d36e380000d516ede16",
+        "kind": "artifact",
+        "logical_id": "artifact:compose_report:c2177e624a092717efaf",
+        "metadata": {
+          "description": "Executed from a validated model composition plan",
+          "inputs": {
+            "company": "b6be40a72e3d403d9c3700f2854a22f1:artifact:0e6605edf09f181c10d41a251f2df759a7741120d4ef24bd04ddb01d827ef67e",
+            "regional": "b6be40a72e3d403d9c3700f2854a22f1:artifact:198ef558e84dcd2c82d2a5123be59b6f2df9dcdf03bbe6b79c5c53f8cc4377e4",
+            "support": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf"
+          },
+          "params": {
+            "sections": [
+              {
+                "input": "company",
+                "key": "company_net_usd_cents",
+                "label": "Total company net revenue",
+                "path": [
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "regional",
+                "key": "north_net_usd_cents",
+                "label": "NORTH net revenue",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "support",
+                "key": "north_ticket_count",
+                "label": "NORTH support ticket count",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "tickets"
+                ],
+                "unit": "tickets"
+              }
+            ],
+            "title": "Company report"
+          },
+          "receipt_id": "b6be40a72e3d403d9c3700f2854a22f1:execution:15333be11c2fcb5b76a28862030fa23f7499db3f06caca312f0dab6cfb94e091",
+          "run_id": "refresh-bbc6ad03821f4a7c907bd9ec09cfb7e1",
+          "title": "Company report",
+          "tool": "compose_report",
+          "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+        },
+        "reasons": [],
+        "receipt": {
+          "elapsed_ms": 0.020166859030723572,
+          "inputs": {
+            "company": "b6be40a72e3d403d9c3700f2854a22f1:artifact:0e6605edf09f181c10d41a251f2df759a7741120d4ef24bd04ddb01d827ef67e",
+            "regional": "b6be40a72e3d403d9c3700f2854a22f1:artifact:198ef558e84dcd2c82d2a5123be59b6f2df9dcdf03bbe6b79c5c53f8cc4377e4",
+            "support": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf"
+          },
+          "output_hash": "4eb879314901fc605f3c0bf3b70f6544d4e5b18d143c7a1e4341e05f8e3071bb",
+          "output_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:af0c96a0fcdfe0a549e8d375d43a2a806d070eae52dd9d36e380000d516ede16",
+          "params": {
+            "sections": [
+              {
+                "input": "company",
+                "key": "company_net_usd_cents",
+                "label": "Total company net revenue",
+                "path": [
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "regional",
+                "key": "north_net_usd_cents",
+                "label": "NORTH net revenue",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "support",
+                "key": "north_ticket_count",
+                "label": "NORTH support ticket count",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "tickets"
+                ],
+                "unit": "tickets"
+              }
+            ],
+            "title": "Company report"
+          },
+          "run_id": "refresh-bbc6ad03821f4a7c907bd9ec09cfb7e1",
+          "status": "success",
+          "tool": "compose_report",
+          "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+        },
+        "saved_value": {
+          "sections": [
+            {
+              "key": "company_net_usd_cents",
+              "label": "Total company net revenue",
+              "unit": "USD cents",
+              "value": 31700
+            },
+            {
+              "key": "north_net_usd_cents",
+              "label": "NORTH net revenue",
+              "unit": "USD cents",
+              "value": 11700
+            },
+            {
+              "key": "north_ticket_count",
+              "label": "NORTH support ticket count",
+              "unit": "tickets",
+              "value": 3
+            }
+          ],
+          "title": "Company report"
+        },
+        "state": "current",
+        "value": {
+          "sections": [
+            {
+              "key": "company_net_usd_cents",
+              "label": "Total company net revenue",
+              "unit": "USD cents",
+              "value": 31700
+            },
+            {
+              "key": "north_net_usd_cents",
+              "label": "NORTH net revenue",
+              "unit": "USD cents",
+              "value": 11700
+            },
+            {
+              "key": "north_ticket_count",
+              "label": "NORTH support ticket count",
+              "unit": "tickets",
+              "value": 3
+            }
+          ],
+          "title": "Company report"
+        }
+      },
+      {
+        "claims": [
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:198ef558e84dcd2c82d2a5123be59b6f2df9dcdf03bbe6b79c5c53f8cc4377e4",
+            "key": "north_net_usd_cents",
+            "label": "NORTH net revenue",
+            "path": [
+              "regions",
+              "NORTH",
+              "usd_cents"
+            ],
+            "reasons": [],
+            "saved_value": 11700,
+            "state": "current",
+            "unit": "USD cents",
+            "value": 11700
+          },
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:0e6605edf09f181c10d41a251f2df759a7741120d4ef24bd04ddb01d827ef67e",
+            "key": "company_net_usd_cents_context",
+            "label": "Company net revenue (context)",
+            "path": [
+              "usd_cents"
+            ],
+            "reasons": [],
+            "saved_value": 31700,
+            "state": "current",
+            "unit": "USD cents",
+            "value": 31700
+          },
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf",
+            "key": "north_ticket_count",
+            "label": "NORTH support ticket count",
+            "path": [
+              "regions",
+              "NORTH",
+              "tickets"
+            ],
+            "reasons": [],
+            "saved_value": 3,
+            "state": "current",
+            "unit": "tickets",
+            "value": 3
+          }
+        ],
+        "content_hash": "5d6c25e7f88e33cb3a9b49ce6f01bca86cbac17cecce88772b7180be21d0da74",
+        "created_at": "2026-11-15T11:29:08.283048+00:00",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:00e02f5f8cfe13969966a41dd452bdc5582004d1567135c7da3fd0ae183f5111",
+        "kind": "artifact",
+        "logical_id": "artifact:compose_report:e4a1aaa2bf55fbecd330",
+        "metadata": {
+          "description": "Executed from a validated model composition plan",
+          "inputs": {
+            "company": "b6be40a72e3d403d9c3700f2854a22f1:artifact:0e6605edf09f181c10d41a251f2df759a7741120d4ef24bd04ddb01d827ef67e",
+            "regional": "b6be40a72e3d403d9c3700f2854a22f1:artifact:198ef558e84dcd2c82d2a5123be59b6f2df9dcdf03bbe6b79c5c53f8cc4377e4",
+            "support": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf"
+          },
+          "params": {
+            "sections": [
+              {
+                "input": "regional",
+                "key": "north_net_usd_cents",
+                "label": "NORTH net revenue",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "company",
+                "key": "company_net_usd_cents_context",
+                "label": "Company net revenue (context)",
+                "path": [
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "support",
+                "key": "north_ticket_count",
+                "label": "NORTH support ticket count",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "tickets"
+                ],
+                "unit": "tickets"
+              }
+            ],
+            "title": "NORTH operations brief"
+          },
+          "receipt_id": "b6be40a72e3d403d9c3700f2854a22f1:execution:457919bee593b9a580b897689f1d29c14f772d49a5e39075d0ae1db5c6f1371c",
+          "run_id": "refresh-bbc6ad03821f4a7c907bd9ec09cfb7e1",
+          "title": "NORTH operations brief",
+          "tool": "compose_report",
+          "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+        },
+        "reasons": [],
+        "receipt": {
+          "elapsed_ms": 0.03741588443517685,
+          "inputs": {
+            "company": "b6be40a72e3d403d9c3700f2854a22f1:artifact:0e6605edf09f181c10d41a251f2df759a7741120d4ef24bd04ddb01d827ef67e",
+            "regional": "b6be40a72e3d403d9c3700f2854a22f1:artifact:198ef558e84dcd2c82d2a5123be59b6f2df9dcdf03bbe6b79c5c53f8cc4377e4",
+            "support": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf"
+          },
+          "output_hash": "5d6c25e7f88e33cb3a9b49ce6f01bca86cbac17cecce88772b7180be21d0da74",
+          "output_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:00e02f5f8cfe13969966a41dd452bdc5582004d1567135c7da3fd0ae183f5111",
+          "params": {
+            "sections": [
+              {
+                "input": "regional",
+                "key": "north_net_usd_cents",
+                "label": "NORTH net revenue",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "company",
+                "key": "company_net_usd_cents_context",
+                "label": "Company net revenue (context)",
+                "path": [
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "support",
+                "key": "north_ticket_count",
+                "label": "NORTH support ticket count",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "tickets"
+                ],
+                "unit": "tickets"
+              }
+            ],
+            "title": "NORTH operations brief"
+          },
+          "run_id": "refresh-bbc6ad03821f4a7c907bd9ec09cfb7e1",
+          "status": "success",
+          "tool": "compose_report",
+          "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+        },
+        "saved_value": {
+          "sections": [
+            {
+              "key": "north_net_usd_cents",
+              "label": "NORTH net revenue",
+              "unit": "USD cents",
+              "value": 11700
+            },
+            {
+              "key": "company_net_usd_cents_context",
+              "label": "Company net revenue (context)",
+              "unit": "USD cents",
+              "value": 31700
+            },
+            {
+              "key": "north_ticket_count",
+              "label": "NORTH support ticket count",
+              "unit": "tickets",
+              "value": 3
+            }
+          ],
+          "title": "NORTH operations brief"
+        },
+        "state": "current",
+        "value": {
+          "sections": [
+            {
+              "key": "north_net_usd_cents",
+              "label": "NORTH net revenue",
+              "unit": "USD cents",
+              "value": 11700
+            },
+            {
+              "key": "company_net_usd_cents_context",
+              "label": "Company net revenue (context)",
+              "unit": "USD cents",
+              "value": 31700
+            },
+            {
+              "key": "north_ticket_count",
+              "label": "NORTH support ticket count",
+              "unit": "tickets",
+              "value": 3
+            }
+          ],
+          "title": "NORTH operations brief"
+        }
+      }
+    ],
+    "fallback": false,
+    "hydra_queries": 40,
+    "sources": [
+      {
+        "content_sha256": "b656720bd8109ab1b531c82f9bfa44bfe6ddee651d0078b0a1e06e346d45ddfc",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:source:438425b6107be615a42ac553d2ab0ec2bbb63457939954a850d2d2116b1741e1",
+        "name": "fx",
+        "state": "current"
+      },
+      {
+        "content_sha256": "46a7ce67316a17e82a496e600e320e55b614f3715398c0f1632e50b9b3831481",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:source:3c207cc041327c83961588974c9bd3f9e17d784d592668a39f96a057e814ddf4",
+        "name": "orders",
+        "state": "current"
+      },
+      {
+        "content_sha256": "5f4899c0b18674513b5151abc9c489b1c8f9e78d1f05ea58d15e782d030cc4e2",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:source:f8971de983473554f535b750cb9e258f505b85325dad95efa5aec24ac2d12b1e",
+        "name": "refunds",
+        "state": "current"
+      },
+      {
+        "content_sha256": "208dbbbb2fa9a854dcbf3a688dba05ca62f3bcf1f2d4a0c00a83d2551c9ef9ef",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:source:da019e622c67e2090e86240694c930e98bfe73744458a0401eef73205b93db3a",
+        "name": "tickets",
+        "state": "current"
+      }
+    ],
+    "workspace": "client-02e800f73beb"
+  },
+  "independent_original_inspection": {
+    "artifacts": [
+      {
+        "claims": [
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f514bffcd466dbff444ad274f37c344fece4c346eab8f90173870263b05ce4c8",
+            "key": "company_net_usd_cents",
+            "label": "Total company net revenue",
+            "path": [
+              "usd_cents"
+            ],
+            "reasons": [
+              {
+                "current_id": "b6be40a72e3d403d9c3700f2854a22f1:source:438425b6107be615a42ac553d2ab0ec2bbb63457939954a850d2d2116b1741e1",
+                "id": "b6be40a72e3d403d9c3700f2854a22f1:source:d4bb3006b45d0238d1c1d90604b40a51b6d28f6fae05a59ef199546e37c6026c",
+                "logical_id": "source:fx",
+                "reason": "version_changed"
+              }
+            ],
+            "saved_value": 30800,
+            "state": "stale",
+            "unit": "USD cents",
+            "value": null
+          },
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:9a315d4aa64773ff291754d8c7b4a50047901eede9f785c45f871b1fb86f7c1e",
+            "key": "north_net_usd_cents",
+            "label": "NORTH net revenue",
+            "path": [
+              "regions",
+              "NORTH",
+              "usd_cents"
+            ],
+            "reasons": [
+              {
+                "current_id": "b6be40a72e3d403d9c3700f2854a22f1:source:438425b6107be615a42ac553d2ab0ec2bbb63457939954a850d2d2116b1741e1",
+                "id": "b6be40a72e3d403d9c3700f2854a22f1:source:d4bb3006b45d0238d1c1d90604b40a51b6d28f6fae05a59ef199546e37c6026c",
+                "logical_id": "source:fx",
+                "reason": "version_changed"
+              }
+            ],
+            "saved_value": 10800,
+            "state": "stale",
+            "unit": "USD cents",
+            "value": null
+          },
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf",
+            "key": "north_ticket_count",
+            "label": "NORTH support ticket count",
+            "path": [
+              "regions",
+              "NORTH",
+              "tickets"
+            ],
+            "reasons": [],
+            "saved_value": 3,
+            "state": "current",
+            "unit": "tickets",
+            "value": 3
+          }
+        ],
+        "content_hash": "529d781dfa10e757d015777a84a938e7477cc5055f42e14cf1632dcdf7f28413",
+        "created_at": "2026-11-15T11:28:44.261746+00:00",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:baa85284cf918994b868a0195d950313208cd267ee3a26b2d3fbf1ce042e8574",
+        "kind": "artifact",
+        "logical_id": "artifact:compose_report:c2177e624a092717efaf",
+        "metadata": {
+          "description": "Executed from a validated model composition plan",
+          "inputs": {
+            "company": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f514bffcd466dbff444ad274f37c344fece4c346eab8f90173870263b05ce4c8",
+            "regional": "b6be40a72e3d403d9c3700f2854a22f1:artifact:9a315d4aa64773ff291754d8c7b4a50047901eede9f785c45f871b1fb86f7c1e",
+            "support": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf"
+          },
+          "params": {
+            "sections": [
+              {
+                "input": "company",
+                "key": "company_net_usd_cents",
+                "label": "Total company net revenue",
+                "path": [
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "regional",
+                "key": "north_net_usd_cents",
+                "label": "NORTH net revenue",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "support",
+                "key": "north_ticket_count",
+                "label": "NORTH support ticket count",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "tickets"
+                ],
+                "unit": "tickets"
+              }
+            ],
+            "title": "Company report"
+          },
+          "receipt_id": "b6be40a72e3d403d9c3700f2854a22f1:execution:2017f8a933013c40e7a79531246c9419111ae2eb8cf1f8c36e746d5acf889120",
+          "run_id": "company-report-run-1",
+          "title": "Company report",
+          "tool": "compose_report",
+          "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+        },
+        "reasons": [
+          {
+            "current_id": "b6be40a72e3d403d9c3700f2854a22f1:source:438425b6107be615a42ac553d2ab0ec2bbb63457939954a850d2d2116b1741e1",
+            "id": "b6be40a72e3d403d9c3700f2854a22f1:source:d4bb3006b45d0238d1c1d90604b40a51b6d28f6fae05a59ef199546e37c6026c",
+            "logical_id": "source:fx",
+            "reason": "version_changed"
+          }
+        ],
+        "receipt": {
+          "elapsed_ms": 0.02483278512954712,
+          "inputs": {
+            "company": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f514bffcd466dbff444ad274f37c344fece4c346eab8f90173870263b05ce4c8",
+            "regional": "b6be40a72e3d403d9c3700f2854a22f1:artifact:9a315d4aa64773ff291754d8c7b4a50047901eede9f785c45f871b1fb86f7c1e",
+            "support": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf"
+          },
+          "output_hash": "529d781dfa10e757d015777a84a938e7477cc5055f42e14cf1632dcdf7f28413",
+          "output_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:baa85284cf918994b868a0195d950313208cd267ee3a26b2d3fbf1ce042e8574",
+          "params": {
+            "sections": [
+              {
+                "input": "company",
+                "key": "company_net_usd_cents",
+                "label": "Total company net revenue",
+                "path": [
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "regional",
+                "key": "north_net_usd_cents",
+                "label": "NORTH net revenue",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "support",
+                "key": "north_ticket_count",
+                "label": "NORTH support ticket count",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "tickets"
+                ],
+                "unit": "tickets"
+              }
+            ],
+            "title": "Company report"
+          },
+          "run_id": "company-report-run-1",
+          "status": "success",
+          "tool": "compose_report",
+          "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+        },
+        "saved_value": {
+          "sections": [
+            {
+              "key": "company_net_usd_cents",
+              "label": "Total company net revenue",
+              "unit": "USD cents",
+              "value": 30800
+            },
+            {
+              "key": "north_net_usd_cents",
+              "label": "NORTH net revenue",
+              "unit": "USD cents",
+              "value": 10800
+            },
+            {
+              "key": "north_ticket_count",
+              "label": "NORTH support ticket count",
+              "unit": "tickets",
+              "value": 3
+            }
+          ],
+          "title": "Company report"
+        },
+        "state": "stale",
+        "value": null
+      },
+      {
+        "claims": [
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:9a315d4aa64773ff291754d8c7b4a50047901eede9f785c45f871b1fb86f7c1e",
+            "key": "north_net_usd_cents",
+            "label": "NORTH net revenue",
+            "path": [
+              "regions",
+              "NORTH",
+              "usd_cents"
+            ],
+            "reasons": [
+              {
+                "current_id": "b6be40a72e3d403d9c3700f2854a22f1:source:438425b6107be615a42ac553d2ab0ec2bbb63457939954a850d2d2116b1741e1",
+                "id": "b6be40a72e3d403d9c3700f2854a22f1:source:d4bb3006b45d0238d1c1d90604b40a51b6d28f6fae05a59ef199546e37c6026c",
+                "logical_id": "source:fx",
+                "reason": "version_changed"
+              }
+            ],
+            "saved_value": 10800,
+            "state": "stale",
+            "unit": "USD cents",
+            "value": null
+          },
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f514bffcd466dbff444ad274f37c344fece4c346eab8f90173870263b05ce4c8",
+            "key": "company_net_usd_cents_context",
+            "label": "Company net revenue (context)",
+            "path": [
+              "usd_cents"
+            ],
+            "reasons": [
+              {
+                "current_id": "b6be40a72e3d403d9c3700f2854a22f1:source:438425b6107be615a42ac553d2ab0ec2bbb63457939954a850d2d2116b1741e1",
+                "id": "b6be40a72e3d403d9c3700f2854a22f1:source:d4bb3006b45d0238d1c1d90604b40a51b6d28f6fae05a59ef199546e37c6026c",
+                "logical_id": "source:fx",
+                "reason": "version_changed"
+              }
+            ],
+            "saved_value": 30800,
+            "state": "stale",
+            "unit": "USD cents",
+            "value": null
+          },
+          {
+            "artifact_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf",
+            "key": "north_ticket_count",
+            "label": "NORTH support ticket count",
+            "path": [
+              "regions",
+              "NORTH",
+              "tickets"
+            ],
+            "reasons": [],
+            "saved_value": 3,
+            "state": "current",
+            "unit": "tickets",
+            "value": 3
+          }
+        ],
+        "content_hash": "12c0caa772764506a1de0bc607b07cd2ec8b23f224e32a128a5d971a1a70c251",
+        "created_at": "2026-11-15T11:28:54.420385+00:00",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:94893e12af0a41e16bfa2ffc47523a5493277a363186ecb2a8257b72c7da0e71",
+        "kind": "artifact",
+        "logical_id": "artifact:compose_report:e4a1aaa2bf55fbecd330",
+        "metadata": {
+          "description": "Executed from a validated model composition plan",
+          "inputs": {
+            "company": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f514bffcd466dbff444ad274f37c344fece4c346eab8f90173870263b05ce4c8",
+            "regional": "b6be40a72e3d403d9c3700f2854a22f1:artifact:9a315d4aa64773ff291754d8c7b4a50047901eede9f785c45f871b1fb86f7c1e",
+            "support": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf"
+          },
+          "params": {
+            "sections": [
+              {
+                "input": "regional",
+                "key": "north_net_usd_cents",
+                "label": "NORTH net revenue",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "company",
+                "key": "company_net_usd_cents_context",
+                "label": "Company net revenue (context)",
+                "path": [
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "support",
+                "key": "north_ticket_count",
+                "label": "NORTH support ticket count",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "tickets"
+                ],
+                "unit": "tickets"
+              }
+            ],
+            "title": "NORTH operations brief"
+          },
+          "receipt_id": "b6be40a72e3d403d9c3700f2854a22f1:execution:942f2f129839664fbf08263439b8d5e97053eba627e8781eeff8b96c18eed99d",
+          "run_id": "north-ops-brief-run-2",
+          "title": "NORTH operations brief",
+          "tool": "compose_report",
+          "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+        },
+        "reasons": [
+          {
+            "current_id": "b6be40a72e3d403d9c3700f2854a22f1:source:438425b6107be615a42ac553d2ab0ec2bbb63457939954a850d2d2116b1741e1",
+            "id": "b6be40a72e3d403d9c3700f2854a22f1:source:d4bb3006b45d0238d1c1d90604b40a51b6d28f6fae05a59ef199546e37c6026c",
+            "logical_id": "source:fx",
+            "reason": "version_changed"
+          }
+        ],
+        "receipt": {
+          "elapsed_ms": 0.01950003206729889,
+          "inputs": {
+            "company": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f514bffcd466dbff444ad274f37c344fece4c346eab8f90173870263b05ce4c8",
+            "regional": "b6be40a72e3d403d9c3700f2854a22f1:artifact:9a315d4aa64773ff291754d8c7b4a50047901eede9f785c45f871b1fb86f7c1e",
+            "support": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf"
+          },
+          "output_hash": "12c0caa772764506a1de0bc607b07cd2ec8b23f224e32a128a5d971a1a70c251",
+          "output_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:94893e12af0a41e16bfa2ffc47523a5493277a363186ecb2a8257b72c7da0e71",
+          "params": {
+            "sections": [
+              {
+                "input": "regional",
+                "key": "north_net_usd_cents",
+                "label": "NORTH net revenue",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "company",
+                "key": "company_net_usd_cents_context",
+                "label": "Company net revenue (context)",
+                "path": [
+                  "usd_cents"
+                ],
+                "unit": "USD cents"
+              },
+              {
+                "input": "support",
+                "key": "north_ticket_count",
+                "label": "NORTH support ticket count",
+                "path": [
+                  "regions",
+                  "NORTH",
+                  "tickets"
+                ],
+                "unit": "tickets"
+              }
+            ],
+            "title": "NORTH operations brief"
+          },
+          "run_id": "north-ops-brief-run-2",
+          "status": "success",
+          "tool": "compose_report",
+          "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+        },
+        "saved_value": {
+          "sections": [
+            {
+              "key": "north_net_usd_cents",
+              "label": "NORTH net revenue",
+              "unit": "USD cents",
+              "value": 10800
+            },
+            {
+              "key": "company_net_usd_cents_context",
+              "label": "Company net revenue (context)",
+              "unit": "USD cents",
+              "value": 30800
+            },
+            {
+              "key": "north_ticket_count",
+              "label": "NORTH support ticket count",
+              "unit": "tickets",
+              "value": 3
+            }
+          ],
+          "title": "NORTH operations brief"
+        },
+        "state": "stale",
+        "value": null
+      }
+    ],
+    "fallback": false,
+    "hydra_queries": 40,
+    "sources": [
+      {
+        "content_sha256": "b656720bd8109ab1b531c82f9bfa44bfe6ddee651d0078b0a1e06e346d45ddfc",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:source:438425b6107be615a42ac553d2ab0ec2bbb63457939954a850d2d2116b1741e1",
+        "name": "fx",
+        "state": "current"
+      },
+      {
+        "content_sha256": "46a7ce67316a17e82a496e600e320e55b614f3715398c0f1632e50b9b3831481",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:source:3c207cc041327c83961588974c9bd3f9e17d784d592668a39f96a057e814ddf4",
+        "name": "orders",
+        "state": "current"
+      },
+      {
+        "content_sha256": "5f4899c0b18674513b5151abc9c489b1c8f9e78d1f05ea58d15e782d030cc4e2",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:source:f8971de983473554f535b750cb9e258f505b85325dad95efa5aec24ac2d12b1e",
+        "name": "refunds",
+        "state": "current"
+      },
+      {
+        "content_sha256": "208dbbbb2fa9a854dcbf3a688dba05ca62f3bcf1f2d4a0c00a83d2551c9ef9ef",
+        "id": "b6be40a72e3d403d9c3700f2854a22f1:source:da019e622c67e2090e86240694c930e98bfe73744458a0401eef73205b93db3a",
+        "name": "tickets",
+        "state": "current"
+      }
+    ],
+    "workspace": "client-02e800f73beb"
+  },
+  "independent_refresh_receipts": [
+    {
+      "elapsed_ms": 0.05212519317865372,
+      "inputs": {
+        "fx": "b6be40a72e3d403d9c3700f2854a22f1:source:438425b6107be615a42ac553d2ab0ec2bbb63457939954a850d2d2116b1741e1",
+        "net": "b6be40a72e3d403d9c3700f2854a22f1:artifact:ff694a927399ae0d194a39bed7086f3d25d55fd1f0695f7f28a40a6cf91adb59"
+      },
+      "output_hash": "a747bd3040b943acdde5d23ce3a0c70bb52bb64db9a6689bf4d2580cc03ed0e3",
+      "output_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:198ef558e84dcd2c82d2a5123be59b6f2df9dcdf03bbe6b79c5c53f8cc4377e4",
+      "params": {},
+      "run_id": "refresh-bbc6ad03821f4a7c907bd9ec09cfb7e1",
+      "status": "success",
+      "tool": "convert_to_usd",
+      "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:c78b222dc40236afafd222f7cc7438950a6b1179ad4dd169a6b3c1cfc0eb302f"
+    },
+    {
+      "elapsed_ms": 0.02333289012312889,
+      "inputs": {
+        "regional": "b6be40a72e3d403d9c3700f2854a22f1:artifact:198ef558e84dcd2c82d2a5123be59b6f2df9dcdf03bbe6b79c5c53f8cc4377e4"
+      },
+      "output_hash": "babb6b0ec6fc75b734a03b174d6a01ffbcfa8355b483b078931a9d74fc724b90",
+      "output_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:0e6605edf09f181c10d41a251f2df759a7741120d4ef24bd04ddb01d827ef67e",
+      "params": {},
+      "run_id": "refresh-bbc6ad03821f4a7c907bd9ec09cfb7e1",
+      "status": "success",
+      "tool": "company_total",
+      "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:f292d9109171070088c107efc2b4cf2d929961bad569bdcf8968cd8d31b37434"
+    },
+    {
+      "elapsed_ms": 0.020166859030723572,
+      "inputs": {
+        "company": "b6be40a72e3d403d9c3700f2854a22f1:artifact:0e6605edf09f181c10d41a251f2df759a7741120d4ef24bd04ddb01d827ef67e",
+        "regional": "b6be40a72e3d403d9c3700f2854a22f1:artifact:198ef558e84dcd2c82d2a5123be59b6f2df9dcdf03bbe6b79c5c53f8cc4377e4",
+        "support": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf"
+      },
+      "output_hash": "4eb879314901fc605f3c0bf3b70f6544d4e5b18d143c7a1e4341e05f8e3071bb",
+      "output_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:af0c96a0fcdfe0a549e8d375d43a2a806d070eae52dd9d36e380000d516ede16",
+      "params": {
+        "sections": [
+          {
+            "input": "company",
+            "key": "company_net_usd_cents",
+            "label": "Total company net revenue",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "regional",
+            "key": "north_net_usd_cents",
+            "label": "NORTH net revenue",
+            "path": [
+              "regions",
+              "NORTH",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "north_ticket_count",
+            "label": "NORTH support ticket count",
+            "path": [
+              "regions",
+              "NORTH",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "Company report"
+      },
+      "run_id": "refresh-bbc6ad03821f4a7c907bd9ec09cfb7e1",
+      "status": "success",
+      "tool": "compose_report",
+      "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+    },
+    {
+      "elapsed_ms": 0.03741588443517685,
+      "inputs": {
+        "company": "b6be40a72e3d403d9c3700f2854a22f1:artifact:0e6605edf09f181c10d41a251f2df759a7741120d4ef24bd04ddb01d827ef67e",
+        "regional": "b6be40a72e3d403d9c3700f2854a22f1:artifact:198ef558e84dcd2c82d2a5123be59b6f2df9dcdf03bbe6b79c5c53f8cc4377e4",
+        "support": "b6be40a72e3d403d9c3700f2854a22f1:artifact:f790e5dfb0f5b00fa7fc060c35ea1b6fd6c5ad7529c8bb215dfc0bbd80bdfcdf"
+      },
+      "output_hash": "5d6c25e7f88e33cb3a9b49ce6f01bca86cbac17cecce88772b7180be21d0da74",
+      "output_id": "b6be40a72e3d403d9c3700f2854a22f1:artifact:00e02f5f8cfe13969966a41dd452bdc5582004d1567135c7da3fd0ae183f5111",
+      "params": {
+        "sections": [
+          {
+            "input": "regional",
+            "key": "north_net_usd_cents",
+            "label": "NORTH net revenue",
+            "path": [
+              "regions",
+              "NORTH",
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "company",
+            "key": "company_net_usd_cents_context",
+            "label": "Company net revenue (context)",
+            "path": [
+              "usd_cents"
+            ],
+            "unit": "USD cents"
+          },
+          {
+            "input": "support",
+            "key": "north_ticket_count",
+            "label": "NORTH support ticket count",
+            "path": [
+              "regions",
+              "NORTH",
+              "tickets"
+            ],
+            "unit": "tickets"
+          }
+        ],
+        "title": "NORTH operations brief"
+      },
+      "run_id": "refresh-bbc6ad03821f4a7c907bd9ec09cfb7e1",
+      "status": "success",
+      "tool": "compose_report",
+      "tool_version_id": "b6be40a72e3d403d9c3700f2854a22f1:tool:2c481e87aed9555654ea02fb5c50989fc9d19848f70fde480a6d913bb34514ee"
+    }
+  ],
+  "native_affected_ids": [
+    "b6be40a72e3d403d9c3700f2854a22f1:artifact:94893e12af0a41e16bfa2ffc47523a5493277a363186ecb2a8257b72c7da0e71",
+    "b6be40a72e3d403d9c3700f2854a22f1:artifact:9a315d4aa64773ff291754d8c7b4a50047901eede9f785c45f871b1fb86f7c1e",
+    "b6be40a72e3d403d9c3700f2854a22f1:artifact:baa85284cf918994b868a0195d950313208cd267ee3a26b2d3fbf1ce042e8574",
+    "b6be40a72e3d403d9c3700f2854a22f1:artifact:f514bffcd466dbff444ad274f37c344fece4c346eab8f90173870263b05ce4c8"
+  ],
+  "original_report_ids": [
+    "b6be40a72e3d403d9c3700f2854a22f1:artifact:baa85284cf918994b868a0195d950313208cd267ee3a26b2d3fbf1ce042e8574",
+    "b6be40a72e3d403d9c3700f2854a22f1:artifact:94893e12af0a41e16bfa2ffc47523a5493277a363186ecb2a8257b72c7da0e71"
+  ],
+  "passed": true,
+  "recorded_runtime_calls": 12,
+  "refreshed_report_ids": [
+    "b6be40a72e3d403d9c3700f2854a22f1:artifact:af0c96a0fcdfe0a549e8d375d43a2a806d070eae52dd9d36e380000d516ede16",
+    "b6be40a72e3d403d9c3700f2854a22f1:artifact:00e02f5f8cfe13969966a41dd452bdc5582004d1567135c7da3fd0ae183f5111"
+  ]
+}

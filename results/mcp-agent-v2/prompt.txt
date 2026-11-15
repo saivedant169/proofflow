@@ -1,0 +1,22 @@
+Use workspace client-02e800f73beb for this entire task.
+
+Load this CSV with the explicitly supplied EUR-to-USD rate 1.20 and selected region NORTH:
+order_id,region,currency,gross_cents,refund_cents,ticket_count
+a,NORTH,EUR,10000,1000,3
+b,SOUTH,USD,20000,0,1
+
+Create a company report containing total company net revenue in USD cents, NORTH
+net revenue in USD cents, and NORTH support ticket count. Obtain the current typed
+contracts with prepare, choose the calculation plan yourself, then execute it.
+
+Next create a separate NORTH operations brief with NORTH net revenue in USD cents,
+company net revenue as context, and NORTH support ticket count. Prepare again and
+reuse suitable artifacts from the earlier run instead of recomputing them. Use
+distinct run IDs for the two report compositions. Keep both saved report IDs.
+
+Now load the exact same CSV again, changing only the EUR-to-USD rate to 1.30.
+Inspect both original saved report IDs before refreshing and describe which numeric
+claims remain current. Refresh both reports together, then inspect both replacement
+report IDs to verify their currentness and tool-computed values. Do not load any
+other data or change any other sources. Finish with a concise account of the two
+reports, reuse, correction, and any failure. No expected answers or route is supplied.

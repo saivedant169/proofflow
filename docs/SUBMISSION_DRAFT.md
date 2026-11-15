@@ -1,6 +1,6 @@
 # ProofFlow submission draft
 
-The application, comparative pilots, local container deployment and 120-second walkthrough are complete. Public hosting and the organizer's form remain pending; this document is not a submission receipt. The [source repository](https://github.com/saivedant169/proofflow) is **private until the user explicitly directs release**.
+The application, audited retail benchmark, earlier pilots, local container deployment and 120-second functional walkthrough are complete. Hosting is on hold and will be handled by the project owner; the organizer's form is not open. This document is not a submission receipt. The [source repository](https://github.com/saivedant169/proofflow) is **private until the user explicitly directs release**.
 
 ## Project name and track
 
@@ -9,6 +9,8 @@ The application, comparative pilots, local container deployment and 120-second w
 ## Short description
 
 ProofFlow gives analytics agents current, traceable context across runs. It records the data and intermediate results actually consumed by tools, follows dependency paths in HydraDB when inputs change, and refreshes affected outputs while preserving unrelated work.
+
+In the audited retail test, the complete dependency path refreshed **38/38 recoverable affected reports** and correctly blocked **4/4 unavailable reports**, with **69.41% fewer evidence tokens than full context**. At the same per-case evidence allowance, BM25 refreshed 19/38, dense BGE 8/38 and iterative hybrid 33/38. Exact-flat traversal ties ProofFlow, and all arms use the same Hydra-assisted executor.
 
 ## Problem
 
@@ -19,6 +21,8 @@ ProofFlow serves the engineer operating that agent and the analyst relying on it
 ## What we built
 
 ProofFlow combines a typed analytics runtime, a persistent dependency graph and a browser workspace. Registered tools perform SQLite aggregations and Decimal currency calculations. Immutable source, tool and artifact versions capture exact consumed inputs, computed content and execution receipts. HydraDB-native traversal finds affected descendants and checks upstream evidence. Refresh executes dependencies in order and binds downstream reports to the new intermediate artifacts.
+
+A five-tool stdio MCP interface lets an external host load its own CSV, prepare typed evidence, execute a client-selected plan, inspect currentness and refresh affected artifacts. It accepts no arbitrary code, SQL or file paths. The server runs no model; the client chooses the plan.
 
 The React/Vite/TypeScript interface shows two report runs, real graph evidence and tool activity. Visitors can correct an exchange rate, order, refund or support count; remove an input; refresh affected work; verify values against independent recomputation; and reset their isolated session. Stale monetary claims are withheld while independent current claims stay visible. The FastAPI application and built frontend run together with persistent state, and the Docker deployment passed sixteen HTTP checks including application restart.
 
@@ -36,7 +40,29 @@ The company report and EU brief reuse intermediate calculations across runs. Cor
 
 Four actual tool calls update EU revenue from **$2,090 to $2,280** and company revenue from **$5,565 to $5,755**. The support count stays **2** with the same artifact identity and content hash. Independent recomputation matches the updated report values. Removing the FX source instead makes refresh refuse the unavailable calculation.
 
-## Comparative evidence
+## Primary evidence: retail v2
+
+The frozen retail test uses **640 externally sourced UCI positive-sales lines across four dated partitions**, ten authored interventions and declared report compositions. It is deterministic: registered tools calculate results and a common reader selects from the returned evidence; no LLM participates. Every case exposes 39 artifacts, including 11 reports. All methods share serialized records, dependency identifiers, scope, exact-ID access and the same Hydra-assisted currentness and recursive refresh executor.
+
+The complete graph path, exact-flat traversal and full context match on all scoped artifact states and values. Each refreshes **38/38 recoverable affected reports** and blocks **4/4 unavailable reports**. The **10/10 correct endstates include the missing-source refusal and a no-op**, not ten newly calculated answers.
+
+Graph evidence totals **39,375/128,729 full-context tokens**, or **30.59%**: **69.41% fewer evidence tokens**. This passes the unchanged aggregate ≤40% gate. Excluding the no-op, the ratio is 33.99%; two individual cases exceed 40%. All three complete conditions execute 101 tools, so this is not a tool-call reduction or measured LLM-dollar saving.
+
+The following baselines receive each case's complete graph-closure token allowance, established before comparator execution. Allowances vary from **0 to 9,611 tokens**; whole-record packing may leave unused space.
+
+| Evidence selector | Fresh affected reports | Correct endstate cases |
+|---|---:|---:|
+| ProofFlow / HydraDB | 38/38 | 10/10 |
+| Exact flat traversal | 38/38 | 10/10 |
+| BM25 | 19/38 | 3/10 |
+| Dense BGE | 8/38 | 2/10 |
+| Iterative hybrid | 33/38 | 6/10 |
+
+The separate **fixed 2,048-token diagnostic** completes only **8/38** for graph/exact-flat, **1/38** for BM25, **0/38** for dense and **4/38** for iterative hybrid. Every fixed-budget arm has **2/10 correct endstates: R07's expected refusal and R09's no-op**. Neither is a successfully refreshed affected-report case. The complete graph result must not be attributed to this constrained budget.
+
+The development efficiency gate remains a recorded **failure**: **60.79%** graph/full-context token ratio exceeded the unchanged 40% threshold, or 81.07% excluding the no-op. Development correctness passed, but it was not pooled with held-out test. The [retail report](RETAIL_V2_RESULTS.md), [frozen protocol](RETAIL_V2_SPEC.md) and [audited summary](../evidence/retail_v2_summary.json) retain every condition, refusal, failure and raw record. Dataset prices are GBP; FX, refunds and corrections are staged assumptions rather than historical incidents. See [dataset attribution and modifications](../fixtures/retail_v2/DATASET_NOTICE.md).
+
+## Earlier pilots, reported separately
 
 The twelve-scenario held-out pilot uses authored workloads, real dense embeddings and a common deterministic evidence reader. Every arm receives the same records, dependency IDs, scope filtering, exact-ID seeding and **2,048-token evidence budget**. Every arm also uses the same Hydra-assisted currentness checks and recursive refresh executor. The intervention is the retrieved context.
 
@@ -68,9 +94,17 @@ In a separate two-call local run, Fable 5.2 at high reasoning chose a seven-step
 
 After the FX correction, native Hydra traversal reached both model-created reports. Four tools refreshed the dependent work, the EU brief rebound to the new upstream versions, and support retained its identity. All **17 composition checks passed**. The [composition evidence](COMPOSITION.md) contains both model plans and actual tool receipts. The browser labels this **Recorded agent workflow**; it is not a live hosted model endpoint or a learning-curve measurement.
 
+## Actual MCP-client integration
+
+A real Claude Code client using **Fable 5.2 at high reasoning** completed one corrected trajectory through the five-tool stdio server: two source loads, two client-chosen compositions, stale inspection, refresh and inspection of the replacements. The recorded run passes **32 checks**. It made **9 MCP requests across 10 CLI turns**, with seven initial tool executions, one composition reusing earlier artifacts, and four refresh executions: **12 recorded runtime calls**. The two CSV loads also performed **16 arithmetic preflight checks**, counted separately.
+
+The first attempt is retained as a configuration failure: safe mode suppressed MCP discovery and zero ProofFlow tools ran. The corrected attempt repaired launch isolation and used the same task, apart from a fresh workspace nonce. Provider list accounting was **$0.809898** for the corrected trajectory plus **$0.037144** for the failed first attempt: **two attempts, $0.847042 total**. These figures are not subscription billing or a cost benchmark.
+
+This is one authored two-row integration, separate from retail v2 and the original model pilot. The MCP server itself makes zero model calls; the Claude client makes the model calls. [Client results and transcript audit](MCP_AGENT_RESULTS.md) retain the failed attempt, plans, receipts, usage and scope.
+
 ## Engineering and product direction
 
-The initial integration point is a recurring analytics assistant that already calls stable tools and saves intermediate outputs. Capturing those execution receipts makes provenance and selective refresh possible without requiring an analyst to maintain a second manual dependency graph. The local CSV adapter demonstrates reuse beyond the browser fixture.
+The initial integration point is a recurring analytics assistant that already calls stable tools and saves intermediate outputs. The five MCP tools make the context layer accessible from an existing local agent host, while the CSV adapter supplies a bounded path for caller data. Capturing those execution receipts makes provenance and selective refresh possible without requiring an analyst to maintain a second manual dependency graph. The local CSV adapter demonstrates reuse beyond the browser fixture.
 
 A useful customer pilot would connect one recurring reporting workflow, introduce real source corrections, and measure complete report refresh, withheld stale claims, preserved artifacts and total operational cost. Those customer outcomes have not been measured yet. The current contribution is a working context layer with inspectable comparative evidence and a clear integration boundary.
 
@@ -83,19 +117,23 @@ Python 3.12, FastAPI, SQLite manifests and aggregations, Decimal monetary arithm
 - [Container deployment checks](../evidence/deployment_smoke.json): 16/16, including compiled assets, real HTTP mutations, preserved browser session/artifact IDs after app restart, refusal and reset.
 - [Browser verification](UI_FIDELITY.md): desktop and mobile, FX correction, evidence inspection, refresh, restart recovery, missing source and reset.
 - [CSV integration](../results/import-smoke-v1/verification.json): authored input through actual HydraDB, preserved support and order-insensitive no-op replay.
+- [Stock MCP process check](../results/mcp-v1/summary.json): 20 checks without a model.
+- [Actual MCP-client run](../results/mcp-agent-v2/summary.json): 32 recorded checks, with the first configuration failure retained separately.
 
 ## Limitations
 
-The workloads are authored and small. The finite-budget graph misses some dependencies, and exact flat traversal ties it. With all evidence available, all retrieval selectors recover the exact affected sets; full context refreshes 29/29 eligible affected reports. ProofFlow's main-budget run makes more tool calls than BM25 because it completes more required work, so the table is not a cost-saving claim.
+Retail v2 is a bounded external positive-sales sample with authored changes, not a production customer study. Its complete dependency path succeeds, while a fixed 2,048-token budget leaves recoverable reports unresolved. Exact-flat traversal ties graph. The 69.41% reduction concerns serialized evidence against full context; no learned policy, model-dollar savings, controlled latency advantage or statistical superiority is established.
 
-The model comparison is one sample per case and condition; cache warmth was not controlled, so no model-cost or latency advantage is claimed. Model composition supports registered typed tools, not arbitrary SQL or code. The browser uses guided real execution and recorded model evidence. The app supports one worker/replica and sixteen active sessions by default; historical Hydra namespaces are retained without garbage collection.
+All retrieval methods share Hydra-backed safety and recursive execution. Missing-source blocking and zero incorrect-current artifacts are shared properties. Lower tool-call totals can reflect unfinished work. The failed development efficiency gate and constrained-budget results remain visible.
+
+The original model comparison uses one sample per case and condition; cache warmth was not controlled. The MCP result is one corrected client trajectory over two authored rows, with its failed first attempt retained. Model composition supports registered typed tools, not arbitrary SQL or code. The browser uses guided execution and recorded model evidence. The app supports one worker/replica and sixteen active sessions by default; historical Hydra namespaces are retained without garbage collection.
 
 ## Delivery fields
 
 - **Source:** https://github.com/saivedant169/proofflow — private; access for judges is not presumed.
 - **Local working app:** http://127.0.0.1:18080. This is not a judge-accessible hosted URL.
-- **Hosted app:** pending the existing hosting target and final HTTPS deployment.
-- **Video:** [completed 120-second 1080p walkthrough](../video/proofflow-walkthrough.mp4), included in the Docker image at `/walkthrough.mp4`. Its shareable URL will use the final HTTPS origin.
+- **Hosted app:** on hold; deployment will be handled by the project owner. No public URL is claimed.
+- **Video:** [completed 120-second 1080p functional walkthrough](../video/proofflow-walkthrough.mp4), included in the Docker image at `/walkthrough.mp4`. It predates retail v2; the [updated narrative](DEMO_SCRIPT.md) identifies the new evidence. A public URL is not yet claimed.
 - **Event:** [HydraDB Hackathon, November 14–16](https://luma.com/bqwllms4).
 - **Submission form:** not live according to the project owner's latest update. Final fields and team/contact details await that form.
 - **Delivery deadline:** 16 November 2026, 09:00 IST. No submission receipt has been issued.

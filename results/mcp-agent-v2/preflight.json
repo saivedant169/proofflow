@@ -1,0 +1,24 @@
+{
+  "client_command_sha256": "9248bfb7b7ddecf8bb49906114e65579e6cc79bb198781776157a91fd0c13c63",
+  "error": null,
+  "finished_at": "2026-11-15T11:28:25.105974+00:00",
+  "model_queries_sent": 0,
+  "passed": true,
+  "raw_artifact_location": "Ignored .state local configuration directory; not for submission",
+  "raw_control_sha256": "bf8acd28b5298725badb48764fa662e773b8655cd4ff23f55ef013b4769edbc7",
+  "servers": [
+    {
+      "name": "proofflow",
+      "status": "connected",
+      "tools": [
+        "execute_plan",
+        "inspect",
+        "load_csv",
+        "prepare",
+        "refresh"
+      ]
+    }
+  ],
+  "source": "https://github.com/anthropics/claude-agent-sdk-python/blob/main/src/claude_agent_sdk/_internal/query.py",
+  "user_messages_sent": 0
+}

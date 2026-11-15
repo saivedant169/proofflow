@@ -1,0 +1,96 @@
+{
+  "allowed_tools": [
+    "mcp__proofflow__load_csv",
+    "mcp__proofflow__prepare",
+    "mcp__proofflow__execute_plan",
+    "mcp__proofflow__inspect",
+    "mcp__proofflow__refresh"
+  ],
+  "artifact_sha256": {
+    "prompt.txt": "bc7f5dba731a23cab26401a18eba43cd19035b5c02168f6d2da890fa05f65ef3",
+    "system-prompt.txt": "a0dc20bc69934fef4a7709f38665e95667666067dd7b50ecce76a1d2961764fc"
+  },
+  "client_attempts": 1,
+  "code": {
+    "revision": "7f110c61801332e30bb16b2aa9dc8f9ff3f58568",
+    "tracked_changes": false
+  },
+  "code_sha256": {
+    "proofflow/__init__.py": "d725363c445f433c1d21df0cbc62bd418f7f065b171b0c1752afdf903b56036e",
+    "proofflow/agent.py": "56e9dd57a50ca611e02f0c2336b37a5cc6aba80e635adbd8989666f3e92075f6",
+    "proofflow/analytics.py": "cca3a122cf9884e38323cfefca105c65fd3a462950994ec9822d76abc413ff86",
+    "proofflow/api.py": "1102bd3a5c47921ccc85b1b62f28959c2f6def65ca70915996fec85035bcefb9",
+    "proofflow/artifacts.py": "068bc264a5184800dc9bb9f11600977526eeccdb52e7dc9cd6282c7a4bd507e2",
+    "proofflow/composition.py": "bdbf3ada8ff726f3b57a1669e4425d34e2875c4940a79afa7c1e3fc78d2e5624",
+    "proofflow/demo.py": "d629c523dbdd8fa7f89c5cfd785314478bbba1af140dbc7a41646e96cd364103",
+    "proofflow/eval/__init__.py": "4f24e6241d888bd4aa7003e9b33d686886fafe159b141e3a73293e819fb3efc6",
+    "proofflow/eval/cases.py": "c6a7bb617964fb9905c12cb301061474d6753eceffd865e223083897dcee0f3b",
+    "proofflow/eval/config.py": "e995edfa508152db58f1b2e857b2563cfba7b9ef11fe842d9f088cc88337e51f",
+    "proofflow/eval/execution.py": "402296a8323ffb85f01856ea0edfd7410a8c6255a5a3ae06f3d805ccfe6ed535",
+    "proofflow/eval/oracle.py": "aec88e9266f2c688c19934209dc7cc4280312766537366d0b5f02c7b652c525c",
+    "proofflow/eval/retail_data.py": "12312131e930ef22e94449e9765abe01bb508585b353c93db362172426ad29ac",
+    "proofflow/eval/retail_oracle.py": "8e776b8add59ad18a814382630abd2666b0248b0a25dfc2dd463a95727c3224a",
+    "proofflow/eval/retail_runner.py": "f0677c7f5f3ab4999f2501fab73bb4eb9e8e3d7bb284a6c6fc8a8cceeadba47c",
+    "proofflow/eval/retrieval.py": "cba16c3e14c8303d23f187580955c861c48427088c3f69120d30b2ba28edd201",
+    "proofflow/eval/runner.py": "8f2d491a492a3259950cfd2f2be90de58566a53fa01f47afc314f05e0dde6d6e",
+    "proofflow/eval/workload.py": "17cbd1d42d424f01c743c65d1a3fdf6a486c48406a0247ea39383e7334876445",
+    "proofflow/graph.py": "ba409e28f945dd57b8ab3b7a1b3475c22a17038ef9942f0ce1bf3715c8faf091",
+    "proofflow/importing.py": "88791861f3df38f34f1100d0b0934f9f9dc311ab1c856e2bff8428f59dc34637",
+    "proofflow/mcp_server.py": "fd18f2e90b697808221dcd5113e74cafd33c5c571f0e2af404036bd9481849e9",
+    "proofflow/models.py": "bf0e046db1615411afa727a70088ecc0bc8e7820318b4582a03d25270e1e49e9",
+    "proofflow/runtime.py": "17312dbb90b3d46590cd88466379d9a95a787a292597bf024894d4d0a1e756ba",
+    "pyproject.toml": "af3414d9e897a7693fb404c389ff63f8c10b889c71d79854576821d435d593a4",
+    "scripts/mcp_agent_probe.py": "89c332bac5ebc2e844dcb0b641aa4415cacce9cb1f8cbee3f2d318b54be6338a",
+    "uv.lock": "2fe701a65b9df2fcb0c5e8c4df9788dfd6ebd727bb925b3628f48d12055bc1df"
+  },
+  "effort": "high",
+  "fallback": false,
+  "infrastructure_correction": {
+    "overall_attempt_number": 2,
+    "previous_attempt": "results/mcp-agent-v1",
+    "previous_passed": false,
+    "previous_reported_cost_usd": 0.037143999999999996,
+    "previous_summary_sha256": "f307e739cb8e7e8e24b977388a334715ac7fc8ba0fed743452ff055c34096c66",
+    "reason": "v1 --safe-mode suppressed explicit MCP servers; v2 uses restricted mode and frozen per-run settings",
+    "task_prompt_changed": false
+  },
+  "isolation": "Empty builtin tools; only explicit local MCP; restricted mode; no user/project/local settings; per-run hooks/memory/plugin exclusions. Managed policy remains authoritative.",
+  "local_config_key": "mcp-agent-config-02e800f73beb",
+  "local_state_key": "mcp-agent-02e800f73beb",
+  "max_budget_usd": 4.0,
+  "model": "claude-fable-5-2",
+  "oracle_boundary": "Known arithmetic and required outcomes exist only in the post-run verifier, never in the prompt",
+  "prepared_at": "2026-11-15T11:28:23.374495+00:00",
+  "private_config_sha256": {
+    "client-settings.json": "271159e96ecdedd887440417ba24fc31133dc3027114eee8924ebc26b4b6db37",
+    "mcp-config.json": "97c5341f3b9d5a4260320090fccb78a9c8ad795a3f7aba9a3a9c988c2e4e5982"
+  },
+  "retries": 0,
+  "scope": "Single client-model integration demonstration over authored CSV; not a performance benchmark",
+  "server_configuration": {
+    "args": [
+      "-m",
+      "proofflow.mcp_server"
+    ],
+    "command": ".venv/bin/python (resolved locally)",
+    "hydra_url": "http://127.0.0.1:18443",
+    "state_directory": ".state/mcp-agent-02e800f73beb",
+    "token_file": ".state/hydra-token"
+  },
+  "server_model_calls": 0,
+  "settings_summary": {
+    "autoMemoryEnabled": false,
+    "claudeMdExcludes": [
+      "**"
+    ],
+    "disableAllHooks": true,
+    "disableWorkflows": true,
+    "local_plugin_disable_count": 7,
+    "managed_policy": "Preserved; no managed controls bypassed",
+    "syncClaudeAiPlugins": false,
+    "syncClaudeAiSkills": false
+  },
+  "timeout_seconds": 600,
+  "version": "mcp-agent-integration-v2",
+  "workspace": "client-02e800f73beb"
+}

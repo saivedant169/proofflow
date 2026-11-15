@@ -1,0 +1,135 @@
+{
+  "accounting_scope": "CSV preflight arithmetic is additional compute; recorded runtime counts do not include it",
+  "actual_models": [
+    "claude-fable-5-2"
+  ],
+  "artifact_privacy": "Raw streams, stderr, account/plugin initialization and environment-specific settings remain under ignored .state; submitted traces remove unrelated initialization metadata",
+  "attempt_count_scope": "One paid trajectory in v2; failed v1 is a separate retained paid attempt. No automatic retry inside either attempt.",
+  "attempts": 1,
+  "audit_checks": {
+    "all_tool_results_present_and_successful": true,
+    "both_original_reports_selected_for_refresh": true,
+    "both_reports_in_native_change_response": true,
+    "client_inspected_current_replacements": true,
+    "client_inspected_stale_claims_before_refresh": true,
+    "client_supplied_only_requested_csv_and_rates": true,
+    "distinct_client_composition_runs": true,
+    "four_native_affected_artifacts": true,
+    "four_recorded_refresh_calculations": true,
+    "independent_native_impact_matches_change_response": true,
+    "independent_original_values_match_oracle": true,
+    "independent_replacements_current_and_correct": true,
+    "initial_tool_computed_values": true,
+    "load_did_not_create_preset_reports": true,
+    "native_change_query_used": true,
+    "native_queries_no_fallback": true,
+    "new_brief_reuses_earlier_artifacts": true,
+    "one_refresh_request": true,
+    "one_workspace": true,
+    "only_five_allowed_client_tools": true,
+    "only_fx_source_changed": true,
+    "refresh_preserved_support_artifact": true,
+    "server_model_calls_zero": true,
+    "two_client_chosen_compositions": true,
+    "two_csv_loads": true,
+    "two_distinct_replacements": true
+  },
+  "checks": {
+    "actual_model_exactly_requested": true,
+    "client_initialized_exactly_five_mcp_tools": true,
+    "client_process_succeeded": true,
+    "model_usage_recorded": true,
+    "stream_valid": true,
+    "successful_final_result": true
+  },
+  "cli_num_turns": 10,
+  "client_model": "claude-fable-5-2",
+  "client_tool_requests": 9,
+  "code": {
+    "revision": "7f110c61801332e30bb16b2aa9dc8f9ff3f58568",
+    "tracked_changes": false
+  },
+  "csv_preflight_calculations": 16,
+  "effort": "high",
+  "elapsed_seconds": 58.404602208174765,
+  "error": null,
+  "fallback": false,
+  "finished_at": "2026-11-15T11:29:23.590202+00:00",
+  "infrastructure_correction": {
+    "overall_attempt_number": 2,
+    "previous_attempt": "results/mcp-agent-v1",
+    "previous_passed": false,
+    "previous_reported_cost_usd": 0.037143999999999996,
+    "previous_summary_sha256": "f307e739cb8e7e8e24b977388a334715ac7fc8ba0fed743452ff055c34096c66",
+    "reason": "v1 --safe-mode suppressed explicit MCP servers; v2 uses restricted mode and frozen per-run settings",
+    "task_prompt_changed": false
+  },
+  "limitations": [
+    "Authored two-row workflow and one model trajectory; not a general agent benchmark.",
+    "Server model_calls=0 describes the MCP server; the Claude client makes paid model calls.",
+    "Reported cost is provider list accounting, not a subscription billing statement."
+  ],
+  "model_usage": {
+    "claude-fable-5-2": {
+      "cacheCreationEphemeral1hInputTokens": 39260,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationInputTokens": 39260,
+      "cacheReadInputTokens": 136490,
+      "canonicalModel": "claude-fable-5-2",
+      "contextWindow": 1000000,
+      "costBasis": "list",
+      "costUSD": 0.8098979999999999,
+      "inputTokens": 20,
+      "maxOutputTokens": 128000,
+      "outputTokens": 3857,
+      "provider": "firstParty",
+      "thinkingTokens": 227,
+      "webSearchRequests": 0
+    }
+  },
+  "overall_attempt_number": 2,
+  "passed": true,
+  "raw_client_events_sha256": "d5132ce8f80727b5b9c6b136c3abb17027dd26dfb2a293b0e34a99e382bcce04",
+  "recorded_runtime_calls": 12,
+  "reported_cost_usd": 0.8098979999999999,
+  "retries": 0,
+  "returncode": 0,
+  "scope": "Single client-model integration demonstration over authored CSV; not a performance benchmark",
+  "server_model_calls": 0,
+  "submitted_client_events_sha256": "512d679d0018e89bf4229d1faeaeb28cfef7cac99717c425c4d58c9d20601376",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 39260,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 39260,
+    "cache_read_input_tokens": 136490,
+    "fallback_credit": null,
+    "inference_geo": "global",
+    "input_tokens": 20,
+    "iterations": [
+      {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 5561,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 5561,
+        "cache_read_input_tokens": 33699,
+        "input_tokens": 2,
+        "output_tokens": 773,
+        "type": "message"
+      }
+    ],
+    "output_tokens": 3857,
+    "output_tokens_details": {
+      "thinking_tokens": 227
+    },
+    "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 0
+    },
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "usage_unknown": false
+}

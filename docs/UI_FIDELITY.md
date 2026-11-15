@@ -43,3 +43,9 @@ The packaged application was also verified in IAB at `http://127.0.0.1:18080`, w
 The source drawer intentionally uses the primary screen's smaller consistent control typography rather than the companion image's larger isolated type scale. This is recorded in the design specification and was inspected at full width and on mobile.
 
 The final implementation is faithfully verified against the accepted visual design with the documented data and functional deviations. The material graph clipping and activity-ID presentation issues were fixed. No material visual mismatch remains in the inspected desktop, drawer, mobile, and benchmark surfaces.
+
+## Retail evaluation update
+
+The compiled Docker application at revision `7f110c6` was checked again in IAB on 15 November. The new retail section reads the audited `evidence/retail_v2_summary.json`; it separates complete production closure, per-case graph-matched allowances, and the fixed 2,048-token diagnostic. All three tables were expanded and inspected. The 38/38 fresh reports and 4/4 unavailable blocks have separate columns. The exact-flat tie, shared executor, fixed-budget 2/10 refusal/no-op result, and failed development efficiency gate remain visible.
+
+Changing the original pilot selector to 512 and back to 2,048 changed only its own recall table; retail metrics remained unchanged. At 390×844, page width and scroll width were both 390px. The comparison table scrolled horizontally within its container to expose all numeric columns. Desktop and mobile captures are `evidence/ui/retail-v2-desktop.jpg` and `evidence/ui/retail-v2-mobile.jpg`. The temporary viewport override was reset, and the original working workspace was verified after returning from Benchmark. No remote deployment was performed.

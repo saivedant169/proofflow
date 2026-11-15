@@ -7,7 +7,7 @@ From the repository root, start the local HydraDB service and install the option
 ```sh
 python3 scripts/init_local.py
 docker compose up -d
-uv sync --extra mcp
+uv sync --frozen --extra mcp
 .venv/bin/python -m proofflow.mcp_server
 ```
 
@@ -75,7 +75,19 @@ Execution counters count recorded runtime tool calls. Every CSV load also perfor
 
 Plans contain at most 12 steps. Snapshot tokens expire after ten minutes, with at most 32 pending snapshots per workspace; consumed or stale snapshots require a new `prepare` call. Explicit artifact selections are limited to 16 distinct IDs. Source heads are individually durable: loading several source versions is not a distributed transaction, and a database failure must not be reported as a successful load.
 
-## Verify the external interface
+## Evidence and verification status
+
+The [stock-client process check](../results/mcp-v1/summary.json) passed **20 checks** through a separate stdio process. It verifies the five tools, caller-supplied composition, reuse, changed-source refresh, restart persistence, stale-plan refusal and unavailable-Hydra errors. It makes no model calls and does not demonstrate a model discovering its own plan.
+
+The actual **Fable 5.2/high Claude Code client** demonstration is a separate experiment. Its corrected frozen trajectory passes **32 recorded checks**, with **9 MCP requests across 10 CLI turns**. The client loads the supplied two-row CSV, chooses two report plans, reuses earlier artifacts, corrects the FX input, inspects stale claims, refreshes both reports and inspects the current replacements. Recorded runtime calls are **7 initial + 1 composition + 4 refresh = 12**; the two CSV loads perform **16 additional arithmetic preflight checks**.
+
+The [first attempt](../results/mcp-agent-v1/README.md) remains a **configuration failure**: `--safe-mode` suppressed the explicitly configured server, the model saw no tools, and zero ProofFlow tools ran. The corrected frozen attempt repairs launch configuration and keeps the same task, apart from a fresh workspace nonce. Across both paid attempts, provider list accounting totals **$0.847042** ($0.809898 corrected and $0.037144 failed). There was no automatic retry or fallback inside either attempt. This is one authored two-row integration, not a general agent benchmark or a subscription billing statement.
+
+[Actual-client results and transcript audit](MCP_AGENT_RESULTS.md) preserve plans, receipts, provider usage and the failed attempt. The original [model composition experiment](COMPOSITION.md) used a different local bridge and is not substituted for this MCP verification. The server's zero model calls does not describe the external Claude client's model usage.
+
+The [retail benchmark](RETAIL_V2_RESULTS.md) separately tests dependency retrieval and refresh with a deterministic reader: 38/38 recoverable affected reports and 4/4 unavailable reports blocked on the complete path, using 69.41% fewer evidence tokens than full context. It is not an MCP model benchmark. All arms share the same Hydra-assisted executor, exact-flat ties graph, and its fixed 2,048-token condition completes only 8/38 for graph. Keep those distinctions when presenting this integration.
+
+## Reproduce the stock-client check
 
 With HydraDB running, the stock-client smoke test launches the stdio server as a separate process and exercises tool discovery, source loading, caller-supplied plans, cross-run reuse, correction, stale-value withholding, refresh, and persistence:
 
@@ -86,3 +98,5 @@ uv run python scripts/mcp_smoke.py --output results/mcp-reproduction
 Use a new output directory for each recording. This check makes no model calls: it verifies MCP interoperability and actual runtime behavior, not autonomous model planning or compatibility with every host. The separate [recorded model composition experiment](COMPOSITION.md) documents its own model, inputs, costs, and limitations.
 
 This interface is for a trusted local host on one machine and currently uses POSIX file locking on macOS or Linux. It provides no public HTTP endpoint or shared-client authentication. Keep Hydra credentials local, and consider the host's model/data-sharing settings separately from the server's behavior.
+
+The source repository remains private. Public hosting is on hold and will be handled by the project owner; this local stdio interface does not require a hosted app.
