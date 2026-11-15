@@ -17,3 +17,6 @@ results/recovery-*/private/
 results/recovery-*/state/
 evidence/ci_recovery/private/
 evidence/ci_recovery/state/
+results/model-v4-test-run-*/**/cli/
+results/model-v4-test-run-*/**/observation.json
+results/model-v4-test-run-*/planning_progress.json

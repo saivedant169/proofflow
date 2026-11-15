@@ -1,5 +1,5 @@
 {
-  "title": "ProofFlow CSV-first walkthrough",
+  "title": "ProofFlow walkthrough with audited model results",
   "format": "Edited actual application captures and labeled saved-evidence cards with local narration; not an uninterrupted live recording",
   "source_root": "..",
   "screens_approved": true,
@@ -23,7 +23,7 @@
         1280,
         960
       ],
-      "footer": "Edited app capture \u00b7 Authored two-row CSV \u00b7 Typed-tool workflow \u00b7 No live model",
+      "footer": "Edited app capture · Authored two-row CSV · Typed-tool workflow · No live model",
       "lead_image": "evidence/ui/csv-preview-desktop.jpg",
       "lead_crop_box": [
         0,
@@ -52,7 +52,7 @@
         840
       ],
       "lead_caption_count": 1,
-      "footer": "Edited app capture \u00b7 Separate guided demo \u00b7 Authored fixture"
+      "footer": "Edited app capture · Separate guided demo · Authored fixture"
     },
     {
       "id": "evidence",
@@ -65,7 +65,7 @@
         1536,
         750
       ],
-      "footer": "Edited app capture \u00b7 Authored browser fixture"
+      "footer": "Edited app capture · Authored browser fixture"
     },
     {
       "id": "refresh",
@@ -78,44 +78,39 @@
         1536,
         810
       ],
-      "footer": "Edited app capture \u00b7 Authored browser fixture"
+      "footer": "Edited app capture · Authored browser fixture"
     },
     {
       "id": "retail",
-      "title": "A separate experiment on public retail transactions.",
-      "image": "evidence/ui/retail-v2-desktop.jpg",
-      "narration": "Now a separate retail experiment: six hundred forty public transaction lines, four dated partitions, and ten authored cases. Complete dependencies refresh thirty-eight recoverable reports and block four unavailable ones.",
-      "crop_box": [
-        0,
-        240,
-        1280,
-        615
-      ],
-      "footer": "Edited app capture \u00b7 Public retail sample \u00b7 Authored changes \u00b7 Deterministic tools"
+      "title": "Saved-report refresh: a separate model experiment.",
+      "narration": "After a correction, an analyst needs to know which reports can still be used. We tested that on eight retail cases, with forty-eight Fable five point two runs. The model proposes a plan; the same tools handle every refresh.",
+      "footer": "Saved execution evidence · Local experiment · See accompanying results for full scope",
+      "card": "model_setup",
+      "replaces_narration_seconds": 14.935057
     },
     {
       "id": "matched",
-      "title": "Equal per-case evidence allowances. Real tool refresh.",
-      "image": null,
-      "narration": "With identical records and the graph's per-case allowance, B M twenty-five completes nineteen, dense eight, and iterative hybrid thirty-three. All methods share the same executor.",
-      "card": "matched",
-      "footer": "Saved execution evidence \u00b7 Recorded local results \u00b7 Full scope in the accompanying report"
+      "title": "Three methods refreshed every recoverable report.",
+      "narration": "Graph, exact traversal, and full context refreshed all thirty-two recoverable reports. Every method blocked all four unavailable reports. No incorrect report was marked current.",
+      "card": "model_matched",
+      "footer": "Saved execution evidence · Local experiment · See accompanying results for full scope",
+      "replaces_narration_seconds": 11.494195
     },
     {
       "id": "tokens",
-      "title": "69.41% fewer evidence tokens than full context.",
-      "image": null,
-      "narration": "Evidence uses sixty-nine point four one percent fewer tokens than full context. Exact dependency traversal ties. The calculations still run.",
-      "card": "tokens",
-      "footer": "Saved execution evidence \u00b7 Recorded local results \u00b7 Full scope in the accompanying report"
+      "title": "60.67% fewer provider input tokens than full context.",
+      "narration": "Graph used sixty point six seven percent fewer input tokens than full context, excluding the no-op. Graph and exact traversal gave the model identical prompts.",
+      "card": "model_tokens",
+      "footer": "Saved execution evidence · Local experiment · See accompanying results for full scope",
+      "replaces_narration_seconds": 10.153379
     },
     {
       "id": "limits",
-      "title": "The constrained result and development failure stay visible.",
-      "image": null,
-      "narration": "At a fixed two-thousand-forty-eight-token limit, graph completes only eight reports. The earlier development efficiency gate failed. Both limitations remain visible.",
-      "card": "limits",
-      "footer": "Saved execution evidence \u00b7 Recorded local results \u00b7 Full scope in the accompanying report"
+      "title": "Limits of this result and the earlier deterministic test.",
+      "narration": "The model test used one sample per case and method, with adaptive allowances. An earlier deterministic test fell short at a fixed cap and failed its development gate.",
+      "card": "model_limits",
+      "footer": "Saved execution evidence · Local experiment · See accompanying results for full scope",
+      "replaces_narration_seconds": 10.884717
     },
     {
       "id": "mcp",
@@ -123,11 +118,11 @@
       "image": null,
       "narration": "An actual Claude client uses five M C P tools to load data, choose plans, inspect and refresh. It reuses prior artifacts on authored two-row input. After a launch-configuration fix, one trajectory passed thirty-two checks, with nine requests and twelve recorded runtime calls. Its first configuration failure is retained.",
       "card": "mcp",
-      "footer": "Saved execution evidence \u00b7 Recorded local results \u00b7 Full scope in the accompanying report"
+      "footer": "Saved execution evidence · Recorded local results · Full scope in the accompanying report"
     },
     {
       "id": "closing",
-      "title": "ProofFlow \u2014 current evidence across agent runs.",
+      "title": "ProofFlow — current evidence across agent runs.",
       "image": "evidence/ui/workspace-refreshed-final.jpg",
       "narration": "ProofFlow: current evidence across agent runs.",
       "crop_box": [
@@ -136,7 +131,7 @@
         1536,
         810
       ],
-      "footer": "Edited app capture \u00b7 Authored browser fixture"
+      "footer": "Edited app capture · Authored browser fixture"
     }
   ],
   "source_evidence": [
@@ -145,7 +140,10 @@
     "results/mcp-agent-v2/summary.json",
     "results/mcp-agent-v2/independent-audit.json",
     "results/mcp-agent-v1/configuration_failure.json",
-    "evidence/browser_csv_verification.json"
+    "evidence/browser_csv_verification.json",
+    "results/model-v4-test-run-1/publication/audit.json",
+    "results/model-v4-test-run-1/publication/provider_metrics.json",
+    "results/model-v4-test-run-1/summary.json"
   ],
-  "original_video_sha256": "100f6bb9399b48498b829b23264c508e9fd70e07994138df4b295db7dd927d8b"
+  "original_video_sha256": "3c18d847f151dffb5fe7f24a18f72736a9ec81619668a438d402db663214d2a8"
 }

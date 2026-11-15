@@ -89,7 +89,7 @@ Back up database state and the complete application state, including manifests, 
 
 Missing sources remain unknown/blocked, and failed graph access remains visible as an error. Recovery must not invent replacement values or silently reconstruct a graph while claiming a durable read. The core-smoke workspace intentionally ends with a missing source; it is separate from each new browser session's clean fixture.
 
-Pending items are the final hosting target and HTTPS origin, and the organizer's submission form when it opens. The video is complete locally and will use the deployed origin plus `/walkthrough.mp4`. The working delivery deadline is **16 November 2026, 09:00 IST**. Repository visibility remains private; source access for judges is not presumed. No submission receipt exists yet.
+The owner will perform deployment; hosted verification is pending. The organizer's submission form is also pending. The video is complete locally and will use the deployed origin plus `/walkthrough.mp4`. The working delivery deadline is **16 November 2026, 09:00 IST**. Repository visibility remains private; source access for judges is not presumed. No submission receipt exists yet.
 
 ## References
 

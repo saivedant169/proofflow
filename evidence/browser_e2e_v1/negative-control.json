@@ -1,0 +1,14 @@
+{
+  "test": "FX correction withholds values, survives reload, refreshes four tools and preserves a reorder",
+  "test_server_mutation": "Add one cent to NORTH at EUR 1.30 in convert_to_usd",
+  "playwright_exit_status": 1,
+  "expected_rendered_amounts": [
+    "$317.00",
+    "$117.00"
+  ],
+  "observed_rendered_amounts": [
+    "$317.01",
+    "$117.01"
+  ],
+  "outcome": "unchanged browser assertion detected the deliberate mutation"
+}

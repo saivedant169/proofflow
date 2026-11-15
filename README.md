@@ -1,16 +1,18 @@
 # ProofFlow
 
-**Current evidence for analytics agents.** ProofFlow records the inputs tools actually consume, follows their dependencies in HydraDB, and refreshes saved results when those inputs change—even when another agent run has reused them.
+**Keep saved agent reports current when an input changes.** ProofFlow records the inputs behind each supported number. Correct an exchange rate or refund, see which saved reports depend on it, and refresh affected calculations while keeping valid work. Try company and regional revenue with a compatible orders CSV, or connect a local MCP host to compose reports from supported tools and reuse earlier results.
+
+A frozen **48-invocation actual-model comparison** refreshed **32/32 affected reports**, matching full context at **39.33% of its provider input exposure**, excluding the no-op case. BM25 refreshed 25/32, BGE vector retrieval 5/32 and iterative hybrid 28/32 at the graph's per-case evidence allowance. Exact-flat traversal also achieved 32/32 with identical prompts. This is eight fresh cases and one sample per method/case, with a shared safe executor; it establishes neither a unique database-engine advantage nor general model reliability. [Audited model results](docs/MODEL_COMPARISON_RESULTS.md).
 
 In the audited retail benchmark, the complete dependency path refreshed **38/38 recoverable affected reports** and correctly blocked **4/4 unavailable reports**, using **69.41% fewer evidence tokens than full context**. At the same per-case evidence allowance, BM25 refreshed 19/38, dense BGE 8/38 and iterative hybrid 33/38. Exact flat dependency traversal ties ProofFlow; every arm uses the same Hydra-assisted executor. [Results and limits](docs/RETAIL_V2_RESULTS.md).
 
-In the browser, a company report and an EU brief share a revenue calculation. Correct the exchange rate and ProofFlow withholds outdated claims, shows the dependency path, and refreshes affected work. The independent support calculation stays reusable. For an external agent, five MCP tools expose the same source loading, typed planning, inspection and refresh. The browser fixture, retail benchmark and agent experiments are distinct.
+In the guided browser sample, a company report and an EU brief share a revenue calculation. Correct the exchange rate and ProofFlow withholds outdated claims, shows the dependency path, and refreshes affected work. The independent support calculation stays reusable. For an external agent, five MCP tools expose source loading, typed planning, inspection and refresh. The browser fixture, deterministic retail benchmark and actual-model experiments are distinct.
 
 ![ProofFlow workspace](evidence/ui/workspace-final.jpg)
 
 [Watch the two-minute walkthrough](video/proofflow-walkthrough.mp4) · [Narration and evidence references](docs/VIDEO_SCRIPT.md)
 
-The current film briefly shows CSV preview and report creation, then a separately labeled guided correction flow, retail v2 results and saved actual MCP-client evidence. The full CSV correction workflow below is a longer live feature. [Verified video delivery](evidence/video_delivery_v3.json) · [Demo narrative](docs/DEMO_SCRIPT.md).
+The current film briefly shows CSV preview and report creation, then a separately labeled guided correction flow, the audited 48-invocation model comparison and saved actual MCP-client evidence. Earlier deterministic failures remain visible in a separate limits card. The full CSV correction workflow below is a longer live feature. [Previous-version delivery verification](evidence/video_delivery_v3.json) · [Demo narrative](docs/DEMO_SCRIPT.md).
 
 ## Run the application
 
@@ -21,7 +23,7 @@ python3 scripts/init_local.py
 docker compose -f docker-compose.yml -f compose.app.yml up -d --build
 ```
 
-Open **http://127.0.0.1:18080**. Choose **Change a source → Exchange rate → Apply correction**, inspect the affected evidence, then **Refresh affected**.
+Open **http://127.0.0.1:18080**. Select **Use your data** for the [CSV workflow](#use-your-own-csv). For the guided sample, choose **Change a source → Exchange rate → Apply correction**, inspect the affected evidence, then **Refresh affected**.
 
 The guided browser workflow executes real SQLite calculations and native HydraDB traversals on an authored commerce fixture. It does not make a live model call. The Benchmark view includes a separately labeled recording of actual model-chosen plans.
 
@@ -85,6 +87,8 @@ Use **Update CSV → Validate CSV → Publish correction** to replace the full i
 
 Browser verification against Docker revision `a2eb61b` covered NORTH revenue changing from **$308 company / $108 regional** at EUR 1.20 to **$317 / $117** at 1.30, with four refresh calls; a zero-support APAC input produced **$163.75 / $93.75** without inventing a support claim. Malformed and oversized input was rejected, including after a valid preview. Imported state survived application restart, and the flow was inspected at 390px and 1536px widths. These are authored functional cases, not additional benchmark results. [Browser checklist and captures](docs/UI_FIDELITY.md#browser-csv-import-verification).
 
+A separate automated Chromium suite passes **six browser workflows** against real HydraDB, including session isolation, lost responses and repair after partial source publication. The same FX test detects an intentionally injected one-cent error. Both an earlier assertion-label failure and the first negative-control teardown failure are retained. [Browser acceptance evidence and reproduction](docs/BROWSER_ACCEPTANCE_RESULTS.md).
+
 One preview followed by creation performs **8 preview preflight + 8 create preflight + 8 recorded calls + 11 verification calculations = 35 calculations**. The creation response alone reports 27; preview is a separate operation. Updates validate again but do not automatically refresh. Counts cover registered arithmetic invocations, not all parsing, storage or graph-query work.
 
 The importer accepts at most **1 MiB, 1,000 order rows and 10,000 total ticket counts**, with USD/EUR/GBP, unique order IDs and one currency per region. Money is nonnegative integer cents; refunds cannot exceed gross amounts. Exchange rates are supplied by the caller, not fetched. Both browser reports contain revenue only; support remains a separate artifact. The same schema is available through the CLI below and the [five-tool MCP interface](docs/AGENT_QUICKSTART.md).
@@ -147,6 +151,7 @@ flowchart LR
 ## Verify and reproduce
 
 ```sh
+python3 scripts/audit_model_comparison_v4.py .
 uv run pytest -q
 uv run python scripts/hydra_smoke.py --restart
 uv run python scripts/core_smoke.py

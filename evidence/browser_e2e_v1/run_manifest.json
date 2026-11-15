@@ -1,0 +1,23 @@
+{
+  "actual_hydra_credential_value_scan": "passed",
+  "curated_evidence_sha256": {
+    "assertions.jsonl": "985ca5449f9d1bdf8f2617047abd29007a71213b1b9164084b3a59d06c335b3f",
+    "negative-control.json": "84e6f4b993bf98bde798b9727a44ea37331fa998dd3c6e4da68c757fa6d9375b"
+  },
+  "earlier_failures_retained": "See docs/BROWSER_ACCEPTANCE_RESULTS.md",
+  "expected_negative_detected": true,
+  "final_local_positive_cases": 6,
+  "hosted_verification": "not performed",
+  "implementation_sha256": {
+    "frontend/e2e/README.md": "e476f931c75ed4e8c4ecf0ba6515d3e8a15310c45a447cf5f5437f52f6fe6ec4",
+    "frontend/e2e/csv.spec.ts": "9a042440defac7be5dd490f50cb01b0b349dac9a1028229863ab0fd9ee34bcb9",
+    "frontend/e2e/negative-fx.mjs": "1ad63fbcfdf6c1b6dd2cbd725f1270f12d38aa2c2c97c1a1bb78f6bcc521a9b0",
+    "frontend/e2e/serve.py": "57e00239ae0d2a1a1ff08c5731b4a083b97b527a0e561a1d57a5ba815590dd4a",
+    "frontend/package-lock.json": "950b0bbc9f858317eb780184faf5da7ac65fe26a9e0c8007c948574fd6db15eb",
+    "frontend/package.json": "9c3454d7d612c29d388332279d06d51251c078b87ef9360ea57f4035c726e5bc",
+    "frontend/playwright.config.ts": "6c75c7a2cc0f0a2556bb121933b280e98b37363d3649e215c41ae04ab98f50c4"
+  },
+  "integrated_commit": "5fd10ae80fa08bb2534c45a173b875180bc5ae9b",
+  "isolated_run_commit": "68f6848569ef5c12dd50e89d10ced7f1baef2db0",
+  "linux_ci": "pending"
+}

@@ -43,52 +43,52 @@ EU revenue, two thousand two hundred eighty.
 Independent recomputation matches.
 
 12
-00:00:43,484 --> 00:00:48,067
-Now a separate retail experiment: six hundred forty public
+00:00:43,484 --> 00:00:48,785
+After a correction, an analyst needs to know which reports can still be used.
 
 13
-00:00:48,067 --> 00:00:52,650
-transaction lines, four dated partitions, and ten authored cases.
+00:00:48,785 --> 00:00:54,087
+We tested that on eight retail cases, with 48 Fable 5.2 runs.
 
 14
-00:00:52,650 --> 00:00:58,902
-Complete dependencies refresh 38 recoverable reports and block four unavailable ones.
+00:00:54,087 --> 00:00:55,980
+The model proposes a plan;
 
 15
-00:00:58,902 --> 00:01:03,903
-With identical records and the graph's per-case allowance, BM25
+00:00:55,980 --> 00:00:58,902
+the same tools handle every refresh.
 
 16
-00:01:03,903 --> 00:01:07,540
-completes nineteen, dense eight, and iterative hybrid thirty-three.
+00:00:58,902 --> 00:01:04,112
+Graph, exact traversal, and full context refreshed all 32 recoverable reports.
 
 17
-00:01:07,540 --> 00:01:10,918
-All methods share the same executor.
+00:01:04,112 --> 00:01:07,427
+Every method blocked all four unavailable reports.
 
 18
-00:01:10,918 --> 00:01:16,942
-Evidence uses 69.41% fewer tokens than full context.
+00:01:07,427 --> 00:01:10,918
+No incorrect report was marked current.
 
 19
-00:01:16,942 --> 00:01:18,950
-Exact dependency traversal ties.
+00:01:10,918 --> 00:01:17,344
+Graph used 60.67% fewer input tokens than full context, excluding the no-op.
 
 20
-00:01:18,950 --> 00:01:21,608
-The calculations still run.
+00:01:17,344 --> 00:01:21,608
+Graph and exact traversal gave the model identical prompts.
 
 21
-00:01:21,608 --> 00:01:26,990
-At a fixed 2,048-token limit, graph completes only eight reports.
+00:01:21,608 --> 00:01:26,606
+The model test used one sample per case and method, with adaptive allowances.
 
 22
-00:01:26,990 --> 00:01:30,219
-The earlier development efficiency gate failed.
+00:01:26,606 --> 00:01:29,681
+An earlier deterministic test fell short at a
 
 23
-00:01:30,219 --> 00:01:33,022
-Both limitations remain visible.
+00:01:29,681 --> 00:01:33,022
+fixed cap and failed its development gate.
 
 24
 00:01:33,022 --> 00:01:37,542

@@ -1,0 +1,9 @@
+{
+  "at": "2026-11-15T13:35:49.428353+00:00",
+  "cause": "Independent audit opened SQLite WAL-mode snapshots with mode=ro; SQL reads created empty WAL and shared-memory sidecars. Reader confirmed all connections closed. lsof found no live handles.",
+  "resolution": "Archived all16 extras byte-for-byte, removed only those generated sidecars, revalidated exact801-file inventory and hashes. No code, prompt, oracle, corpus or prepared manifest change.",
+  "paid_reservations": 0,
+  "reported_cost_usd": 0,
+  "model_outcomes_observed": false,
+  "future_audit_read_policy": "mode=ro&immutable=1 or saved JSON"
+}

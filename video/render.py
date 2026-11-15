@@ -97,51 +97,68 @@ def evidence_card(kind: str, width: int, height: int) -> Image.Image:
     def band(y, text, fill="#f2f5f9", color=MUTED, size=24):
         draw.rounded_rectangle((60, y, width-60, y+75), radius=10, fill=fill)
         draw.text((82,y+23),text,font=font(size),fill=color)
-    if kind == "matched":
-        line("Complete dependencies versus retrieval", 75, 43, INK, True)
-        line("Recoverable affected reports refreshed · 10 held-out retail cases", 135, 26)
-        rows = data["matched"]
-        names = {"graph":"ProofFlow / HydraDB", "exact_flat":"Exact dependency traversal", "bm25":"BM25", "dense":"Dense BGE", "iterative_hybrid":"Iterative hybrid"}
-        ordered=[next(a for a in rows if a["arm"]==name) for name in names]
-        for i,row in enumerate(ordered):
-            y=203+i*73
-            c=BLUE if row["arm"]=="graph" else "#8693b6" if row["arm"]=="exact_flat" else "#adb4c2"
-            if i==0: draw.rounded_rectangle((60,y-7,width-60,y+61),radius=8,fill="#f2f4fc")
-            draw.text((80,y+9),names[row["arm"]],font=font(28,i==0),fill=INK)
+    if kind == "model_setup":
+        m = data["model"]
+        line("Which reports can you use after a correction?", 75, 43, INK, True)
+        line("Fable 5.2 / high · Independently audited saved experiment", 140, 27)
+        metric(75,230,str(m["cases"]),"authored test cases")
+        metric(650,230,str(m["methods"]),"evidence methods")
+        metric(1190,230,str(m["cli_invocations"]),"Claude Code invocations")
+        line(f'{m["test_rows"]:,} eligible sales rows · UCI Online Retail · March 1–4, 2011', 425, 30, INK, True)
+        line("Authored changes include refunds, exchange rates and a tool version.", 490, 28)
+        band(560,"Keep unaffected reports current. Rebuild affected reports or withhold them.",size=28)
+        line(f'{m["cli_turns"]} reported CLI turns. Local experiment; no live model in this walkthrough.', 690, 25)
+    elif kind == "model_matched":
+        m = data["model"]
+        line("Affected reports refreshed", 75, 43, INK, True)
+        line("Recoverable reports that passed the value and version-lineage checks", 135, 26)
+        names = {"graph":"Graph (HydraDB)", "exact_flat":"Exact dependency traversal", "full_context":"Full context",
+                 "bm25":"BM25", "dense":"Dense BGE", "iterative_hybrid":"Iterative hybrid"}
+        total = m["eligible_affected"]
+        for i, (arm, name) in enumerate(names.items()):
+            fresh = m["fresh_affected"][arm]
+            y = 194 + i * 66
+            c = BLUE if arm == "graph" else "#8693b6" if i < 3 else "#adb4c2"
+            if i == 0:
+                draw.rounded_rectangle((60,y-7,width-60,y+55),radius=8,fill="#f2f4fc")
+            draw.text((80,y+9),name,font=font(28,i==0),fill=INK)
             draw.rounded_rectangle((680,y+12,1380,y+43),radius=5,fill="#eceff4")
-            draw.rounded_rectangle((680,y+12,680+round(700*row["fresh_affected_reports"]/38),y+43),radius=5,fill=c)
-            draw.text((1450,y),f'{row["fresh_affected_reports"]} / 38',font=font(35,True),fill=c if i<2 else INK)
-        line("Same records · Shared Hydra-assisted currentness and refresh executor", 595, 26)
-        line("Allowance set by complete graph closure before comparator runs: 0–9,611 tokens", 646, 25)
-        band(700,"Exact dependency traversal ties ProofFlow. Both use explicit dependencies.",size=25)
-    elif kind == "tokens":
-        p=data["primary"]
-        line("Less evidence, complete refresh",75,45,INK,True)
-        metric(75,170,f'{100*p["token_savings_fraction"]:.2f}%',"fewer evidence tokens than full context")
-        metric(1000,170,f'{p["graph_tokens"]:,}',"graph evidence tokens")
-        metric(1000,365,f'{p["full_context_tokens"]:,}',"full-context evidence tokens")
-        line("All 38 recoverable affected reports refreshed", 390, 32, INK, True)
-        line("4 unavailable reports correctly blocked", 442, 28)
-        band(535,"Complete graph, exact traversal and full context each execute 101 tools.",size=25)
-        line("Aggregate includes a no-op. Excluding it: 33.99% of full-context evidence.",645,25)
-        line("Evidence-token reduction; not model-cost savings. No model runs in this benchmark.",700,25)
-    elif kind == "limits":
-        line("Two limits, retained in the results",75,45,INK,True)
-        draw.rounded_rectangle((60,160,850,530),radius=12,fill="#f4f5f8")
-        draw.rounded_rectangle((895,160,width-60,530),radius=12,fill="#fbf6e9")
-        draw.text((85,185),"Fixed 2,048-token condition",font=font(31,True),fill=INK)
-        draw.text((85,245),"8 / 38",font=font(70,True),fill=BLUE)
-        draw.text((85,335),"ProofFlow affected reports refreshed",font=font(25),fill=MUTED)
-        draw.text((85,400),"BM25 1 · Dense 0 · Iterative 4",font=font(25),fill=INK)
-        draw.text((85,456),"Exact dependency traversal also 8/38",font=font(23),fill=MUTED)
-        draw.text((920,185),"Development efficiency gate",font=font(31,True),fill=INK)
-        draw.text((920,245),"FAILED",font=font(61,True),fill="#806517")
-        draw.text((920,335),"60.79% of full-context evidence",font=font(27),fill=INK)
-        draw.text((920,400),"Unchanged target: ≤40%",font=font(27),fill=MUTED)
-        draw.text((920,456),"Correctness passed on 4 development cases",font=font(23),fill=MUTED)
-        line("At the fixed cap, every arm's 2/10 correct endstates are refusal + no-op.",590,26)
-        line("Development is separate from held-out test. Its no-op-excluded ratio is 81.07%.",645,25)
-        line("Full per-case results and limitations remain in the accompanying report.",700,25)
+            draw.rounded_rectangle((680,y+12,680+round(700*fresh/total),y+43),radius=5,fill=c)
+            draw.text((1450,y),f'{fresh} / {total}',font=font(35,True),fill=c if i==0 else INK)
+        line("Same candidate records and same Hydra-assisted executor for all six methods.", 625, 26)
+        band(685, f'Every method: {m["correct_unavailable_blocks"]} unavailable blocked · '
+                  f'{m["unaffected_reports_preserved"]} unaffected report IDs kept · '
+                  f'{m["incorrect_current_reports"]} incorrect reports marked current',size=25)
+    elif kind == "model_tokens":
+        m = data["model"]
+        p = m["provider_input_excluding_noop"]
+        line("Less model input, the same report recovery",75,45,INK,True)
+        metric(75,170,f'{100*(1-p["ratio"]):.2f}%',"fewer provider input tokens than full context")
+        metric(1000,170,f'{p["graph"]:,}',"graph provider input tokens")
+        metric(1000,365,f'{p["full_context"]:,}',"full-context provider input tokens")
+        line(f'{m["eligible_affected"]}/{m["eligible_affected"]} reports refreshed by both methods', 390, 31, INK, True)
+        line("Excludes the no-op; includes cache reads and writes.", 442, 27)
+        band(535,f'Graph and exact dependency traversal supplied identical prompts in all {m["same_prompt_cases"]} cases.',size=25)
+        line("Provider input includes more than the evidence receipts.",645,25)
+        line("This comparison measures input tokens; it does not establish a cost or speed benefit.",700,25)
+    elif kind == "model_limits":
+        m = data["model"]
+        d = data["previous_deterministic"]
+        low, high = m["capped_evidence_token_range"]
+        line("What this comparison covers",75,45,INK,True)
+        line("One model run per case and method. All methods use the same refresh and safety checks.",155,27)
+        line(f'Five methods share the graph’s per-case evidence allowance: {low:,}–{high:,} tokens.',207,27)
+        line("Full context is uncapped.",257,27)
+        line("Earlier deterministic retail test (separate, no model)",350,31,INK,True)
+        draw.rounded_rectangle((60,412,850,705),radius=12,fill="#f4f5f8")
+        draw.rounded_rectangle((895,412,width-60,705),radius=12,fill="#fbf6e9")
+        draw.text((85,444),f'Fixed {d["fixed_token_cap"]:,}-token condition',font=font(31,True),fill=INK)
+        draw.text((85,505),f'{d["fixed_fresh_affected_reports"]} / {d["fixed_eligible_affected_reports"]}',font=font(64,True),fill=BLUE)
+        draw.text((85,606),"Graph reports refreshed",font=font(25),fill=MUTED)
+        draw.text((920,444),"Development efficiency gate",font=font(31,True),fill=INK)
+        draw.text((920,505),"FAILED",font=font(54,True),fill="#806517")
+        draw.text((920,596),f'{100*d["development_ratio"]:.2f}% of full-context evidence',font=font(25),fill=INK)
+        draw.text((920,638),f'Target: ≤{100*d["development_cutoff"]:.0f}%',font=font(25),fill=MUTED)
     elif kind == "mcp":
         m=data["mcp"]
         line("A Claude client chose and executed both plans",75,43,INK,True)
@@ -193,7 +210,8 @@ def make_base(scene: dict, index: int, total: int, width: int, height: int) -> I
 
 
 def chunks(text: str, max_words: int = 14) -> list[str]:
-    for phrase in ("B M twenty-five", "Hydra D B", "E U", "C S V", "M C P"):
+    for phrase in ("B M twenty-five", "Hydra D B", "E U", "C S V", "M C P",
+                   "Fable five point two", "sixty point six seven percent"):
         text = text.replace(phrase, phrase.replace(" ", "~"))
     pieces = []
     for sentence in re.split(r"(?<=[.!?;])\s+", text):
@@ -224,6 +242,7 @@ def display_caption(text: str) -> str:
         "sixteen of twenty-nine": "16 of 29", "all twenty-nine": "all 29",
         "thirty-eight": "38", "thirty-two": "32", "two-thousand-forty-eight-token": "2,048-token",
         "sixty-nine point four one percent": "69.41%",
+        "sixty point six seven percent": "60.67%", "forty-eight": "48",
     }
     for spoken, written in replacements.items():
         text = text.replace(spoken, written)
@@ -256,12 +275,22 @@ def main() -> None:
     raw_total = sum(item["raw_seconds"] for item in narration)
     padding = 0.65
     target = float(manifest["target_duration_seconds"])
-    speed = raw_total / (target - padding * len(scenes))
+    # A replacement retains its predecessor's time slot. Leave all other
+    # scene and caption timings at the original shared speech rate.
+    timeline_raw = [scene.get("replaces_narration_seconds", recorded["raw_seconds"])
+                    for scene, recorded in zip(scenes, narration)]
+    speed = sum(timeline_raw) / (target - padding * len(scenes))
     if not 0.8 <= speed <= 1.25:
         raise ValueError(f"Narration would need unnatural pacing ({speed:.3f}); revise speech rate")
+    for scheduled, recorded in zip(timeline_raw, narration):
+        recorded["speed_adjustment"] = recorded["raw_seconds"] * speed / scheduled
+        if not 0.8 <= recorded["speed_adjustment"] <= 1.25:
+            raise ValueError(f"Narration for {recorded['scene']} cannot fit its slot: "
+                             f"{recorded['speed_adjustment']:.3f}")
     audio_data = {"voice": manifest["voice"], "rate": manifest["rate"], "raw_seconds": raw_total,
                   "speed_adjustment": speed, "target_seconds": target,
-                  "scenes": [{k: str(v) if isinstance(v, Path) else v for k, v in item.items()} for item in narration]}
+                  "scenes": [{k: v.relative_to(HERE).as_posix() if isinstance(v, Path) else v
+                              for k, v in item.items()} for item in narration]}
     (WORK / "audio-preview.json").write_text(json.dumps(audio_data, indent=2) + "\n")
     print(json.dumps(audio_data, indent=2), flush=True)
     if args.audio_only:
@@ -273,11 +302,12 @@ def main() -> None:
     frame_entries, subtitle_entries, sound_entries, source_hashes, timing = [], [], [], {}, []
     cursor = 0.0
     for index, (scene, recorded) in enumerate(zip(scenes, narration)):
-        speech_seconds = recorded["raw_seconds"] / speed
+        speech_seconds = timeline_raw[index] / speed
+        scene_speed = recorded["speed_adjustment"]
         scene_seconds = speech_seconds + padding
         sound = WORK / f"{scene['id']}.wav"
         run("ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(recorded["path"]),
-            "-af", f"atempo={speed:.8f},apad=pad_dur={padding},loudnorm=I=-16:TP=-1.5:LRA=11",
+            "-af", f"atempo={scene_speed:.8f},apad=pad_dur={padding},loudnorm=I=-16:TP=-1.5:LRA=11",
             "-t", f"{scene_seconds:.8f}", "-ar", "48000", "-ac", "1", str(sound))
         sound_entries.append(f"file '{sound.as_posix()}'")
         base = make_base(scene, index, len(scenes), width, height)

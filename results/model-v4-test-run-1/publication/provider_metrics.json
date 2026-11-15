@@ -1,0 +1,4062 @@
+{
+  "cells": [
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "fe5734c6b1fa541e4ae0301051e7e26165b9c4e75d6c80c718cf6d11a7bd3996",
+      "duration_api_ms": 9280,
+      "duration_ms": 9512,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2612,
+      "is_error": false,
+      "job_id": "M01:graph",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 7879,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 7879,
+          "cacheReadInputTokens": 0,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.16112",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 876,
+          "provider": "firstParty",
+          "thinkingTokens": 164,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "e62fe2c87c5bd16b839e550b492e9c3d7150ae3383f116ba5d5531f7498365d6",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "307263c1ab9cb4c2730efa1962d46fba76ef4590a12dfd1adce342d56130a043",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 230,
+      "total_cost_usd": "0.16112",
+      "ttft_ms": 4184,
+      "ttft_stream_ms": 2612,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 7879,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 7879,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 7879,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 7879,
+            "cache_read_input_tokens": 0,
+            "input_tokens": 2,
+            "output_tokens": 876,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 876,
+        "output_tokens_details": {
+          "thinking_tokens": 164
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "fe5734c6b1fa541e4ae0301051e7e26165b9c4e75d6c80c718cf6d11a7bd3996",
+      "duration_api_ms": 9423,
+      "duration_ms": 9696,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2300,
+      "is_error": false,
+      "job_id": "M01:exact_flat",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 361,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 361,
+          "cacheReadInputTokens": 7521,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.0462162",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 973,
+          "provider": "firstParty",
+          "thinkingTokens": 300,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "e62fe2c87c5bd16b839e550b492e9c3d7150ae3383f116ba5d5531f7498365d6",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "fb9cbab1679593606fcfb66be6e1aac2e43b798b42b570d320b337a8b169023e",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 273,
+      "total_cost_usd": "0.0462162",
+      "ttft_ms": 4682,
+      "ttft_stream_ms": 2300,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 361,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 361,
+        "cache_read_input_tokens": 7521,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 361,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 361,
+            "cache_read_input_tokens": 7521,
+            "input_tokens": 2,
+            "output_tokens": 973,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 973,
+        "output_tokens_details": {
+          "thinking_tokens": 300
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "5e1ace52f6be936386ac3e11f61e3666522046063f8df300b35a225fee526613",
+      "duration_api_ms": 10650,
+      "duration_ms": 10923,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2538,
+      "is_error": false,
+      "job_id": "M01:bm25",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 6920,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 6920,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.151888",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1024,
+          "provider": "firstParty",
+          "thinkingTokens": 361,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "fd0bc72c7476b97625e1a2a3d60f2c43ac27e60abd5cb03e9cb10e14eea41768",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "8e7609708d72107671ee331caa17d2ecdde8447bb40cf8d171799408934a7a19",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 273,
+      "total_cost_usd": "0.151888",
+      "ttft_ms": 5758,
+      "ttft_stream_ms": 2538,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6920,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 6920,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 6920,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 6920,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1024,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1024,
+        "output_tokens_details": {
+          "thinking_tokens": 361
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "4d0b26aa3dbb5533d920c5d358c37f32ae9ce4c57eb1b98dfd5804f7e50456d8",
+      "duration_api_ms": 8712,
+      "duration_ms": 9304,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2733,
+      "is_error": false,
+      "job_id": "M01:dense",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 6589,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 6589,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.136352",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 768,
+          "provider": "firstParty",
+          "thinkingTokens": 340,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "9454b110be8cd1b481b86eb8fdef39288b52d9f3d1d9ca25012cf046c1a32098",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:refunds@2706e2d7db4c"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "7beb4d5fb6aaef225cff7b6cb248e0109c14e5102684e88ecba716805be9d8f4",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 590,
+      "total_cost_usd": "0.136352",
+      "ttft_ms": 6000,
+      "ttft_stream_ms": 2733,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6589,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 6589,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 6589,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 6589,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 768,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 768,
+        "output_tokens_details": {
+          "thinking_tokens": 340
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "74d7962ba9e42cda934050f0201e242279f3a33728bce6257031eca8ba6b58a1",
+      "duration_api_ms": 7893,
+      "duration_ms": 8148,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2503,
+      "is_error": false,
+      "job_id": "M01:iterative_hybrid",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 6498,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 6498,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.13589600000000002",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 793,
+          "provider": "firstParty",
+          "thinkingTokens": 255,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "74dd3372911d96e065e02ba736333ea45f8c70a9e64e643ae5f5af64f1852a8b",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "287272bddb790f5ff21cac7680b1cce3750a334865f82fdcbc8d2de8b15b3f63",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 255,
+      "total_cost_usd": "0.13589600000000002",
+      "ttft_ms": 4504,
+      "ttft_stream_ms": 2503,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6498,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 6498,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 6498,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 6498,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 793,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 793,
+        "output_tokens_details": {
+          "thinking_tokens": 255
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "5fbb0125d9c49ae2810ad004c87bcaf06c637e11e24f181872c66865a95de2da",
+      "duration_api_ms": 9633,
+      "duration_ms": 10115,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 3023,
+      "is_error": false,
+      "job_id": "M01:full_context",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 26426,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 26426,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.46090400000000004",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 947,
+          "provider": "firstParty",
+          "thinkingTokens": 241,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "fceacc5b7828cc30f1e20489994ba8e21c2ad0e18758f94f82f08f670f70cfc6",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "9aa11925a668e249e9b0a1e794a0fd65f2926aaff40d97e47dc1daffd3da52a2",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 481,
+      "total_cost_usd": "0.46090400000000004",
+      "ttft_ms": 4992,
+      "ttft_stream_ms": 3023,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 26426,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 26426,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 26426,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 26426,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 947,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 947,
+        "output_tokens_details": {
+          "thinking_tokens": 241
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "b174fce14b6437b30d711de77293e0b3316762b5f4cf7c372c500106e9fb66a1",
+      "duration_api_ms": 8482,
+      "duration_ms": 8720,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2399,
+      "is_error": false,
+      "job_id": "M02:exact_flat",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 5756,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 5756,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.126504",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 855,
+          "provider": "firstParty",
+          "thinkingTokens": 233,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "32a8e2c22d8d71899123e8e2456a8582a9cf192d0ce3d74111513826885d4dbd",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "675aba82a12e9cfb7ff78eb3e2ed5fbbba51d3737139f92cf259c8f1fd5928c5",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 238,
+      "total_cost_usd": "0.126504",
+      "ttft_ms": 4190,
+      "ttft_stream_ms": 2399,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 5756,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 5756,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 5756,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 5756,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 855,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 855,
+        "output_tokens_details": {
+          "thinking_tokens": 233
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "21b8c4a4dd39497fa32d7a6abd50ebc8e649b684d6351dc13c334176992f41fb",
+      "duration_api_ms": 9742,
+      "duration_ms": 10004,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2535,
+      "is_error": false,
+      "job_id": "M02:bm25",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 5524,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 5524,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.124752",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 904,
+          "provider": "firstParty",
+          "thinkingTokens": 347,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "85110d2cc221c97de32fd56c5181f0f12ab526fd2122f3021e2edaaa58e888ac",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "fe07329b45288e2289eb830106155dddeab63e72bd659474b4de4d2d44b6f6ad",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 261,
+      "total_cost_usd": "0.124752",
+      "ttft_ms": 5621,
+      "ttft_stream_ms": 2535,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 5524,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 5524,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 5524,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 5524,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 904,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 904,
+        "output_tokens_details": {
+          "thinking_tokens": 347
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "c2fefb79cf304f6dafdc8d0c8118254272e91c3fd00593ba25a703cc0e2c65cd",
+      "duration_api_ms": 7183,
+      "duration_ms": 7205,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2151,
+      "is_error": false,
+      "job_id": "M02:dense",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 5795,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 5795,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.116488",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 589,
+          "provider": "firstParty",
+          "thinkingTokens": 138,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "2c7310ad0d4cfe8c033d37aa10f550f2db1b06d4f4653cbfcaeca221ca3888fd",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "92055d3cdb9c8cdda09940dbd32e3d9024d03847dfd5891026bfc42c8d555cb4",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 22,
+      "total_cost_usd": "0.116488",
+      "ttft_ms": 3710,
+      "ttft_stream_ms": 2151,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 5795,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 5795,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 5795,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 5795,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 589,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 589,
+        "output_tokens_details": {
+          "thinking_tokens": 138
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "68041b51fcda70a76508da421a6ea571125ad6ae812be5cf093c646cdb5effdd",
+      "duration_api_ms": 8103,
+      "duration_ms": 8402,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2636,
+      "is_error": false,
+      "job_id": "M02:iterative_hybrid",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 5728,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 5728,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.121976",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 753,
+          "provider": "firstParty",
+          "thinkingTokens": 204,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "4f14342c9bf7b43b3f58e03da140c95a2cb57f3971618ee94736745fdd211fc6",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b0ba58e547df7cb2b437eebbef3340d4bee00a7b8ae7f8560248ca9d00fbaceb",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 297,
+      "total_cost_usd": "0.121976",
+      "ttft_ms": 4385,
+      "ttft_stream_ms": 2636,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 5728,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 5728,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 5728,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 5728,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 753,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 753,
+        "output_tokens_details": {
+          "thinking_tokens": 204
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "1a9d9976903ec736043fbc6ed2ac870172d6bd13daf09ccec8f72636d15f94b3",
+      "duration_api_ms": 8480,
+      "duration_ms": 8735,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2710,
+      "is_error": false,
+      "job_id": "M02:full_context",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 26422,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 26422,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.45544",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 812,
+          "provider": "firstParty",
+          "thinkingTokens": 224,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "65c4885148571c8240c29ab03ea30250dea0d963a941f326c1369f0e8a9318dd",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "d1e2a9f5a8297e6d6a805e9db9280331edad10d609b91337ef9cfc7880500660",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 256,
+      "total_cost_usd": "0.45544",
+      "ttft_ms": 4433,
+      "ttft_stream_ms": 2710,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 26422,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 26422,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 26422,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 26422,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 812,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 812,
+        "output_tokens_details": {
+          "thinking_tokens": 224
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "b174fce14b6437b30d711de77293e0b3316762b5f4cf7c372c500106e9fb66a1",
+      "duration_api_ms": 8407,
+      "duration_ms": 8818,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2424,
+      "is_error": false,
+      "job_id": "M02:graph",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 358,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 358,
+          "cacheReadInputTokens": 6355,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.040175",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 829,
+          "provider": "firstParty",
+          "thinkingTokens": 200,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "32a8e2c22d8d71899123e8e2456a8582a9cf192d0ce3d74111513826885d4dbd",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5d501e77107fc2dc5612f25f4060085086161ea311eefc0efe5adb16a8fc6aa6",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 410,
+      "total_cost_usd": "0.040175",
+      "ttft_ms": 4129,
+      "ttft_stream_ms": 2424,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 358,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 358,
+        "cache_read_input_tokens": 6355,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 358,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 358,
+            "cache_read_input_tokens": 6355,
+            "input_tokens": 2,
+            "output_tokens": 829,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 829,
+        "output_tokens_details": {
+          "thinking_tokens": 200
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "b679f45307c45ad6a0faeb48ab032b0afd4a53189e1d73c444ae0c032070bded",
+      "duration_api_ms": 8343,
+      "duration_ms": 8620,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2633,
+      "is_error": false,
+      "job_id": "M03:bm25",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 8116,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 8116,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.161224",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 779,
+          "provider": "firstParty",
+          "thinkingTokens": 216,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "bc2c10299089d7507ec134d618e1a8fcddf76b6cedabf710d72ff3b6c67e27da",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross@ce3ac58baf77",
+        "artifact:2011-03-03:refunds@86aecaa0bac1",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c1d2d980eb38a86f7035c5c23aae76b4c1a361bab5172fcb3d9821a3cad4b17f",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 275,
+      "total_cost_usd": "0.161224",
+      "ttft_ms": 4544,
+      "ttft_stream_ms": 2633,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8116,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 8116,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 8116,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 8116,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 779,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 779,
+        "output_tokens_details": {
+          "thinking_tokens": 216
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "0cba2527835cf4a28ec70cc190614073e53f58b22dfc79bbf078c537e1810f77",
+      "duration_api_ms": 9659,
+      "duration_ms": 9898,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2797,
+      "is_error": false,
+      "job_id": "M03:dense",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 8419,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 8419,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.171592",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 917,
+          "provider": "firstParty",
+          "thinkingTokens": 384,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "16c446b3b2d34bca1a3f961fc138668d17c8eadec635c3b79e5c3c88556dce63",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross@ce3ac58baf77",
+        "artifact:2011-03-03:refunds@86aecaa0bac1",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:net_total@af4d1c571a22"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c74fcba75de2e96568d7363b3a65864a34bfd2e38c8a821b981665a6faf62e11",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 239,
+      "total_cost_usd": "0.171592",
+      "ttft_ms": 5789,
+      "ttft_stream_ms": 2797,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8419,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 8419,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 8419,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 8419,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 917,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 917,
+        "output_tokens_details": {
+          "thinking_tokens": 384
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "b721d065020dc7eb35dea3027de80faeeaeca343df384dbfc24cb8f954ceb46d",
+      "duration_api_ms": 10123,
+      "duration_ms": 10374,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2558,
+      "is_error": false,
+      "job_id": "M03:iterative_hybrid",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 8689,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 8689,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.18063200000000001",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1035,
+          "provider": "firstParty",
+          "thinkingTokens": 313,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "8903d56a4be22f5dced874e8f0b10b13154eb726e544b65327d6be89f86877a5",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross@ce3ac58baf77",
+        "artifact:2011-03-03:refunds@86aecaa0bac1",
+        "artifact:2011-03-03:net@ca5177532da2",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4b485d5156c9839baa93dff9de0f3d29878918ddf244db67425394d815ca9970",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 250,
+      "total_cost_usd": "0.18063200000000001",
+      "ttft_ms": 5202,
+      "ttft_stream_ms": 2557,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8689,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 8689,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 8689,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 8689,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1035,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1035,
+        "output_tokens_details": {
+          "thinking_tokens": 313
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "45a55796cd3f3a75c1842f403c5eefda9ae0f2cda83ad8fa41959a33b285f078",
+      "duration_api_ms": 11118,
+      "duration_ms": 11388,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2689,
+      "is_error": false,
+      "job_id": "M03:full_context",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 26457,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 26457,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.47100000000000003",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1187,
+          "provider": "firstParty",
+          "thinkingTokens": 478,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "cff1d023f5ef8764fac4ee14ea58dfaffd85ca865f07248f1c1f119a07b04f80",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross@ce3ac58baf77",
+        "artifact:2011-03-03:refunds@86aecaa0bac1",
+        "artifact:2011-03-03:net@ca5177532da2",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "06457c2f801d98b2b652cb109e5e1ca350a9506677d5940b150648ff6554a375",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 272,
+      "total_cost_usd": "0.47100000000000003",
+      "ttft_ms": 6021,
+      "ttft_stream_ms": 2688,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 26457,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 26457,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 26457,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 26457,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1187,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1187,
+        "output_tokens_details": {
+          "thinking_tokens": 478
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "384c0e51dd6343c49010773603ab7df81c917aa7d94c5c46ca3cf8f18ddcee17",
+      "duration_api_ms": 10744,
+      "duration_ms": 11131,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2531,
+      "is_error": false,
+      "job_id": "M03:graph",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 8683,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 8683,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.184496",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1134,
+          "provider": "firstParty",
+          "thinkingTokens": 255,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "ac989553d8041602a0e8ecc99d1ea31430cf12e1068c5802f3c8c80480202e70",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross@ce3ac58baf77",
+        "artifact:2011-03-03:refunds@86aecaa0bac1",
+        "artifact:2011-03-03:net@ca5177532da2",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2b09f5fdf9c71cb1fbff4b674689fc6b4870c77915a3c1d5ca0e7d74d46f73a5",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 390,
+      "total_cost_usd": "0.184496",
+      "ttft_ms": 4749,
+      "ttft_stream_ms": 2531,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8683,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 8683,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 8683,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 8683,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1134,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1134,
+        "output_tokens_details": {
+          "thinking_tokens": 255
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "384c0e51dd6343c49010773603ab7df81c917aa7d94c5c46ca3cf8f18ddcee17",
+      "duration_api_ms": 10888,
+      "duration_ms": 11334,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2395,
+      "is_error": false,
+      "job_id": "M03:exact_flat",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 361,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 361,
+          "cacheReadInputTokens": 9285,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.05352900000000001",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1147,
+          "provider": "firstParty",
+          "thinkingTokens": 368,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "ac989553d8041602a0e8ecc99d1ea31430cf12e1068c5802f3c8c80480202e70",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross@ce3ac58baf77",
+        "artifact:2011-03-03:refunds@86aecaa0bac1",
+        "artifact:2011-03-03:net@ca5177532da2",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3d61cc5c273f3a1b01d56294f00289e2064f4372ec91bedf2f2cfa39bd43812f",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 447,
+      "total_cost_usd": "0.05352900000000001",
+      "ttft_ms": 5263,
+      "ttft_stream_ms": 2395,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 361,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 361,
+        "cache_read_input_tokens": 9285,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 361,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 361,
+            "cache_read_input_tokens": 9285,
+            "input_tokens": 2,
+            "output_tokens": 1147,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1147,
+        "output_tokens_details": {
+          "thinking_tokens": 368
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "ff0aa869564c5f851d8025ef64a0d7306f8eb1f31ee56f85f8ea604a4808e4c5",
+      "duration_api_ms": 10066,
+      "duration_ms": 10310,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2428,
+      "is_error": false,
+      "job_id": "M04:dense",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 12568,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 12568,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.242736",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1036,
+          "provider": "firstParty",
+          "thinkingTokens": 361,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "e9377dad165fce74f090cd4f82bd7c8344955007f5a0c8ca29b5ac6748ec1a5f",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:refunds@6bf23cb73689",
+        "artifact:2011-03-01:net@a8af84b97e2c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-04:gross@3320d2133b66",
+        "artifact:2011-03-04:refunds@29853c5f0f23",
+        "artifact:2011-03-04:net@ff29995bc28d",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "f6edf7dddc578b9a8ea216d77a7bdf6624cb27d13d8bf18fe0f42f42a901019a",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 242,
+      "total_cost_usd": "0.242736",
+      "ttft_ms": 5245,
+      "ttft_stream_ms": 2428,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 12568,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 12568,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 12568,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 12568,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1036,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1036,
+        "output_tokens_details": {
+          "thinking_tokens": 361
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "06ce6345fe910d13eefee760f570dca49ed0253415f5ef565f1609f966a42ed9",
+      "duration_api_ms": 16745,
+      "duration_ms": 17067,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2818,
+      "is_error": false,
+      "job_id": "M04:iterative_hybrid",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 12791,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 12791,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.284264",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1985,
+          "provider": "firstParty",
+          "thinkingTokens": 893,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "f41840ad42e14e49abe82470041a2f368008c1d327e41987703bc206948164e2",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:refunds@6bf23cb73689",
+        "artifact:2011-03-01:net@a8af84b97e2c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:2011-03-04:gross@3320d2133b66",
+        "artifact:2011-03-04:refunds@29853c5f0f23",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net@ff29995bc28d",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e2e6558ba196ea7a95d698cdaa44db5389892593865337e8df01bfd0dbb5e3bd",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 320,
+      "total_cost_usd": "0.284264",
+      "ttft_ms": 9446,
+      "ttft_stream_ms": 2817,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 12791,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 12791,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 12791,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 12791,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1985,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1985,
+        "output_tokens_details": {
+          "thinking_tokens": 893
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "bae3dd9933644d785b00e23eb20bdf533f0574118f268535f6455292024c168b",
+      "duration_api_ms": 12684,
+      "duration_ms": 12948,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2877,
+      "is_error": false,
+      "job_id": "M04:full_context",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 26453,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 26453,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.478376",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1373,
+          "provider": "firstParty",
+          "thinkingTokens": 435,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "543cb54697f1c87b27fdd8ab4bc55282645edfd4cd07454873736f8b5729f953",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:refunds@6bf23cb73689",
+        "artifact:2011-03-01:net@a8af84b97e2c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:2011-03-04:gross@3320d2133b66",
+        "artifact:2011-03-04:refunds@29853c5f0f23",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net@ff29995bc28d",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4c546c5b028cea02610e5138347bd5551fa255d08fc729a84aabceaea155493a",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 265,
+      "total_cost_usd": "0.478376",
+      "ttft_ms": 6344,
+      "ttft_stream_ms": 2877,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 26453,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 26453,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 26453,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 26453,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1373,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1373,
+        "output_tokens_details": {
+          "thinking_tokens": 435
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "177b49ff8b1ff33d79b3cf834afa5fac6eac6d843353c7f7727556375f82c9aa",
+      "duration_api_ms": 16341,
+      "duration_ms": 16604,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2540,
+      "is_error": false,
+      "job_id": "M04:graph",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 12785,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 12785,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.28260799999999997",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1946,
+          "provider": "firstParty",
+          "thinkingTokens": 818,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "d5034153bd451991fae58f6baf329bfc5e484769019251d5eec3fb43269ec3ae",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:refunds@6bf23cb73689",
+        "artifact:2011-03-01:net@a8af84b97e2c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:2011-03-04:gross@3320d2133b66",
+        "artifact:2011-03-04:refunds@29853c5f0f23",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net@ff29995bc28d",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b54ffc028949a4a3455fe4b30d8b04b9c248b8514ebdd008039a923d59e6ad7a",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 262,
+      "total_cost_usd": "0.28260799999999997",
+      "ttft_ms": 8434,
+      "ttft_stream_ms": 2540,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 12785,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 12785,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 12785,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 12785,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1946,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1946,
+        "output_tokens_details": {
+          "thinking_tokens": 818
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "177b49ff8b1ff33d79b3cf834afa5fac6eac6d843353c7f7727556375f82c9aa",
+      "duration_api_ms": 15819,
+      "duration_ms": 16034,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2233,
+      "is_error": false,
+      "job_id": "M04:exact_flat",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 361,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 361,
+          "cacheReadInputTokens": 13387,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.0870694",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1965,
+          "provider": "firstParty",
+          "thinkingTokens": 828,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "d5034153bd451991fae58f6baf329bfc5e484769019251d5eec3fb43269ec3ae",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:refunds@6bf23cb73689",
+        "artifact:2011-03-01:net@a8af84b97e2c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:2011-03-04:gross@3320d2133b66",
+        "artifact:2011-03-04:refunds@29853c5f0f23",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net@ff29995bc28d",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "73ec2ee380d1caafa90ab8c22a32e26ee26e9f02cd37a9b34a3bd73e4a9b53e2",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 215,
+      "total_cost_usd": "0.0870694",
+      "ttft_ms": 8080,
+      "ttft_stream_ms": 2233,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 361,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 361,
+        "cache_read_input_tokens": 13387,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 361,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 361,
+            "cache_read_input_tokens": 13387,
+            "input_tokens": 2,
+            "output_tokens": 1965,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1965,
+        "output_tokens_details": {
+          "thinking_tokens": 828
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "59b31f757f737220f583b2bce461c80f04538f7b7acde7e364f79f96738f9bce",
+      "duration_api_ms": 19599,
+      "duration_ms": 20123,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2703,
+      "is_error": false,
+      "job_id": "M04:bm25",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 12534,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 12534,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.287832",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 2177,
+          "provider": "firstParty",
+          "thinkingTokens": 1104,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "380890eac96b9bc9a687500bf7c860eda5f4bfdc522adea338cc2d7bd297a150",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:refunds@6bf23cb73689",
+        "artifact:2011-03-01:net@a8af84b97e2c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:2011-03-04:gross@3320d2133b66",
+        "artifact:2011-03-04:refunds@29853c5f0f23",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4626e59b929b10eb3de1d610f7ab6e91c7f5aac8d2518660c89f2c33a7f59d25",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 524,
+      "total_cost_usd": "0.287832",
+      "ttft_ms": 11956,
+      "ttft_stream_ms": 2702,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 12534,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 12534,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 12534,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 12534,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 2177,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 2177,
+        "output_tokens_details": {
+          "thinking_tokens": 1104
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "5149590f2fcd3bb9a02937eab8b166c2b5b3a65b99988b4538c8b9e8005bf9f1",
+      "duration_api_ms": 15237,
+      "duration_ms": 15482,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2544,
+      "is_error": false,
+      "job_id": "M05:iterative_hybrid",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 19334,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 19334,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.381272",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1793,
+          "provider": "firstParty",
+          "thinkingTokens": 683,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "55f83f629ed21ee411b9cc01652c3727504202fc89935ea37b44109b9aab321e",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "8b2b9a3b184f66357ffce3b60681ffee7ff20400c54f0784ed9a14c0c12681c5",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 244,
+      "total_cost_usd": "0.381272",
+      "ttft_ms": 7523,
+      "ttft_stream_ms": 2544,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 19334,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 19334,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 19334,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 19334,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1793,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1793,
+        "output_tokens_details": {
+          "thinking_tokens": 683
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "45ab64d72d7f524b27856df5645c75ed6c8aa164da2121e3d22f5d93f2b85c3d",
+      "duration_api_ms": 16226,
+      "duration_ms": 16811,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 3148,
+      "is_error": false,
+      "job_id": "M05:full_context",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 26424,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 26424,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.497952",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1874,
+          "provider": "firstParty",
+          "thinkingTokens": 689,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "e9c8f86d8d12a870f03b098b84db6b3b006acf3dc95ffe294b7c236b6ccda63f",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2f472140baf906b3b58a855df6851e577ac78987aab3298ce95a920b66c44bd6",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 586,
+      "total_cost_usd": "0.497952",
+      "ttft_ms": 8376,
+      "ttft_stream_ms": 3148,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 26424,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 26424,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 26424,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 26424,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1874,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1874,
+        "output_tokens_details": {
+          "thinking_tokens": 689
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "2be44371bdf3cf37a65b8b3916174e5b9ab913c939ef96a4b2e3d3e8542ec91f",
+      "duration_api_ms": 11619,
+      "duration_ms": 11864,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2586,
+      "is_error": false,
+      "job_id": "M05:graph",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 19328,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 19328,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.35993600000000003",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1262,
+          "provider": "firstParty",
+          "thinkingTokens": 147,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "d7a172a150874e443afb1d1d6ea12fb90b0f576d50ec267da4fbbd01724d8066",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-04:daily_close@238e2cf57de1"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "506e2f5c596382fd10ad9e8bb52eba6b23f5de2808556fb715da3c46bf753633",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 244,
+      "total_cost_usd": "0.35993600000000003",
+      "ttft_ms": 4104,
+      "ttft_stream_ms": 2586,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 19328,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 19328,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 19328,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 19328,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1262,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1262,
+        "output_tokens_details": {
+          "thinking_tokens": 147
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "2be44371bdf3cf37a65b8b3916174e5b9ab913c939ef96a4b2e3d3e8542ec91f",
+      "duration_api_ms": 12524,
+      "duration_ms": 12771,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2509,
+      "is_error": false,
+      "job_id": "M05:exact_flat",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 361,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 361,
+          "cacheReadInputTokens": 19930,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.06345800000000001",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1342,
+          "provider": "firstParty",
+          "thinkingTokens": 214,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "d7a172a150874e443afb1d1d6ea12fb90b0f576d50ec267da4fbbd01724d8066",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-04:daily_close@238e2cf57de1"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3cb42f1ca4080a70380500f6a2f41bd71f42f6cd1e465d6406230f5223b77a13",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 248,
+      "total_cost_usd": "0.06345800000000001",
+      "ttft_ms": 4804,
+      "ttft_stream_ms": 2509,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 361,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 361,
+        "cache_read_input_tokens": 19930,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 361,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 361,
+            "cache_read_input_tokens": 19930,
+            "input_tokens": 2,
+            "output_tokens": 1342,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1342,
+        "output_tokens_details": {
+          "thinking_tokens": 214
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "5944d02e81bff0b24b413430009e023aaa223dde7477f70b1d821a1b57968d48",
+      "duration_api_ms": 12422,
+      "duration_ms": 12697,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2869,
+      "is_error": false,
+      "job_id": "M05:bm25",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 19329,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 19329,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.361952",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1312,
+          "provider": "firstParty",
+          "thinkingTokens": 187,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "20e907e477c6545b2f02b3f5e67b27ec8129f00a039032262174cfe09a2e7377",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:2011-03-01:daily_close@a0ba22e1be05",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-04:daily_close@238e2cf57de1",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "77c21b73db70477c773061e74f244bf0ce29e104544b30047ed034f137cfc054",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 276,
+      "total_cost_usd": "0.361952",
+      "ttft_ms": 4654,
+      "ttft_stream_ms": 2869,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 19329,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 19329,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 19329,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 19329,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1312,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1312,
+        "output_tokens_details": {
+          "thinking_tokens": 187
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "55262fb7501bdb0863402682c23b89dde71895964e678a4d087b2c19977b9b13",
+      "duration_api_ms": 13670,
+      "duration_ms": 14171,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2931,
+      "is_error": false,
+      "job_id": "M05:dense",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 18874,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 18874,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.36459199999999997",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1560,
+          "provider": "firstParty",
+          "thinkingTokens": 574,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "5cff28141d09dd641939edbcc57f352a75818d13a2d304a324d90990f7f31b63",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-01:gross_usd@f93e540e9b9c",
+        "artifact:2011-03-01:net_usd@a16f61b7ff36",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-04:gross_usd@0cc317235cae",
+        "artifact:2011-03-04:net_usd@d4926afa08d4",
+        "artifact:2011-03-01:gross_total@3ab77bfb76e8",
+        "artifact:2011-03-01:net_total@9eb2afc6a1d6",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-04:gross_total@cf3a490f0f91",
+        "artifact:2011-03-04:net_total@b9900ecf1a9b",
+        "artifact:2011-03-01:uk_brief@289dc7ae6404",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-04:uk_brief@d8d6526ef53c",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "094c4f007cd8c20747f869f3dedc268bd98eb78d911848defe20bd2d8bcc69e2",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 499,
+      "total_cost_usd": "0.36459199999999997",
+      "ttft_ms": 7302,
+      "ttft_stream_ms": 2931,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 18874,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 18874,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 18874,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 18874,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1560,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1560,
+        "output_tokens_details": {
+          "thinking_tokens": 574
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "196ed47ff2f2337b39e16a5ecc0f5e529bfedb47552c899d7e05c46b866c837e",
+      "duration_api_ms": 10658,
+      "duration_ms": 10906,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2785,
+      "is_error": false,
+      "job_id": "M06:full_context",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 26432,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 26432,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.46308",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 999,
+          "provider": "firstParty",
+          "thinkingTokens": 250,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "1d88d1032118e3158065ee4dfb38a0987ded820f06183c470e6e9231fbd5a292",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:gross@83cbf83c663d",
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6239937374bc4a136fb12f13a99f795d9097d09a0f57250e746deba18ae8e15a",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 246,
+      "total_cost_usd": "0.46308",
+      "ttft_ms": 5194,
+      "ttft_stream_ms": 2785,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 26432,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 26432,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 26432,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 26432,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 999,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 999,
+        "output_tokens_details": {
+          "thinking_tokens": 250
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "640141a31792b1ece4d9b3a5cab6b563b68b730d0260f6a952b18b40c85f147a",
+      "duration_api_ms": 9636,
+      "duration_ms": 10167,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2727,
+      "is_error": false,
+      "job_id": "M06:graph",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 8362,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 8362,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.17524",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1031,
+          "provider": "firstParty",
+          "thinkingTokens": 339,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "76e3bc8ad4f7f72e8d9f6b7c69ba72fbbd3a6322f5c22ac262dcce14a1177f13",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:gross@83cbf83c663d",
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5b67138d5308069e54f3b161e90e879b6350d8aebfdd0eba69c496d9a3441ab1",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 529,
+      "total_cost_usd": "0.17524",
+      "ttft_ms": 5352,
+      "ttft_stream_ms": 2727,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8362,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 8362,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 8362,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 8362,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1031,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1031,
+        "output_tokens_details": {
+          "thinking_tokens": 339
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "640141a31792b1ece4d9b3a5cab6b563b68b730d0260f6a952b18b40c85f147a",
+      "duration_api_ms": 9992,
+      "duration_ms": 10247,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2666,
+      "is_error": false,
+      "job_id": "M06:exact_flat",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 361,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 361,
+          "cacheReadInputTokens": 8964,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.0457848",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 955,
+          "provider": "firstParty",
+          "thinkingTokens": 256,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "76e3bc8ad4f7f72e8d9f6b7c69ba72fbbd3a6322f5c22ac262dcce14a1177f13",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:gross@83cbf83c663d",
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3edbf931aad4c505f1b36744c72e71468296e55e6c2d146982a1875a1a030f97",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 252,
+      "total_cost_usd": "0.0457848",
+      "ttft_ms": 5122,
+      "ttft_stream_ms": 2666,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 361,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 361,
+        "cache_read_input_tokens": 8964,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 361,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 361,
+            "cache_read_input_tokens": 8964,
+            "input_tokens": 2,
+            "output_tokens": 955,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 955,
+        "output_tokens_details": {
+          "thinking_tokens": 256
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "700a386e0efad68c3ede78edfbf67d90fb4e0920ff3cc7e37c769d46121a5457",
+      "duration_api_ms": 10056,
+      "duration_ms": 10559,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2740,
+      "is_error": false,
+      "job_id": "M06:bm25",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 8363,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 8363,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.178176",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1104,
+          "provider": "firstParty",
+          "thinkingTokens": 423,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "b976ab711637b1162904aec62afe30a2cb36fbd1f5554598c91e4bd343407282",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:gross@83cbf83c663d",
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6b2d2fd5934941cff3034ee0de2e643e4c8710c26612cfcfc53c1cb2541b42e9",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 503,
+      "total_cost_usd": "0.178176",
+      "ttft_ms": 5859,
+      "ttft_stream_ms": 2740,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8363,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 8363,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 8363,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 8363,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1104,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1104,
+        "output_tokens_details": {
+          "thinking_tokens": 423
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "cc03976fd7c5faf4420dc14bc8c72363c463de9267dca35c06d58c6a4b60ac87",
+      "duration_api_ms": 12605,
+      "duration_ms": 13095,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2876,
+      "is_error": false,
+      "job_id": "M06:dense",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 8633,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 8633,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.183896",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1139,
+          "provider": "firstParty",
+          "thinkingTokens": 591,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "e67f34dd2a001a4fe3961c5a695779d4123dbf542d5537e1532d8074518aab52",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:gross@83cbf83c663d",
+        "artifact:2011-03-02:refunds@2706e2d7db4c"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a993fb93ec1767520a8e910f6d1b6b5f462d47c8231c2c5015c0a7331154d1f4",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 493,
+      "total_cost_usd": "0.183896",
+      "ttft_ms": 8670,
+      "ttft_stream_ms": 2875,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8633,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 8633,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 8633,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 8633,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1139,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1139,
+        "output_tokens_details": {
+          "thinking_tokens": 591
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "8bbdb4f62a149211eb75d52eb39e3c9b3e88cc49cde91b4bd79aca512e71c88d",
+      "duration_api_ms": 10118,
+      "duration_ms": 10444,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2526,
+      "is_error": false,
+      "job_id": "M06:iterative_hybrid",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 8049,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 8049,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.17043200000000003",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1036,
+          "provider": "firstParty",
+          "thinkingTokens": 360,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "597d2014ba1bc08485dcddc905630910854123008de41bf8e2e15f219202aeb4",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-02:gross@83cbf83c663d",
+        "artifact:2011-03-02:refunds@2706e2d7db4c",
+        "artifact:2011-03-02:net@2a639419a996",
+        "artifact:2011-03-02:gross_usd@caf176db8984",
+        "artifact:2011-03-02:net_usd@a7a98e6cfb6e",
+        "artifact:2011-03-02:gross_total@87fd2e23212e",
+        "artifact:2011-03-02:net_total@7543f3fd8fbe",
+        "artifact:2011-03-02:uk_brief@7b69bf6b2d18",
+        "artifact:2011-03-02:daily_close@f75693434d9a",
+        "artifact:cross:2011-03-01:2011-03-02:daily_brief@681ed174c4a9"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "59b530a93cc5300ed2017948e5d664bbcfa3c813f6cc35e303ee2f6a0e81a07d",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 326,
+      "total_cost_usd": "0.17043200000000003",
+      "ttft_ms": 5540,
+      "ttft_stream_ms": 2525,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8049,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 8049,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 8049,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 8049,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1036,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1036,
+        "output_tokens_details": {
+          "thinking_tokens": 360
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "65b7117a444779b16455253e2de234a6bfcf53bd3060e43de8ce334c85f47b77",
+      "duration_api_ms": 9661,
+      "duration_ms": 9931,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2848,
+      "is_error": false,
+      "job_id": "M07:graph",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 6858,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 6858,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.146096",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 904,
+          "provider": "firstParty",
+          "thinkingTokens": 234,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "e475368535d3818b7b82c8daba1094dde2188c161d49f22ec05671228de73edb",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4ac0e19455c0e2a4e2060e5acd019f8332f0c8e6dab3f96a3df99c1197bf0bea",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 269,
+      "total_cost_usd": "0.146096",
+      "ttft_ms": 5224,
+      "ttft_stream_ms": 2848,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6858,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 6858,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 6858,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 6858,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 904,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 904,
+        "output_tokens_details": {
+          "thinking_tokens": 234
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "65b7117a444779b16455253e2de234a6bfcf53bd3060e43de8ce334c85f47b77",
+      "duration_api_ms": 9875,
+      "duration_ms": 10108,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2924,
+      "is_error": false,
+      "job_id": "M07:exact_flat",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 361,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 361,
+          "cacheReadInputTokens": 7460,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.04420400000000001",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 923,
+          "provider": "firstParty",
+          "thinkingTokens": 249,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "e475368535d3818b7b82c8daba1094dde2188c161d49f22ec05671228de73edb",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "204571106ea2a484eab5d948a640210ad903e946cb070f95bf95629ba126afc9",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 231,
+      "total_cost_usd": "0.04420400000000001",
+      "ttft_ms": 5403,
+      "ttft_stream_ms": 2924,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 361,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 361,
+        "cache_read_input_tokens": 7460,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 361,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 361,
+            "cache_read_input_tokens": 7460,
+            "input_tokens": 2,
+            "output_tokens": 923,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 923,
+        "output_tokens_details": {
+          "thinking_tokens": 249
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "2b85b71222f6816d23b37e2816b27dc53774592730cfd8577d454b3ec6f177c6",
+      "duration_api_ms": 7933,
+      "duration_ms": 8495,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 3367,
+      "is_error": false,
+      "job_id": "M07:bm25",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 6529,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 6529,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.13023200000000001",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 639,
+          "provider": "firstParty",
+          "thinkingTokens": 151,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "d6d261aaa4c24925adee4da28ad8928d51b51acaa715f279aae0640939b7db2b",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2906f1b92d89e7ffbf89e5ad054079557d8084df4cf0148e0efcfd31d05e5c1c",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 566,
+      "total_cost_usd": "0.13023200000000001",
+      "ttft_ms": 5162,
+      "ttft_stream_ms": 3367,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6529,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 6529,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 6529,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 6529,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 639,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 639,
+        "output_tokens_details": {
+          "thinking_tokens": 151
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "36eb82c56608aaebd260447875979c949cf35998110f187b85a0f9bbd484434b",
+      "duration_api_ms": 7674,
+      "duration_ms": 7932,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 3081,
+      "is_error": false,
+      "job_id": "M07:dense",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 6524,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 6524,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.129272",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 617,
+          "provider": "firstParty",
+          "thinkingTokens": 170,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "73207a00837734c0695e6a80acdad44ac962a6e10910dbc699a4cab773e8b7f7",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "124983c86507423bc13fcb5584cf6ae02327c4be14d52d2d8108517314e11b22",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 256,
+      "total_cost_usd": "0.129272",
+      "ttft_ms": 5111,
+      "ttft_stream_ms": 3081,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6524,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 6524,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 6524,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 6524,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 617,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 617,
+        "output_tokens_details": {
+          "thinking_tokens": 170
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "09e641a62bbc8ee99f51983036cf7238f91bc6fb3d7e4b7a14518d419812f73a",
+      "duration_api_ms": 9454,
+      "duration_ms": 9690,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2923,
+      "is_error": false,
+      "job_id": "M07:iterative_hybrid",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 6696,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 6696,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.14230399999999999",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 874,
+          "provider": "firstParty",
+          "thinkingTokens": 171,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "657e08c4e265946c7a73c66052803bf259929548e7e3a49f7f919cc56b84dd23",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "10f09a8446a12e828adb238f39db607cb7167df6c1a1ddc24a01e43b4f4c0d0f",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 233,
+      "total_cost_usd": "0.14230399999999999",
+      "ttft_ms": 4793,
+      "ttft_stream_ms": 2923,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 6696,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 6696,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 6696,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 6696,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 874,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 874,
+        "output_tokens_details": {
+          "thinking_tokens": 171
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "57cc4b7fd8a0a79a3593e09f84a7b023d755f4e961d85a2fd943861a2c2e266f",
+      "duration_api_ms": 12645,
+      "duration_ms": 12904,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 3430,
+      "is_error": false,
+      "job_id": "M07:full_context",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 26426,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 26426,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.47178400000000004",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 1219,
+          "provider": "firstParty",
+          "thinkingTokens": 485,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "6051c18559b3b3b808f76269ec0ab6171595478a2c842e22f7d7531feee3ca3c",
+      "safety_stops": 0,
+      "selected_ids": [
+        "artifact:2011-03-03:gross_usd@77ba70e24e0a",
+        "artifact:2011-03-03:net_usd@4e9e13393f4c",
+        "artifact:2011-03-03:gross_total@d12dbaf88533",
+        "artifact:2011-03-03:net_total@af4d1c571a22",
+        "artifact:2011-03-03:daily_close@422885646c00",
+        "artifact:2011-03-03:uk_brief@d87bfe0a0cae",
+        "artifact:cross:2011-03-02:2011-03-03:daily_brief@05f5779cb197",
+        "artifact:cross:2011-03-03:2011-03-04:daily_brief@9d7f3d45d983"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2e09a6935f14361bf566a34050facf13ac88779de4bab5eb745470f540ffa50a",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 258,
+      "total_cost_usd": "0.47178400000000004",
+      "ttft_ms": 7482,
+      "ttft_stream_ms": 3429,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 26426,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 26426,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 26426,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 26426,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 1219,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 1219,
+        "output_tokens_details": {
+          "thinking_tokens": 485
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "duration_api_ms": 8666,
+      "duration_ms": 9157,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2566,
+      "is_error": false,
+      "job_id": "M08:exact_flat",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 690,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 690,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.038768000000000004",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 688,
+          "provider": "firstParty",
+          "thinkingTokens": 467,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "96fe72673748e652a82be5a1c5493d5f3cabdaa7d4e9081d1ae4451306c16e68",
+      "safety_stops": 0,
+      "selected_ids": [],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "adb4fc718a821e2dfadd97097d0308039702577e7315da812056a0b2e924a4a1",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 489,
+      "total_cost_usd": "0.038768000000000004",
+      "ttft_ms": 7634,
+      "ttft_stream_ms": 2566,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 690,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 690,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 690,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 690,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 688,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 688,
+        "output_tokens_details": {
+          "thinking_tokens": 467
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "duration_api_ms": 8349,
+      "duration_ms": 8611,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2573,
+      "is_error": false,
+      "job_id": "M08:bm25",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 373,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 373,
+          "cacheReadInputTokens": 1275,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.031479",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 631,
+          "provider": "firstParty",
+          "thinkingTokens": 368,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "96fe72673748e652a82be5a1c5493d5f3cabdaa7d4e9081d1ae4451306c16e68",
+      "safety_stops": 0,
+      "selected_ids": [],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "7db045b7f250b934aa21848bddf0f7ad0dc55571e04285e5f1b3036550512e4e",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 262,
+      "total_cost_usd": "0.031479",
+      "ttft_ms": 6386,
+      "ttft_stream_ms": 2573,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 373,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 373,
+        "cache_read_input_tokens": 1275,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 373,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 373,
+            "cache_read_input_tokens": 1275,
+            "input_tokens": 2,
+            "output_tokens": 631,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 631,
+        "output_tokens_details": {
+          "thinking_tokens": 368
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "duration_api_ms": 8309,
+      "duration_ms": 8807,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 3076,
+      "is_error": false,
+      "job_id": "M08:dense",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 372,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 372,
+          "cacheReadInputTokens": 1275,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.032703",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 662,
+          "provider": "firstParty",
+          "thinkingTokens": 399,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "96fe72673748e652a82be5a1c5493d5f3cabdaa7d4e9081d1ae4451306c16e68",
+      "safety_stops": 0,
+      "selected_ids": [],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "35c4f575e22ff1574dfc8748e3fd9ad4d31169d33ad6f248b2ec9a0c6b61aea6",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 497,
+      "total_cost_usd": "0.032703",
+      "ttft_ms": 6744,
+      "ttft_stream_ms": 3076,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 372,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 372,
+        "cache_read_input_tokens": 1275,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 372,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 372,
+            "cache_read_input_tokens": 1275,
+            "input_tokens": 2,
+            "output_tokens": 662,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 662,
+        "output_tokens_details": {
+          "thinking_tokens": 399
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "duration_api_ms": 7517,
+      "duration_ms": 7719,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2188,
+      "is_error": false,
+      "job_id": "M08:iterative_hybrid",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 378,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 378,
+          "cacheReadInputTokens": 1275,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.031319",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 625,
+          "provider": "firstParty",
+          "thinkingTokens": 395,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "96fe72673748e652a82be5a1c5493d5f3cabdaa7d4e9081d1ae4451306c16e68",
+      "safety_stops": 0,
+      "selected_ids": [],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a013e9d638f53433f0c8ccf48a1431e8f076b85cb6b3834d7251085d6e7e3eec",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 200,
+      "total_cost_usd": "0.031319",
+      "ttft_ms": 5911,
+      "ttft_stream_ms": 2187,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 378,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 378,
+        "cache_read_input_tokens": 1275,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 378,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 378,
+            "cache_read_input_tokens": 1275,
+            "input_tokens": 2,
+            "output_tokens": 625,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 625,
+        "output_tokens_details": {
+          "thinking_tokens": 395
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "f03f1290455089070fe791bc5457ce7d5643171137bc4ac2c78d53b2e65470eb",
+      "duration_api_ms": 7242,
+      "duration_ms": 7796,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 3171,
+      "is_error": false,
+      "job_id": "M08:full_context",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 26409,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 26409,
+          "cacheReadInputTokens": 960,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.443832",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 527,
+          "provider": "firstParty",
+          "thinkingTokens": 192,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "1db910d0a4eed82b14c7692bb71ffadf9a1b1faa732831f92670f9f87c1a5cc0",
+      "safety_stops": 0,
+      "selected_ids": [],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2a1b3fd980bbe958b24630a537bdaf6c28453165f3ed8bdcd095c1d884d28118",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 557,
+      "total_cost_usd": "0.443832",
+      "ttft_ms": 6076,
+      "ttft_stream_ms": 3171,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 26409,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 26409,
+        "cache_read_input_tokens": 960,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 26409,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 26409,
+            "cache_read_input_tokens": 960,
+            "input_tokens": 2,
+            "output_tokens": 527,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 527,
+        "output_tokens_details": {
+          "thinking_tokens": 192
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    },
+    {
+      "abstain": false,
+      "api_error_status": null,
+      "context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "duration_api_ms": 6712,
+      "duration_ms": 6976,
+      "fast_mode_state": "off",
+      "first_content_frame_ms": 2414,
+      "is_error": false,
+      "job_id": "M08:graph",
+      "modelUsage": {
+        "claude-fable-5-2": {
+          "cacheCreationEphemeral1hInputTokens": 372,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationInputTokens": 372,
+          "cacheReadInputTokens": 1275,
+          "canonicalModel": "claude-fable-5-2",
+          "contextWindow": 1000000,
+          "costBasis": "list",
+          "costUSD": "0.027542999999999998",
+          "inputTokens": 2,
+          "maxOutputTokens": 128000,
+          "outputTokens": 533,
+          "provider": "firstParty",
+          "thinkingTokens": 320,
+          "webSearchRequests": 0
+        }
+      },
+      "num_turns": 2,
+      "queued_turn_count": 0,
+      "request_sha256": "96fe72673748e652a82be5a1c5493d5f3cabdaa7d4e9081d1ae4451306c16e68",
+      "safety_stops": 0,
+      "selected_ids": [],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "968e717ae1acacea00ffb2a4c88e01364cbfbaf790c0e0af1d4bdde1be25cb18",
+      "stop_reason": "tool_use",
+      "subtype": "success",
+      "terminal_reason": "completed",
+      "time_to_request_ms": 264,
+      "total_cost_usd": "0.027542999999999998",
+      "ttft_ms": 5340,
+      "ttft_stream_ms": 2413,
+      "type": "result",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 372,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_creation_input_tokens": 372,
+        "cache_read_input_tokens": 1275,
+        "input_tokens": 2,
+        "iterations": [
+          {
+            "cache_creation": {
+              "ephemeral_1h_input_tokens": 372,
+              "ephemeral_5m_input_tokens": 0
+            },
+            "cache_creation_input_tokens": 372,
+            "cache_read_input_tokens": 1275,
+            "input_tokens": 2,
+            "output_tokens": 533,
+            "type": "message"
+          }
+        ],
+        "output_tokens": 533,
+        "output_tokens_details": {
+          "thinking_tokens": 320
+        },
+        "server_tool_use": {
+          "web_fetch_requests": 0,
+          "web_search_requests": 0
+        }
+      }
+    }
+  ],
+  "description": "Sanitized provider envelope fields. Cost decimals are strings to preserve the provider numeric text. Counters use modelUsage once; top-level usage is retained for inspection only. No session IDs, raw rationale, credential metadata, or diagnostics are included.",
+  "frozen_revision": "3fa9f850bbecdccf068bbda7e90cd0497e79b460",
+  "prepared_sha256": "7f5af0c2214e5d758787ae1bda216bf91c778e2daadc8901c72fe668da3f86c0"
+}

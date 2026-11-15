@@ -1,29 +1,27 @@
 # ProofFlow walkthrough
 
-`proofflow-walkthrough.mp4` is the current two-minute narrated walkthrough. It briefly shows browser CSV preview and report creation, then a separately labeled guided correction flow, retail v2 results and actual MCP-client evidence. The full CSV correction workflow is available as a longer live demonstration. The application values and measured results are preserved. This is an edited capture walkthrough, not an uninterrupted live recording.
+`proofflow-walkthrough.mp4` is the two-minute narrated walkthrough. It opens with browser CSV preview and report creation, switches explicitly to a separate guided correction flow, then shows an audited saved model comparison and separate actual MCP-client evidence. This is an edited walkthrough from actual browser captures and saved evidence cards. It does not show a live model.
 
-The file is 1920 × 1080 at 30 fps, with H.264 video, AAC mono narration, burned captions and an optional embedded text track. It is 5,142,067 bytes. Narration uses the local macOS Samantha voice; rendering invokes no external voice service or paid API.
+The file is 1920 × 1080 at 30 fps, with H.264 video, AAC mono narration, burned captions and an optional embedded text track. Narration uses the local macOS Samantha voice; rendering invokes no external voice service or paid API.
 
 ## Reproduce
 
-From the project root on macOS, with `ffmpeg`, `ffprobe`, `say` and Pillow installed:
+From the project root on macOS with `ffmpeg`, `ffprobe`, `say` and Pillow installed:
 
 ```sh
+.venv/bin/python video/extract_evidence.py
 .venv/bin/python video/render.py
 ```
 
-`manifest.json` defines narration and approved screenshot selections. Source images resolve relative to the repository root. `evidence_extract.json` freezes the evidence-card values from the saved retail and MCP records. The renderer rejects missing screenshots and requires approved captures. `.work/` contains intermediate narration and frames and is ignored by Git. The MP4 is the release asset.
+`manifest.json` defines the narration, original scene slots and approved screenshot selections. `evidence_extract.json` freezes values from the recorded audits and earlier deterministic limit. `.work/` holds intermediate media and is ignored by Git.
 
 ## Evidence
 
 - [Narration and timeline](../docs/VIDEO_SCRIPT.md)
-- [Retail v2 results and limits](../docs/RETAIL_V2_RESULTS.md)
+- [Audited model comparison](../docs/MODEL_COMPARISON_RESULTS.md)
+- [Earlier deterministic retail results and limits](../docs/RETAIL_V2_RESULTS.md)
 - [Actual MCP-client results](../docs/MCP_AGENT_RESULTS.md)
-- [Local container delivery check](../evidence/video_delivery_v3.json): exact current file hash, video MIME type and byte-range playback support. Earlier delivery checks remain archived in `evidence/`.
-- `render_manifest.json`: exact duration, output and source hashes, scene timings and narration provenance.
-- `media_validation.json` and `quality_review.json`: media metadata and visual/audio validation scope.
-- `captions.srt`: caption sidecar. `poster.jpg`: frame extracted from the film.
+- `render_manifest.json`, `media_validation.json` and `quality_review.json`: asset hashes, timings and technical review.
+- `captions.srt`: caption sidecar. `poster.jpg`: opening frame, unchanged from the previous version.
 
-The complete dependency path uses 69.41% fewer evidence tokens than full context and refreshes 38/38 recoverable affected reports, while blocking 4/4 unavailable reports. The exact dependency baseline ties; every arm shares the Hydra-assisted executor. The fixed 2,048-token graph result is 8/38, and the development efficiency gate failed. The actual MCP client is one recorded authored two-row integration after a retained configuration failure, separate from the retail benchmark.
-
-No model-cost savings, universal agent reliability, public-source access or hosting availability is claimed. The source repository remains private.
+Graph, exact traversal and full context each refresh 32/32 recoverable reports. Graph uses 60.67% fewer provider input tokens than full context in the seven non-no-op cases. Exact traversal receives the same prompts as graph; all six methods share the same executor. This is one model sample per case/method with adaptive evidence allowances and uncapped full context. The earlier deterministic test remains separate and retains its fixed-cap shortfall and failed development gate. The video claims no cost savings, latency benefit, hosting availability or public source access.

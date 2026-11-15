@@ -5,15 +5,34 @@
     1920,
     1080
   ],
-  "file_bytes": 5142067,
-  "narration_words": 244,
+  "fps": 30,
+  "file_bytes": 5064373,
+  "narration_words": 266,
   "audio_mean_db": -15.8,
   "audio_peak_db": -1.5,
   "unique_caption_frames": 30,
-  "unchanged_evidence_frames": 24,
-  "visual_review": "Six changed opening/transition caption frames inspected. Remaining 24 unique caption frames byte-for-byte match the previously reviewed version. Actual encoded opening and final frames inspected.",
-  "audio_review": "Full audio decoded; narration text, track length and volume checked. Not manually auditioned.",
+  "embedded_captions_match_srt": true,
+  "changed_scene_range_seconds": [
+    43.48358618021032,
+    93.02177454925834
+  ],
+  "unchanged_evidence_frames": 18,
+  "unchanged_pcm_scenes": [
+    "opening",
+    "change",
+    "evidence",
+    "refresh",
+    "mcp",
+    "closing"
+  ],
+  "unchanged_scene_starts_and_ends": true,
+  "mcp_narration_offset_vs_predecessor_ms": 10.1,
+  "visual_review": "Twelve encoded frames covering all ten scenes were inspected in contact_sheet.jpg. Outside the replacement segment, rendered caption frames match the archived original outputs byte for byte.",
+  "audio_review": "Full audio and video decode succeeded. Audio track, pacing, pauses, volume and preserved PCM slices were checked; speech was not manually auditioned.",
+  "current_release_unchanged": false,
   "release_approved": true,
-  "sha256": "3c18d847f151dffb5fe7f24a18f72736a9ec81619668a438d402db663214d2a8",
-  "predecessor_sha256": "100f6bb9399b48498b829b23264c508e9fd70e07994138df4b295db7dd927d8b"
+  "sha256": "5d9c1dc53519097121527dad6d35dd9e34310ae45b634445eb6bb6e156584393",
+  "predecessor_sha256": "3c18d847f151dffb5fe7f24a18f72736a9ec81619668a438d402db663214d2a8",
+  "predecessor_preserved": true,
+  "root_adoption_review": "Contact sheet and captions inspected; independent model-claim/media review passed. Technical audio decoded; speech not manually auditioned."
 }
