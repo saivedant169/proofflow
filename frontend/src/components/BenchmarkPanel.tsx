@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ArrowUpRight, FileJson, Info } from 'lucide-react'
 import summary from '../../../evidence/benchmark_summary.json'
 import RecordedAgent from './RecordedAgent'
+import RecordedModelBenchmark from './RecordedModelBenchmark'
 import RetailBenchmark from './RetailBenchmark'
 
 type Budget = '512' | '1024' | '2048' | 'all'
@@ -12,7 +13,9 @@ export default function BenchmarkPanel() {
   const [budget, setBudget] = useState<Budget>('2048')
   const data = summary.retrieval
   return <main className="benchmark-page">
-    <div className="benchmark-intro"><h1>Evidence earns its place.</h1><p>Two separate frozen evaluations. The same records within each comparison.<br />Real calculations, with the limits in view.</p></div>
+    <div className="benchmark-intro"><h1>Evidence earns its place.</h1><p>How saved reports catch up after a correction, across separate frozen evaluations.</p></div>
+    <RecordedModelBenchmark />
+    <p className="pilot-divider benchmark-study-label">Earlier deterministic studies</p>
     <RetailBenchmark />
     <div className="pilot-divider"><h2>Original authored pilot</h2><p>Twelve authored scenarios. The controls below apply only to the original pilot.</p></div>
     <section className="benchmark-section panel"><div className="benchmark-controls"><div><h2>Affected evidence recovered</h2><p>Mean recall across 12 authored held-out scenarios</p></div><label>Evidence budget<select value={budget} onChange={event => setBudget(event.target.value as Budget)}><option value="512">512 tokens</option><option value="1024">1,024 tokens</option><option value="2048">2,048 tokens · primary</option><option value="all">Unlimited · diagnostic</option></select></label></div>

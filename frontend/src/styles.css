@@ -162,3 +162,23 @@ input, select { border: 1px solid #aeb9ca; border-radius: 6px; min-height: 44px;
 .import-rates { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }.import-rates label,.import-region { display: block; font-size: 11px; font-weight: 500; color: #56657b; }.import-rates input,.import-region input,.import-region select { margin-top: 8px; font-size: 12px; min-height: 41px; }.import-region { margin-top: 19px; }.import-form > .input-help { font-size: 10px; }
 .import-preview { border: 1px solid #d3e5d9; background: #f5faf6; border-radius: 7px; padding: 16px; margin: 23px 0 18px; color: #467257; }.import-preview > div { display: flex; gap: 8px; align-items: center; }.import-preview h3 { font-size: 12px; font-weight: 600; }.import-preview dl { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 17px 0; }.import-preview dt { font-size: 9px; color: #799084; }.import-preview dd { margin: 4px 0 0; font-size: 16px; font-weight: 600; letter-spacing: -.3px; overflow-wrap: anywhere; }.import-preview p { font-size: 10px; line-height: 1.8; color: #6a8273; margin-top: 8px; }.import-form > .button.full-width { margin-top: 21px; }.import-form .inline-error { margin-top: 20px; margin-bottom: 0; }.import-form > .drawer-footer { font-size: 10px; line-height: 1.8; text-align: left; }
 @media (max-width: 760px) { .dataset-bar { align-items: flex-start; flex-direction: column; padding: 13px; gap: 12px; }.dataset-actions { width: 100%; justify-content: flex-end; gap: 20px; }.dataset-bar strong { font-size: 11px; }.dataset-bar small { font-size: 9px; }.import-accounting { padding: 12px 13px; }.import-accounting > p { font-size: 10px; line-height: 2; }.import-accounting > small { font-size: 9px; }.import-report-note { font-size: 10px; }.import-section-heading { gap: 10px; }.import-section-heading label,.import-section-heading h3 { font-size: 12px; }.import-section-heading > span { font-size: 9px; }.import-csv { font-size: 10px; min-height: 170px; }.import-rates input { padding-inline: 9px; }.import-scope > p { font-size: 10px; } }
+
+.model-comparison { overflow: hidden; }
+.model-input-summary { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 28px; padding: 19px 27px; background: #fafbff; }
+.model-input-summary > div { display: flex; align-items: center; gap: 13px; }
+.model-input-summary strong { color: var(--blue); font-size: 31px; font-weight: 650; letter-spacing: -1px; line-height: 1.2; }
+.model-input-summary span, .model-input-summary p { font-size: 12px; color: #5f6b7f; line-height: 1.6; }
+.model-comparison-table th, .model-comparison-table td { padding-block: 12px; white-space: normal; }
+.model-comparison-table td { font-variant-numeric: tabular-nums; }
+.model-comparison .benchmark-callout + .benchmark-callout { padding-top: 0; }
+.model-evidence-links { display: flex; flex-wrap: wrap; align-items: center; gap: 9px 19px; padding: 0 27px 17px; }
+.model-evidence-links > span { font-size: 10px; color: #657184; }
+.benchmark-study-label { margin-bottom: 12px; color: #5f6b7f; font-size: 12px; font-weight: 600; }
+@media (max-width: 760px) {
+  .model-input-summary { padding: 16px 13px; }
+  .model-input-summary strong { font-size: 28px; }
+  .model-comparison-table { table-layout: fixed; }
+  .model-comparison-table th, .model-comparison-table td { padding: 11px 8px; }
+  .model-comparison-table th:first-child { width: 36%; padding-left: 13px; }
+  .model-evidence-links { padding-inline: 17px; }
+}

@@ -1,0 +1,165 @@
+{
+  "model": "Fable 5.2",
+  "effort": "high",
+  "test_rows": 4681,
+  "cli_calls": 48,
+  "cli_turns": 96,
+  "eligible_affected_reports": 32,
+  "recoverable_cases": 6,
+  "unavailable_reports": 4,
+  "arms": [
+    {
+      "id": "graph",
+      "fresh_affected": 32,
+      "correction_cases_completed": 6
+    },
+    {
+      "id": "exact_flat",
+      "fresh_affected": 32,
+      "correction_cases_completed": 6
+    },
+    {
+      "id": "bm25",
+      "fresh_affected": 25,
+      "correction_cases_completed": 3
+    },
+    {
+      "id": "dense",
+      "fresh_affected": 5,
+      "correction_cases_completed": 0
+    },
+    {
+      "id": "iterative_hybrid",
+      "fresh_affected": 28,
+      "correction_cases_completed": 3
+    },
+    {
+      "id": "full_context",
+      "fresh_affected": 32,
+      "correction_cases_completed": 6
+    }
+  ],
+  "cases": [
+    {
+      "id": "M01",
+      "eligible": 4,
+      "unavailable": 0,
+      "fresh_by_arm": [
+        4,
+        4,
+        4,
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "M02",
+      "eligible": 3,
+      "unavailable": 0,
+      "fresh_by_arm": [
+        3,
+        3,
+        1,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "M03",
+      "eligible": 4,
+      "unavailable": 0,
+      "fresh_by_arm": [
+        4,
+        4,
+        1,
+        0,
+        4,
+        4
+      ]
+    },
+    {
+      "id": "M04",
+      "eligible": 6,
+      "unavailable": 0,
+      "fresh_by_arm": [
+        6,
+        6,
+        4,
+        0,
+        6,
+        6
+      ]
+    },
+    {
+      "id": "M05",
+      "eligible": 11,
+      "unavailable": 0,
+      "fresh_by_arm": [
+        11,
+        11,
+        11,
+        5,
+        11,
+        11
+      ]
+    },
+    {
+      "id": "M06",
+      "eligible": 4,
+      "unavailable": 0,
+      "fresh_by_arm": [
+        4,
+        4,
+        4,
+        0,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "M07",
+      "eligible": 0,
+      "unavailable": 4,
+      "fresh_by_arm": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "M08",
+      "eligible": 0,
+      "unavailable": 0,
+      "fresh_by_arm": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "matching_graph_exact_flat_prompts": 8,
+  "evidence_caps": {
+    "min": 0,
+    "max": 10853
+  },
+  "provider_input_excluding_no_op": {
+    "graph": 75422,
+    "full_context": 191774
+  },
+  "provenance": {
+    "frozen_revision": "3fa9f850bbecdccf068bbda7e90cd0497e79b460",
+    "source_sha256": {
+      "results/model-v4-test-run-1/summary.json": "7cd5204493281564d44e9cd2af2cf1e604914bc9caacc0682207031383000f75",
+      "results/model-v4-test-run-1/publication/provider_metrics.json": "75427c847e8a82ac6b99a5da55eb7b70912d14b8e89bb7965ecd4a3a6ed6d7ee",
+      "results/model-v4-test-run-1/publication/audit.json": "545c474142d792c1a9ef500e0feaf4c9b02fd241083e31512c1dca86de86a23c"
+    }
+  }
+}
