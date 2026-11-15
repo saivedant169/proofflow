@@ -139,7 +139,7 @@ The original model comparison uses one sample per case and condition; cache warm
 - **Source:** https://github.com/saivedant169/proofflow — private; access for judges is not presumed.
 - **Local working app:** http://127.0.0.1:18080. This is not a judge-accessible hosted URL.
 - **Hosted app:** on hold; deployment will be handled by the project owner. No public URL is claimed.
-- **Video:** [completed 120-second 1080p walkthrough](../video/proofflow-walkthrough.mp4) covers the guided browser workflow, retail v2 results and actual MCP-client evidence. It is included in the Docker image at `/walkthrough.mp4`; [local delivery verification](../evidence/video_delivery_v2.json) records its exact hash and HTTP range support. The browser CSV workflow is a separate live feature. A public URL is not yet claimed.
+- **Video:** [completed 120-second 1080p walkthrough](../video/proofflow-walkthrough.mp4) briefly shows CSV preview and report creation, then a separately labeled guided correction flow, retail v2 results and actual MCP-client evidence. The application packages video at `/walkthrough.mp4`; [previous-version delivery verification](../evidence/video_delivery_v2.json) is retained as historical evidence for the earlier film. The full CSV correction remains a longer live demonstration. A public URL is not yet claimed.
 - **Event:** [HydraDB Hackathon, November 14–16](https://luma.com/bqwllms4).
 - **Submission form:** not live according to the project owner's latest update. Final fields and team/contact details await that form.
 - **Delivery deadline:** 16 November 2026, 09:00 IST. No submission receipt has been issued.

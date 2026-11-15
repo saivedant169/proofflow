@@ -1,119 +1,119 @@
 1
-00:00:00,000 --> 00:00:01,785
-Agents reuse prior work.
+00:00:00,000 --> 00:00:02,111
+Bring your own CSV.
 
 2
-00:00:01,785 --> 00:00:06,694
-When an input changes, which saved numbers can they still trust?
+00:00:02,111 --> 00:00:05,981
+Preview your inputs and exchange rates, then create linked revenue reports.
 
 3
-00:00:06,694 --> 00:00:10,468
-ProofFlow keeps the dependencies attached across runs.
+00:00:05,981 --> 00:00:09,445
+This CSV example has two rows.
 
 4
-00:00:10,468 --> 00:00:12,778
-Correct the euro exchange rate.
+00:00:09,445 --> 00:00:13,864
+In the separate guided demo, correct the euro exchange rate.
 
 5
-00:00:12,778 --> 00:00:15,551
+00:00:13,864 --> 00:00:16,515
 Revenue becomes stale and is withheld.
 
 6
-00:00:15,551 --> 00:00:21,746
+00:00:16,515 --> 00:00:22,467
 The independent support count stays current, while previous revenue remains clearly historical.
 
 7
-00:00:21,746 --> 00:00:29,274
+00:00:22,467 --> 00:00:29,942
 HydraDB traces the inputs each tool actually consumed, linking this calculation to both reports.
 
 8
-00:00:29,274 --> 00:00:32,272
+00:00:29,942 --> 00:00:32,917
 Four tools refresh the dependent work.
 
 9
-00:00:32,272 --> 00:00:36,770
+00:00:32,917 --> 00:00:37,379
 Company revenue becomes five thousand seven hundred fifty-five dollars;
 
 10
-00:00:36,770 --> 00:00:40,767
+00:00:37,379 --> 00:00:41,346
 EU revenue, two thousand two hundred eighty.
 
 11
-00:00:40,767 --> 00:00:42,916
+00:00:41,346 --> 00:00:43,484
 Independent recomputation matches.
 
 12
-00:00:42,916 --> 00:00:47,535
+00:00:43,484 --> 00:00:48,067
 Now a separate retail experiment: six hundred forty public
 
 13
-00:00:47,535 --> 00:00:52,155
+00:00:48,067 --> 00:00:52,650
 transaction lines, four dated partitions, and ten authored cases.
 
 14
-00:00:52,155 --> 00:00:58,450
+00:00:52,650 --> 00:00:58,902
 Complete dependencies refresh 38 recoverable reports and block four unavailable ones.
 
 15
-00:00:58,450 --> 00:01:03,490
+00:00:58,902 --> 00:01:03,903
 With identical records and the graph's per-case allowance, BM25
 
 16
-00:01:03,490 --> 00:01:07,156
+00:01:03,903 --> 00:01:07,540
 completes nineteen, dense eight, and iterative hybrid thirty-three.
 
 17
-00:01:07,156 --> 00:01:10,555
+00:01:07,540 --> 00:01:10,918
 All methods share the same executor.
 
 18
-00:01:10,555 --> 00:01:16,626
+00:01:10,918 --> 00:01:16,942
 Evidence uses 69.41% fewer tokens than full context.
 
 19
-00:01:16,626 --> 00:01:18,650
+00:01:16,942 --> 00:01:18,950
 Exact dependency traversal ties.
 
 20
-00:01:18,650 --> 00:01:21,324
+00:01:18,950 --> 00:01:21,608
 The calculations still run.
 
 21
-00:01:21,324 --> 00:01:26,747
+00:01:21,608 --> 00:01:26,990
 At a fixed 2,048-token limit, graph completes only eight reports.
 
 22
-00:01:26,747 --> 00:01:30,002
+00:01:26,990 --> 00:01:30,219
 The earlier development efficiency gate failed.
 
 23
-00:01:30,002 --> 00:01:32,821
+00:01:30,219 --> 00:01:33,022
 Both limitations remain visible.
 
 24
-00:01:32,821 --> 00:01:37,376
+00:01:33,022 --> 00:01:37,542
 An actual Claude client uses five MCP tools
 
 25
-00:01:37,376 --> 00:01:41,020
+00:01:37,542 --> 00:01:41,157
 to load data, choose plans, inspect and refresh.
 
 26
-00:01:41,020 --> 00:01:44,664
+00:01:41,157 --> 00:01:44,773
 It reuses prior artifacts on authored two-row input.
 
 27
-00:01:44,664 --> 00:01:48,764
+00:01:44,773 --> 00:01:48,841
 After a launch-configuration fix, one trajectory passed 32 checks,
 
 28
-00:01:48,764 --> 00:01:52,408
+00:01:48,841 --> 00:01:52,457
 with nine requests and twelve recorded runtime calls.
 
 29
-00:01:52,408 --> 00:01:55,791
+00:01:52,457 --> 00:01:55,819
 Its first configuration failure is retained.
 
 30
-00:01:55,791 --> 00:02:00,000
+00:01:55,819 --> 00:02:00,000
 ProofFlow: current evidence across agent runs.

@@ -1,10 +1,11 @@
 {
   "format": "Edited actual application captures and labeled saved-evidence cards with local narration; not an uninterrupted live recording",
   "duration_seconds": 120.0,
-  "bytes": 5151087,
-  "sha256": "100f6bb9399b48498b829b23264c508e9fd70e07994138df4b295db7dd927d8b",
+  "bytes": 5142067,
+  "sha256": "3c18d847f151dffb5fe7f24a18f72736a9ec81619668a438d402db663214d2a8",
   "source_image_sha256": {
-    "evidence/ui/workspace-final.jpg": "c108e939bcd16380a5eb2400a5d1ba44879f2927a4ceb1b561c672602bd71a7a",
+    "evidence/ui/csv-created-desktop.jpg": "df7206f46e76dc795326b82dd1d2394fe6dcf12b310b88f35df54eec0b498558",
+    "evidence/ui/csv-preview-desktop.jpg": "98eac5cf086a31deda1ce6ba59d3d66e4e6b504958e0171196111945aabbef5f",
     "evidence/ui/workspace-stale-final.jpg": "f7563cccc534316122f44c49f96f35a88843ab791fbe6d006016955c4230338b",
     "evidence/ui/source-drawer.jpg": "0c2706d31a0565906f4893bb8bca1ca050b4a54d6fb19705f4fd0625406c1781",
     "evidence/ui/evidence-path-final.jpg": "885ed167a659d3e5e506afe4f0a0a9c1cd2fae9a8c9090fb8a8a85cea19a6322",
@@ -14,19 +15,19 @@
   "narration": {
     "voice": "Samantha",
     "rate": 145,
-    "raw_seconds": 113.889842,
-    "speed_adjustment": 1.0034347312775331,
+    "raw_seconds": 114.779547,
+    "speed_adjustment": 1.0112735418502201,
     "target_seconds": 120.0,
     "scenes": [
       {
         "scene": "opening",
         "path": "video/.work/opening.aiff",
-        "raw_seconds": 9.851474
+        "raw_seconds": 8.894422
       },
       {
         "scene": "change",
         "path": "video/.work/change.aiff",
-        "raw_seconds": 10.664626
+        "raw_seconds": 12.511383
       },
       {
         "scene": "evidence",
@@ -74,19 +75,19 @@
     {
       "scene": "opening",
       "start": 0.0,
-      "end": 10.467752657870927,
-      "image": "evidence/ui/workspace-final.jpg",
+      "end": 9.445268176132462,
+      "image": "evidence/ui/csv-created-desktop.jpg",
       "crop_box": [
         0,
-        85,
-        1536,
-        750
+        245,
+        1280,
+        960
       ]
     },
     {
       "scene": "change",
-      "start": 10.467752657870927,
-      "end": 21.745873917359546,
+      "start": 9.445268176132462,
+      "end": 22.467175956008962,
       "image": "evidence/ui/workspace-stale-final.jpg",
       "crop_box": [
         0,
@@ -97,8 +98,8 @@
     },
     {
       "scene": "evidence",
-      "start": 21.745873917359546,
-      "end": 29.273972497037967,
+      "start": 22.467175956008962,
+      "end": 29.941959473406882,
       "image": "evidence/ui/evidence-path-final.jpg",
       "crop_box": [
         0,
@@ -109,8 +110,8 @@
     },
     {
       "scene": "refresh",
-      "start": 29.273972497037967,
-      "end": 42.91630831483636,
+      "start": 29.941959473406882,
+      "end": 43.48358618021032,
       "image": "evidence/ui/workspace-refreshed-final.jpg",
       "crop_box": [
         0,
@@ -121,8 +122,8 @@
     },
     {
       "scene": "retail",
-      "start": 42.91630831483636,
-      "end": 58.45024299884444,
+      "start": 43.48358618021032,
+      "end": 58.90214916730767,
       "image": "evidence/ui/retail-v2-desktop.jpg",
       "crop_box": [
         0,
@@ -133,36 +134,36 @@
     },
     {
       "scene": "matched",
-      "start": 58.45024299884444,
-      "end": 70.55509366498198,
+      "start": 58.90214916730767,
+      "end": 70.91820842262082,
       "image": null,
       "crop_box": null
     },
     {
       "scene": "tokens",
-      "start": 70.55509366498198,
-      "end": 81.32371790980268,
+      "start": 70.91820842262082,
+      "end": 81.60839891492168,
       "image": null,
       "crop_box": null
     },
     {
       "scene": "limits",
-      "start": 81.32371790980268,
-      "end": 92.8211768034589,
+      "start": 81.60839891492168,
+      "end": 93.02177454925834,
       "image": null,
       "crop_box": null
     },
     {
       "scene": "mcp",
-      "start": 92.8211768034589,
-      "end": 115.79111282110654,
+      "start": 93.02177454925834,
+      "end": 115.81869926660369,
       "image": null,
       "crop_box": null
     },
     {
       "scene": "closing",
-      "start": 115.79111282110654,
-      "end": 119.99999999999999,
+      "start": 115.81869926660369,
+      "end": 120.00000000000003,
       "image": "evidence/ui/workspace-refreshed-final.jpg",
       "crop_box": [
         0,
@@ -176,13 +177,14 @@
   "hosting_url": null,
   "screens_approved": true,
   "release_approved": true,
+  "predecessor_video_sha256": "100f6bb9399b48498b829b23264c508e9fd70e07994138df4b295db7dd927d8b",
   "source_evidence_sha256": {
     "evidence/retail_v2_summary.json": "6f93d5c39fb581f3b2951e5709dcb7718a5a185055289d4dee268a99f04e5654",
     "results/retail-dev-v1/summary.json": "e819b6524cfa482a315a7a1353c2804b02777907dde2c60c161f161e2dbeaa66",
     "results/mcp-agent-v2/summary.json": "3c6006a67834406239eb31f9237781297ec57cf94b4f2549519a9ad711edce9d",
     "results/mcp-agent-v2/independent-audit.json": "d3738d4c3fc14fe125dfaef8015cb1e37718d0c2d0e5693e082467d2e07a0464",
-    "results/mcp-agent-v1/configuration_failure.json": "5fec795a7a7835666f68c89d5a7bc5f50532079d7eefb0424eee2bdcfd315761"
+    "results/mcp-agent-v1/configuration_failure.json": "5fec795a7a7835666f68c89d5a7bc5f50532079d7eefb0424eee2bdcfd315761",
+    "evidence/browser_csv_verification.json": "8f3e9d93775bf190451bf11a91946ed79823343f573fbeb62191128c96aab4ae"
   },
-  "evidence_extract_sha256": "35e6d96d66dcf61efaa6c8eb49381ad3c4aa29ef906c80e52f5cb81ecbb5af91",
-  "predecessor_video_sha256": "8a2cd4df5fd368b460405a095a284827c8e9040db74cf86cf79d47b79f1a728d"
+  "evidence_extract_sha256": "35e6d96d66dcf61efaa6c8eb49381ad3c4aa29ef906c80e52f5cb81ecbb5af91"
 }

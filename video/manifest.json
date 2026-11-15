@@ -1,5 +1,5 @@
 {
-  "title": "ProofFlow retail v2 walkthrough",
+  "title": "ProofFlow CSV-first walkthrough",
   "format": "Edited actual application captures and labeled saved-evidence cards with local narration; not an uninterrupted live recording",
   "source_root": "..",
   "screens_approved": true,
@@ -14,22 +14,30 @@
   "scenes": [
     {
       "id": "opening",
-      "title": "Which saved numbers can an agent still trust?",
-      "image": "evidence/ui/workspace-final.jpg",
-      "narration": "Agents reuse prior work. When an input changes, which saved numbers can they still trust? ProofFlow keeps the dependencies attached across runs.",
+      "title": "Start with your own CSV.",
+      "image": "evidence/ui/csv-created-desktop.jpg",
+      "narration": "Bring your own C S V. Preview your inputs and exchange rates, then create linked revenue reports. This C S V example has two rows.",
       "crop_box": [
         0,
-        85,
-        1536,
-        750
+        245,
+        1280,
+        960
       ],
-      "footer": "Edited app capture \u00b7 Authored browser fixture"
+      "footer": "Edited app capture \u00b7 Authored two-row CSV \u00b7 Typed-tool workflow \u00b7 No live model",
+      "lead_image": "evidence/ui/csv-preview-desktop.jpg",
+      "lead_crop_box": [
+        0,
+        18,
+        1280,
+        720
+      ],
+      "lead_caption_count": 2
     },
     {
       "id": "change",
-      "title": "Changed revenue is withheld. Current support is preserved.",
+      "title": "Separate guided demo: changed revenue is withheld.",
       "image": "evidence/ui/workspace-stale-final.jpg",
-      "narration": "Correct the euro exchange rate. Revenue becomes stale and is withheld. The independent support count stays current, while previous revenue remains clearly historical.",
+      "narration": "In the separate guided demo, correct the euro exchange rate. Revenue becomes stale and is withheld. The independent support count stays current, while previous revenue remains clearly historical.",
       "crop_box": [
         0,
         250,
@@ -44,7 +52,7 @@
         840
       ],
       "lead_caption_count": 1,
-      "footer": "Edited app capture \u00b7 Authored browser fixture"
+      "footer": "Edited app capture \u00b7 Separate guided demo \u00b7 Authored fixture"
     },
     {
       "id": "evidence",
@@ -136,7 +144,8 @@
     "results/retail-dev-v1/summary.json",
     "results/mcp-agent-v2/summary.json",
     "results/mcp-agent-v2/independent-audit.json",
-    "results/mcp-agent-v1/configuration_failure.json"
+    "results/mcp-agent-v1/configuration_failure.json",
+    "evidence/browser_csv_verification.json"
   ],
-  "original_video_sha256": "8a2cd4df5fd368b460405a095a284827c8e9040db74cf86cf79d47b79f1a728d"
+  "original_video_sha256": "100f6bb9399b48498b829b23264c508e9fd70e07994138df4b295db7dd927d8b"
 }

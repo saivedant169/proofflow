@@ -1,25 +1,25 @@
-# ProofFlow: retail v2 demo narrative
+# ProofFlow: CSV, retail and MCP demo narrative
 
-The current [120-second walkthrough](../video/proofflow-walkthrough.mp4) combines the verified browser workflow, retail v2 results and the actual five-tool MCP-client integration. It is an edited sequence of real application captures and clearly labeled saved-evidence cards, with local narration. The application image exposes the video at `/walkthrough.mp4`. Hosting is on hold and will be handled by the project owner; the repository remains private.
+The current [120-second walkthrough](../video/proofflow-walkthrough.mp4) opens with a brief browser CSV preview and report-creation example, then moves to a separately labeled guided correction flow, retail v2 results and actual five-tool MCP-client evidence. It is an edited sequence of real application captures and labeled saved-evidence cards with local narration. The application packages video at `/walkthrough.mp4`. Hosting is on hold and will be handled by the project owner; the repository remains private.
 
 ## Two-minute sequence
 
-The browser fixture uses authored commerce data, separate from the external retail transactions in the benchmark. The table follows the actual encoded film; times are rounded to hundredths of a second.
+The opening CSV example and the later guided fixture are separate authored inputs; the retail benchmark uses external transactions. The table follows the actual encoded film, with times rounded to hundredths of a second. The full CSV correction workflow is documented below as a longer live demonstration.
 
 | Time | Visual | Narration |
 |---|---|---|
-| 0:00.00–0:10.47 | Company report and EU brief, composed from two runs. | “Agents reuse prior work. When an input changes, which saved numbers can they still trust? ProofFlow keeps the dependencies attached across runs.” |
-| 0:10.47–0:21.75 | Source correction drawer, then withheld revenue and unchanged support. | “Correct the euro exchange rate. Revenue becomes stale and is withheld. The independent support count stays current, while previous revenue remains clearly historical.” |
-| 0:21.75–0:29.27 | Actual HydraDB evidence drawer and consumed-input path. | “HydraDB traces the inputs each tool actually consumed, linking this calculation to both reports.” |
-| 0:29.27–0:42.92 | Revalidated company and EU values; support remains unchanged. | “Four tools refresh the dependent work. Company revenue becomes five thousand seven hundred fifty-five dollars; EU revenue, two thousand two hundred eighty. Independent recomputation matches.” |
-| 0:42.92–0:58.45 | Actual retail v2 application summary, with data and experiment scope. | “Now a separate retail experiment: six hundred forty public transaction lines, four dated partitions, and ten authored cases. Complete dependencies refresh thirty-eight recoverable reports and block four unavailable ones.” |
-| 0:58.45–1:10.56 | Saved-evidence card: complete closure and graph-matched retrieval baselines. | “With identical records and the graph's per-case allowance, BM25 completes nineteen, dense eight, and iterative hybrid thirty-three. All methods share the same executor.” |
-| 1:10.56–1:21.32 | Saved-evidence card: evidence-token reduction, equal calculation counts and scope. | “Evidence uses sixty-nine point four one percent fewer tokens than full context. Exact dependency traversal ties. The calculations still run.” |
-| 1:21.32–1:32.82 | Saved-evidence card: fixed 2,048-token shortfall and failed development gate. | “At a fixed two-thousand-forty-eight-token limit, graph completes only eight reports. The earlier development efficiency gate failed. Both limitations remain visible.” |
-| 1:32.82–1:55.79 | Saved actual-client evidence: five tools, 32 checks, 9 requests and 12 runtime calls. | “An actual Claude client uses five MCP tools to load data, choose plans, inspect and refresh. It reuses prior artifacts on authored two-row input. After a launch-configuration fix, one trajectory passed thirty-two checks, with nine requests and twelve recorded runtime calls. Its first configuration failure is retained.” |
-| 1:55.79–1:60.00 | Return to the verified report. | “ProofFlow: current evidence across agent runs.” |
+| 0:00.00–0:09.45 | Actual CSV preview, then imported reports showing $308 company and $108 NORTH. | “Bring your own CSV. Preview your inputs and exchange rates, then create linked revenue reports. This CSV example has two rows.” |
+| 0:09.45–0:22.47 | Explicit switch to separate guided demo; source correction, then withheld revenue. | “In the separate guided demo, correct the euro exchange rate. Revenue becomes stale and is withheld. The independent support count stays current, while previous revenue remains clearly historical.” |
+| 0:22.47–0:29.94 | Actual HydraDB evidence drawer and consumed-input path. | “HydraDB traces the inputs each tool actually consumed, linking this calculation to both reports.” |
+| 0:29.94–0:43.48 | Guided-demo company and EU values refreshed; support unchanged. | “Four tools refresh the dependent work. Company revenue becomes five thousand seven hundred fifty-five dollars; EU revenue, two thousand two hundred eighty. Independent recomputation matches.” |
+| 0:43.48–0:58.90 | Actual retail v2 application summary, with data and experiment scope. | “Now a separate retail experiment: six hundred forty public transaction lines, four dated partitions, and ten authored cases. Complete dependencies refresh thirty-eight recoverable reports and block four unavailable ones.” |
+| 0:58.90–1:10.92 | Saved-evidence card: complete closure and graph-matched retrieval baselines. | “With identical records and the graph's per-case allowance, BM25 completes nineteen, dense eight, and iterative hybrid thirty-three. All methods share the same executor.” |
+| 1:10.92–1:21.61 | Saved-evidence card: evidence-token reduction, equal calculation counts and scope. | “Evidence uses sixty-nine point four one percent fewer tokens than full context. Exact dependency traversal ties. The calculations still run.” |
+| 1:21.61–1:33.02 | Saved-evidence card: fixed 2,048-token shortfall and failed development gate. | “At a fixed two-thousand-forty-eight-token limit, graph completes only eight reports. The earlier development efficiency gate failed. Both limitations remain visible.” |
+| 1:33.02–1:55.82 | Saved actual-client evidence: five tools, 32 checks, 9 requests and 12 runtime calls. | “An actual Claude client uses five MCP tools to load data, choose plans, inspect and refresh. It reuses prior artifacts on authored two-row input. After a launch-configuration fix, one trajectory passed thirty-two checks, with nine requests and twelve recorded runtime calls. Its first configuration failure is retained.” |
+| 1:55.82–2:00.00 | Return to the verified guided report. | “ProofFlow: current evidence across agent runs.” |
 
-The benchmark and client cards display saved evidence; the browser does not run a model or benchmark on demand. The film has no deployment URL. For a live demonstration, use the verified local app at **http://127.0.0.1:18080** and start from **New workspace**. The complete narration and source references are in [VIDEO_SCRIPT.md](VIDEO_SCRIPT.md).
+The benchmark and client cards display saved evidence; the browser does not run a model or benchmark on demand. The film has no deployment URL. For a live demonstration, use **http://127.0.0.1:18080**. The complete narration and source references are in [VIDEO_SCRIPT.md](VIDEO_SCRIPT.md).
 
 ## Required evidence captions
 
@@ -41,7 +41,7 @@ All retrieval arms share currentness checks and recursive refresh. Their missing
 
 | Property | Observed result |
 |---|---|
-| Browser correction | EUR→USD 1.10 → 1.20 |
+| Guided-demo correction | EUR→USD 1.10 → 1.20 |
 | EU revenue | $2,090 → $2,280 |
 | Company revenue | $5,565 → $5,755 |
 | EU support | 2, same identity and content hash |
@@ -51,7 +51,7 @@ All retrieval arms share currentness checks and recursive refresh. Their missing
 | MCP stock client | 20 checks through an external stdio process, no model calls |
 | Actual Claude MCP client | 32 recorded checks; 9 MCP requests; 7 initial + 1 reuse + 4 refresh runtime calls |
 
-The browser's initial reports are guided presets. The separate actual MCP-client experiment lets Fable 5.2 choose both plans through the five exposed tools. Its two loads perform **16 CSV arithmetic preflight checks in addition to 12 recorded runtime calls**. One corrected trajectory does not establish general agent reliability. The first launch failed before tool discovery, and that failure remains in the evidence. The server's `model_calls: 0` excludes model activity in the external Claude client.
+The correction sequence uses guided presets. The opening CSV preview and creation use the browser's two typed revenue-report recipes; the film does not show the subsequent CSV correction. The separate actual MCP-client experiment lets Fable 5.2 choose both plans through the five exposed tools. Its two loads perform **16 CSV arithmetic preflight checks in addition to 12 recorded runtime calls**. One corrected trajectory does not establish general agent reliability. The first launch failed before tool discovery, and that failure remains in the evidence. The server's `model_calls: 0` excludes model activity in the external Claude client.
 
 The earlier local composition bridge is also preserved: two Fable calls, a seven-tool report followed by a one-tool composition reusing three artifacts, and seventeen checks. The browser labels those plans **Recorded agent workflow**. They are separate from the actual MCP-client run and retail benchmark. Numeric values always come from registered tools; arbitrary SQL and code execution are outside the interface.
 
@@ -65,7 +65,7 @@ For a longer live walkthrough, remove FX to show refused refresh with current su
 
 ## Optional live browser CSV segment
 
-The encoded two-minute film above is unchanged. For an additional live demonstration, select **Use your data**, upload or paste `fixtures/browser_csv_v1/valid_non_eu.csv`, set EUR→USD to **1.20** and region **NORTH**, then **Validate CSV → Create reports**. Preview publishes nothing. The saved reports show **$308 company revenue and $108 NORTH revenue**.
+The film briefly shows CSV preview and created reports. For a longer live demonstration that also covers CSV correction and refresh, select **Use your data**, upload or paste `fixtures/browser_csv_v1/valid_non_eu.csv`, set EUR→USD to **1.20** and region **NORTH**, then **Validate CSV → Create reports**. Preview publishes nothing. The saved reports show **$308 company revenue and $108 NORTH revenue**.
 
 Open **Update CSV**, supply the complete input with rate **1.30**, validate and **Publish correction**. Revenue becomes stale before any refresh. **Refresh affected** executes four tools and updates the reports to **$317 / $117**; **Check values** verifies the saved values. A reordered equivalent CSV preserves identities with zero recorded refresh calls, while validation still runs. The browser's imported workspace and guided demo are independent and survive application restart.
 

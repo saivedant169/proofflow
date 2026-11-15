@@ -1,8 +1,8 @@
 # ProofFlow walkthrough
 
-`proofflow-walkthrough.mp4` is the current two-minute narrated walkthrough. It combines actual browser captures with clearly labeled saved-evidence cards for retail v2 and the separate actual MCP-client integration. The application values and measured results are preserved. This is an edited capture walkthrough, not an uninterrupted live recording.
+`proofflow-walkthrough.mp4` is the current two-minute narrated walkthrough. It briefly shows browser CSV preview and report creation, then a separately labeled guided correction flow, retail v2 results and actual MCP-client evidence. The full CSV correction workflow is available as a longer live demonstration. The application values and measured results are preserved. This is an edited capture walkthrough, not an uninterrupted live recording.
 
-The file is 1920 × 1080 at 30 fps, with H.264 video, AAC mono narration, burned captions and an optional embedded text track. It is 5,151,087 bytes. Narration uses the local macOS Samantha voice; rendering invokes no external voice service or paid API.
+The file is 1920 × 1080 at 30 fps, with H.264 video, AAC mono narration, burned captions and an optional embedded text track. It is 5,142,067 bytes. Narration uses the local macOS Samantha voice; rendering invokes no external voice service or paid API.
 
 ## Reproduce
 
@@ -19,7 +19,7 @@ From the project root on macOS, with `ffmpeg`, `ffprobe`, `say` and Pillow insta
 - [Narration and timeline](../docs/VIDEO_SCRIPT.md)
 - [Retail v2 results and limits](../docs/RETAIL_V2_RESULTS.md)
 - [Actual MCP-client results](../docs/MCP_AGENT_RESULTS.md)
-- [Local container delivery check](../evidence/video_delivery_v2.json): exact file hash, video MIME type and byte-range playback support.
+- [Previous-version container delivery check](../evidence/video_delivery_v2.json): historical evidence for the earlier film’s exact hash, video MIME type and byte-range playback support.
 - `render_manifest.json`: exact duration, output and source hashes, scene timings and narration provenance.
 - `media_validation.json` and `quality_review.json`: media metadata and visual/audio validation scope.
 - `captions.srt`: caption sidecar. `poster.jpg`: frame extracted from the film.
