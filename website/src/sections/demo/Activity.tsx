@@ -4,10 +4,9 @@ export interface LogEntry { id: number; title: string; tone: LogTone; lines: Log
 
 export default function Activity({ entries }: { entries: LogEntry[] }) {
   return (
-    <section className="demo-activity" aria-labelledby="demo-activity-title">
-      <h3 className="demo-panel-title" id="demo-activity-title">Activity</h3>
-      <p className="demo-fine">Newest first. Every “ran” line is a real tool execution in this replay.</p>
-      <ol className="demo-log scroll-thin" tabIndex={0} aria-label="Activity log, newest first">
+    <section className="demo-activity" aria-label="Activity">
+      <p className="demo-fine">Newest first. Each “ran” line is a real tool execution in this replay.</p>
+      <ol className="demo-log" aria-label="Activity log, newest first">
         {entries.map(entry => (
           <li key={entry.id} className={`demo-log-entry is-${entry.tone}`}>
             <p className="demo-log-title">{entry.title}</p>

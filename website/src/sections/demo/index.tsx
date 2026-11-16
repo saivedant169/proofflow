@@ -1,22 +1,21 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'motion/react'
-import { Ban, CircleAlert, CircleCheck, Info } from 'lucide-react'
-import { ButtonLink, Source, StateTag } from '../../components/ui'
+import { Ban, CircleAlert, CircleCheck, Info, PanelRightOpen, RefreshCw, RotateCcw, ShieldCheck } from 'lucide-react'
+import { ButtonLink, Source } from '../../components/ui'
 import { links } from '../../content/facts'
 import {
   DemoSession, selfCheck,
-  type ChangePayload, type SourceName, type ToolCall,
-  type Verification,
+  type ArtifactRecord, type ChangePayload, type SourceName, type ToolCall, type Verification,
 } from './engine'
 import {
   SLOTS, SLOT_DEF, SOURCE_LABEL, TOOL_LABEL, buildView, depthFrom, money, nodeChanged,
   type NodeView, type ReportView, type Slot, type View,
 } from './model'
 import Graph, { type Wave } from './Graph'
-import Inspector from './Inspector'
-import Reports from './Reports'
-import Activity, { type LogEntry, type LogLine } from './Activity'
-import Console, { type FieldError, type FormId } from './Console'
+import Chips, { type FieldError, type FormId } from './Chips'
+import { Counters, Reports, type MeterTone } from './Cards'
+import Drawer, { type DrawerTab } from './Drawer'
+import type { LogEntry, LogLine } from './Activity'
 import './styles.css'
 
 if (import.meta.env.DEV) {
@@ -24,11 +23,13 @@ if (import.meta.env.DEV) {
   console.assert(failed.length === 0, 'Demo engine self-check failed', failed)
 }
 
-const STEP_MS = 280
+const STEP_MS = 380
 const SOURCE_SLOTS: Slot[] = ['source:orders', 'source:refunds', 'source:fx', 'source:tickets']
+const RESULT_SLOTS = SLOTS.filter(def => def.layer !== 'source').map(def => def.slot)
 
 type StatusTone = 'info' | 'stale' | 'blocked' | 'pass' | 'fail'
-interface Status { tone: StatusTone; text: string }
+/** `short` is the visible event chip; `text` is the full sentence announced to screen readers. */
+interface Status { tone: StatusTone; short: string; text: string }
 
 const plural = (count: number, one: string, many = `${one}s`) => `${count} ${count === 1 ? one : many}`
 
@@ -61,7 +62,15 @@ function reusedLine(session: DemoSession, id: string): LogLine {
   return { kind: 'reused', text: `${tool} reused: ${session.label(record)} was still current` }
 }
 
+/** Distinct saved records (by logical id) read through the given input maps. */
+function distinctInputs(session: DemoSession, inputs: Record<string, string>[]) {
+  const ids = new Set<string>()
+  for (const map of inputs) for (const id of Object.values(map)) ids.add(session.runtime.records.get(id)?.logicalId ?? id)
+  return ids.size
+}
+
 const labelOf = (logicalId: string) => SLOT_DEF[logicalId as Slot]?.label ?? logicalId
+const INITIAL: Status = { tone: 'info', short: 'All 8 results current', text: 'All eight saved results are current. Apply a correction to see what it touches.' }
 
 export default function Demo() {
   const reduce = useReducedMotion()
@@ -69,12 +78,15 @@ export default function Demo() {
   const [view, setView] = useState<View>(() => buildView(session))
   const [wave, setWave] = useState<Wave | null>(null)
   const [selected, setSelected] = useState<Slot | null>(null)
+  const [preview, setPreview] = useState<Slot | null>(null)
   const [verification, setVerification] = useState<Verification | null>(null)
   const [previous, setPrevious] = useState<Record<string, number>>({})
   const [fieldError, setFieldError] = useState<FieldError | null>(null)
-  const [status, setStatus] = useState<Status>({
-    tone: 'info', text: 'All eight saved results are current. Apply a correction to see what it touches.',
-  })
+  const [status, setStatus] = useState<Status>(INITIAL)
+  const [work, setWork] = useState<{ ran: number; reused: number; records: number; healed: boolean }>({ ran: 0, reused: 0, records: 0, healed: false })
+  const [drawer, setDrawer] = useState<{ open: boolean; tab: DrawerTab }>({ open: false, tab: 'step' })
+  const trigger = useRef<HTMLElement | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
   const logId = useRef(1)
   const waveId = useRef(0)
   const [log, setLog] = useState<LogEntry[]>(() => [{
@@ -91,6 +103,30 @@ export default function Demo() {
     }, STEP_MS)
     return () => window.clearTimeout(timer)
   }, [wave])
+
+  const closeDrawer = useCallback(() => {
+    setDrawer(current => ({ ...current, open: false }))
+    const back = trigger.current
+    trigger.current = null
+    if (back && back.isConnected) back.focus({ preventScroll: true })
+  }, [])
+
+  // The drawer belongs to the playground: close it once the section scrolls away.
+  useEffect(() => {
+    const node = sectionRef.current
+    if (!node || !drawer.open) return
+    const onScroll = () => {
+      const rect = node.getBoundingClientRect()
+      if (rect.bottom < 0 || rect.top > window.innerHeight) setDrawer(current => ({ ...current, open: false }))
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [drawer.open])
+
+  const openDrawer = (tab: DrawerTab) => {
+    if (!drawer.open) trigger.current = document.activeElement as HTMLElement | null
+    setDrawer({ open: true, tab })
+  }
 
   const display = useCallback((slot: Slot): NodeView => (
     wave && wave.changed.has(slot) && (wave.depth[slot] ?? 0) > wave.step ? wave.prev[slot] : view.nodes[slot]
@@ -114,7 +150,7 @@ export default function Demo() {
     }
     const depth = depthFrom(roots)
     const max = Math.max(...[...changed].map(slot => depth[slot] ?? 0))
-    setWave({ id: ++waveId.current, origin, prev: prev.nodes, prevReports: prev.reports, depth, changed, step: 0, max })
+    setWave({ id: ++waveId.current, origin, prev: prev.nodes, prevReports: prev.reports, depth, changed, step: 0, max, stepMs: STEP_MS })
   }
 
   const push = (entry: Omit<LogEntry, 'id'>) => setLog(current => [{ ...entry, id: logId.current++ }, ...current].slice(0, 40))
@@ -127,18 +163,19 @@ export default function Demo() {
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error)
       setFieldError({ form, message: `${message}.`.replace(/\.\.$/, '.') })
-      setStatus({ tone: 'fail', text: `Correction refused: ${message}.`.replace(/\.\.$/, '.') })
+      setStatus({ tone: 'fail', short: 'Correction refused', text: `Correction refused: ${message}.`.replace(/\.\.$/, '.') })
       return
     }
     const next = buildView(session)
     setFieldError(null)
     setVerification(null)
     setPrevious({})
+    setWork({ ran: 0, reused: 0, records: 0, healed: false })
     setView(next)
     const title = changeTitle(payload)
     const root = `source:${info.source}` as Slot
     if (!info.changed) {
-      setStatus({ tone: 'info', text: `${title}. That matches the saved version, so nothing new needs refresh.` })
+      setStatus({ tone: 'info', short: 'No change', text: `${title}. That matches the saved version, so nothing new needs refresh.` })
       push({ tone: 'change', title, lines: [{ kind: 'note', text: 'Same content as the current version: no new version published' }] })
       return
     }
@@ -149,11 +186,13 @@ export default function Demo() {
     if (payload.kind === 'remove') {
       setStatus({
         tone: 'blocked',
+        short: `${SOURCE_LABEL[info.source]} removed`,
         text: `${title}. ${plural(own.length, 'saved result')} read it and ${own.length === 1 ? 'is' : 'are'} now blocked: ${listText(names)}. Refresh cannot recover them; reset restores the source.`,
       })
     } else {
       setStatus({
         tone: 'stale',
+        short: `${SOURCE_LABEL[info.source]} v${version}`,
         text: own.length
           ? `${title}. ${plural(own.length, 'saved result')} read the old version and ${own.length === 1 ? 'is' : 'are'} withheld until refresh: ${listText(names)}. Everything else stays current.`
           : `${title}. No current saved result reads the old version.`,
@@ -185,12 +224,14 @@ export default function Demo() {
     if (outcome.ok) {
       const result = outcome.lastRefresh
       setPrevious(before)
+      setWork({ ran: result.executedCount, reused: result.reusedCount, records: distinctInputs(session, calls.map(call => call.inputs)), healed: true })
       lines.push(...result.reusedArtifactIds.map(id => reusedLine(session, id)))
       if (result.executedCount === 0) {
-        setStatus({ tone: 'info', text: 'Nothing needed refresh. Both reports were already current, so no tools ran.' })
+        setStatus({ tone: 'info', short: 'Nothing to refresh', text: 'Nothing needed refresh. Both reports were already current, so no tools ran.' })
       } else {
         setStatus({
           tone: 'pass',
+          short: result.numericParity ? 'Healed and verified' : 'Refreshed',
           text: `Refresh ran ${plural(result.executedCount, 'tool')} and reused ${plural(result.reusedCount, 'saved result')}. ${result.unchangedSupport ? 'The support count kept the same artifact. ' : ''}${result.numericParity ? 'Both reports match a fresh recomputation.' : 'The reports do not match a fresh recomputation.'}`,
         })
       }
@@ -202,8 +243,10 @@ export default function Demo() {
     } else {
       const source = outcome.source as SourceName | null
       const what = source ? `${SOURCE_LABEL[source]} was removed` : 'evidence is missing'
+      setWork({ ran: calls.length, reused: 0, records: 0, healed: false })
       setStatus({
         tone: 'blocked',
+        short: 'Refresh stopped',
         text: `Refresh stopped: ${what}, so the work that needs it cannot be recomputed.${calls.length ? ` ${plural(calls.length, 'tool')} ran before the stop.` : ''} Reset the sample to restore it.`,
       })
       push({ tone: 'error', title: 'Refresh stopped', lines: [...lines, { kind: 'fail', text: outcome.error }] })
@@ -213,10 +256,11 @@ export default function Demo() {
 
   const verify = () => {
     const result = session.verify()
+    const failing = result.reports.filter(row => !(row.numericMatch && row.state === 'current'))
     setVerification(result)
     setStatus(result.passed
-      ? { tone: 'pass', text: 'Check passed: both saved reports are current and match a fresh recomputation.' }
-      : { tone: 'fail', text: `Check failed: ${listText(result.reports.filter(row => !(row.numericMatch && row.state === 'current')).map(row => row.title))} ${result.reports.filter(row => !(row.numericMatch && row.state === 'current')).length === 1 ? 'is' : 'are'} not both current and matching.` })
+      ? { tone: 'pass', short: 'Check passed', text: 'Check passed: both saved reports are current and match a fresh recomputation.' }
+      : { tone: 'fail', short: 'Check failed', text: `Check failed: ${listText(failing.map(row => row.title))} ${failing.length === 1 ? 'is' : 'are'} not both current and matching.` })
     push({
       tone: 'verify', title: result.passed ? 'Check values: passed' : 'Check values: failed',
       lines: result.reports.map(row => ({
@@ -234,82 +278,121 @@ export default function Demo() {
     setVerification(null)
     setPrevious({})
     setFieldError(null)
-    setStatus({ tone: 'info', text: 'Sample reset to the authored data. A new generation ran the eight initial tools; every saved result is current.' })
+    setWork({ ran: 0, reused: 0, records: 0, healed: false })
+    setStatus({ tone: 'info', short: 'Sample reset', text: 'Sample reset to the authored data. A new generation ran the eight initial tools; every saved result is current.' })
     push({ tone: 'reset', title: 'Sample reset: new generation', lines: fresh.runtime.calls.map(call => callLine(fresh, call)) })
   }
 
+  const selectNode = (slot: Slot) => {
+    if (drawer.open && drawer.tab === 'step' && selected === slot) {
+      closeDrawer()
+      return
+    }
+    setSelected(slot)
+    openDrawer('step')
+  }
+
   const removed = new Set(SLOTS.filter(def => view.nodes[def.slot].state === 'removed').map(def => def.slot.replace('source:', '') as SourceName))
-  const shown = SLOTS.filter(def => def.layer !== 'source').map(def => display(def.slot))
+  const shown = RESULT_SLOTS.map(slot => display(slot))
   const staleCount = shown.filter(node => node.state === 'stale' || node.state === 'unknown').length
   const blockedCount = shown.filter(node => node.state === 'blocked').length
+  // Context-layer point, against the re-run-everything baseline: steps re-run and distinct records read.
+  const pendingArtifacts = session.affectedArtifacts.filter(record => {
+    const state = view.nodes[record.logicalId as Slot]?.state
+    return state === 'stale' || state === 'unknown'
+  })
+  const pending = !work.healed && pendingArtifacts.length > 0
+  const heads = RESULT_SLOTS.map(slot => session.runtime.getHead(slot)).filter((record): record is ArtifactRecord => record?.kind === 'artifact')
+  const meterTone: MeterTone = staleCount ? 'stale' : blockedCount ? 'blocked' : work.healed && work.ran ? 'fresh' : 'idle'
+  const meters = {
+    steps: work.healed ? work.ran : pending ? pendingArtifacts.length : 0,
+    stepsTotal: RESULT_SLOTS.length,
+    records: work.healed ? work.records : pending ? distinctInputs(session, pendingArtifacts.map(record => record.inputs)) : 0,
+    recordsTotal: distinctInputs(session, heads.map(record => record.inputs)),
+    pending,
+    tone: meterTone,
+  }
+  const rate = view.nodes['source:fx'].state === 'removed' ? '1.20' : view.nodes['source:fx'].detail.replace('EUR ', '')
   const StatusIcon = status.tone === 'pass' ? CircleCheck : status.tone === 'blocked' ? Ban : status.tone === 'info' ? Info : CircleAlert
+  const checkTone = verification ? (verification.passed ? ' is-pass' : ' is-fail') : ''
 
   return (
-    <section id="demo" className="section demo-section" aria-labelledby="demo-title">
+    <section id="demo" ref={sectionRef} className="section demo-section stage" aria-labelledby="demo-title">
+      <div className="demo-wash" aria-hidden />
       <div className="wrap">
-        <header className="section-head demo-head">
-          <h2 id="demo-title" className="section-title">Change a source. Watch only the affected work move.</h2>
-          <p className="section-lede">Each correction flags only the work that read that source. Refresh reruns those steps and reuses everything else.</p>
+        <header className="demo-head">
+          <div className="demo-head-copy">
+            <h2 id="demo-title" className="demo-title">Break it. Watch it heal.</h2>
+            <p className="demo-lede">Correct a source: only the work that read it is withheld and re-run. Everything else is reused.</p>
+          </div>
         </header>
+        <Counters work={meters} reused={work.reused} withheld={staleCount} blocked={blockedCount} />
 
-        <div className="demo-replay">
-          <p>Replay of the guided sample in your browser. The live app runs the same corrections on SQLite and native HydraDB traversal.</p>
-          <div className="demo-replay-actions">
-            <ButtonLink href={links.liveApp} external variant="secondary">Try it on the live app</ButtonLink>
-            <span className="demo-replay-sources">
-              <Source path="docs/API_CONTRACT.md" />
-              <Source path="proofflow/analytics.py" />
+        <Chips rate={rate} removed={removed} error={fieldError} onChange={applyChange}
+          onFieldError={setFieldError} onPreview={setPreview} />
+
+        <div className="demo-frame">
+          <div className="demo-frame-top">
+            <span className="demo-example">Example: revenue reports an agent saved</span>
+            <span className={`demo-event is-${status.tone}`} aria-hidden>
+              <StatusIcon size={14} strokeWidth={2.4} />
+              {status.short}
             </span>
+            <button type="button" className="demo-info" onClick={() => openDrawer('activity')}
+              aria-label={`Open activity log, ${log.length} entries`}>
+              <PanelRightOpen size={17} strokeWidth={2} aria-hidden />
+              <span className="demo-info-label">Activity</span>
+            </button>
+          </div>
+
+          <Graph display={display} next={view.nodes} selected={drawer.open && drawer.tab === 'step' ? selected : null}
+            wave={wave} preview={preview} onSelect={selectNode} />
+
+          <div className="demo-dock" role="group" aria-label="Actions">
+            <button type="button" className={`demo-act demo-act--refresh${staleCount ? ' is-due' : ''}`} onClick={refresh}>
+              <RefreshCw size={18} strokeWidth={2.3} aria-hidden />
+              Refresh
+            </button>
+            <button type="button" className={`demo-act demo-act--check${checkTone}`} onClick={verify}>
+              {verification?.passed ? <CircleCheck size={18} strokeWidth={2.2} aria-hidden /> : <ShieldCheck size={18} strokeWidth={2.2} aria-hidden />}
+              {verification ? (verification.passed ? 'Passed' : 'Failed') : 'Check'}
+            </button>
+            <button type="button" className="demo-act demo-act--reset" onClick={reset} aria-label="Reset sample">
+              <RotateCcw size={17} strokeWidth={2.2} aria-hidden />
+            </button>
           </div>
         </div>
 
-        <div className="demo-bench panel">
-          <Console view={view} removed={removed} error={fieldError} verification={verification}
-            onChange={applyChange} onFieldError={setFieldError} onRefresh={refresh} onVerify={verify} onReset={reset} />
+        <Reports reports={displayedReports} previous={previous} refresh={session.lastRefresh}
+          checks={verification?.reports ?? null} />
 
-          <div className="demo-stage">
-            <div className="demo-stage-head">
-              <h3 className="demo-panel-title">Lineage</h3>
-              <div className="demo-counts">
-                {staleCount === 0 && blockedCount === 0 && <StateTag state="current">All current</StateTag>}
-                {staleCount > 0 && <StateTag state="withheld">{staleCount} need refresh</StateTag>}
-                {blockedCount > 0 && <StateTag state="blocked">{blockedCount} blocked</StateTag>}
-              </div>
-            </div>
-            <p className={`demo-status is-${status.tone}`} role="status" aria-live="polite">
-              <StatusIcon size={18} strokeWidth={2} aria-hidden />
-              <span>{status.text}</span>
-            </p>
-            <Graph display={display} next={view.nodes} selected={selected} wave={wave}
-              origin={wave?.origin ?? null} onSelect={slot => setSelected(current => (current === slot ? null : slot))} />
-            <Inspector session={session} slot={selected} node={selected ? display(selected) : null} />
-          </div>
-        </div>
+        <footer className="demo-foot">
+          <p className="demo-honest">Browser replay of the guided sample; the live app runs SQLite and HydraDB.</p>
+          <ButtonLink href={links.liveApp} external variant="secondary">Open the live app</ButtonLink>
+          <span className="demo-sources">
+            <Source path="README.md" />
+            <Source path="proofflow/analytics.py" />
+          </span>
+        </footer>
 
-        <div className="demo-lower">
-          <Reports reports={displayedReports} previous={previous} refresh={session.lastRefresh} />
-          <Activity entries={log} />
-        </div>
-
-        <p className="demo-verified soft">
-          The verified run: company revenue $5,565 to $5,755 and EU revenue $2,090 to $2,280 after EUR 1.10 to 1.20,
-          EU support tickets 2 with the same artifact, and four tools on refresh. This replay reproduces each figure.{' '}
-          <Source path="README.md" />
-        </p>
-
-        <div className="demo-shots">
-          <figure>
-            <img src={import.meta.env.BASE_URL + "shots/workspace-stale-final.jpg"} width={1536} height={1146} loading="lazy"
-              alt="The live ProofFlow app after correcting EUR to USD to 1.20: company revenue shows Awaiting refresh with the previous $5,565.00 labelled, the evidence graph highlights the affected path, and a banner says 4 saved artifacts require revalidation." />
-            <figcaption>The live app after the EUR correction: affected values wait for refresh.</figcaption>
-          </figure>
-          <figure>
-            <img src={import.meta.env.BASE_URL + "shots/workspace-refreshed-final.jpg"} width={1536} height={1096} loading="lazy"
-              alt="The live ProofFlow app after refresh: company revenue $5,755.00, EU revenue $2,280.00, EU support tickets 2, and a banner reporting 4 tool calls, unchanged support and matching recomputation." />
-            <figcaption>The live app after refresh: four tool calls, support unchanged.</figcaption>
-          </figure>
+        <div className="demo-real">
+          <span className="demo-real-label">See the real app</span>
+          <a className="demo-shot" href={import.meta.env.BASE_URL + 'shots/workspace-stale-final.jpg'} target="_blank" rel="noreferrer">
+            <img src={import.meta.env.BASE_URL + 'shots/workspace-stale-final.jpg'} width={1536} height={1146} loading="lazy"
+              alt="The live ProofFlow app after correcting EUR to USD to 1.20: company revenue shows Awaiting refresh with the previous $5,565.00 labelled, and 4 saved artifacts require revalidation." />
+            <span>Withheld</span>
+          </a>
+          <a className="demo-shot" href={import.meta.env.BASE_URL + 'shots/workspace-refreshed-final.jpg'} target="_blank" rel="noreferrer">
+            <img src={import.meta.env.BASE_URL + 'shots/workspace-refreshed-final.jpg'} width={1536} height={1096} loading="lazy"
+              alt="The live ProofFlow app after refresh: company revenue $5,755.00, EU revenue $2,280.00, EU support tickets 2, 4 tool calls and matching recomputation." />
+            <span>Refreshed</span>
+          </a>
         </div>
       </div>
+
+      <Drawer open={drawer.open} tab={drawer.tab} onTab={tab => setDrawer(current => ({ ...current, tab }))}
+        onClose={closeDrawer} session={session} slot={selected} node={selected ? display(selected) : null} log={log} />
+      <p className="sr-only" role="status" aria-live="polite">{status.text}</p>
     </section>
   )
 }

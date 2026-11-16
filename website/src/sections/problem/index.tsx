@@ -1,105 +1,188 @@
-import type { CSSProperties } from 'react'
-import { SectionHead, Source, usd } from '../../components/ui'
-import { guidedSample as g, headline } from '../../content/facts'
+import { useRef, useState, type CSSProperties } from 'react'
+import { useInView, useReducedMotion } from 'motion/react'
+import { FileStack, ScanSearch, TextSearch, Waypoints, type LucideIcon } from 'lucide-react'
+import { Source, StateTag, type ClaimState } from '../../components/ui'
+import { headline } from '../../content/facts'
+import { OF, STUDY_SOURCE, arm, derived, int, usd2, type ArmId } from '../hero/data'
+import Tip from '../hero/Tip'
 import './styles.css'
 
+/*
+ * Each 10×10 grid illustrates one approach's context: every tile is 1% of full context. Tiles on the dependency
+ * path ("needed") are what a refresh actually depends on (35 tiles, close to ProofFlow's 35.17% of full
+ * context's input across all cases). The capped arms read the same 35-tile budget. Counts of hits are scaled
+ * from each arm's measured correct/32. Illustration only; the numbers beside each grid are measured.
+ */
+
+type Cell = 'hit' | 'waste' | 'miss' | 'idle'
+
+const N = 10
+const idx = (r: number, c: number) => r * N + c
+const run = (cells: [number, number][]) => cells.map(([r, c]) => idx(r, c))
+const range = (a: number, b: number) => Array.from({ length: b - a + 1 }, (_, i) => a + i)
+
+/** The dependency path: a trunk with branches. 35 tiles. */
+const PATH = new Set<number>([
+  ...run(range(0, 9).map(r => [r, 4] as [number, number])),
+  ...run(range(1, 3).map(c => [3, c] as [number, number])),
+  ...run(range(4, 8).map(r => [r, 1] as [number, number])),
+  ...run(range(5, 8).map(c => [6, c] as [number, number])),
+  ...run(range(0, 5).map(r => [r, 8] as [number, number])),
+  ...run(range(5, 7).map(c => [1, c] as [number, number])),
+  ...run([[8, 2], [8, 3], [0, 0], [0, 1]]),
+])
+
+const hash = (i: number, salt: number) => (Math.imul(i + 1, 2654435761) ^ Math.imul(salt + 7, 40503)) >>> 0
+
+/** Deterministically pick `hits` path tiles and fill the rest of a 35-tile budget off the path. */
+function grid(hits: number, salt: number, readAll = false): Cell[] {
+  const all = range(0, N * N - 1)
+  if (readAll) return all.map(i => (PATH.has(i) ? 'hit' : 'waste'))
+  const onPath = all.filter(i => PATH.has(i)).sort((a, b) => hash(a, salt) - hash(b, salt))
+  const offPath = all.filter(i => !PATH.has(i)).sort((a, b) => hash(a, salt + 3) - hash(b, salt + 3))
+  const read = new Set([...onPath.slice(0, hits), ...offPath.slice(0, PATH.size - hits)])
+  return all.map(i => (PATH.has(i) ? (read.has(i) ? 'hit' : 'miss') : read.has(i) ? 'waste' : 'idle'))
+}
+
+const scaled = (correct: number) => Math.round((correct / OF) * PATH.size)
+
+type Lane = {
+  id: ArmId
+  name: string
+  icon: LucideIcon
+  value: string
+  unit: string
+  chip: string
+  state: ClaimState
+  cells: Cell[]
+  receipt: string
+}
+
+const full = arm('full')
+const dense = arm('dense')
+const bm25 = arm('bm25')
+const graph = arm('graph')
+const exact = arm('exact')
 const retail = headline.retail
-const RETAIL_SOURCE = 'docs/RETAIL_V2_RESULTS.md'
+const retailOf = (m: string) => retail.comparators.find(c => c.method === m)?.refreshed
 
-const pct = (part: number, whole: number) => `${((part / whole) * 100).toFixed(2)}%`
-const fmt = (n: number) => n.toLocaleString('en-US')
-const barWidth = (w: string) => ({ '--w': w }) as CSSProperties
-
-/** Evidence tokens across the ten held-out cases; both arms refresh 38/38 (docs/RETAIL_V2_RESULTS.md). */
-const tokenRows = [
-  { label: 'Full context', value: fmt(retail.fullTokens), width: '100%', lead: false },
-  { label: 'Dependency path', value: fmt(retail.graphTokens), width: pct(retail.graphTokens, retail.fullTokens), lead: true },
+const LANES: Lane[] = [
+  {
+    id: 'full',
+    name: 'Re-read everything',
+    icon: FileStack,
+    value: int(full.inputTokens),
+    unit: 'input tokens',
+    chip: `${(full.inputTokens / graph.inputTokens).toFixed(1)}× ProofFlow’s input`,
+    state: 'unknown',
+    cells: grid(PATH.size, 0, true),
+    receipt: `Full context refreshed ${full.correct}/${OF}, but read ${int(full.inputTokens)} input tokens at ${usd2(full.costUsd)} measured list cost. ProofFlow: ${int(graph.inputTokens)} and ${usd2(graph.costUsd)}.`,
+  },
+  {
+    id: 'dense',
+    name: 'Vector RAG',
+    icon: ScanSearch,
+    value: `${dense.correct}/${OF}`,
+    unit: 'affected reports right',
+    chip: `Misses ${OF - dense.correct} of ${OF}`,
+    state: 'stale',
+    cells: grid(scaled(dense.correct), 11),
+    receipt: `BGE dense retrieval at the same evidence allowance (${int(dense.inputTokens)} input tokens, ${usd2(dense.costUsd)}). Retail benchmark: ${retailOf('Dense BGE')}/${retail.of}.`,
+  },
+  {
+    id: 'bm25',
+    name: 'Keyword search',
+    icon: TextSearch,
+    value: `${bm25.correct}/${OF}`,
+    unit: 'affected reports right',
+    chip: `Misses ${OF - bm25.correct} of ${OF}`,
+    state: 'stale',
+    cells: grid(scaled(bm25.correct), 5),
+    receipt: `BM25 at the same evidence allowance (${int(bm25.inputTokens)} input tokens, ${usd2(bm25.costUsd)}). Retail benchmark: ${retailOf('BM25')}/${retail.of}.`,
+  },
+  {
+    id: 'graph',
+    name: 'Follow the lineage',
+    icon: Waypoints,
+    value: `${graph.correct}/${OF}`,
+    unit: 'affected reports right',
+    chip: `At ${derived.exposurePct}% of input`,
+    state: 'current',
+    cells: grid(PATH.size, 0),
+    receipt: `ProofFlow: ${int(graph.inputTokens)} input tokens, ${usd2(graph.costUsd)} list cost; ${derived.exposurePct}% of full context’s input excluding the no-op case. The exact-flat ablation ties at ${exact.correct}/${OF}.`,
+  },
 ]
 
-/** Fresh affected reports at the same per-case evidence allowance (docs/RETAIL_V2_RESULTS.md). */
-const searchRows = [
-  { label: 'Dependency path', n: 38, lead: true },
-  { label: 'BM25 keyword search', n: 19, lead: false },
-  { label: 'Dense BGE vectors', n: 8, lead: false },
-].map(r => ({ label: r.label, value: `${r.n}/${retail.of}`, width: pct(r.n, retail.of), lead: r.lead }))
-
-function Bars({ rows }: { rows: { label: string; value: string; width: string; lead: boolean }[] }) {
+function Waffle({ cells, lane }: { cells: Cell[]; lane: number }) {
   return (
-    <dl className="bars">
-      {rows.map(r => (
-        <div key={r.label} className={`bar-row${r.lead ? ' is-lead' : ''}`}>
-          <dt>{r.label}</dt>
-          <dd className="bar-track"><span className="bar" style={barWidth(r.width)} /></dd>
-          <dd className="bar-num figure">{r.value}</dd>
-        </div>
+    <svg className="waffle" viewBox="0 0 100 100" aria-hidden focusable="false">
+      {cells.map((type, i) => (
+        <rect key={i} x={(i % N) * 10 + 1} y={Math.floor(i / N) * 10 + 1} width={8} height={8} rx={1.6}
+          className={`cell is-${type}${PATH.has(i) ? ' on-path' : ''}`}
+          style={{ '--k': (i % N) + Math.floor(i / N) + lane * 3 } as CSSProperties} />
       ))}
-    </dl>
+    </svg>
   )
 }
 
 export default function Problem() {
+  const reduce = useReducedMotion() ?? false
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, amount: 0.25 })
+  const [showPath, setShowPath] = useState(false)
+
   return (
     <section id="problem" className="section problem-section" aria-labelledby="problem-title">
       <div className="wrap">
-        <SectionHead id="problem-title" title="A saved number can be relevant and still wrong." />
+        <header className="problem-head">
+          <h2 id="problem-title" className="problem-title">Today’s fixes are heavy or blind.</h2>
+          <p className="problem-lede">
+            Re-reading everything burns tokens; similarity search stays cheap but misses what actually depends on the change.
+          </p>
+        </header>
 
-        <ol className="problem-story">
-          <li className="beat">
-            <h3 className="beat-title">An input changes after the report is saved.</h3>
-            <p className="beat-text">A rate gets corrected, a refund arrives, a tool is updated.</p>
-            <div className="beat-visual p-chips" aria-hidden>
-              <span className="p-chip p-chip-changed">
-                EUR→USD <del className="figure">{g.fxBefore}</del> <ins className="figure">{g.fxAfter}</ins>
-              </span>
-              <span className="p-chip">Refund</span>
-              <span className="p-chip">Tool version</span>
-            </div>
-            <p className="beat-cite"><Source path="docs/SUBMISSION_DRAFT.md" /></p>
-          </li>
+        <div className="lanes-bar">
+          <button type="button" role="switch" aria-checked={showPath} className="path-switch" onClick={() => setShowPath(v => !v)}>
+            <span className="path-switch-track" aria-hidden><span /></span>
+            Show the dependency path
+          </button>
+          <ul className="lanes-key" aria-hidden>
+            <li><span className="key is-hit" />Needed, read</li>
+            <li><span className="key is-waste" />Read, not needed</li>
+            <li><span className="key is-miss" />Needed, missed</li>
+          </ul>
+        </div>
 
-          <li className="beat">
-            <h3 className="beat-title">The old report keeps serving the old figure.</h3>
-            <p className="beat-text">Nothing marks it, and the next report may reuse it.</p>
-            <div className="beat-visual">
-              <p className="p-report-kicker">Without lineage</p>
-              <div className="p-report">
-                <span className="p-report-label">Company revenue</span>
-                <span className="p-report-value figure">{usd(g.companyBeforeCents)}</span>
-              </div>
-              <p className="p-report-note">
-                Still served after the rate became <span className="figure">{g.fxAfter}</span>. With{' '}
-                <span className="figure">{g.fxAfter}</span> it is <span className="figure">{usd(g.companyAfterCents)}</span>.
-              </p>
-              <Source path="README.md" />
-            </div>
-          </li>
+        <div ref={ref} className="lanes" data-run={inView || reduce ? 'true' : undefined} data-path={showPath ? 'true' : undefined}>
+          {LANES.map((l, i) => {
+            const Icon = l.icon
+            return (
+              <article key={l.id} className={`lane lane-${l.id}`} aria-labelledby={`lane-${l.id}`}>
+                <h3 className="lane-name" id={`lane-${l.id}`}>
+                  <Icon size={18} strokeWidth={2} aria-hidden />
+                  {l.name}
+                </h3>
+                <Waffle cells={l.cells} lane={i} />
+                <Tip className="lane-tip" trigger={
+                  <>
+                    <span className="lane-num figure">{l.value}</span>
+                    <span className="sr-only"> {l.unit}. Show the source.</span>
+                  </>
+                }>
+                  <span className="tip-text">{l.receipt}</span>
+                  <Source path={STUDY_SOURCE} />
+                </Tip>
+                <span className="lane-unit" aria-hidden>{l.unit}</span>
+                <StateTag state={l.state}>{l.chip}</StateTag>
+              </article>
+            )
+          })}
+        </div>
 
-          <li className="beat beat-fixes">
-            <h3 className="beat-title">The usual fixes both hurt.</h3>
-            <p className="beat-text">Re-reading everything costs context. Searching for similar text misses dependencies.</p>
-            <div className="beat-visual fix-paths">
-              <figure className="fix">
-                <figcaption className="fix-title">
-                  Re-read everything
-                  <span className="fix-sub">Evidence tokens to refresh the same 38 reports</span>
-                </figcaption>
-                <Bars rows={tokenRows} />
-              </figure>
-              <figure className="fix">
-                <figcaption className="fix-title">
-                  Search for similar text
-                  <span className="fix-sub">Affected reports refreshed at the same evidence allowance</span>
-                </figcaption>
-                <Bars rows={searchRows} />
-              </figure>
-              <p className="fix-source">
-                Retail benchmark, ten held-out cases. <Source path={RETAIL_SOURCE} />
-              </p>
-            </div>
-          </li>
-        </ol>
-
-        <p className="problem-pivot">ProofFlow records what every number was made from, so it can tell.</p>
+        <p className="problem-foot">
+          <span>Tiles illustrate context, 1% each. Numbers: real-model study, eight cases, same evidence allowance.</span>
+          <Source path={STUDY_SOURCE} />
+        </p>
       </div>
     </section>
   )

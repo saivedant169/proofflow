@@ -129,3 +129,67 @@ export const verifier = {
   text: 'Download the evidence ZIP and run one standard-library Python script. It rebuilds the 4,681 source rows, recalculates every report and traces each saved receipt offline, with no model account.',
   source: 'docs/PUBLIC_EVIDENCE.md',
 } as const
+
+/**
+ * Provider accounting, actual-model study: all eight cases, one sample per arm, Fable 5.2.
+ * Copied from docs/MODEL_COMPARISON_RESULTS.md, section "Provider accounting". Input exposure
+ * includes cache creation and cache reads; list costs depend on cache treatment.
+ */
+export const accounting = {
+  cases: 8,
+  of: 32,
+  rows: [
+    { key: 'full', label: 'Full context', sub: 'Re-read everything', correct: 32, tokens: 219_145, cost: 3.742368 },
+    { key: 'bge', label: 'Vector RAG', sub: 'BGE dense', correct: 5, tokens: 75_785, cost: 1.377631 },
+    { key: 'bm25', label: 'Keyword search', sub: 'BM25', correct: 25, tokens: 75_699, cost: 1.427535 },
+    { key: 'hybrid', label: 'Hybrid retrieval', sub: 'Iterative', correct: 28, tokens: 76_174, cost: 1.448095 },
+    { key: 'pf', label: 'ProofFlow', sub: 'HydraDB graph', correct: 32, tokens: 77_071, cost: 1.377214, highlight: true },
+    { key: 'flat', label: 'Exact-flat walk', sub: 'Ablation', correct: 32, tokens: 77_095, cost: 0.5055334, ablation: true },
+  ],
+  /** Derived from the rows above (stated as derived on the page). */
+  derived: {
+    tokensSaved: 142_074,          // 219,145 - 77,071
+    costLowerPct: 63,              // 1 - 1.3772140 / 3.7423680 = 63.2%
+    vsVector: '6.4×',              // 32 / 5
+    perCaseCostPf: 0.1722,         // 1.3772140 / 8
+    perCaseCostFull: 0.4678,       // 3.7423680 / 8
+    perCaseCostSaved: 0.2956,      // (3.7423680 - 1.3772140) / 8
+    perCaseTokensSaved: 17_759,    // 142,074 / 8
+    vectorMissed: 27,              // 32 - 5 affected reports
+  },
+  source: 'docs/MODEL_COMPARISON_RESULTS.md',
+} as const
+
+/** "What we don't claim" chips: short label, one sentence, and the files that state it. */
+export const notClaimed = [
+  {
+    chip: 'List prices, cache-dependent',
+    text: 'Costs are list prices from this one study and depend on cache treatment: exact-flat sent the same ordered prompts as ProofFlow yet cost $0.51, mostly cache reads.',
+    sources: ['docs/MODEL_COMPARISON_RESULTS.md'],
+  },
+  {
+    chip: 'One sample per case',
+    text: 'One frozen sample per case and method, across eight fresh cases, all sharing one refresh executor. Run-to-run variance is not measured.',
+    sources: ['docs/MODEL_COMPARISON_RESULTS.md'],
+  },
+  {
+    chip: 'Exact-flat ties',
+    text: 'A plain walk over the same recorded dependencies ties ProofFlow on correctness. The win is explicit dependencies, which HydraDB holds and traverses.',
+    sources: ['docs/MODEL_COMPARISON_RESULTS.md', 'docs/RETAIL_V2_RESULTS.md'],
+  },
+  {
+    chip: 'No latency claim',
+    text: 'Timings describe one sequential, cached local run. Input exposure cannot establish a latency benefit, and time savings are not yet measured.',
+    sources: ['docs/MODEL_COMPARISON_RESULTS.md', 'docs/SUBMISSION_DRAFT.md'],
+  },
+  {
+    chip: 'Fixed caps: all miss',
+    text: 'Under hard caps of 4,096 and 8,192 tokens every method missed reports; ProofFlow reached 15 and 27 of 32, hybrid 28 at 8,192.',
+    sources: ['docs/FIXED_BUDGET_DIAGNOSTIC_RESULTS.md'],
+  },
+  {
+    chip: 'Dev efficiency gate failed',
+    text: 'On the retail development cases graph used 60.79% of full-context evidence, above the unchanged 40% gate. Kept, never pooled with test.',
+    sources: ['docs/RETAIL_V2_RESULTS.md'],
+  },
+] as const
