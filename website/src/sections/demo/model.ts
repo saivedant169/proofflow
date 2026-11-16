@@ -15,41 +15,42 @@ export interface SlotDef {
   /** Static recipe parents, used for layout and the order of the animated signal. */
   parents: Slot[]
   tool?: ToolName
-  /** Node centre in the 880 x 660 graph coordinate system (top-down: sources at the top). */
+  /** Short name drawn on the graph node. */
+  short: string
+  /** Node centre in the 1200 x 560 graph coordinate system (left to right: sources on the left). */
   cx: number
   cy: number
   plain: string
 }
 
-export const GRAPH_W = 880
-export const GRAPH_H = 660
-const ROW = (i: number) => 40 + 116 * i
+export const GRAPH_W = 1200
+export const GRAPH_H = 560
 
 /** Listed in dependency (topological) order. */
 export const SLOTS: SlotDef[] = [
-  { slot: 'source:orders', label: 'Orders', layer: 'source', parents: [], cx: 105, cy: ROW(0),
+  { slot: 'source:orders', label: 'Orders', layer: 'source', parents: [], short: 'Orders', cx: 90, cy: 80,
     plain: 'Five authored orders across the EU, US and UK. The first EU order, eu-101, is the one you can correct.' },
-  { slot: 'source:refunds', label: 'Refunds', layer: 'source', parents: [], cx: 325, cy: ROW(0),
+  { slot: 'source:refunds', label: 'Refunds', layer: 'source', parents: [], short: 'Refunds', cx: 90, cy: 213,
     plain: 'Two refunds matched to orders, including the refund on eu-101.' },
-  { slot: 'source:fx', label: 'Exchange rates', layer: 'source', parents: [], cx: 545, cy: ROW(0),
+  { slot: 'source:fx', label: 'Exchange rates', layer: 'source', parents: [], short: 'EUR rate', cx: 90, cy: 346,
     plain: 'USD exchange rates for EUR, USD and GBP. Only the EUR rate can be corrected here.' },
-  { slot: 'source:tickets', label: 'Tickets', layer: 'source', parents: [], cx: 785, cy: ROW(0),
+  { slot: 'source:tickets', label: 'Tickets', layer: 'source', parents: [], short: 'Tickets', cx: 90, cy: 480,
     plain: 'Support tickets with a region and status. Corrections add new open EU tickets.' },
-  { slot: 'metric:gross', label: 'Gross regional revenue', layer: 'metric', parents: ['source:orders'], tool: 'gross_by_region', cx: 105, cy: ROW(1),
+  { slot: 'metric:gross', label: 'Gross regional revenue', layer: 'metric', parents: ['source:orders'], tool: 'gross_by_region', short: 'Gross revenue', cx: 300, cy: 80,
     plain: 'Sums each region’s orders in that region’s own currency.' },
-  { slot: 'metric:refunds', label: 'Regional refunds', layer: 'metric', parents: ['source:orders', 'source:refunds'], tool: 'refunds_by_region', cx: 325, cy: ROW(1),
+  { slot: 'metric:refunds', label: 'Regional refunds', layer: 'metric', parents: ['source:orders', 'source:refunds'], tool: 'refunds_by_region', short: 'Refund totals', cx: 300, cy: 213,
     plain: 'Joins each refund to its order and sums refunds by region.' },
-  { slot: 'metric:support', label: 'Support tickets', layer: 'metric', parents: ['source:tickets'], tool: 'support_by_region', cx: 785, cy: ROW(1),
+  { slot: 'metric:support', label: 'Support tickets', layer: 'metric', parents: ['source:tickets'], tool: 'support_by_region', short: 'Support count', cx: 910, cy: 470,
     plain: 'Counts support tickets per region. No money calculation touches it.' },
-  { slot: 'metric:net', label: 'Net regional revenue', layer: 'metric', parents: ['metric:gross', 'metric:refunds'], tool: 'net_by_region', cx: 215, cy: ROW(2),
+  { slot: 'metric:net', label: 'Net regional revenue', layer: 'metric', parents: ['metric:gross', 'metric:refunds'], tool: 'net_by_region', short: 'Net revenue', cx: 505, cy: 146,
     plain: 'Subtracts each region’s refunds from its gross revenue.' },
-  { slot: 'metric:regional', label: 'Regional USD revenue', layer: 'metric', parents: ['metric:net', 'source:fx'], tool: 'convert_to_usd', cx: 415, cy: ROW(3),
+  { slot: 'metric:regional', label: 'Regional USD revenue', layer: 'metric', parents: ['metric:net', 'source:fx'], tool: 'convert_to_usd', short: 'USD revenue', cx: 710, cy: 300,
     plain: 'Converts each region’s net revenue to USD cents with the recorded rates, rounding half to even.' },
-  { slot: 'metric:company', label: 'Company revenue', layer: 'metric', parents: ['metric:regional'], tool: 'company_total', cx: 605, cy: ROW(4),
+  { slot: 'metric:company', label: 'Company revenue', layer: 'metric', parents: ['metric:regional'], tool: 'company_total', short: 'Company revenue', cx: 910, cy: 150,
     plain: 'Adds the regional USD amounts into one company figure.' },
-  { slot: 'report:company', label: 'Company weekly report', layer: 'report', parents: ['metric:company', 'metric:support'], tool: 'compose_report', cx: 785, cy: ROW(5),
+  { slot: 'report:company', label: 'Company weekly report', layer: 'report', parents: ['metric:company', 'metric:support'], tool: 'compose_report', short: 'Company report', cx: 1110, cy: 150,
     plain: 'Saved by run A. Claims company revenue and EU support tickets.' },
-  { slot: 'report:eu', label: 'EU operations brief', layer: 'report', parents: ['metric:regional', 'metric:support'], tool: 'compose_report', cx: 385, cy: ROW(5),
+  { slot: 'report:eu', label: 'EU operations brief', layer: 'report', parents: ['metric:regional', 'metric:support'], tool: 'compose_report', short: 'EU brief', cx: 1110, cy: 380,
     plain: 'Saved by a separate run B. Claims EU revenue and EU support tickets.' },
 ]
 
@@ -275,4 +276,11 @@ export const STATE_TEXT: Record<NodeState, string> = {
   stale: 'Needs refresh',
   blocked: 'Blocked',
   unknown: 'Unknown',
+}
+
+/** Every slot that reads the given slot, directly or through other steps (static recipe graph). */
+export function downstream(root: Slot): Set<Slot> {
+  const out = new Set<Slot>([root])
+  for (const def of SLOTS) if (def.parents.some(parent => out.has(parent))) out.add(def.slot)
+  return out
 }

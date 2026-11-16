@@ -93,8 +93,7 @@ export default function Inspector({ session, slot, node }: { session: DemoSessio
   if (!slot || !node) {
     return (
       <div className="demo-inspector is-empty">
-        <h3 className="demo-panel-title">Inspector</h3>
-        <p className="soft">Select any step in the graph to see what it is, what it read and the receipt of the run that made it.</p>
+        <p className="soft">Pick any node in the graph.</p>
       </div>
     )
   }
@@ -119,7 +118,7 @@ export default function Inspector({ session, slot, node }: { session: DemoSessio
   return (
     <div className="demo-inspector" aria-labelledby="demo-inspector-title">
       <div className="demo-inspector-head">
-        <h3 className="demo-panel-title" id="demo-inspector-title">{def.label}</h3>
+        <h3 className="demo-inspector-title" id="demo-inspector-title">{def.label}</h3>
         <StateTag state={tagState(node)}>{tagText(node)}</StateTag>
       </div>
       <p className="demo-inspector-kind soft">
@@ -175,7 +174,7 @@ export default function Inspector({ session, slot, node }: { session: DemoSessio
               </>
             )}
           </dl>
-          <p className="demo-fine">IDs and hashes are generated in your browser for this replay (64-bit hash, not the server’s SHA-256).</p>
+          <p className="demo-fine">Replay IDs: 64-bit browser hash, not the server’s SHA-256.</p>
         </div>
       </div>
 

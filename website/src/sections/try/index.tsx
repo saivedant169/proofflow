@@ -1,169 +1,236 @@
-import { ChevronRight, FileArchive, Lock, Play, Plug } from 'lucide-react'
-import { ButtonLink, SectionHead, Source } from '../../components/ui'
+import { useEffect, useRef, useState, type ReactNode, type RefObject } from 'react'
+import { motion, useInView } from 'motion/react'
+import { AppWindow, ArrowUpRight, FileArchive, FileCode2, Lock, Play, Plug, ShieldCheck } from 'lucide-react'
+import { Source } from '../../components/ui'
 import { links } from '../../content/facts'
-import CopyCode from './CopyCode'
+import AgentThreads from './AgentThreads'
+import CopyCode, { type CommandSet } from './CopyCode'
 import Footer from './Footer'
 import './styles.css'
 
-const GUIDED_STEPS = ['Change a source', 'Exchange rate', 'Apply correction', 'Refresh affected']
-
-const RUN_LINES = [
-  'python3 scripts/init_local.py',
-  'docker compose -f docker-compose.yml -f compose.app.yml up -d --build',
+const COMMANDS: CommandSet[] = [
+  {
+    id: 'run',
+    label: 'Run',
+    lines: ['python3 scripts/init_local.py', 'docker compose -f docker-compose.yml -f compose.app.yml up -d --build'],
+    note: 'then open http://127.0.0.1:18080',
+  },
+  {
+    id: 'test',
+    label: 'Test',
+    lines: ['uv sync --frozen --extra test --extra benchmark --extra mcp', 'uv run pytest -q'],
+    note: 'no model credentials needed',
+  },
 ]
 
-const TEST_LINES = [
-  'uv sync --frozen --extra test --extra benchmark',
-  'uv run pytest -q',
-]
+const MORE = [
+  { label: 'Evidence ZIP', href: links.evidenceZip, icon: FileArchive, tip: 'Saved model study and an offline verifier', download: true },
+  { label: 'Evidence page', href: links.publicEvidence, icon: ShieldCheck, tip: 'Public evidence and checksums' },
+  { label: 'Connector script', href: links.connectorScript, icon: FileCode2, tip: 'Verify against its published checksum' },
+  { label: 'Repository', href: links.repo, icon: Lock, tip: 'Private; opens for judges with approved access', badge: 'judge access' },
+] as const
 
-const LOCAL_URL = 'http://127.0.0.1:18080'
+type TileProps = {
+  index: number
+  icon: ReactNode
+  title: string
+  line: string
+  chip: ReactNode
+  media: ReactNode
+  onHover: (i: number | null) => void
+}
+
+function TileBody({ icon, title, line, chip, arrow = true }: Pick<TileProps, 'icon' | 'title' | 'line' | 'chip'> & { arrow?: boolean }) {
+  return (
+    <div className="try-tile-body">
+      <span className="try-tile-icon" aria-hidden>{icon}</span>
+      <div className="try-tile-text">
+        <h3 className="try-tile-title">{title}</h3>
+        <p className="try-tile-line">{line}</p>
+      </div>
+      <span className="try-tile-chip">{chip}</span>
+      {arrow && <ArrowUpRight className="try-tile-go" size={20} strokeWidth={2} aria-hidden />}
+    </div>
+  )
+}
+
+function LinkTile({ href, index, onHover, media, ...body }: TileProps & { href: string }) {
+  return (
+    <a className="try-tile" href={href} target="_blank" rel="noreferrer"
+      onMouseEnter={() => onHover(index)} onMouseLeave={() => onHover(null)}
+      onFocus={() => onHover(index)} onBlur={() => onHover(null)}>
+      <div className="try-tile-media stage">{media}</div>
+      <TileBody {...body} />
+      <span className="sr-only">(opens in a new tab)</span>
+    </a>
+  )
+}
+
+function WalkthroughTile({ index, onHover }: { index: number; onHover: (i: number | null) => void }) {
+  const [playing, setPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  useEffect(() => { if (playing) videoRef.current?.focus() }, [playing])
+  const poster = import.meta.env.BASE_URL + 'shots/walkthrough-poster.jpg'
+  const body = { icon: <Play size={20} strokeWidth={2} />, title: 'Watch the walkthrough', line: 'Two minutes, including the 48-invocation study.', chip: '2 min' }
+
+  if (playing) {
+    return (
+      <div className="try-tile is-playing">
+        <div className="try-tile-media stage">
+          <video ref={videoRef} className="try-video" controls autoPlay playsInline preload="none" poster={poster}
+            width={1920} height={1080} src={links.walkthrough} aria-label="ProofFlow two-minute walkthrough">
+            Your browser cannot play this video. <a href={links.walkthrough}>Download the walkthrough</a>.
+          </video>
+        </div>
+        <div className="try-tile-body">
+          <span className="try-tile-icon" aria-hidden>{body.icon}</span>
+          <div className="try-tile-text">
+            <h3 className="try-tile-title">{body.title}</h3>
+            <p className="try-tile-line">
+              <a href={links.walkthrough} target="_blank" rel="noreferrer">Open the video file<span className="sr-only"> (opens in a new tab)</span></a>
+            </p>
+          </div>
+          <span className="try-tile-chip">{body.chip}</span>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <button type="button" className="try-tile" onClick={() => setPlaying(true)}
+      onMouseEnter={() => onHover(index)} onMouseLeave={() => onHover(null)}
+      onFocus={() => onHover(index)} onBlur={() => onHover(null)}
+      aria-label="Play the two-minute walkthrough here">
+      <div className="try-tile-media stage">
+        <img className="try-poster" src={poster} width={1920} height={1080} loading="lazy" decoding="async" alt="" />
+        <span className="try-play" aria-hidden><Play size={26} strokeWidth={2} fill="currentColor" /></span>
+      </div>
+      <TileBody {...body} arrow={false} />
+    </button>
+  )
+}
+
+/** One thread from the headline branching to each tile; the branch to the tile in hand lights up. */
+function Branches({ hover, tiles }: { hover: number | null; tiles: RefObject<HTMLDivElement | null> }) {
+  const ref = useRef<SVGSVGElement>(null)
+  const inView = useInView(ref, { once: true, amount: 0.6 })
+  const [geo, setGeo] = useState<{ w: number; h: number; ends: number[] } | null>(null)
+
+  useEffect(() => {
+    const svg = ref.current
+    const grid = tiles.current
+    if (!svg || !grid) return
+    const measure = () => {
+      const box = svg.getBoundingClientRect()
+      const ends = [...grid.children].slice(0, 3).map(c => {
+        const r = c.getBoundingClientRect()
+        return r.left + r.width / 2 - box.left
+      })
+      setGeo({ w: box.width, h: box.height, ends })
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(svg)
+    ro.observe(grid)
+    return () => ro.disconnect()
+  }, [tiles])
+
+  return (
+    <svg ref={ref} className="try-branches" aria-hidden focusable="false"
+      viewBox={geo ? `0 0 ${geo.w} ${geo.h}` : undefined}>
+      {geo && geo.ends.map((x, i) => {
+        const cx = geo.w / 2
+        const d = `M${cx} 0 C${cx} ${geo.h * 0.55} ${x} ${geo.h * 0.45} ${x} ${geo.h}`
+        return (
+          <g key={i} className={hover === i ? 'is-hot' : ''}>
+            <motion.path d={d} className="try-branch"
+              initial={{ pathLength: 0 }} animate={{ pathLength: inView ? 1 : 0 }}
+              transition={{ duration: 0.9, delay: 0.12 * i, ease: [0.22, 1, 0.36, 1] }} />
+            <path d={d} className="try-branch-hot" pathLength={1} />
+            <circle cx={x} cy={geo.h - 1} r={3} className="try-branch-end" />
+          </g>
+        )
+      })}
+    </svg>
+  )
+}
 
 export default function TryIt() {
+  const [hover, setHover] = useState<number | null>(null)
+  const [agentRun, setAgentRun] = useState<'idle' | 'a' | 'b'>('idle')
+  const tilesRef = useRef<HTMLDivElement>(null)
+  const tilesInView = useInView(tilesRef, { once: true, amount: 0.4 })
+
+  useEffect(() => { if (tilesInView) setAgentRun(r => (r === 'idle' ? 'a' : r)) }, [tilesInView])
+
+  const onHover = (i: number | null) => {
+    setHover(i)
+    if (i === 2) setAgentRun(r => (r === 'a' ? 'b' : 'a'))
+  }
+
   return (
     <>
       <section id="try" className="section try-section" aria-labelledby="try-title">
         <div className="wrap">
-          <SectionHead
-            id="try-title"
-            title="Try it now"
-            lede="Open the live app, watch the two-minute walkthrough, or run the same stack on your own machine."
-          />
+          <header className="try-head">
+            <h2 id="try-title" className="try-title">Try it in thirty seconds.</h2>
+            <p className="try-lede">Open the live app, watch the two-minute walkthrough, or connect your own agent.</p>
+          </header>
 
-          {/* Primary path: the hosted app */}
-          <div className="try-live">
-            <div className="try-live-text">
-              <h3 className="try-h">Use the live app</h3>
-              <p className="try-p">
-                Follow the guided sample to correct an exchange rate, see which figures are withheld, then refresh only
-                the affected work.
-              </p>
-              <ol className="try-guided" aria-label="Guided sample, the controls to choose in order">
-                {GUIDED_STEPS.map((s, i) => (
-                  <li key={s}>
-                    <span className="try-ctl">{s}</span>
-                    {i < GUIDED_STEPS.length - 1 && <ChevronRight className="try-ctl-sep" size={16} strokeWidth={2} aria-hidden />}
-                  </li>
-                ))}
-              </ol>
-              <p className="try-p try-p-soft">
-                Or choose <strong>Use your data</strong> and upload an orders CSV. It is sent to the ProofFlow server, not
-                to a model.
-              </p>
-              <div className="try-actions">
-                <ButtonLink href={links.liveApp} external>Open the live app</ButtonLink>
-              </div>
-              <p className="try-src"><Source path="README.md" /></p>
-            </div>
+          <Branches hover={hover} tiles={tilesRef} />
 
-            <figure className="try-shot">
-              <img
-                src={import.meta.env.BASE_URL + "shots/workspace-final.jpg"}
-                width={1536}
-                height={1031}
-                loading="lazy"
-                decoding="async"
-                alt="The ProofFlow workspace before a correction: company revenue $5,565.00, EU revenue $2,090.00 and 2 EU support tickets, all current, beside a graph that connects FX rates, orders, refunds and tickets through calculations to the two reports."
-              />
-              <figcaption>The guided sample in the live app, before a correction.</figcaption>
-            </figure>
+          <div className="try-tiles" ref={tilesRef}>
+            <LinkTile index={0} onHover={onHover} href={links.liveApp}
+              icon={<AppWindow size={20} strokeWidth={2} />}
+              title="Open the live app"
+              line="Correct one rate. Watch 4 affected steps re-run."
+              chip={<><span className="try-live-dot" aria-hidden />Live</>}
+              media={
+                <img className="try-shot" src={import.meta.env.BASE_URL + 'shots/workspace-refreshed-final.jpg'}
+                  width={1536} height={1096} loading="lazy" decoding="async"
+                  alt="The live ProofFlow workspace after a refresh: company revenue $5,755.00, current, beside the evidence graph." />
+              } />
+
+            <WalkthroughTile index={1} onHover={onHover} />
+
+            <LinkTile index={2} onHover={onHover} href={links.connector}
+              icon={<Plug size={20} strokeWidth={2} />}
+              title="Connect your agent"
+              line="Traverses dependencies, not similarity. No account needed."
+              chip="6 MCP tools"
+              media={<AgentThreads run={agentRun} />} />
           </div>
 
-          {/* Walkthrough */}
-          <div className="try-watch">
-            <div className="try-watch-text">
-              <h3 className="try-h">Watch the walkthrough</h3>
-              <p className="try-p">
-                Two minutes: CSV preview and report creation, a guided correction, the audited 48-invocation model
-                comparison and saved MCP-client evidence.
-              </p>
-              <div className="try-actions">
-                <ButtonLink variant="quiet" href={links.walkthrough} external icon={<Play size={16} strokeWidth={2} aria-hidden />}>
-                  Open the video file
-                </ButtonLink>
-              </div>
-              <p className="try-src"><Source path="README.md" /></p>
+          <div className="try-local">
+            <div className="try-local-text">
+              <h3 className="try-local-title">Run it locally</h3>
+              <ul className="try-reqs" aria-label="Requirements">
+                <li>Docker</li>
+                <li>Python 3</li>
+              </ul>
             </div>
-            <figure className="try-video">
-              <div className="try-video-frame">
-                <video
-                  controls
-                  preload="none"
-                  playsInline
-                  poster={import.meta.env.BASE_URL + "shots/walkthrough-poster.jpg"}
-                  width={1920}
-                  height={1080}
-                  aria-label="ProofFlow two-minute walkthrough"
-                  src={links.walkthrough}
-                >
-                  Your browser cannot play this video. <a href={links.walkthrough}>Download the walkthrough</a>.
-                </video>
-              </div>
-            </figure>
+            <CopyCode label="Local commands" sets={COMMANDS} />
           </div>
 
-          {/* Local run and agent connection */}
-          <div className="try-build">
-            <div className="try-local">
-              <h3 className="try-h">Run it locally</h3>
-              <p className="try-p">Needs Docker and Python 3. The first command creates local credentials; the second starts HydraDB and the app.</p>
-              <CopyCode label="Start the stack" lines={RUN_LINES} />
-              <p className="try-p try-open-local">
-                Then open <a href={LOCAL_URL} className="try-mono">{LOCAL_URL}</a>
-              </p>
-              <CopyCode label="Run the tests (no model credentials needed)" lines={TEST_LINES} />
-              <p className="try-src"><Source path="README.md" /></p>
-            </div>
+          <ul className="try-more" aria-label="More resources">
+            {MORE.map(m => (
+              <li key={m.label}>
+                <a href={m.href} className="try-more-link" data-tip={m.tip}
+                  {...('download' in m ? {} : { target: '_blank', rel: 'noreferrer' })}>
+                  <m.icon size={16} strokeWidth={2} aria-hidden />
+                  <span>{m.label}</span>
+                  {'badge' in m && <span className="try-more-badge">{m.badge}</span>}
+                  <span className="sr-only">. {m.tip}.{'download' in m ? '' : ' Opens in a new tab.'}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
 
-            <div className="try-agent">
-              <Plug className="try-icon" size={22} strokeWidth={1.8} aria-hidden />
-              <h3 className="try-h">Connect your agent</h3>
-              <p className="try-p">
-                A local MCP host can create, inspect, correct, refresh and export the same two CSV revenue reports as
-                the browser. No repository checkout, ProofFlow account or HydraDB key is required.
-              </p>
-              <p className="try-p try-p-soft">Needs <code>uv</code> and Python 3.11 or newer. Verify the script against its published checksum first.</p>
-              <div className="try-actions">
-                <ButtonLink href={links.connector} external variant="secondary">Set up the connector</ButtonLink>
-                <ButtonLink href={links.connectorScript} external variant="quiet">Get the Python script</ButtonLink>
-              </div>
-              <p className="try-src"><Source path="README.md" /></p>
-            </div>
-          </div>
-
-          {/* Evidence and source */}
-          <div className="try-more">
-            <div className="try-more-item">
-              <FileArchive className="try-icon" size={22} strokeWidth={1.8} aria-hidden />
-              <div>
-                <h3 className="try-h try-h-sm">Verify the evidence</h3>
-                <p className="try-p">
-                  The ZIP includes the saved model study and a Python standard-library verifier. It checks the arithmetic,
-                  receipt provenance, provider counters and historical failures offline.
-                </p>
-                <div className="try-actions">
-                  <ButtonLink href={links.evidenceZip} variant="secondary">Download the evidence ZIP</ButtonLink>
-                  <ButtonLink href={links.publicEvidence} external variant="quiet">Open the evidence page</ButtonLink>
-                </div>
-                <p className="try-src"><Source path="docs/PUBLIC_EVIDENCE.md" /></p>
-              </div>
-            </div>
-
-            <div className="try-more-item">
-              <Lock className="try-icon" size={22} strokeWidth={1.8} aria-hidden />
-              <div>
-                <h3 className="try-h try-h-sm">Read the source</h3>
-                <p className="try-p">
-                  The repository is private and opens for judges with approved access. The live app and the evidence
-                  verifier work without it.
-                </p>
-                <div className="try-actions">
-                  <ButtonLink href={links.repo} external variant="secondary">Open the repository</ButtonLink>
-                </div>
-                <p className="try-src"><Source path="README.md" /></p>
-              </div>
-            </div>
-          </div>
+          <p className="try-sources">
+            <Source path="README.md" />
+            <Source path="docs/AGENT_QUICKSTART.md" />
+            <Source path="docs/PUBLIC_EVIDENCE.md" />
+          </p>
         </div>
       </section>
       <Footer />
