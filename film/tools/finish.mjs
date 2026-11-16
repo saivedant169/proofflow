@@ -19,7 +19,10 @@ const NAME = process.argv.includes("--name")
   ? process.argv[process.argv.indexOf("--name") + 1]
   : "proofflow-film";
 const picture = join(root, "out", `${NAME}-picture.mp4`);
-const mix = join(root, "audio", "mix.wav");
+// the final mix: audio/mix.wav when present, else the lossless audio/mix.flac kept in git for handoff
+const mix = existsSync(join(root, "audio", "mix.wav"))
+  ? join(root, "audio", "mix.wav")
+  : join(root, "audio", "mix.flac");
 const captions = join(root, "audio", "captions.vtt");
 const master = join(root, "out", `${NAME}.mp4`);
 const small = join(root, "out", `${NAME}-1080p.mp4`);
