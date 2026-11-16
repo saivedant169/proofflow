@@ -1,91 +1,91 @@
 {
- "take": "audio/music/take3-raw.wav",
- "duration": 217.4,
- "film": 217.4,
+ "take": "C:\\Users\\user\\AppData\\Local\\Temp\\claude\\8658ce0ff713642a\\ed1caa98-1d16-4b2c-848f-a487c09770e7\\scratchpad\\music\\take3-retimed.wav",
+ "duration": 245.8,
+ "film": 245.8,
  "zones": [
   {
    "a": 0,
-   "b": 40.3,
+   "b": 41.3,
    "target": -21,
    "label": "s1-s2 sparse pulse",
-   "measured": -14.7,
-   "gain": -6.3
+   "measured": -14.8,
+   "gain": -6.2
   },
   {
-   "a": 40.3,
-   "b": 55.7,
+   "a": 41.3,
+   "b": 58.2,
    "target": -18.5,
    "label": "s3 harmony opens",
    "measured": -15.2,
    "gain": -3.3
   },
   {
-   "a": 55.7,
-   "b": 86.9,
+   "a": 58.2,
+   "b": 89.2,
    "target": -18.5,
    "label": "s4 curious, light",
    "measured": -15.2,
    "gain": -3.3
   },
   {
-   "a": 86.9,
-   "b": 114.1,
+   "a": 89.2,
+   "b": 116.2,
    "target": -17,
    "label": "s5 confident groove",
-   "measured": -11.2,
-   "gain": -5.8
+   "measured": -11.3,
+   "gain": -5.7
   },
   {
-   "a": 114.1,
-   "b": 130,
+   "a": 116.2,
+   "b": 132.215,
    "target": -17.5,
    "label": "s6 build 1",
-   "measured": -11.9,
-   "gain": -5.6
+   "measured": -12,
+   "gain": -5.5
   },
   {
-   "a": 130,
-   "b": 148,
+   "a": 132.215,
+   "b": 150.345,
    "target": -16.5,
    "label": "s6 build 2",
    "measured": -12,
    "gain": -4.5
   },
   {
-   "a": 148,
-   "b": 165.2,
+   "a": 150.345,
+   "b": 167.67,
    "target": -15.5,
    "label": "s6 build 3",
    "measured": -12.7,
    "gain": -2.8
   },
   {
-   "a": 165.2,
-   "b": 173.6,
+   "a": 167.67,
+   "b": 176.1,
    "target": -14,
    "label": "s6 unnarrated lift",
    "measured": -13.9,
    "gain": -0.1
   },
   {
-   "a": 173.6,
-   "b": 205.1,
+   "a": 176.1,
+   "b": 222.1,
    "target": -17,
    "label": "s7 steady",
    "measured": -14.3,
    "gain": -2.7
   },
   {
-   "a": 205.1,
-   "b": 217.4,
+   "a": 222.1,
+   "b": 245.8,
    "target": -18,
    "label": "s8 resolve",
-   "measured": -15.6,
-   "gain": -2.4
+   "measured": -16,
+   "gain": -2
   }
  ],
  "fadeIn": 1.2,
- "fadeOutStart": 212.6,
+ "fadeOutStart": 240.984,
  "gainToRef": -0.4,
  "refLufs": -18
 }

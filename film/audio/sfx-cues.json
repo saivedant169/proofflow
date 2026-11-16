@@ -1,5 +1,5 @@
 {
-  "about": "ProofFlow effects stem. One cue per on-screen event (times in film seconds, measured from the scenes' GSAP timelines). `t` is the event; `align: end` cues (the rising swishes) end on `t`. `under` is how far (dB) the cue's loudest 400 ms and 50 ms sit below the voice's 95th-percentile level; `gainDb` is written by tools/sound-sfx.mjs from that measurement. Render: node tools/sound-sfx.mjs",
+  "about": "ProofFlow effects stem. One cue per on-screen event (times in film seconds = section start + the event's start in the scene's GSAP timeline, measured headless from the v2 scenes). `t` is the event; `align: end` cues (the rising swishes) end on `t`. `under` is how far (dB) the cue's loudest 400 ms and 50 ms sit below the voice's 95th-percentile level; `gainDb` is written by tools/sound-sfx.mjs from that measurement. Render: node tools/sound-sfx.mjs",
   "minUnder": 12,
   "loudUnder": 20,
   "onsetGuard": 0.08,
@@ -68,559 +68,927 @@
   },
   "cues": [
     {
-      "t": 2.613,
-      "s": "tick",
-      "note": "s1 \"saves\": the report's outline traces on",
-      "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 2.613
-    },
-    {
-      "t": 3.8,
+      "t": 0.25,
       "s": "pop",
-      "note": "s1 the \"Saved by your agent\" stamp lands",
+      "note": "s1 the input chip appears",
       "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
       "gainDb": -14.85,
-      "start": 3.8
+      "start": 0.25
     },
     {
-      "t": 6.818,
+      "t": 1.32,
+      "s": "tap",
+      "note": "s1 \"changes\": the new value replaces the old",
+      "file": "audio/sfx-library/cc0-fs745291.ogg",
+      "gainDb": -15.35,
+      "start": 1.32
+    },
+    {
+      "t": 2.66,
       "s": "tick",
       "under": 27,
-      "note": "s1 the thread hangs from the figure, off frame",
+      "note": "s1 the opaque network's links draw on",
       "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -17.41,
-      "start": 6.818
+      "gainDb": -17.49,
+      "start": 2.66
     },
     {
-      "t": 10.9,
-      "s": "tap",
-      "note": "s1 \"corrects\": 1.10 is struck through",
-      "file": "audio/sfx-library/cc0-fs745291.ogg",
-      "gainDb": -15.27,
-      "start": 10.9
-    },
-    {
-      "t": 15.71,
+      "t": 4.61,
       "s": "swish",
-      "note": "s1 the change climbs its stub and stops at the gap (swish ends on arrival)",
+      "note": "s1 the change climbs the network (swish ends as the pulse arrives)",
       "file": "audio/sfx-library/gen-rise-swish.wav",
-      "gainDb": -12.33,
-      "start": 14.96
+      "gainDb": -12.41,
+      "start": 3.86
     },
     {
-      "t": 18.81,
+      "t": 4.96,
+      "s": "tickB",
+      "note": "s1 \"broke\": the reached nodes go dashed",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -18.02,
+      "start": 4.96
+    },
+    {
+      "t": 7.24,
+      "s": "tick",
+      "note": "s1 \"two options\": the agent forks into two lanes",
+      "file": "audio/sfx-library/cc0-tick.ogg",
+      "gainDb": -15.49,
+      "start": 7.24
+    },
+    {
+      "t": 9.55,
+      "s": "scroll",
+      "note": "s1 \"Re-read everything\": every row streams into the context window",
+      "file": "audio/sfx-library/cc0-kenney-interface-scroll-001.ogg",
+      "gainDb": -17.62,
+      "start": 9.55
+    },
+    {
+      "t": 10.63,
+      "s": "pluck",
+      "note": "s1 the \"Accurate\" tag",
+      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
+      "gainDb": -16.26,
+      "start": 10.63
+    },
+    {
+      "t": 11.82,
+      "s": "tickrun",
+      "note": "s1 \"you pay\": the token meter fills",
+      "file": "audio/sfx-library/gen-tick-run.wav",
+      "gainDb": -12.68,
+      "start": 11.82
+    },
+    {
+      "t": 15.22,
       "s": "pop",
-      "note": "s2 the input row assembles under the shrunken card",
+      "note": "s1 the search lane's nodes appear",
       "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
       "gainDb": -14.85,
-      "start": 18.81
+      "start": 15.22
     },
     {
-      "t": 22.02,
+      "t": 16.52,
+      "s": "tickB",
+      "under": 27,
+      "note": "s1 \"looks related\": the beam lights the word matches",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -20.02,
+      "start": 16.52
+    },
+    {
+      "t": 19.63,
+      "s": "drop",
+      "note": "s1 \"blind to what matters\": the miss is tagged",
+      "file": "audio/sfx-library/cc0-kenney-interface-drop-002.ogg",
+      "gainDb": -16.33,
+      "start": 19.63
+    },
+    {
+      "t": 22.53,
+      "s": "pop",
+      "note": "s2 the agent's own reports appear",
+      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
+      "gainDb": -14.85,
+      "start": 22.53
+    },
+    {
+      "t": 23.53,
       "s": "tick",
-      "note": "s2 \"depends\": dependencies light from the inputs up (tier 1)",
+      "note": "s2 their links draw on",
       "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 22.02
+      "gainDb": -15.49,
+      "start": 23.53
     },
     {
-      "t": 23.02,
+      "t": 26.53,
       "s": "tick",
+      "under": 27,
+      "note": "s2 \"depends\": dependencies light from the inputs up",
+      "file": "audio/sfx-library/cc0-tick.ogg",
+      "gainDb": -17.49,
+      "start": 26.53
+    },
+    {
+      "t": 27.53,
+      "s": "tickB",
       "under": 27,
       "note": "s2 dependencies light, top tier",
-      "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -17.41,
-      "start": 23.02
-    },
-    {
-      "t": 25.78,
-      "s": "tickB",
-      "note": "s2 the EUR->USD input is outlined orange",
       "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
-      "gainDb": -17.94,
-      "start": 25.78
+      "gainDb": -20.02,
+      "start": 27.53
     },
     {
-      "t": 29.67,
-      "s": "scroll",
-      "note": "s2 \"Re-reading everything\": every node's text streams into the context window",
-      "file": "audio/sfx-library/cc0-kenney-interface-scroll-001.ogg",
-      "gainDb": -17.32,
-      "start": 29.67
+      "t": 29.64,
+      "s": "tap",
+      "note": "s2 \"Correct one exchange rate\": the new rate slides in",
+      "file": "audio/sfx-library/cc0-fs745291.ogg",
+      "gainDb": -15.35,
+      "start": 29.64
     },
     {
-      "t": 37.1,
+      "t": 30.53,
+      "s": "tickB",
+      "note": "s2 \"some of those numbers\": dependents go dashed",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -18.02,
+      "start": 30.53
+    },
+    {
+      "t": 34.53,
       "s": "swish",
-      "note": "s2 the real dependencies light orange, hop by hop from the rate",
+      "note": "s2 the change reaches the total through an unnamed path (swish ends on arrival)",
       "file": "audio/sfx-library/gen-rise-swish.wav",
-      "gainDb": -12.33,
-      "start": 36.35
+      "gainDb": -12.41,
+      "start": 33.78
     },
     {
-      "t": 38.03,
+      "t": 35.37,
       "s": "drop",
-      "note": "s2 the missed report gets its \"Missed\" tag",
+      "note": "s2 \"without ever mentioning it\": no word match",
       "file": "audio/sfx-library/cc0-kenney-interface-drop-002.ogg",
-      "gainDb": -16.25,
-      "start": 38.03
+      "gainDb": -16.33,
+      "start": 35.37
     },
     {
-      "t": 40.45,
+      "t": 38.2,
+      "s": "tap",
+      "note": "s2 \"not the same\": the not-equals slash",
+      "file": "audio/sfx-library/cc0-fs745291.ogg",
+      "gainDb": -15.35,
+      "start": 38.2
+    },
+    {
+      "t": 39.29,
       "s": "tick",
-      "note": "s3 a single thread draws across the frame into the P (music opens)",
+      "note": "s2 \"real dependencies\": the true paths draw",
       "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 40.45
+      "gainDb": -15.49,
+      "start": 39.29
     },
     {
-      "t": 41.6,
+      "t": 41.45,
+      "s": "tick",
+      "note": "s3 a single thread draws into the P (music opens)",
+      "file": "audio/sfx-library/cc0-tick.ogg",
+      "gainDb": -15.49,
+      "start": 41.45
+    },
+    {
+      "t": 42.6,
       "s": "glass",
-      "note": "s3 the mint dot sets after the wordmark",
+      "note": "s3 the dot sets after the wordmark",
       "file": "audio/sfx-library/cc0-kenney-interface-glass-002.ogg",
-      "gainDb": -17.61,
-      "start": 41.6
+      "gainDb": -17.69,
+      "start": 42.6
     },
     {
-      "t": 44.88,
+      "t": 46.88,
+      "s": "pop",
+      "note": "s3 \"Every number\": the figure appears",
+      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
+      "gainDb": -14.85,
+      "start": 46.88
+    },
+    {
+      "t": 47.48,
       "s": "pluck",
-      "note": "s3 \"receipts\": the receipt unfolds from its perforated edge",
+      "note": "s3 \"receipts\": the receipt unfolds",
       "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
-      "gainDb": -16.18,
-      "start": 44.88
+      "gainDb": -16.26,
+      "start": 47.48
     },
     {
-      "t": 46.906,
+      "t": 49.22,
       "s": "tick",
-      "note": "s3 a thread ties the figure to its first input line",
+      "note": "s3 \"which inputs\": input rows tie on",
       "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 46.906
+      "gainDb": -15.49,
+      "start": 49.22
     },
     {
-      "t": 48.166,
+      "t": 50.47,
       "s": "tick",
       "under": 27,
-      "note": "s3 a thread ties the figure to the calculation",
+      "note": "s3 \"which tool\": the tool row ties on",
       "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -17.41,
-      "start": 48.166
+      "gainDb": -17.49,
+      "start": 50.47
     },
     {
-      "t": 51.4,
-      "s": "swish",
-      "note": "s3 the change runs back up its thread to the figure",
-      "file": "audio/sfx-library/gen-rise-swish.wav",
-      "gainDb": -12.33,
-      "start": 50.65
-    },
-    {
-      "t": 51.78,
-      "s": "thud",
-      "note": "s3 the figure is withheld (narrows, hatch)",
-      "file": "audio/sfx-library/cc0-fs524817.ogg",
+      "t": 52.48,
+      "s": "tap",
+      "note": "s3 \"when something changes\": the old value is struck",
+      "file": "audio/sfx-library/cc0-fs745291.ogg",
       "gainDb": -15.35,
-      "start": 51.78
+      "start": 52.48
     },
     {
-      "t": 53.49,
-      "s": "pluck",
-      "under": 25,
-      "note": "s3 \"redo\": the Refresh tag",
-      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
-      "gainDb": -18.18,
-      "start": 53.49
+      "t": 53.34,
+      "s": "swish",
+      "note": "s3 the change runs to the figure (swish ends on arrival)",
+      "file": "audio/sfx-library/gen-rise-swish.wav",
+      "gainDb": -12.41,
+      "start": 52.59
     },
     {
-      "t": 57.58,
-      "s": "pop",
-      "note": "s4 the exchange-rate source node draws in",
-      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
-      "gainDb": -14.85,
-      "start": 57.58
-    },
-    {
-      "t": 61.06,
+      "t": 54.03,
       "s": "pop",
       "under": 24,
-      "note": "s4 \"tool\": the receipt pill appears",
+      "note": "s3 \"exactly what broke\": the slice window opens",
       "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
-      "gainDb": -16.65,
-      "start": 61.06
+      "gainDb": -16.73,
+      "start": 54.03
     },
     {
-      "t": 65.55,
+      "t": 59.74,
       "s": "pop",
-      "note": "s4 \"result\": the immutable result node",
+      "note": "s4 the exchange-rate source draws in",
       "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
       "gainDb": -14.85,
-      "start": 65.55
+      "start": 59.74
     },
     {
-      "t": 66.81,
-      "s": "pluck",
-      "note": "s4 the two report cards enter",
-      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
-      "gainDb": -16.18,
-      "start": 66.81
+      "t": 61.41,
+      "s": "tickB",
+      "note": "s4 \"saved as a version\": v1",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -18.02,
+      "start": 61.41
     },
     {
-      "t": 68.856,
+      "t": 62.85,
       "s": "tick",
+      "note": "s4 \"A tool reads it\": the thread to the tool",
+      "file": "audio/sfx-library/cc0-tick.ogg",
+      "gainDb": -15.49,
+      "start": 62.85
+    },
+    {
+      "t": 64.48,
+      "s": "pluck",
+      "note": "s4 \"leaves a receipt\": the slip",
+      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
+      "gainDb": -16.26,
+      "start": 64.48
+    },
+    {
+      "t": 66.96,
+      "s": "pop",
+      "note": "s4 \"its result\": the immutable result",
+      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
+      "gainDb": -14.85,
+      "start": 66.96
+    },
+    {
+      "t": 67.88,
+      "s": "pluck",
+      "under": 25,
+      "note": "s4 \"each number in a report\": the report cards",
+      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
+      "gainDb": -18.26,
+      "start": 67.88
+    },
+    {
+      "t": 69.69,
+      "s": "tick",
+      "under": 27,
       "note": "s4 threads from the result into each figure",
       "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 68.856
+      "gainDb": -17.49,
+      "start": 69.69
     },
     {
-      "t": 71.15,
+      "t": 71.7,
       "s": "tap",
-      "note": "s4 \"correct the rate\": v2 1.20 slides in front of v1",
+      "note": "s4 \"correct the rate\": v2 slides in front of v1",
       "file": "audio/sfx-library/cc0-fs745291.ogg",
-      "gainDb": -15.27,
-      "start": 71.15
-    },
-    {
-      "t": 74.55,
-      "s": "swish",
-      "note": "s4 orange pulses travel source -> receipt -> result -> reports",
-      "file": "audio/sfx-library/gen-rise-swish.wav",
-      "gainDb": -12.33,
-      "start": 73.8
-    },
-    {
-      "t": 76.57,
-      "s": "thud",
-      "note": "s4 both revenue figures are withheld (one thud for the pair)",
-      "file": "audio/sfx-library/cc0-fs524817.ogg",
       "gainDb": -15.35,
-      "start": 76.57
+      "start": 71.7
     },
     {
-      "t": 79.02,
-      "s": "pluck",
-      "under": 25,
-      "note": "s4 \"Support\": support is tagged Current",
-      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
-      "gainDb": -18.18,
-      "start": 79.02
+      "t": 75.01,
+      "s": "swish",
+      "note": "s4 \"travels up those links\" (swish ends as the figures are reached)",
+      "file": "audio/sfx-library/gen-rise-swish.wav",
+      "gainDb": -12.41,
+      "start": 74.26
     },
     {
-      "t": 83.45,
-      "s": "confirm",
-      "note": "s4 mint pulses land: both figures re-ink and count to $5,755 / $2,280",
-      "file": "audio/sfx-library/cc0-kenney-interface-confirmation-001.ogg",
-      "gainDb": -19.63,
-      "start": 83.45
-    },
-    {
-      "t": 91.305,
-      "s": "tick",
-      "note": "s5 outline on the CSV preview",
-      "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 91.305
-    },
-    {
-      "t": 96.498,
-      "s": "tickB",
-      "note": "s5 the stale banner is outlined orange",
-      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
-      "gainDb": -17.94,
-      "start": 96.498
-    },
-    {
-      "t": 98.9,
+      "t": 77.01,
       "s": "thud",
-      "under": 19,
-      "note": "s5 \"affected\": the withheld figures are outlined",
+      "note": "s4 \"withheld\": both revenue figures narrow and hatch",
       "file": "audio/sfx-library/cc0-fs524817.ogg",
-      "gainDb": -16.35,
-      "start": 98.9
+      "gainDb": -15.43,
+      "start": 77.01
     },
     {
-      "t": 103.169,
+      "t": 82.12,
+      "s": "pluck",
+      "note": "s4 \"stays current\": the Current tag",
+      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
+      "gainDb": -16.26,
+      "start": 82.12
+    },
+    {
+      "t": 83.16,
+      "s": "tickB",
+      "note": "s4 \"reused\": the Reused tag",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -18.02,
+      "start": 83.16
+    },
+    {
+      "t": 85.77,
       "s": "confirm",
-      "under": 19,
-      "note": "s5 \"Refresh\": the current values are outlined fresh",
+      "note": "s4 \"Refresh re-runs\": the figures re-ink current",
       "file": "audio/sfx-library/cc0-kenney-interface-confirmation-001.ogg",
-      "gainDb": -20.63,
-      "start": 103.169
+      "gainDb": -19.71,
+      "start": 85.77
     },
     {
-      "t": 109.54,
+      "t": 89.25,
       "s": "pop",
-      "note": "s5 \"Agents\": the agent node enters",
+      "note": "s5 the live app window enters",
       "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
       "gainDb": -14.85,
-      "start": 109.54
+      "start": 89.25
     },
     {
-      "t": 110.862,
+      "t": 92.75,
+      "s": "tickB",
+      "under": 27,
+      "note": "s5 \"Upload\": the upload control is outlined",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -20.02,
+      "start": 92.75
+    },
+    {
+      "t": 94.64,
+      "s": "tickB",
+      "under": 26,
+      "note": "s5 \"preview\": the preview is outlined",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -19.02,
+      "start": 94.64
+    },
+    {
+      "t": 96.03,
+      "s": "tickB",
+      "under": 27,
+      "note": "s5 \"create two reports\" is outlined",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -20.02,
+      "start": 96.03
+    },
+    {
+      "t": 98.19,
+      "s": "tap",
+      "note": "s5 \"Publish a corrected rate\"",
+      "file": "audio/sfx-library/cc0-fs745291.ogg",
+      "gainDb": -15.35,
+      "start": 98.19
+    },
+    {
+      "t": 100.43,
+      "s": "thud",
+      "under": 20,
+      "note": "s5 \"withheld\": the withheld figures are outlined",
+      "file": "audio/sfx-library/cc0-fs524817.ogg",
+      "gainDb": -17.43,
+      "start": 100.43
+    },
+    {
+      "t": 101.84,
       "s": "tick",
-      "note": "s5 threads draw to the five MCP tool chips",
+      "note": "s5 \"the graph shows exactly why\"",
       "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 110.862
+      "gainDb": -15.49,
+      "start": 101.84
     },
     {
-      "t": 119.51,
-      "s": "tick",
-      "note": "s6 \"runtime\": the runtime box border draws on",
-      "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 119.51
+      "t": 104.53,
+      "s": "confirm",
+      "under": 20,
+      "note": "s5 \"Refresh brings them current\"",
+      "file": "audio/sfx-library/cc0-kenney-interface-confirmation-001.ogg",
+      "gainDb": -21.71,
+      "start": 104.53
     },
     {
-      "t": 121.57,
+      "t": 107.38,
+      "s": "pluck",
+      "note": "s5 \"copied\": the checked copy is outlined",
+      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
+      "gainDb": -16.26,
+      "start": 107.38
+    },
+    {
+      "t": 110.44,
       "s": "pop",
-      "note": "s6 \"tool run\": a tool chip drops into the runtime",
+      "note": "s5 \"Agents\": the agent card enters",
       "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
       "gainDb": -14.85,
-      "start": 121.57
+      "start": 110.44
     },
     {
-      "t": 122.71,
+      "t": 112.84,
+      "s": "tickrun",
+      "note": "s5 \"Six tools\": six threads draw",
+      "file": "audio/sfx-library/gen-tick-run.wav",
+      "gainDb": -12.68,
+      "start": 112.84
+    },
+    {
+      "t": 114.01,
+      "s": "glass",
+      "note": "s5 \"one download\"",
+      "file": "audio/sfx-library/cc0-kenney-interface-glass-002.ogg",
+      "gainDb": -17.69,
+      "start": 114.01
+    },
+    {
+      "t": 121.28,
+      "s": "pop",
+      "note": "s6 \"the runtime\": the runtime box opens",
+      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
+      "gainDb": -14.85,
+      "start": 121.28
+    },
+    {
+      "t": 123.92,
       "s": "pop",
       "under": 24,
-      "note": "s6 \"immutable\": the result node appears",
+      "note": "s6 \"immutable result\"",
       "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
-      "gainDb": -16.65,
-      "start": 122.71
+      "gainDb": -16.73,
+      "start": 123.92
     },
     {
-      "t": 128.81,
+      "t": 125.5,
+      "s": "pluck",
+      "note": "s6 \"a receipt\": the slip",
+      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
+      "gainDb": -16.26,
+      "start": 125.5
+    },
+    {
+      "t": 128.11,
+      "s": "tick",
+      "note": "s6 \"Content goes into a store\": the thread to the store",
+      "file": "audio/sfx-library/cc0-tick.ogg",
+      "gainDb": -15.49,
+      "start": 128.11
+    },
+    {
+      "t": 129.71,
       "s": "glass",
-      "note": "s6 \"hash\": the store's mint check",
+      "note": "s6 \"every hash\": the hash check",
       "file": "audio/sfx-library/cc0-kenney-interface-glass-002.ogg",
-      "gainDb": -17.61,
-      "start": 128.81
+      "gainDb": -17.69,
+      "start": 129.71
     },
     {
-      "t": 131.86,
+      "t": 131.28,
       "s": "pop",
-      "note": "s6 HydraDB: the lineage graph's first node",
+      "note": "s6 \"HydraDB\": the HydraDB box opens",
       "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
       "gainDb": -14.85,
-      "start": 131.86
+      "start": 131.28
     },
     {
-      "t": 133.76,
+      "t": 132.54,
       "s": "tick",
-      "note": "s6 the last edges draw into the reports",
+      "under": 27,
+      "note": "s6 the lineage graph's edges draw",
       "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 133.76
+      "gainDb": -17.49,
+      "start": 132.54
     },
     {
-      "t": 135.91,
-      "s": "swish",
-      "note": "s6 \"correction\": the orange pulse runs runtime -> HydraDB",
-      "file": "audio/sfx-library/gen-rise-swish.wav",
-      "gainDb": -12.33,
+      "t": 135.16,
+      "s": "tap",
+      "note": "s6 \"a correction arrives\"",
+      "file": "audio/sfx-library/cc0-fs745291.ogg",
+      "gainDb": -15.35,
       "start": 135.16
     },
     {
-      "t": 136.68,
+      "t": 136.35,
+      "s": "swish",
+      "note": "s6 the correction reaches HydraDB (swish ends on arrival)",
+      "file": "audio/sfx-library/gen-rise-swish.wav",
+      "gainDb": -12.41,
+      "start": 135.6
+    },
+    {
+      "t": 137,
       "s": "tickrun",
-      "note": "s6 \"walks\": HydraDB traverses descendants hop by hop",
+      "note": "s6 \"walks that graph\": the walk runs hop by hop",
       "file": "audio/sfx-library/gen-tick-run.wav",
-      "gainDb": -12.6,
-      "start": 136.68
+      "gainDb": -12.68,
+      "start": 137
     },
     {
-      "t": 142.11,
+      "t": 139.77,
       "s": "tickB",
-      "note": "s6 \"re-runs\": step 1 ticks in",
+      "note": "s6 \"everything downstream\": the found set is outlined",
       "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
-      "gainDb": -17.94,
-      "start": 142.11
+      "gainDb": -18.02,
+      "start": 139.77
     },
     {
-      "t": 142.47,
-      "s": "tickB",
+      "t": 141.35,
+      "s": "scroll",
+      "note": "s6 \"becomes the agent's context\": the context fills",
+      "file": "audio/sfx-library/cc0-kenney-interface-scroll-001.ogg",
+      "gainDb": -17.62,
+      "start": 141.35
+    },
+    {
+      "t": 145.61,
+      "s": "tap",
+      "note": "s6 \"Skip the re-read\": the re-read is struck",
+      "file": "audio/sfx-library/cc0-fs745291.ogg",
+      "gainDb": -15.35,
+      "start": 145.61
+    },
+    {
+      "t": 147.51,
+      "s": "tick",
       "under": 26,
-      "note": "s6 step 2",
-      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
-      "gainDb": -18.94,
-      "start": 142.47
+      "note": "s6 \"re-runs stale steps in order\"",
+      "file": "audio/sfx-library/cc0-tick.ogg",
+      "gainDb": -16.49,
+      "start": 147.51
     },
     {
-      "t": 142.83,
-      "s": "tickB",
-      "under": 27,
-      "note": "s6 step 3",
-      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
-      "gainDb": -19.94,
-      "start": 142.83
+      "t": 148.59,
+      "s": "tick",
+      "under": 28,
+      "note": "s6 re-runs, next step",
+      "file": "audio/sfx-library/cc0-tick.ogg",
+      "gainDb": -18.49,
+      "start": 148.59
     },
     {
-      "t": 143.19,
-      "s": "tickB",
-      "under": 25,
-      "note": "s6 step 4",
-      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
-      "gainDb": -17.94,
-      "start": 143.19
-    },
-    {
-      "t": 144.71,
+      "t": 149.83,
       "s": "pluck",
-      "note": "s6 \"reuses\": the Reused tag on support",
+      "note": "s6 \"reuses what's current\": Reused",
       "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
-      "gainDb": -16.18,
-      "start": 144.71
+      "gainDb": -16.26,
+      "start": 149.83
     },
     {
-      "t": 150.85,
-      "s": "bong",
-      "note": "s6 \"fails closed\": the blocked marker",
-      "file": "audio/sfx-library/gen-dull-bong.wav",
-      "gainDb": -14.4,
-      "start": 150.85
-    },
-    {
-      "t": 155.41,
-      "s": "pop",
-      "note": "s6 \"browser app\": the first door draws in",
-      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
-      "gainDb": -14.85,
-      "start": 155.41
-    },
-    {
-      "t": 158.84,
+      "t": 152.22,
       "s": "pop",
       "under": 24,
-      "note": "s6 \"MCP server\": the third door draws in",
+      "note": "s6 \"records new receipts\"",
       "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
-      "gainDb": -16.65,
-      "start": 158.84
+      "gainDb": -16.73,
+      "start": 152.22
     },
     {
-      "t": 164.78,
+      "t": 152.72,
+      "s": "tickB",
+      "note": "s6 the receipts are hash-checked",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -18.02,
+      "start": 152.72
+    },
+    {
+      "t": 154.32,
+      "s": "tickB",
+      "under": 27,
+      "note": "s6 \"evidence is missing\": unknown edges",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -20.02,
+      "start": 154.32
+    },
+    {
+      "t": 155.62,
+      "s": "bong",
+      "note": "s6 \"fails closed\": lands as \"closed\" ends",
+      "file": "audio/sfx-library/gen-dull-bong.wav",
+      "gainDb": -14.48,
+      "start": 155.62
+    },
+    {
+      "t": 160.03,
+      "s": "pop",
+      "under": 24,
+      "note": "s6 \"a browser app\"",
+      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
+      "gainDb": -16.73,
+      "start": 160.03
+    },
+    {
+      "t": 161.19,
+      "s": "pop",
+      "under": 25,
+      "note": "s6 \"a Python API\"",
+      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
+      "gainDb": -17.73,
+      "start": 161.19
+    },
+    {
+      "t": 162.96,
+      "s": "pop",
+      "under": 24,
+      "note": "s6 \"an MCP server\"",
+      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
+      "gainDb": -16.73,
+      "start": 162.96
+    },
+    {
+      "t": 164.3,
+      "s": "tick",
+      "note": "s6 \"typed tools\": the tool files line up",
+      "file": "audio/sfx-library/cc0-tick.ogg",
+      "gainDb": -15.49,
+      "start": 164.3
+    },
+    {
+      "t": 167.93,
       "s": "drop",
-      "note": "s6 \"arbitrary code\": the chip is struck through and refused",
+      "note": "s6 \"never arbitrary code\": the code file falls away",
       "file": "audio/sfx-library/cc0-kenney-interface-drop-002.ogg",
-      "gainDb": -16.25,
-      "start": 164.78
+      "gainDb": -16.33,
+      "start": 167.93
     },
     {
-      "t": 166.98,
+      "t": 169.55,
       "s": "swish",
-      "note": "s6 run: a correction posts Browser -> FastAPI -> Runtime",
+      "note": "s6 run: the correction travels into the runtime (swish ends on arrival)",
       "file": "audio/sfx-library/gen-rise-swish.wav",
-      "gainDb": -12.33,
-      "start": 166.23
+      "gainDb": -12.41,
+      "start": 168.8
     },
     {
-      "t": 167.53,
+      "t": 170.09,
       "s": "tickrun",
       "note": "s6 run: HydraDB walks the graph",
       "file": "audio/sfx-library/gen-tick-run.wav",
-      "gainDb": -12.6,
-      "start": 167.53
+      "gainDb": -12.68,
+      "start": 170.09
     },
     {
-      "t": 168.33,
+      "t": 170.86,
       "s": "thud",
-      "under": 19,
       "note": "s6 run: the saved figure is withheld",
       "file": "audio/sfx-library/cc0-fs524817.ogg",
-      "gainDb": -16.35,
-      "start": 168.33
+      "gainDb": -15.43,
+      "start": 170.86
     },
     {
-      "t": 168.81,
+      "t": 171.95,
+      "s": "pluck",
+      "under": 25,
+      "note": "s6 run: support is reused",
+      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
+      "gainDb": -18.26,
+      "start": 171.95
+    },
+    {
+      "t": 173.21,
+      "s": "confirm",
+      "note": "s6 run: the figure is current again ($5,755)",
+      "file": "audio/sfx-library/cc0-kenney-interface-confirmation-001.ogg",
+      "gainDb": -19.71,
+      "start": 173.21
+    },
+    {
+      "t": 180.26,
+      "s": "tickB",
+      "note": "s7 \"We froze one study\"",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -18.02,
+      "start": 180.26
+    },
+    {
+      "t": 181.98,
       "s": "tick",
-      "note": "s6 run: tools re-run in order",
+      "note": "s7 \"Forty-eight real model calls\": the axes draw",
       "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 168.81
+      "gainDb": -15.49,
+      "start": 181.98
     },
     {
-      "t": 169.22,
+      "t": 185.88,
+      "s": "tick",
+      "note": "s7 \"Re-reading everything\": its bar draws",
+      "file": "audio/sfx-library/cc0-tick.ogg",
+      "gainDb": -15.49,
+      "start": 185.88
+    },
+    {
+      "t": 187.6,
+      "s": "pluck",
+      "note": "s7 \"all thirty-two\": 32/32",
+      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
+      "gainDb": -16.26,
+      "start": 187.6
+    },
+    {
+      "t": 189.09,
+      "s": "tap",
+      "note": "s7 \"three dollars seventy-four\"",
+      "file": "audio/sfx-library/cc0-fs745291.ogg",
+      "gainDb": -15.35,
+      "start": 189.09
+    },
+    {
+      "t": 190.92,
+      "s": "tick",
+      "note": "s7 \"ProofFlow\": its bar draws",
+      "file": "audio/sfx-library/cc0-tick.ogg",
+      "gainDb": -15.49,
+      "start": 190.92
+    },
+    {
+      "t": 192.14,
+      "s": "pluck",
+      "note": "s7 \"thirty-two of thirty-two\"",
+      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
+      "gainDb": -16.26,
+      "start": 192.14
+    },
+    {
+      "t": 194.07,
+      "s": "glass",
+      "note": "s7 \"a hundred forty-two thousand fewer\": the gap",
+      "file": "audio/sfx-library/cc0-kenney-interface-glass-002.ogg",
+      "gainDb": -17.69,
+      "start": 194.07
+    },
+    {
+      "t": 197.28,
+      "s": "tap",
+      "note": "s7 \"a dollar thirty-eight\"",
+      "file": "audio/sfx-library/cc0-fs745291.ogg",
+      "gainDb": -15.35,
+      "start": 197.28
+    },
+    {
+      "t": 198.69,
+      "s": "confirm",
+      "under": 20,
+      "note": "s7 \"Sixty-three percent less\"",
+      "file": "audio/sfx-library/cc0-kenney-interface-confirmation-001.ogg",
+      "gainDb": -21.71,
+      "start": 198.69
+    },
+    {
+      "t": 200.98,
       "s": "tick",
       "under": 27,
-      "note": "s6 run: the last tool re-runs",
+      "note": "s7 \"Vector search\": its bar draws",
       "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -17.41,
-      "start": 169.22
+      "gainDb": -17.49,
+      "start": 200.98
     },
     {
-      "t": 170.75,
-      "s": "confirm",
-      "note": "s6 run: back in the browser the figure re-inks $5,755",
-      "file": "audio/sfx-library/cc0-kenney-interface-confirmation-001.ogg",
-      "gainDb": -19.63,
-      "start": 170.75
+      "t": 203.3,
+      "s": "drop",
+      "note": "s7 \"got five right\"",
+      "file": "audio/sfx-library/cc0-kenney-interface-drop-002.ogg",
+      "gainDb": -16.33,
+      "start": 203.3
     },
     {
-      "t": 179.877,
-      "s": "pluck",
-      "note": "s7 \"thirty-two\": 32/32 counts up",
-      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
-      "gainDb": -16.18,
-      "start": 179.877
-    },
-    {
-      "t": 184.047,
-      "s": "tick",
-      "note": "s7 the ProofFlow input bar draws (39.33%)",
-      "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 184.047
-    },
-    {
-      "t": 186.376,
-      "s": "tick",
-      "note": "s7 \"Keyword search\": the comparison bars draw",
-      "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 186.376
-    },
-    {
-      "t": 192.688,
-      "s": "pluck",
-      "note": "s7 \"thirty-eight\": 38/38 counts up",
-      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
-      "gainDb": -16.18,
-      "start": 192.688
-    },
-    {
-      "t": 198.353,
-      "s": "tick",
-      "note": "s7 the exact dependency walk bar slides in level",
-      "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 198.353
-    },
-    {
-      "t": 201.853,
+      "t": 205.25,
       "s": "tickB",
-      "note": "s7 \"recording dependencies\": the bracket joins the tied bars",
+      "note": "s7 \"Keyword search, twenty-five\"",
       "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
-      "gainDb": -17.94,
-      "start": 201.853
+      "gainDb": -18.02,
+      "start": 205.25
     },
     {
-      "t": 205.1,
-      "s": "tick",
-      "note": "s8 threads converge from the edges",
-      "file": "audio/sfx-library/cc0-tick.ogg",
-      "gainDb": -15.41,
-      "start": 205.1
+      "t": 207.09,
+      "s": "tickB",
+      "under": 26,
+      "note": "s7 \"Hybrid, twenty-eight\"",
+      "file": "audio/sfx-library/cc0-kenney-interface-select-001.ogg",
+      "gainDb": -19.02,
+      "start": 207.09
     },
     {
-      "t": 207.38,
+      "t": 210.44,
+      "s": "pluck",
+      "note": "s7 \"thirty-eight of thirty-eight\"",
+      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
+      "gainDb": -16.26,
+      "start": 210.44
+    },
+    {
+      "t": 211.94,
+      "s": "glass",
+      "note": "s7 \"sixty-nine percent fewer\"",
+      "file": "audio/sfx-library/cc0-kenney-interface-glass-002.ogg",
+      "gainDb": -17.69,
+      "start": 211.94
+    },
+    {
+      "t": 217.37,
+      "s": "tap",
+      "note": "s7 \"ties it\": the ring",
+      "file": "audio/sfx-library/cc0-fs745291.ogg",
+      "gainDb": -15.35,
+      "start": 217.37
+    },
+    {
+      "t": 219.65,
+      "s": "glass",
+      "under": 24,
+      "note": "s7 \"recording the structure\": the win",
+      "file": "audio/sfx-library/cc0-kenney-interface-glass-002.ogg",
+      "gainDb": -19.69,
+      "start": 219.65
+    },
+    {
+      "t": 222.16,
       "s": "chime",
-      "note": "s8 the mint dot lands: the final wordmark is complete",
+      "note": "s8 \"ProofFlow.\": the final name draws",
       "file": "audio/sfx-library/cc0-fs-571513-soft-notifications-bell-ding-d.ogg",
       "gainDb": -13.99,
-      "start": 207.38
+      "start": 222.16
+    },
+    {
+      "t": 224.38,
+      "s": "glass",
+      "under": 25,
+      "note": "s8 the dot sets",
+      "file": "audio/sfx-library/cc0-kenney-interface-glass-002.ogg",
+      "gainDb": -20.69,
+      "start": 224.38
+    },
+    {
+      "t": 231.56,
+      "s": "pop",
+      "under": 24,
+      "note": "s8 \"finance\"",
+      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
+      "gainDb": -16.73,
+      "start": 231.56
+    },
+    {
+      "t": 232.54,
+      "s": "pop",
+      "under": 25,
+      "note": "s8 \"revenue\"",
+      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
+      "gainDb": -17.73,
+      "start": 232.54
+    },
+    {
+      "t": 233.51,
+      "s": "pop",
+      "under": 26,
+      "note": "s8 \"analytics\"",
+      "file": "audio/sfx-library/cc0-fs-824189-pop-in-sfx.ogg",
+      "gainDb": -18.73,
+      "start": 233.51
+    },
+    {
+      "t": 236.31,
+      "s": "pluck",
+      "note": "s8 \"through MCP\"",
+      "file": "audio/sfx-library/cc0-kenney-interface-pluck-002.ogg",
+      "gainDb": -16.26,
+      "start": 236.31
+    },
+    {
+      "t": 237.62,
+      "s": "tick",
+      "note": "s8 \"Try it live\": the URL draws",
+      "file": "audio/sfx-library/cc0-tick.ogg",
+      "gainDb": -15.49,
+      "start": 237.62
     }
   ],
   "voiceReference": {
-    "momentary": -9.55,
-    "short": -7.71
+    "momentary": -9.85,
+    "short": -7.79
   }
 }

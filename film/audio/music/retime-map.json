@@ -1,0 +1,64 @@
+{
+ "take": "audio/music/take3-raw.wav",
+ "anchors": [
+  {
+   "label": "s1",
+   "src": 0,
+   "dst": 0
+  },
+  {
+   "label": "s2",
+   "src": 18,
+   "dst": 21.4
+  },
+  {
+   "label": "s3",
+   "src": 40.3,
+   "dst": 41.3
+  },
+  {
+   "label": "s4",
+   "src": 55.7,
+   "dst": 58.2
+  },
+  {
+   "label": "s5",
+   "src": 86.9,
+   "dst": 89.2
+  },
+  {
+   "label": "s6",
+   "src": 114.1,
+   "dst": 116.2
+  },
+  {
+   "label": "b2",
+   "src": 130,
+   "dst": 132.215
+  },
+  {
+   "label": "b3",
+   "src": 148,
+   "dst": 150.345
+  },
+  {
+   "label": "lift",
+   "src": 165.2,
+   "dst": 167.67
+  },
+  {
+   "label": "s7",
+   "src": 173.6,
+   "dst": 176.1
+  },
+  {
+   "label": "s8",
+   "src": 205.1,
+   "dst": 222.1
+  }
+ ],
+ "end": {
+  "src": 224,
+  "dst": 245.8
+ }
+}

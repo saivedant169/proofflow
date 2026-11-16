@@ -1,6 +1,6 @@
 # ProofFlow score
 
-**Deliverable:** `audio/music-bed.wav` — 48 kHz stereo, 24-bit PCM, exactly 217.4 s (the length of the locked `timing.json`).
+**Deliverable:** `audio/music-bed.wav` — 48 kHz stereo, 24-bit PCM, exactly the length of `timing.json` (245.8 s for the v2 narration).
 
 - It is not ducked and has no voice carving. The mix does that.
 - Loudness is -18.0 LUFS integrated, with a true peak of -1.7 dBTP.
@@ -56,6 +56,18 @@ Three takes were recorded. Each was checked in two ways:
 - **Fades.** A 1.2 s fade-in at the start. In s8, a fade from 212.6 s to 217.4 s (the narration ends at 213.6 s) lets the final chord settle to silence at the end of the film.
 - **Output.** One linear gain to -18 LUFS, then a 4x-oversampled limiter at -1.5 dBFS.
 - The measured values are in `fit.json`.
+
+## Re-fit to the v2 narration (245.8 s)
+
+The v2 script moved every window, so take 3 was re-timed before the fit, with no new generation. Nothing was time-stretched or re-pitched.
+
+- `node tools/score-fit.mjs --map` writes `retime-map.json`. It maps the take's steered anchors (the old section starts, the s6 build steps, the lift, s8) to their new film times from `timing.json` and `words.json`.
+- `tools/score-retime.py` plays each stretch between anchors in order. It lengthens or shortens a stretch with one or two jumps: a repeat or a skip between moments whose ±2.4 s context matches (chroma, timbre and onsets). Each cut is refined on the waveform (±30 ms) and crossfaded equal-power over 80 ms.
+- The 11 edits are listed in `retime.json`. Every tight anchor lands within 0.15 s: s3 -0.03 s, lift -0.01 s, s7 -0.04 s, s8 -0.14 s, end -0.02 s.
+- The s6 build steps land within 0.85 s. They are only level-zone boundaries under a 4 s prompt crossfade.
+- No splice shows a level step beyond the bed's own 95th percentile (2.2 dB), and none shows a click.
+- `score-fit.mjs` then applies the same level arc and fades as before, now read from the new windows, and writes `fit.json`. The bed is padded to the exact film length.
+- A blind `music-judge.mjs` listen of the fitted bed reported no glitches, abrupt changes or vocals. It scored 9.8/10.
 
 ## Terms and attribution
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "duration": 253.7,
+  "duration": 245.8,
   "canvas": {
     "width": 1920,
     "height": 1080
@@ -14,63 +14,63 @@
       "file": "compositions/s1-monday.html",
       "title": "Monday",
       "start": 0,
-      "duration": 21.2
+      "duration": 21.4
     },
     {
       "id": "s2",
       "composition": "s2-problem",
       "file": "compositions/s2-problem.html",
       "title": "The problem",
-      "start": 21.2,
-      "duration": 22.8
+      "start": 21.4,
+      "duration": 19.9
     },
     {
       "id": "s3",
       "composition": "s3-idea",
       "file": "compositions/s3-idea.html",
       "title": "The idea",
-      "start": 44,
-      "duration": 19.2
+      "start": 41.3,
+      "duration": 16.9
     },
     {
       "id": "s4",
       "composition": "s4-how",
       "file": "compositions/s4-how.html",
       "title": "How it works",
-      "start": 63.2,
-      "duration": 34.7
+      "start": 58.2,
+      "duration": 31
     },
     {
       "id": "s5",
       "composition": "s5-product",
       "file": "compositions/s5-product.html",
       "title": "Working today",
-      "start": 97.9,
-      "duration": 28.9
+      "start": 89.2,
+      "duration": 27
     },
     {
       "id": "s6",
       "composition": "s6-architecture",
       "file": "compositions/s6-architecture.html",
       "title": "Under the hood",
-      "start": 126.8,
-      "duration": 62.1
+      "start": 116.2,
+      "duration": 59.9
     },
     {
       "id": "s7",
       "composition": "s7-results",
       "file": "compositions/s7-results.html",
       "title": "Results",
-      "start": 188.9,
-      "duration": 50.9
+      "start": 176.1,
+      "duration": 46
     },
     {
       "id": "s8",
       "composition": "s8-close",
       "file": "compositions/s8-close.html",
       "title": "Close",
-      "start": 239.8,
-      "duration": 13.9
+      "start": 222.1,
+      "duration": 23.7
     }
   ]
 }

@@ -29,19 +29,15 @@ const { values, positionals } = parseArgs({
   },
 });
 const cmd = positionals[0];
-if (!values.work || !["gen", "assemble"].includes(cmd)) throw new Error("usage: narration-build.mjs gen|assemble --work <dir>");
+if (!values.work || !["gen", "recheck", "assemble"].includes(cmd)) throw new Error("usage: narration-build.mjs gen|recheck|assemble --work <dir>");
 const WORK = resolve(values.work);
 mkdirSync(join(WORK, "raw"), { recursive: true });
 mkdirSync(join(WORK, "trim"), { recursive: true });
 
 export const STYLE =
-  "Style: calm, warm, credible documentary narrator; clear, quietly confident, modern; unhurried and natural, about 135 words per minute.";
-const PRON = {
-  ProofFlow: 'Pronunciation: "ProofFlow" is said "proof flow".',
-  HydraDB: 'Pronunciation: "HydraDB" is said "Hydra D B".',
-  MCP: 'Pronunciation: "MCP" is said "M C P".',
-  CSV: 'Pronunciation: "CSV" is said "C S V".',
-};
+  "Style: calm, warm, credible documentary narrator; clear, quietly confident, modern; unhurried and natural, about 140 words per minute.\n" +
+  // the same notes go into every request (one voice, one direction for the whole film)
+  'Pronunciation: "ProofFlow" is said "proof flow"; "HydraDB" is said "Hydra D B"; "MCP" and "CSV" are spelled out letter by letter.';
 // silence between lines, measured from the previous line's speech end to the next line's speech onset
 const PAUSE_BEFORE = { "4d": 0.7, "4e": 0.7, "6b": 0.7, "7b": 0.7 };
 const SECTION_GAP = { s1: 0.8 };
@@ -75,6 +71,9 @@ function n2w(n) {
 export function spoken(tok) {
   let t = tok.toLowerCase().replace(/[\u2019']/g, "'");
   let suffix = "";
+  // money as it is said: "$3.74" -> "three dollars seventy four" (how Whisper writes the script's spoken amounts)
+  const money = /^\$(\d+)\.(\d\d)\b(.*)$/.exec(t);
+  if (money) return (n2w(Number(money[1])) + " dollars " + n2w(Number(money[2])) + money[3]).replace(/[^a-z]+/g, " ").trim();
   t = t.replace(/^\$(.*)$/, (_, x) => ((suffix = " dollars"), x));
   t = t.replace(/^(.*?)%(.*)$/, (_, x) => ((suffix = " percent" + suffix), x));
   t = t.replace(/(\d),(\d{3})/g, "$1$2");
@@ -94,9 +93,11 @@ function lev(a, b) {
       d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
   return d[a.length][b.length];
 }
+// spoken-number equivalences: "a hundred" = "one hundred", "a dollar" = "one dollar", "dollars" = "dollar"
+const canon = (ws) => ws.join(" ").replace(/\ba (hundred|thousand|dollar)/g, "one $1").replace(/\bdollars\b/g, "dollar").split(" ");
 export function compare(scriptText, whisperText) {
-  const sw = scriptText.split(/\s+/).map(spoken).join(" ").split(/\s+/).filter(Boolean);
-  const ww = whisperText.split(/\s+/).map(spoken).join(" ").split(/\s+/).filter(Boolean);
+  const sw = canon(scriptText.split(/\s+/).map(spoken).join(" ").split(/\s+/).filter(Boolean));
+  const ww = canon(whisperText.split(/\s+/).map(spoken).join(" ").split(/\s+/).filter(Boolean));
   const exact = letters(sw.join("")) === letters(ww.join(""));
   return { exact, wordErrors: exact ? 0 : lev(sw, ww), charDist: lev(letters(sw.join("")), letters(ww.join(""))) };
 }
@@ -234,6 +235,30 @@ function splitGroup(g, ns, raw) {
     trim(piece, tr);
     return { l, n: ns[b], tr };
   });
+}
+
+// recheck: re-score every stored take against the script with the current normalisation (no API calls); any take
+// still not exact is re-heard by Whisper `medium` (and `large` with --whisper large) before it would cost a retake.
+if (cmd === "recheck") {
+  const left = [];
+  for (const l of allLines)
+    for (const t of state.lines[l.id]?.tries ?? []) {
+      Object.assign(t, compare(l.text, t.heard));
+      if (!t.exact) left.push({ l, t });
+    }
+  for (const model of ["medium", ...(values.whisper === "large" ? ["large"] : [])]) {
+    const todo = left.filter((x) => !x.t.exact);
+    if (!todo.length) break;
+    const asr = whisper(todo.map((x) => x.t.file), model);
+    for (const { l, t } of todo) {
+      const w = asr[t.file], c = compare(l.text, w.text);
+      if (c.exact) Object.assign(t, { heard: w.text, ...c, words: w.words, asr: model });
+      else console.log(`  ${l.id} t${t.n} ${model} still hears (${c.wordErrors}w/${c.charDist}c): "${w.text}"`);
+    }
+  }
+  save();
+  const bad = allLines.filter((l) => !state.lines[l.id]?.tries.some((t) => t.exact));
+  console.log(bad.length ? `no exact take: ${bad.map((l) => l.id).join(", ")}` : "all lines have an exact take");
 }
 
 if (cmd === "assemble") {

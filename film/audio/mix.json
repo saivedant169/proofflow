@@ -28,303 +28,303 @@
         "section": "s1",
         "file": "audio/narration/s1.wav",
         "at": 0,
-        "seconds": 16.994
+        "seconds": 20.352
       },
       {
         "section": "s2",
         "file": "audio/narration/s2.wav",
-        "at": 18,
-        "seconds": 21.346
+        "at": 21.4,
+        "seconds": 19
       },
       {
         "section": "s3",
         "file": "audio/narration/s3.wav",
-        "at": 40.3,
-        "seconds": 13.753
+        "at": 41.3,
+        "seconds": 15.215
       },
       {
         "section": "s4",
         "file": "audio/narration/s4.wav",
-        "at": 55.7,
-        "seconds": 29.748
+        "at": 58.2,
+        "seconds": 29.556
       },
       {
         "section": "s5",
         "file": "audio/narration/s5.wav",
-        "at": 86.9,
-        "seconds": 25.981
+        "at": 89.2,
+        "seconds": 25.762
       },
       {
         "section": "s6",
         "file": "audio/narration/s6.wav",
-        "at": 114.1,
-        "seconds": 51.497
+        "at": 116.2,
+        "seconds": 51.87
       },
       {
         "section": "s7",
         "file": "audio/narration/s7.wav",
-        "at": 173.6,
-        "seconds": 30.063
+        "at": 176.1,
+        "seconds": 44.572
       },
       {
         "section": "s8",
         "file": "audio/narration/s8.wav",
-        "at": 205.1,
-        "seconds": 8.694
+        "at": 222.1,
+        "seconds": 20.083
       }
     ],
     "bed": {
       "file": "audio/music-bed.wav",
-      "seconds": 217.4,
-      "lufs": -18.02
+      "seconds": 245.8,
+      "lufs": -18
     },
     "sfx": "audio/sfx.wav"
   },
-  "bedBaseGainDb": -4.48,
+  "bedBaseGainDb": -4.61,
   "carveFilter": "firequalizer=zero_phase=1:gain_entry='entry(0,0);entry(280,0);entry(400,-3.5);entry(4000,-3.5);entry(5600,0);entry(24000,0)'",
   "lifts": [
     {
       "name": "name (s3 opening)",
-      "from": 40.3,
-      "to": 43.102,
-      "musicLufs": -30.11
+      "from": 41.3,
+      "to": 46.226,
+      "musicLufs": -29.52
     },
     {
       "name": "run (s6, no voice)",
-      "from": 165.597,
-      "to": 173.6,
-      "musicLufs": -14.82
+      "from": 168.07,
+      "to": 176.1,
+      "musicLufs": -14.94
     },
     {
       "name": "final hold (s8)",
-      "from": 213.594,
-      "to": 217.4,
-      "musicLufs": -24.8
+      "from": 241.984,
+      "to": 245.8,
+      "musicLufs": -23.73
     }
   ],
   "duck": {
     "active": [
       [
         0.35,
-        53.852
+        56.315
       ],
       [
-        56.05,
-        85.248
+        58.55,
+        87.556
       ],
       [
-        87.25,
-        112.681
+        89.55,
+        114.762
       ],
       [
-        114.45,
-        165.397
+        116.55,
+        167.87
       ],
       [
-        173.95,
-        203.463
+        176.45,
+        220.472
       ],
       [
-        205.45,
-        213.594
+        222.45,
+        241.984
       ]
     ],
     "spans": [
       {
         "section": "s1",
         "from": 0.35,
-        "to": 16.794,
+        "to": 20.152,
         "under": 20,
-        "depthDb": -6.68,
-        "musicBelowVoiceDb": 20.51
+        "depthDb": -6.76,
+        "musicBelowVoiceDb": 20.45
       },
       {
         "section": "s2",
-        "from": 18.35,
-        "to": 39.146,
+        "from": 21.75,
+        "to": 40.2,
         "under": 20,
-        "depthDb": -6.9,
-        "musicBelowVoiceDb": 20.33
+        "depthDb": -6.76,
+        "musicBelowVoiceDb": 20.35
       },
       {
         "section": "s3",
         "mark": "name",
-        "from": 40.65,
-        "to": 42.702,
+        "from": 41.65,
+        "to": 45.826,
         "under": 15.5,
-        "depthDb": -10.38,
-        "musicBelowVoiceDb": 18.48
+        "depthDb": -10.01,
+        "musicBelowVoiceDb": 16.36
       },
       {
         "section": "s3",
-        "from": 42.702,
-        "to": 53.852,
+        "from": 45.826,
+        "to": 56.315,
         "under": 20,
-        "depthDb": -9.96,
-        "musicBelowVoiceDb": 20.02
+        "depthDb": -9.64,
+        "musicBelowVoiceDb": 20.35
       },
       {
         "section": "s4",
-        "from": 56.05,
-        "to": 85.248,
+        "from": 58.55,
+        "to": 87.556,
         "under": 20,
-        "depthDb": -9.88,
-        "musicBelowVoiceDb": 20.45
+        "depthDb": -9.96,
+        "musicBelowVoiceDb": 20.44
       },
       {
         "section": "s5",
-        "from": 87.25,
-        "to": 112.681,
+        "from": 89.55,
+        "to": 114.762,
         "under": 20,
-        "depthDb": -11.69,
-        "musicBelowVoiceDb": 20.34
+        "depthDb": -11.91,
+        "musicBelowVoiceDb": 20.35
       },
       {
         "section": "s6",
-        "from": 114.45,
-        "to": 165.397,
+        "from": 116.55,
+        "to": 167.87,
         "under": 21,
-        "depthDb": -13.24,
+        "depthDb": -13.15,
         "musicBelowVoiceDb": 21.42
       },
       {
         "section": "s7",
-        "from": 173.95,
-        "to": 203.463,
+        "from": 176.45,
+        "to": 220.472,
         "under": 20,
-        "depthDb": -11.55,
-        "musicBelowVoiceDb": 20.46
+        "depthDb": -11.42,
+        "musicBelowVoiceDb": 20.42
       },
       {
         "section": "s8",
-        "from": 205.45,
-        "to": 213.594,
+        "from": 222.45,
+        "to": 241.984,
         "under": 20,
-        "depthDb": -11.36,
-        "musicBelowVoiceDb": 20.68
+        "depthDb": -11.07,
+        "musicBelowVoiceDb": 20.55
       }
     ]
   },
   "sections": [
     {
       "section": "s1",
-      "voiceLufs": -13.51,
-      "musicUnderVoiceLufs": -34.02,
-      "musicBelowVoiceDb": 20.51,
-      "musicInAirLufs": -57.11
+      "voiceLufs": -13.66,
+      "musicUnderVoiceLufs": -34.11,
+      "musicBelowVoiceDb": 20.45,
+      "musicInAirLufs": -57.15
     },
     {
       "section": "s2",
-      "voiceLufs": -13.22,
-      "musicUnderVoiceLufs": -33.55,
-      "musicBelowVoiceDb": 20.33,
-      "musicInAirLufs": -34.86
+      "voiceLufs": -13.25,
+      "musicUnderVoiceLufs": -33.6,
+      "musicBelowVoiceDb": 20.35,
+      "musicInAirLufs": -35.13
     },
     {
       "section": "s3",
-      "voiceLufs": -13.2,
-      "musicUnderVoiceLufs": -32.81,
-      "musicBelowVoiceDb": 19.6,
-      "musicInAirLufs": -28.98
+      "voiceLufs": -13.18,
+      "musicUnderVoiceLufs": -31.92,
+      "musicBelowVoiceDb": 18.73,
+      "musicInAirLufs": -29.03
     },
     {
       "section": "s4",
-      "voiceLufs": -13.67,
-      "musicUnderVoiceLufs": -34.13,
-      "musicBelowVoiceDb": 20.45,
-      "musicInAirLufs": -23.23
+      "voiceLufs": -13.89,
+      "musicUnderVoiceLufs": -34.33,
+      "musicBelowVoiceDb": 20.44,
+      "musicInAirLufs": -23.51
     },
     {
       "section": "s5",
-      "voiceLufs": -13.54,
-      "musicUnderVoiceLufs": -33.89,
-      "musicBelowVoiceDb": 20.34,
-      "musicInAirLufs": -23.32
+      "voiceLufs": -13.81,
+      "musicUnderVoiceLufs": -34.17,
+      "musicBelowVoiceDb": 20.35,
+      "musicInAirLufs": -23.99
     },
     {
       "section": "s6",
-      "voiceLufs": -13.64,
-      "musicUnderVoiceLufs": -35.05,
+      "voiceLufs": -13.65,
+      "musicUnderVoiceLufs": -35.07,
       "musicBelowVoiceDb": 21.42,
-      "musicInAirLufs": -21.13
+      "musicInAirLufs": -19.73
     },
     {
       "section": "s7",
-      "voiceLufs": -13.42,
-      "musicUnderVoiceLufs": -33.88,
-      "musicBelowVoiceDb": 20.46,
-      "musicInAirLufs": -18.29
+      "voiceLufs": -13.47,
+      "musicUnderVoiceLufs": -33.89,
+      "musicBelowVoiceDb": 20.42,
+      "musicInAirLufs": -18.13
     },
     {
       "section": "s8",
-      "voiceLufs": -13.44,
-      "musicUnderVoiceLufs": -34.11,
-      "musicBelowVoiceDb": 20.68,
-      "musicInAirLufs": -23.36
+      "voiceLufs": -13.83,
+      "musicUnderVoiceLufs": -34.38,
+      "musicBelowVoiceDb": 20.55,
+      "musicInAirLufs": -23.68
     }
   ],
   "speech": {
-    "voiceSpeechLufs": -13.5,
+    "voiceSpeechLufs": -13.61,
     "musicUnderSpeechLufs": -34.09,
-    "musicBelowVoiceDb": 20.59,
+    "musicBelowVoiceDb": 20.48,
     "musicMomentaryVsSpeakingLevel": {
       "about": "every 400 ms window inside a phrase: section voice level minus the music's momentary loudness",
-      "count": 1905,
-      "min": 15.89,
-      "minAt": 40.95,
-      "p05": 19.64,
-      "median": 20.58,
-      "below15dbShare": 0
+      "count": 2190,
+      "min": 14.96,
+      "minAt": 43.15,
+      "p05": 19.59,
+      "median": 20.53,
+      "below15dbShare": 0.001
     },
     "voiceWindowsVsMusic": {
       "about": "400 ms windows where the voice is within 10 LU of its speech level: voice minus music in the same window",
-      "count": 1643,
-      "p05": 14.07,
-      "median": 20.76,
-      "min": 9.69,
-      "below15dbShare": 0.07
+      "count": 1880,
+      "p05": 14.33,
+      "median": 20.81,
+      "min": 9.8,
+      "below15dbShare": 0.064
     },
-    "sfxUnderSpeechLufs": -45.21
+    "sfxUnderSpeechLufs": -44.84
   },
-  "musicInAirLufs": -17.11,
+  "musicInAirLufs": -17.19,
   "master": {
     "sum": {
-      "lufs": -13.1,
-      "lra": 4.1,
-      "truePeak": -0.8,
-      "samplePeak": -0.9
+      "lufs": -13.2,
+      "lra": 3.6,
+      "truePeak": -1.1,
+      "samplePeak": -1.1
     },
     "preLimitDbtp": -2,
-    "limiter": "aresample=192000:resampler=soxr,alimiter=limit=0.88105:attack=5:release=80:level=false:asc=1,aresample=48000:resampler=soxr",
+    "limiter": "aresample=192000:resampler=soxr,alimiter=limit=0.87096:attack=5:release=80:level=false:asc=1,aresample=48000:resampler=soxr",
     "loudnormPass1": {
-      "input_i": "-13.17",
-      "input_tp": "-1.10",
-      "input_lra": "4.10",
-      "input_thresh": "-23.89",
-      "output_i": "-14.22",
-      "output_tp": "-2.27",
-      "output_lra": "4.00",
-      "output_thresh": "-24.90",
+      "input_i": "-13.19",
+      "input_tp": "-1.20",
+      "input_lra": "3.40",
+      "input_thresh": "-23.95",
+      "output_i": "-14.26",
+      "output_tp": "-2.12",
+      "output_lra": "3.50",
+      "output_thresh": "-24.98",
       "normalization_type": "dynamic",
-      "target_offset": "0.22"
+      "target_offset": "0.26"
     },
     "loudnormPass2": {
-      "output_i": "-13.94",
-      "output_tp": "-1.96",
+      "output_i": "-13.96",
+      "output_tp": "-2.01",
       "normalization_type": "linear",
-      "target_offset": "-0.06",
-      "trimDb": -0.1
+      "target_offset": "-0.04",
+      "trimDb": 0
     },
     "measured": {
       "lufs": -14,
-      "lra": 4.1,
+      "lra": 3.6,
       "truePeak": -2,
-      "samplePeak": -2.1
+      "samplePeak": -2
     },
-    "approxMasterGainDb": -0.9,
+    "approxMasterGainDb": -0.8,
     "format": "48 kHz stereo, PCM 24-bit",
-    "samples": 10435200,
-    "seconds": 217.4,
+    "samples": 11798400,
+    "seconds": 245.8,
     "exactLength": true,
     "clippedSamples": 0
   }
