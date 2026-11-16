@@ -9,6 +9,7 @@ The narrator reads these words exactly. Section ids (s1–s8) and line ids (in b
 - CSV preview → create → publish correction → refresh → checked copy only while current: README.md "Use your own CSV".
 - Hosted connector: six MCP tools, one download: docs/AGENT_QUICKSTART.md, website facts.
 - Runtime, hash-verified store, HydraDB native traversal, fail closed (503 / 409), typed tools, no arbitrary code: README.md "How it works", proofflow/runtime.py, artifacts.py, graph.py, api.py.
+- Who it's for (go-to-market): teams whose agents produce recurring numeric reports (finance close, revenue/FX, commerce analytics); adoption through the one-download MCP connector: docs/SUBMISSION_FORM_ANSWERS.md, docs/AGENT_QUICKSTART.md.
 - Not claimed: speed/latency, learning uplift, customer adoption. List prices are provider list estimates, not invoices.
 
 Pace: about 140 words a minute, calm, warm, confident, unhurried. Pause briefly at each line break.
@@ -79,4 +80,5 @@ Pace: about 140 words a minute, calm, warm, confident, unhurried. Pause briefly 
 
 [8a] ProofFlow.
 [8b] Full-context accuracy, at vector-search cost.
-[8c] Try it live. Every number shown is in the public evidence.
+[8c] Built for teams whose agents produce numbers people act on: finance, revenue, analytics. Add it to any agent through MCP.
+[8d] Try it live. Every number shown is in the public evidence.
