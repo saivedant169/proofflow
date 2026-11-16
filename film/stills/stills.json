@@ -1,0 +1,2970 @@
+{
+  "version": 1,
+  "deviceScaleFactor": 2,
+  "source": "https://proofflow.arnavbule.in (live public demo)",
+  "stills": {
+    "p01-workspace": {
+      "file": "p01-workspace.png",
+      "state": "1",
+      "title": "Guided sample workspace, everything current",
+      "kind": "full",
+      "width": 1600,
+      "height": 1175,
+      "scale": 2,
+      "boxes": {
+        "headline": {
+          "x": 60,
+          "y": 114,
+          "w": 1480,
+          "h": 54.875
+        },
+        "report-panel": {
+          "x": 44,
+          "y": 402.656,
+          "w": 568.469,
+          "h": 475
+        },
+        "company-revenue": {
+          "x": 74,
+          "y": 491.234,
+          "w": 508.469,
+          "h": 76.75
+        },
+        "eu-revenue": {
+          "x": 74,
+          "y": 591.984,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "eu-support": {
+          "x": 338.234,
+          "y": 591.984,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "report-links": {
+          "x": 74,
+          "y": 688.734,
+          "w": 508.469,
+          "h": 92.594
+        },
+        "graph": {
+          "x": 628.469,
+          "y": 402.656,
+          "w": 927.531,
+          "h": 475
+        },
+        "graph-reports": {
+          "x": 1389.469,
+          "y": 582.656,
+          "w": 128,
+          "h": 126
+        },
+        "workflow": {
+          "x": 1111.813,
+          "y": 348.656,
+          "w": 444.188,
+          "h": 38
+        },
+        "change-source": {
+          "x": 1111.813,
+          "y": 348.656,
+          "w": 149.797,
+          "h": 38
+        },
+        "refresh-affected": {
+          "x": 1269.609,
+          "y": 348.656,
+          "w": 148.234,
+          "h": 38
+        },
+        "check-values": {
+          "x": 1425.844,
+          "y": 348.656,
+          "w": 130.156,
+          "h": 38
+        },
+        "activity": {
+          "x": 44,
+          "y": 897.656,
+          "w": 1512,
+          "h": 209
+        },
+        "dataset-bar": {
+          "x": 44,
+          "y": 267.656,
+          "w": 1512,
+          "h": 64
+        }
+      },
+      "flags": [
+        {
+          "text": "Guided demo · Sample orders · fixed calculations",
+          "box": {
+            "x": 44,
+            "y": 267.656,
+            "w": 1512,
+            "h": 64
+          }
+        }
+      ],
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-15T23:58:42.444Z",
+        "colorScheme": "light"
+      }
+    },
+    "p01-workspace.report": {
+      "file": "p01-workspace.report@4x.png",
+      "state": "1",
+      "kind": "crop",
+      "width": 585,
+      "height": 492,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.656,
+          "w": 568.469,
+          "h": 475
+        },
+        "company-revenue": {
+          "x": 38,
+          "y": 97.234,
+          "w": 508.469,
+          "h": 76.75
+        },
+        "eu-revenue": {
+          "x": 38,
+          "y": 197.984,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "eu-support": {
+          "x": 302.234,
+          "y": 197.984,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "report-links": {
+          "x": 38,
+          "y": 294.734,
+          "w": 508.469,
+          "h": 92.594
+        }
+      },
+      "cropOf": "p01-workspace",
+      "origin": {
+        "x": 36,
+        "y": 394
+      }
+    },
+    "p01-workspace.graph": {
+      "file": "p01-workspace.graph@3x.png",
+      "state": "1",
+      "kind": "crop",
+      "width": 944,
+      "height": 492,
+      "scale": 3,
+      "boxes": {
+        "graph": {
+          "x": 8.469,
+          "y": 8.656,
+          "w": 927.531,
+          "h": 475
+        },
+        "graph-reports": {
+          "x": 769.469,
+          "y": 188.656,
+          "w": 128,
+          "h": 126
+        }
+      },
+      "cropOf": "p01-workspace",
+      "origin": {
+        "x": 620,
+        "y": 394
+      }
+    },
+    "p01-workspace.workflow": {
+      "file": "p01-workspace.workflow@4x.png",
+      "state": "1",
+      "kind": "crop",
+      "width": 473,
+      "height": 67,
+      "scale": 4,
+      "boxes": {
+        "workflow": {
+          "x": 14.813,
+          "y": 14.656,
+          "w": 444.188,
+          "h": 38
+        },
+        "change-source": {
+          "x": 14.813,
+          "y": 14.656,
+          "w": 149.797,
+          "h": 38
+        },
+        "refresh-affected": {
+          "x": 172.609,
+          "y": 14.656,
+          "w": 148.234,
+          "h": 38
+        },
+        "check-values": {
+          "x": 328.844,
+          "y": 14.656,
+          "w": 130.156,
+          "h": 38
+        }
+      },
+      "cropOf": "p01-workspace",
+      "origin": {
+        "x": 1097,
+        "y": 334
+      }
+    },
+    "p01-workspace.headline": {
+      "file": "p01-workspace.headline@3x.png",
+      "state": "1",
+      "kind": "crop",
+      "width": 1512,
+      "height": 87,
+      "scale": 3,
+      "boxes": {
+        "headline": {
+          "x": 16,
+          "y": 16,
+          "w": 1480,
+          "h": 54.875
+        }
+      },
+      "cropOf": "p01-workspace",
+      "origin": {
+        "x": 44,
+        "y": 98
+      }
+    },
+    "p02-change-source": {
+      "file": "p02-change-source.png",
+      "state": "2",
+      "title": "Change a source drawer: Exchange rate selected, EUR to USD 1.20 entered, not yet applied",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1130,
+          "y": 0,
+          "w": 470,
+          "h": 1000
+        },
+        "options": {
+          "x": 1158,
+          "y": 111.984,
+          "w": 414,
+          "h": 375
+        },
+        "fx-option": {
+          "x": 1158,
+          "y": 111.984,
+          "w": 414,
+          "h": 67
+        },
+        "editor": {
+          "x": 1158,
+          "y": 511.984,
+          "w": 414,
+          "h": 173.391
+        },
+        "fx-input": {
+          "x": 1158,
+          "y": 598.984,
+          "w": 414,
+          "h": 45
+        },
+        "apply": {
+          "x": 1158,
+          "y": 710.375,
+          "w": 414,
+          "h": 44
+        },
+        "drawer-header": {
+          "x": 1158,
+          "y": 28,
+          "w": 414,
+          "h": 59.984
+        }
+      },
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-15T23:58:53.645Z",
+        "colorScheme": "light"
+      }
+    },
+    "p02-change-source.editor": {
+      "file": "p02-change-source.editor@4x.png",
+      "state": "2",
+      "kind": "crop",
+      "width": 434,
+      "height": 264,
+      "scale": 4,
+      "boxes": {
+        "editor": {
+          "x": 10,
+          "y": 10.984,
+          "w": 414,
+          "h": 173.391
+        },
+        "fx-input": {
+          "x": 10,
+          "y": 97.984,
+          "w": 414,
+          "h": 45
+        },
+        "apply": {
+          "x": 10,
+          "y": 209.375,
+          "w": 414,
+          "h": 44
+        }
+      },
+      "cropOf": "p02-change-source",
+      "origin": {
+        "x": 1148,
+        "y": 501
+      }
+    },
+    "p02-change-source.options": {
+      "file": "p02-change-source.options@3x.png",
+      "state": "2",
+      "kind": "crop",
+      "width": 434,
+      "height": 479,
+      "scale": 3,
+      "boxes": {
+        "options": {
+          "x": 10,
+          "y": 93.984,
+          "w": 414,
+          "h": 375
+        },
+        "fx-option": {
+          "x": 10,
+          "y": 93.984,
+          "w": 414,
+          "h": 67
+        },
+        "drawer-header": {
+          "x": 10,
+          "y": 10,
+          "w": 414,
+          "h": 59.984
+        }
+      },
+      "cropOf": "p02-change-source",
+      "origin": {
+        "x": 1148,
+        "y": 18
+      }
+    },
+    "p02-change-source.fx-option": {
+      "file": "p02-change-source.fx-option@4x.png",
+      "state": "2",
+      "kind": "crop",
+      "width": 430,
+      "height": 84,
+      "scale": 4,
+      "boxes": {
+        "fx-option": {
+          "x": 8,
+          "y": 8.984,
+          "w": 414,
+          "h": 67
+        }
+      },
+      "cropOf": "p02-change-source",
+      "origin": {
+        "x": 1150,
+        "y": 103
+      }
+    },
+    "p03-stale": {
+      "file": "p03-stale.png",
+      "state": "3",
+      "title": "After EUR to USD 1.20 correction: affected figures withheld, affected path highlighted",
+      "kind": "full",
+      "width": 1600,
+      "height": 1233,
+      "scale": 2,
+      "boxes": {
+        "headline": {
+          "x": 60,
+          "y": 114,
+          "w": 1480,
+          "h": 54.875
+        },
+        "report-panel": {
+          "x": 44,
+          "y": 460.656,
+          "w": 568.469,
+          "h": 475
+        },
+        "company-revenue": {
+          "x": 74,
+          "y": 600.234,
+          "w": 508.469,
+          "h": 86.188
+        },
+        "eu-revenue": {
+          "x": 74,
+          "y": 710.422,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "eu-support": {
+          "x": 338.234,
+          "y": 710.422,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "report-links": {
+          "x": 74,
+          "y": 807.172,
+          "w": 508.469,
+          "h": 92.594
+        },
+        "graph": {
+          "x": 628.469,
+          "y": 460.656,
+          "w": 927.531,
+          "h": 475
+        },
+        "graph-reports": {
+          "x": 1389.469,
+          "y": 640.656,
+          "w": 128,
+          "h": 126
+        },
+        "workflow": {
+          "x": 1111.813,
+          "y": 348.656,
+          "w": 444.188,
+          "h": 38
+        },
+        "change-source": {
+          "x": 1111.813,
+          "y": 348.656,
+          "w": 149.797,
+          "h": 38
+        },
+        "refresh-affected": {
+          "x": 1269.609,
+          "y": 348.656,
+          "w": 148.234,
+          "h": 38
+        },
+        "check-values": {
+          "x": 1425.844,
+          "y": 348.656,
+          "w": 130.156,
+          "h": 38
+        },
+        "activity": {
+          "x": 44,
+          "y": 955.656,
+          "w": 1512,
+          "h": 209
+        },
+        "dataset-bar": {
+          "x": 44,
+          "y": 267.656,
+          "w": 1512,
+          "h": 64
+        },
+        "banner": {
+          "x": 44,
+          "y": 402.656,
+          "w": 1512,
+          "h": 42
+        },
+        "withheld-notice": {
+          "x": 74,
+          "y": 542.234,
+          "w": 508.469,
+          "h": 36
+        },
+        "withheld-claims": {
+          "x": 74,
+          "y": 600.234,
+          "w": 508.469,
+          "h": 182.938
+        },
+        "affected-path": {
+          "x": 659.469,
+          "y": 590.656,
+          "w": 858,
+          "h": 176
+        }
+      },
+      "flags": [
+        {
+          "text": "Guided demo · Sample orders · fixed calculations",
+          "box": {
+            "x": 44,
+            "y": 267.656,
+            "w": 1512,
+            "h": 64
+          }
+        }
+      ],
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-15T23:58:59.622Z",
+        "colorScheme": "light"
+      }
+    },
+    "p03-stale.banner": {
+      "file": "p03-stale.banner@4x.png",
+      "state": "3",
+      "kind": "crop",
+      "width": 1532,
+      "height": 63,
+      "scale": 4,
+      "boxes": {
+        "banner": {
+          "x": 10,
+          "y": 10.656,
+          "w": 1512,
+          "h": 42
+        }
+      },
+      "cropOf": "p03-stale",
+      "origin": {
+        "x": 34,
+        "y": 392
+      }
+    },
+    "p03-stale.report": {
+      "file": "p03-stale.report@4x.png",
+      "state": "3",
+      "kind": "crop",
+      "width": 585,
+      "height": 492,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.656,
+          "w": 568.469,
+          "h": 475
+        },
+        "company-revenue": {
+          "x": 38,
+          "y": 148.234,
+          "w": 508.469,
+          "h": 86.188
+        },
+        "eu-revenue": {
+          "x": 38,
+          "y": 258.422,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "eu-support": {
+          "x": 302.234,
+          "y": 258.422,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "report-links": {
+          "x": 38,
+          "y": 355.172,
+          "w": 508.469,
+          "h": 92.594
+        },
+        "withheld-notice": {
+          "x": 38,
+          "y": 90.234,
+          "w": 508.469,
+          "h": 36
+        },
+        "withheld-claims": {
+          "x": 38,
+          "y": 148.234,
+          "w": 508.469,
+          "h": 182.938
+        }
+      },
+      "cropOf": "p03-stale",
+      "origin": {
+        "x": 36,
+        "y": 452
+      }
+    },
+    "p03-stale.graph": {
+      "file": "p03-stale.graph@3x.png",
+      "state": "3",
+      "kind": "crop",
+      "width": 944,
+      "height": 492,
+      "scale": 3,
+      "boxes": {
+        "graph": {
+          "x": 8.469,
+          "y": 8.656,
+          "w": 927.531,
+          "h": 475
+        },
+        "graph-reports": {
+          "x": 769.469,
+          "y": 188.656,
+          "w": 128,
+          "h": 126
+        },
+        "affected-path": {
+          "x": 39.469,
+          "y": 138.656,
+          "w": 858,
+          "h": 176
+        }
+      },
+      "cropOf": "p03-stale",
+      "origin": {
+        "x": 620,
+        "y": 452
+      }
+    },
+    "p03-stale.workflow": {
+      "file": "p03-stale.workflow@4x.png",
+      "state": "3",
+      "kind": "crop",
+      "width": 473,
+      "height": 67,
+      "scale": 4,
+      "boxes": {
+        "workflow": {
+          "x": 14.813,
+          "y": 14.656,
+          "w": 444.188,
+          "h": 38
+        },
+        "change-source": {
+          "x": 14.813,
+          "y": 14.656,
+          "w": 149.797,
+          "h": 38
+        },
+        "refresh-affected": {
+          "x": 172.609,
+          "y": 14.656,
+          "w": 148.234,
+          "h": 38
+        },
+        "check-values": {
+          "x": 328.844,
+          "y": 14.656,
+          "w": 130.156,
+          "h": 38
+        }
+      },
+      "cropOf": "p03-stale",
+      "origin": {
+        "x": 1097,
+        "y": 334
+      }
+    },
+    "p04-evidence": {
+      "file": "p04-evidence.png",
+      "state": "4",
+      "title": "Inspect evidence drawer for the affected EU revenue claim: native HydraDB dependency path",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1040,
+          "y": 0,
+          "w": 560,
+          "h": 1000
+        },
+        "drawer-header": {
+          "x": 1068,
+          "y": 28,
+          "w": 504,
+          "h": 59.984
+        },
+        "name": {
+          "x": 1068,
+          "y": 111.984,
+          "w": 504,
+          "h": 26.594
+        },
+        "facts": {
+          "x": 1068,
+          "y": 163.578,
+          "w": 504,
+          "h": 213.563
+        },
+        "path": {
+          "x": 1068,
+          "y": 458.141,
+          "w": 504,
+          "h": 112
+        },
+        "why": {
+          "x": 1068,
+          "y": 402.141,
+          "w": 504,
+          "h": 220.375
+        }
+      },
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-15T23:59:05.067Z",
+        "colorScheme": "light"
+      }
+    },
+    "p04-evidence.path": {
+      "file": "p04-evidence.path@4x.png",
+      "state": "4",
+      "kind": "crop",
+      "width": 528,
+      "height": 137,
+      "scale": 4,
+      "boxes": {
+        "path": {
+          "x": 12,
+          "y": 12.141,
+          "w": 504,
+          "h": 112
+        }
+      },
+      "cropOf": "p04-evidence",
+      "origin": {
+        "x": 1056,
+        "y": 446
+      }
+    },
+    "p04-evidence.header": {
+      "file": "p04-evidence.header@3x.png",
+      "state": "4",
+      "kind": "crop",
+      "width": 524,
+      "height": 370,
+      "scale": 3,
+      "boxes": {
+        "drawer-header": {
+          "x": 10,
+          "y": 10,
+          "w": 504,
+          "h": 59.984
+        },
+        "name": {
+          "x": 10,
+          "y": 93.984,
+          "w": 504,
+          "h": 26.594
+        },
+        "facts": {
+          "x": 10,
+          "y": 145.578,
+          "w": 504,
+          "h": 213.563
+        }
+      },
+      "cropOf": "p04-evidence",
+      "origin": {
+        "x": 1058,
+        "y": 18
+      }
+    },
+    "p05-refreshed": {
+      "file": "p05-refreshed.png",
+      "state": "5",
+      "title": "After Refresh affected: current values $5,755 / $2,280, four tool calls, support unchanged",
+      "kind": "full",
+      "width": 1600,
+      "height": 1233,
+      "scale": 2,
+      "boxes": {
+        "headline": {
+          "x": 60,
+          "y": 114,
+          "w": 1480,
+          "h": 54.875
+        },
+        "report-panel": {
+          "x": 44,
+          "y": 460.656,
+          "w": 568.469,
+          "h": 475
+        },
+        "company-revenue": {
+          "x": 74,
+          "y": 549.234,
+          "w": 508.469,
+          "h": 76.75
+        },
+        "eu-revenue": {
+          "x": 74,
+          "y": 649.984,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "eu-support": {
+          "x": 338.234,
+          "y": 649.984,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "report-links": {
+          "x": 74,
+          "y": 746.734,
+          "w": 508.469,
+          "h": 92.594
+        },
+        "graph": {
+          "x": 628.469,
+          "y": 460.656,
+          "w": 927.531,
+          "h": 475
+        },
+        "graph-reports": {
+          "x": 1389.469,
+          "y": 640.656,
+          "w": 128,
+          "h": 126
+        },
+        "workflow": {
+          "x": 1111.813,
+          "y": 348.656,
+          "w": 444.188,
+          "h": 38
+        },
+        "change-source": {
+          "x": 1111.813,
+          "y": 348.656,
+          "w": 149.797,
+          "h": 38
+        },
+        "refresh-affected": {
+          "x": 1269.609,
+          "y": 348.656,
+          "w": 148.234,
+          "h": 38
+        },
+        "check-values": {
+          "x": 1425.844,
+          "y": 348.656,
+          "w": 130.156,
+          "h": 38
+        },
+        "activity": {
+          "x": 44,
+          "y": 955.656,
+          "w": 1512,
+          "h": 209
+        },
+        "dataset-bar": {
+          "x": 44,
+          "y": 267.656,
+          "w": 1512,
+          "h": 64
+        },
+        "banner": {
+          "x": 44,
+          "y": 402.656,
+          "w": 1512,
+          "h": 42
+        },
+        "activity-rows": {
+          "x": 64,
+          "y": 1011.656,
+          "w": 1472,
+          "h": 141
+        }
+      },
+      "flags": [
+        {
+          "text": "Guided demo · Sample orders · fixed calculations",
+          "box": {
+            "x": 44,
+            "y": 267.656,
+            "w": 1512,
+            "h": 64
+          }
+        }
+      ],
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-15T23:59:12.398Z",
+        "colorScheme": "light"
+      }
+    },
+    "p05-refreshed.banner": {
+      "file": "p05-refreshed.banner@4x.png",
+      "state": "5",
+      "kind": "crop",
+      "width": 1532,
+      "height": 63,
+      "scale": 4,
+      "boxes": {
+        "banner": {
+          "x": 10,
+          "y": 10.656,
+          "w": 1512,
+          "h": 42
+        }
+      },
+      "cropOf": "p05-refreshed",
+      "origin": {
+        "x": 34,
+        "y": 392
+      }
+    },
+    "p05-refreshed.report": {
+      "file": "p05-refreshed.report@4x.png",
+      "state": "5",
+      "kind": "crop",
+      "width": 585,
+      "height": 492,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.656,
+          "w": 568.469,
+          "h": 475
+        },
+        "company-revenue": {
+          "x": 38,
+          "y": 97.234,
+          "w": 508.469,
+          "h": 76.75
+        },
+        "eu-revenue": {
+          "x": 38,
+          "y": 197.984,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "eu-support": {
+          "x": 302.234,
+          "y": 197.984,
+          "w": 244.234,
+          "h": 72.75
+        },
+        "report-links": {
+          "x": 38,
+          "y": 294.734,
+          "w": 508.469,
+          "h": 92.594
+        }
+      },
+      "cropOf": "p05-refreshed",
+      "origin": {
+        "x": 36,
+        "y": 452
+      }
+    },
+    "p05-refreshed.activity": {
+      "file": "p05-refreshed.activity@3x.png",
+      "state": "5",
+      "kind": "crop",
+      "width": 1528,
+      "height": 226,
+      "scale": 3,
+      "boxes": {
+        "activity": {
+          "x": 8,
+          "y": 8.656,
+          "w": 1512,
+          "h": 209
+        },
+        "activity-rows": {
+          "x": 28,
+          "y": 64.656,
+          "w": 1472,
+          "h": 141
+        }
+      },
+      "cropOf": "p05-refreshed",
+      "origin": {
+        "x": 36,
+        "y": 947
+      }
+    },
+    "p05-refreshed.graph": {
+      "file": "p05-refreshed.graph@3x.png",
+      "state": "5",
+      "kind": "crop",
+      "width": 944,
+      "height": 492,
+      "scale": 3,
+      "boxes": {
+        "graph": {
+          "x": 8.469,
+          "y": 8.656,
+          "w": 927.531,
+          "h": 475
+        },
+        "graph-reports": {
+          "x": 769.469,
+          "y": 188.656,
+          "w": 128,
+          "h": 126
+        }
+      },
+      "cropOf": "p05-refreshed",
+      "origin": {
+        "x": 620,
+        "y": 452
+      }
+    },
+    "p06-csv-form": {
+      "file": "p06-csv-form.png",
+      "state": "6",
+      "title": "Use your data drawer filled with the app's sample CSV and rates, before validation",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1040,
+          "y": 0,
+          "w": 560,
+          "h": 1000
+        },
+        "drawer-header": {
+          "x": 1068,
+          "y": 28,
+          "w": 504,
+          "h": 59.984
+        },
+        "csv": {
+          "x": 1068,
+          "y": 296.578,
+          "w": 504,
+          "h": 175
+        },
+        "file-actions": {
+          "x": 1068,
+          "y": 231.578,
+          "w": 504,
+          "h": 54
+        },
+        "rates": {
+          "x": 1068,
+          "y": 603.578,
+          "w": 504,
+          "h": 64
+        },
+        "region": {
+          "x": 1068,
+          "y": 710.578,
+          "w": 504,
+          "h": 63
+        },
+        "submit": {
+          "x": 1068,
+          "y": 794.578,
+          "w": 504,
+          "h": 44
+        }
+      },
+      "flags": [
+        {
+          "text": "Authored sample CSV",
+          "box": {
+            "x": 1068,
+            "y": 231.578,
+            "w": 504,
+            "h": 54
+          }
+        }
+      ],
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-16T00:00:27.700Z",
+        "colorScheme": "light"
+      }
+    },
+    "p06-csv-form.csv": {
+      "file": "p06-csv-form.csv@4x.png",
+      "state": "6",
+      "kind": "crop",
+      "width": 524,
+      "height": 261,
+      "scale": 4,
+      "boxes": {
+        "csv": {
+          "x": 10,
+          "y": 75.578,
+          "w": 504,
+          "h": 175
+        },
+        "file-actions": {
+          "x": 10,
+          "y": 10.578,
+          "w": 504,
+          "h": 54
+        }
+      },
+      "cropOf": "p06-csv-form",
+      "origin": {
+        "x": 1058,
+        "y": 221
+      },
+      "flags": [
+        {
+          "text": "Authored sample CSV",
+          "box": {
+            "x": 10,
+            "y": 10.578,
+            "w": 504,
+            "h": 54
+          }
+        }
+      ]
+    },
+    "p06-csv-form.rates": {
+      "file": "p06-csv-form.rates@4x.png",
+      "state": "6",
+      "kind": "crop",
+      "width": 524,
+      "height": 191,
+      "scale": 4,
+      "boxes": {
+        "rates": {
+          "x": 10,
+          "y": 10.578,
+          "w": 504,
+          "h": 64
+        },
+        "region": {
+          "x": 10,
+          "y": 117.578,
+          "w": 504,
+          "h": 63
+        }
+      },
+      "cropOf": "p06-csv-form",
+      "origin": {
+        "x": 1058,
+        "y": 593
+      }
+    },
+    "p06-csv-preview": {
+      "file": "p06-csv-preview.png",
+      "state": "6",
+      "title": "After Validate CSV: non-persisting preview, ready to create",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1040,
+          "y": 0,
+          "w": 560,
+          "h": 1000
+        },
+        "rates": {
+          "x": 1068,
+          "y": 490.578,
+          "w": 504,
+          "h": 64
+        },
+        "region": {
+          "x": 1068,
+          "y": 597.578,
+          "w": 504,
+          "h": 63
+        },
+        "preview": {
+          "x": 1068,
+          "y": 683.578,
+          "w": 504,
+          "h": 233
+        },
+        "submit": {
+          "x": 1068,
+          "y": 955.578,
+          "w": 504,
+          "h": 44
+        }
+      },
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-16T00:00:31.380Z",
+        "colorScheme": "light"
+      }
+    },
+    "p06-csv-preview.preview": {
+      "file": "p06-csv-preview.preview@4x.png",
+      "state": "6",
+      "kind": "crop",
+      "width": 524,
+      "height": 254,
+      "scale": 4,
+      "boxes": {
+        "preview": {
+          "x": 10,
+          "y": 10.578,
+          "w": 504,
+          "h": 233
+        }
+      },
+      "cropOf": "p06-csv-preview",
+      "origin": {
+        "x": 1058,
+        "y": 673
+      }
+    },
+    "p06-csv-preview.preview-create": {
+      "file": "p06-csv-preview.preview-create@3x.png",
+      "state": "6",
+      "kind": "crop",
+      "width": 524,
+      "height": 327,
+      "scale": 3,
+      "boxes": {
+        "preview": {
+          "x": 10,
+          "y": 10.578,
+          "w": 504,
+          "h": 233
+        },
+        "submit": {
+          "x": 10,
+          "y": 282.578,
+          "w": 504,
+          "h": 44
+        }
+      },
+      "cropOf": "p06-csv-preview",
+      "origin": {
+        "x": 1058,
+        "y": 673
+      }
+    },
+    "p07-csv-created": {
+      "file": "p07-csv-created.png",
+      "state": "7",
+      "title": "Imported CSV workspace after Create reports, both reports current",
+      "kind": "full",
+      "width": 1600,
+      "height": 1271,
+      "scale": 2,
+      "boxes": {
+        "report-panel": {
+          "x": 44,
+          "y": 507.531,
+          "w": 568.469,
+          "h": 466
+        },
+        "company-revenue": {
+          "x": 74,
+          "y": 596.109,
+          "w": 508.469,
+          "h": 76.75
+        },
+        "regional-revenue": {
+          "x": 74,
+          "y": 696.859,
+          "w": 508.469,
+          "h": 72.75
+        },
+        "support-link": {
+          "x": 74,
+          "y": 784.609,
+          "w": 508.469,
+          "h": 28
+        },
+        "graph": {
+          "x": 628.469,
+          "y": 507.531,
+          "w": 927.531,
+          "h": 466
+        },
+        "graph-reports": {
+          "x": 1389.469,
+          "y": 687.531,
+          "w": 128,
+          "h": 138.531
+        },
+        "workflow": {
+          "x": 888.047,
+          "y": 348.656,
+          "w": 667.953,
+          "h": 38
+        },
+        "workflow-section": {
+          "x": 44,
+          "y": 348.656,
+          "w": 1512,
+          "h": 38
+        },
+        "update-csv": {
+          "x": 888.047,
+          "y": 348.656,
+          "w": 122.313,
+          "h": 38
+        },
+        "refresh-affected": {
+          "x": 1018.359,
+          "y": 348.656,
+          "w": 148.234,
+          "h": 38
+        },
+        "download-reports": {
+          "x": 1174.594,
+          "y": 348.656,
+          "w": 200.703,
+          "h": 38
+        },
+        "copy-report": {
+          "x": 1383.297,
+          "y": 348.656,
+          "w": 172.703,
+          "h": 38
+        },
+        "accounting": {
+          "x": 44,
+          "y": 402.656,
+          "w": 1512,
+          "h": 88.875
+        },
+        "dataset-bar": {
+          "x": 44,
+          "y": 267.656,
+          "w": 1512,
+          "h": 64
+        },
+        "activity": {
+          "x": 44,
+          "y": 993.531,
+          "w": 1512,
+          "h": 209
+        }
+      },
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T00:00:38.705Z",
+        "colorScheme": "light"
+      }
+    },
+    "p07-csv-created.report": {
+      "file": "p07-csv-created.report@4x.png",
+      "state": "7",
+      "kind": "crop",
+      "width": 585,
+      "height": 483,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.531,
+          "w": 568.469,
+          "h": 466
+        },
+        "company-revenue": {
+          "x": 38,
+          "y": 97.109,
+          "w": 508.469,
+          "h": 76.75
+        },
+        "regional-revenue": {
+          "x": 38,
+          "y": 197.859,
+          "w": 508.469,
+          "h": 72.75
+        },
+        "support-link": {
+          "x": 38,
+          "y": 285.609,
+          "w": 508.469,
+          "h": 28
+        }
+      },
+      "cropOf": "p07-csv-created",
+      "origin": {
+        "x": 36,
+        "y": 499
+      }
+    },
+    "p07-csv-created.accounting": {
+      "file": "p07-csv-created.accounting@4x.png",
+      "state": "7",
+      "kind": "crop",
+      "width": 1528,
+      "height": 106,
+      "scale": 4,
+      "boxes": {
+        "accounting": {
+          "x": 8,
+          "y": 8.656,
+          "w": 1512,
+          "h": 88.875
+        }
+      },
+      "cropOf": "p07-csv-created",
+      "origin": {
+        "x": 36,
+        "y": 394
+      }
+    },
+    "p07-csv-created.graph": {
+      "file": "p07-csv-created.graph@3x.png",
+      "state": "7",
+      "kind": "crop",
+      "width": 944,
+      "height": 483,
+      "scale": 3,
+      "boxes": {
+        "graph": {
+          "x": 8.469,
+          "y": 8.531,
+          "w": 927.531,
+          "h": 466
+        },
+        "graph-reports": {
+          "x": 769.469,
+          "y": 188.531,
+          "w": 128,
+          "h": 138.531
+        }
+      },
+      "cropOf": "p07-csv-created",
+      "origin": {
+        "x": 620,
+        "y": 499
+      }
+    },
+    "p07-csv-created.workflow": {
+      "file": "p07-csv-created.workflow@4x.png",
+      "state": "7",
+      "kind": "crop",
+      "width": 696,
+      "height": 67,
+      "scale": 4,
+      "boxes": {
+        "workflow": {
+          "x": 14.047,
+          "y": 14.656,
+          "w": 667.953,
+          "h": 38
+        },
+        "update-csv": {
+          "x": 14.047,
+          "y": 14.656,
+          "w": 122.313,
+          "h": 38
+        },
+        "refresh-affected": {
+          "x": 144.359,
+          "y": 14.656,
+          "w": 148.234,
+          "h": 38
+        },
+        "download-reports": {
+          "x": 300.594,
+          "y": 14.656,
+          "w": 200.703,
+          "h": 38
+        },
+        "copy-report": {
+          "x": 509.297,
+          "y": 14.656,
+          "w": 172.703,
+          "h": 38
+        }
+      },
+      "cropOf": "p07-csv-created",
+      "origin": {
+        "x": 874,
+        "y": 334
+      }
+    },
+    "p08-csv-update": {
+      "file": "p08-csv-update.png",
+      "state": "8",
+      "title": "Update your CSV drawer: same rows, EUR → USD corrected to 1.20, validated and ready to publish",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1040,
+          "y": 0,
+          "w": 560,
+          "h": 1000
+        },
+        "rates": {
+          "x": 1068,
+          "y": 467.375,
+          "w": 504,
+          "h": 64
+        },
+        "preview": {
+          "x": 1068,
+          "y": 684.375,
+          "w": 504,
+          "h": 233
+        },
+        "submit": {
+          "x": 1068,
+          "y": 956.375,
+          "w": 504,
+          "h": 43.625
+        }
+      },
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-16T00:00:44.860Z",
+        "colorScheme": "light"
+      }
+    },
+    "p08-csv-update.rates": {
+      "file": "p08-csv-update.rates@4x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 524,
+      "height": 85,
+      "scale": 4,
+      "boxes": {
+        "rates": {
+          "x": 10,
+          "y": 10.375,
+          "w": 504,
+          "h": 64
+        }
+      },
+      "cropOf": "p08-csv-update",
+      "origin": {
+        "x": 1058,
+        "y": 457
+      }
+    },
+    "p08-csv-update.preview-publish": {
+      "file": "p08-csv-update.preview-publish@3x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 524,
+      "height": 326,
+      "scale": 3,
+      "boxes": {
+        "preview": {
+          "x": 10,
+          "y": 10.375,
+          "w": 504,
+          "h": 233
+        },
+        "submit": {
+          "x": 10,
+          "y": 282.375,
+          "w": 504,
+          "h": 43.625
+        }
+      },
+      "cropOf": "p08-csv-update",
+      "origin": {
+        "x": 1058,
+        "y": 674
+      }
+    },
+    "p08-csv-stale": {
+      "file": "p08-csv-stale.png",
+      "state": "8",
+      "title": "After Publish correction: affected CSV revenue withheld until refresh",
+      "kind": "full",
+      "width": 1600,
+      "height": 1366,
+      "scale": 2,
+      "boxes": {
+        "report-panel": {
+          "x": 44,
+          "y": 565.531,
+          "w": 568.469,
+          "h": 503.156
+        },
+        "company-revenue": {
+          "x": 74,
+          "y": 705.109,
+          "w": 508.469,
+          "h": 86.188
+        },
+        "regional-revenue": {
+          "x": 74,
+          "y": 815.297,
+          "w": 508.469,
+          "h": 69.797
+        },
+        "support-link": {
+          "x": 74,
+          "y": 900.094,
+          "w": 508.469,
+          "h": 28
+        },
+        "graph": {
+          "x": 628.469,
+          "y": 565.531,
+          "w": 927.531,
+          "h": 503.156
+        },
+        "graph-reports": {
+          "x": 1389.469,
+          "y": 745.531,
+          "w": 128,
+          "h": 138.531
+        },
+        "workflow": {
+          "x": 888.047,
+          "y": 348.656,
+          "w": 667.953,
+          "h": 38
+        },
+        "workflow-section": {
+          "x": 44,
+          "y": 348.656,
+          "w": 1512,
+          "h": 38
+        },
+        "update-csv": {
+          "x": 888.047,
+          "y": 348.656,
+          "w": 122.313,
+          "h": 38
+        },
+        "refresh-affected": {
+          "x": 1018.359,
+          "y": 348.656,
+          "w": 148.234,
+          "h": 38
+        },
+        "download-reports": {
+          "x": 1174.594,
+          "y": 348.656,
+          "w": 200.703,
+          "h": 38
+        },
+        "copy-report": {
+          "x": 1383.297,
+          "y": 348.656,
+          "w": 172.703,
+          "h": 38
+        },
+        "accounting": {
+          "x": 44,
+          "y": 402.656,
+          "w": 1512,
+          "h": 88.875
+        },
+        "dataset-bar": {
+          "x": 44,
+          "y": 267.656,
+          "w": 1512,
+          "h": 64
+        },
+        "activity": {
+          "x": 44,
+          "y": 1088.688,
+          "w": 1512,
+          "h": 209
+        },
+        "banner": {
+          "x": 44,
+          "y": 507.531,
+          "w": 1512,
+          "h": 42
+        },
+        "withheld-notice": {
+          "x": 74,
+          "y": 647.109,
+          "w": 508.469,
+          "h": 36
+        },
+        "withheld-claims": {
+          "x": 74,
+          "y": 705.109,
+          "w": 508.469,
+          "h": 179.984
+        },
+        "affected-path": {
+          "x": 659.469,
+          "y": 720.531,
+          "w": 858,
+          "h": 163.531
+        }
+      },
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T00:00:50.211Z",
+        "colorScheme": "light"
+      }
+    },
+    "p08-csv-stale.banner": {
+      "file": "p08-csv-stale.banner@4x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 1532,
+      "height": 63,
+      "scale": 4,
+      "boxes": {
+        "banner": {
+          "x": 10,
+          "y": 10.531,
+          "w": 1512,
+          "h": 42
+        }
+      },
+      "cropOf": "p08-csv-stale",
+      "origin": {
+        "x": 34,
+        "y": 497
+      }
+    },
+    "p08-csv-stale.report": {
+      "file": "p08-csv-stale.report@4x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 585,
+      "height": 520,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.531,
+          "w": 568.469,
+          "h": 503.156
+        },
+        "company-revenue": {
+          "x": 38,
+          "y": 148.109,
+          "w": 508.469,
+          "h": 86.188
+        },
+        "regional-revenue": {
+          "x": 38,
+          "y": 258.297,
+          "w": 508.469,
+          "h": 69.797
+        },
+        "support-link": {
+          "x": 38,
+          "y": 343.094,
+          "w": 508.469,
+          "h": 28
+        },
+        "withheld-notice": {
+          "x": 38,
+          "y": 90.109,
+          "w": 508.469,
+          "h": 36
+        },
+        "withheld-claims": {
+          "x": 38,
+          "y": 148.109,
+          "w": 508.469,
+          "h": 179.984
+        }
+      },
+      "cropOf": "p08-csv-stale",
+      "origin": {
+        "x": 36,
+        "y": 557
+      }
+    },
+    "p08-csv-stale.graph": {
+      "file": "p08-csv-stale.graph@3x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 944,
+      "height": 520,
+      "scale": 3,
+      "boxes": {
+        "graph": {
+          "x": 8.469,
+          "y": 8.531,
+          "w": 927.531,
+          "h": 503.156
+        },
+        "graph-reports": {
+          "x": 769.469,
+          "y": 188.531,
+          "w": 128,
+          "h": 138.531
+        },
+        "affected-path": {
+          "x": 39.469,
+          "y": 163.531,
+          "w": 858,
+          "h": 163.531
+        }
+      },
+      "cropOf": "p08-csv-stale",
+      "origin": {
+        "x": 620,
+        "y": 557
+      }
+    },
+    "p08-csv-stale.accounting": {
+      "file": "p08-csv-stale.accounting@4x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 1528,
+      "height": 106,
+      "scale": 4,
+      "boxes": {
+        "accounting": {
+          "x": 8,
+          "y": 8.656,
+          "w": 1512,
+          "h": 88.875
+        }
+      },
+      "cropOf": "p08-csv-stale",
+      "origin": {
+        "x": 36,
+        "y": 394
+      }
+    },
+    "p08-csv-evidence": {
+      "file": "p08-csv-evidence.png",
+      "state": "8",
+      "title": "Inspect evidence for the affected regional report: native dependency path from the corrected rate",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1040,
+          "y": 0,
+          "w": 560,
+          "h": 1000
+        },
+        "drawer-header": {
+          "x": 1068,
+          "y": 28,
+          "w": 504,
+          "h": 59.984
+        },
+        "name": {
+          "x": 1068,
+          "y": 111.984,
+          "w": 504,
+          "h": 26.594
+        },
+        "facts": {
+          "x": 1068,
+          "y": 163.578,
+          "w": 504,
+          "h": 213.563
+        },
+        "path": {
+          "x": 1068,
+          "y": 458.141,
+          "w": 504,
+          "h": 190
+        },
+        "why": {
+          "x": 1068,
+          "y": 402.141,
+          "w": 504,
+          "h": 298.375
+        }
+      },
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-16T00:00:55.412Z",
+        "colorScheme": "light"
+      }
+    },
+    "p08-csv-evidence.path": {
+      "file": "p08-csv-evidence.path@4x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 528,
+      "height": 215,
+      "scale": 4,
+      "boxes": {
+        "path": {
+          "x": 12,
+          "y": 12.141,
+          "w": 504,
+          "h": 190
+        }
+      },
+      "cropOf": "p08-csv-evidence",
+      "origin": {
+        "x": 1056,
+        "y": 446
+      }
+    },
+    "p08-csv-evidence.header": {
+      "file": "p08-csv-evidence.header@3x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 524,
+      "height": 370,
+      "scale": 3,
+      "boxes": {
+        "drawer-header": {
+          "x": 10,
+          "y": 10,
+          "w": 504,
+          "h": 59.984
+        },
+        "name": {
+          "x": 10,
+          "y": 93.984,
+          "w": 504,
+          "h": 26.594
+        },
+        "facts": {
+          "x": 10,
+          "y": 145.578,
+          "w": 504,
+          "h": 213.563
+        }
+      },
+      "cropOf": "p08-csv-evidence",
+      "origin": {
+        "x": 1058,
+        "y": 18
+      }
+    },
+    "p09-csv-refreshed-unchecked": {
+      "file": "p09-csv-refreshed-unchecked.png",
+      "state": "9",
+      "title": "After Refresh affected (before Check values): refreshed CSV revenue, Check values offered",
+      "kind": "full",
+      "width": 1600,
+      "height": 1335,
+      "scale": 2,
+      "boxes": {
+        "report-panel": {
+          "x": 44,
+          "y": 572.031,
+          "w": 568.469,
+          "h": 466
+        },
+        "company-revenue": {
+          "x": 74,
+          "y": 660.609,
+          "w": 508.469,
+          "h": 76.75
+        },
+        "regional-revenue": {
+          "x": 74,
+          "y": 761.359,
+          "w": 508.469,
+          "h": 72.75
+        },
+        "support-link": {
+          "x": 74,
+          "y": 849.109,
+          "w": 508.469,
+          "h": 28
+        },
+        "graph": {
+          "x": 628.469,
+          "y": 572.031,
+          "w": 927.531,
+          "h": 466
+        },
+        "graph-reports": {
+          "x": 1389.469,
+          "y": 752.031,
+          "w": 128,
+          "h": 138.531
+        },
+        "workflow": {
+          "x": 888.047,
+          "y": 348.656,
+          "w": 667.953,
+          "h": 38
+        },
+        "workflow-section": {
+          "x": 44,
+          "y": 348.656,
+          "w": 1512,
+          "h": 38
+        },
+        "update-csv": {
+          "x": 888.047,
+          "y": 348.656,
+          "w": 122.313,
+          "h": 38
+        },
+        "refresh-affected": {
+          "x": 1018.359,
+          "y": 348.656,
+          "w": 148.234,
+          "h": 38
+        },
+        "download-reports": {
+          "x": 1174.594,
+          "y": 348.656,
+          "w": 200.703,
+          "h": 38
+        },
+        "copy-report": {
+          "x": 1383.297,
+          "y": 348.656,
+          "w": 172.703,
+          "h": 38
+        },
+        "accounting": {
+          "x": 44,
+          "y": 402.656,
+          "w": 1512,
+          "h": 88.875
+        },
+        "dataset-bar": {
+          "x": 44,
+          "y": 267.656,
+          "w": 1512,
+          "h": 64
+        },
+        "activity": {
+          "x": 44,
+          "y": 1058.031,
+          "w": 1512,
+          "h": 209
+        },
+        "banner": {
+          "x": 44,
+          "y": 507.531,
+          "w": 1512,
+          "h": 48.5
+        },
+        "check-values": {
+          "x": 1442.141,
+          "y": 519.531,
+          "w": 98.859,
+          "h": 24.5
+        }
+      },
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T00:01:02.582Z",
+        "colorScheme": "light"
+      }
+    },
+    "p09-csv-refreshed-unchecked.banner": {
+      "file": "p09-csv-refreshed-unchecked.banner@4x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 1532,
+      "height": 70,
+      "scale": 4,
+      "boxes": {
+        "banner": {
+          "x": 10,
+          "y": 10.531,
+          "w": 1512,
+          "h": 48.5
+        },
+        "check-values": {
+          "x": 1408.141,
+          "y": 22.531,
+          "w": 98.859,
+          "h": 24.5
+        }
+      },
+      "cropOf": "p09-csv-refreshed-unchecked",
+      "origin": {
+        "x": 34,
+        "y": 497
+      }
+    },
+    "p09-csv-refreshed-unchecked.report": {
+      "file": "p09-csv-refreshed-unchecked.report@4x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 585,
+      "height": 483,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.031,
+          "w": 568.469,
+          "h": 466
+        },
+        "company-revenue": {
+          "x": 38,
+          "y": 96.609,
+          "w": 508.469,
+          "h": 76.75
+        },
+        "regional-revenue": {
+          "x": 38,
+          "y": 197.359,
+          "w": 508.469,
+          "h": 72.75
+        },
+        "support-link": {
+          "x": 38,
+          "y": 285.109,
+          "w": 508.469,
+          "h": 28
+        }
+      },
+      "cropOf": "p09-csv-refreshed-unchecked",
+      "origin": {
+        "x": 36,
+        "y": 564
+      }
+    },
+    "p09-csv-refreshed": {
+      "file": "p09-csv-refreshed.png",
+      "state": "9",
+      "title": "After Refresh affected and Check values: current CSV revenue, checked-report handoff controls enabled",
+      "kind": "full",
+      "width": 1600,
+      "height": 1329,
+      "scale": 2,
+      "boxes": {
+        "report-panel": {
+          "x": 44,
+          "y": 565.531,
+          "w": 568.469,
+          "h": 466
+        },
+        "company-revenue": {
+          "x": 74,
+          "y": 654.109,
+          "w": 508.469,
+          "h": 76.75
+        },
+        "regional-revenue": {
+          "x": 74,
+          "y": 754.859,
+          "w": 508.469,
+          "h": 72.75
+        },
+        "support-link": {
+          "x": 74,
+          "y": 842.609,
+          "w": 508.469,
+          "h": 28
+        },
+        "graph": {
+          "x": 628.469,
+          "y": 565.531,
+          "w": 927.531,
+          "h": 466
+        },
+        "graph-reports": {
+          "x": 1389.469,
+          "y": 745.531,
+          "w": 128,
+          "h": 138.531
+        },
+        "workflow": {
+          "x": 888.047,
+          "y": 348.656,
+          "w": 667.953,
+          "h": 38
+        },
+        "workflow-section": {
+          "x": 44,
+          "y": 348.656,
+          "w": 1512,
+          "h": 38
+        },
+        "update-csv": {
+          "x": 888.047,
+          "y": 348.656,
+          "w": 122.313,
+          "h": 38
+        },
+        "refresh-affected": {
+          "x": 1018.359,
+          "y": 348.656,
+          "w": 148.234,
+          "h": 38
+        },
+        "download-reports": {
+          "x": 1174.594,
+          "y": 348.656,
+          "w": 200.703,
+          "h": 38
+        },
+        "copy-report": {
+          "x": 1383.297,
+          "y": 348.656,
+          "w": 172.703,
+          "h": 38
+        },
+        "accounting": {
+          "x": 44,
+          "y": 402.656,
+          "w": 1512,
+          "h": 88.875
+        },
+        "dataset-bar": {
+          "x": 44,
+          "y": 267.656,
+          "w": 1512,
+          "h": 64
+        },
+        "activity": {
+          "x": 44,
+          "y": 1051.531,
+          "w": 1512,
+          "h": 209
+        },
+        "handoff": {
+          "x": 1174.594,
+          "y": 348.656,
+          "w": 381.406,
+          "h": 38
+        },
+        "verification": {
+          "x": 44,
+          "y": 507.531,
+          "w": 1512,
+          "h": 42
+        }
+      },
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T00:01:07.516Z",
+        "colorScheme": "light"
+      }
+    },
+    "p09-csv-refreshed.report": {
+      "file": "p09-csv-refreshed.report@4x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 585,
+      "height": 483,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.531,
+          "w": 568.469,
+          "h": 466
+        },
+        "company-revenue": {
+          "x": 38,
+          "y": 97.109,
+          "w": 508.469,
+          "h": 76.75
+        },
+        "regional-revenue": {
+          "x": 38,
+          "y": 197.859,
+          "w": 508.469,
+          "h": 72.75
+        },
+        "support-link": {
+          "x": 38,
+          "y": 285.609,
+          "w": 508.469,
+          "h": 28
+        }
+      },
+      "cropOf": "p09-csv-refreshed",
+      "origin": {
+        "x": 36,
+        "y": 557
+      }
+    },
+    "p09-csv-refreshed.handoff": {
+      "file": "p09-csv-refreshed.handoff@4x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 1532,
+      "height": 59,
+      "scale": 4,
+      "boxes": {
+        "workflow": {
+          "x": 854.047,
+          "y": 10.656,
+          "w": 667.953,
+          "h": 38
+        },
+        "workflow-section": {
+          "x": 10,
+          "y": 10.656,
+          "w": 1512,
+          "h": 38
+        },
+        "update-csv": {
+          "x": 854.047,
+          "y": 10.656,
+          "w": 122.313,
+          "h": 38
+        },
+        "refresh-affected": {
+          "x": 984.359,
+          "y": 10.656,
+          "w": 148.234,
+          "h": 38
+        },
+        "download-reports": {
+          "x": 1140.594,
+          "y": 10.656,
+          "w": 200.703,
+          "h": 38
+        },
+        "copy-report": {
+          "x": 1349.297,
+          "y": 10.656,
+          "w": 172.703,
+          "h": 38
+        },
+        "handoff": {
+          "x": 1140.594,
+          "y": 10.656,
+          "w": 381.406,
+          "h": 38
+        }
+      },
+      "cropOf": "p09-csv-refreshed",
+      "origin": {
+        "x": 34,
+        "y": 338
+      }
+    },
+    "p09-csv-refreshed.accounting": {
+      "file": "p09-csv-refreshed.accounting@4x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 1528,
+      "height": 106,
+      "scale": 4,
+      "boxes": {
+        "accounting": {
+          "x": 8,
+          "y": 8.656,
+          "w": 1512,
+          "h": 88.875
+        }
+      },
+      "cropOf": "p09-csv-refreshed",
+      "origin": {
+        "x": 36,
+        "y": 394
+      }
+    },
+    "p09-csv-refreshed.graph": {
+      "file": "p09-csv-refreshed.graph@3x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 944,
+      "height": 483,
+      "scale": 3,
+      "boxes": {
+        "graph": {
+          "x": 8.469,
+          "y": 8.531,
+          "w": 927.531,
+          "h": 466
+        },
+        "graph-reports": {
+          "x": 769.469,
+          "y": 188.531,
+          "w": 128,
+          "h": 138.531
+        }
+      },
+      "cropOf": "p09-csv-refreshed",
+      "origin": {
+        "x": 620,
+        "y": 557
+      }
+    },
+    "p09-csv-refreshed.activity": {
+      "file": "p09-csv-refreshed.activity@3x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 1528,
+      "height": 226,
+      "scale": 3,
+      "boxes": {
+        "activity": {
+          "x": 8,
+          "y": 8.531,
+          "w": 1512,
+          "h": 209
+        }
+      },
+      "cropOf": "p09-csv-refreshed",
+      "origin": {
+        "x": 36,
+        "y": 1043
+      }
+    },
+    "p10-benchmark": {
+      "file": "p10-benchmark.png",
+      "state": "10",
+      "title": "Benchmark view: recorded model comparison, retail benchmark and original pilot (full page)",
+      "kind": "full",
+      "width": 1600,
+      "height": 3380,
+      "scale": 2,
+      "boxes": {
+        "intro": {
+          "x": 140,
+          "y": 121,
+          "w": 1320,
+          "h": 93.219
+        },
+        "model-comparison": {
+          "x": 140,
+          "y": 248.219,
+          "w": 1320,
+          "h": 670.125
+        },
+        "model-table": {
+          "x": 141,
+          "y": 432.281,
+          "w": 1318,
+          "h": 284
+        },
+        "model-heading": {
+          "x": 140,
+          "y": 248.219,
+          "w": 1320,
+          "h": 84.688
+        },
+        "retail": {
+          "x": 140,
+          "y": 1020.344,
+          "w": 1320,
+          "h": 1188.766
+        },
+        "pilot-table": {
+          "x": 140,
+          "y": 2366.703,
+          "w": 1320,
+          "h": 523.078
+        },
+        "execution-results": {
+          "x": 140,
+          "y": 2913.781,
+          "w": 1320,
+          "h": 136.797
+        },
+        "full-context-limit": {
+          "x": 140,
+          "y": 3050.578,
+          "w": 1320,
+          "h": 108.188
+        },
+        "recorded-agent": {
+          "x": 140,
+          "y": 3253.766,
+          "w": 1320,
+          "h": 77
+        }
+      },
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T00:02:16.709Z",
+        "colorScheme": "light"
+      }
+    },
+    "p10-benchmark.top": {
+      "file": "p10-benchmark.top@3x.png",
+      "state": "10",
+      "kind": "crop",
+      "width": 1600,
+      "height": 1000,
+      "scale": 3,
+      "boxes": {
+        "intro": {
+          "x": 140,
+          "y": 121,
+          "w": 1320,
+          "h": 93.219
+        },
+        "model-comparison": {
+          "x": 140,
+          "y": 248.219,
+          "w": 1320,
+          "h": 670.125
+        },
+        "model-table": {
+          "x": 141,
+          "y": 432.281,
+          "w": 1318,
+          "h": 284
+        },
+        "model-heading": {
+          "x": 140,
+          "y": 248.219,
+          "w": 1320,
+          "h": 84.688
+        }
+      },
+      "cropOf": "p10-benchmark",
+      "origin": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "p10-benchmark.model-comparison": {
+      "file": "p10-benchmark.model-comparison@3x.png",
+      "state": "10",
+      "kind": "crop",
+      "width": 1340,
+      "height": 691,
+      "scale": 3,
+      "boxes": {
+        "model-comparison": {
+          "x": 10,
+          "y": 10.219,
+          "w": 1320,
+          "h": 670.125
+        },
+        "model-table": {
+          "x": 11,
+          "y": 194.281,
+          "w": 1318,
+          "h": 284
+        },
+        "model-heading": {
+          "x": 10,
+          "y": 10.219,
+          "w": 1320,
+          "h": 84.688
+        }
+      },
+      "cropOf": "p10-benchmark",
+      "origin": {
+        "x": 130,
+        "y": 238
+      }
+    },
+    "p10-benchmark.model-table": {
+      "file": "p10-benchmark.model-table@4x.png",
+      "state": "10",
+      "kind": "crop",
+      "width": 1338,
+      "height": 305,
+      "scale": 4,
+      "boxes": {
+        "model-table": {
+          "x": 10,
+          "y": 10.281,
+          "w": 1318,
+          "h": 284
+        }
+      },
+      "cropOf": "p10-benchmark",
+      "origin": {
+        "x": 131,
+        "y": 422
+      }
+    },
+    "p10-benchmark.retail": {
+      "file": "p10-benchmark.retail@3x.png",
+      "state": "10",
+      "kind": "crop",
+      "width": 1340,
+      "height": 1210,
+      "scale": 3,
+      "boxes": {
+        "retail": {
+          "x": 10,
+          "y": 10.344,
+          "w": 1320,
+          "h": 1188.766
+        }
+      },
+      "cropOf": "p10-benchmark",
+      "origin": {
+        "x": 130,
+        "y": 1010
+      }
+    },
+    "p10-benchmark.execution-results": {
+      "file": "p10-benchmark.execution-results@4x.png",
+      "state": "10",
+      "kind": "crop",
+      "width": 1340,
+      "height": 266,
+      "scale": 4,
+      "boxes": {
+        "execution-results": {
+          "x": 10,
+          "y": 10.781,
+          "w": 1320,
+          "h": 136.797
+        },
+        "full-context-limit": {
+          "x": 10,
+          "y": 147.578,
+          "w": 1320,
+          "h": 108.188
+        }
+      },
+      "cropOf": "p10-benchmark",
+      "origin": {
+        "x": 130,
+        "y": 2903
+      }
+    },
+    "p11-agent": {
+      "file": "p11-agent.png",
+      "state": "11",
+      "title": "Benchmark view with the Recorded agent workflow expanded (recorded local model run)",
+      "kind": "full",
+      "width": 1600,
+      "height": 3975,
+      "scale": 2,
+      "boxes": {
+        "recorded-agent": {
+          "x": 140,
+          "y": 3253.766,
+          "w": 1320,
+          "h": 672.578
+        },
+        "disclosure": {
+          "x": 164,
+          "y": 3329.766,
+          "w": 850,
+          "h": 21.594
+        },
+        "run-1": {
+          "x": 164,
+          "y": 3373.359,
+          "w": 1272,
+          "h": 208.594
+        },
+        "run-2": {
+          "x": 164,
+          "y": 3581.953,
+          "w": 1272,
+          "h": 208.594
+        },
+        "refresh-proof": {
+          "x": 164,
+          "y": 3790.547,
+          "w": 1272,
+          "h": 76.797
+        }
+      },
+      "flags": [
+        {
+          "text": "Recorded local model run, not a live hosted model",
+          "box": {
+            "x": 164,
+            "y": 3329.766,
+            "w": 850,
+            "h": 21.594
+          }
+        }
+      ],
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T00:02:25.014Z",
+        "colorScheme": "light"
+      }
+    },
+    "p11-agent.agent": {
+      "file": "p11-agent.agent@3x.png",
+      "state": "11",
+      "kind": "crop",
+      "width": 1340,
+      "height": 694,
+      "scale": 3,
+      "boxes": {
+        "recorded-agent": {
+          "x": 10,
+          "y": 10.766,
+          "w": 1320,
+          "h": 672.578
+        },
+        "disclosure": {
+          "x": 34,
+          "y": 86.766,
+          "w": 850,
+          "h": 21.594
+        },
+        "run-1": {
+          "x": 34,
+          "y": 130.359,
+          "w": 1272,
+          "h": 208.594
+        },
+        "run-2": {
+          "x": 34,
+          "y": 338.953,
+          "w": 1272,
+          "h": 208.594
+        },
+        "refresh-proof": {
+          "x": 34,
+          "y": 547.547,
+          "w": 1272,
+          "h": 76.797
+        }
+      },
+      "cropOf": "p11-agent",
+      "origin": {
+        "x": 130,
+        "y": 3243
+      },
+      "flags": [
+        {
+          "text": "Recorded local model run, not a live hosted model",
+          "box": {
+            "x": 34,
+            "y": 86.766,
+            "w": 850,
+            "h": 21.594
+          }
+        }
+      ]
+    },
+    "p11-agent.runs": {
+      "file": "p11-agent.runs@4x.png",
+      "state": "11",
+      "kind": "crop",
+      "width": 1292,
+      "height": 438,
+      "scale": 4,
+      "boxes": {
+        "run-1": {
+          "x": 10,
+          "y": 10.359,
+          "w": 1272,
+          "h": 208.594
+        },
+        "run-2": {
+          "x": 10,
+          "y": 218.953,
+          "w": 1272,
+          "h": 208.594
+        }
+      },
+      "cropOf": "p11-agent",
+      "origin": {
+        "x": 154,
+        "y": 3363
+      }
+    },
+    "p11-agent.proof": {
+      "file": "p11-agent.proof@4x.png",
+      "state": "11",
+      "kind": "crop",
+      "width": 1292,
+      "height": 98,
+      "scale": 4,
+      "boxes": {
+        "refresh-proof": {
+          "x": 10,
+          "y": 10.547,
+          "w": 1272,
+          "h": 76.797
+        }
+      },
+      "cropOf": "p11-agent",
+      "origin": {
+        "x": 154,
+        "y": 3780
+      }
+    },
+    "p12-mobile": {
+      "file": "p12-mobile.png",
+      "state": "12",
+      "title": "Guided sample workspace at phone width (390 CSS px)",
+      "kind": "full",
+      "width": 390,
+      "height": 1865,
+      "scale": 3,
+      "boxes": {
+        "headline": {
+          "x": 16,
+          "y": 89,
+          "w": 358,
+          "h": 80.625
+        },
+        "report-panel": {
+          "x": 16,
+          "y": 614.688,
+          "w": 358,
+          "h": 425
+        },
+        "company-revenue": {
+          "x": 39,
+          "y": 693.906,
+          "w": 312,
+          "h": 72.938
+        },
+        "graph": {
+          "x": 16,
+          "y": 1055.688,
+          "w": 358,
+          "h": 489.5
+        },
+        "workflow": {
+          "x": 16,
+          "y": 510.688,
+          "w": 358,
+          "h": 88
+        }
+      },
+      "capture": {
+        "url": "https://proofflow.arnavbule.in/",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-15T23:58:49.700Z",
+        "colorScheme": "light"
+      }
+    },
+    "p12-mobile.phone-screen": {
+      "file": "p12-mobile.phone-screen@3x.png",
+      "state": "12",
+      "kind": "crop",
+      "width": 390,
+      "height": 844,
+      "scale": 3,
+      "boxes": {
+        "headline": {
+          "x": 16,
+          "y": 89,
+          "w": 358,
+          "h": 80.625
+        },
+        "company-revenue": {
+          "x": 39,
+          "y": 693.906,
+          "w": 312,
+          "h": 72.938
+        },
+        "workflow": {
+          "x": 16,
+          "y": 510.688,
+          "w": 358,
+          "h": 88
+        }
+      },
+      "cropOf": "p12-mobile",
+      "origin": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "p12-mobile.report": {
+      "file": "p12-mobile.report@4x.png",
+      "state": "12",
+      "kind": "crop",
+      "width": 358,
+      "height": 426,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 0,
+          "y": 0.688,
+          "w": 358,
+          "h": 425
+        },
+        "company-revenue": {
+          "x": 23,
+          "y": 79.906,
+          "w": 312,
+          "h": 72.938
+        }
+      },
+      "cropOf": "p12-mobile",
+      "origin": {
+        "x": 16,
+        "y": 614
+      }
+    }
+  }
+}

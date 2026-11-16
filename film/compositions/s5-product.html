@@ -1,0 +1,254 @@
+<!doctype html>
+<!-- ProofFlow film, s5 "Working today" (STORYBOARD.md). Real stills from the live app (stills/README.md):
+     the imported-CSV workspace made from the app's own sample CSV, EUR 1.10 -> 1.20.
+     Figures visible: created $3,740.00 / EU $990.00, withheld "Awaiting refresh", refreshed $3,830.00 / $1,080.00.
+     Five MCP tools: proofflow/mcp_server.py (load_csv, prepare, execute_plan, inspect, refresh). -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ground);
+        }
+        #s5-title { position: absolute; left: 120px; top: 96px; white-space: nowrap; }
+
+        /* the browser window: bar + view; the view holds one shot at a time */
+        #s5-win { left: 520px; top: 196px; width: 1280px; height: 784px; background: var(--panel); }
+        #s5-bar { left: 0; top: 0; width: 1280px; height: 44px; box-sizing: border-box; background: var(--panel-2); gap: 14px; }
+        .s5-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--rule); flex: none; }
+        #s5-url { margin-left: 18px; font-size: 24px; color: var(--muted); }
+        #s5-view { position: absolute; left: 0; top: 44px; width: 1280px; height: 740px; overflow: hidden; background: var(--ink); }
+        .s5-shot { position: absolute; left: 0; top: 0; width: 1280px; height: 740px; opacity: 0; }
+        #s5-shot-a { opacity: 1; }
+        .s5-still { position: absolute; overflow: visible; }
+        #s5-view .hl rect { stroke: var(--thread); stroke-width: 5; }
+        #s5-view .hl.stale rect { stroke: var(--stale); }
+        #s5-view .hl.fresh rect { stroke: var(--current); }
+
+        /* captions: a few big words per beat, in the left column */
+        .s5-cap {
+          position: absolute;
+          left: 120px;
+          top: 300px;
+          width: 360px;
+          opacity: 0;
+          font-variation-settings: "wdth" 104;
+        }
+        .s5-cap .s5-kick { display: block; margin-bottom: 18px; }
+
+        /* 5e: the agent and its five tools */
+        #s5-agent { left: 950px; top: 496px; width: 280px; height: 128px; opacity: 0; }
+        .s5-chip {
+          position: absolute;
+          left: 1420px;
+          box-sizing: border-box;
+          width: 320px;
+          height: 64px;
+          padding: 0 26px;
+          display: flex;
+          align-items: center;
+          border-radius: 999px;
+          background: var(--panel);
+          border: 3px solid var(--thread);
+          opacity: 0;
+        }
+        #s5-mcp { position: absolute; left: 950px; top: 648px; width: 280px; text-align: center; opacity: 0; }
+      </style>
+
+      <div id="root" data-composition-id="s5-product" data-width="1920" data-height="1080" data-duration="27.2">
+        <h1 id="s5-title" class="t-sub">Running today.</h1>
+
+        <p id="s5-c1" class="s5-cap t-sub-s">Orders in, as a CSV</p>
+        <p id="s5-c2" class="s5-cap t-sub-s">A preview first. Nothing saved yet.</p>
+        <p id="s5-c3" class="s5-cap t-sub-s">Both reports created</p>
+        <p id="s5-c4" class="s5-cap t-sub-s"><span class="s5-kick t-label">Correction</span>EUR → USD is now 1.20</p>
+        <p id="s5-c5" class="s5-cap t-sub-s is-stale">Affected figures withheld</p>
+        <p id="s5-c6" class="s5-cap t-sub-s">The path back to the rate</p>
+        <p id="s5-c7" class="s5-cap t-sub-s is-current">Current again</p>
+        <p id="s5-c8" class="s5-cap t-sub-s">Copy only while every figure is current</p>
+
+        <div id="s5-win" class="window">
+          <div id="s5-bar" class="window-bar">
+            <span class="s5-dot"></span><span class="s5-dot"></span><span class="s5-dot"></span>
+            <span id="s5-url">proofflow.arnavbule.in</span>
+          </div>
+          <div id="s5-view">
+            <div id="s5-shot-a" class="s5-shot"><div id="s5-st-a" class="s5-still"></div></div>
+            <div id="s5-shot-b" class="s5-shot"><div id="s5-st-b" class="s5-still"></div></div>
+            <div id="s5-shot-c" class="s5-shot"><div id="s5-st-c" class="s5-still"></div></div>
+            <div id="s5-shot-d" class="s5-shot"><div id="s5-st-d" class="s5-still"></div></div>
+            <div id="s5-shot-e" class="s5-shot"><div id="s5-st-e" class="s5-still"></div></div>
+            <div id="s5-shot-f" class="s5-shot"><div id="s5-st-f" class="s5-still"></div></div>
+            <div id="s5-shot-g" class="s5-shot"><div id="s5-st-g" class="s5-still"></div></div>
+            <div id="s5-shot-h" class="s5-shot"><div id="s5-st-h" class="s5-still"></div></div>
+            <div id="s5-shot-i" class="s5-shot"><div id="s5-st-i" class="s5-still"></div></div>
+          </div>
+        </div>
+
+        <svg class="threads" viewBox="0 0 1920 1080" aria-hidden="true">
+          <path id="s5-t1" d="M1230 560 C1325 560 1325 384 1420 384" />
+          <path id="s5-t2" d="M1230 560 C1325 560 1325 472 1420 472" />
+          <path id="s5-t3" d="M1230 560 L1420 560" />
+          <path id="s5-t4" d="M1230 560 C1325 560 1325 648 1420 648" />
+          <path id="s5-t5" d="M1230 560 C1325 560 1325 736 1420 736" />
+        </svg>
+        <div id="s5-agent" class="node">
+          <span class="node-title">Agent</span>
+          <span class="node-sub">chooses the plan</span>
+        </div>
+        <span id="s5-k1" class="s5-chip t-mono" style="top: 352px">load_csv</span>
+        <span id="s5-k2" class="s5-chip t-mono" style="top: 440px">prepare</span>
+        <span id="s5-k3" class="s5-chip t-mono" style="top: 528px">execute_plan</span>
+        <span id="s5-k4" class="s5-chip t-mono" style="top: 616px">inspect</span>
+        <span id="s5-k5" class="s5-chip t-mono" style="top: 704px">refresh</span>
+        <p id="s5-mcp" class="t-mono">over MCP</p>
+      </div>
+
+      <script>
+        (() => {
+          const S = "s5";
+          const tl = gsap.timeline({ paused: true });
+          const at = (word, nth = 1, off = 0) => FILM.at(S, word, nth, off);
+          const VW = 1280;
+          const VH = 740;
+
+          /* ---- mount every shot once: full frames at 0.8x (under native), crops centred at <= 2x ---- */
+          const centre = (holder, m) => {
+            const w = m.crop.w * m.k;
+            const h = m.crop.h * m.k;
+            holder.style.left = `${Math.round((VW - w) / 2)}px`;
+            holder.style.top = `${Math.round((VH - h) / 2)}px`;
+          };
+          const crop = (id, still, k) => {
+            const holder = document.getElementById(id);
+            const rec = FILM.still(still);
+            const m = FILM.mountStill(holder, still, { width: Math.round(rec.width * k) });
+            centre(holder, m);
+            return m;
+          };
+          const full = (id, still) => {
+            const holder = document.getElementById(id);
+            holder.style.left = "0px";
+            holder.style.top = "0px";
+            return FILM.mountStill(holder, still, { width: VW });
+          };
+          const mA = full("s5-st-a", "p01-workspace");
+          const mB = crop("s5-st-b", "p06-csv-form.csv", 2);
+          const mC = crop("s5-st-c", "p06-csv-preview.preview", 2);
+          const mD = crop("s5-st-d", "p07-csv-created.report", 1.45);
+          const mE = crop("s5-st-e", "p08-csv-update.rates", 2);
+          const mF = crop("s5-st-f", "p08-csv-stale.report", 1.36);
+          const mG = crop("s5-st-g", "p08-csv-evidence.path", 2);
+          const mH = crop("s5-st-h", "p09-csv-refreshed.report", 1.45);
+          const mI = full("s5-st-i", "p09-csv-refreshed");
+          void mA;
+
+          const shots = ["a", "b", "c", "d", "e", "f", "g", "h", "i"].map((s) => `#s5-shot-${s}`);
+          // A cut inside the window: the new shot lands over the old in 0.1 s, then the old one goes.
+          const cut = (from, to, t) => {
+            tl.fromTo(shots[to], { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "none" }, t);
+            tl.fromTo(shots[from], { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none", immediateRender: false }, t + 0.1);
+          };
+          const caps = ["#s5-c1", "#s5-c2", "#s5-c3", "#s5-c4", "#s5-c5", "#s5-c6", "#s5-c7", "#s5-c8"];
+          const capIn = (i, t) =>
+            tl.fromTo(caps[i], { opacity: 0, x: -28 }, { opacity: 1, x: 0, duration: 0.5, ease: FILM.ease }, t);
+          const capOut = (i, t) =>
+            tl.fromTo(caps[i], { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power1.in", immediateRender: false }, t);
+          const mark = (holder, m, box, t, state) => {
+            const svg = FILM.outline(tl, holder, m.rect(box), t, { grow: 8 });
+            if (state) svg.classList.add(state);
+            return svg;
+          };
+
+          // ---- 5a: this is ProofFlow, running today -------------------------------------------------
+          tl.fromTo("#s5-win", { x: 260, opacity: 0 }, { x: 0, opacity: 1, duration: 0.9, ease: "expo.out" }, 0.05);
+          FILM.speakWords(tl, "#s5-title", S, { lead: -0.08 });
+          // the camera glides down the live workspace: steps, saved reports, the evidence graph
+          tl.fromTo("#s5-st-a", { y: 0 }, { y: -200, duration: 2.2, ease: "power2.inOut" }, at("running", 1, 0.25));
+
+          // ---- 5b: upload orders as a CSV, preview them, and create the reports ----------------------
+          const tCsv = at("upload", 1, -0.1);
+          cut(0, 1, tCsv);
+          capIn(0, tCsv + 0.1);
+          mark("#s5-st-b", mB, "csv", at("csv", 1, -0.05));
+          const tPrev = at("preview", 1, -0.1);
+          cut(1, 2, tPrev);
+          capOut(0, tPrev);
+          capIn(1, tPrev + 0.1);
+          mark("#s5-st-c", mC, "preview", tPrev + 0.25, "fresh");
+          const tCreate = at("create", 1, -0.1);
+          cut(2, 3, tCreate);
+          capOut(1, tCreate);
+          capIn(2, tCreate + 0.1);
+          mark("#s5-st-d", mD, "company-revenue", at("reports", 1, -0.1));
+          mark("#s5-st-d", mD, "regional-revenue", at("reports", 1, 0.05));
+
+          // ---- 5c: publish a corrected rate; affected figures withheld; the evidence path -----------
+          const tPub = at("publish", 1, -0.1);
+          cut(3, 4, tPub);
+          capOut(2, tPub);
+          capIn(3, tPub + 0.1);
+          // the EUR -> USD field only (left half of the rates row)
+          const eur = mE.rect("rates");
+          const eurRect = { x: eur.x, y: eur.y, w: Math.round(eur.w * 0.49), h: eur.h };
+          FILM.outline(tl, "#s5-st-e", eurRect, at("corrected", 1, -0.05), { grow: 8 }).classList.add("stale");
+          const tWith = at("affected", 1, -0.1);
+          cut(4, 5, tWith);
+          capOut(3, tWith);
+          capIn(4, tWith + 0.1);
+          mark("#s5-st-f", mF, "withheld-claims", at("withheld", 1, -0.1), "stale");
+          const tEv = at("evidence", 1, -0.1);
+          cut(5, 6, tEv);
+          capOut(4, tEv);
+          capIn(5, tEv + 0.1);
+          mark("#s5-st-g", mG, "path", at("path", 1, -0.05));
+
+          // ---- 5d: refresh brings them current; a checked report copies only while current -----------
+          const tRef = at("refresh", 1, -0.1);
+          cut(6, 7, tRef);
+          capOut(5, tRef);
+          capIn(6, tRef + 0.1);
+          mark("#s5-st-h", mH, "company-revenue", at("current", 1, -0.15), "fresh");
+          mark("#s5-st-h", mH, "regional-revenue", at("current", 1, 0.0), "fresh");
+          const tChk = at("checked", 1, -0.15);
+          tl.fromTo("#s5-st-i", { y: -204 }, { y: -204, duration: 0.01, ease: "none" }, tChk);
+          cut(7, 8, tChk);
+          capOut(6, tChk);
+          capIn(7, tChk + 0.1);
+          mark("#s5-st-i", mI, "verification", tChk + 0.3, "fresh");
+          mark("#s5-st-i", mI, "copy-report", at("copied", 1, -0.1));
+
+          // ---- 5e: agents get the same power, through five MCP tools --------------------------------
+          const tAg = at("agents", 1, -0.15);
+          capOut(7, tAg - 0.05);
+          tl.fromTo(
+            "#s5-win",
+            { x: 0, y: 0, scale: 1 },
+            { x: -400, y: 137, scale: 0.58, duration: 0.9, ease: "power3.inOut", transformOrigin: "0px 0px", immediateRender: false },
+            tAg,
+          );
+          tl.fromTo("#s5-agent", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: FILM.ease }, tAg + 0.55);
+          const tFive = at("five", 1, -0.1);
+          ["#s5-t1", "#s5-t2", "#s5-t3", "#s5-t4", "#s5-t5"].forEach((p, i) =>
+            FILM.drawThread(tl, p, tFive + i * 0.1, { duration: 0.6 }),
+          );
+          ["#s5-k1", "#s5-k2", "#s5-k3", "#s5-k4", "#s5-k5"].forEach((c, i) =>
+            tl.fromTo(c, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.45, ease: "back.out(1.4)" }, tFive + 0.4 + i * 0.1),
+          );
+          tl.fromTo("#s5-mcp", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: FILM.ease }, at("mcp", 1, -0.05));
+
+          // Shared element+property tweens (fade in, later fade out): settle every element to its earliest
+          // start state, whichever tween was built last.
+          tl.progress(1, false).progress(0, false);
+          window.__timelines["s5-product"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

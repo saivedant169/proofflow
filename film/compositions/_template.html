@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- ProofFlow film: the shape of a section file (CONTRACT.md). Copy the pattern, not these ids.
+     Replace sN / sN-name with your section id and composition id, and the duration with your window
+     (timing.json). Only what is inside <template> reaches the film. film.css, GSAP and FILM come from index.html. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ground);
+        }
+        .sN-title { position: absolute; left: 120px; top: 110px; max-width: 1300px; }
+        .sN-card { left: 1080px; top: 300px; width: 680px; height: 420px; padding: 48px; }
+      </style>
+
+      <div id="root" data-composition-id="sN-name" data-width="1920" data-height="1080" data-duration="14">
+        <h1 id="sN-title" class="sN-title t-head">Your agent saves a report.</h1>
+        <div id="sN-card" class="panel sN-card">
+          <p class="t-label">Company revenue</p>
+          <div id="sN-fig" class="fig"><span class="fig-v">$5,565</span><span class="withheld-hatch"></span></div>
+        </div>
+        <svg class="threads" viewBox="0 0 1920 1080"><path id="sN-thread" d="M1420 720 C1420 860 900 860 900 1000" /></svg>
+        <div id="sN-pulse" class="pulse"></div>
+      </div>
+
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          // 1. Kinetic words land on their spoken times.
+          FILM.speakWords(tl, "#sN-title", "sN");
+          // 2. The card enters on a word; the figure counts on another.
+          tl.fromTo("#sN-card", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: FILM.move, ease: FILM.ease }, FILM.at("sN", "report"));
+          FILM.countTo(tl, "#sN-fig .fig-v", 0, 5565, FILM.at("sN", "five"), { format: (v) => "$" + Math.round(v).toLocaleString("en-US") });
+          // 3. A thread draws, a stale pulse travels it, the figure is withheld.
+          FILM.drawThread(tl, "#sN-thread", FILM.at("sN", "rate"));
+          FILM.pulseAlong(tl, "#sN-thread", "#sN-pulse", FILM.at("sN", "rate") + 0.8, { reverse: true });
+          FILM.withhold(tl, "#sN-fig", FILM.at("sN", "wrong"));
+          // 4. Register last.
+          window.__timelines["sN-name"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

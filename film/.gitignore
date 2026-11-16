@@ -1,0 +1,7 @@
+out/
+.hyperframes/
+*.tmp
+# Rendered audio is regenerable from tools/ and too large for git: keep the reports, cue sheets and timing JSON.
+audio/**/*.wav
+audio/**/*.m4a
+audio/narration/lines/

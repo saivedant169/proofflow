@@ -1,0 +1,201 @@
+{
+ "about": "ProofFlow score, steered live on lyria-realtime-exp. Times are film seconds from timing.json (217.4 s). One session, fixed 100 BPM in D major (scale D_MAJOR_B_MINOR); prompts crossfade over `xfade` s. Take 2: s1-s2 prompt made crisp/dry (take 1 was muffled) and the words \"no vocals\" removed (a negative word can invite what it names).",
+ "bpm": 100,
+ "scale": "D_MAJOR_B_MINOR",
+ "duration": 224,
+ "lookahead": 3,
+ "xfade": 4,
+ "config": {
+  "density": 0.2,
+  "brightness": 0.42,
+  "guidance": 4,
+  "temperature": 1,
+  "muteDrums": true
+ },
+ "timeline": [
+  {
+   "at": 0,
+   "label": "s1-s2 sparse ticking pulse, a little unresolved",
+   "prompts": [
+    {
+     "text": "Minimal precise instrumental, dry woodblock-like tick on every eighth note, clean sine pluck notes, single soft felt piano notes, sparse, a little unresolved, curious, electronic and acoustic",
+     "weight": 1
+    }
+   ],
+   "config": {
+    "density": 0.2,
+    "brightness": 0.42,
+    "muteDrums": true
+   }
+  },
+  {
+   "at": 20,
+   "label": "s2 tension, still sparse",
+   "prompts": [
+    {
+     "text": "Minimal precise instrumental, dry woodblock-like tick on every eighth note, clean sine pluck notes, single soft felt piano notes, sparse, a little unresolved, curious, electronic and acoustic",
+     "weight": 1
+    },
+    {
+     "text": "Soft synth bass pulse, questioning, restrained",
+     "weight": 0.4
+    }
+   ],
+   "config": {
+    "density": 0.26
+   }
+  },
+  {
+   "at": 40.3,
+   "label": "s3 the harmony opens, warm, not a drop",
+   "xfade": 5,
+   "prompts": [
+    {
+     "text": "Warm opening harmony, soft felt piano chords, gentle synth pad swelling, clean slow arpeggio, hopeful and calm, instrumental",
+     "weight": 1
+    },
+    {
+     "text": "soft ticking pulse",
+     "weight": 0.35
+    }
+   ],
+   "config": {
+    "density": 0.34,
+    "brightness": 0.55
+   }
+  },
+  {
+   "at": 55.7,
+   "label": "s4 curious, light",
+   "prompts": [
+    {
+     "text": "Light curious plucked arpeggios, mallet and marimba-like tones, playful but precise, soft pulse, airy, instrumental",
+     "weight": 1
+    },
+    {
+     "text": "Warm opening harmony, soft felt piano chords",
+     "weight": 0.3
+    }
+   ],
+   "config": {
+    "density": 0.4,
+    "brightness": 0.55
+   }
+  },
+  {
+   "at": 86.9,
+   "label": "s5 confident groove, light percussion enters",
+   "prompts": [
+    {
+     "text": "Confident modern electronic groove, light crisp percussion, soft kick and shaker, warm round bass, clean synth arpeggio, optimistic, instrumental",
+     "weight": 1
+    },
+    {
+     "text": "Light curious plucked arpeggios",
+     "weight": 0.3
+    }
+   ],
+   "config": {
+    "density": 0.52,
+    "brightness": 0.58,
+    "muteDrums": false
+   }
+  },
+  {
+   "at": 114.1,
+   "label": "s6 build 1: back to the pulse, bass",
+   "prompts": [
+    {
+     "text": "Precise ticking pulse with warm bass and a single clean synth arpeggio, focused, light percussion, instrumental",
+     "weight": 1
+    }
+   ],
+   "config": {
+    "density": 0.45,
+    "brightness": 0.52
+   }
+  },
+  {
+   "at": 130,
+   "label": "s6 build 2: second arpeggio layer",
+   "prompts": [
+    {
+     "text": "Precise ticking pulse with warm bass and a single clean synth arpeggio, focused, light percussion, instrumental",
+     "weight": 0.7
+    },
+    {
+     "text": "Layered interlocking synth arpeggios, soft piano, gradually building, modern and warm",
+     "weight": 0.8
+    }
+   ],
+   "config": {
+    "density": 0.55,
+    "brightness": 0.58
+   }
+  },
+  {
+   "at": 148,
+   "label": "s6 build 3: fuller",
+   "prompts": [
+    {
+     "text": "Layered interlocking synth arpeggios, soft piano, gradually building, modern and warm",
+     "weight": 1
+    },
+    {
+     "text": "Steady light percussion, warm bass, rising energy",
+     "weight": 0.6
+    }
+   ],
+   "config": {
+    "density": 0.64,
+    "brightness": 0.63
+   }
+  },
+  {
+   "at": 165.2,
+   "label": "s6 unnarrated run: fuller lift",
+   "xfade": 2,
+   "prompts": [
+    {
+     "text": "Uplifting fuller lift, bright layered synth arpeggios, driving light percussion, warm bass, optimistic and confident, restrained, instrumental",
+     "weight": 1
+    }
+   ],
+   "config": {
+    "density": 0.76,
+    "brightness": 0.7
+   }
+  },
+  {
+   "at": 173.6,
+   "label": "s7 steady and grounded",
+   "xfade": 3,
+   "prompts": [
+    {
+     "text": "Steady grounded groove, warm bass, soft piano chords, light percussion, calm confidence, clean, instrumental",
+     "weight": 1
+    }
+   ],
+   "config": {
+    "density": 0.48,
+    "brightness": 0.52
+   }
+  },
+  {
+   "at": 205.1,
+   "label": "s8 resolve to a clean final chord",
+   "xfade": 3,
+   "prompts": [
+    {
+     "text": "Gentle resolution, warm sustained D major chord, soft piano and pad, sparse, peaceful ending, instrumental",
+     "weight": 1
+    }
+   ],
+   "config": {
+    "density": 0.18,
+    "brightness": 0.5,
+    "muteDrums": true
+   }
+  }
+ ]
+}
