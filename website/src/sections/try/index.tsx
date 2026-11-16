@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode, type RefObject } from 'react'
 import { motion, useInView } from 'motion/react'
-import { AppWindow, ArrowUpRight, FileArchive, FileCode2, Lock, Play, Plug, ShieldCheck } from 'lucide-react'
+import { AppWindow, ArrowUpRight, FileArchive, FileCode2, Lock, Plug, ShieldCheck } from 'lucide-react'
 import { Source } from '../../components/ui'
 import { links } from '../../content/facts'
 import AgentThreads from './AgentThreads'
@@ -66,50 +66,6 @@ function LinkTile({ href, index, onHover, media, ...body }: TileProps & { href: 
   )
 }
 
-function WalkthroughTile({ index, onHover }: { index: number; onHover: (i: number | null) => void }) {
-  const [playing, setPlaying] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  useEffect(() => { if (playing) videoRef.current?.focus() }, [playing])
-  const poster = import.meta.env.BASE_URL + 'shots/walkthrough-poster.jpg'
-  const body = { icon: <Play size={20} strokeWidth={2} />, title: 'Watch the walkthrough', line: 'Two minutes, including the 48-invocation study.', chip: '2 min' }
-
-  if (playing) {
-    return (
-      <div className="try-tile is-playing">
-        <div className="try-tile-media stage">
-          <video ref={videoRef} className="try-video" controls autoPlay playsInline preload="none" poster={poster}
-            width={1920} height={1080} src={links.walkthrough} aria-label="ProofFlow two-minute walkthrough">
-            Your browser cannot play this video. <a href={links.walkthrough}>Download the walkthrough</a>.
-          </video>
-        </div>
-        <div className="try-tile-body">
-          <span className="try-tile-icon" aria-hidden>{body.icon}</span>
-          <div className="try-tile-text">
-            <h3 className="try-tile-title">{body.title}</h3>
-            <p className="try-tile-line">
-              <a href={links.walkthrough} target="_blank" rel="noreferrer">Open the video file<span className="sr-only"> (opens in a new tab)</span></a>
-            </p>
-          </div>
-          <span className="try-tile-chip">{body.chip}</span>
-        </div>
-      </div>
-    )
-  }
-
-  return (
-    <button type="button" className="try-tile" onClick={() => setPlaying(true)}
-      onMouseEnter={() => onHover(index)} onMouseLeave={() => onHover(null)}
-      onFocus={() => onHover(index)} onBlur={() => onHover(null)}
-      aria-label="Play the two-minute walkthrough here">
-      <div className="try-tile-media stage">
-        <img className="try-poster" src={poster} width={1920} height={1080} loading="lazy" decoding="async" alt="" />
-        <span className="try-play" aria-hidden><Play size={26} strokeWidth={2} fill="currentColor" /></span>
-      </div>
-      <TileBody {...body} arrow={false} />
-    </button>
-  )
-}
-
 /** One thread from the headline branching to each tile; the branch to the tile in hand lights up. */
 function Branches({ hover, tiles }: { hover: number | null; tiles: RefObject<HTMLDivElement | null> }) {
   const ref = useRef<SVGSVGElement>(null)
@@ -122,7 +78,7 @@ function Branches({ hover, tiles }: { hover: number | null; tiles: RefObject<HTM
     if (!svg || !grid) return
     const measure = () => {
       const box = svg.getBoundingClientRect()
-      const ends = [...grid.children].slice(0, 3).map(c => {
+      const ends = [...grid.children].map(c => {
         const r = c.getBoundingClientRect()
         return r.left + r.width / 2 - box.left
       })
@@ -165,7 +121,7 @@ export default function TryIt() {
 
   const onHover = (i: number | null) => {
     setHover(i)
-    if (i === 2) setAgentRun(r => (r === 'a' ? 'b' : 'a'))
+    if (i === 1) setAgentRun(r => (r === 'a' ? 'b' : 'a'))
   }
 
   return (
@@ -174,7 +130,7 @@ export default function TryIt() {
         <div className="wrap">
           <header className="try-head">
             <h2 id="try-title" className="try-title">Try it in thirty seconds.</h2>
-            <p className="try-lede">Open the live app, watch the two-minute walkthrough, or connect your own agent.</p>
+            <p className="try-lede">Open the live app or connect your own agent.</p>
           </header>
 
           <Branches hover={hover} tiles={tilesRef} />
@@ -191,9 +147,7 @@ export default function TryIt() {
                   alt="The live ProofFlow workspace after a refresh: company revenue $5,755.00, current, beside the evidence graph." />
               } />
 
-            <WalkthroughTile index={1} onHover={onHover} />
-
-            <LinkTile index={2} onHover={onHover} href={links.connector}
+            <LinkTile index={1} onHover={onHover} href={links.connector}
               icon={<Plug size={20} strokeWidth={2} />}
               title="Connect your agent"
               line="Traverses dependencies, not similarity. No account needed."
