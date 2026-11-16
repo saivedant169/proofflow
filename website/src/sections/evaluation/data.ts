@@ -101,7 +101,7 @@ export const RETAINED_FAILURES: RetainedFailure[] = [
   {
     what: 'Retail development efficiency gate',
     kept: 'Graph/full evidence was 60.79%, above the unchanged 40% threshold. Retained and not pooled with the held-out test.',
-    source: 'README.md',
+    source: 'docs/RETAIL_V2_RESULTS.md',
   },
   {
     what: 'Browser suite, first draft run',
@@ -154,6 +154,18 @@ export const VERIFIED: VerifiedFact[] = [
     label: 'Hosted Chrome on 642 UCI Online Retail lines',
     detail:
       'A staged GBP rate correction moved the company and UK figures, matching the independent oracle to the cent. The old tab’s download was refused and the corrected reports persisted on reload.',
-    sources: ['docs/REAL_PARTITION_RESULTS.md'],
+    sources: ['docs/REAL_PARTITION_RESULTS.md', 'docs/SUBMISSION_DRAFT.md'],
   },
 ]
+
+/** Compact thread labels: a short name and a single tag per pipeline step (same sources as PIPELINE). */
+export const STEP_TAGS: Record<string, { name: string; tag: string; tagLabel: string }> = {
+  freeze: { name: 'Freeze protocol', tag: '48', tagLabel: 'cells fixed first' },
+  run: { name: 'Run held-out once', tag: '1', tagLabel: 'run per cell, no retry' },
+  audit: { name: 'Audit offline', tag: '0', tagLabel: 'models called' },
+  verify: { name: 'Public verifier', tag: '4,681', tagLabel: 'rows rebuilt' },
+  ci: { name: 'Re-verify in CI', tag: 'Each', tagLabel: 'push and pull request' },
+}
+
+/** Big-number labels for the verified-product row (detail and sources stay in VERIFIED). */
+export const VERIFIED_LABELS = ['browser workflows pass', 'injected error caught', 'recovery checks pass', 'real lines, oracle-matched'] as const

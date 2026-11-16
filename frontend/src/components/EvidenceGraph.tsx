@@ -103,7 +103,7 @@ export default function EvidenceGraph({ state, onInspect }: { state: WorkspaceSt
           const stale = affected.has(node.id) || changed.has(node.id)
           const isSource = node.kind === 'source'
           const Node = isSource ? 'div' : 'button'
-          return <Node key={node.id} className={`graph-node ${isSource ? 'graph-node-source' : ''} ${stale ? 'graph-node-affected' : ''} ${reports.has(node.id) ? 'graph-node-report' : ''}`} style={{ left: position.x, top: position.y, width: graph.nodeW }} onClick={isSource ? undefined : () => onInspect(node.id)} title={`${node.label} · ${node.state}`}>
+          return <Node key={node.id} className={`graph-node ${isSource ? 'graph-node-source' : ''} ${stale ? 'graph-node-affected' : ''} ${reports.has(node.id) ? 'graph-node-report' : ''}`} data-state={node.state} style={{ left: position.x, top: position.y, width: graph.nodeW }} onClick={isSource ? undefined : () => onInspect(node.id)} title={`${node.label} · ${node.state}`}>
             <NodeIcon node={node} reportIds={reports} /><span>{displayLabel(node)}</span>
           </Node>
         })}

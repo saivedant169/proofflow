@@ -1,30 +1,29 @@
-/* Architecture section styles. Scope every selector under .architecture-section */
+/* Architecture: a full-bleed night-ledger stage around one interactive system diagram.
+   Scope every selector under .architecture-section */
 
-.architecture-section .arch-figure {
-  margin: 0;
-  padding: clamp(16px, 3vw, 32px);
-  display: grid;
-  gap: clamp(16px, 2.5vw, 24px);
-}
-.architecture-section .arch-figure-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px 24px;
-}
-.architecture-section .arch-hint { color: var(--ink-soft); font-size: var(--t-15); }
+.architecture-section { overflow: clip; }
+.architecture-section .arch-head { max-width: 820px; margin-bottom: clamp(28px, 4vw, 48px); }
+.architecture-section .arch-head .section-lede { color: var(--ink-soft); }
 
-.architecture-section .arch-canvas {
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-frame);
-  padding: clamp(6px, 2vw, 20px);
-}
-.architecture-section .arch-svg { width: 100%; height: auto; overflow: visible; }
+.architecture-section .arch-figure { margin: 0; }
 
-/* Links and the traced pulse */
-.architecture-section .arch-link { fill: none; stroke: var(--thread); stroke-width: 1.75; opacity: 0.55; }
+/* The board: an SVG of links under HTML nodes, sharing one coordinate box. */
+.architecture-section .arch-board {
+  position: relative;
+  width: 100%;
+  container-type: inline-size;
+}
+.architecture-section .arch-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.architecture-section .arch-wash-in { stop-color: var(--thread); stop-opacity: 0.16; }
+.architecture-section .arch-wash-out { stop-color: var(--thread); stop-opacity: 0; }
+
+.architecture-section .arch-col {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--ink-faint);
+}
+.architecture-section .arch-link { fill: none; stroke: var(--rule-strong); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
 .architecture-section .arch-link-label {
   font-family: var(--font-code);
   font-size: 11px;
@@ -35,194 +34,294 @@
   stroke-width: 5px;
   stroke-linejoin: round;
 }
-.architecture-section .arch-pulse { fill: none; stroke-width: 4; stroke-linecap: round; }
+.architecture-section .arch-pulse { fill: none; stroke-width: 3.5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 .architecture-section .arch-pulse--stale { stroke: var(--stale-fill); }
 .architecture-section .arch-pulse--fresh { stroke: var(--current-fill); }
+.architecture-section .arch-dot--stale { fill: var(--stale-fill); }
+.architecture-section .arch-dot--fresh { fill: var(--current-fill); }
+.architecture-section .arch-dot { stroke: var(--paper); stroke-width: 3; }
 
 /* Nodes */
-.architecture-section .arch-node { cursor: pointer; outline: none; }
-.architecture-section .arch-node:focus-visible { outline: none; }
-.architecture-section .arch-ring {
-  fill: none;
-  stroke: var(--thread);
-  stroke-width: 2;
-  opacity: 0;
+.architecture-section .arch-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1cqw, 13px);
+  padding: 0 clamp(10px, 1.3cqw, 16px);
+  border-radius: 12px;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper-raised);
+  color: var(--ink);
+  text-align: left;
+  transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out), transform var(--dur-fast) var(--ease-out);
 }
-.architecture-section .arch-node:focus-visible .arch-ring { opacity: 1; }
-.architecture-section .arch-box {
-  fill: var(--paper-raised);
-  stroke: var(--rule-strong);
-  stroke-width: 1.25;
-  transition: fill var(--dur-fast) var(--ease-out), stroke var(--dur-fast) var(--ease-out), stroke-width var(--dur-fast) var(--ease-out);
+.architecture-section .arch-node:hover { border-color: var(--thread); transform: translateY(-1px); }
+.architecture-section .arch-node:focus-visible { outline: 2px solid var(--thread); outline-offset: 4px; }
+.architecture-section .arch-node--client { background: var(--paper); border-style: dashed; }
+.architecture-section .arch-node--core {
+  border: 1.5px solid var(--thread);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--thread) 10%, transparent);
 }
-.architecture-section .arch-node--core .arch-box { stroke: var(--thread); stroke-width: 2; }
-.architecture-section .arch-node--client .arch-box { fill: var(--paper); }
-.architecture-section .arch-node:hover .arch-box { stroke: var(--thread); }
-.architecture-section .arch-node.is-selected .arch-box { fill: var(--thread-soft); stroke: var(--thread); stroke-width: 2.5; }
-.architecture-section .arch-node.is-traced--stale .arch-box { stroke: var(--stale-fill); stroke-width: 2.5; }
-.architecture-section .arch-node.is-traced--fresh .arch-box { stroke: var(--current-fill); stroke-width: 2.5; }
+.architecture-section .arch-node.is-open { border-color: var(--thread); background: var(--thread-soft); }
+.architecture-section .arch-node.is-traced--stale {
+  border-color: var(--stale-fill);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--stale-fill) 18%, transparent);
+}
+.architecture-section .arch-node.is-traced--fresh {
+  border-color: var(--current-fill);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--current-fill) 18%, transparent);
+}
 
-.architecture-section .arch-title {
+.architecture-section .arch-node-icon {
+  flex: none;
+  width: clamp(16px, 2cqw, 24px);
+  height: clamp(16px, 2cqw, 24px);
+  color: var(--thread-ink);
+  stroke-width: 1.75;
+}
+.architecture-section .arch-node--core .arch-node-icon { width: clamp(20px, 2.8cqw, 32px); height: clamp(20px, 2.8cqw, 32px); }
+.architecture-section .is-traced--stale .arch-node-icon { color: var(--stale); }
+.architecture-section .is-traced--fresh .arch-node-icon { color: var(--current); }
+.architecture-section .arch-node-text { display: grid; gap: 2px; min-width: 0; }
+.architecture-section .arch-node-title {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: clamp(12px, 1.6cqw, 19px);
   font-weight: 700;
   font-variation-settings: 'wdth' 92;
-  fill: var(--ink);
+  line-height: 1.1;
+  white-space: nowrap;
 }
-.architecture-section .arch-node--core .arch-title { font-size: 19px; }
-.architecture-section .arch-sub { font-family: var(--font-body); font-size: 13px; fill: var(--ink-soft); }
-.architecture-section .arch-code { font-family: var(--font-code); font-size: 12.5px; fill: var(--thread-ink); }
+.architecture-section .arch-node--core .arch-node-title { font-size: clamp(14px, 1.9cqw, 23px); }
+.architecture-section .arch-node-sub {
+  font-family: var(--font-code);
+  font-size: clamp(10px, 1.1cqw, 13px);
+  color: var(--ink-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-.architecture-section .arch-svg--narrow .arch-title { font-size: 13.5px; font-variation-settings: 'wdth' 84; }
-.architecture-section .arch-svg--narrow .arch-node--core .arch-title { font-size: 15px; }
-.architecture-section .arch-svg--narrow .arch-sub { font-size: 11px; }
-.architecture-section .arch-svg--narrow .arch-code { font-size: 10.5px; }
+/* Phone layout: stacked, centered nodes */
+.architecture-section .arch-board--narrow .arch-node {
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 4px;
+  text-align: center;
+  border-radius: 10px;
+}
+.architecture-section .arch-board--narrow .arch-node-text { justify-items: center; }
+.architecture-section .arch-board--narrow .arch-node-icon { width: 16px; height: 16px; }
+.architecture-section .arch-board--narrow .arch-node--core { flex-direction: row; gap: 10px; }
+.architecture-section .arch-board--narrow .arch-node--core .arch-node-icon { width: 22px; height: 22px; }
+.architecture-section .arch-board--narrow .arch-node--core .arch-node-text { justify-items: start; }
+.architecture-section .arch-board--narrow .arch-node-title { font-size: clamp(12px, 3.9cqw, 15px); }
+.architecture-section .arch-board--narrow .arch-node--core .arch-node-title { font-size: clamp(15px, 5cqw, 19px); }
+.architecture-section .arch-board--narrow .arch-node-sub { font-size: 10px; max-width: 100%; }
 
-/* Inspector and trace, under the diagram */
-.architecture-section .arch-below {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: clamp(20px, 3vw, 40px);
-  align-items: start;
+/* Popover: crisp, solid, small */
+.architecture-section .arch-pop {
+  position: absolute;
+  z-index: 10;
+  width: min(320px, 100%);
+  padding: 14px 16px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-panel);
+  animation: arch-pop-in var(--dur) var(--ease-out);
 }
-.architecture-section .arch-inspector {
-  padding: 20px 22px;
-  border-radius: var(--radius-frame);
-  border: 1px solid var(--rule);
-  border-left: 3px solid var(--thread);
-  background: var(--paper);
-}
-.architecture-section .arch-inspector-title {
-  font-size: var(--t-24);
-  font-variation-settings: 'wdth' 112;
-  margin-bottom: 10px;
-}
-.architecture-section .arch-role { margin-bottom: 12px; }
-.architecture-section .arch-never { color: var(--ink-soft); font-size: var(--t-15); }
-.architecture-section .arch-never-label {
-  display: inline-block;
-  margin-right: 8px;
-  font-weight: 700;
-  color: var(--ink);
-}
-.architecture-section .arch-note { margin-top: 10px; color: var(--ink-soft); font-size: var(--t-15); }
-.architecture-section .arch-files { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.architecture-section .arch-files a {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: var(--radius-chip);
-  background: var(--thread-soft);
-  color: var(--thread-ink);
-  text-decoration: none;
-  overflow-wrap: anywhere;
-}
-.architecture-section .arch-files a:hover code { text-decoration: underline; }
-.architecture-section .arch-files code { font-size: var(--t-13); }
-.architecture-section .arch-inspector .arch-source-row { margin-top: 12px; }
-
-.architecture-section .arch-sub-title {
+.architecture-section .arch-pop--center { transform: translateX(-50%); animation-name: arch-pop-in-c; }
+.architecture-section .arch-pop--full { left: 0; right: 0; width: auto; }
+@keyframes arch-pop-in { from { opacity: 0; translate: 0 4px; } to { opacity: 1; translate: 0 0; } }
+@keyframes arch-pop-in-c { from { opacity: 0; translate: 0 4px; } to { opacity: 1; translate: 0 0; } }
+.architecture-section .arch-pop-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+.architecture-section .arch-pop-icon { color: var(--thread-ink); flex: none; }
+.architecture-section .arch-pop-title {
+  flex: 1;
+  font-family: var(--font-display);
   font-size: var(--t-18);
+  font-weight: 720;
   font-variation-settings: 'wdth' 108;
-  margin-bottom: 12px;
 }
-.architecture-section .arch-hops { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 2px; }
-.architecture-section .arch-hop {
-  display: grid;
-  grid-template-columns: 28px minmax(0, 1fr);
-  gap: 12px;
-  padding: 7px 10px 7px 6px;
-  border-radius: 8px;
-  font-size: var(--t-15);
-  line-height: 1.4;
-  transition: background-color var(--dur-fast) var(--ease-out);
-}
-.architecture-section .arch-hop strong { display: block; font-weight: 650; }
-.architecture-section .arch-hop-detail { display: block; color: var(--ink-soft); }
-.architecture-section .arch-hop-n {
+.architecture-section .arch-pop-close {
   display: grid;
   place-items: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 1.5px solid var(--rule-strong);
-  font-size: var(--t-13);
-  font-weight: 700;
+  width: 30px;
+  height: 30px;
+  margin: -6px -8px -6px 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
   color: var(--ink-soft);
 }
-.architecture-section .arch-hop[aria-current='step'] { background: var(--paper-sunken); }
-.architecture-section .arch-hop--stale[aria-current='step'] .arch-hop-n { border-color: var(--stale-fill); color: var(--stale); }
-.architecture-section .arch-hop--fresh[aria-current='step'] .arch-hop-n { border-color: var(--current-fill); color: var(--current); }
-
-.architecture-section .arch-source-row { display: flex; flex-wrap: wrap; gap: 6px 18px; }
-
-/* Fail-closed rules and the agent interface */
-.architecture-section .arch-split {
-  margin-top: clamp(56px, 8vw, 96px);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(40px, 6vw, 80px);
+.architecture-section .arch-pop-close:hover { background: var(--paper-sunken); color: var(--ink); }
+.architecture-section .arch-pop-does { font-size: var(--t-15); line-height: 1.45; color: var(--ink); }
+.architecture-section .arch-pop-never {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: var(--t-13);
+  line-height: 1.45;
+  color: var(--ink-soft);
 }
-.architecture-section .arch-block-title {
-  font-size: clamp(var(--t-24), 2.6vw, var(--t-30));
-  font-variation-settings: 'wdth' 112;
-  margin-bottom: 18px;
+.architecture-section .arch-pop-never span {
+  flex: none;
+  padding: 1px 7px;
+  border-radius: 4px;
+  background: var(--stale-soft);
+  color: var(--stale);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
-.architecture-section .arch-block-lede { color: var(--ink-soft); margin-bottom: 18px; max-width: 56ch; }
-
-.architecture-section .arch-rules { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
-.architecture-section .arch-rules li {
-  display: grid;
+.architecture-section .arch-pop-files {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+.architecture-section .arch-pop-files a {
+  display: inline-flex;
+  align-items: center;
   gap: 6px;
-  padding: 14px 0 14px 18px;
-  border-bottom: 1px solid var(--rule);
-  position: relative;
-}
-.architecture-section .arch-rules li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 22px;
-  width: 8px;
-  height: 2px;
-  background: var(--ink);
-}
-.architecture-section .arch-rules p { font-size: var(--t-18); line-height: 1.5; }
-.architecture-section .arch-rules code,
-.architecture-section .arch-api code { overflow-wrap: anywhere; }
-
-.architecture-section .arch-tools { margin: 0 0 14px; border-top: 1px solid var(--rule); }
-.architecture-section .arch-tool {
-  display: grid;
-  grid-template-columns: 9.5em minmax(0, 1fr);
-  gap: 6px 20px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--rule);
-}
-.architecture-section .arch-tool dt code {
-  font-size: var(--t-15);
-  font-weight: 600;
   color: var(--thread-ink);
+  text-decoration: none;
+  font-size: var(--t-13);
 }
-.architecture-section .arch-tool dd { margin: 0; color: var(--ink-soft); font-size: var(--t-15); line-height: 1.5; }
+.architecture-section .arch-pop-files a:hover code { text-decoration: underline; }
+.architecture-section .arch-pop-files code { overflow-wrap: anywhere; }
 
-/* Runtime API */
-.architecture-section .arch-api {
-  margin-top: clamp(56px, 8vw, 96px);
+/* Trace controls */
+.architecture-section .arch-trace {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 22px;
+  margin-top: clamp(20px, 3vw, 36px);
+}
+.architecture-section .arch-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 20px 0 16px;
+  border-radius: var(--radius-chip);
+  border: 1px solid var(--thread);
+  background: var(--thread);
+  color: var(--on-thread);
+  font-size: var(--t-15);
+  font-weight: 650;
+  transition: background-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+.architecture-section .arch-play:hover { background: var(--thread-ink); transform: translateY(-1px); }
+.architecture-section .arch-hops { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; }
+.architecture-section .arch-hop {
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--rule-strong);
+  transition: background-color var(--dur) var(--ease-out), width var(--dur) var(--ease-out);
+}
+.architecture-section .arch-hop--stale[data-state] { background: var(--stale-fill); }
+.architecture-section .arch-hop--fresh[data-state] { background: var(--current-fill); }
+.architecture-section .arch-hop[data-state='now'] { width: 40px; }
+.architecture-section .arch-hop-caption {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  min-height: 1.6em;
+  font-size: var(--t-15);
+}
+.architecture-section .arch-hop-n { font-size: var(--t-15); font-weight: 700; color: var(--thread-ink); }
+.architecture-section .arch-hop-n.is-fresh { color: var(--current); }
+.architecture-section .arch-hop-caption strong { font-weight: 650; }
+.architecture-section .arch-hop-detail { color: var(--ink-soft); }
+
+/* Spec sheet: one hairline row per fact group */
+.architecture-section .arch-specs {
+  margin-top: clamp(40px, 6vw, 72px);
+  border-top: 1px solid var(--rule);
+}
+.architecture-section .arch-spec {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
-  gap: clamp(24px, 4vw, 56px);
-  align-items: start;
+  grid-template-columns: 200px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
 }
-.architecture-section .arch-api-text { display: grid; gap: 14px; }
-.architecture-section .arch-api-text .arch-block-title { margin-bottom: 0; }
-.architecture-section .arch-api-note { font-size: var(--t-15); }
+.architecture-section .arch-spec-title {
+  font-family: var(--font-body);
+  font-size: var(--t-13);
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+}
+.architecture-section .arch-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.architecture-section .arch-chip,
+.architecture-section .arch-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 34px;
+  padding: 0 13px;
+  border-radius: var(--radius-chip);
+  border: 1px solid var(--rule-strong);
+  background: transparent;
+  color: var(--ink);
+  font-size: var(--t-13);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+.architecture-section .arch-chip { padding-left: 10px; }
+.architecture-section .arch-chip svg { color: var(--current); }
+.architecture-section .arch-pill {
+  font-family: var(--font-code);
+  font-size: 12.5px;
+  color: var(--thread-ink);
+  background: var(--thread-soft);
+  border-color: transparent;
+}
+.architecture-section .arch-chip:hover,
+.architecture-section .arch-pill:hover { border-color: var(--thread); }
 
+.architecture-section .arch-disclose {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: var(--radius-chip);
+  border: 1px solid var(--rule-strong);
+  background: transparent;
+  color: var(--ink);
+  font-size: var(--t-13);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.architecture-section .arch-disclose:hover { border-color: var(--thread); }
+.architecture-section .arch-disclose-chev { transition: transform var(--dur) var(--ease-out); }
+.architecture-section .arch-disclose[aria-expanded='true'] .arch-disclose-chev { transform: rotate(180deg); }
+
+.architecture-section .arch-code-wrap { margin-top: 16px; animation: arch-pop-in var(--dur) var(--ease-out); }
+.architecture-section .arch-code-note { margin-top: 10px; font-size: var(--t-13); color: var(--ink-faint); }
+.architecture-section .arch-code-note code { color: var(--ink-soft); overflow-wrap: anywhere; }
 .architecture-section .arch-code-block {
   min-width: 0;
   border: 1px solid var(--rule);
-  border-radius: var(--radius-frame);
-  background: var(--paper-raised);
-  box-shadow: var(--shadow-panel);
+  border-radius: 12px;
+  background: var(--paper-sunken);
 }
 .architecture-section .arch-code-bar {
   display: flex;
@@ -231,7 +330,7 @@
   padding: 4px 8px 4px 16px;
   border-bottom: 1px solid var(--rule);
 }
-.architecture-section .arch-code-lang { font-size: var(--t-13); font-weight: 600; color: var(--ink-soft); }
+.architecture-section .arch-code-lang { font-size: var(--t-13); font-weight: 600; color: var(--ink-faint); }
 .architecture-section .arch-pre {
   margin: 0;
   padding: 16px 18px 18px;
@@ -245,42 +344,38 @@
 .architecture-section .arch-pre code { font-size: inherit; }
 .architecture-section .arch-line { display: block; white-space: pre; }
 .architecture-section .tok-keyword { color: var(--thread-ink); font-weight: 600; }
-.architecture-section .tok-string { color: color-mix(in srgb, var(--current) 78%, var(--ink)); }
-.architecture-section .tok-comment { color: color-mix(in srgb, var(--ink-faint) 70%, var(--ink)); font-style: italic; }
+.architecture-section .tok-string { color: var(--current); }
+.architecture-section .tok-comment { color: var(--ink-faint); font-style: italic; }
 .architecture-section .arch-copy-failed { padding: 0 18px 14px; font-size: var(--t-13); color: var(--ink-soft); }
 
-/* Stack */
-.architecture-section .arch-stack {
-  margin-top: clamp(48px, 7vw, 80px);
-  padding-top: 24px;
-  border-top: 1px solid var(--rule);
+/* Footnote row: stack pills and sources */
+.architecture-section .arch-foot {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 14px 28px;
-  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
 }
-.architecture-section .arch-stack-title { font-size: var(--t-18); font-variation-settings: 'wdth' 108; }
-.architecture-section .arch-stack-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.architecture-section .arch-stack-list li {
-  padding: 4px 12px;
+.architecture-section .arch-stack { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.architecture-section .arch-stack li {
+  padding: 5px 11px;
   border-radius: var(--radius-chip);
-  border: 1px solid var(--rule-strong);
-  font-size: var(--t-15);
+  background: var(--paper-raised);
+  color: var(--ink-soft);
+  font-size: 12px;
   font-weight: 600;
 }
-.architecture-section .arch-stack .arch-source-row { grid-column: 1 / -1; }
+.architecture-section .arch-sources { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; font-size: 12px; }
+.architecture-section .arch-sources span { color: var(--ink-faint); font-weight: 600; }
+.architecture-section .arch-sources a { color: var(--ink-faint); text-decoration: none; }
+.architecture-section .arch-sources a:hover code { color: var(--thread-ink); text-decoration: underline; }
+.architecture-section .arch-sources code { font-size: 1em; }
 
-@media (max-width: 960px) {
-  .architecture-section .arch-below,
-  .architecture-section .arch-split,
-  .architecture-section .arch-api { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 719px) {
+  .architecture-section .arch-spec { grid-template-columns: minmax(0, 1fr); padding: 14px 0; }
 }
-
-@media (max-width: 720px) {
-  .architecture-section .arch-figure { padding: 12px; }
-  .architecture-section .arch-canvas { padding: 6px; }
-  .architecture-section .arch-inspector { padding: 16px; }
-  .architecture-section .arch-tool { grid-template-columns: minmax(0, 1fr); }
-  .architecture-section .arch-stack { grid-template-columns: minmax(0, 1fr); }
-  .architecture-section .arch-pre { font-size: 12.5px; padding: 14px; }
+@media (max-width: 719px) {
+  .architecture-section .arch-trace { gap: 12px 16px; }
+  .architecture-section .arch-hop-caption { flex-basis: 100%; font-size: var(--t-13); }
+  .architecture-section .arch-pre { font-size: 12px; padding: 14px; }
+  .architecture-section .arch-chip,
+  .architecture-section .arch-pill { white-space: normal; height: auto; min-height: 34px; }
 }
