@@ -1,2789 +1,3231 @@
 {
   "version": 1,
   "unit": "film seconds",
-  "duration": 217.4,
+  "duration": 253.7,
   "measured": true,
   "sections": {
     "s1": {
       "start": 0,
-      "end": 16.994,
+      "end": 20.13,
       "clip": "narration/s1.wav",
       "speech": [
         0.35,
-        16.794
+        19.83
       ],
-      "text": "Monday. Your AI agent saves a report. Company revenue: five thousand, five hundred sixty-five dollars. Tuesday, someone corrects the euro exchange rate. The report doesn't change. Nothing tells it that it's wrong.",
+      "text": "One input changes. Now your AI agent has to work out what that broke. Today, it has two options. Re-read everything. Accurate, but you pay for every token, every time. Or search for what looks related. Cheap, but blind to what matters.",
       "lines": {
         "1a": {
           "start": 0.35,
-          "end": 3.779,
-          "text": "Monday. Your AI agent saves a report."
+          "end": 5.64,
+          "text": "One input changes. Now your AI agent has to work out what that broke."
         },
         "1b": {
-          "start": 4.579,
-          "end": 8.957,
-          "text": "Company revenue: five thousand, five hundred sixty-five dollars."
+          "start": 6.19,
+          "end": 8.49,
+          "text": "Today, it has two options."
         },
         "1c": {
-          "start": 9.757,
-          "end": 12.451,
-          "text": "Tuesday, someone corrects the euro exchange rate."
+          "start": 9.04,
+          "end": 14.225,
+          "text": "Re-read everything. Accurate, but you pay for every token, every time."
         },
         "1d": {
-          "start": 13.251,
-          "end": 16.794,
-          "text": "The report doesn't change. Nothing tells it that it's wrong."
+          "start": 14.775,
+          "end": 19.83,
+          "text": "Or search for what looks related. Cheap, but blind to what matters."
         }
       },
       "words": [
         {
-          "w": "Monday.",
+          "w": "One",
           "start": 0.35,
-          "end": 0.743,
+          "end": 0.613,
           "line": "1a"
         },
         {
-          "w": "Your",
-          "start": 1.243,
-          "end": 1.763,
+          "w": "input",
+          "start": 0.66,
+          "end": 0.924,
+          "line": "1a"
+        },
+        {
+          "w": "changes.",
+          "start": 0.97,
+          "end": 1.327,
+          "line": "1a"
+        },
+        {
+          "w": "Now",
+          "start": 1.81,
+          "end": 2.073,
+          "line": "1a"
+        },
+        {
+          "w": "your",
+          "start": 2.12,
+          "end": 2.383,
           "line": "1a"
         },
         {
           "w": "AI",
-          "start": 1.763,
-          "end": 2.123,
+          "start": 2.43,
+          "end": 2.694,
           "line": "1a"
         },
         {
           "w": "agent",
-          "start": 2.123,
-          "end": 2.663,
+          "start": 2.74,
+          "end": 3.004,
           "line": "1a"
         },
         {
-          "w": "saves",
-          "start": 2.663,
-          "end": 3.003,
+          "w": "has",
+          "start": 3.05,
+          "end": 3.314,
           "line": "1a"
         },
         {
-          "w": "a",
-          "start": 3.003,
-          "end": 3.183,
+          "w": "to",
+          "start": 3.36,
+          "end": 3.624,
           "line": "1a"
         },
         {
-          "w": "report.",
-          "start": 3.183,
-          "end": 3.779,
+          "w": "work",
+          "start": 3.67,
+          "end": 3.934,
           "line": "1a"
         },
         {
-          "w": "Company",
-          "start": 4.579,
-          "end": 4.886,
-          "line": "1b"
+          "w": "out",
+          "start": 3.98,
+          "end": 4.244,
+          "line": "1a"
         },
         {
-          "w": "revenue:",
-          "start": 4.886,
-          "end": 5.506,
-          "line": "1b"
-        },
-        {
-          "w": "five",
-          "start": 5.506,
-          "end": 5.753,
-          "line": "1b"
-        },
-        {
-          "w": "thousand,",
-          "start": 5.753,
-          "end": 6.186,
-          "line": "1b"
-        },
-        {
-          "w": "five",
-          "start": 6.186,
-          "end": 6.618,
-          "line": "1b"
-        },
-        {
-          "w": "hundred",
-          "start": 6.618,
-          "end": 7.374,
-          "line": "1b"
-        },
-        {
-          "w": "sixty-five",
-          "start": 7.374,
-          "end": 8.346,
-          "line": "1b"
-        },
-        {
-          "w": "dollars.",
-          "start": 8.346,
-          "end": 8.957,
-          "line": "1b"
-        },
-        {
-          "w": "Tuesday,",
-          "start": 9.757,
-          "end": 10.146,
-          "line": "1c"
-        },
-        {
-          "w": "someone",
-          "start": 10.526,
-          "end": 10.846,
-          "line": "1c"
-        },
-        {
-          "w": "corrects",
-          "start": 10.846,
-          "end": 11.486,
-          "line": "1c"
-        },
-        {
-          "w": "the",
-          "start": 11.486,
-          "end": 11.506,
-          "line": "1c"
-        },
-        {
-          "w": "euro",
-          "start": 11.486,
-          "end": 11.706,
-          "line": "1c"
-        },
-        {
-          "w": "exchange",
-          "start": 11.706,
-          "end": 12.026,
-          "line": "1c"
-        },
-        {
-          "w": "rate.",
-          "start": 12.026,
-          "end": 12.451,
-          "line": "1c"
-        },
-        {
-          "w": "The",
-          "start": 13.251,
-          "end": 13.384,
-          "line": "1d"
-        },
-        {
-          "w": "report",
-          "start": 13.384,
-          "end": 13.844,
-          "line": "1d"
-        },
-        {
-          "w": "doesn't",
-          "start": 13.844,
-          "end": 14.384,
-          "line": "1d"
-        },
-        {
-          "w": "change.",
-          "start": 14.384,
-          "end": 14.664,
-          "line": "1d"
-        },
-        {
-          "w": "Nothing",
-          "start": 15.164,
-          "end": 15.484,
-          "line": "1d"
-        },
-        {
-          "w": "tells",
-          "start": 15.484,
-          "end": 15.824,
-          "line": "1d"
-        },
-        {
-          "w": "it",
-          "start": 15.824,
-          "end": 16.084,
-          "line": "1d"
+          "w": "what",
+          "start": 4.29,
+          "end": 4.554,
+          "line": "1a"
         },
         {
           "w": "that",
-          "start": 16.084,
-          "end": 16.244,
+          "start": 4.6,
+          "end": 4.863,
+          "line": "1a"
+        },
+        {
+          "w": "broke.",
+          "start": 4.91,
+          "end": 5.173,
+          "line": "1a"
+        },
+        {
+          "w": "Today,",
+          "start": 6.19,
+          "end": 6.453,
+          "line": "1b"
+        },
+        {
+          "w": "it",
+          "start": 6.72,
+          "end": 6.983,
+          "line": "1b"
+        },
+        {
+          "w": "has",
+          "start": 7.03,
+          "end": 7.293,
+          "line": "1b"
+        },
+        {
+          "w": "two",
+          "start": 7.34,
+          "end": 7.603,
+          "line": "1b"
+        },
+        {
+          "w": "options.",
+          "start": 7.65,
+          "end": 8.007,
+          "line": "1b"
+        },
+        {
+          "w": "Re-read",
+          "start": 9.04,
+          "end": 9.35,
+          "line": "1c"
+        },
+        {
+          "w": "everything.",
+          "start": 9.405,
+          "end": 9.902,
+          "line": "1c"
+        },
+        {
+          "w": "Accurate,",
+          "start": 10.41,
+          "end": 10.814,
+          "line": "1c"
+        },
+        {
+          "w": "but",
+          "start": 11.105,
+          "end": 11.369,
+          "line": "1c"
+        },
+        {
+          "w": "you",
+          "start": 11.415,
+          "end": 11.679,
+          "line": "1c"
+        },
+        {
+          "w": "pay",
+          "start": 11.725,
+          "end": 11.989,
+          "line": "1c"
+        },
+        {
+          "w": "for",
+          "start": 12.035,
+          "end": 12.299,
+          "line": "1c"
+        },
+        {
+          "w": "every",
+          "start": 12.345,
+          "end": 12.609,
+          "line": "1c"
+        },
+        {
+          "w": "token,",
+          "start": 12.655,
+          "end": 12.919,
+          "line": "1c"
+        },
+        {
+          "w": "every",
+          "start": 13.185,
+          "end": 13.449,
+          "line": "1c"
+        },
+        {
+          "w": "time.",
+          "start": 13.495,
+          "end": 13.759,
+          "line": "1c"
+        },
+        {
+          "w": "Or",
+          "start": 14.775,
+          "end": 15.039,
           "line": "1d"
         },
         {
-          "w": "it's",
-          "start": 16.244,
-          "end": 16.444,
+          "w": "search",
+          "start": 15.085,
+          "end": 15.395,
           "line": "1d"
         },
         {
-          "w": "wrong.",
-          "start": 16.444,
-          "end": 16.794,
+          "w": "for",
+          "start": 15.45,
+          "end": 15.714,
+          "line": "1d"
+        },
+        {
+          "w": "what",
+          "start": 15.76,
+          "end": 16.024,
+          "line": "1d"
+        },
+        {
+          "w": "looks",
+          "start": 16.07,
+          "end": 16.334,
+          "line": "1d"
+        },
+        {
+          "w": "related.",
+          "start": 16.38,
+          "end": 16.737,
+          "line": "1d"
+        },
+        {
+          "w": "Cheap,",
+          "start": 17.22,
+          "end": 17.484,
+          "line": "1d"
+        },
+        {
+          "w": "but",
+          "start": 17.75,
+          "end": 18.014,
+          "line": "1d"
+        },
+        {
+          "w": "blind",
+          "start": 18.06,
+          "end": 18.324,
+          "line": "1d"
+        },
+        {
+          "w": "to",
+          "start": 18.37,
+          "end": 18.634,
+          "line": "1d"
+        },
+        {
+          "w": "what",
+          "start": 18.68,
+          "end": 18.944,
+          "line": "1d"
+        },
+        {
+          "w": "matters.",
+          "start": 18.99,
+          "end": 19.347,
           "line": "1d"
         }
       ]
     },
     "s2": {
-      "start": 18,
-      "end": 39.346,
+      "start": 21.2,
+      "end": 43.01,
       "clip": "narration/s2.wav",
       "speech": [
-        18.35,
-        39.146
+        21.55,
+        42.71
       ],
-      "text": "Agents build on their own saved work, so every number quietly depends on inputs underneath. When one input changes, which numbers are now wrong? Re-reading everything floods the model with context. Searching for related text misses numbers that depend on the change but never mention it.",
+      "text": "Agents build reports on their own earlier work, so every number quietly depends on inputs underneath. Correct one exchange rate, and some of those numbers are now wrong. But a total can depend on that rate without ever mentioning it. Similar words are not the same as real dependencies.",
       "lines": {
         "2a": {
-          "start": 18.35,
-          "end": 24.042,
-          "text": "Agents build on their own saved work, so every number quietly depends on inputs underneath."
+          "start": 21.55,
+          "end": 28.03,
+          "text": "Agents build reports on their own earlier work, so every number quietly depends on inputs underneath."
         },
         "2b": {
-          "start": 24.542,
-          "end": 28.323,
-          "text": "When one input changes, which numbers are now wrong?"
+          "start": 28.58,
+          "end": 33.325,
+          "text": "Correct one exchange rate, and some of those numbers are now wrong."
         },
         "2c": {
-          "start": 28.823,
-          "end": 32.05,
-          "text": "Re-reading everything floods the model with context."
+          "start": 33.875,
+          "end": 38.455,
+          "text": "But a total can depend on that rate without ever mentioning it."
         },
         "2d": {
-          "start": 32.55,
-          "end": 39.146,
-          "text": "Searching for related text misses numbers that depend on the change but never mention it."
+          "start": 39.005,
+          "end": 42.71,
+          "text": "Similar words are not the same as real dependencies."
         }
       },
       "words": [
         {
           "w": "Agents",
-          "start": 18.35,
-          "end": 18.71,
+          "start": 21.55,
+          "end": 21.86,
           "line": "2a"
         },
         {
           "w": "build",
-          "start": 18.71,
-          "end": 18.95,
+          "start": 21.915,
+          "end": 22.178,
+          "line": "2a"
+        },
+        {
+          "w": "reports",
+          "start": 22.225,
+          "end": 22.582,
           "line": "2a"
         },
         {
           "w": "on",
-          "start": 18.95,
-          "end": 19.13,
+          "start": 22.645,
+          "end": 22.909,
           "line": "2a"
         },
         {
           "w": "their",
-          "start": 19.13,
-          "end": 19.31,
+          "start": 22.955,
+          "end": 23.219,
           "line": "2a"
         },
         {
           "w": "own",
-          "start": 19.31,
-          "end": 19.47,
+          "start": 23.265,
+          "end": 23.529,
           "line": "2a"
         },
         {
-          "w": "saved",
-          "start": 19.47,
-          "end": 19.75,
+          "w": "earlier",
+          "start": 23.575,
+          "end": 23.932,
           "line": "2a"
         },
         {
           "w": "work,",
-          "start": 19.75,
-          "end": 20.17,
+          "start": 23.995,
+          "end": 24.259,
           "line": "2a"
         },
         {
           "w": "so",
-          "start": 20.49,
-          "end": 20.83,
+          "start": 24.525,
+          "end": 24.789,
           "line": "2a"
         },
         {
           "w": "every",
-          "start": 20.83,
-          "end": 21.21,
+          "start": 24.835,
+          "end": 25.099,
           "line": "2a"
         },
         {
           "w": "number",
-          "start": 21.21,
-          "end": 21.57,
+          "start": 25.145,
+          "end": 25.455,
           "line": "2a"
         },
         {
           "w": "quietly",
-          "start": 21.57,
-          "end": 22.07,
+          "start": 25.51,
+          "end": 25.867,
           "line": "2a"
         },
         {
           "w": "depends",
-          "start": 22.07,
-          "end": 22.57,
+          "start": 25.93,
+          "end": 26.287,
           "line": "2a"
         },
         {
           "w": "on",
-          "start": 22.57,
-          "end": 22.91,
+          "start": 26.35,
+          "end": 26.614,
           "line": "2a"
         },
         {
           "w": "inputs",
-          "start": 22.91,
-          "end": 23.31,
+          "start": 26.66,
+          "end": 26.97,
           "line": "2a"
         },
         {
           "w": "underneath.",
-          "start": 23.31,
-          "end": 24.042,
+          "start": 27.025,
+          "end": 27.522,
           "line": "2a"
         },
         {
-          "w": "When",
-          "start": 24.542,
-          "end": 24.83,
+          "w": "Correct",
+          "start": 28.58,
+          "end": 28.937,
           "line": "2b"
         },
         {
           "w": "one",
-          "start": 24.83,
-          "end": 25.31,
+          "start": 29,
+          "end": 29.263,
           "line": "2b"
         },
         {
-          "w": "input",
-          "start": 25.31,
-          "end": 25.73,
+          "w": "exchange",
+          "start": 29.31,
+          "end": 29.714,
           "line": "2b"
         },
         {
-          "w": "changes,",
-          "start": 25.73,
-          "end": 26.33,
+          "w": "rate,",
+          "start": 29.785,
+          "end": 30.049,
           "line": "2b"
         },
         {
-          "w": "which",
-          "start": 26.75,
-          "end": 27.13,
+          "w": "and",
+          "start": 30.315,
+          "end": 30.579,
+          "line": "2b"
+        },
+        {
+          "w": "some",
+          "start": 30.625,
+          "end": 30.889,
+          "line": "2b"
+        },
+        {
+          "w": "of",
+          "start": 30.935,
+          "end": 31.199,
+          "line": "2b"
+        },
+        {
+          "w": "those",
+          "start": 31.245,
+          "end": 31.509,
           "line": "2b"
         },
         {
           "w": "numbers",
-          "start": 27.13,
-          "end": 27.49,
+          "start": 31.555,
+          "end": 31.912,
           "line": "2b"
         },
         {
           "w": "are",
-          "start": 27.49,
-          "end": 27.69,
+          "start": 31.975,
+          "end": 32.239,
           "line": "2b"
         },
         {
           "w": "now",
-          "start": 27.69,
-          "end": 27.83,
+          "start": 32.285,
+          "end": 32.549,
           "line": "2b"
         },
         {
-          "w": "wrong?",
-          "start": 27.83,
-          "end": 28.323,
+          "w": "wrong.",
+          "start": 32.595,
+          "end": 32.859,
           "line": "2b"
         },
         {
-          "w": "Re-reading",
-          "start": 28.823,
-          "end": 29.379,
+          "w": "But",
+          "start": 33.875,
+          "end": 34.139,
           "line": "2c"
         },
         {
-          "w": "everything",
-          "start": 29.379,
-          "end": 29.859,
+          "w": "a",
+          "start": 34.185,
+          "end": 34.449,
           "line": "2c"
         },
         {
-          "w": "floods",
-          "start": 29.859,
-          "end": 30.379,
+          "w": "total",
+          "start": 34.495,
+          "end": 34.759,
           "line": "2c"
         },
         {
-          "w": "the",
-          "start": 30.379,
-          "end": 30.699,
+          "w": "can",
+          "start": 34.805,
+          "end": 35.069,
           "line": "2c"
-        },
-        {
-          "w": "model",
-          "start": 30.699,
-          "end": 31.059,
-          "line": "2c"
-        },
-        {
-          "w": "with",
-          "start": 31.059,
-          "end": 31.239,
-          "line": "2c"
-        },
-        {
-          "w": "context.",
-          "start": 31.239,
-          "end": 32.05,
-          "line": "2c"
-        },
-        {
-          "w": "Searching",
-          "start": 32.55,
-          "end": 33.285,
-          "line": "2d"
-        },
-        {
-          "w": "for",
-          "start": 33.285,
-          "end": 33.505,
-          "line": "2d"
-        },
-        {
-          "w": "related",
-          "start": 33.505,
-          "end": 34.005,
-          "line": "2d"
-        },
-        {
-          "w": "text",
-          "start": 34.005,
-          "end": 34.625,
-          "line": "2d"
-        },
-        {
-          "w": "misses",
-          "start": 34.625,
-          "end": 35.185,
-          "line": "2d"
-        },
-        {
-          "w": "numbers",
-          "start": 35.185,
-          "end": 35.685,
-          "line": "2d"
-        },
-        {
-          "w": "that",
-          "start": 35.685,
-          "end": 36.085,
-          "line": "2d"
         },
         {
           "w": "depend",
-          "start": 36.085,
-          "end": 36.445,
-          "line": "2d"
+          "start": 35.115,
+          "end": 35.425,
+          "line": "2c"
         },
         {
           "w": "on",
-          "start": 36.445,
-          "end": 36.665,
+          "start": 35.48,
+          "end": 35.744,
+          "line": "2c"
+        },
+        {
+          "w": "that",
+          "start": 35.79,
+          "end": 36.054,
+          "line": "2c"
+        },
+        {
+          "w": "rate",
+          "start": 36.1,
+          "end": 36.364,
+          "line": "2c"
+        },
+        {
+          "w": "without",
+          "start": 36.41,
+          "end": 36.767,
+          "line": "2c"
+        },
+        {
+          "w": "ever",
+          "start": 36.83,
+          "end": 37.094,
+          "line": "2c"
+        },
+        {
+          "w": "mentioning",
+          "start": 37.14,
+          "end": 37.637,
+          "line": "2c"
+        },
+        {
+          "w": "it.",
+          "start": 37.725,
+          "end": 37.989,
+          "line": "2c"
+        },
+        {
+          "w": "Similar",
+          "start": 39.005,
+          "end": 39.362,
+          "line": "2d"
+        },
+        {
+          "w": "words",
+          "start": 39.425,
+          "end": 39.689,
+          "line": "2d"
+        },
+        {
+          "w": "are",
+          "start": 39.735,
+          "end": 39.999,
+          "line": "2d"
+        },
+        {
+          "w": "not",
+          "start": 40.045,
+          "end": 40.309,
           "line": "2d"
         },
         {
           "w": "the",
-          "start": 36.665,
-          "end": 36.885,
+          "start": 40.355,
+          "end": 40.619,
           "line": "2d"
         },
         {
-          "w": "change",
-          "start": 36.885,
-          "end": 37.205,
+          "w": "same",
+          "start": 40.665,
+          "end": 40.929,
           "line": "2d"
         },
         {
-          "w": "but",
-          "start": 37.205,
-          "end": 37.545,
+          "w": "as",
+          "start": 40.975,
+          "end": 41.239,
           "line": "2d"
         },
         {
-          "w": "never",
-          "start": 37.545,
-          "end": 37.885,
+          "w": "real",
+          "start": 41.285,
+          "end": 41.549,
           "line": "2d"
         },
         {
-          "w": "mention",
-          "start": 37.885,
-          "end": 38.205,
-          "line": "2d"
-        },
-        {
-          "w": "it.",
-          "start": 38.205,
-          "end": 39.146,
+          "w": "dependencies.",
+          "start": 41.595,
+          "end": 42.186,
           "line": "2d"
         }
       ]
     },
     "s3": {
-      "start": 40.3,
-      "end": 54.052,
+      "start": 44,
+      "end": 61.54,
       "clip": "narration/s3.wav",
       "speech": [
-        40.65,
-        53.852
+        44.35,
+        61.24
       ],
-      "text": "ProofFlow takes a different path. Every number keeps its receipts: exactly which inputs, and which calculation, made it. So it knows what to hold back, and what to redo.",
+      "text": "ProofFlow is a context layer that follows structure instead of guessing. Every number keeps its receipts: exactly which inputs, and which tool, made it. So when something changes, the agent gets exactly what broke. Nothing more.",
       "lines": {
         "3a": {
-          "start": 40.65,
-          "end": 42.702,
-          "text": "ProofFlow takes a different path."
+          "start": 44.35,
+          "end": 49.115,
+          "text": "ProofFlow is a context layer that follows structure instead of guessing."
         },
         "3b": {
-          "start": 43.202,
-          "end": 49.75,
-          "text": "Every number keeps its receipts: exactly which inputs, and which calculation, made it."
+          "start": 49.665,
+          "end": 55.36,
+          "text": "Every number keeps its receipts: exactly which inputs, and which tool, made it."
         },
         "3c": {
-          "start": 50.25,
-          "end": 53.852,
-          "text": "So it knows what to hold back, and what to redo."
+          "start": 55.91,
+          "end": 61.24,
+          "text": "So when something changes, the agent gets exactly what broke. Nothing more."
         }
       },
       "words": [
         {
           "w": "ProofFlow",
-          "start": 40.65,
-          "end": 41.316,
+          "start": 44.35,
+          "end": 44.801,
           "line": "3a"
         },
         {
-          "w": "takes",
-          "start": 41.316,
-          "end": 41.716,
+          "w": "is",
+          "start": 44.88,
+          "end": 45.144,
           "line": "3a"
         },
         {
           "w": "a",
-          "start": 41.716,
-          "end": 41.956,
+          "start": 45.19,
+          "end": 45.454,
           "line": "3a"
         },
         {
-          "w": "different",
-          "start": 41.956,
-          "end": 42.156,
+          "w": "context",
+          "start": 45.5,
+          "end": 45.857,
           "line": "3a"
         },
         {
-          "w": "path.",
-          "start": 42.156,
-          "end": 42.702,
+          "w": "layer",
+          "start": 45.92,
+          "end": 46.184,
+          "line": "3a"
+        },
+        {
+          "w": "that",
+          "start": 46.23,
+          "end": 46.494,
+          "line": "3a"
+        },
+        {
+          "w": "follows",
+          "start": 46.54,
+          "end": 46.897,
+          "line": "3a"
+        },
+        {
+          "w": "structure",
+          "start": 46.96,
+          "end": 47.411,
+          "line": "3a"
+        },
+        {
+          "w": "instead",
+          "start": 47.49,
+          "end": 47.847,
+          "line": "3a"
+        },
+        {
+          "w": "of",
+          "start": 47.91,
+          "end": 48.174,
+          "line": "3a"
+        },
+        {
+          "w": "guessing.",
+          "start": 48.22,
+          "end": 48.624,
           "line": "3a"
         },
         {
           "w": "Every",
-          "start": 43.202,
-          "end": 43.506,
+          "start": 49.665,
+          "end": 49.928,
           "line": "3b"
         },
         {
           "w": "number",
-          "start": 43.506,
-          "end": 43.986,
+          "start": 49.975,
+          "end": 50.285,
           "line": "3b"
         },
         {
           "w": "keeps",
-          "start": 43.986,
-          "end": 44.586,
+          "start": 50.34,
+          "end": 50.603,
           "line": "3b"
         },
         {
           "w": "its",
-          "start": 44.586,
-          "end": 44.826,
+          "start": 50.65,
+          "end": 50.913,
           "line": "3b"
         },
         {
           "w": "receipts:",
-          "start": 44.826,
-          "end": 45.646,
+          "start": 50.96,
+          "end": 51.364,
           "line": "3b"
         },
         {
           "w": "exactly",
-          "start": 46.046,
-          "end": 46.566,
+          "start": 51.855,
+          "end": 52.212,
           "line": "3b"
         },
         {
           "w": "which",
-          "start": 46.566,
-          "end": 47.006,
+          "start": 52.275,
+          "end": 52.539,
           "line": "3b"
         },
         {
           "w": "inputs,",
-          "start": 47.006,
-          "end": 47.486,
+          "start": 52.585,
+          "end": 52.895,
           "line": "3b"
         },
         {
           "w": "and",
-          "start": 47.486,
-          "end": 47.886,
+          "start": 53.17,
+          "end": 53.434,
           "line": "3b"
         },
         {
           "w": "which",
-          "start": 47.886,
-          "end": 48.266,
+          "start": 53.48,
+          "end": 53.744,
           "line": "3b"
         },
         {
-          "w": "calculation,",
-          "start": 48.266,
-          "end": 48.926,
+          "w": "tool,",
+          "start": 53.79,
+          "end": 54.054,
           "line": "3b"
         },
         {
           "w": "made",
-          "start": 48.926,
-          "end": 49.566,
+          "start": 54.32,
+          "end": 54.584,
           "line": "3b"
         },
         {
           "w": "it.",
-          "start": 49.566,
-          "end": 49.75,
+          "start": 54.63,
+          "end": 54.894,
           "line": "3b"
         },
         {
           "w": "So",
-          "start": 50.25,
-          "end": 50.461,
+          "start": 55.91,
+          "end": 56.174,
           "line": "3c"
         },
         {
-          "w": "it",
-          "start": 50.461,
-          "end": 50.621,
+          "w": "when",
+          "start": 56.22,
+          "end": 56.484,
           "line": "3c"
         },
         {
-          "w": "knows",
-          "start": 50.621,
-          "end": 50.921,
+          "w": "something",
+          "start": 56.53,
+          "end": 56.981,
+          "line": "3c"
+        },
+        {
+          "w": "changes,",
+          "start": 57.06,
+          "end": 57.417,
+          "line": "3c"
+        },
+        {
+          "w": "the",
+          "start": 57.7,
+          "end": 57.964,
+          "line": "3c"
+        },
+        {
+          "w": "agent",
+          "start": 58.01,
+          "end": 58.274,
+          "line": "3c"
+        },
+        {
+          "w": "gets",
+          "start": 58.32,
+          "end": 58.584,
+          "line": "3c"
+        },
+        {
+          "w": "exactly",
+          "start": 58.63,
+          "end": 58.987,
           "line": "3c"
         },
         {
           "w": "what",
-          "start": 50.921,
-          "end": 51.281,
+          "start": 59.05,
+          "end": 59.314,
           "line": "3c"
         },
         {
-          "w": "to",
-          "start": 51.281,
-          "end": 51.501,
+          "w": "broke.",
+          "start": 59.36,
+          "end": 59.624,
           "line": "3c"
         },
         {
-          "w": "hold",
-          "start": 51.501,
-          "end": 51.661,
+          "w": "Nothing",
+          "start": 60.09,
+          "end": 60.447,
           "line": "3c"
         },
         {
-          "w": "back,",
-          "start": 51.661,
-          "end": 52.021,
-          "line": "3c"
-        },
-        {
-          "w": "and",
-          "start": 52.021,
-          "end": 52.901,
-          "line": "3c"
-        },
-        {
-          "w": "what",
-          "start": 52.901,
-          "end": 53.201,
-          "line": "3c"
-        },
-        {
-          "w": "to",
-          "start": 53.201,
-          "end": 53.441,
-          "line": "3c"
-        },
-        {
-          "w": "redo.",
-          "start": 53.441,
-          "end": 53.852,
+          "w": "more.",
+          "start": 60.51,
+          "end": 60.774,
           "line": "3c"
         }
       ]
     },
     "s4": {
-      "start": 55.7,
-      "end": 85.448,
+      "start": 63.2,
+      "end": 96.425,
       "clip": "narration/s4.wav",
       "speech": [
-        56.05,
-        85.248
+        63.55,
+        96.125
       ],
-      "text": "An input, like the exchange rate, is saved as a version. A tool reads it, and leaves a receipt. The receipt points to its result, and each number in a report points to that result. Now, correct the rate. The change travels up those links. Both revenue figures are withheld, never shown stale. Support never read the rate, so it stays. Refresh re-runs only the affected steps.",
+      "text": "An input, like the exchange rate, is saved as a version. A tool reads it, and leaves a receipt. The receipt points to its result, and each number in a report points to that result. Now, correct the rate. The change travels up those links. Both revenue figures are withheld, never shown stale. Support never read the rate, so it stays current, and is reused. Refresh re-runs only the affected steps.",
       "lines": {
         "4a": {
-          "start": 56.05,
-          "end": 60.438,
+          "start": 63.55,
+          "end": 68.095,
           "text": "An input, like the exchange rate, is saved as a version."
         },
         "4b": {
-          "start": 60.938,
-          "end": 63.584,
+          "start": 68.645,
+          "end": 71.93,
           "text": "A tool reads it, and leaves a receipt."
         },
         "4c": {
-          "start": 64.084,
-          "end": 69.829,
+          "start": 72.48,
+          "end": 78.52,
           "text": "The receipt points to its result, and each number in a report points to that result."
         },
         "4d": {
-          "start": 70.529,
-          "end": 72.11,
+          "start": 79.07,
+          "end": 81.06,
           "text": "Now, correct the rate."
         },
         "4e": {
-          "start": 72.81,
-          "end": 78.522,
+          "start": 81.61,
+          "end": 87.56,
           "text": "The change travels up those links. Both revenue figures are withheld, never shown stale."
         },
         "4f": {
-          "start": 79.022,
-          "end": 81.836,
-          "text": "Support never read the rate, so it stays."
+          "start": 88.11,
+          "end": 92.965,
+          "text": "Support never read the rate, so it stays current, and is reused."
         },
         "4g": {
-          "start": 82.336,
-          "end": 85.248,
+          "start": 93.515,
+          "end": 96.125,
           "text": "Refresh re-runs only the affected steps."
         }
       },
       "words": [
         {
           "w": "An",
-          "start": 56.05,
-          "end": 56.162,
+          "start": 63.55,
+          "end": 63.813,
           "line": "4a"
         },
         {
           "w": "input,",
-          "start": 56.162,
-          "end": 56.662,
+          "start": 63.86,
+          "end": 64.124,
           "line": "4a"
         },
         {
           "w": "like",
-          "start": 57.022,
-          "end": 57.482,
+          "start": 64.39,
+          "end": 64.654,
           "line": "4a"
         },
         {
           "w": "the",
-          "start": 57.482,
-          "end": 57.682,
+          "start": 64.7,
+          "end": 64.964,
           "line": "4a"
         },
         {
           "w": "exchange",
-          "start": 57.682,
-          "end": 57.942,
+          "start": 65.01,
+          "end": 65.414,
           "line": "4a"
         },
         {
           "w": "rate,",
-          "start": 57.942,
-          "end": 58.402,
+          "start": 65.485,
+          "end": 65.749,
           "line": "4a"
         },
         {
           "w": "is",
-          "start": 58.862,
-          "end": 59.022,
+          "start": 66.015,
+          "end": 66.279,
           "line": "4a"
         },
         {
           "w": "saved",
-          "start": 59.022,
-          "end": 59.422,
+          "start": 66.325,
+          "end": 66.589,
           "line": "4a"
         },
         {
           "w": "as",
-          "start": 59.422,
-          "end": 59.702,
+          "start": 66.635,
+          "end": 66.899,
           "line": "4a"
         },
         {
           "w": "a",
-          "start": 59.702,
-          "end": 59.802,
+          "start": 66.945,
+          "end": 67.209,
           "line": "4a"
         },
         {
           "w": "version.",
-          "start": 59.802,
-          "end": 60.438,
+          "start": 67.255,
+          "end": 67.612,
           "line": "4a"
         },
         {
           "w": "A",
-          "start": 60.938,
-          "end": 61.058,
+          "start": 68.645,
+          "end": 68.909,
           "line": "4b"
         },
         {
           "w": "tool",
-          "start": 61.058,
-          "end": 61.398,
+          "start": 68.955,
+          "end": 69.218,
           "line": "4b"
         },
         {
           "w": "reads",
-          "start": 61.398,
-          "end": 61.838,
+          "start": 69.265,
+          "end": 69.528,
           "line": "4b"
         },
         {
           "w": "it,",
-          "start": 61.838,
-          "end": 62.118,
+          "start": 69.575,
+          "end": 69.838,
           "line": "4b"
         },
         {
           "w": "and",
-          "start": 62.118,
-          "end": 62.618,
+          "start": 70.105,
+          "end": 70.368,
           "line": "4b"
         },
         {
           "w": "leaves",
-          "start": 62.618,
-          "end": 62.918,
+          "start": 70.415,
+          "end": 70.725,
           "line": "4b"
         },
         {
           "w": "a",
-          "start": 62.918,
-          "end": 63.078,
+          "start": 70.78,
+          "end": 71.043,
           "line": "4b"
         },
         {
           "w": "receipt.",
-          "start": 63.078,
-          "end": 63.584,
+          "start": 71.09,
+          "end": 71.447,
           "line": "4b"
         },
         {
           "w": "The",
-          "start": 64.084,
-          "end": 64.206,
+          "start": 72.48,
+          "end": 72.744,
           "line": "4c"
         },
         {
           "w": "receipt",
-          "start": 64.206,
-          "end": 64.606,
+          "start": 72.79,
+          "end": 73.147,
           "line": "4c"
         },
         {
           "w": "points",
-          "start": 64.606,
-          "end": 65.046,
+          "start": 73.21,
+          "end": 73.52,
           "line": "4c"
         },
         {
           "w": "to",
-          "start": 65.046,
-          "end": 65.386,
+          "start": 73.575,
+          "end": 73.839,
           "line": "4c"
         },
         {
           "w": "its",
-          "start": 65.386,
-          "end": 65.546,
+          "start": 73.885,
+          "end": 74.149,
           "line": "4c"
         },
         {
           "w": "result,",
-          "start": 65.546,
-          "end": 66.046,
+          "start": 74.195,
+          "end": 74.505,
           "line": "4c"
         },
         {
           "w": "and",
-          "start": 66.386,
-          "end": 66.906,
+          "start": 74.78,
+          "end": 75.044,
           "line": "4c"
         },
         {
           "w": "each",
-          "start": 66.906,
-          "end": 67.226,
+          "start": 75.09,
+          "end": 75.354,
           "line": "4c"
         },
         {
           "w": "number",
-          "start": 67.226,
-          "end": 67.666,
+          "start": 75.4,
+          "end": 75.71,
           "line": "4c"
         },
         {
           "w": "in",
-          "start": 67.666,
-          "end": 67.846,
+          "start": 75.765,
+          "end": 76.029,
           "line": "4c"
         },
         {
           "w": "a",
-          "start": 67.846,
-          "end": 67.926,
+          "start": 76.075,
+          "end": 76.339,
           "line": "4c"
         },
         {
           "w": "report",
-          "start": 67.926,
-          "end": 68.306,
+          "start": 76.385,
+          "end": 76.695,
           "line": "4c"
         },
         {
           "w": "points",
-          "start": 68.306,
-          "end": 68.786,
+          "start": 76.75,
+          "end": 77.06,
           "line": "4c"
         },
         {
           "w": "to",
-          "start": 68.786,
-          "end": 69.046,
+          "start": 77.115,
+          "end": 77.379,
           "line": "4c"
         },
         {
           "w": "that",
-          "start": 69.046,
-          "end": 69.206,
+          "start": 77.425,
+          "end": 77.689,
           "line": "4c"
         },
         {
           "w": "result.",
-          "start": 69.206,
-          "end": 69.829,
+          "start": 77.735,
+          "end": 78.045,
           "line": "4c"
         },
         {
           "w": "Now,",
-          "start": 70.529,
-          "end": 70.869,
+          "start": 79.07,
+          "end": 79.334,
           "line": "4d"
         },
         {
           "w": "correct",
-          "start": 71.149,
-          "end": 71.589,
+          "start": 79.6,
+          "end": 79.957,
           "line": "4d"
         },
         {
           "w": "the",
-          "start": 71.589,
-          "end": 71.809,
+          "start": 80.02,
+          "end": 80.284,
           "line": "4d"
         },
         {
           "w": "rate.",
-          "start": 71.809,
-          "end": 72.11,
+          "start": 80.33,
+          "end": 80.594,
           "line": "4d"
         },
         {
           "w": "The",
-          "start": 72.81,
-          "end": 72.93,
+          "start": 81.61,
+          "end": 81.874,
           "line": "4e"
         },
         {
           "w": "change",
-          "start": 72.93,
-          "end": 73.41,
+          "start": 81.92,
+          "end": 82.23,
           "line": "4e"
         },
         {
           "w": "travels",
-          "start": 73.41,
-          "end": 73.97,
+          "start": 82.285,
+          "end": 82.642,
           "line": "4e"
         },
         {
           "w": "up",
-          "start": 73.97,
-          "end": 74.23,
+          "start": 82.705,
+          "end": 82.969,
           "line": "4e"
         },
         {
           "w": "those",
-          "start": 74.23,
-          "end": 74.43,
+          "start": 83.015,
+          "end": 83.279,
           "line": "4e"
         },
         {
           "w": "links.",
-          "start": 74.43,
-          "end": 74.73,
+          "start": 83.325,
+          "end": 83.589,
           "line": "4e"
         },
         {
           "w": "Both",
-          "start": 75.69,
-          "end": 75.77,
+          "start": 84.055,
+          "end": 84.319,
           "line": "4e"
         },
         {
           "w": "revenue",
-          "start": 75.77,
-          "end": 76.13,
+          "start": 84.365,
+          "end": 84.722,
           "line": "4e"
         },
         {
           "w": "figures",
-          "start": 76.13,
-          "end": 76.51,
+          "start": 84.785,
+          "end": 85.142,
           "line": "4e"
         },
         {
           "w": "are",
-          "start": 76.51,
-          "end": 76.73,
+          "start": 85.205,
+          "end": 85.469,
           "line": "4e"
         },
         {
           "w": "withheld,",
-          "start": 76.73,
-          "end": 77.13,
+          "start": 85.515,
+          "end": 85.919,
           "line": "4e"
         },
         {
           "w": "never",
-          "start": 77.47,
-          "end": 77.87,
+          "start": 86.21,
+          "end": 86.474,
           "line": "4e"
         },
         {
           "w": "shown",
-          "start": 77.87,
-          "end": 78.13,
+          "start": 86.52,
+          "end": 86.784,
           "line": "4e"
         },
         {
           "w": "stale.",
-          "start": 78.13,
-          "end": 78.522,
+          "start": 86.83,
+          "end": 87.094,
           "line": "4e"
         },
         {
           "w": "Support",
-          "start": 79.022,
-          "end": 79.333,
+          "start": 88.11,
+          "end": 88.467,
           "line": "4f"
         },
         {
           "w": "never",
-          "start": 79.333,
-          "end": 79.793,
+          "start": 88.53,
+          "end": 88.794,
           "line": "4f"
         },
         {
           "w": "read",
-          "start": 79.793,
-          "end": 80.093,
+          "start": 88.84,
+          "end": 89.104,
           "line": "4f"
         },
         {
           "w": "the",
-          "start": 80.093,
-          "end": 80.213,
+          "start": 89.15,
+          "end": 89.414,
           "line": "4f"
         },
         {
           "w": "rate,",
-          "start": 80.213,
-          "end": 80.493,
+          "start": 89.46,
+          "end": 89.724,
           "line": "4f"
         },
         {
           "w": "so",
-          "start": 80.733,
-          "end": 80.973,
+          "start": 89.99,
+          "end": 90.254,
           "line": "4f"
         },
         {
           "w": "it",
-          "start": 80.973,
-          "end": 81.333,
+          "start": 90.3,
+          "end": 90.564,
           "line": "4f"
         },
         {
-          "w": "stays.",
-          "start": 81.333,
-          "end": 81.836,
+          "w": "stays",
+          "start": 90.61,
+          "end": 90.873,
+          "line": "4f"
+        },
+        {
+          "w": "current,",
+          "start": 90.92,
+          "end": 91.277,
+          "line": "4f"
+        },
+        {
+          "w": "and",
+          "start": 91.56,
+          "end": 91.823,
+          "line": "4f"
+        },
+        {
+          "w": "is",
+          "start": 91.87,
+          "end": 92.133,
+          "line": "4f"
+        },
+        {
+          "w": "reused.",
+          "start": 92.18,
+          "end": 92.49,
           "line": "4f"
         },
         {
           "w": "Refresh",
-          "start": 82.336,
-          "end": 82.956,
+          "start": 93.515,
+          "end": 93.872,
           "line": "4g"
         },
         {
           "w": "re-runs",
-          "start": 82.956,
-          "end": 83.576,
+          "start": 93.935,
+          "end": 94.245,
           "line": "4g"
         },
         {
           "w": "only",
-          "start": 83.576,
-          "end": 83.896,
+          "start": 94.3,
+          "end": 94.563,
           "line": "4g"
         },
         {
           "w": "the",
-          "start": 83.896,
-          "end": 84.076,
+          "start": 94.61,
+          "end": 94.873,
           "line": "4g"
         },
         {
           "w": "affected",
-          "start": 84.076,
-          "end": 84.456,
+          "start": 94.92,
+          "end": 95.324,
           "line": "4g"
         },
         {
           "w": "steps.",
-          "start": 84.456,
-          "end": 85.248,
+          "start": 95.395,
+          "end": 95.658,
           "line": "4g"
         }
       ]
     },
     "s5": {
-      "start": 86.9,
-      "end": 112.881,
+      "start": 97.9,
+      "end": 125.52,
       "clip": "narration/s5.wav",
       "speech": [
-        87.25,
-        112.681
+        98.25,
+        125.22
       ],
-      "text": "This is ProofFlow, running today. Upload orders as a CSV, preview them, and create the reports. Publish a corrected rate. Affected figures are withheld, and the evidence path shows why. Refresh brings them current, and a checked report can only be copied while every figure is current. Agents get the same power, through five MCP tools.",
+      "text": "This is ProofFlow, live today. Upload orders as a CSV, preview them, and create two reports. Publish a corrected rate. Affected figures are withheld, and the graph shows exactly why. Refresh brings them current. A checked report can only be copied while every figure is current. Agents get the same workflow through MCP. Six tools, one download.",
       "lines": {
         "5a": {
-          "start": 87.25,
-          "end": 89.615,
-          "text": "This is ProofFlow, running today."
+          "start": 98.25,
+          "end": 100.66,
+          "text": "This is ProofFlow, live today."
         },
         "5b": {
-          "start": 90.115,
-          "end": 95.368,
-          "text": "Upload orders as a CSV, preview them, and create the reports."
+          "start": 101.21,
+          "end": 105.865,
+          "text": "Upload orders as a CSV, preview them, and create two reports."
         },
         "5c": {
-          "start": 95.868,
-          "end": 101.512,
-          "text": "Publish a corrected rate. Affected figures are withheld, and the evidence path shows why."
+          "start": 106.415,
+          "end": 112.695,
+          "text": "Publish a corrected rate. Affected figures are withheld, and the graph shows exactly why."
         },
         "5d": {
-          "start": 102.012,
-          "end": 108.642,
-          "text": "Refresh brings them current, and a checked report can only be copied while every figure is current."
+          "start": 113.245,
+          "end": 119.705,
+          "text": "Refresh brings them current. A checked report can only be copied while every figure is current."
         },
         "5e": {
-          "start": 109.142,
-          "end": 112.681,
-          "text": "Agents get the same power, through five MCP tools."
+          "start": 120.255,
+          "end": 125.22,
+          "text": "Agents get the same workflow through MCP. Six tools, one download."
         }
       },
       "words": [
         {
           "w": "This",
-          "start": 87.25,
-          "end": 87.469,
+          "start": 98.25,
+          "end": 98.513,
           "line": "5a"
         },
         {
           "w": "is",
-          "start": 87.469,
-          "end": 87.669,
+          "start": 98.56,
+          "end": 98.824,
           "line": "5a"
         },
         {
           "w": "ProofFlow,",
-          "start": 87.669,
-          "end": 88.309,
+          "start": 98.87,
+          "end": 99.321,
           "line": "5a"
         },
         {
-          "w": "running",
-          "start": 88.769,
-          "end": 89.049,
+          "w": "live",
+          "start": 99.62,
+          "end": 99.884,
           "line": "5a"
         },
         {
           "w": "today.",
-          "start": 89.049,
-          "end": 89.615,
+          "start": 99.93,
+          "end": 100.194,
           "line": "5a"
         },
         {
           "w": "Upload",
-          "start": 90.115,
-          "end": 90.675,
+          "start": 101.21,
+          "end": 101.52,
           "line": "5b"
         },
         {
           "w": "orders",
-          "start": 90.675,
-          "end": 90.995,
+          "start": 101.575,
+          "end": 101.885,
           "line": "5b"
         },
         {
           "w": "as",
-          "start": 90.995,
-          "end": 91.254,
+          "start": 101.94,
+          "end": 102.204,
           "line": "5b"
         },
         {
           "w": "a",
-          "start": 91.254,
-          "end": 91.355,
+          "start": 102.25,
+          "end": 102.513,
           "line": "5b"
         },
         {
           "w": "CSV,",
-          "start": 91.355,
-          "end": 91.834,
+          "start": 102.56,
+          "end": 102.823,
           "line": "5b"
         },
         {
           "w": "preview",
-          "start": 92.535,
-          "end": 93.014,
+          "start": 103.09,
+          "end": 103.447,
           "line": "5b"
         },
         {
           "w": "them,",
-          "start": 93.014,
-          "end": 93.355,
+          "start": 103.51,
+          "end": 103.773,
           "line": "5b"
         },
         {
           "w": "and",
-          "start": 93.895,
-          "end": 94.214,
+          "start": 104.04,
+          "end": 104.303,
           "line": "5b"
         },
         {
           "w": "create",
-          "start": 94.214,
-          "end": 94.555,
+          "start": 104.35,
+          "end": 104.66,
           "line": "5b"
         },
         {
-          "w": "the",
-          "start": 94.555,
-          "end": 94.735,
+          "w": "two",
+          "start": 104.715,
+          "end": 104.978,
           "line": "5b"
         },
         {
           "w": "reports.",
-          "start": 94.735,
-          "end": 95.368,
+          "start": 105.025,
+          "end": 105.382,
           "line": "5b"
         },
         {
           "w": "Publish",
-          "start": 95.868,
-          "end": 96.328,
+          "start": 106.415,
+          "end": 106.772,
           "line": "5c"
         },
         {
           "w": "a",
-          "start": 96.328,
-          "end": 96.548,
+          "start": 106.835,
+          "end": 107.098,
           "line": "5c"
         },
         {
           "w": "corrected",
-          "start": 96.548,
-          "end": 96.888,
+          "start": 107.145,
+          "end": 107.595,
           "line": "5c"
         },
         {
           "w": "rate.",
-          "start": 96.888,
-          "end": 97.288,
+          "start": 107.675,
+          "end": 107.938,
           "line": "5c"
         },
         {
           "w": "Affected",
-          "start": 97.828,
-          "end": 98.468,
+          "start": 108.405,
+          "end": 108.809,
           "line": "5c"
         },
         {
           "w": "figures",
-          "start": 98.468,
-          "end": 98.808,
+          "start": 108.88,
+          "end": 109.237,
           "line": "5c"
         },
         {
           "w": "are",
-          "start": 98.808,
-          "end": 99.068,
+          "start": 109.3,
+          "end": 109.563,
           "line": "5c"
         },
         {
           "w": "withheld,",
-          "start": 99.068,
-          "end": 99.548,
+          "start": 109.61,
+          "end": 110.014,
           "line": "5c"
         },
         {
           "w": "and",
-          "start": 99.548,
-          "end": 99.868,
+          "start": 110.305,
+          "end": 110.568,
           "line": "5c"
         },
         {
           "w": "the",
-          "start": 99.868,
-          "end": 100.168,
+          "start": 110.615,
+          "end": 110.878,
           "line": "5c"
         },
         {
-          "w": "evidence",
-          "start": 100.168,
-          "end": 100.428,
-          "line": "5c"
-        },
-        {
-          "w": "path",
-          "start": 100.428,
-          "end": 100.788,
+          "w": "graph",
+          "start": 110.925,
+          "end": 111.189,
           "line": "5c"
         },
         {
           "w": "shows",
-          "start": 100.788,
-          "end": 101.108,
+          "start": 111.235,
+          "end": 111.499,
+          "line": "5c"
+        },
+        {
+          "w": "exactly",
+          "start": 111.545,
+          "end": 111.902,
           "line": "5c"
         },
         {
           "w": "why.",
-          "start": 101.108,
-          "end": 101.512,
+          "start": 111.965,
+          "end": 112.229,
           "line": "5c"
         },
         {
           "w": "Refresh",
-          "start": 102.012,
-          "end": 102.639,
+          "start": 113.245,
+          "end": 113.602,
           "line": "5d"
         },
         {
           "w": "brings",
-          "start": 102.639,
-          "end": 103.059,
+          "start": 113.665,
+          "end": 113.975,
           "line": "5d"
         },
         {
           "w": "them",
-          "start": 103.059,
-          "end": 103.319,
-          "line": "5d"
-        },
-        {
-          "w": "current,",
-          "start": 103.319,
-          "end": 103.699,
-          "line": "5d"
-        },
-        {
-          "w": "and",
-          "start": 104.119,
-          "end": 104.419,
-          "line": "5d"
-        },
-        {
-          "w": "a",
-          "start": 104.419,
-          "end": 104.599,
-          "line": "5d"
-        },
-        {
-          "w": "checked",
-          "start": 104.599,
-          "end": 104.799,
-          "line": "5d"
-        },
-        {
-          "w": "report",
-          "start": 104.799,
-          "end": 105.299,
-          "line": "5d"
-        },
-        {
-          "w": "can",
-          "start": 105.299,
-          "end": 105.579,
-          "line": "5d"
-        },
-        {
-          "w": "only",
-          "start": 105.579,
-          "end": 105.999,
-          "line": "5d"
-        },
-        {
-          "w": "be",
-          "start": 105.999,
-          "end": 106.159,
-          "line": "5d"
-        },
-        {
-          "w": "copied",
-          "start": 106.159,
-          "end": 106.539,
-          "line": "5d"
-        },
-        {
-          "w": "while",
-          "start": 106.539,
-          "end": 106.899,
-          "line": "5d"
-        },
-        {
-          "w": "every",
-          "start": 106.899,
-          "end": 107.459,
-          "line": "5d"
-        },
-        {
-          "w": "figure",
-          "start": 107.459,
-          "end": 107.819,
-          "line": "5d"
-        },
-        {
-          "w": "is",
-          "start": 107.819,
-          "end": 108.039,
+          "start": 114.03,
+          "end": 114.294,
           "line": "5d"
         },
         {
           "w": "current.",
-          "start": 108.039,
-          "end": 108.642,
+          "start": 114.34,
+          "end": 114.697,
+          "line": "5d"
+        },
+        {
+          "w": "A",
+          "start": 115.18,
+          "end": 115.444,
+          "line": "5d"
+        },
+        {
+          "w": "checked",
+          "start": 115.49,
+          "end": 115.847,
+          "line": "5d"
+        },
+        {
+          "w": "report",
+          "start": 115.91,
+          "end": 116.22,
+          "line": "5d"
+        },
+        {
+          "w": "can",
+          "start": 116.275,
+          "end": 116.539,
+          "line": "5d"
+        },
+        {
+          "w": "only",
+          "start": 116.585,
+          "end": 116.849,
+          "line": "5d"
+        },
+        {
+          "w": "be",
+          "start": 116.895,
+          "end": 117.158,
+          "line": "5d"
+        },
+        {
+          "w": "copied",
+          "start": 117.205,
+          "end": 117.515,
+          "line": "5d"
+        },
+        {
+          "w": "while",
+          "start": 117.57,
+          "end": 117.833,
+          "line": "5d"
+        },
+        {
+          "w": "every",
+          "start": 117.88,
+          "end": 118.143,
+          "line": "5d"
+        },
+        {
+          "w": "figure",
+          "start": 118.19,
+          "end": 118.5,
+          "line": "5d"
+        },
+        {
+          "w": "is",
+          "start": 118.555,
+          "end": 118.818,
+          "line": "5d"
+        },
+        {
+          "w": "current.",
+          "start": 118.865,
+          "end": 119.222,
           "line": "5d"
         },
         {
           "w": "Agents",
-          "start": 109.142,
-          "end": 109.482,
+          "start": 120.255,
+          "end": 120.565,
           "line": "5e"
         },
         {
           "w": "get",
-          "start": 109.482,
-          "end": 109.622,
+          "start": 120.62,
+          "end": 120.883,
           "line": "5e"
         },
         {
           "w": "the",
-          "start": 109.622,
-          "end": 109.782,
+          "start": 120.93,
+          "end": 121.193,
           "line": "5e"
         },
         {
           "w": "same",
-          "start": 109.782,
-          "end": 110.062,
+          "start": 121.24,
+          "end": 121.503,
           "line": "5e"
         },
         {
-          "w": "power,",
-          "start": 110.062,
-          "end": 110.502,
+          "w": "workflow",
+          "start": 121.55,
+          "end": 121.954,
           "line": "5e"
         },
         {
           "w": "through",
-          "start": 110.502,
-          "end": 110.762,
+          "start": 122.025,
+          "end": 122.382,
           "line": "5e"
         },
         {
-          "w": "five",
-          "start": 110.762,
-          "end": 111.302,
+          "w": "MCP.",
+          "start": 122.445,
+          "end": 122.708,
           "line": "5e"
         },
         {
-          "w": "MCP",
-          "start": 111.302,
-          "end": 112.102,
+          "w": "Six",
+          "start": 123.175,
+          "end": 123.438,
           "line": "5e"
         },
         {
-          "w": "tools.",
-          "start": 112.102,
-          "end": 112.681,
+          "w": "tools,",
+          "start": 123.485,
+          "end": 123.748,
+          "line": "5e"
+        },
+        {
+          "w": "one",
+          "start": 124.015,
+          "end": 124.278,
+          "line": "5e"
+        },
+        {
+          "w": "download.",
+          "start": 124.325,
+          "end": 124.729,
           "line": "5e"
         }
       ]
     },
     "s6": {
-      "start": 114.1,
-      "end": 165.597,
+      "start": 126.8,
+      "end": 180.81,
       "clip": "narration/s6.wav",
       "speech": [
-        114.45,
-        165.397
+        127.15,
+        180.51
       ],
-      "text": "Under the hood, it's small, and strict. At the center is the runtime. Every tool run produces an immutable result, and a receipt. Content goes into a store that verifies every hash. Relationships go into HydraDB, as a lineage graph. When a correction arrives, HydraDB walks that graph natively, to find everything downstream. The runtime re-runs stale steps in order, reuses what's current, and records new receipts. If evidence is missing, it fails closed. No fallback. No guess. Around it: a browser app, a Python API, and an MCP server. Agents choose plans from typed tools, but never run arbitrary code.",
+      "text": "Under the hood, it's small, and strict. At the center is the runtime. Every tool run produces an immutable result, and a receipt. Content goes into a store that verifies every hash. Relationships go into HydraDB, as a lineage graph. When a correction arrives, HydraDB walks that graph natively, to find everything downstream. That walk becomes the agent's context. Traverse the structure. Skip the re-read. The runtime re-runs stale steps in order, reuses what's current, and records new receipts. If evidence is missing, it fails closed. No fallback. No guess. Agents reach it through a browser app, a Python API, or an MCP server, choosing plans from typed tools, never arbitrary code.",
       "lines": {
         "6a": {
-          "start": 114.45,
-          "end": 117.693,
+          "start": 127.15,
+          "end": 130.235,
           "text": "Under the hood, it's small, and strict."
         },
         "6b": {
-          "start": 118.393,
-          "end": 125.052,
+          "start": 130.785,
+          "end": 137.52,
           "text": "At the center is the runtime. Every tool run produces an immutable result, and a receipt."
         },
         "6c": {
-          "start": 125.552,
-          "end": 129.529,
+          "start": 138.07,
+          "end": 141.555,
           "text": "Content goes into a store that verifies every hash."
         },
         "6d": {
-          "start": 130.029,
-          "end": 134.108,
+          "start": 142.105,
+          "end": 145.885,
           "text": "Relationships go into HydraDB, as a lineage graph."
         },
         "6e": {
-          "start": 134.608,
-          "end": 141.014,
+          "start": 146.435,
+          "end": 152.535,
           "text": "When a correction arrives, HydraDB walks that graph natively, to find everything downstream."
         },
         "6f": {
-          "start": 141.514,
-          "end": 148.441,
-          "text": "The runtime re-runs stale steps in order, reuses what's current, and records new receipts."
+          "start": 153.085,
+          "end": 158.78,
+          "text": "That walk becomes the agent's context. Traverse the structure. Skip the re-read."
         },
         "6g": {
-          "start": 148.941,
-          "end": 154.167,
-          "text": "If evidence is missing, it fails closed. No fallback. No guess."
+          "start": 159.33,
+          "end": 165.135,
+          "text": "The runtime re-runs stale steps in order, reuses what's current, and records new receipts."
         },
         "6h": {
-          "start": 154.667,
-          "end": 159.839,
-          "text": "Around it: a browser app, a Python API, and an MCP server."
+          "start": 165.685,
+          "end": 171.07,
+          "text": "If evidence is missing, it fails closed. No fallback. No guess."
         },
         "6i": {
-          "start": 160.339,
-          "end": 165.397,
-          "text": "Agents choose plans from typed tools, but never run arbitrary code."
+          "start": 171.62,
+          "end": 180.51,
+          "text": "Agents reach it through a browser app, a Python API, or an MCP server, choosing plans from typed tools, never arbitrary code."
         }
       },
       "words": [
         {
           "w": "Under",
-          "start": 114.45,
-          "end": 114.648,
+          "start": 127.15,
+          "end": 127.413,
           "line": "6a"
         },
         {
           "w": "the",
-          "start": 114.648,
-          "end": 114.888,
+          "start": 127.46,
+          "end": 127.724,
           "line": "6a"
         },
         {
           "w": "hood,",
-          "start": 114.888,
-          "end": 115.288,
+          "start": 127.77,
+          "end": 128.034,
           "line": "6a"
         },
         {
           "w": "it's",
-          "start": 115.548,
-          "end": 115.948,
+          "start": 128.3,
+          "end": 128.564,
           "line": "6a"
         },
         {
           "w": "small,",
-          "start": 115.948,
-          "end": 116.408,
+          "start": 128.61,
+          "end": 128.874,
           "line": "6a"
         },
         {
           "w": "and",
-          "start": 116.408,
-          "end": 117.048,
+          "start": 129.14,
+          "end": 129.404,
           "line": "6a"
         },
         {
           "w": "strict.",
-          "start": 117.048,
-          "end": 117.693,
+          "start": 129.45,
+          "end": 129.76,
           "line": "6a"
         },
         {
           "w": "At",
-          "start": 118.393,
-          "end": 118.513,
+          "start": 130.785,
+          "end": 131.049,
           "line": "6b"
         },
         {
           "w": "the",
-          "start": 118.513,
-          "end": 118.653,
+          "start": 131.095,
+          "end": 131.359,
           "line": "6b"
         },
         {
           "w": "center",
-          "start": 118.653,
-          "end": 118.993,
+          "start": 131.405,
+          "end": 131.715,
           "line": "6b"
         },
         {
           "w": "is",
-          "start": 118.993,
-          "end": 119.473,
+          "start": 131.77,
+          "end": 132.033,
           "line": "6b"
         },
         {
           "w": "the",
-          "start": 119.473,
-          "end": 119.713,
+          "start": 132.08,
+          "end": 132.343,
           "line": "6b"
         },
         {
           "w": "runtime.",
-          "start": 119.713,
-          "end": 120.033,
+          "start": 132.39,
+          "end": 132.747,
           "line": "6b"
         },
         {
           "w": "Every",
-          "start": 120.973,
-          "end": 121.293,
+          "start": 133.23,
+          "end": 133.493,
           "line": "6b"
         },
         {
           "w": "tool",
-          "start": 121.293,
-          "end": 121.593,
+          "start": 133.54,
+          "end": 133.803,
           "line": "6b"
         },
         {
           "w": "run",
-          "start": 121.593,
-          "end": 121.873,
+          "start": 133.85,
+          "end": 134.113,
           "line": "6b"
         },
         {
           "w": "produces",
-          "start": 121.873,
-          "end": 122.313,
+          "start": 134.16,
+          "end": 134.564,
           "line": "6b"
         },
         {
           "w": "an",
-          "start": 122.313,
-          "end": 122.613,
+          "start": 134.635,
+          "end": 134.898,
           "line": "6b"
         },
         {
           "w": "immutable",
-          "start": 122.613,
-          "end": 122.953,
+          "start": 134.945,
+          "end": 135.395,
           "line": "6b"
         },
         {
           "w": "result,",
-          "start": 122.953,
-          "end": 123.593,
+          "start": 135.475,
+          "end": 135.785,
           "line": "6b"
         },
         {
           "w": "and",
-          "start": 123.593,
-          "end": 124.393,
+          "start": 136.06,
+          "end": 136.323,
           "line": "6b"
         },
         {
           "w": "a",
-          "start": 124.393,
-          "end": 124.513,
+          "start": 136.37,
+          "end": 136.633,
           "line": "6b"
         },
         {
           "w": "receipt.",
-          "start": 124.513,
-          "end": 125.052,
+          "start": 136.68,
+          "end": 137.037,
           "line": "6b"
         },
         {
           "w": "Content",
-          "start": 125.552,
-          "end": 125.893,
+          "start": 138.07,
+          "end": 138.427,
           "line": "6c"
         },
         {
           "w": "goes",
-          "start": 125.893,
-          "end": 126.253,
+          "start": 138.49,
+          "end": 138.754,
           "line": "6c"
         },
         {
           "w": "into",
-          "start": 126.253,
-          "end": 126.513,
+          "start": 138.8,
+          "end": 139.064,
           "line": "6c"
         },
         {
           "w": "a",
-          "start": 126.513,
-          "end": 126.713,
+          "start": 139.11,
+          "end": 139.374,
           "line": "6c"
         },
         {
           "w": "store",
-          "start": 126.713,
-          "end": 127.013,
+          "start": 139.42,
+          "end": 139.684,
           "line": "6c"
         },
         {
           "w": "that",
-          "start": 127.013,
-          "end": 127.293,
+          "start": 139.73,
+          "end": 139.994,
           "line": "6c"
         },
         {
           "w": "verifies",
-          "start": 127.293,
-          "end": 128.193,
+          "start": 140.04,
+          "end": 140.444,
           "line": "6c"
         },
         {
           "w": "every",
-          "start": 128.193,
-          "end": 128.813,
+          "start": 140.515,
+          "end": 140.779,
           "line": "6c"
         },
         {
           "w": "hash.",
-          "start": 128.813,
-          "end": 129.529,
+          "start": 140.825,
+          "end": 141.089,
           "line": "6c"
         },
         {
           "w": "Relationships",
-          "start": 130.029,
-          "end": 131.011,
+          "start": 142.105,
+          "end": 142.743,
           "line": "6d"
         },
         {
           "w": "go",
-          "start": 131.011,
-          "end": 131.331,
+          "start": 142.855,
+          "end": 143.119,
           "line": "6d"
         },
         {
           "w": "into",
-          "start": 131.331,
-          "end": 131.491,
+          "start": 143.165,
+          "end": 143.429,
           "line": "6d"
         },
         {
           "w": "HydraDB,",
-          "start": 131.491,
-          "end": 132.211,
+          "start": 143.475,
+          "end": 143.832,
           "line": "6d"
         },
         {
           "w": "as",
-          "start": 132.211,
-          "end": 132.971,
+          "start": 144.115,
+          "end": 144.379,
           "line": "6d"
         },
         {
           "w": "a",
-          "start": 132.971,
-          "end": 133.111,
+          "start": 144.425,
+          "end": 144.689,
           "line": "6d"
         },
         {
           "w": "lineage",
-          "start": 133.111,
-          "end": 133.431,
+          "start": 144.735,
+          "end": 145.092,
           "line": "6d"
         },
         {
           "w": "graph.",
-          "start": 133.431,
-          "end": 134.108,
+          "start": 145.155,
+          "end": 145.419,
           "line": "6d"
         },
         {
           "w": "When",
-          "start": 134.608,
-          "end": 134.693,
+          "start": 146.435,
+          "end": 146.699,
           "line": "6e"
         },
         {
           "w": "a",
-          "start": 134.693,
-          "end": 134.813,
+          "start": 146.745,
+          "end": 147.009,
           "line": "6e"
         },
         {
           "w": "correction",
-          "start": 134.813,
-          "end": 135.153,
+          "start": 147.055,
+          "end": 147.552,
           "line": "6e"
         },
         {
           "w": "arrives,",
-          "start": 135.153,
-          "end": 135.673,
+          "start": 147.64,
+          "end": 147.997,
           "line": "6e"
         },
         {
           "w": "HydraDB",
-          "start": 136.053,
-          "end": 136.733,
+          "start": 148.28,
+          "end": 148.637,
           "line": "6e"
         },
         {
           "w": "walks",
-          "start": 136.733,
-          "end": 137.233,
+          "start": 148.7,
+          "end": 148.964,
           "line": "6e"
         },
         {
           "w": "that",
-          "start": 137.233,
-          "end": 137.553,
+          "start": 149.01,
+          "end": 149.274,
           "line": "6e"
         },
         {
           "w": "graph",
-          "start": 137.553,
-          "end": 137.853,
+          "start": 149.32,
+          "end": 149.584,
           "line": "6e"
         },
         {
           "w": "natively,",
-          "start": 137.853,
-          "end": 138.693,
+          "start": 149.63,
+          "end": 150.034,
           "line": "6e"
         },
         {
           "w": "to",
-          "start": 138.693,
-          "end": 139.053,
+          "start": 150.325,
+          "end": 150.589,
           "line": "6e"
         },
         {
           "w": "find",
-          "start": 139.053,
-          "end": 139.413,
+          "start": 150.635,
+          "end": 150.898,
           "line": "6e"
         },
         {
           "w": "everything",
-          "start": 139.413,
-          "end": 140.053,
+          "start": 150.945,
+          "end": 151.442,
           "line": "6e"
         },
         {
           "w": "downstream.",
-          "start": 140.053,
-          "end": 141.014,
+          "start": 151.53,
+          "end": 152.027,
           "line": "6e"
         },
         {
-          "w": "The",
-          "start": 141.514,
-          "end": 141.589,
+          "w": "That",
+          "start": 153.085,
+          "end": 153.349,
           "line": "6f"
+        },
+        {
+          "w": "walk",
+          "start": 153.395,
+          "end": 153.659,
+          "line": "6f"
+        },
+        {
+          "w": "becomes",
+          "start": 153.705,
+          "end": 154.062,
+          "line": "6f"
+        },
+        {
+          "w": "the",
+          "start": 154.125,
+          "end": 154.389,
+          "line": "6f"
+        },
+        {
+          "w": "agent's",
+          "start": 154.435,
+          "end": 154.745,
+          "line": "6f"
+        },
+        {
+          "w": "context.",
+          "start": 154.8,
+          "end": 155.157,
+          "line": "6f"
+        },
+        {
+          "w": "Traverse",
+          "start": 155.64,
+          "end": 156.044,
+          "line": "6f"
+        },
+        {
+          "w": "the",
+          "start": 156.115,
+          "end": 156.379,
+          "line": "6f"
+        },
+        {
+          "w": "structure.",
+          "start": 156.425,
+          "end": 156.876,
+          "line": "6f"
+        },
+        {
+          "w": "Skip",
+          "start": 157.375,
+          "end": 157.639,
+          "line": "6f"
+        },
+        {
+          "w": "the",
+          "start": 157.685,
+          "end": 157.949,
+          "line": "6f"
+        },
+        {
+          "w": "re-read.",
+          "start": 157.995,
+          "end": 158.305,
+          "line": "6f"
+        },
+        {
+          "w": "The",
+          "start": 159.33,
+          "end": 159.594,
+          "line": "6g"
         },
         {
           "w": "runtime",
-          "start": 141.589,
-          "end": 142.009,
-          "line": "6f"
+          "start": 159.64,
+          "end": 159.997,
+          "line": "6g"
         },
         {
           "w": "re-runs",
-          "start": 142.009,
-          "end": 142.809,
-          "line": "6f"
+          "start": 160.06,
+          "end": 160.37,
+          "line": "6g"
         },
         {
           "w": "stale",
-          "start": 142.809,
-          "end": 143.229,
-          "line": "6f"
+          "start": 160.425,
+          "end": 160.689,
+          "line": "6g"
         },
         {
           "w": "steps",
-          "start": 143.229,
-          "end": 143.549,
-          "line": "6f"
+          "start": 160.735,
+          "end": 160.999,
+          "line": "6g"
         },
         {
           "w": "in",
-          "start": 143.549,
-          "end": 143.809,
-          "line": "6f"
+          "start": 161.045,
+          "end": 161.309,
+          "line": "6g"
         },
         {
           "w": "order,",
-          "start": 143.809,
-          "end": 144.149,
-          "line": "6f"
+          "start": 161.355,
+          "end": 161.619,
+          "line": "6g"
         },
         {
           "w": "reuses",
-          "start": 144.709,
-          "end": 145.349,
-          "line": "6f"
+          "start": 161.885,
+          "end": 162.195,
+          "line": "6g"
         },
         {
           "w": "what's",
-          "start": 145.349,
-          "end": 145.769,
-          "line": "6f"
+          "start": 162.25,
+          "end": 162.514,
+          "line": "6g"
         },
         {
           "w": "current,",
-          "start": 145.769,
-          "end": 146.169,
-          "line": "6f"
+          "start": 162.56,
+          "end": 162.917,
+          "line": "6g"
         },
         {
           "w": "and",
-          "start": 146.789,
-          "end": 146.989,
-          "line": "6f"
+          "start": 163.2,
+          "end": 163.464,
+          "line": "6g"
         },
         {
           "w": "records",
-          "start": 146.989,
-          "end": 147.429,
-          "line": "6f"
+          "start": 163.51,
+          "end": 163.867,
+          "line": "6g"
         },
         {
           "w": "new",
-          "start": 147.429,
-          "end": 147.709,
-          "line": "6f"
+          "start": 163.93,
+          "end": 164.194,
+          "line": "6g"
         },
         {
           "w": "receipts.",
-          "start": 147.709,
-          "end": 148.441,
-          "line": "6f"
+          "start": 164.24,
+          "end": 164.644,
+          "line": "6g"
         },
         {
           "w": "If",
-          "start": 148.941,
-          "end": 149.081,
-          "line": "6g"
+          "start": 165.685,
+          "end": 165.949,
+          "line": "6h"
         },
         {
           "w": "evidence",
-          "start": 149.081,
-          "end": 149.441,
-          "line": "6g"
+          "start": 165.995,
+          "end": 166.399,
+          "line": "6h"
         },
         {
           "w": "is",
-          "start": 149.441,
-          "end": 149.701,
-          "line": "6g"
+          "start": 166.47,
+          "end": 166.734,
+          "line": "6h"
         },
         {
           "w": "missing,",
-          "start": 149.701,
-          "end": 150.081,
-          "line": "6g"
+          "start": 166.78,
+          "end": 167.137,
+          "line": "6h"
         },
         {
           "w": "it",
-          "start": 150.621,
-          "end": 150.701,
-          "line": "6g"
+          "start": 167.42,
+          "end": 167.684,
+          "line": "6h"
         },
         {
           "w": "fails",
-          "start": 150.701,
-          "end": 151.101,
-          "line": "6g"
+          "start": 167.73,
+          "end": 167.994,
+          "line": "6h"
         },
         {
           "w": "closed.",
-          "start": 151.101,
-          "end": 151.641,
-          "line": "6g"
+          "start": 168.04,
+          "end": 168.35,
+          "line": "6h"
         },
         {
           "w": "No",
-          "start": 152.221,
-          "end": 152.381,
-          "line": "6g"
+          "start": 168.825,
+          "end": 169.089,
+          "line": "6h"
         },
         {
           "w": "fallback.",
-          "start": 152.381,
-          "end": 152.881,
-          "line": "6g"
+          "start": 169.135,
+          "end": 169.539,
+          "line": "6h"
         },
         {
           "w": "No",
-          "start": 153.561,
-          "end": 153.701,
-          "line": "6g"
+          "start": 170.03,
+          "end": 170.294,
+          "line": "6h"
         },
         {
           "w": "guess.",
-          "start": 153.701,
-          "end": 154.167,
-          "line": "6g"
-        },
-        {
-          "w": "Around",
-          "start": 154.667,
-          "end": 155.012,
-          "line": "6h"
-        },
-        {
-          "w": "it:",
-          "start": 155.012,
-          "end": 155.372,
-          "line": "6h"
-        },
-        {
-          "w": "a",
-          "start": 155.372,
-          "end": 155.612,
-          "line": "6h"
-        },
-        {
-          "w": "browser",
-          "start": 155.612,
-          "end": 155.952,
-          "line": "6h"
-        },
-        {
-          "w": "app,",
-          "start": 155.952,
-          "end": 156.512,
-          "line": "6h"
-        },
-        {
-          "w": "a",
-          "start": 156.832,
-          "end": 156.992,
-          "line": "6h"
-        },
-        {
-          "w": "Python",
-          "start": 156.992,
-          "end": 157.372,
-          "line": "6h"
-        },
-        {
-          "w": "API,",
-          "start": 157.372,
-          "end": 157.812,
-          "line": "6h"
-        },
-        {
-          "w": "and",
-          "start": 158.532,
-          "end": 158.652,
-          "line": "6h"
-        },
-        {
-          "w": "an",
-          "start": 158.652,
-          "end": 158.752,
-          "line": "6h"
-        },
-        {
-          "w": "MCP",
-          "start": 158.752,
-          "end": 159.292,
-          "line": "6h"
-        },
-        {
-          "w": "server.",
-          "start": 159.292,
-          "end": 159.839,
+          "start": 170.34,
+          "end": 170.604,
           "line": "6h"
         },
         {
           "w": "Agents",
-          "start": 160.339,
-          "end": 160.725,
+          "start": 171.62,
+          "end": 171.93,
           "line": "6i"
         },
         {
-          "w": "choose",
-          "start": 160.725,
-          "end": 161.045,
+          "w": "reach",
+          "start": 171.985,
+          "end": 172.249,
+          "line": "6i"
+        },
+        {
+          "w": "it",
+          "start": 172.295,
+          "end": 172.559,
+          "line": "6i"
+        },
+        {
+          "w": "through",
+          "start": 172.605,
+          "end": 172.962,
+          "line": "6i"
+        },
+        {
+          "w": "a",
+          "start": 173.025,
+          "end": 173.289,
+          "line": "6i"
+        },
+        {
+          "w": "browser",
+          "start": 173.335,
+          "end": 173.692,
+          "line": "6i"
+        },
+        {
+          "w": "app,",
+          "start": 173.755,
+          "end": 174.019,
+          "line": "6i"
+        },
+        {
+          "w": "a",
+          "start": 174.285,
+          "end": 174.549,
+          "line": "6i"
+        },
+        {
+          "w": "Python",
+          "start": 174.595,
+          "end": 174.905,
+          "line": "6i"
+        },
+        {
+          "w": "API,",
+          "start": 174.96,
+          "end": 175.224,
+          "line": "6i"
+        },
+        {
+          "w": "or",
+          "start": 175.49,
+          "end": 175.754,
+          "line": "6i"
+        },
+        {
+          "w": "an",
+          "start": 175.8,
+          "end": 176.064,
+          "line": "6i"
+        },
+        {
+          "w": "MCP",
+          "start": 176.11,
+          "end": 176.374,
+          "line": "6i"
+        },
+        {
+          "w": "server,",
+          "start": 176.42,
+          "end": 176.73,
+          "line": "6i"
+        },
+        {
+          "w": "choosing",
+          "start": 177.005,
+          "end": 177.409,
           "line": "6i"
         },
         {
           "w": "plans",
-          "start": 161.045,
-          "end": 161.485,
+          "start": 177.48,
+          "end": 177.744,
           "line": "6i"
         },
         {
           "w": "from",
-          "start": 161.485,
-          "end": 161.905,
+          "start": 177.79,
+          "end": 178.054,
           "line": "6i"
         },
         {
           "w": "typed",
-          "start": 161.905,
-          "end": 162.365,
+          "start": 178.1,
+          "end": 178.364,
           "line": "6i"
         },
         {
           "w": "tools,",
-          "start": 162.365,
-          "end": 162.885,
-          "line": "6i"
-        },
-        {
-          "w": "but",
-          "start": 163.285,
-          "end": 163.585,
+          "start": 178.41,
+          "end": 178.674,
           "line": "6i"
         },
         {
           "w": "never",
-          "start": 163.585,
-          "end": 163.965,
-          "line": "6i"
-        },
-        {
-          "w": "run",
-          "start": 163.965,
-          "end": 164.325,
+          "start": 178.94,
+          "end": 179.204,
           "line": "6i"
         },
         {
           "w": "arbitrary",
-          "start": 164.325,
-          "end": 164.785,
+          "start": 179.25,
+          "end": 179.701,
           "line": "6i"
         },
         {
           "w": "code.",
-          "start": 164.785,
-          "end": 165.397,
+          "start": 179.78,
+          "end": 180.044,
           "line": "6i"
         }
       ]
     },
     "s7": {
-      "start": 173.6,
-      "end": 203.663,
+      "start": 188.9,
+      "end": 238.35,
       "clip": "narration/s7.wav",
       "speech": [
-        173.95,
-        203.463
+        189.25,
+        238.05
       ],
-      "text": "Does it work? In a frozen study with a real model, ProofFlow refreshed all thirty-two affected reports, matching full context at under forty percent of its input. Keyword search managed twenty-five. Vector search, five. On a retail benchmark: thirty-eight of thirty-eight, with sixty-nine percent fewer evidence tokens. A plain dependency walk ties it. The point is recording dependencies.",
+      "text": "So how does it compare to today's approaches? We froze one study. Forty-eight real model calls, the same task for every method. Re-reading everything got all thirty-two reports right, for three dollars seventy-four. ProofFlow also got thirty-two of thirty-two, with a hundred forty-two thousand fewer input tokens, for a dollar thirty-eight. Sixty-three percent less. Vector search cost the same as ProofFlow, and got five right. Keyword search, twenty-five. Hybrid, twenty-eight. On a separate retail benchmark, thirty-eight of thirty-eight, with sixty-nine percent fewer evidence tokens. A plain dependency walk over the same links ties it. The win is recording the structure.",
       "lines": {
         "7a": {
-          "start": 173.95,
-          "end": 174.611,
-          "text": "Does it work?"
+          "start": 189.25,
+          "end": 192.59,
+          "text": "So how does it compare to today's approaches?"
         },
         "7b": {
-          "start": 175.311,
-          "end": 186.126,
-          "text": "In a frozen study with a real model, ProofFlow refreshed all thirty-two affected reports, matching full context at under forty percent of its input."
+          "start": 193.14,
+          "end": 198.87,
+          "text": "We froze one study. Forty-eight real model calls, the same task for every method."
         },
         "7c": {
-          "start": 186.626,
-          "end": 190.56,
-          "text": "Keyword search managed twenty-five. Vector search, five."
+          "start": 199.42,
+          "end": 204.735,
+          "text": "Re-reading everything got all thirty-two reports right, for three dollars seventy-four."
         },
         "7d": {
-          "start": 191.06,
-          "end": 197.423,
-          "text": "On a retail benchmark: thirty-eight of thirty-eight, with sixty-nine percent fewer evidence tokens."
+          "start": 205.285,
+          "end": 215,
+          "text": "ProofFlow also got thirty-two of thirty-two, with a hundred forty-two thousand fewer input tokens, for a dollar thirty-eight. Sixty-three percent less."
         },
         "7e": {
-          "start": 197.923,
-          "end": 203.463,
-          "text": "A plain dependency walk ties it. The point is recording dependencies."
+          "start": 215.55,
+          "end": 223.585,
+          "text": "Vector search cost the same as ProofFlow, and got five right. Keyword search, twenty-five. Hybrid, twenty-eight."
+        },
+        "7f": {
+          "start": 224.135,
+          "end": 230.985,
+          "text": "On a separate retail benchmark, thirty-eight of thirty-eight, with sixty-nine percent fewer evidence tokens."
+        },
+        "7g": {
+          "start": 231.535,
+          "end": 238.05,
+          "text": "A plain dependency walk over the same links ties it. The win is recording the structure."
         }
       },
       "words": [
         {
-          "w": "Does",
-          "start": 173.95,
-          "end": 174.065,
+          "w": "So",
+          "start": 189.25,
+          "end": 189.513,
+          "line": "7a"
+        },
+        {
+          "w": "how",
+          "start": 189.56,
+          "end": 189.824,
+          "line": "7a"
+        },
+        {
+          "w": "does",
+          "start": 189.87,
+          "end": 190.134,
           "line": "7a"
         },
         {
           "w": "it",
-          "start": 174.065,
-          "end": 174.185,
+          "start": 190.18,
+          "end": 190.444,
           "line": "7a"
         },
         {
-          "w": "work?",
-          "start": 174.185,
-          "end": 174.611,
+          "w": "compare",
+          "start": 190.49,
+          "end": 190.847,
           "line": "7a"
         },
         {
-          "w": "In",
-          "start": 175.311,
-          "end": 175.457,
+          "w": "to",
+          "start": 190.91,
+          "end": 191.174,
+          "line": "7a"
+        },
+        {
+          "w": "today's",
+          "start": 191.22,
+          "end": 191.53,
+          "line": "7a"
+        },
+        {
+          "w": "approaches?",
+          "start": 191.585,
+          "end": 192.082,
+          "line": "7a"
+        },
+        {
+          "w": "We",
+          "start": 193.14,
+          "end": 193.404,
           "line": "7b"
         },
         {
-          "w": "a",
-          "start": 175.457,
-          "end": 175.557,
+          "w": "froze",
+          "start": 193.45,
+          "end": 193.713,
           "line": "7b"
         },
         {
-          "w": "frozen",
-          "start": 175.557,
-          "end": 175.977,
+          "w": "one",
+          "start": 193.76,
+          "end": 194.023,
           "line": "7b"
         },
         {
-          "w": "study",
-          "start": 175.977,
-          "end": 176.537,
+          "w": "study.",
+          "start": 194.07,
+          "end": 194.333,
           "line": "7b"
         },
         {
-          "w": "with",
-          "start": 176.537,
-          "end": 176.877,
-          "line": "7b"
-        },
-        {
-          "w": "a",
-          "start": 176.877,
-          "end": 177.017,
+          "w": "Forty-eight",
+          "start": 194.8,
+          "end": 195.297,
           "line": "7b"
         },
         {
           "w": "real",
-          "start": 177.017,
-          "end": 177.377,
+          "start": 195.385,
+          "end": 195.648,
           "line": "7b"
         },
         {
-          "w": "model,",
-          "start": 177.377,
-          "end": 177.877,
+          "w": "model",
+          "start": 195.695,
+          "end": 195.958,
           "line": "7b"
         },
         {
-          "w": "ProofFlow",
-          "start": 178.457,
-          "end": 178.977,
+          "w": "calls,",
+          "start": 196.005,
+          "end": 196.268,
           "line": "7b"
         },
         {
-          "w": "refreshed",
-          "start": 178.977,
-          "end": 179.557,
+          "w": "the",
+          "start": 196.535,
+          "end": 196.798,
           "line": "7b"
+        },
+        {
+          "w": "same",
+          "start": 196.845,
+          "end": 197.108,
+          "line": "7b"
+        },
+        {
+          "w": "task",
+          "start": 197.155,
+          "end": 197.418,
+          "line": "7b"
+        },
+        {
+          "w": "for",
+          "start": 197.465,
+          "end": 197.728,
+          "line": "7b"
+        },
+        {
+          "w": "every",
+          "start": 197.775,
+          "end": 198.038,
+          "line": "7b"
+        },
+        {
+          "w": "method.",
+          "start": 198.085,
+          "end": 198.395,
+          "line": "7b"
+        },
+        {
+          "w": "Re-reading",
+          "start": 199.42,
+          "end": 199.871,
+          "line": "7c"
+        },
+        {
+          "w": "everything",
+          "start": 199.95,
+          "end": 200.447,
+          "line": "7c"
+        },
+        {
+          "w": "got",
+          "start": 200.535,
+          "end": 200.798,
+          "line": "7c"
         },
         {
           "w": "all",
-          "start": 179.557,
-          "end": 179.957,
-          "line": "7b"
+          "start": 200.845,
+          "end": 201.108,
+          "line": "7c"
         },
         {
           "w": "thirty-two",
-          "start": 179.957,
-          "end": 180.517,
-          "line": "7b"
-        },
-        {
-          "w": "affected",
-          "start": 180.517,
-          "end": 181.017,
-          "line": "7b"
-        },
-        {
-          "w": "reports,",
-          "start": 181.017,
-          "end": 181.677,
-          "line": "7b"
-        },
-        {
-          "w": "matching",
-          "start": 182.017,
-          "end": 182.457,
-          "line": "7b"
-        },
-        {
-          "w": "full",
-          "start": 182.457,
-          "end": 182.937,
-          "line": "7b"
-        },
-        {
-          "w": "context",
-          "start": 182.937,
-          "end": 183.557,
-          "line": "7b"
-        },
-        {
-          "w": "at",
-          "start": 183.557,
-          "end": 183.997,
-          "line": "7b"
-        },
-        {
-          "w": "under",
-          "start": 183.997,
-          "end": 184.337,
-          "line": "7b"
-        },
-        {
-          "w": "forty",
-          "start": 184.337,
-          "end": 184.797,
-          "line": "7b"
-        },
-        {
-          "w": "percent",
-          "start": 184.797,
-          "end": 185.277,
-          "line": "7b"
-        },
-        {
-          "w": "of",
-          "start": 185.277,
-          "end": 185.497,
-          "line": "7b"
-        },
-        {
-          "w": "its",
-          "start": 185.497,
-          "end": 185.617,
-          "line": "7b"
-        },
-        {
-          "w": "input.",
-          "start": 185.617,
-          "end": 186.126,
-          "line": "7b"
-        },
-        {
-          "w": "Keyword",
-          "start": 186.626,
-          "end": 187.106,
+          "start": 201.155,
+          "end": 201.605,
           "line": "7c"
         },
         {
-          "w": "search",
-          "start": 187.106,
-          "end": 187.366,
+          "w": "reports",
+          "start": 201.685,
+          "end": 202.042,
           "line": "7c"
         },
         {
-          "w": "managed",
-          "start": 187.366,
-          "end": 187.686,
+          "w": "right,",
+          "start": 202.105,
+          "end": 202.368,
           "line": "7c"
         },
         {
-          "w": "twenty-five.",
-          "start": 187.686,
-          "end": 188.486,
+          "w": "for",
+          "start": 202.635,
+          "end": 202.899,
           "line": "7c"
         },
         {
-          "w": "Vector",
-          "start": 188.806,
-          "end": 189.426,
+          "w": "three",
+          "start": 202.945,
+          "end": 203.209,
           "line": "7c"
         },
         {
-          "w": "search,",
-          "start": 189.426,
-          "end": 189.766,
+          "w": "dollars",
+          "start": 203.255,
+          "end": 203.612,
           "line": "7c"
         },
         {
-          "w": "five.",
-          "start": 190.026,
-          "end": 190.56,
+          "w": "seventy-four.",
+          "start": 203.675,
+          "end": 204.219,
           "line": "7c"
         },
         {
-          "w": "On",
-          "start": 191.06,
-          "end": 191.248,
+          "w": "ProofFlow",
+          "start": 205.285,
+          "end": 205.736,
           "line": "7d"
         },
         {
-          "w": "a",
-          "start": 191.248,
-          "end": 191.448,
+          "w": "also",
+          "start": 205.815,
+          "end": 206.079,
           "line": "7d"
         },
         {
-          "w": "retail",
-          "start": 191.448,
-          "end": 191.768,
+          "w": "got",
+          "start": 206.125,
+          "end": 206.389,
           "line": "7d"
         },
         {
-          "w": "benchmark:",
-          "start": 191.768,
-          "end": 192.308,
-          "line": "7d"
-        },
-        {
-          "w": "thirty-eight",
-          "start": 192.768,
-          "end": 193.288,
+          "w": "thirty-two",
+          "start": 206.435,
+          "end": 206.886,
           "line": "7d"
         },
         {
           "w": "of",
-          "start": 193.288,
-          "end": 193.448,
+          "start": 206.965,
+          "end": 207.229,
           "line": "7d"
         },
         {
-          "w": "thirty-eight,",
-          "start": 193.448,
-          "end": 193.908,
+          "w": "thirty-two,",
+          "start": 207.275,
+          "end": 207.726,
           "line": "7d"
         },
         {
           "w": "with",
-          "start": 193.908,
-          "end": 194.288,
+          "start": 208.025,
+          "end": 208.289,
           "line": "7d"
         },
         {
-          "w": "sixty-nine",
-          "start": 194.288,
-          "end": 194.988,
+          "w": "a",
+          "start": 208.335,
+          "end": 208.599,
           "line": "7d"
         },
         {
-          "w": "percent",
-          "start": 194.988,
-          "end": 195.428,
+          "w": "hundred",
+          "start": 208.645,
+          "end": 209.002,
+          "line": "7d"
+        },
+        {
+          "w": "forty-two",
+          "start": 209.065,
+          "end": 209.469,
+          "line": "7d"
+        },
+        {
+          "w": "thousand",
+          "start": 209.54,
+          "end": 209.944,
           "line": "7d"
         },
         {
           "w": "fewer",
-          "start": 195.428,
-          "end": 195.928,
+          "start": 210.015,
+          "end": 210.279,
           "line": "7d"
+        },
+        {
+          "w": "input",
+          "start": 210.325,
+          "end": 210.589,
+          "line": "7d"
+        },
+        {
+          "w": "tokens,",
+          "start": 210.635,
+          "end": 210.945,
+          "line": "7d"
+        },
+        {
+          "w": "for",
+          "start": 211.22,
+          "end": 211.483,
+          "line": "7d"
+        },
+        {
+          "w": "a",
+          "start": 211.53,
+          "end": 211.793,
+          "line": "7d"
+        },
+        {
+          "w": "dollar",
+          "start": 211.84,
+          "end": 212.15,
+          "line": "7d"
+        },
+        {
+          "w": "thirty-eight.",
+          "start": 212.205,
+          "end": 212.749,
+          "line": "7d"
+        },
+        {
+          "w": "Sixty-three",
+          "start": 213.265,
+          "end": 213.762,
+          "line": "7d"
+        },
+        {
+          "w": "percent",
+          "start": 213.85,
+          "end": 214.207,
+          "line": "7d"
+        },
+        {
+          "w": "less.",
+          "start": 214.27,
+          "end": 214.533,
+          "line": "7d"
+        },
+        {
+          "w": "Vector",
+          "start": 215.55,
+          "end": 215.86,
+          "line": "7e"
+        },
+        {
+          "w": "search",
+          "start": 215.915,
+          "end": 216.225,
+          "line": "7e"
+        },
+        {
+          "w": "cost",
+          "start": 216.28,
+          "end": 216.543,
+          "line": "7e"
+        },
+        {
+          "w": "the",
+          "start": 216.59,
+          "end": 216.853,
+          "line": "7e"
+        },
+        {
+          "w": "same",
+          "start": 216.9,
+          "end": 217.163,
+          "line": "7e"
+        },
+        {
+          "w": "as",
+          "start": 217.21,
+          "end": 217.473,
+          "line": "7e"
+        },
+        {
+          "w": "ProofFlow,",
+          "start": 217.52,
+          "end": 217.97,
+          "line": "7e"
+        },
+        {
+          "w": "and",
+          "start": 218.27,
+          "end": 218.533,
+          "line": "7e"
+        },
+        {
+          "w": "got",
+          "start": 218.58,
+          "end": 218.843,
+          "line": "7e"
+        },
+        {
+          "w": "five",
+          "start": 218.89,
+          "end": 219.153,
+          "line": "7e"
+        },
+        {
+          "w": "right.",
+          "start": 219.2,
+          "end": 219.463,
+          "line": "7e"
+        },
+        {
+          "w": "Keyword",
+          "start": 219.93,
+          "end": 220.287,
+          "line": "7e"
+        },
+        {
+          "w": "search,",
+          "start": 220.35,
+          "end": 220.66,
+          "line": "7e"
+        },
+        {
+          "w": "twenty-five.",
+          "start": 220.935,
+          "end": 221.432,
+          "line": "7e"
+        },
+        {
+          "w": "Hybrid,",
+          "start": 221.94,
+          "end": 222.25,
+          "line": "7e"
+        },
+        {
+          "w": "twenty-eight.",
+          "start": 222.525,
+          "end": 223.069,
+          "line": "7e"
+        },
+        {
+          "w": "On",
+          "start": 224.135,
+          "end": 224.398,
+          "line": "7f"
+        },
+        {
+          "w": "a",
+          "start": 224.445,
+          "end": 224.708,
+          "line": "7f"
+        },
+        {
+          "w": "separate",
+          "start": 224.755,
+          "end": 225.159,
+          "line": "7f"
+        },
+        {
+          "w": "retail",
+          "start": 225.23,
+          "end": 225.54,
+          "line": "7f"
+        },
+        {
+          "w": "benchmark,",
+          "start": 225.595,
+          "end": 226.046,
+          "line": "7f"
+        },
+        {
+          "w": "thirty-eight",
+          "start": 226.345,
+          "end": 226.889,
+          "line": "7f"
+        },
+        {
+          "w": "of",
+          "start": 226.985,
+          "end": 227.249,
+          "line": "7f"
+        },
+        {
+          "w": "thirty-eight,",
+          "start": 227.295,
+          "end": 227.839,
+          "line": "7f"
+        },
+        {
+          "w": "with",
+          "start": 228.155,
+          "end": 228.419,
+          "line": "7f"
+        },
+        {
+          "w": "sixty-nine",
+          "start": 228.465,
+          "end": 228.916,
+          "line": "7f"
+        },
+        {
+          "w": "percent",
+          "start": 228.995,
+          "end": 229.352,
+          "line": "7f"
+        },
+        {
+          "w": "fewer",
+          "start": 229.415,
+          "end": 229.679,
+          "line": "7f"
         },
         {
           "w": "evidence",
-          "start": 195.928,
-          "end": 196.468,
-          "line": "7d"
+          "start": 229.725,
+          "end": 230.129,
+          "line": "7f"
         },
         {
           "w": "tokens.",
-          "start": 196.468,
-          "end": 197.423,
-          "line": "7d"
+          "start": 230.2,
+          "end": 230.51,
+          "line": "7f"
         },
         {
           "w": "A",
-          "start": 197.923,
-          "end": 198.103,
-          "line": "7e"
+          "start": 231.535,
+          "end": 231.799,
+          "line": "7g"
         },
         {
           "w": "plain",
-          "start": 198.103,
-          "end": 198.583,
-          "line": "7e"
+          "start": 231.845,
+          "end": 232.109,
+          "line": "7g"
         },
         {
           "w": "dependency",
-          "start": 198.583,
-          "end": 199.203,
-          "line": "7e"
+          "start": 232.155,
+          "end": 232.652,
+          "line": "7g"
         },
         {
           "w": "walk",
-          "start": 199.203,
-          "end": 199.683,
-          "line": "7e"
+          "start": 232.74,
+          "end": 233.004,
+          "line": "7g"
+        },
+        {
+          "w": "over",
+          "start": 233.05,
+          "end": 233.314,
+          "line": "7g"
+        },
+        {
+          "w": "the",
+          "start": 233.36,
+          "end": 233.624,
+          "line": "7g"
+        },
+        {
+          "w": "same",
+          "start": 233.67,
+          "end": 233.934,
+          "line": "7g"
+        },
+        {
+          "w": "links",
+          "start": 233.98,
+          "end": 234.244,
+          "line": "7g"
         },
         {
           "w": "ties",
-          "start": 199.683,
-          "end": 200.143,
-          "line": "7e"
+          "start": 234.29,
+          "end": 234.554,
+          "line": "7g"
         },
         {
           "w": "it.",
-          "start": 200.143,
-          "end": 200.403,
-          "line": "7e"
+          "start": 234.6,
+          "end": 234.864,
+          "line": "7g"
         },
         {
           "w": "The",
-          "start": 201.043,
-          "end": 201.363,
-          "line": "7e"
+          "start": 235.33,
+          "end": 235.594,
+          "line": "7g"
         },
         {
-          "w": "point",
-          "start": 201.363,
-          "end": 201.643,
-          "line": "7e"
+          "w": "win",
+          "start": 235.64,
+          "end": 235.904,
+          "line": "7g"
         },
         {
           "w": "is",
-          "start": 201.643,
-          "end": 201.903,
-          "line": "7e"
+          "start": 235.95,
+          "end": 236.214,
+          "line": "7g"
         },
         {
           "w": "recording",
-          "start": 201.903,
-          "end": 202.503,
-          "line": "7e"
+          "start": 236.26,
+          "end": 236.711,
+          "line": "7g"
         },
         {
-          "w": "dependencies.",
-          "start": 202.503,
-          "end": 203.463,
-          "line": "7e"
+          "w": "the",
+          "start": 236.79,
+          "end": 237.054,
+          "line": "7g"
+        },
+        {
+          "w": "structure.",
+          "start": 237.1,
+          "end": 237.551,
+          "line": "7g"
         }
       ]
     },
     "s8": {
-      "start": 205.1,
-      "end": 213.794,
+      "start": 239.8,
+      "end": 250.095,
       "clip": "narration/s8.wav",
       "speech": [
-        205.45,
-        213.594
+        240.15,
+        249.795
       ],
-      "text": "ProofFlow. Saved reports that know when they're out of date. The sample data is authored. Every result shown is in the public evidence.",
+      "text": "ProofFlow. Full-context accuracy, at vector-search cost. Try it live. Every number shown is in the public evidence.",
       "lines": {
         "8a": {
-          "start": 205.45,
-          "end": 206.076,
+          "start": 240.15,
+          "end": 241.1,
           "text": "ProofFlow."
         },
         "8b": {
-          "start": 206.576,
-          "end": 208.867,
-          "text": "Saved reports that know when they're out of date."
+          "start": 241.65,
+          "end": 244.72,
+          "text": "Full-context accuracy, at vector-search cost."
         },
         "8c": {
-          "start": 209.367,
-          "end": 213.594,
-          "text": "The sample data is authored. Every result shown is in the public evidence."
+          "start": 245.27,
+          "end": 249.795,
+          "text": "Try it live. Every number shown is in the public evidence."
         }
       },
       "words": [
         {
           "w": "ProofFlow.",
-          "start": 205.45,
-          "end": 206.076,
+          "start": 240.15,
+          "end": 240.601,
           "line": "8a"
         },
         {
-          "w": "Saved",
-          "start": 206.576,
-          "end": 207.036,
+          "w": "Full-context",
+          "start": 241.65,
+          "end": 242.194,
           "line": "8b"
         },
         {
-          "w": "reports",
-          "start": 207.036,
-          "end": 207.336,
+          "w": "accuracy,",
+          "start": 242.29,
+          "end": 242.694,
           "line": "8b"
         },
         {
-          "w": "that",
-          "start": 207.336,
-          "end": 207.676,
+          "w": "at",
+          "start": 242.985,
+          "end": 243.249,
           "line": "8b"
         },
         {
-          "w": "know",
-          "start": 207.676,
-          "end": 207.856,
+          "w": "vector-search",
+          "start": 243.295,
+          "end": 243.886,
           "line": "8b"
         },
         {
-          "w": "when",
-          "start": 207.856,
-          "end": 208.036,
+          "w": "cost.",
+          "start": 243.99,
+          "end": 244.254,
           "line": "8b"
         },
         {
-          "w": "they're",
-          "start": 208.036,
-          "end": 208.216,
-          "line": "8b"
-        },
-        {
-          "w": "out",
-          "start": 208.216,
-          "end": 208.316,
-          "line": "8b"
-        },
-        {
-          "w": "of",
-          "start": 208.316,
-          "end": 208.436,
-          "line": "8b"
-        },
-        {
-          "w": "date.",
-          "start": 208.436,
-          "end": 208.867,
-          "line": "8b"
-        },
-        {
-          "w": "The",
-          "start": 209.367,
-          "end": 209.467,
+          "w": "Try",
+          "start": 245.27,
+          "end": 245.533,
           "line": "8c"
         },
         {
-          "w": "sample",
-          "start": 209.467,
-          "end": 209.767,
+          "w": "it",
+          "start": 245.58,
+          "end": 245.843,
           "line": "8c"
         },
         {
-          "w": "data",
-          "start": 209.767,
-          "end": 210.027,
-          "line": "8c"
-        },
-        {
-          "w": "is",
-          "start": 210.027,
-          "end": 210.347,
-          "line": "8c"
-        },
-        {
-          "w": "authored.",
-          "start": 210.347,
-          "end": 210.787,
+          "w": "live.",
+          "start": 245.89,
+          "end": 246.153,
           "line": "8c"
         },
         {
           "w": "Every",
-          "start": 211.287,
-          "end": 211.507,
+          "start": 246.62,
+          "end": 246.883,
           "line": "8c"
         },
         {
-          "w": "result",
-          "start": 211.507,
-          "end": 211.827,
+          "w": "number",
+          "start": 246.93,
+          "end": 247.24,
           "line": "8c"
         },
         {
           "w": "shown",
-          "start": 211.827,
-          "end": 212.207,
+          "start": 247.295,
+          "end": 247.558,
           "line": "8c"
         },
         {
           "w": "is",
-          "start": 212.207,
-          "end": 212.447,
+          "start": 247.605,
+          "end": 247.868,
           "line": "8c"
         },
         {
           "w": "in",
-          "start": 212.447,
-          "end": 212.587,
+          "start": 247.915,
+          "end": 248.178,
           "line": "8c"
         },
         {
           "w": "the",
-          "start": 212.587,
-          "end": 212.687,
+          "start": 248.225,
+          "end": 248.489,
           "line": "8c"
         },
         {
           "w": "public",
-          "start": 212.687,
-          "end": 212.907,
+          "start": 248.535,
+          "end": 248.845,
           "line": "8c"
         },
         {
           "w": "evidence.",
-          "start": 212.907,
-          "end": 213.594,
+          "start": 248.9,
+          "end": 249.304,
           "line": "8c"
         }
       ]
@@ -2791,20 +3233,20 @@
   },
   "marks": {
     "name": {
-      "start": 40.65,
-      "end": 42.702
+      "start": 44.35,
+      "end": 49.115
     },
     "correction": {
-      "start": 70.529,
-      "end": 72.11
+      "start": 79.07,
+      "end": 81.06
     },
     "run": {
-      "start": 165.597,
-      "end": 173.6
+      "start": 180.81,
+      "end": 188.9
     },
     "finalName": {
-      "start": 205.45,
-      "end": 206.076
+      "start": 240.15,
+      "end": 241.1
     }
   }
 }

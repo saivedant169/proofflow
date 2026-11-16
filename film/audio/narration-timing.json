@@ -1,2945 +1,3218 @@
 {
- "voice": "Gacrux",
- "model": "gemini-3.8-flash-tts",
- "note": "lines[].model names the TTS model of each take; any line not from the primary model is provisional and will be replaced (same words; durations shift slightly).",
- "generated": "2026-11-16T00:24:56.945Z",
+ "voice": "provisional",
+ "model": "none",
+ "provisional": true,
+ "generated": "1970-01-01T00:00:00.000Z",
  "sections": {
   "s1": {
    "file": "narration/s1.wav",
-   "duration": 16.994,
+   "duration": 20.13,
    "speech": [
     0.35,
-    16.794
+    19.83
    ],
-   "loudness": {
-    "input_i": -17.59,
-    "output_i": -16.04,
-    "output_tp": -1.99,
-    "type": "linear gain 1.78 dB + peak limit -2 dBFS (4x oversampled)"
-   },
    "lines": {
     "1a": {
      "start": 0.35,
-     "end": 3.779,
-     "text": "Monday. Your AI agent saves a report.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "end": 5.64,
+     "text": "One input changes. Now your AI agent has to work out what that broke."
     },
     "1b": {
-     "start": 4.579,
-     "end": 8.957,
-     "text": "Company revenue: five thousand, five hundred sixty-five dollars.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "start": 6.19,
+     "end": 8.49,
+     "text": "Today, it has two options."
     },
     "1c": {
-     "start": 9.757,
-     "end": 12.451,
-     "text": "Tuesday, someone corrects the euro exchange rate.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "start": 9.04,
+     "end": 14.225,
+     "text": "Re-read everything. Accurate, but you pay for every token, every time."
     },
     "1d": {
-     "start": 13.251,
-     "end": 16.794,
-     "text": "The report doesn't change. Nothing tells it that it's wrong.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "start": 14.775,
+     "end": 19.83,
+     "text": "Or search for what looks related. Cheap, but blind to what matters."
     }
    },
    "words": [
     {
-     "w": "Monday.",
+     "w": "One",
      "start": 0.35,
-     "end": 0.743,
+     "end": 0.613,
      "line": "1a"
     },
     {
-     "w": "Your",
-     "start": 1.243,
-     "end": 1.763,
+     "w": "input",
+     "start": 0.66,
+     "end": 0.924,
+     "line": "1a"
+    },
+    {
+     "w": "changes.",
+     "start": 0.97,
+     "end": 1.327,
+     "line": "1a"
+    },
+    {
+     "w": "Now",
+     "start": 1.81,
+     "end": 2.073,
+     "line": "1a"
+    },
+    {
+     "w": "your",
+     "start": 2.12,
+     "end": 2.383,
      "line": "1a"
     },
     {
      "w": "AI",
-     "start": 1.763,
-     "end": 2.123,
+     "start": 2.43,
+     "end": 2.694,
      "line": "1a"
     },
     {
      "w": "agent",
-     "start": 2.123,
-     "end": 2.663,
+     "start": 2.74,
+     "end": 3.004,
      "line": "1a"
     },
     {
-     "w": "saves",
-     "start": 2.663,
-     "end": 3.003,
+     "w": "has",
+     "start": 3.05,
+     "end": 3.314,
      "line": "1a"
     },
     {
-     "w": "a",
-     "start": 3.003,
-     "end": 3.183,
+     "w": "to",
+     "start": 3.36,
+     "end": 3.624,
      "line": "1a"
     },
     {
-     "w": "report.",
-     "start": 3.183,
-     "end": 3.779,
+     "w": "work",
+     "start": 3.67,
+     "end": 3.934,
      "line": "1a"
     },
     {
-     "w": "Company",
-     "start": 4.579,
-     "end": 4.886,
-     "line": "1b"
+     "w": "out",
+     "start": 3.98,
+     "end": 4.244,
+     "line": "1a"
     },
     {
-     "w": "revenue:",
-     "start": 4.886,
-     "end": 5.506,
-     "line": "1b"
-    },
-    {
-     "w": "five",
-     "start": 5.506,
-     "end": 5.753,
-     "line": "1b"
-    },
-    {
-     "w": "thousand,",
-     "start": 5.753,
-     "end": 6.186,
-     "line": "1b"
-    },
-    {
-     "w": "five",
-     "start": 6.186,
-     "end": 6.618,
-     "line": "1b"
-    },
-    {
-     "w": "hundred",
-     "start": 6.618,
-     "end": 7.374,
-     "line": "1b"
-    },
-    {
-     "w": "sixty-five",
-     "start": 7.374,
-     "end": 8.346,
-     "line": "1b"
-    },
-    {
-     "w": "dollars.",
-     "start": 8.346,
-     "end": 8.957,
-     "line": "1b"
-    },
-    {
-     "w": "Tuesday,",
-     "start": 9.757,
-     "end": 10.146,
-     "line": "1c"
-    },
-    {
-     "w": "someone",
-     "start": 10.526,
-     "end": 10.846,
-     "line": "1c"
-    },
-    {
-     "w": "corrects",
-     "start": 10.846,
-     "end": 11.486,
-     "line": "1c"
-    },
-    {
-     "w": "the",
-     "start": 11.486,
-     "end": 11.506,
-     "line": "1c"
-    },
-    {
-     "w": "euro",
-     "start": 11.486,
-     "end": 11.706,
-     "line": "1c"
-    },
-    {
-     "w": "exchange",
-     "start": 11.706,
-     "end": 12.026,
-     "line": "1c"
-    },
-    {
-     "w": "rate.",
-     "start": 12.026,
-     "end": 12.451,
-     "line": "1c"
-    },
-    {
-     "w": "The",
-     "start": 13.251,
-     "end": 13.384,
-     "line": "1d"
-    },
-    {
-     "w": "report",
-     "start": 13.384,
-     "end": 13.844,
-     "line": "1d"
-    },
-    {
-     "w": "doesn't",
-     "start": 13.844,
-     "end": 14.384,
-     "line": "1d"
-    },
-    {
-     "w": "change.",
-     "start": 14.384,
-     "end": 14.664,
-     "line": "1d"
-    },
-    {
-     "w": "Nothing",
-     "start": 15.164,
-     "end": 15.484,
-     "line": "1d"
-    },
-    {
-     "w": "tells",
-     "start": 15.484,
-     "end": 15.824,
-     "line": "1d"
-    },
-    {
-     "w": "it",
-     "start": 15.824,
-     "end": 16.084,
-     "line": "1d"
+     "w": "what",
+     "start": 4.29,
+     "end": 4.554,
+     "line": "1a"
     },
     {
      "w": "that",
-     "start": 16.084,
-     "end": 16.244,
+     "start": 4.6,
+     "end": 4.863,
+     "line": "1a"
+    },
+    {
+     "w": "broke.",
+     "start": 4.91,
+     "end": 5.173,
+     "line": "1a"
+    },
+    {
+     "w": "Today,",
+     "start": 6.19,
+     "end": 6.453,
+     "line": "1b"
+    },
+    {
+     "w": "it",
+     "start": 6.72,
+     "end": 6.983,
+     "line": "1b"
+    },
+    {
+     "w": "has",
+     "start": 7.03,
+     "end": 7.293,
+     "line": "1b"
+    },
+    {
+     "w": "two",
+     "start": 7.34,
+     "end": 7.603,
+     "line": "1b"
+    },
+    {
+     "w": "options.",
+     "start": 7.65,
+     "end": 8.007,
+     "line": "1b"
+    },
+    {
+     "w": "Re-read",
+     "start": 9.04,
+     "end": 9.35,
+     "line": "1c"
+    },
+    {
+     "w": "everything.",
+     "start": 9.405,
+     "end": 9.902,
+     "line": "1c"
+    },
+    {
+     "w": "Accurate,",
+     "start": 10.41,
+     "end": 10.814,
+     "line": "1c"
+    },
+    {
+     "w": "but",
+     "start": 11.105,
+     "end": 11.369,
+     "line": "1c"
+    },
+    {
+     "w": "you",
+     "start": 11.415,
+     "end": 11.679,
+     "line": "1c"
+    },
+    {
+     "w": "pay",
+     "start": 11.725,
+     "end": 11.989,
+     "line": "1c"
+    },
+    {
+     "w": "for",
+     "start": 12.035,
+     "end": 12.299,
+     "line": "1c"
+    },
+    {
+     "w": "every",
+     "start": 12.345,
+     "end": 12.609,
+     "line": "1c"
+    },
+    {
+     "w": "token,",
+     "start": 12.655,
+     "end": 12.919,
+     "line": "1c"
+    },
+    {
+     "w": "every",
+     "start": 13.185,
+     "end": 13.449,
+     "line": "1c"
+    },
+    {
+     "w": "time.",
+     "start": 13.495,
+     "end": 13.759,
+     "line": "1c"
+    },
+    {
+     "w": "Or",
+     "start": 14.775,
+     "end": 15.039,
      "line": "1d"
     },
     {
-     "w": "it's",
-     "start": 16.244,
-     "end": 16.444,
+     "w": "search",
+     "start": 15.085,
+     "end": 15.395,
      "line": "1d"
     },
     {
-     "w": "wrong.",
-     "start": 16.444,
-     "end": 16.794,
+     "w": "for",
+     "start": 15.45,
+     "end": 15.714,
+     "line": "1d"
+    },
+    {
+     "w": "what",
+     "start": 15.76,
+     "end": 16.024,
+     "line": "1d"
+    },
+    {
+     "w": "looks",
+     "start": 16.07,
+     "end": 16.334,
+     "line": "1d"
+    },
+    {
+     "w": "related.",
+     "start": 16.38,
+     "end": 16.737,
+     "line": "1d"
+    },
+    {
+     "w": "Cheap,",
+     "start": 17.22,
+     "end": 17.484,
+     "line": "1d"
+    },
+    {
+     "w": "but",
+     "start": 17.75,
+     "end": 18.014,
+     "line": "1d"
+    },
+    {
+     "w": "blind",
+     "start": 18.06,
+     "end": 18.324,
+     "line": "1d"
+    },
+    {
+     "w": "to",
+     "start": 18.37,
+     "end": 18.634,
+     "line": "1d"
+    },
+    {
+     "w": "what",
+     "start": 18.68,
+     "end": 18.944,
+     "line": "1d"
+    },
+    {
+     "w": "matters.",
+     "start": 18.99,
+     "end": 19.347,
      "line": "1d"
     }
    ]
   },
   "s2": {
    "file": "narration/s2.wav",
-   "duration": 21.346,
+   "duration": 21.81,
    "speech": [
     0.35,
-    21.146
+    21.51
    ],
-   "loudness": {
-    "input_i": -17.24,
-    "output_i": -16.09,
-    "output_tp": -1.89,
-    "type": "linear gain 1.77 dB + peak limit -2 dBFS (4x oversampled)"
-   },
    "lines": {
     "2a": {
      "start": 0.35,
-     "end": 6.042,
-     "text": "Agents build on their own saved work, so every number quietly depends on inputs underneath.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "end": 6.83,
+     "text": "Agents build reports on their own earlier work, so every number quietly depends on inputs underneath."
     },
     "2b": {
-     "start": 6.542,
-     "end": 10.323,
-     "text": "When one input changes, which numbers are now wrong?",
-     "take": "t2",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 7.38,
+     "end": 12.125,
+     "text": "Correct one exchange rate, and some of those numbers are now wrong."
     },
     "2c": {
-     "start": 10.823,
-     "end": 14.05,
-     "text": "Re-reading everything floods the model with context.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "start": 12.675,
+     "end": 17.255,
+     "text": "But a total can depend on that rate without ever mentioning it."
     },
     "2d": {
-     "start": 14.55,
-     "end": 21.146,
-     "text": "Searching for related text misses numbers that depend on the change but never mention it.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "start": 17.805,
+     "end": 21.51,
+     "text": "Similar words are not the same as real dependencies."
     }
    },
    "words": [
     {
      "w": "Agents",
      "start": 0.35,
-     "end": 0.71,
+     "end": 0.66,
      "line": "2a"
     },
     {
      "w": "build",
-     "start": 0.71,
-     "end": 0.95,
+     "start": 0.715,
+     "end": 0.978,
+     "line": "2a"
+    },
+    {
+     "w": "reports",
+     "start": 1.025,
+     "end": 1.382,
      "line": "2a"
     },
     {
      "w": "on",
-     "start": 0.95,
-     "end": 1.13,
+     "start": 1.445,
+     "end": 1.709,
      "line": "2a"
     },
     {
      "w": "their",
-     "start": 1.13,
-     "end": 1.31,
+     "start": 1.755,
+     "end": 2.019,
      "line": "2a"
     },
     {
      "w": "own",
-     "start": 1.31,
-     "end": 1.47,
+     "start": 2.065,
+     "end": 2.329,
      "line": "2a"
     },
     {
-     "w": "saved",
-     "start": 1.47,
-     "end": 1.75,
+     "w": "earlier",
+     "start": 2.375,
+     "end": 2.732,
      "line": "2a"
     },
     {
      "w": "work,",
-     "start": 1.75,
-     "end": 2.17,
+     "start": 2.795,
+     "end": 3.059,
      "line": "2a"
     },
     {
      "w": "so",
-     "start": 2.49,
-     "end": 2.83,
+     "start": 3.325,
+     "end": 3.589,
      "line": "2a"
     },
     {
      "w": "every",
-     "start": 2.83,
-     "end": 3.21,
+     "start": 3.635,
+     "end": 3.899,
      "line": "2a"
     },
     {
      "w": "number",
-     "start": 3.21,
-     "end": 3.57,
+     "start": 3.945,
+     "end": 4.255,
      "line": "2a"
     },
     {
      "w": "quietly",
-     "start": 3.57,
-     "end": 4.07,
+     "start": 4.31,
+     "end": 4.667,
      "line": "2a"
     },
     {
      "w": "depends",
-     "start": 4.07,
-     "end": 4.57,
+     "start": 4.73,
+     "end": 5.087,
      "line": "2a"
     },
     {
      "w": "on",
-     "start": 4.57,
-     "end": 4.91,
+     "start": 5.15,
+     "end": 5.414,
      "line": "2a"
     },
     {
      "w": "inputs",
-     "start": 4.91,
-     "end": 5.31,
+     "start": 5.46,
+     "end": 5.77,
      "line": "2a"
     },
     {
      "w": "underneath.",
-     "start": 5.31,
-     "end": 6.042,
+     "start": 5.825,
+     "end": 6.322,
      "line": "2a"
     },
     {
-     "w": "When",
-     "start": 6.542,
-     "end": 6.83,
+     "w": "Correct",
+     "start": 7.38,
+     "end": 7.737,
      "line": "2b"
     },
     {
      "w": "one",
-     "start": 6.83,
-     "end": 7.31,
+     "start": 7.8,
+     "end": 8.063,
      "line": "2b"
     },
     {
-     "w": "input",
-     "start": 7.31,
-     "end": 7.73,
+     "w": "exchange",
+     "start": 8.11,
+     "end": 8.514,
      "line": "2b"
     },
     {
-     "w": "changes,",
-     "start": 7.73,
-     "end": 8.33,
+     "w": "rate,",
+     "start": 8.585,
+     "end": 8.849,
      "line": "2b"
     },
     {
-     "w": "which",
-     "start": 8.75,
-     "end": 9.13,
+     "w": "and",
+     "start": 9.115,
+     "end": 9.379,
+     "line": "2b"
+    },
+    {
+     "w": "some",
+     "start": 9.425,
+     "end": 9.689,
+     "line": "2b"
+    },
+    {
+     "w": "of",
+     "start": 9.735,
+     "end": 9.999,
+     "line": "2b"
+    },
+    {
+     "w": "those",
+     "start": 10.045,
+     "end": 10.309,
      "line": "2b"
     },
     {
      "w": "numbers",
-     "start": 9.13,
-     "end": 9.49,
+     "start": 10.355,
+     "end": 10.712,
      "line": "2b"
     },
     {
      "w": "are",
-     "start": 9.49,
-     "end": 9.69,
+     "start": 10.775,
+     "end": 11.039,
      "line": "2b"
     },
     {
      "w": "now",
-     "start": 9.69,
-     "end": 9.83,
+     "start": 11.085,
+     "end": 11.349,
      "line": "2b"
     },
     {
-     "w": "wrong?",
-     "start": 9.83,
-     "end": 10.323,
+     "w": "wrong.",
+     "start": 11.395,
+     "end": 11.659,
      "line": "2b"
     },
     {
-     "w": "Re-reading",
-     "start": 10.823,
-     "end": 11.379,
+     "w": "But",
+     "start": 12.675,
+     "end": 12.939,
      "line": "2c"
     },
     {
-     "w": "everything",
-     "start": 11.379,
-     "end": 11.859,
+     "w": "a",
+     "start": 12.985,
+     "end": 13.249,
      "line": "2c"
     },
     {
-     "w": "floods",
-     "start": 11.859,
-     "end": 12.379,
+     "w": "total",
+     "start": 13.295,
+     "end": 13.559,
      "line": "2c"
     },
     {
-     "w": "the",
-     "start": 12.379,
-     "end": 12.699,
+     "w": "can",
+     "start": 13.605,
+     "end": 13.869,
      "line": "2c"
-    },
-    {
-     "w": "model",
-     "start": 12.699,
-     "end": 13.059,
-     "line": "2c"
-    },
-    {
-     "w": "with",
-     "start": 13.059,
-     "end": 13.239,
-     "line": "2c"
-    },
-    {
-     "w": "context.",
-     "start": 13.239,
-     "end": 14.05,
-     "line": "2c"
-    },
-    {
-     "w": "Searching",
-     "start": 14.55,
-     "end": 15.285,
-     "line": "2d"
-    },
-    {
-     "w": "for",
-     "start": 15.285,
-     "end": 15.505,
-     "line": "2d"
-    },
-    {
-     "w": "related",
-     "start": 15.505,
-     "end": 16.005,
-     "line": "2d"
-    },
-    {
-     "w": "text",
-     "start": 16.005,
-     "end": 16.625,
-     "line": "2d"
-    },
-    {
-     "w": "misses",
-     "start": 16.625,
-     "end": 17.185,
-     "line": "2d"
-    },
-    {
-     "w": "numbers",
-     "start": 17.185,
-     "end": 17.685,
-     "line": "2d"
-    },
-    {
-     "w": "that",
-     "start": 17.685,
-     "end": 18.085,
-     "line": "2d"
     },
     {
      "w": "depend",
-     "start": 18.085,
-     "end": 18.445,
-     "line": "2d"
+     "start": 13.915,
+     "end": 14.225,
+     "line": "2c"
     },
     {
      "w": "on",
-     "start": 18.445,
-     "end": 18.665,
+     "start": 14.28,
+     "end": 14.544,
+     "line": "2c"
+    },
+    {
+     "w": "that",
+     "start": 14.59,
+     "end": 14.854,
+     "line": "2c"
+    },
+    {
+     "w": "rate",
+     "start": 14.9,
+     "end": 15.164,
+     "line": "2c"
+    },
+    {
+     "w": "without",
+     "start": 15.21,
+     "end": 15.567,
+     "line": "2c"
+    },
+    {
+     "w": "ever",
+     "start": 15.63,
+     "end": 15.894,
+     "line": "2c"
+    },
+    {
+     "w": "mentioning",
+     "start": 15.94,
+     "end": 16.437,
+     "line": "2c"
+    },
+    {
+     "w": "it.",
+     "start": 16.525,
+     "end": 16.789,
+     "line": "2c"
+    },
+    {
+     "w": "Similar",
+     "start": 17.805,
+     "end": 18.162,
+     "line": "2d"
+    },
+    {
+     "w": "words",
+     "start": 18.225,
+     "end": 18.489,
+     "line": "2d"
+    },
+    {
+     "w": "are",
+     "start": 18.535,
+     "end": 18.799,
+     "line": "2d"
+    },
+    {
+     "w": "not",
+     "start": 18.845,
+     "end": 19.109,
      "line": "2d"
     },
     {
      "w": "the",
-     "start": 18.665,
-     "end": 18.885,
+     "start": 19.155,
+     "end": 19.419,
      "line": "2d"
     },
     {
-     "w": "change",
-     "start": 18.885,
-     "end": 19.205,
+     "w": "same",
+     "start": 19.465,
+     "end": 19.729,
      "line": "2d"
     },
     {
-     "w": "but",
-     "start": 19.205,
-     "end": 19.545,
+     "w": "as",
+     "start": 19.775,
+     "end": 20.039,
      "line": "2d"
     },
     {
-     "w": "never",
-     "start": 19.545,
-     "end": 19.885,
+     "w": "real",
+     "start": 20.085,
+     "end": 20.349,
      "line": "2d"
     },
     {
-     "w": "mention",
-     "start": 19.885,
-     "end": 20.205,
-     "line": "2d"
-    },
-    {
-     "w": "it.",
-     "start": 20.205,
-     "end": 21.146,
+     "w": "dependencies.",
+     "start": 20.395,
+     "end": 20.986,
      "line": "2d"
     }
    ]
   },
   "s3": {
    "file": "narration/s3.wav",
-   "duration": 13.752,
+   "duration": 17.54,
    "speech": [
     0.35,
-    13.552
+    17.24
    ],
-   "loudness": {
-    "input_i": -18.41,
-    "output_i": -16.03,
-    "output_tp": -1.99,
-    "type": "linear gain 2.62 dB + peak limit -2 dBFS (4x oversampled)"
-   },
    "lines": {
     "3a": {
      "start": 0.35,
-     "end": 2.402,
-     "text": "ProofFlow takes a different path.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "end": 5.115,
+     "text": "ProofFlow is a context layer that follows structure instead of guessing."
     },
     "3b": {
-     "start": 2.902,
-     "end": 9.45,
-     "text": "Every number keeps its receipts: exactly which inputs, and which calculation, made it.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "start": 5.665,
+     "end": 11.36,
+     "text": "Every number keeps its receipts: exactly which inputs, and which tool, made it."
     },
     "3c": {
-     "start": 9.95,
-     "end": 13.552,
-     "text": "So it knows what to hold back, and what to redo.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "start": 11.91,
+     "end": 17.24,
+     "text": "So when something changes, the agent gets exactly what broke. Nothing more."
     }
    },
    "words": [
     {
      "w": "ProofFlow",
      "start": 0.35,
-     "end": 1.016,
+     "end": 0.801,
      "line": "3a"
     },
     {
-     "w": "takes",
-     "start": 1.016,
-     "end": 1.416,
+     "w": "is",
+     "start": 0.88,
+     "end": 1.144,
      "line": "3a"
     },
     {
      "w": "a",
-     "start": 1.416,
-     "end": 1.656,
+     "start": 1.19,
+     "end": 1.454,
      "line": "3a"
     },
     {
-     "w": "different",
-     "start": 1.656,
-     "end": 1.856,
+     "w": "context",
+     "start": 1.5,
+     "end": 1.857,
      "line": "3a"
     },
     {
-     "w": "path.",
-     "start": 1.856,
-     "end": 2.402,
+     "w": "layer",
+     "start": 1.92,
+     "end": 2.184,
+     "line": "3a"
+    },
+    {
+     "w": "that",
+     "start": 2.23,
+     "end": 2.494,
+     "line": "3a"
+    },
+    {
+     "w": "follows",
+     "start": 2.54,
+     "end": 2.897,
+     "line": "3a"
+    },
+    {
+     "w": "structure",
+     "start": 2.96,
+     "end": 3.411,
+     "line": "3a"
+    },
+    {
+     "w": "instead",
+     "start": 3.49,
+     "end": 3.847,
+     "line": "3a"
+    },
+    {
+     "w": "of",
+     "start": 3.91,
+     "end": 4.174,
+     "line": "3a"
+    },
+    {
+     "w": "guessing.",
+     "start": 4.22,
+     "end": 4.624,
      "line": "3a"
     },
     {
      "w": "Every",
-     "start": 2.902,
-     "end": 3.206,
+     "start": 5.665,
+     "end": 5.928,
      "line": "3b"
     },
     {
      "w": "number",
-     "start": 3.206,
-     "end": 3.686,
+     "start": 5.975,
+     "end": 6.285,
      "line": "3b"
     },
     {
      "w": "keeps",
-     "start": 3.686,
-     "end": 4.286,
+     "start": 6.34,
+     "end": 6.603,
      "line": "3b"
     },
     {
      "w": "its",
-     "start": 4.286,
-     "end": 4.526,
+     "start": 6.65,
+     "end": 6.913,
      "line": "3b"
     },
     {
      "w": "receipts:",
-     "start": 4.526,
-     "end": 5.346,
+     "start": 6.96,
+     "end": 7.364,
      "line": "3b"
     },
     {
      "w": "exactly",
-     "start": 5.746,
-     "end": 6.266,
+     "start": 7.855,
+     "end": 8.212,
      "line": "3b"
     },
     {
      "w": "which",
-     "start": 6.266,
-     "end": 6.706,
+     "start": 8.275,
+     "end": 8.539,
      "line": "3b"
     },
     {
      "w": "inputs,",
-     "start": 6.706,
-     "end": 7.186,
+     "start": 8.585,
+     "end": 8.895,
      "line": "3b"
     },
     {
      "w": "and",
-     "start": 7.186,
-     "end": 7.586,
+     "start": 9.17,
+     "end": 9.434,
      "line": "3b"
     },
     {
      "w": "which",
-     "start": 7.586,
-     "end": 7.966,
+     "start": 9.48,
+     "end": 9.744,
      "line": "3b"
     },
     {
-     "w": "calculation,",
-     "start": 7.966,
-     "end": 8.626,
+     "w": "tool,",
+     "start": 9.79,
+     "end": 10.054,
      "line": "3b"
     },
     {
      "w": "made",
-     "start": 8.626,
-     "end": 9.266,
+     "start": 10.32,
+     "end": 10.584,
      "line": "3b"
     },
     {
      "w": "it.",
-     "start": 9.266,
-     "end": 9.45,
+     "start": 10.63,
+     "end": 10.894,
      "line": "3b"
     },
     {
      "w": "So",
-     "start": 9.95,
-     "end": 10.161,
+     "start": 11.91,
+     "end": 12.174,
      "line": "3c"
     },
     {
-     "w": "it",
-     "start": 10.161,
-     "end": 10.321,
+     "w": "when",
+     "start": 12.22,
+     "end": 12.484,
      "line": "3c"
     },
     {
-     "w": "knows",
-     "start": 10.321,
-     "end": 10.621,
+     "w": "something",
+     "start": 12.53,
+     "end": 12.981,
+     "line": "3c"
+    },
+    {
+     "w": "changes,",
+     "start": 13.06,
+     "end": 13.417,
+     "line": "3c"
+    },
+    {
+     "w": "the",
+     "start": 13.7,
+     "end": 13.964,
+     "line": "3c"
+    },
+    {
+     "w": "agent",
+     "start": 14.01,
+     "end": 14.274,
+     "line": "3c"
+    },
+    {
+     "w": "gets",
+     "start": 14.32,
+     "end": 14.584,
+     "line": "3c"
+    },
+    {
+     "w": "exactly",
+     "start": 14.63,
+     "end": 14.987,
      "line": "3c"
     },
     {
      "w": "what",
-     "start": 10.621,
-     "end": 10.981,
+     "start": 15.05,
+     "end": 15.314,
      "line": "3c"
     },
     {
-     "w": "to",
-     "start": 10.981,
-     "end": 11.201,
+     "w": "broke.",
+     "start": 15.36,
+     "end": 15.624,
      "line": "3c"
     },
     {
-     "w": "hold",
-     "start": 11.201,
-     "end": 11.361,
+     "w": "Nothing",
+     "start": 16.09,
+     "end": 16.447,
      "line": "3c"
     },
     {
-     "w": "back,",
-     "start": 11.361,
-     "end": 11.721,
-     "line": "3c"
-    },
-    {
-     "w": "and",
-     "start": 11.721,
-     "end": 12.601,
-     "line": "3c"
-    },
-    {
-     "w": "what",
-     "start": 12.601,
-     "end": 12.901,
-     "line": "3c"
-    },
-    {
-     "w": "to",
-     "start": 12.901,
-     "end": 13.141,
-     "line": "3c"
-    },
-    {
-     "w": "redo.",
-     "start": 13.141,
-     "end": 13.552,
+     "w": "more.",
+     "start": 16.51,
+     "end": 16.774,
      "line": "3c"
     }
    ]
   },
   "s4": {
    "file": "narration/s4.wav",
-   "duration": 29.748,
+   "duration": 33.225,
    "speech": [
     0.35,
-    29.548
+    32.925
    ],
-   "loudness": {
-    "input_i": -18.33,
-    "output_i": -16.01,
-    "output_tp": -1.99,
-    "type": "linear gain 2.51 dB + peak limit -2 dBFS (4x oversampled)"
-   },
    "lines": {
     "4a": {
      "start": 0.35,
-     "end": 4.738,
-     "text": "An input, like the exchange rate, is saved as a version.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "end": 4.895,
+     "text": "An input, like the exchange rate, is saved as a version."
     },
     "4b": {
-     "start": 5.238,
-     "end": 7.884,
-     "text": "A tool reads it, and leaves a receipt.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 5.445,
+     "end": 8.73,
+     "text": "A tool reads it, and leaves a receipt."
     },
     "4c": {
-     "start": 8.384,
-     "end": 14.129,
-     "text": "The receipt points to its result, and each number in a report points to that result.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "start": 9.28,
+     "end": 15.32,
+     "text": "The receipt points to its result, and each number in a report points to that result."
     },
     "4d": {
-     "start": 14.829,
-     "end": 16.41,
-     "text": "Now, correct the rate.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "start": 15.87,
+     "end": 17.86,
+     "text": "Now, correct the rate."
     },
     "4e": {
-     "start": 17.11,
-     "end": 22.822,
-     "text": "The change travels up those links. Both revenue figures are withheld, never shown stale.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-tts",
-     "exact": true
+     "start": 18.41,
+     "end": 24.36,
+     "text": "The change travels up those links. Both revenue figures are withheld, never shown stale."
     },
     "4f": {
-     "start": 23.322,
-     "end": 26.136,
-     "text": "Support never read the rate, so it stays.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 24.91,
+     "end": 29.765,
+     "text": "Support never read the rate, so it stays current, and is reused."
     },
     "4g": {
-     "start": 26.636,
-     "end": 29.548,
-     "text": "Refresh re-runs only the affected steps.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 30.315,
+     "end": 32.925,
+     "text": "Refresh re-runs only the affected steps."
     }
    },
    "words": [
     {
      "w": "An",
      "start": 0.35,
-     "end": 0.462,
+     "end": 0.613,
      "line": "4a"
     },
     {
      "w": "input,",
-     "start": 0.462,
-     "end": 0.962,
+     "start": 0.66,
+     "end": 0.924,
      "line": "4a"
     },
     {
      "w": "like",
-     "start": 1.322,
-     "end": 1.782,
+     "start": 1.19,
+     "end": 1.454,
      "line": "4a"
     },
     {
      "w": "the",
-     "start": 1.782,
-     "end": 1.982,
+     "start": 1.5,
+     "end": 1.764,
      "line": "4a"
     },
     {
      "w": "exchange",
-     "start": 1.982,
-     "end": 2.242,
+     "start": 1.81,
+     "end": 2.214,
      "line": "4a"
     },
     {
      "w": "rate,",
-     "start": 2.242,
-     "end": 2.702,
+     "start": 2.285,
+     "end": 2.549,
      "line": "4a"
     },
     {
      "w": "is",
-     "start": 3.162,
-     "end": 3.322,
+     "start": 2.815,
+     "end": 3.079,
      "line": "4a"
     },
     {
      "w": "saved",
-     "start": 3.322,
-     "end": 3.722,
+     "start": 3.125,
+     "end": 3.389,
      "line": "4a"
     },
     {
      "w": "as",
-     "start": 3.722,
-     "end": 4.002,
+     "start": 3.435,
+     "end": 3.699,
      "line": "4a"
     },
     {
      "w": "a",
-     "start": 4.002,
-     "end": 4.102,
+     "start": 3.745,
+     "end": 4.009,
      "line": "4a"
     },
     {
      "w": "version.",
-     "start": 4.102,
-     "end": 4.738,
+     "start": 4.055,
+     "end": 4.412,
      "line": "4a"
     },
     {
      "w": "A",
-     "start": 5.238,
-     "end": 5.358,
+     "start": 5.445,
+     "end": 5.709,
      "line": "4b"
     },
     {
      "w": "tool",
-     "start": 5.358,
-     "end": 5.698,
+     "start": 5.755,
+     "end": 6.018,
      "line": "4b"
     },
     {
      "w": "reads",
-     "start": 5.698,
-     "end": 6.138,
+     "start": 6.065,
+     "end": 6.328,
      "line": "4b"
     },
     {
      "w": "it,",
-     "start": 6.138,
-     "end": 6.418,
+     "start": 6.375,
+     "end": 6.638,
      "line": "4b"
     },
     {
      "w": "and",
-     "start": 6.418,
-     "end": 6.918,
+     "start": 6.905,
+     "end": 7.168,
      "line": "4b"
     },
     {
      "w": "leaves",
-     "start": 6.918,
-     "end": 7.218,
+     "start": 7.215,
+     "end": 7.525,
      "line": "4b"
     },
     {
      "w": "a",
-     "start": 7.218,
-     "end": 7.378,
+     "start": 7.58,
+     "end": 7.843,
      "line": "4b"
     },
     {
      "w": "receipt.",
-     "start": 7.378,
-     "end": 7.884,
+     "start": 7.89,
+     "end": 8.247,
      "line": "4b"
     },
     {
      "w": "The",
-     "start": 8.384,
-     "end": 8.506,
+     "start": 9.28,
+     "end": 9.544,
      "line": "4c"
     },
     {
      "w": "receipt",
-     "start": 8.506,
-     "end": 8.906,
+     "start": 9.59,
+     "end": 9.947,
      "line": "4c"
     },
     {
      "w": "points",
-     "start": 8.906,
-     "end": 9.346,
+     "start": 10.01,
+     "end": 10.32,
      "line": "4c"
     },
     {
      "w": "to",
-     "start": 9.346,
-     "end": 9.686,
+     "start": 10.375,
+     "end": 10.639,
      "line": "4c"
     },
     {
      "w": "its",
-     "start": 9.686,
-     "end": 9.846,
+     "start": 10.685,
+     "end": 10.949,
      "line": "4c"
     },
     {
      "w": "result,",
-     "start": 9.846,
-     "end": 10.346,
+     "start": 10.995,
+     "end": 11.305,
      "line": "4c"
     },
     {
      "w": "and",
-     "start": 10.686,
-     "end": 11.206,
+     "start": 11.58,
+     "end": 11.844,
      "line": "4c"
     },
     {
      "w": "each",
-     "start": 11.206,
-     "end": 11.526,
+     "start": 11.89,
+     "end": 12.154,
      "line": "4c"
     },
     {
      "w": "number",
-     "start": 11.526,
-     "end": 11.966,
+     "start": 12.2,
+     "end": 12.51,
      "line": "4c"
     },
     {
      "w": "in",
-     "start": 11.966,
-     "end": 12.146,
+     "start": 12.565,
+     "end": 12.829,
      "line": "4c"
     },
     {
      "w": "a",
-     "start": 12.146,
-     "end": 12.226,
+     "start": 12.875,
+     "end": 13.139,
      "line": "4c"
     },
     {
      "w": "report",
-     "start": 12.226,
-     "end": 12.606,
+     "start": 13.185,
+     "end": 13.495,
      "line": "4c"
     },
     {
      "w": "points",
-     "start": 12.606,
-     "end": 13.086,
+     "start": 13.55,
+     "end": 13.86,
      "line": "4c"
     },
     {
      "w": "to",
-     "start": 13.086,
-     "end": 13.346,
+     "start": 13.915,
+     "end": 14.179,
      "line": "4c"
     },
     {
      "w": "that",
-     "start": 13.346,
-     "end": 13.506,
+     "start": 14.225,
+     "end": 14.489,
      "line": "4c"
     },
     {
      "w": "result.",
-     "start": 13.506,
-     "end": 14.129,
+     "start": 14.535,
+     "end": 14.845,
      "line": "4c"
     },
     {
      "w": "Now,",
-     "start": 14.829,
-     "end": 15.169,
+     "start": 15.87,
+     "end": 16.134,
      "line": "4d"
     },
     {
      "w": "correct",
-     "start": 15.449,
-     "end": 15.889,
+     "start": 16.4,
+     "end": 16.757,
      "line": "4d"
     },
     {
      "w": "the",
-     "start": 15.889,
-     "end": 16.109,
+     "start": 16.82,
+     "end": 17.084,
      "line": "4d"
     },
     {
      "w": "rate.",
-     "start": 16.109,
-     "end": 16.41,
+     "start": 17.13,
+     "end": 17.394,
      "line": "4d"
     },
     {
      "w": "The",
-     "start": 17.11,
-     "end": 17.23,
+     "start": 18.41,
+     "end": 18.674,
      "line": "4e"
     },
     {
      "w": "change",
-     "start": 17.23,
-     "end": 17.71,
-     "line": "4e"
-    },
-    {
-     "w": "travels",
-     "start": 17.71,
-     "end": 18.27,
-     "line": "4e"
-    },
-    {
-     "w": "up",
-     "start": 18.27,
-     "end": 18.53,
-     "line": "4e"
-    },
-    {
-     "w": "those",
-     "start": 18.53,
-     "end": 18.73,
-     "line": "4e"
-    },
-    {
-     "w": "links.",
-     "start": 18.73,
+     "start": 18.72,
      "end": 19.03,
      "line": "4e"
     },
     {
+     "w": "travels",
+     "start": 19.085,
+     "end": 19.442,
+     "line": "4e"
+    },
+    {
+     "w": "up",
+     "start": 19.505,
+     "end": 19.769,
+     "line": "4e"
+    },
+    {
+     "w": "those",
+     "start": 19.815,
+     "end": 20.079,
+     "line": "4e"
+    },
+    {
+     "w": "links.",
+     "start": 20.125,
+     "end": 20.389,
+     "line": "4e"
+    },
+    {
      "w": "Both",
-     "start": 19.99,
-     "end": 20.07,
+     "start": 20.855,
+     "end": 21.119,
      "line": "4e"
     },
     {
      "w": "revenue",
-     "start": 20.07,
-     "end": 20.43,
+     "start": 21.165,
+     "end": 21.522,
      "line": "4e"
     },
     {
      "w": "figures",
-     "start": 20.43,
-     "end": 20.81,
+     "start": 21.585,
+     "end": 21.942,
      "line": "4e"
     },
     {
      "w": "are",
-     "start": 20.81,
-     "end": 21.03,
+     "start": 22.005,
+     "end": 22.269,
      "line": "4e"
     },
     {
      "w": "withheld,",
-     "start": 21.03,
-     "end": 21.43,
+     "start": 22.315,
+     "end": 22.719,
      "line": "4e"
     },
     {
      "w": "never",
-     "start": 21.77,
-     "end": 22.17,
+     "start": 23.01,
+     "end": 23.274,
      "line": "4e"
     },
     {
      "w": "shown",
-     "start": 22.17,
-     "end": 22.43,
+     "start": 23.32,
+     "end": 23.584,
      "line": "4e"
     },
     {
      "w": "stale.",
-     "start": 22.43,
-     "end": 22.822,
+     "start": 23.63,
+     "end": 23.894,
      "line": "4e"
     },
     {
      "w": "Support",
-     "start": 23.322,
-     "end": 23.633,
+     "start": 24.91,
+     "end": 25.267,
      "line": "4f"
     },
     {
      "w": "never",
-     "start": 23.633,
-     "end": 24.093,
+     "start": 25.33,
+     "end": 25.594,
      "line": "4f"
     },
     {
      "w": "read",
-     "start": 24.093,
-     "end": 24.393,
+     "start": 25.64,
+     "end": 25.904,
      "line": "4f"
     },
     {
      "w": "the",
-     "start": 24.393,
-     "end": 24.513,
+     "start": 25.95,
+     "end": 26.214,
      "line": "4f"
     },
     {
      "w": "rate,",
-     "start": 24.513,
-     "end": 24.793,
+     "start": 26.26,
+     "end": 26.524,
      "line": "4f"
     },
     {
      "w": "so",
-     "start": 25.033,
-     "end": 25.273,
+     "start": 26.79,
+     "end": 27.054,
      "line": "4f"
     },
     {
      "w": "it",
-     "start": 25.273,
-     "end": 25.633,
+     "start": 27.1,
+     "end": 27.364,
      "line": "4f"
     },
     {
-     "w": "stays.",
-     "start": 25.633,
-     "end": 26.136,
+     "w": "stays",
+     "start": 27.41,
+     "end": 27.673,
+     "line": "4f"
+    },
+    {
+     "w": "current,",
+     "start": 27.72,
+     "end": 28.077,
+     "line": "4f"
+    },
+    {
+     "w": "and",
+     "start": 28.36,
+     "end": 28.623,
+     "line": "4f"
+    },
+    {
+     "w": "is",
+     "start": 28.67,
+     "end": 28.933,
+     "line": "4f"
+    },
+    {
+     "w": "reused.",
+     "start": 28.98,
+     "end": 29.29,
      "line": "4f"
     },
     {
      "w": "Refresh",
-     "start": 26.636,
-     "end": 27.256,
+     "start": 30.315,
+     "end": 30.672,
      "line": "4g"
     },
     {
      "w": "re-runs",
-     "start": 27.256,
-     "end": 27.876,
+     "start": 30.735,
+     "end": 31.045,
      "line": "4g"
     },
     {
      "w": "only",
-     "start": 27.876,
-     "end": 28.196,
+     "start": 31.1,
+     "end": 31.363,
      "line": "4g"
     },
     {
      "w": "the",
-     "start": 28.196,
-     "end": 28.376,
+     "start": 31.41,
+     "end": 31.673,
      "line": "4g"
     },
     {
      "w": "affected",
-     "start": 28.376,
-     "end": 28.756,
+     "start": 31.72,
+     "end": 32.124,
      "line": "4g"
     },
     {
      "w": "steps.",
-     "start": 28.756,
-     "end": 29.548,
+     "start": 32.195,
+     "end": 32.458,
      "line": "4g"
     }
    ]
   },
   "s5": {
    "file": "narration/s5.wav",
-   "duration": 25.981,
+   "duration": 27.62,
    "speech": [
     0.35,
-    25.781
+    27.32
    ],
-   "loudness": {
-    "input_i": -19.76,
-    "output_i": -16.14,
-    "output_tp": -1.99,
-    "type": "linear gain 4.25 dB + peak limit -2 dBFS (4x oversampled)"
-   },
    "lines": {
     "5a": {
      "start": 0.35,
-     "end": 2.715,
-     "text": "This is ProofFlow, running today.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "end": 2.76,
+     "text": "This is ProofFlow, live today."
     },
     "5b": {
-     "start": 3.215,
-     "end": 8.468,
-     "text": "Upload orders as a CSV, preview them, and create the reports.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 3.31,
+     "end": 7.965,
+     "text": "Upload orders as a CSV, preview them, and create two reports."
     },
     "5c": {
-     "start": 8.968,
-     "end": 14.612,
-     "text": "Publish a corrected rate. Affected figures are withheld, and the evidence path shows why.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 8.515,
+     "end": 14.795,
+     "text": "Publish a corrected rate. Affected figures are withheld, and the graph shows exactly why."
     },
     "5d": {
-     "start": 15.112,
-     "end": 21.742,
-     "text": "Refresh brings them current, and a checked report can only be copied while every figure is current.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 15.345,
+     "end": 21.805,
+     "text": "Refresh brings them current. A checked report can only be copied while every figure is current."
     },
     "5e": {
-     "start": 22.242,
-     "end": 25.781,
-     "text": "Agents get the same power, through five MCP tools.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 22.355,
+     "end": 27.32,
+     "text": "Agents get the same workflow through MCP. Six tools, one download."
     }
    },
    "words": [
     {
      "w": "This",
      "start": 0.35,
-     "end": 0.569,
+     "end": 0.613,
      "line": "5a"
     },
     {
      "w": "is",
-     "start": 0.569,
-     "end": 0.769,
+     "start": 0.66,
+     "end": 0.924,
      "line": "5a"
     },
     {
      "w": "ProofFlow,",
-     "start": 0.769,
-     "end": 1.409,
+     "start": 0.97,
+     "end": 1.421,
      "line": "5a"
     },
     {
-     "w": "running",
-     "start": 1.869,
-     "end": 2.149,
+     "w": "live",
+     "start": 1.72,
+     "end": 1.984,
      "line": "5a"
     },
     {
      "w": "today.",
-     "start": 2.149,
-     "end": 2.715,
+     "start": 2.03,
+     "end": 2.294,
      "line": "5a"
     },
     {
      "w": "Upload",
-     "start": 3.215,
-     "end": 3.775,
+     "start": 3.31,
+     "end": 3.62,
      "line": "5b"
     },
     {
      "w": "orders",
-     "start": 3.775,
-     "end": 4.095,
+     "start": 3.675,
+     "end": 3.985,
      "line": "5b"
     },
     {
      "w": "as",
-     "start": 4.095,
-     "end": 4.354,
+     "start": 4.04,
+     "end": 4.304,
      "line": "5b"
     },
     {
      "w": "a",
-     "start": 4.354,
-     "end": 4.455,
+     "start": 4.35,
+     "end": 4.613,
      "line": "5b"
     },
     {
      "w": "CSV,",
-     "start": 4.455,
-     "end": 4.934,
+     "start": 4.66,
+     "end": 4.923,
      "line": "5b"
     },
     {
      "w": "preview",
-     "start": 5.635,
-     "end": 6.114,
+     "start": 5.19,
+     "end": 5.547,
      "line": "5b"
     },
     {
      "w": "them,",
-     "start": 6.114,
-     "end": 6.455,
+     "start": 5.61,
+     "end": 5.873,
      "line": "5b"
     },
     {
      "w": "and",
-     "start": 6.995,
-     "end": 7.314,
+     "start": 6.14,
+     "end": 6.403,
      "line": "5b"
     },
     {
      "w": "create",
-     "start": 7.314,
-     "end": 7.655,
+     "start": 6.45,
+     "end": 6.76,
      "line": "5b"
     },
     {
-     "w": "the",
-     "start": 7.655,
-     "end": 7.835,
+     "w": "two",
+     "start": 6.815,
+     "end": 7.078,
      "line": "5b"
     },
     {
      "w": "reports.",
-     "start": 7.835,
-     "end": 8.468,
+     "start": 7.125,
+     "end": 7.482,
      "line": "5b"
     },
     {
      "w": "Publish",
-     "start": 8.968,
-     "end": 9.428,
+     "start": 8.515,
+     "end": 8.872,
      "line": "5c"
     },
     {
      "w": "a",
-     "start": 9.428,
-     "end": 9.648,
+     "start": 8.935,
+     "end": 9.198,
      "line": "5c"
     },
     {
      "w": "corrected",
-     "start": 9.648,
-     "end": 9.988,
+     "start": 9.245,
+     "end": 9.695,
      "line": "5c"
     },
     {
      "w": "rate.",
-     "start": 9.988,
-     "end": 10.388,
+     "start": 9.775,
+     "end": 10.038,
      "line": "5c"
     },
     {
      "w": "Affected",
-     "start": 10.928,
-     "end": 11.568,
+     "start": 10.505,
+     "end": 10.909,
      "line": "5c"
     },
     {
      "w": "figures",
-     "start": 11.568,
-     "end": 11.908,
+     "start": 10.98,
+     "end": 11.337,
      "line": "5c"
     },
     {
      "w": "are",
-     "start": 11.908,
-     "end": 12.168,
+     "start": 11.4,
+     "end": 11.663,
      "line": "5c"
     },
     {
      "w": "withheld,",
-     "start": 12.168,
-     "end": 12.648,
+     "start": 11.71,
+     "end": 12.114,
      "line": "5c"
     },
     {
      "w": "and",
-     "start": 12.648,
-     "end": 12.968,
+     "start": 12.405,
+     "end": 12.668,
      "line": "5c"
     },
     {
      "w": "the",
-     "start": 12.968,
-     "end": 13.268,
+     "start": 12.715,
+     "end": 12.978,
      "line": "5c"
     },
     {
-     "w": "evidence",
-     "start": 13.268,
-     "end": 13.528,
-     "line": "5c"
-    },
-    {
-     "w": "path",
-     "start": 13.528,
-     "end": 13.888,
+     "w": "graph",
+     "start": 13.025,
+     "end": 13.289,
      "line": "5c"
     },
     {
      "w": "shows",
-     "start": 13.888,
-     "end": 14.208,
+     "start": 13.335,
+     "end": 13.599,
+     "line": "5c"
+    },
+    {
+     "w": "exactly",
+     "start": 13.645,
+     "end": 14.002,
      "line": "5c"
     },
     {
      "w": "why.",
-     "start": 14.208,
-     "end": 14.612,
+     "start": 14.065,
+     "end": 14.329,
      "line": "5c"
     },
     {
      "w": "Refresh",
-     "start": 15.112,
-     "end": 15.739,
+     "start": 15.345,
+     "end": 15.702,
      "line": "5d"
     },
     {
      "w": "brings",
-     "start": 15.739,
-     "end": 16.159,
+     "start": 15.765,
+     "end": 16.075,
      "line": "5d"
     },
     {
      "w": "them",
-     "start": 16.159,
-     "end": 16.419,
-     "line": "5d"
-    },
-    {
-     "w": "current,",
-     "start": 16.419,
-     "end": 16.799,
-     "line": "5d"
-    },
-    {
-     "w": "and",
-     "start": 17.219,
-     "end": 17.519,
-     "line": "5d"
-    },
-    {
-     "w": "a",
-     "start": 17.519,
-     "end": 17.699,
-     "line": "5d"
-    },
-    {
-     "w": "checked",
-     "start": 17.699,
-     "end": 17.899,
-     "line": "5d"
-    },
-    {
-     "w": "report",
-     "start": 17.899,
-     "end": 18.399,
-     "line": "5d"
-    },
-    {
-     "w": "can",
-     "start": 18.399,
-     "end": 18.679,
-     "line": "5d"
-    },
-    {
-     "w": "only",
-     "start": 18.679,
-     "end": 19.099,
-     "line": "5d"
-    },
-    {
-     "w": "be",
-     "start": 19.099,
-     "end": 19.259,
-     "line": "5d"
-    },
-    {
-     "w": "copied",
-     "start": 19.259,
-     "end": 19.639,
-     "line": "5d"
-    },
-    {
-     "w": "while",
-     "start": 19.639,
-     "end": 19.999,
-     "line": "5d"
-    },
-    {
-     "w": "every",
-     "start": 19.999,
-     "end": 20.559,
-     "line": "5d"
-    },
-    {
-     "w": "figure",
-     "start": 20.559,
-     "end": 20.919,
-     "line": "5d"
-    },
-    {
-     "w": "is",
-     "start": 20.919,
-     "end": 21.139,
+     "start": 16.13,
+     "end": 16.394,
      "line": "5d"
     },
     {
      "w": "current.",
-     "start": 21.139,
-     "end": 21.742,
+     "start": 16.44,
+     "end": 16.797,
+     "line": "5d"
+    },
+    {
+     "w": "A",
+     "start": 17.28,
+     "end": 17.544,
+     "line": "5d"
+    },
+    {
+     "w": "checked",
+     "start": 17.59,
+     "end": 17.947,
+     "line": "5d"
+    },
+    {
+     "w": "report",
+     "start": 18.01,
+     "end": 18.32,
+     "line": "5d"
+    },
+    {
+     "w": "can",
+     "start": 18.375,
+     "end": 18.639,
+     "line": "5d"
+    },
+    {
+     "w": "only",
+     "start": 18.685,
+     "end": 18.949,
+     "line": "5d"
+    },
+    {
+     "w": "be",
+     "start": 18.995,
+     "end": 19.258,
+     "line": "5d"
+    },
+    {
+     "w": "copied",
+     "start": 19.305,
+     "end": 19.615,
+     "line": "5d"
+    },
+    {
+     "w": "while",
+     "start": 19.67,
+     "end": 19.933,
+     "line": "5d"
+    },
+    {
+     "w": "every",
+     "start": 19.98,
+     "end": 20.243,
+     "line": "5d"
+    },
+    {
+     "w": "figure",
+     "start": 20.29,
+     "end": 20.6,
+     "line": "5d"
+    },
+    {
+     "w": "is",
+     "start": 20.655,
+     "end": 20.918,
+     "line": "5d"
+    },
+    {
+     "w": "current.",
+     "start": 20.965,
+     "end": 21.322,
      "line": "5d"
     },
     {
      "w": "Agents",
-     "start": 22.242,
-     "end": 22.582,
+     "start": 22.355,
+     "end": 22.665,
      "line": "5e"
     },
     {
      "w": "get",
-     "start": 22.582,
-     "end": 22.722,
+     "start": 22.72,
+     "end": 22.983,
      "line": "5e"
     },
     {
      "w": "the",
-     "start": 22.722,
-     "end": 22.882,
+     "start": 23.03,
+     "end": 23.293,
      "line": "5e"
     },
     {
      "w": "same",
-     "start": 22.882,
-     "end": 23.162,
+     "start": 23.34,
+     "end": 23.603,
      "line": "5e"
     },
     {
-     "w": "power,",
-     "start": 23.162,
-     "end": 23.602,
+     "w": "workflow",
+     "start": 23.65,
+     "end": 24.054,
      "line": "5e"
     },
     {
      "w": "through",
-     "start": 23.602,
-     "end": 23.862,
+     "start": 24.125,
+     "end": 24.482,
      "line": "5e"
     },
     {
-     "w": "five",
-     "start": 23.862,
-     "end": 24.402,
+     "w": "MCP.",
+     "start": 24.545,
+     "end": 24.808,
      "line": "5e"
     },
     {
-     "w": "MCP",
-     "start": 24.402,
-     "end": 25.202,
+     "w": "Six",
+     "start": 25.275,
+     "end": 25.538,
      "line": "5e"
     },
     {
-     "w": "tools.",
-     "start": 25.202,
-     "end": 25.781,
+     "w": "tools,",
+     "start": 25.585,
+     "end": 25.848,
+     "line": "5e"
+    },
+    {
+     "w": "one",
+     "start": 26.115,
+     "end": 26.378,
+     "line": "5e"
+    },
+    {
+     "w": "download.",
+     "start": 26.425,
+     "end": 26.829,
      "line": "5e"
     }
    ]
   },
   "s6": {
    "file": "narration/s6.wav",
-   "duration": 51.497,
+   "duration": 54.01,
    "speech": [
     0.35,
-    51.297
+    53.71
    ],
-   "loudness": {
-    "input_i": -19.36,
-    "output_i": -16.05,
-    "output_tp": -1.99,
-    "type": "linear gain 3.62 dB + peak limit -2 dBFS (4x oversampled)"
-   },
    "lines": {
     "6a": {
      "start": 0.35,
-     "end": 3.593,
-     "text": "Under the hood, it's small, and strict.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "end": 3.435,
+     "text": "Under the hood, it's small, and strict."
     },
     "6b": {
-     "start": 4.293,
-     "end": 10.952,
-     "text": "At the center is the runtime. Every tool run produces an immutable result, and a receipt.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 3.985,
+     "end": 10.72,
+     "text": "At the center is the runtime. Every tool run produces an immutable result, and a receipt."
     },
     "6c": {
-     "start": 11.452,
-     "end": 15.429,
-     "text": "Content goes into a store that verifies every hash.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 11.27,
+     "end": 14.755,
+     "text": "Content goes into a store that verifies every hash."
     },
     "6d": {
-     "start": 15.929,
-     "end": 20.008,
-     "text": "Relationships go into HydraDB, as a lineage graph.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 15.305,
+     "end": 19.085,
+     "text": "Relationships go into HydraDB, as a lineage graph."
     },
     "6e": {
-     "start": 20.508,
-     "end": 26.914,
-     "text": "When a correction arrives, HydraDB walks that graph natively, to find everything downstream.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 19.635,
+     "end": 25.735,
+     "text": "When a correction arrives, HydraDB walks that graph natively, to find everything downstream."
     },
     "6f": {
-     "start": 27.414,
-     "end": 34.341,
-     "text": "The runtime re-runs stale steps in order, reuses what's current, and records new receipts.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 26.285,
+     "end": 31.98,
+     "text": "That walk becomes the agent's context. Traverse the structure. Skip the re-read."
     },
     "6g": {
-     "start": 34.841,
-     "end": 40.067,
-     "text": "If evidence is missing, it fails closed. No fallback. No guess.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 32.53,
+     "end": 38.335,
+     "text": "The runtime re-runs stale steps in order, reuses what's current, and records new receipts."
     },
     "6h": {
-     "start": 40.567,
-     "end": 45.739,
-     "text": "Around it: a browser app, a Python API, and an MCP server.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 38.885,
+     "end": 44.27,
+     "text": "If evidence is missing, it fails closed. No fallback. No guess."
     },
     "6i": {
-     "start": 46.239,
-     "end": 51.297,
-     "text": "Agents choose plans from typed tools, but never run arbitrary code.",
-     "take": "t2",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 44.82,
+     "end": 53.71,
+     "text": "Agents reach it through a browser app, a Python API, or an MCP server, choosing plans from typed tools, never arbitrary code."
     }
    },
    "words": [
     {
      "w": "Under",
      "start": 0.35,
-     "end": 0.548,
+     "end": 0.613,
      "line": "6a"
     },
     {
      "w": "the",
-     "start": 0.548,
-     "end": 0.788,
+     "start": 0.66,
+     "end": 0.924,
      "line": "6a"
     },
     {
      "w": "hood,",
-     "start": 0.788,
-     "end": 1.188,
+     "start": 0.97,
+     "end": 1.234,
      "line": "6a"
     },
     {
      "w": "it's",
-     "start": 1.448,
-     "end": 1.848,
+     "start": 1.5,
+     "end": 1.764,
      "line": "6a"
     },
     {
      "w": "small,",
-     "start": 1.848,
-     "end": 2.308,
+     "start": 1.81,
+     "end": 2.074,
      "line": "6a"
     },
     {
      "w": "and",
-     "start": 2.308,
-     "end": 2.948,
+     "start": 2.34,
+     "end": 2.604,
      "line": "6a"
     },
     {
      "w": "strict.",
-     "start": 2.948,
-     "end": 3.593,
+     "start": 2.65,
+     "end": 2.96,
      "line": "6a"
     },
     {
      "w": "At",
-     "start": 4.293,
-     "end": 4.413,
+     "start": 3.985,
+     "end": 4.249,
      "line": "6b"
     },
     {
      "w": "the",
-     "start": 4.413,
-     "end": 4.553,
+     "start": 4.295,
+     "end": 4.559,
      "line": "6b"
     },
     {
      "w": "center",
-     "start": 4.553,
-     "end": 4.893,
+     "start": 4.605,
+     "end": 4.915,
      "line": "6b"
     },
     {
      "w": "is",
-     "start": 4.893,
-     "end": 5.373,
+     "start": 4.97,
+     "end": 5.233,
      "line": "6b"
     },
     {
      "w": "the",
-     "start": 5.373,
-     "end": 5.613,
+     "start": 5.28,
+     "end": 5.543,
      "line": "6b"
     },
     {
      "w": "runtime.",
-     "start": 5.613,
-     "end": 5.933,
+     "start": 5.59,
+     "end": 5.947,
      "line": "6b"
     },
     {
      "w": "Every",
-     "start": 6.873,
-     "end": 7.193,
+     "start": 6.43,
+     "end": 6.693,
      "line": "6b"
     },
     {
      "w": "tool",
-     "start": 7.193,
-     "end": 7.493,
+     "start": 6.74,
+     "end": 7.003,
      "line": "6b"
     },
     {
      "w": "run",
-     "start": 7.493,
-     "end": 7.773,
+     "start": 7.05,
+     "end": 7.313,
      "line": "6b"
     },
     {
      "w": "produces",
-     "start": 7.773,
-     "end": 8.213,
+     "start": 7.36,
+     "end": 7.764,
      "line": "6b"
     },
     {
      "w": "an",
-     "start": 8.213,
-     "end": 8.513,
+     "start": 7.835,
+     "end": 8.098,
      "line": "6b"
     },
     {
      "w": "immutable",
-     "start": 8.513,
-     "end": 8.853,
+     "start": 8.145,
+     "end": 8.595,
      "line": "6b"
     },
     {
      "w": "result,",
-     "start": 8.853,
-     "end": 9.493,
+     "start": 8.675,
+     "end": 8.985,
      "line": "6b"
     },
     {
      "w": "and",
-     "start": 9.493,
-     "end": 10.293,
+     "start": 9.26,
+     "end": 9.523,
      "line": "6b"
     },
     {
      "w": "a",
-     "start": 10.293,
-     "end": 10.413,
+     "start": 9.57,
+     "end": 9.833,
      "line": "6b"
     },
     {
      "w": "receipt.",
-     "start": 10.413,
-     "end": 10.952,
+     "start": 9.88,
+     "end": 10.237,
      "line": "6b"
     },
     {
      "w": "Content",
-     "start": 11.452,
-     "end": 11.793,
+     "start": 11.27,
+     "end": 11.627,
      "line": "6c"
     },
     {
      "w": "goes",
-     "start": 11.793,
-     "end": 12.153,
+     "start": 11.69,
+     "end": 11.954,
      "line": "6c"
     },
     {
      "w": "into",
-     "start": 12.153,
-     "end": 12.413,
+     "start": 12,
+     "end": 12.264,
      "line": "6c"
     },
     {
      "w": "a",
-     "start": 12.413,
-     "end": 12.613,
+     "start": 12.31,
+     "end": 12.574,
      "line": "6c"
     },
     {
      "w": "store",
-     "start": 12.613,
-     "end": 12.913,
+     "start": 12.62,
+     "end": 12.884,
      "line": "6c"
     },
     {
      "w": "that",
-     "start": 12.913,
-     "end": 13.193,
+     "start": 12.93,
+     "end": 13.194,
      "line": "6c"
     },
     {
      "w": "verifies",
-     "start": 13.193,
-     "end": 14.093,
+     "start": 13.24,
+     "end": 13.644,
      "line": "6c"
     },
     {
      "w": "every",
-     "start": 14.093,
-     "end": 14.713,
+     "start": 13.715,
+     "end": 13.979,
      "line": "6c"
     },
     {
      "w": "hash.",
-     "start": 14.713,
-     "end": 15.429,
+     "start": 14.025,
+     "end": 14.289,
      "line": "6c"
     },
     {
      "w": "Relationships",
-     "start": 15.929,
-     "end": 16.911,
+     "start": 15.305,
+     "end": 15.943,
      "line": "6d"
     },
     {
      "w": "go",
-     "start": 16.911,
-     "end": 17.231,
+     "start": 16.055,
+     "end": 16.319,
      "line": "6d"
     },
     {
      "w": "into",
-     "start": 17.231,
-     "end": 17.391,
+     "start": 16.365,
+     "end": 16.629,
      "line": "6d"
     },
     {
      "w": "HydraDB,",
-     "start": 17.391,
-     "end": 18.111,
+     "start": 16.675,
+     "end": 17.032,
      "line": "6d"
     },
     {
      "w": "as",
-     "start": 18.111,
-     "end": 18.871,
+     "start": 17.315,
+     "end": 17.579,
      "line": "6d"
     },
     {
      "w": "a",
-     "start": 18.871,
-     "end": 19.011,
+     "start": 17.625,
+     "end": 17.889,
      "line": "6d"
     },
     {
      "w": "lineage",
-     "start": 19.011,
-     "end": 19.331,
+     "start": 17.935,
+     "end": 18.292,
      "line": "6d"
     },
     {
      "w": "graph.",
-     "start": 19.331,
-     "end": 20.008,
+     "start": 18.355,
+     "end": 18.619,
      "line": "6d"
     },
     {
      "w": "When",
-     "start": 20.508,
-     "end": 20.593,
+     "start": 19.635,
+     "end": 19.899,
      "line": "6e"
     },
     {
      "w": "a",
-     "start": 20.593,
-     "end": 20.713,
+     "start": 19.945,
+     "end": 20.209,
      "line": "6e"
     },
     {
      "w": "correction",
-     "start": 20.713,
-     "end": 21.053,
+     "start": 20.255,
+     "end": 20.752,
      "line": "6e"
     },
     {
      "w": "arrives,",
-     "start": 21.053,
-     "end": 21.573,
+     "start": 20.84,
+     "end": 21.197,
      "line": "6e"
     },
     {
      "w": "HydraDB",
-     "start": 21.953,
-     "end": 22.633,
+     "start": 21.48,
+     "end": 21.837,
      "line": "6e"
     },
     {
      "w": "walks",
-     "start": 22.633,
-     "end": 23.133,
+     "start": 21.9,
+     "end": 22.164,
      "line": "6e"
     },
     {
      "w": "that",
-     "start": 23.133,
-     "end": 23.453,
+     "start": 22.21,
+     "end": 22.474,
      "line": "6e"
     },
     {
      "w": "graph",
-     "start": 23.453,
-     "end": 23.753,
+     "start": 22.52,
+     "end": 22.784,
      "line": "6e"
     },
     {
      "w": "natively,",
-     "start": 23.753,
-     "end": 24.593,
+     "start": 22.83,
+     "end": 23.234,
      "line": "6e"
     },
     {
      "w": "to",
-     "start": 24.593,
-     "end": 24.953,
+     "start": 23.525,
+     "end": 23.789,
      "line": "6e"
     },
     {
      "w": "find",
-     "start": 24.953,
-     "end": 25.313,
+     "start": 23.835,
+     "end": 24.098,
      "line": "6e"
     },
     {
      "w": "everything",
-     "start": 25.313,
-     "end": 25.953,
+     "start": 24.145,
+     "end": 24.642,
      "line": "6e"
     },
     {
      "w": "downstream.",
-     "start": 25.953,
-     "end": 26.914,
+     "start": 24.73,
+     "end": 25.227,
      "line": "6e"
     },
     {
-     "w": "The",
-     "start": 27.414,
-     "end": 27.489,
+     "w": "That",
+     "start": 26.285,
+     "end": 26.549,
      "line": "6f"
+    },
+    {
+     "w": "walk",
+     "start": 26.595,
+     "end": 26.859,
+     "line": "6f"
+    },
+    {
+     "w": "becomes",
+     "start": 26.905,
+     "end": 27.262,
+     "line": "6f"
+    },
+    {
+     "w": "the",
+     "start": 27.325,
+     "end": 27.589,
+     "line": "6f"
+    },
+    {
+     "w": "agent's",
+     "start": 27.635,
+     "end": 27.945,
+     "line": "6f"
+    },
+    {
+     "w": "context.",
+     "start": 28,
+     "end": 28.357,
+     "line": "6f"
+    },
+    {
+     "w": "Traverse",
+     "start": 28.84,
+     "end": 29.244,
+     "line": "6f"
+    },
+    {
+     "w": "the",
+     "start": 29.315,
+     "end": 29.579,
+     "line": "6f"
+    },
+    {
+     "w": "structure.",
+     "start": 29.625,
+     "end": 30.076,
+     "line": "6f"
+    },
+    {
+     "w": "Skip",
+     "start": 30.575,
+     "end": 30.839,
+     "line": "6f"
+    },
+    {
+     "w": "the",
+     "start": 30.885,
+     "end": 31.149,
+     "line": "6f"
+    },
+    {
+     "w": "re-read.",
+     "start": 31.195,
+     "end": 31.505,
+     "line": "6f"
+    },
+    {
+     "w": "The",
+     "start": 32.53,
+     "end": 32.794,
+     "line": "6g"
     },
     {
      "w": "runtime",
-     "start": 27.489,
-     "end": 27.909,
-     "line": "6f"
+     "start": 32.84,
+     "end": 33.197,
+     "line": "6g"
     },
     {
      "w": "re-runs",
-     "start": 27.909,
-     "end": 28.709,
-     "line": "6f"
+     "start": 33.26,
+     "end": 33.57,
+     "line": "6g"
     },
     {
      "w": "stale",
-     "start": 28.709,
-     "end": 29.129,
-     "line": "6f"
+     "start": 33.625,
+     "end": 33.889,
+     "line": "6g"
     },
     {
      "w": "steps",
-     "start": 29.129,
-     "end": 29.449,
-     "line": "6f"
+     "start": 33.935,
+     "end": 34.199,
+     "line": "6g"
     },
     {
      "w": "in",
-     "start": 29.449,
-     "end": 29.709,
-     "line": "6f"
+     "start": 34.245,
+     "end": 34.509,
+     "line": "6g"
     },
     {
      "w": "order,",
-     "start": 29.709,
-     "end": 30.049,
-     "line": "6f"
+     "start": 34.555,
+     "end": 34.819,
+     "line": "6g"
     },
     {
      "w": "reuses",
-     "start": 30.609,
-     "end": 31.249,
-     "line": "6f"
+     "start": 35.085,
+     "end": 35.395,
+     "line": "6g"
     },
     {
      "w": "what's",
-     "start": 31.249,
-     "end": 31.669,
-     "line": "6f"
+     "start": 35.45,
+     "end": 35.714,
+     "line": "6g"
     },
     {
      "w": "current,",
-     "start": 31.669,
-     "end": 32.069,
-     "line": "6f"
+     "start": 35.76,
+     "end": 36.117,
+     "line": "6g"
     },
     {
      "w": "and",
-     "start": 32.689,
-     "end": 32.889,
-     "line": "6f"
+     "start": 36.4,
+     "end": 36.664,
+     "line": "6g"
     },
     {
      "w": "records",
-     "start": 32.889,
-     "end": 33.329,
-     "line": "6f"
+     "start": 36.71,
+     "end": 37.067,
+     "line": "6g"
     },
     {
      "w": "new",
-     "start": 33.329,
-     "end": 33.609,
-     "line": "6f"
+     "start": 37.13,
+     "end": 37.394,
+     "line": "6g"
     },
     {
      "w": "receipts.",
-     "start": 33.609,
-     "end": 34.341,
-     "line": "6f"
+     "start": 37.44,
+     "end": 37.844,
+     "line": "6g"
     },
     {
      "w": "If",
-     "start": 34.841,
-     "end": 34.981,
-     "line": "6g"
+     "start": 38.885,
+     "end": 39.149,
+     "line": "6h"
     },
     {
      "w": "evidence",
-     "start": 34.981,
-     "end": 35.341,
-     "line": "6g"
+     "start": 39.195,
+     "end": 39.599,
+     "line": "6h"
     },
     {
      "w": "is",
-     "start": 35.341,
-     "end": 35.601,
-     "line": "6g"
+     "start": 39.67,
+     "end": 39.934,
+     "line": "6h"
     },
     {
      "w": "missing,",
-     "start": 35.601,
-     "end": 35.981,
-     "line": "6g"
+     "start": 39.98,
+     "end": 40.337,
+     "line": "6h"
     },
     {
      "w": "it",
-     "start": 36.521,
-     "end": 36.601,
-     "line": "6g"
+     "start": 40.62,
+     "end": 40.884,
+     "line": "6h"
     },
     {
      "w": "fails",
-     "start": 36.601,
-     "end": 37.001,
-     "line": "6g"
+     "start": 40.93,
+     "end": 41.194,
+     "line": "6h"
     },
     {
      "w": "closed.",
-     "start": 37.001,
-     "end": 37.541,
-     "line": "6g"
+     "start": 41.24,
+     "end": 41.55,
+     "line": "6h"
     },
     {
      "w": "No",
-     "start": 38.121,
-     "end": 38.281,
-     "line": "6g"
+     "start": 42.025,
+     "end": 42.289,
+     "line": "6h"
     },
     {
      "w": "fallback.",
-     "start": 38.281,
-     "end": 38.781,
-     "line": "6g"
+     "start": 42.335,
+     "end": 42.739,
+     "line": "6h"
     },
     {
      "w": "No",
-     "start": 39.461,
-     "end": 39.601,
-     "line": "6g"
+     "start": 43.23,
+     "end": 43.494,
+     "line": "6h"
     },
     {
      "w": "guess.",
-     "start": 39.601,
-     "end": 40.067,
-     "line": "6g"
-    },
-    {
-     "w": "Around",
-     "start": 40.567,
-     "end": 40.912,
-     "line": "6h"
-    },
-    {
-     "w": "it:",
-     "start": 40.912,
-     "end": 41.272,
-     "line": "6h"
-    },
-    {
-     "w": "a",
-     "start": 41.272,
-     "end": 41.512,
-     "line": "6h"
-    },
-    {
-     "w": "browser",
-     "start": 41.512,
-     "end": 41.852,
-     "line": "6h"
-    },
-    {
-     "w": "app,",
-     "start": 41.852,
-     "end": 42.412,
-     "line": "6h"
-    },
-    {
-     "w": "a",
-     "start": 42.732,
-     "end": 42.892,
-     "line": "6h"
-    },
-    {
-     "w": "Python",
-     "start": 42.892,
-     "end": 43.272,
-     "line": "6h"
-    },
-    {
-     "w": "API,",
-     "start": 43.272,
-     "end": 43.712,
-     "line": "6h"
-    },
-    {
-     "w": "and",
-     "start": 44.432,
-     "end": 44.552,
-     "line": "6h"
-    },
-    {
-     "w": "an",
-     "start": 44.552,
-     "end": 44.652,
-     "line": "6h"
-    },
-    {
-     "w": "MCP",
-     "start": 44.652,
-     "end": 45.192,
-     "line": "6h"
-    },
-    {
-     "w": "server.",
-     "start": 45.192,
-     "end": 45.739,
+     "start": 43.54,
+     "end": 43.804,
      "line": "6h"
     },
     {
      "w": "Agents",
-     "start": 46.239,
-     "end": 46.625,
+     "start": 44.82,
+     "end": 45.13,
      "line": "6i"
     },
     {
-     "w": "choose",
-     "start": 46.625,
-     "end": 46.945,
+     "w": "reach",
+     "start": 45.185,
+     "end": 45.449,
+     "line": "6i"
+    },
+    {
+     "w": "it",
+     "start": 45.495,
+     "end": 45.759,
+     "line": "6i"
+    },
+    {
+     "w": "through",
+     "start": 45.805,
+     "end": 46.162,
+     "line": "6i"
+    },
+    {
+     "w": "a",
+     "start": 46.225,
+     "end": 46.489,
+     "line": "6i"
+    },
+    {
+     "w": "browser",
+     "start": 46.535,
+     "end": 46.892,
+     "line": "6i"
+    },
+    {
+     "w": "app,",
+     "start": 46.955,
+     "end": 47.219,
+     "line": "6i"
+    },
+    {
+     "w": "a",
+     "start": 47.485,
+     "end": 47.749,
+     "line": "6i"
+    },
+    {
+     "w": "Python",
+     "start": 47.795,
+     "end": 48.105,
+     "line": "6i"
+    },
+    {
+     "w": "API,",
+     "start": 48.16,
+     "end": 48.424,
+     "line": "6i"
+    },
+    {
+     "w": "or",
+     "start": 48.69,
+     "end": 48.954,
+     "line": "6i"
+    },
+    {
+     "w": "an",
+     "start": 49,
+     "end": 49.264,
+     "line": "6i"
+    },
+    {
+     "w": "MCP",
+     "start": 49.31,
+     "end": 49.574,
+     "line": "6i"
+    },
+    {
+     "w": "server,",
+     "start": 49.62,
+     "end": 49.93,
+     "line": "6i"
+    },
+    {
+     "w": "choosing",
+     "start": 50.205,
+     "end": 50.609,
      "line": "6i"
     },
     {
      "w": "plans",
-     "start": 46.945,
-     "end": 47.385,
+     "start": 50.68,
+     "end": 50.944,
      "line": "6i"
     },
     {
      "w": "from",
-     "start": 47.385,
-     "end": 47.805,
+     "start": 50.99,
+     "end": 51.254,
      "line": "6i"
     },
     {
      "w": "typed",
-     "start": 47.805,
-     "end": 48.265,
+     "start": 51.3,
+     "end": 51.564,
      "line": "6i"
     },
     {
      "w": "tools,",
-     "start": 48.265,
-     "end": 48.785,
-     "line": "6i"
-    },
-    {
-     "w": "but",
-     "start": 49.185,
-     "end": 49.485,
+     "start": 51.61,
+     "end": 51.874,
      "line": "6i"
     },
     {
      "w": "never",
-     "start": 49.485,
-     "end": 49.865,
-     "line": "6i"
-    },
-    {
-     "w": "run",
-     "start": 49.865,
-     "end": 50.225,
+     "start": 52.14,
+     "end": 52.404,
      "line": "6i"
     },
     {
      "w": "arbitrary",
-     "start": 50.225,
-     "end": 50.685,
+     "start": 52.45,
+     "end": 52.901,
      "line": "6i"
     },
     {
      "w": "code.",
-     "start": 50.685,
-     "end": 51.297,
+     "start": 52.98,
+     "end": 53.244,
      "line": "6i"
     }
    ]
   },
   "s7": {
    "file": "narration/s7.wav",
-   "duration": 30.063,
+   "duration": 49.45,
    "speech": [
     0.35,
-    29.863
+    49.15
    ],
-   "loudness": {
-    "input_i": -19.6,
-    "output_i": -16.04,
-    "output_tp": -1.99,
-    "type": "linear gain 3.83 dB + peak limit -2 dBFS (4x oversampled)"
-   },
    "lines": {
     "7a": {
      "start": 0.35,
-     "end": 1.011,
-     "text": "Does it work?",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "end": 3.69,
+     "text": "So how does it compare to today's approaches?"
     },
     "7b": {
-     "start": 1.711,
-     "end": 12.526,
-     "text": "In a frozen study with a real model, ProofFlow refreshed all thirty-two affected reports, matching full context at under forty percent of its input.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 4.24,
+     "end": 9.97,
+     "text": "We froze one study. Forty-eight real model calls, the same task for every method."
     },
     "7c": {
-     "start": 13.026,
-     "end": 16.96,
-     "text": "Keyword search managed twenty-five. Vector search, five.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 10.52,
+     "end": 15.835,
+     "text": "Re-reading everything got all thirty-two reports right, for three dollars seventy-four."
     },
     "7d": {
-     "start": 17.46,
-     "end": 23.823,
-     "text": "On a retail benchmark: thirty-eight of thirty-eight, with sixty-nine percent fewer evidence tokens.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 16.385,
+     "end": 26.1,
+     "text": "ProofFlow also got thirty-two of thirty-two, with a hundred forty-two thousand fewer input tokens, for a dollar thirty-eight. Sixty-three percent less."
     },
     "7e": {
-     "start": 24.323,
-     "end": 29.863,
-     "text": "A plain dependency walk ties it. The point is recording dependencies.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 26.65,
+     "end": 34.685,
+     "text": "Vector search cost the same as ProofFlow, and got five right. Keyword search, twenty-five. Hybrid, twenty-eight."
+    },
+    "7f": {
+     "start": 35.235,
+     "end": 42.085,
+     "text": "On a separate retail benchmark, thirty-eight of thirty-eight, with sixty-nine percent fewer evidence tokens."
+    },
+    "7g": {
+     "start": 42.635,
+     "end": 49.15,
+     "text": "A plain dependency walk over the same links ties it. The win is recording the structure."
     }
    },
    "words": [
     {
-     "w": "Does",
+     "w": "So",
      "start": 0.35,
-     "end": 0.465,
+     "end": 0.613,
+     "line": "7a"
+    },
+    {
+     "w": "how",
+     "start": 0.66,
+     "end": 0.924,
+     "line": "7a"
+    },
+    {
+     "w": "does",
+     "start": 0.97,
+     "end": 1.234,
      "line": "7a"
     },
     {
      "w": "it",
-     "start": 0.465,
-     "end": 0.585,
+     "start": 1.28,
+     "end": 1.544,
      "line": "7a"
     },
     {
-     "w": "work?",
-     "start": 0.585,
-     "end": 1.011,
+     "w": "compare",
+     "start": 1.59,
+     "end": 1.947,
      "line": "7a"
     },
     {
-     "w": "In",
-     "start": 1.711,
-     "end": 1.857,
+     "w": "to",
+     "start": 2.01,
+     "end": 2.274,
+     "line": "7a"
+    },
+    {
+     "w": "today's",
+     "start": 2.32,
+     "end": 2.63,
+     "line": "7a"
+    },
+    {
+     "w": "approaches?",
+     "start": 2.685,
+     "end": 3.182,
+     "line": "7a"
+    },
+    {
+     "w": "We",
+     "start": 4.24,
+     "end": 4.504,
      "line": "7b"
     },
     {
-     "w": "a",
-     "start": 1.857,
-     "end": 1.957,
+     "w": "froze",
+     "start": 4.55,
+     "end": 4.813,
      "line": "7b"
     },
     {
-     "w": "frozen",
-     "start": 1.957,
-     "end": 2.377,
+     "w": "one",
+     "start": 4.86,
+     "end": 5.123,
      "line": "7b"
     },
     {
-     "w": "study",
-     "start": 2.377,
-     "end": 2.937,
+     "w": "study.",
+     "start": 5.17,
+     "end": 5.433,
      "line": "7b"
     },
     {
-     "w": "with",
-     "start": 2.937,
-     "end": 3.277,
-     "line": "7b"
-    },
-    {
-     "w": "a",
-     "start": 3.277,
-     "end": 3.417,
+     "w": "Forty-eight",
+     "start": 5.9,
+     "end": 6.397,
      "line": "7b"
     },
     {
      "w": "real",
-     "start": 3.417,
-     "end": 3.777,
+     "start": 6.485,
+     "end": 6.748,
      "line": "7b"
     },
     {
-     "w": "model,",
-     "start": 3.777,
-     "end": 4.277,
+     "w": "model",
+     "start": 6.795,
+     "end": 7.058,
      "line": "7b"
     },
     {
-     "w": "ProofFlow",
-     "start": 4.857,
-     "end": 5.377,
+     "w": "calls,",
+     "start": 7.105,
+     "end": 7.368,
      "line": "7b"
     },
     {
-     "w": "refreshed",
-     "start": 5.377,
-     "end": 5.957,
+     "w": "the",
+     "start": 7.635,
+     "end": 7.898,
      "line": "7b"
+    },
+    {
+     "w": "same",
+     "start": 7.945,
+     "end": 8.208,
+     "line": "7b"
+    },
+    {
+     "w": "task",
+     "start": 8.255,
+     "end": 8.518,
+     "line": "7b"
+    },
+    {
+     "w": "for",
+     "start": 8.565,
+     "end": 8.828,
+     "line": "7b"
+    },
+    {
+     "w": "every",
+     "start": 8.875,
+     "end": 9.138,
+     "line": "7b"
+    },
+    {
+     "w": "method.",
+     "start": 9.185,
+     "end": 9.495,
+     "line": "7b"
+    },
+    {
+     "w": "Re-reading",
+     "start": 10.52,
+     "end": 10.971,
+     "line": "7c"
+    },
+    {
+     "w": "everything",
+     "start": 11.05,
+     "end": 11.547,
+     "line": "7c"
+    },
+    {
+     "w": "got",
+     "start": 11.635,
+     "end": 11.898,
+     "line": "7c"
     },
     {
      "w": "all",
-     "start": 5.957,
-     "end": 6.357,
-     "line": "7b"
+     "start": 11.945,
+     "end": 12.208,
+     "line": "7c"
     },
     {
      "w": "thirty-two",
-     "start": 6.357,
-     "end": 6.917,
-     "line": "7b"
-    },
-    {
-     "w": "affected",
-     "start": 6.917,
-     "end": 7.417,
-     "line": "7b"
-    },
-    {
-     "w": "reports,",
-     "start": 7.417,
-     "end": 8.077,
-     "line": "7b"
-    },
-    {
-     "w": "matching",
-     "start": 8.417,
-     "end": 8.857,
-     "line": "7b"
-    },
-    {
-     "w": "full",
-     "start": 8.857,
-     "end": 9.337,
-     "line": "7b"
-    },
-    {
-     "w": "context",
-     "start": 9.337,
-     "end": 9.957,
-     "line": "7b"
-    },
-    {
-     "w": "at",
-     "start": 9.957,
-     "end": 10.397,
-     "line": "7b"
-    },
-    {
-     "w": "under",
-     "start": 10.397,
-     "end": 10.737,
-     "line": "7b"
-    },
-    {
-     "w": "forty",
-     "start": 10.737,
-     "end": 11.197,
-     "line": "7b"
-    },
-    {
-     "w": "percent",
-     "start": 11.197,
-     "end": 11.677,
-     "line": "7b"
-    },
-    {
-     "w": "of",
-     "start": 11.677,
-     "end": 11.897,
-     "line": "7b"
-    },
-    {
-     "w": "its",
-     "start": 11.897,
-     "end": 12.017,
-     "line": "7b"
-    },
-    {
-     "w": "input.",
-     "start": 12.017,
-     "end": 12.526,
-     "line": "7b"
-    },
-    {
-     "w": "Keyword",
-     "start": 13.026,
-     "end": 13.506,
+     "start": 12.255,
+     "end": 12.705,
      "line": "7c"
     },
     {
-     "w": "search",
-     "start": 13.506,
-     "end": 13.766,
+     "w": "reports",
+     "start": 12.785,
+     "end": 13.142,
      "line": "7c"
     },
     {
-     "w": "managed",
-     "start": 13.766,
-     "end": 14.086,
+     "w": "right,",
+     "start": 13.205,
+     "end": 13.468,
      "line": "7c"
     },
     {
-     "w": "twenty-five.",
-     "start": 14.086,
-     "end": 14.886,
+     "w": "for",
+     "start": 13.735,
+     "end": 13.999,
      "line": "7c"
     },
     {
-     "w": "Vector",
-     "start": 15.206,
-     "end": 15.826,
+     "w": "three",
+     "start": 14.045,
+     "end": 14.309,
      "line": "7c"
     },
     {
-     "w": "search,",
-     "start": 15.826,
-     "end": 16.166,
+     "w": "dollars",
+     "start": 14.355,
+     "end": 14.712,
      "line": "7c"
     },
     {
-     "w": "five.",
-     "start": 16.426,
-     "end": 16.96,
+     "w": "seventy-four.",
+     "start": 14.775,
+     "end": 15.319,
      "line": "7c"
     },
     {
-     "w": "On",
-     "start": 17.46,
-     "end": 17.648,
+     "w": "ProofFlow",
+     "start": 16.385,
+     "end": 16.836,
      "line": "7d"
     },
     {
-     "w": "a",
-     "start": 17.648,
-     "end": 17.848,
+     "w": "also",
+     "start": 16.915,
+     "end": 17.179,
      "line": "7d"
     },
     {
-     "w": "retail",
-     "start": 17.848,
-     "end": 18.168,
+     "w": "got",
+     "start": 17.225,
+     "end": 17.489,
      "line": "7d"
     },
     {
-     "w": "benchmark:",
-     "start": 18.168,
-     "end": 18.708,
-     "line": "7d"
-    },
-    {
-     "w": "thirty-eight",
-     "start": 19.168,
-     "end": 19.688,
+     "w": "thirty-two",
+     "start": 17.535,
+     "end": 17.986,
      "line": "7d"
     },
     {
      "w": "of",
-     "start": 19.688,
-     "end": 19.848,
+     "start": 18.065,
+     "end": 18.329,
      "line": "7d"
     },
     {
-     "w": "thirty-eight,",
-     "start": 19.848,
-     "end": 20.308,
+     "w": "thirty-two,",
+     "start": 18.375,
+     "end": 18.826,
      "line": "7d"
     },
     {
      "w": "with",
-     "start": 20.308,
-     "end": 20.688,
+     "start": 19.125,
+     "end": 19.389,
      "line": "7d"
     },
     {
-     "w": "sixty-nine",
-     "start": 20.688,
-     "end": 21.388,
+     "w": "a",
+     "start": 19.435,
+     "end": 19.699,
      "line": "7d"
     },
     {
-     "w": "percent",
-     "start": 21.388,
-     "end": 21.828,
+     "w": "hundred",
+     "start": 19.745,
+     "end": 20.102,
+     "line": "7d"
+    },
+    {
+     "w": "forty-two",
+     "start": 20.165,
+     "end": 20.569,
+     "line": "7d"
+    },
+    {
+     "w": "thousand",
+     "start": 20.64,
+     "end": 21.044,
      "line": "7d"
     },
     {
      "w": "fewer",
-     "start": 21.828,
-     "end": 22.328,
+     "start": 21.115,
+     "end": 21.379,
      "line": "7d"
+    },
+    {
+     "w": "input",
+     "start": 21.425,
+     "end": 21.689,
+     "line": "7d"
+    },
+    {
+     "w": "tokens,",
+     "start": 21.735,
+     "end": 22.045,
+     "line": "7d"
+    },
+    {
+     "w": "for",
+     "start": 22.32,
+     "end": 22.583,
+     "line": "7d"
+    },
+    {
+     "w": "a",
+     "start": 22.63,
+     "end": 22.893,
+     "line": "7d"
+    },
+    {
+     "w": "dollar",
+     "start": 22.94,
+     "end": 23.25,
+     "line": "7d"
+    },
+    {
+     "w": "thirty-eight.",
+     "start": 23.305,
+     "end": 23.849,
+     "line": "7d"
+    },
+    {
+     "w": "Sixty-three",
+     "start": 24.365,
+     "end": 24.862,
+     "line": "7d"
+    },
+    {
+     "w": "percent",
+     "start": 24.95,
+     "end": 25.307,
+     "line": "7d"
+    },
+    {
+     "w": "less.",
+     "start": 25.37,
+     "end": 25.633,
+     "line": "7d"
+    },
+    {
+     "w": "Vector",
+     "start": 26.65,
+     "end": 26.96,
+     "line": "7e"
+    },
+    {
+     "w": "search",
+     "start": 27.015,
+     "end": 27.325,
+     "line": "7e"
+    },
+    {
+     "w": "cost",
+     "start": 27.38,
+     "end": 27.643,
+     "line": "7e"
+    },
+    {
+     "w": "the",
+     "start": 27.69,
+     "end": 27.953,
+     "line": "7e"
+    },
+    {
+     "w": "same",
+     "start": 28,
+     "end": 28.263,
+     "line": "7e"
+    },
+    {
+     "w": "as",
+     "start": 28.31,
+     "end": 28.573,
+     "line": "7e"
+    },
+    {
+     "w": "ProofFlow,",
+     "start": 28.62,
+     "end": 29.07,
+     "line": "7e"
+    },
+    {
+     "w": "and",
+     "start": 29.37,
+     "end": 29.633,
+     "line": "7e"
+    },
+    {
+     "w": "got",
+     "start": 29.68,
+     "end": 29.943,
+     "line": "7e"
+    },
+    {
+     "w": "five",
+     "start": 29.99,
+     "end": 30.253,
+     "line": "7e"
+    },
+    {
+     "w": "right.",
+     "start": 30.3,
+     "end": 30.563,
+     "line": "7e"
+    },
+    {
+     "w": "Keyword",
+     "start": 31.03,
+     "end": 31.387,
+     "line": "7e"
+    },
+    {
+     "w": "search,",
+     "start": 31.45,
+     "end": 31.76,
+     "line": "7e"
+    },
+    {
+     "w": "twenty-five.",
+     "start": 32.035,
+     "end": 32.532,
+     "line": "7e"
+    },
+    {
+     "w": "Hybrid,",
+     "start": 33.04,
+     "end": 33.35,
+     "line": "7e"
+    },
+    {
+     "w": "twenty-eight.",
+     "start": 33.625,
+     "end": 34.169,
+     "line": "7e"
+    },
+    {
+     "w": "On",
+     "start": 35.235,
+     "end": 35.498,
+     "line": "7f"
+    },
+    {
+     "w": "a",
+     "start": 35.545,
+     "end": 35.808,
+     "line": "7f"
+    },
+    {
+     "w": "separate",
+     "start": 35.855,
+     "end": 36.259,
+     "line": "7f"
+    },
+    {
+     "w": "retail",
+     "start": 36.33,
+     "end": 36.64,
+     "line": "7f"
+    },
+    {
+     "w": "benchmark,",
+     "start": 36.695,
+     "end": 37.146,
+     "line": "7f"
+    },
+    {
+     "w": "thirty-eight",
+     "start": 37.445,
+     "end": 37.989,
+     "line": "7f"
+    },
+    {
+     "w": "of",
+     "start": 38.085,
+     "end": 38.349,
+     "line": "7f"
+    },
+    {
+     "w": "thirty-eight,",
+     "start": 38.395,
+     "end": 38.939,
+     "line": "7f"
+    },
+    {
+     "w": "with",
+     "start": 39.255,
+     "end": 39.519,
+     "line": "7f"
+    },
+    {
+     "w": "sixty-nine",
+     "start": 39.565,
+     "end": 40.016,
+     "line": "7f"
+    },
+    {
+     "w": "percent",
+     "start": 40.095,
+     "end": 40.452,
+     "line": "7f"
+    },
+    {
+     "w": "fewer",
+     "start": 40.515,
+     "end": 40.779,
+     "line": "7f"
     },
     {
      "w": "evidence",
-     "start": 22.328,
-     "end": 22.868,
-     "line": "7d"
+     "start": 40.825,
+     "end": 41.229,
+     "line": "7f"
     },
     {
      "w": "tokens.",
-     "start": 22.868,
-     "end": 23.823,
-     "line": "7d"
+     "start": 41.3,
+     "end": 41.61,
+     "line": "7f"
     },
     {
      "w": "A",
-     "start": 24.323,
-     "end": 24.503,
-     "line": "7e"
+     "start": 42.635,
+     "end": 42.899,
+     "line": "7g"
     },
     {
      "w": "plain",
-     "start": 24.503,
-     "end": 24.983,
-     "line": "7e"
+     "start": 42.945,
+     "end": 43.209,
+     "line": "7g"
     },
     {
      "w": "dependency",
-     "start": 24.983,
-     "end": 25.603,
-     "line": "7e"
+     "start": 43.255,
+     "end": 43.752,
+     "line": "7g"
     },
     {
      "w": "walk",
-     "start": 25.603,
-     "end": 26.083,
-     "line": "7e"
+     "start": 43.84,
+     "end": 44.104,
+     "line": "7g"
+    },
+    {
+     "w": "over",
+     "start": 44.15,
+     "end": 44.414,
+     "line": "7g"
+    },
+    {
+     "w": "the",
+     "start": 44.46,
+     "end": 44.724,
+     "line": "7g"
+    },
+    {
+     "w": "same",
+     "start": 44.77,
+     "end": 45.034,
+     "line": "7g"
+    },
+    {
+     "w": "links",
+     "start": 45.08,
+     "end": 45.344,
+     "line": "7g"
     },
     {
      "w": "ties",
-     "start": 26.083,
-     "end": 26.543,
-     "line": "7e"
+     "start": 45.39,
+     "end": 45.654,
+     "line": "7g"
     },
     {
      "w": "it.",
-     "start": 26.543,
-     "end": 26.803,
-     "line": "7e"
+     "start": 45.7,
+     "end": 45.964,
+     "line": "7g"
     },
     {
      "w": "The",
-     "start": 27.443,
-     "end": 27.763,
-     "line": "7e"
+     "start": 46.43,
+     "end": 46.694,
+     "line": "7g"
     },
     {
-     "w": "point",
-     "start": 27.763,
-     "end": 28.043,
-     "line": "7e"
+     "w": "win",
+     "start": 46.74,
+     "end": 47.004,
+     "line": "7g"
     },
     {
      "w": "is",
-     "start": 28.043,
-     "end": 28.303,
-     "line": "7e"
+     "start": 47.05,
+     "end": 47.314,
+     "line": "7g"
     },
     {
      "w": "recording",
-     "start": 28.303,
-     "end": 28.903,
-     "line": "7e"
+     "start": 47.36,
+     "end": 47.811,
+     "line": "7g"
     },
     {
-     "w": "dependencies.",
-     "start": 28.903,
-     "end": 29.863,
-     "line": "7e"
+     "w": "the",
+     "start": 47.89,
+     "end": 48.154,
+     "line": "7g"
+    },
+    {
+     "w": "structure.",
+     "start": 48.2,
+     "end": 48.651,
+     "line": "7g"
     }
    ]
   },
   "s8": {
    "file": "narration/s8.wav",
-   "duration": 8.694,
+   "duration": 10.295,
    "speech": [
     0.35,
-    8.494
+    9.995
    ],
-   "loudness": {
-    "input_i": -16.82,
-    "output_i": -16.04,
-    "output_tp": -2,
-    "type": "linear gain 0.98 dB + peak limit -2 dBFS (4x oversampled)"
-   },
    "lines": {
     "8a": {
      "start": 0.35,
-     "end": 0.976,
-     "text": "ProofFlow.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "end": 1.3,
+     "text": "ProofFlow."
     },
     "8b": {
-     "start": 1.476,
-     "end": 3.767,
-     "text": "Saved reports that know when they're out of date.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 1.85,
+     "end": 4.92,
+     "text": "Full-context accuracy, at vector-search cost."
     },
     "8c": {
-     "start": 4.267,
-     "end": 8.494,
-     "text": "The sample data is authored. Every result shown is in the public evidence.",
-     "take": "t1",
-     "model": "gemini-3.8-flash-lite-tts",
-     "exact": true
+     "start": 5.47,
+     "end": 9.995,
+     "text": "Try it live. Every number shown is in the public evidence."
     }
    },
    "words": [
     {
      "w": "ProofFlow.",
      "start": 0.35,
-     "end": 0.976,
+     "end": 0.801,
      "line": "8a"
     },
     {
-     "w": "Saved",
-     "start": 1.476,
-     "end": 1.936,
+     "w": "Full-context",
+     "start": 1.85,
+     "end": 2.394,
      "line": "8b"
     },
     {
-     "w": "reports",
-     "start": 1.936,
-     "end": 2.236,
+     "w": "accuracy,",
+     "start": 2.49,
+     "end": 2.894,
      "line": "8b"
     },
     {
-     "w": "that",
-     "start": 2.236,
-     "end": 2.576,
+     "w": "at",
+     "start": 3.185,
+     "end": 3.449,
      "line": "8b"
     },
     {
-     "w": "know",
-     "start": 2.576,
-     "end": 2.756,
+     "w": "vector-search",
+     "start": 3.495,
+     "end": 4.086,
      "line": "8b"
     },
     {
-     "w": "when",
-     "start": 2.756,
-     "end": 2.936,
+     "w": "cost.",
+     "start": 4.19,
+     "end": 4.454,
      "line": "8b"
     },
     {
-     "w": "they're",
-     "start": 2.936,
-     "end": 3.116,
-     "line": "8b"
-    },
-    {
-     "w": "out",
-     "start": 3.116,
-     "end": 3.216,
-     "line": "8b"
-    },
-    {
-     "w": "of",
-     "start": 3.216,
-     "end": 3.336,
-     "line": "8b"
-    },
-    {
-     "w": "date.",
-     "start": 3.336,
-     "end": 3.767,
-     "line": "8b"
-    },
-    {
-     "w": "The",
-     "start": 4.267,
-     "end": 4.367,
+     "w": "Try",
+     "start": 5.47,
+     "end": 5.733,
      "line": "8c"
     },
     {
-     "w": "sample",
-     "start": 4.367,
-     "end": 4.667,
+     "w": "it",
+     "start": 5.78,
+     "end": 6.043,
      "line": "8c"
     },
     {
-     "w": "data",
-     "start": 4.667,
-     "end": 4.927,
-     "line": "8c"
-    },
-    {
-     "w": "is",
-     "start": 4.927,
-     "end": 5.247,
-     "line": "8c"
-    },
-    {
-     "w": "authored.",
-     "start": 5.247,
-     "end": 5.687,
+     "w": "live.",
+     "start": 6.09,
+     "end": 6.353,
      "line": "8c"
     },
     {
      "w": "Every",
-     "start": 6.187,
-     "end": 6.407,
+     "start": 6.82,
+     "end": 7.083,
      "line": "8c"
     },
     {
-     "w": "result",
-     "start": 6.407,
-     "end": 6.727,
+     "w": "number",
+     "start": 7.13,
+     "end": 7.44,
      "line": "8c"
     },
     {
      "w": "shown",
-     "start": 6.727,
-     "end": 7.107,
+     "start": 7.495,
+     "end": 7.758,
      "line": "8c"
     },
     {
      "w": "is",
-     "start": 7.107,
-     "end": 7.347,
+     "start": 7.805,
+     "end": 8.068,
      "line": "8c"
     },
     {
      "w": "in",
-     "start": 7.347,
-     "end": 7.487,
+     "start": 8.115,
+     "end": 8.378,
      "line": "8c"
     },
     {
      "w": "the",
-     "start": 7.487,
-     "end": 7.587,
+     "start": 8.425,
+     "end": 8.689,
      "line": "8c"
     },
     {
      "w": "public",
-     "start": 7.587,
-     "end": 7.807,
+     "start": 8.735,
+     "end": 9.045,
      "line": "8c"
     },
     {
      "w": "evidence.",
-     "start": 7.807,
-     "end": 8.494,
+     "start": 9.1,
+     "end": 9.504,
      "line": "8c"
     }
    ]
   }
- },
- "total": 198.075
+ }
 }
