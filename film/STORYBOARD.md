@@ -1,32 +1,29 @@
-# ProofFlow film: storyboard
+# ProofFlow film: storyboard (v2: framed against today's baselines)
 
 Durations come from the measured narration (timing.json). Every beat below is keyed to a line or word of `research/script.md` through `FILM.at` / `FILM.line`; "→" means "on that word". Numbers on screen must match the repository (sources in script.md). Keep on-screen text sparse; the voice explains.
 
 ---
-## Frame s1 — Monday (hook) · `compositions/s1-monday.html` · status: outline
-Rules: kinetic-type headline + single focal figure; one thread motif introduced.
-- Open on the ground. Top-left, Anybody `.t-head`: **Monday.** stretches in (wdth 60→125) → "Monday".
-- Right of centre: one report card (`.panel`, ~720×380): label "Company weekly report", small tag "Saved by your agent" (`.tag-current` styling is fine), figure **$5,565** counts from $0 → "five thousand" … lands as "dollars" ends.
-- A single thin thread hangs from the figure down off-frame (the lineage we cannot see yet) — drawn on softly under 1b.
-- 1c → "Tuesday": "Monday." is replaced by **Tuesday.** (old word narrows to wdth 50 and fades, new stretches in). A source chip enters bottom-right: `EUR→USD 1.10`; → "corrects": 1.10 is struck and **1.20** appears in `--stale`, chip border turns orange.
-- 1d → "doesn't change": the figure stays exactly $5,565 (a tiny steady "Saved" tag remains) while the thread from it ends in a visible GAP above the chip — no link. → "wrong": the gap end blinks orange once (a single opacity hit, not a loop). Hold.
-- End frame (match → s2): the card at its final position.
+## Frame s1 — Two bad options (hook) · `compositions/s1-monday.html` · status: built (v2)
+Rules: kinetic type, one input, a fork into two lanes ("Today's fixes are heavy or blind", as on the product page). No exact numbers yet; they are saved for s7.
+- 1a: chip **EUR→USD 1.10** stretches in at centre; → "changes": flips to **1.20** in `--stale`. → "Now": it glides into the input row of an unlabelled network; **AI agent** arrives right; dashed sight lines on "work out"; → "what that broke": one orange hop, every node goes dashed `--unknown`.
+- 1b: the agent glides to top centre; → "two": fork threads, two lane rules and a divider draw.
+- 1c (left lane, **Re-read everything**): document lines stream from a stack into an **Agent context** window and overflow it; **Accurate** tag; token meter fills on "pay for every token"; cost ticks one $ per beat; → "every time": the window empties and floods again.
+- 1d (right lane, **Search what looks related**): `exchange rate` types into a search pill; a beam lights only the decoys that share the word ("Response rate", "Rate review"); meters show a sliver; → "blind": Company total ($5,565) outlined orange; → "matters": **Missed**.
+- End frame = s2's first frame.
 
-## Frame s2 — The problem · `compositions/s2-problem.html` · status: outline
-Rules: pull-back reveal into a network; split comparison.
-- First frame = s1's card. Camera pulls back (world scale 1 → ~0.42, card stays sharp because it is re-laid at smaller size — build the world at final size and start it scaled up ≤1.15 is NOT allowed for text; instead animate card width/height/position or crossfade to a small node). The card becomes one node among ~11 report and result nodes; beneath them a row of inputs (Orders, Refunds, EUR→USD, Tickets, a tool version). Hairline threads (`--hairline`) connect them; → "depends on inputs underneath": threads light bottom-up in `--thread`.
-- 2b → "which numbers": the EUR→USD input turns orange. Headline top-left `.t-head-s`: **Which numbers are now wrong?** Nodes go dashed `--unknown` (uncertain), not "?" dots.
-- 2c → "Re-reading everything": left half. Every node's text streams as lines into a "context" container that fills and overflows its top edge; label `Everything, every time` (muted). Small factual caption allowed: "Full context: 128,729 evidence tokens (retail benchmark)".
-- 2d → "Searching": right half. A search field types `exchange rate`; a scan line passes over the network; only the 2 nodes whose text mentions the rate highlight; the company report (which depends on it silently) is NOT highlighted → "never mention it": it gets an orange outline with the label **Missed**.
-- End: both halves hold side by side.
+## Frame s2 — Why search goes blind · `compositions/s2-problem.html` · status: built (v2)
+- First frame = s1's last (shared drawing code between `/*@@SHARED…@@*/` markers; regenerate s2's copy if s1's drawing changes).
+- 2a: lanes fade; the right lane's nodes glide into a 14-node network built bottom-up; threads light from inputs up on "depends on inputs underneath".
+- 2b: → "exchange rate": 1.10 → 1.20, orange outline; → "some … numbers": Regional USD, Company, EU brief, Board deck, Weekly recap go dashed `--unknown`.
+- 2c: all dims except rate → Regional → Company; a callout shows the report's own text ("Revenue this week: $5,565, net of refunds.") while the hidden thread draws orange; → "mentioning": "~~rate~~ never mentioned".
+- 2d: headline **Similar words ≠ real dependencies**; word-match marker on the decoys while the real dependency threads complete.
 
-## Frame s3 — The idea · `compositions/s3-idea.html` · status: outline
-Rules: wordmark reveal + receipt unfold. Music opens here (mark `name`).
-- → "ProofFlow" (mark `name`): the wordmark **ProofFlow** (`.t-hero`) builds from a single thread that draws across the frame and resolves into the letters (letters stretch in wdth 50→132 in a quick stagger). The P's bowl is a thread loop in `--thread`; a small `--current` dot sits after it (as on the site's favicon).
-- 3b → "Every number": wordmark slides up and shrinks to top-left (`.t-head-s` size, re-laid, not scaled up). The **$5,565** figure returns centre-left; → "receipts": a receipt panel unfolds beneath/right of it (`.panel`, tall, ticket-like with a perforated top edge drawn as dashes): lines appear one by one → "inputs": `orders · v1`, `refunds · v1`, `EUR→USD 1.10 · v1` (use plain words, e.g. "Orders, version 1"); → "calculation": `convert_to_usd`, `company_total` (`.t-mono`). Threads tie the figure to each receipt line.
-- 3c → "hold back": tag **Withheld** (stale tag) appears left; → "redo": tag **Refresh** (current) right. Hold.
+## Frame s3 — The idea · `compositions/s3-idea.html` · status: built (v2)
+- 3a (mark `name`): thread-to-wordmark build of **ProofFlow**; a **context layer** pill reveals word by word.
+- 3b: mark to top-left; **Company total $5,565** returns; → "receipts": a receipt unfolds (Orders v1, Refunds v1, EUR→USD 1.10 v1; tool `convert_to_usd`, `company_total`) tied by threads.
+- 3c: → "changes": 1.10 struck, 1.20, pulse; → "the agent": s2's network returns dimmed with the affected slice outlined; → "exactly what broke": the slice lifts into an **Agent context** window; → "Nothing more": the rest darkens, the window closes. Hard cut to s4's empty ground.
 
-## Frame s4 — How it works · `compositions/s4-how.html` · status: outline
+## Frame s4 — How it works · `compositions/s4-how.html` · status: built (v2: 4f lands **Current** on "current" and **Reused** on "reused")
 Rules: a chain diagram that builds node by node, then propagation and refresh. This is the beginner's core explanation; give it room and clarity.
 Layout (world, left→right, vertically centred): `Exchange rate` source node (version chip "v1 · 1.10") → `Conversion` receipt node (pill; label "Execution receipt") → `Regional USD` artifact node ("Immutable result") → two report cards: **Company report** ($5,565) and **EU brief** ($2,090). Below: a `Support tickets` artifact node with threads to both reports (support count **2** shown in each).
 - 4a → "exchange rate": source node draws in; caption under it "saved as a version".
@@ -37,15 +34,16 @@ Layout (world, left→right, vertically centred): `Exchange rate` source node (v
 - 4f → "Support": the support node and its threads stay `--thread`/current; tag **Current** on support; its two "2" figures stay bright.
 - 4g → "Refresh": mint pulses re-run the stale steps in order (receipt pill shows "re-ran"), figures restore and count: $5,565 → **$5,755**, $2,090 → **$2,280**; support shows **Reused**. A small line bottom-left: "4 tools ran. Support reused." Hold the completed, all-current diagram.
 
-## Frame s5 — Working today · `compositions/s5-product.html` · status: outline
-Rules: real product stills in a browser frame; one outline highlight per beat; camera glides between crops. Stills from `stills/stills.json` (see `node tools/sync.mjs --list`). Use the actual figures visible in the stills.
-- 5a → "running today": a large `.window` with a slim bar showing `proofflow.arnavbule.in` slides in from the right; still `p01-workspace` (or the closest full frame). Headline top-left small: **Running today.**
-- 5b → "CSV": cut inside the window to `p06-csv-preview` (outline the preview table); → "create": `p07-csv-created` (outline the report figures).
-- 5c → "corrected rate": `p08-csv-stale` (or `p03-stale`): outline the stale banner in `--stale`, then the withheld figures; → "evidence path": crop of the evidence/graph (`p04-evidence` crop) with outline on the path.
-- 5d → "Refresh": `p09-csv-refreshed` (or `p05-refreshed`): outline new values `fresh`; → "copied": outline the "Copy checked report" control; a small tag "Only while every figure is current".
-- 5e → "Agents": the window slides left and shrinks (re-laid, not scaled up); on the right five mono chips appear in a column, each tied by a thread to a small "Agent" node: `load_csv`, `prepare`, `execute_plan`, `inspect`, `refresh`; caption "over MCP". Hold.
+## Frame s5 — Live today · `compositions/s5-product.html` · status: built (v2)
+Real stills from the restyled app (dark theme) against the hosted backend; see `stills/README.md` and `tools/capture-stills.mjs`. One outline per beat inside a `.window` with the `proofflow.arnavbule.in` bar.
+- 5a: window slides in on `p01-workspace`; title **ProofFlow, live today.** word by word.
+- 5b: "upload" CSV form; "preview" preview card (green); "create" saved reports $308 / NORTH $108 (outline on "two").
+- 5c: "publish" update drawer → 1.30 field outlined orange on "rate"; "affected" withheld figures; "graph" the affected path with the corrected rate source outlined on "shows".
+- 5d: "refresh" $317 / $117 outlined green on "current"; "checked" the verified line, then **Copy checked report** outlined on "copied".
+- 5e: window shrinks left; an **Agent** node threads to six chips: `create_csv_reports`, `inspect_reports`, `inspect_evidence`, `update_csv`, `refresh_reports`, `export_current_reports`; "over MCP · one download".
 
-## Frame s6 — Under the hood · `compositions/s6-architecture.html` · status: outline
+## Frame s6 — Under the hood · `compositions/s6-architecture.html` · status: built (v2)
+v2 changes: new 6f — on "walk" a ghosted **Full re-read** block appears; the found descendants lift out of HydraDB into a compact **Agent context** panel (about a third of its area); "Skip the re-read" strikes and collapses the ghost. Old 6f/6g are now 6g/6h; old 6h+6i merged into 6i (doors draw on "browser", "Python", "MCP"; typed tools; "arbitrary code" refused).
 Rules: the architecture builds from nothing, one component per line, in a fixed final layout that is readable when paused; then runs once with no voice; then holds. The most technical frame — slow, layered, precise.
 Final layout (1920×1080, safe area respected):
 - Left column ("doors"): **Browser app** (React), **Python API** (`ProofFlowRuntime`), **MCP server** (5 typed tools). Browser connects through **FastAPI** (`api.py`) to the runtime.
@@ -64,17 +62,17 @@ Beats:
 - 6i → "typed tools": five tool names list on the MCP door; → "arbitrary code": a chip `arbitrary code` approaches the MCP door and is refused (struck through, falls away, `--unknown`).
 - Run (mark `run`, no voice ≈ 6 s): one correction flows end to end: Browser → FastAPI → Runtime → HydraDB (descendants light) → Tools re-run → Store commit (hash check) → back to the Browser where a figure re-inks $5,755. Tiny hop labels. Then the final frame holds perfectly still (≥ 2 s) — a judge-readable pause frame.
 
-## Frame s7 — Results · `compositions/s7-results.html` · status: outline
-Rules: stat hits + honest comparison bars. Exact figures, sources in a small caption.
-- 7a → "Does it work?": `.t-head` top-left.
-- 7b → "thirty-two": giant **32/32** (`.t-hero` figure, counts up 0→32) with label "affected reports refreshed — frozen study, real model, 48 invocations". → "under forty percent": a proportional bar pair: Full context 100 % vs ProofFlow **39.33 %** of provider input exposure (label exactly "39.33% of full context's input").
-- 7c → "Keyword search": horizontal bars out of 32: ProofFlow 32 (thread colour), BM25 **25**, Vector (BGE) **5** (muted). Exact-flat and iterative hybrid may be shown faint (32, 28).
-- 7d → "retail benchmark": second stat **38/38** + "69.41% fewer evidence tokens" (39,375 vs 128,729).
-- 7e → "plain dependency walk": a bar "Exact dependency walk 32/32 · 38/38" slides in level with ProofFlow's — tie made visible; → "recording dependencies": the two tied bars share one bracket labelled "Explicit dependencies". Caption bottom: `docs/MODEL_COMPARISON_RESULTS.md · docs/RETAIL_V2_RESULTS.md` (mono, small).
+## Frame s7 — Against today's approaches · `compositions/s7-results.html` · status: built (v2)
+One chart that builds method by method: reports right (of 32) vs input tokens for the whole study, plus a list-price ledger. Sources: docs/MODEL_COMPARISON_RESULTS.md · docs/RETAIL_V2_RESULTS.md. No speed claim; costs labelled "List price, whole study".
+- 7a title **How does it compare?**; 7b caption "Frozen study · 48 real model calls · same task for every method", axes draw on "Forty-eight".
+- 7c Full context: 219,145 tokens, 32/32, ledger $3.74.
+- 7d ProofFlow: 77,071 tokens, 32/32; the rest of full context's band hollows out as **142,074 fewer input tokens**; ledger $1.38, **−63%**.
+- 7e Vector 5/32 at the same price, bracket **6.4× more right than vector search, at the same list price**; Keyword 25/32 ($1.43), Hybrid 28/32 ($1.45).
+- 7f Separate retail benchmark **38/38 · −69% evidence tokens**.
+- 7g "Exact dependency walk · ties · 32/32 · 38/38" ringed on ProofFlow's mark; bracket **The structure is the win.**
 
-## Frame s8 — Close · `compositions/s8-close.html` · status: outline
-Rules: converge and resolve; the one disclosure, once.
-- Threads from all four edges converge to centre and resolve into the wordmark **ProofFlow** → "ProofFlow" (mark `finalName`) — designed differently from s3 (here: threads become the letters' baselines, then the wordmark settles; one mint dot lands).
-- → "Saved reports": tagline beneath (`.t-sub`): **Saved reports that know when they're out of date.**
-- `proofflow.arnavbule.in` in `.t-mono` below.
-- → "authored": the disclosure in `.t-small` at the bottom: "Sample data is authored. Every result shown is in the public evidence." Hold to the end on the final chord; nothing moves for the last ~1.5 s.
+## Frame s8 — Close · `compositions/s8-close.html` · status: built (v2)
+- 8a (mark `finalName`): threads converge into the **ProofFlow** wordmark.
+- 8b: **Full‑context accuracy at vector‑search cost.** word by word.
+- 8c (go-to-market): chips on their words: Finance close · Revenue & FX reporting · Commerce analytics; → "MCP": "Any agent → MCP connector (one download)".
+- 8d: `proofflow.arnavbule.in` writes on at "Try"; "Every number shown is in the public evidence."; hold still ≥ 1.5 s.
