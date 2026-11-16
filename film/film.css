@@ -1,0 +1,233 @@
+/* ProofFlow film: the one visual system (DESIGN.md). Every section uses these tokens and classes; do not add
+   colours or font families in a section file. One flat ground for the whole film; no glow, blur, grain or scrim. */
+
+@font-face {
+  font-family: "Anybody";
+  src: url("assets/fonts/Anybody-VF.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 50% 150%;
+  font-display: block;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("assets/fonts/InstrumentSans-VF.woff2") format("woff2");
+  font-weight: 400 700;
+  font-stretch: 75% 100%;
+  font-display: block;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("assets/fonts/JetBrainsMono-VF.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: block;
+}
+
+:root {
+  /* ground and ink: the site's "night ledger" dark theme */
+  --ground: #0a0d24;
+  --panel: #11153a;
+  --panel-2: #171c4a;
+  --hairline: #262b55;
+  --rule: #3a4078;
+  --ink: #e9ecfa;
+  --muted: #a6adcf;
+  --faint: #767da6;
+
+  /* the thread: lineage, brand */
+  --thread: #8090ff;
+  --thread-strong: #a5b0ff;
+  --thread-soft: #1d2360;
+
+  /* state colours mean state only */
+  --current: #34e3b6;
+  --current-soft: #0e2f33;
+  --stale: #ff8f52;
+  --stale-soft: #3a1e1a;
+  --unknown: #a0a6c8;
+
+  --font-display: "Anybody", "Instrument Sans", sans-serif;
+  --font-sans: "Instrument Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html,
+body {
+  margin: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums lining-nums;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+#film-ground {
+  position: absolute;
+  inset: 0;
+  background: var(--ground);
+}
+
+/* ---------- Type scale (CSS px on the 1920 x 1080 canvas) ---------- */
+.t-hero,
+.t-head,
+.t-head-s,
+.t-sub,
+.t-sub-s,
+.fig {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+  margin: 0;
+}
+.t-hero { font-size: 168px; font-variation-settings: "wdth" 132; }
+.t-head { font-size: 112px; font-variation-settings: "wdth" 125; }
+.t-head-s { font-size: 80px; font-variation-settings: "wdth" 120; }
+.t-sub { font-size: 56px; font-weight: 700; font-variation-settings: "wdth" 112; line-height: 1.1; }
+.t-sub-s { font-size: 44px; font-weight: 700; font-variation-settings: "wdth" 108; line-height: 1.12; }
+.t-body { font-family: var(--font-sans); font-size: 40px; line-height: 1.35; font-weight: 450; color: var(--muted); margin: 0; }
+.t-label { font-family: var(--font-sans); font-size: 30px; font-weight: 600; color: var(--muted); margin: 0; }
+.t-small { font-family: var(--font-sans); font-size: 26px; font-weight: 500; color: var(--faint); margin: 0; }
+.t-mono { font-family: var(--font-mono); font-size: 26px; font-weight: 500; color: var(--thread-strong); letter-spacing: 0; }
+
+.ink { color: var(--ink); }
+.muted { color: var(--muted); }
+.thread { color: var(--thread); }
+.is-current { color: var(--current); }
+.is-stale { color: var(--stale); }
+
+/* Kinetic words created by FILM.speakWords */
+.kw { display: inline-block; }
+
+/* ---------- Figures: numbers that carry state ----------
+   <div class="fig" id="..."><span class="fig-v">$5,565</span><span class="withheld-hatch"></span></div>
+   FILM.withhold / FILM.restore animate --wdth, --fig-dim and the hatch. */
+.fig {
+  --wdth: 125;
+  --fig-dim: 0;
+  position: relative;
+  display: inline-block;
+  font-variation-settings: "wdth" var(--wdth);
+  font-size: 120px;
+  color: color-mix(in srgb, var(--ink) calc((1 - var(--fig-dim)) * 100%), var(--muted));
+}
+.fig-v { position: relative; z-index: 1; }
+.withheld-hatch {
+  position: absolute;
+  inset: 4% -3% 4% -3%;
+  border-radius: 8px;
+  opacity: 0;
+  background: repeating-linear-gradient(135deg, var(--stale-soft) 0 10px, transparent 10px 20px);
+  box-shadow: inset 0 0 0 3px var(--stale);
+  z-index: 0;
+}
+
+/* ---------- State tags ---------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 22px 0 18px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 26px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+.tag::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: currentColor; }
+.tag-current { color: var(--current); background: var(--current-soft); }
+.tag-stale { color: var(--stale); background: var(--stale-soft); }
+.tag-stale::before { border-radius: 2px; transform: rotate(45deg); }
+.tag-reused { color: var(--current); box-shadow: inset 0 0 0 2px var(--current); }
+.tag-blocked { color: var(--unknown); box-shadow: inset 0 0 0 2px var(--unknown); }
+
+/* ---------- Nodes of the lineage graph ---------- */
+.node {
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 18px 26px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 3px solid var(--thread);
+  color: var(--ink);
+}
+.node-title { font-family: var(--font-display); font-weight: 750; font-size: 34px; font-variation-settings: "wdth" 112; line-height: 1.05; }
+.node-sub { font-family: var(--font-sans); font-size: 24px; font-weight: 500; color: var(--muted); }
+.node.pill { border-radius: 999px; }
+.node.source { border-left-width: 10px; }
+.node.is-stale { border-color: var(--stale); background: repeating-linear-gradient(135deg, var(--stale-soft) 0 10px, var(--panel) 10px 20px); }
+.node.is-current { border-color: var(--current); }
+.node.is-blocked { border-color: var(--unknown); border-style: dashed; }
+
+/* Threads: SVG strokes. Put svgs at the section's 0,0 sized 1920x1080 (viewBox 0 0 1920 1080). */
+.threads { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+.threads path,
+.threads line,
+.threads polyline { fill: none; stroke: var(--thread); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.threads .base { stroke: var(--hairline); }
+.threads .stale { stroke: var(--stale); }
+.threads .fresh { stroke: var(--current); }
+.threads .dashed { stroke-dasharray: 10 12; }
+
+/* A travelling pulse */
+.pulse {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--stale);
+  box-shadow: 0 0 0 7px var(--stale-soft);
+  opacity: 0;
+}
+.pulse.fresh { background: var(--current); box-shadow: 0 0 0 7px var(--current-soft); }
+.pulse.thread { background: var(--thread-strong); box-shadow: 0 0 0 7px var(--thread-soft); }
+
+/* ---------- Panels and product windows ---------- */
+.panel {
+  position: absolute;
+  box-sizing: border-box;
+  background: var(--panel);
+  border: 2px solid var(--hairline);
+  border-radius: 18px;
+}
+/* A real product still: FILM.mountStill sizes it and adds the <img>. Crisp, no shadow, no filter. */
+.window {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px var(--rule);
+}
+.window img { position: absolute; max-width: none; image-rendering: auto; }
+.window-bar {
+  position: absolute;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--muted);
+}
+
+/* FILM.outline highlight */
+.hl { position: absolute; overflow: visible; pointer-events: none; z-index: 5; }
+.hl rect { fill: none; stroke: var(--thread-strong); stroke-width: 4; }
+.hl.stale rect { stroke: var(--stale); }
+.hl.fresh rect { stroke: var(--current); }
+
+/* Fine rules used as structure */
+.rule-h { position: absolute; height: 2px; background: var(--hairline); transform-origin: left center; }
+.rule-v { position: absolute; width: 2px; background: var(--hairline); transform-origin: center top; }

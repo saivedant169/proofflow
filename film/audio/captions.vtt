@@ -1,0 +1,353 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:04.029
+Monday. Your AI agent saves a report.
+
+2
+00:00:04.579 --> 00:00:06.146
+Company revenue: five thousand,
+
+3
+00:00:06.186 --> 00:00:09.207
+five hundred sixty-five dollars.
+
+4
+00:00:09.757 --> 00:00:11.666
+Tuesday, someone corrects the euro
+
+5
+00:00:11.706 --> 00:00:12.706
+exchange rate.
+
+6
+00:00:13.251 --> 00:00:14.914
+The report doesn't change.
+
+7
+00:00:15.164 --> 00:00:17.044
+Nothing tells it that it's wrong.
+
+8
+00:00:18.350 --> 00:00:20.420
+Agents build on their own saved work,
+
+9
+00:00:20.490 --> 00:00:23.270
+so every number quietly depends on inputs
+
+10
+00:00:23.310 --> 00:00:24.310
+underneath.
+
+11
+00:00:24.542 --> 00:00:26.580
+When one input changes,
+
+12
+00:00:26.750 --> 00:00:28.573
+which numbers are now wrong?
+
+13
+00:00:28.823 --> 00:00:31.019
+Re-reading everything floods the model
+
+14
+00:00:31.059 --> 00:00:32.300
+with context.
+
+15
+00:00:32.550 --> 00:00:35.645
+Searching for related text misses numbers
+
+16
+00:00:35.685 --> 00:00:37.845
+that depend on the change but never
+
+17
+00:00:37.885 --> 00:00:39.396
+mention it.
+
+18
+00:00:40.650 --> 00:00:42.952
+ProofFlow takes a different path.
+
+19
+00:00:43.202 --> 00:00:45.896
+Every number keeps its receipts:
+
+20
+00:00:46.046 --> 00:00:48.226
+exactly which inputs, and which
+
+21
+00:00:48.266 --> 00:00:50.000
+calculation, made it.
+
+22
+00:00:50.250 --> 00:00:51.981
+So it knows what to hold back,
+
+23
+00:00:52.021 --> 00:00:54.102
+and what to redo.
+
+24
+00:00:56.050 --> 00:00:58.652
+An input, like the exchange rate,
+
+25
+00:00:58.862 --> 00:01:00.688
+is saved as a version.
+
+26
+00:01:00.938 --> 00:01:03.834
+A tool reads it, and leaves a receipt.
+
+27
+00:01:04.084 --> 00:01:06.296
+The receipt points to its result,
+
+28
+00:01:06.386 --> 00:01:09.166
+and each number in a report points to that
+
+29
+00:01:09.206 --> 00:01:10.206
+result.
+
+30
+00:01:10.529 --> 00:01:12.360
+Now, correct the rate.
+
+31
+00:01:12.810 --> 00:01:14.980
+The change travels up those links.
+
+32
+00:01:15.690 --> 00:01:17.380
+Both revenue figures are withheld,
+
+33
+00:01:17.470 --> 00:01:18.772
+never shown stale.
+
+34
+00:01:19.022 --> 00:01:20.693
+Support never read the rate,
+
+35
+00:01:20.733 --> 00:01:22.086
+so it stays.
+
+36
+00:01:22.336 --> 00:01:25.498
+Refresh re-runs only the affected steps.
+
+37
+00:01:27.250 --> 00:01:29.865
+This is ProofFlow, running today.
+
+38
+00:01:30.115 --> 00:01:32.084
+Upload orders as a CSV,
+
+39
+00:01:32.535 --> 00:01:35.618
+preview them, and create the reports.
+
+40
+00:01:35.868 --> 00:01:37.538
+Publish a corrected rate.
+
+41
+00:01:37.828 --> 00:01:39.508
+Affected figures are withheld,
+
+42
+00:01:39.548 --> 00:01:41.762
+and the evidence path shows why.
+
+43
+00:01:42.012 --> 00:01:43.949
+Refresh brings them current,
+
+44
+00:01:44.119 --> 00:01:46.499
+and a checked report can only be copied
+
+45
+00:01:46.539 --> 00:01:48.892
+while every figure is current.
+
+46
+00:01:49.142 --> 00:01:50.462
+Agents get the same power,
+
+47
+00:01:50.502 --> 00:01:52.931
+through five MCP tools.
+
+48
+00:01:54.450 --> 00:01:56.368
+Under the hood, it's small,
+
+49
+00:01:56.408 --> 00:01:57.943
+and strict.
+
+50
+00:01:58.393 --> 00:02:00.283
+At the center is the runtime.
+
+51
+00:02:00.973 --> 00:02:02.913
+Every tool run produces an immutable
+
+52
+00:02:02.953 --> 00:02:05.302
+result, and a receipt.
+
+53
+00:02:05.552 --> 00:02:08.153
+Content goes into a store that verifies
+
+54
+00:02:08.193 --> 00:02:09.779
+every hash.
+
+55
+00:02:10.029 --> 00:02:12.171
+Relationships go into HydraDB,
+
+56
+00:02:12.211 --> 00:02:14.358
+as a lineage graph.
+
+57
+00:02:14.608 --> 00:02:15.923
+When a correction arrives,
+
+58
+00:02:16.053 --> 00:02:18.653
+HydraDB walks that graph natively,
+
+59
+00:02:18.693 --> 00:02:21.264
+to find everything downstream.
+
+60
+00:02:21.514 --> 00:02:24.399
+The runtime re-runs stale steps in order,
+
+61
+00:02:24.709 --> 00:02:26.419
+reuses what's current,
+
+62
+00:02:26.789 --> 00:02:28.691
+and records new receipts.
+
+63
+00:02:28.941 --> 00:02:30.331
+If evidence is missing,
+
+64
+00:02:30.621 --> 00:02:33.131
+it fails closed. No fallback.
+
+65
+00:02:33.561 --> 00:02:34.561
+No guess.
+
+66
+00:02:34.667 --> 00:02:36.762
+Around it: a browser app,
+
+67
+00:02:36.832 --> 00:02:40.089
+a Python API, and an MCP server.
+
+68
+00:02:40.339 --> 00:02:43.135
+Agents choose plans from typed tools,
+
+69
+00:02:43.285 --> 00:02:45.647
+but never run arbitrary code.
+
+70
+00:02:53.950 --> 00:02:54.950
+Does it work?
+
+71
+00:02:55.311 --> 00:02:58.127
+In a frozen study with a real model,
+
+72
+00:02:58.457 --> 00:03:00.477
+ProofFlow refreshed all thirty-two
+
+73
+00:03:00.517 --> 00:03:03.957
+affected reports, matching full context at
+
+74
+00:03:03.997 --> 00:03:06.376
+under forty percent of its input.
+
+75
+00:03:06.626 --> 00:03:08.736
+Keyword search managed twenty-five.
+
+76
+00:03:08.806 --> 00:03:10.810
+Vector search, five.
+
+77
+00:03:11.060 --> 00:03:12.558
+On a retail benchmark:
+
+78
+00:03:12.768 --> 00:03:13.868
+thirty-eight of thirty-eight,
+
+79
+00:03:13.908 --> 00:03:16.428
+with sixty-nine percent fewer evidence
+
+80
+00:03:16.468 --> 00:03:17.673
+tokens.
+
+81
+00:03:17.923 --> 00:03:20.653
+A plain dependency walk ties it.
+
+82
+00:03:21.043 --> 00:03:23.713
+The point is recording dependencies.
+
+83
+00:03:25.450 --> 00:03:26.450
+ProofFlow.
+
+84
+00:03:26.576 --> 00:03:28.276
+Saved reports that know when they're out
+
+85
+00:03:28.316 --> 00:03:29.316
+of date.
+
+86
+00:03:29.367 --> 00:03:31.037
+The sample data is authored.
+
+87
+00:03:31.287 --> 00:03:32.867
+Every result shown is in the public
+
+88
+00:03:32.907 --> 00:03:33.907
+evidence.

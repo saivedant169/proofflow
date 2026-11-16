@@ -1,0 +1,241 @@
+<!doctype html>
+<!-- ProofFlow film, s1 "Monday" (the hook). A saved report states a confident figure; its lineage thread hangs
+     down to nothing; Tuesday the rate is corrected below it, the change climbs its own stub and dies in the gap.
+     The last frame is drawn again, identically, as s2's first frame (shared constants marked SHARED). -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ground);
+        }
+        /* SHARED with s2: every position in this block */
+        .s1-head {
+          position: absolute;
+          left: 120px;
+          top: 96px;
+          white-space: nowrap;
+          color: var(--ink);
+          --s1-w: 125;
+          font-variation-settings: "wdth" var(--s1-w);
+        }
+        .s1-card {
+          left: 880px;
+          top: 260px;
+          width: 720px;
+          height: 380px;
+        }
+        .s1-card-label {
+          position: absolute;
+          left: 48px;
+          top: 42px;
+          white-space: nowrap;
+        }
+        .s1-fig {
+          position: absolute;
+          left: 44px;
+          top: 100px;
+          white-space: nowrap;
+        }
+        .s1-saved {
+          position: absolute;
+          left: 48px;
+          top: 284px;
+        }
+        .s1-trace {
+          position: absolute;
+          left: 880px;
+          top: 260px;
+          width: 720px;
+          height: 380px;
+          overflow: visible;
+        }
+        .s1-trace rect {
+          fill: none;
+          stroke: var(--thread);
+          stroke-width: 3;
+        }
+        .s1-threads circle {
+          stroke-width: 4;
+        }
+        .s1-threads .s1-anchor {
+          fill: var(--thread);
+        }
+        .s1-threads .s1-ring {
+          fill: var(--ground);
+          stroke: var(--thread);
+        }
+        .s1-threads .s1-ring-hot {
+          fill: var(--ground);
+          stroke: var(--stale);
+        }
+        .s1-threads path.s1-stub {
+          stroke: var(--rule);
+        }
+        .s1-chip {
+          position: absolute;
+          left: 1150px;
+          top: 880px;
+          height: 88px;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          padding: 0 34px 0 30px;
+          border-radius: 999px;
+          background: var(--panel);
+          border: 3px solid var(--stale);
+          white-space: nowrap;
+        }
+        .s1-chip-name {
+          color: var(--ink);
+        }
+        .s1-num {
+          position: relative;
+          display: inline-block;
+          width: 104px;
+          overflow: visible;
+        }
+        .s1-old {
+          color: var(--faint);
+        }
+        .s1-strike {
+          position: absolute;
+          left: -6px;
+          width: 112px;
+          top: 23px;
+          height: 4px;
+          border-radius: 2px;
+          background: var(--stale);
+          transform-origin: left center;
+        }
+        .s1-gate {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1920px;
+          height: 1080px;
+          pointer-events: none;
+        }
+        .s1-newbox {
+          display: inline-block;
+          width: 104px;
+          overflow: hidden;
+        }
+      </style>
+
+      <div id="root" data-composition-id="s1-monday" data-width="1920" data-height="1080" data-duration="18">
+        <h1 id="s1-monday" class="s1-head t-head">Monday.</h1>
+        <h1 id="s1-tuesday" class="s1-head t-head">Tuesday.</h1>
+
+        <div id="s1-card" class="panel s1-card">
+          <p id="s1-card-label" class="t-label s1-card-label">Company weekly report</p>
+          <div id="s1-fig" class="fig s1-fig"><span class="fig-v">$5,565</span><span class="withheld-hatch"></span></div>
+          <span id="s1-saved" class="tag tag-current s1-saved">Saved by your agent</span>
+        </div>
+        <svg id="s1-trace" class="s1-trace" viewBox="0 0 720 380">
+          <rect id="s1-trace-rect" x="0" y="0" width="720" height="380" rx="18" />
+        </svg>
+
+        <div id="s1-chip" class="s1-chip">
+          <span class="t-label s1-chip-name">EUR→USD</span>
+          <span class="s1-num"><span id="s1-old" class="t-sub-s s1-old">1.10</span><span id="s1-strike" class="s1-strike"></span></span>
+          <span id="s1-newbox" class="s1-newbox"><span id="s1-new" class="t-sub-s is-stale">1.20</span></span>
+        </div>
+
+        <svg class="threads s1-threads" viewBox="0 0 1920 1080">
+          <path id="s1-thread" d="M1380 512 V1120" />
+          <path id="s1-stub" class="s1-stub" d="M1380 880 V800" />
+          <path id="s1-stub-hot" class="stale" d="M1380 880 V800" />
+          <circle id="s1-anchor" class="s1-anchor" cx="1380" cy="512" r="9" />
+          <circle id="s1-ring-a" class="s1-ring" cx="1380" cy="720" r="9" />
+          <circle id="s1-ring-a-hot" class="s1-ring-hot" cx="1380" cy="720" r="9" />
+          <circle id="s1-ring-b" class="s1-ring" cx="1380" cy="800" r="9" />
+          <circle id="s1-ring-b-hot" class="s1-ring-hot" cx="1380" cy="800" r="9" />
+        </svg>
+        <!-- the gate keeps the pulse dark outside its own run (pulseAlong's fade-out renders immediately) -->
+        <div id="s1-pulse-gate" class="s1-gate"><div id="s1-pulse" class="pulse"></div></div>
+      </div>
+
+      <script>
+        (() => {
+          const S = "s1";
+          const tl = gsap.timeline({ paused: true });
+          const root = getComputedStyle(document.documentElement);
+          const tok = (name) => root.getPropertyValue(name).trim();
+          const at = (text, nth = 1, offset = 0) => FILM.at(S, text, nth, offset);
+          const atEnd = (text, nth = 1, offset = 0) => FILM.atEnd(S, text, nth, offset);
+          const L = { a: FILM.line("1a"), b: FILM.line("1b"), c: FILM.line("1c"), d: FILM.line("1d") };
+          const usd = (v) => "$" + Math.round(v).toLocaleString("en-US");
+
+          // 1a "Monday." stretches in on its own word, at final size (Anybody width 60 -> 125).
+          const tMon = Math.max(0, at("Monday", 1, -0.12));
+          tl.fromTo("#s1-monday", { "--s1-w": 60, opacity: 0 }, { "--s1-w": 125, opacity: 1, duration: 0.8, ease: "expo.out" }, tMon);
+          tl.fromTo("#s1-tuesday", { "--s1-w": 60, opacity: 0 }, { "--s1-w": 60, opacity: 0, duration: 0.01 }, 0);
+
+          // "saves": the report is saved — its outline traces on, then the panel commits under it.
+          const tSave = at("saves", 1, -0.05);
+          FILM.drawThread(tl, "#s1-trace-rect", tSave, { duration: 0.6, ease: "power2.inOut" });
+          tl.fromTo("#s1-card", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power1.out" }, tSave + 0.45);
+          tl.fromTo("#s1-trace", { opacity: 1 }, { opacity: 0, duration: 0.4, ease: "power1.out" }, tSave + 0.75);
+          tl.fromTo("#s1-card-label", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.5, ease: FILM.ease }, tSave + 0.5);
+          // "report": the agent's stamp.
+          tl.fromTo("#s1-saved", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, atEnd("report", 1, 0.02));
+
+          // 1b the figure: "Company revenue" -> $0 appears; counts from "five" and lands as "dollars" ends.
+          tl.fromTo("#s1-fig", { opacity: 0, "--wdth": 70 }, { opacity: 1, "--wdth": 125, duration: 0.6, ease: "expo.out" }, L.b.localStart);
+          const tFive = at("five");
+          FILM.countTo(tl, "#s1-fig .fig-v", 0, 5565, tFive, {
+            duration: Math.max(0.6, atEnd("dollars") - tFive),
+            ease: "power2.inOut",
+            format: usd,
+          });
+          // the lineage we cannot see yet: a thread hangs from the figure down off the frame
+          const tThread = at("hundred", 1, 0.1);
+          tl.fromTo("#s1-anchor", { opacity: 0, scale: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, tThread);
+          FILM.drawThread(tl, "#s1-thread", tThread + 0.1, { duration: 1.2, ease: "power2.inOut" });
+
+          // 1c "Tuesday": Monday narrows out, Tuesday stretches in.
+          const tTue = at("Tuesday", 1, -0.05);
+          tl.fromTo("#s1-monday", { "--s1-w": 125, opacity: 1 }, { "--s1-w": 50, opacity: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, tTue);
+          tl.fromTo("#s1-tuesday", { "--s1-w": 60, opacity: 0 }, { "--s1-w": 125, opacity: 1, duration: 0.8, ease: "expo.out", immediateRender: false }, tTue + 0.22);
+          // the thread pulls back up to an open end; the rate rises in underneath it — near, not joined
+          tl.fromTo("#s1-thread", { attr: { "stroke-dashoffset": 0 } }, { attr: { "stroke-dashoffset": 0.658 }, duration: 0.7, ease: "power3.inOut", immediateRender: false }, tTue + 0.1);
+          tl.fromTo("#s1-ring-a", { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, tTue + 0.7);
+          tl.fromTo("#s1-chip", { opacity: 0, y: 150 }, { opacity: 1, y: 0, duration: 0.8, ease: "expo.out" }, tTue + 0.3);
+          tl.fromTo("#s1-chip", { borderColor: tok("--rule") }, { borderColor: tok("--rule"), duration: 0.01 }, 0);
+          FILM.drawThread(tl, "#s1-stub", tTue + 0.85, { duration: 0.45, ease: "power2.out" });
+          tl.fromTo("#s1-ring-b", { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, tTue + 1.2);
+
+          // "corrects": 1.10 is struck, 1.20 arrives in orange, the chip's border turns orange.
+          const tFix = at("corrects", 1, 0.05);
+          tl.fromTo("#s1-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, tFix);
+          tl.fromTo("#s1-old", { color: tok("--ink") }, { color: tok("--faint"), duration: 0.3, ease: "power1.out" }, tFix);
+          tl.fromTo("#s1-newbox", { width: 0 }, { width: 104, duration: 0.55, ease: FILM.ease }, tFix + 0.25);
+          tl.fromTo("#s1-new", { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.5, ease: FILM.ease }, tFix + 0.35);
+          tl.fromTo("#s1-chip", { borderColor: tok("--rule") }, { borderColor: tok("--stale"), duration: 0.35, ease: "power1.out", immediateRender: false }, tFix + 0.3);
+
+          // 1d "doesn't change": the report holds perfectly still. "Nothing tells it": the change climbs its own
+          // stub and stops at the gap. "wrong": the report's open end blinks orange once.
+          const tTell = at("Nothing", 1, 0.05);
+          FILM.pulseAlong(tl, "#s1-stub-hot", "#s1-pulse", tTell, { duration: 0.55, ease: "power2.out" });
+          tl.fromTo("#s1-pulse-gate", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, tTell);
+          tl.fromTo("#s1-pulse-gate", { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none", immediateRender: false }, tTell + 0.56);
+          FILM.drawThread(tl, "#s1-stub-hot", tTell, { duration: 0.55, ease: "power2.out" });
+          tl.fromTo("#s1-ring-b-hot", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, tTell + 0.5);
+          const tWrong = at("wrong", 1, 0.02);
+          tl.fromTo("#s1-ring-a-hot", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "none" }, tWrong);
+          tl.fromTo("#s1-ring-a-hot", { opacity: 1 }, { opacity: 0, duration: 0.5, ease: "power1.in", immediateRender: false }, tWrong + 0.2);
+
+          window.__timelines["s1-monday"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

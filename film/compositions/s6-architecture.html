@@ -1,0 +1,870 @@
+<!doctype html>
+<!-- ProofFlow film, s6 "Under the hood". The architecture builds from nothing, one component per spoken line,
+     into one fixed layout: the runtime in the centre, HydraDB and the artifact store on the right, the three doors
+     (browser app via FastAPI, Python API, MCP server) on the left. Then one correction runs end to end with no
+     voice, and the frame holds still. Facts: proofflow/runtime.py, artifacts.py, graph.py, api.py, mcp_server.py,
+     analytics.py (TOOL_SPECS, 7 tools), README.md "How it works", website/src/sections/architecture/system.ts. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ground);
+        }
+        /* ---------- fixed layer: title, subtitle, run breadcrumb ---------- */
+        .s6-title { position: absolute; left: 120px; top: 92px; white-space: nowrap; }
+        .s6-sub { position: absolute; left: 122px; top: 192px; white-space: nowrap; }
+        .s6-bc { position: absolute; left: 120px; top: 202px; display: flex; gap: 26px; align-items: center; white-space: nowrap; }
+        .s6-bc-i { display: flex; align-items: center; gap: 10px; opacity: 0; font-family: var(--font-sans); font-size: 26px; font-weight: 600; color: var(--ink); }
+        .s6-bc-n {
+          display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box;
+          width: 38px; height: 38px; border-radius: 50%; font-size: 24px; font-weight: 700;
+          border: 2px solid var(--rule); color: var(--muted);
+        }
+        .s6-bc-i.s6-o .s6-bc-n { border-color: var(--stale); color: var(--stale); }
+        .s6-bc-i.s6-m .s6-bc-n { border-color: var(--current); color: var(--current); }
+
+        /* ---------- the world: everything the camera pans ---------- */
+        #s6-world { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+        #s6-world > * { position: absolute; }
+
+        /* panel frames: a background plus an SVG border that draws on */
+        .s6-frame { box-sizing: border-box; }
+        .s6-bg { position: absolute; inset: 0 0 0 0; border-radius: inherit; background: var(--panel); opacity: 0; }
+        .s6-frame > svg.s6-fr { position: absolute; left: 0; top: 0; overflow: visible; }
+        .s6-fr rect { fill: none; stroke: var(--rule); stroke-width: 2; }
+        .s6-frame.s6-strong .s6-fr rect { stroke: var(--thread-strong); stroke-width: 3; }
+        .s6-frame.s6-door .s6-fr rect { stroke: var(--thread); stroke-width: 3; }
+        .s6-frame > .s6-in { position: absolute; }
+
+        .s6-ph { font-family: var(--font-display); font-weight: 760; font-size: 38px; line-height: 1; color: var(--ink);
+                 font-variation-settings: "wdth" var(--w, 110); white-space: nowrap; }
+        .s6-ph.s6-big { font-size: 50px; font-weight: 820; --w: 116; }
+        .s6-ph.s6-door-t { font-size: 32px; --w: 98; }
+        .s6-file { font-family: var(--font-mono); font-size: 24px; font-weight: 500; color: var(--thread-strong); white-space: nowrap; }
+        .s6-s { font-family: var(--font-sans); font-size: 24px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+        .s6-s.s6-ink { color: var(--ink); font-weight: 600; }
+        .s6-rule { height: 2px; background: var(--hairline); }
+
+        /* runtime */
+        #s6-rt { left: 670px; top: 270px; width: 490px; height: 714px; border-radius: 18px; }
+        #s6-rt-h { left: 28px; top: 26px; }
+        #s6-rt-f { right: 28px; top: 40px; }
+        #s6-rt-s { left: 28px; top: 90px; font-size: 26px; }
+        #s6-dock { left: 26px; top: 140px; width: 438px; height: 104px; box-sizing: border-box; border-radius: 12px;
+                   background: var(--panel-2); border: 2px solid var(--hairline); }
+        #s6-dock-t { left: 18px; top: 13px; font-size: 26px; }
+        #s6-dock-f { right: 18px; top: 15px; }
+        #s6-sqs { left: 18px; top: 62px; display: flex; gap: 6px; }
+        .s6-sq { position: relative; width: 22px; height: 22px; box-sizing: border-box; border-radius: 6px; border: 2px solid var(--rule); }
+        .s6-sq i { position: absolute; inset: -2px; border-radius: 6px; background: var(--thread); opacity: 0; }
+        .s6-sq i.s6-m { background: var(--current); }
+        #s6-dock-d { left: 222px; top: 57px; }
+
+        /* the tool run inside the runtime */
+        .s6-chip { box-sizing: border-box; height: 48px; padding: 0 22px; border-radius: 999px; display: flex; align-items: center;
+                   background: var(--panel-2); border: 3px solid var(--thread); }
+        #s6-chip { left: 795px; top: 542px; width: 240px; justify-content: center; }
+        #s6-res { left: 700px; top: 636px; width: 200px; height: 118px; box-sizing: border-box; padding: 18px 18px 0;
+                  border-radius: 12px 26px 12px 12px; background: var(--panel-2); border: 3px solid var(--thread-strong);
+                  display: flex; flex-direction: column; gap: 8px; }
+        #s6-res .s6-imm { display: flex; align-items: center; gap: 10px; }
+        #s6-slip { left: 928px; top: 618px; width: 206px; height: 170px; box-sizing: border-box; padding: 16px 18px;
+                   background: var(--panel-2); border: 2px solid var(--thread); border-top: 3px dashed var(--thread);
+                   border-radius: 4px 4px 12px 12px; display: flex; flex-direction: column; gap: 6px; }
+        #s6-slip .s6-file { font-size: 24px; color: var(--muted); }
+
+        /* refresh steps */
+        #s6-steps { left: 696px; top: 532px; width: 438px; }
+        #s6-steps-h { position: absolute; left: 0; top: 0; font-size: 26px; color: var(--faint); }
+        .s6-row { position: absolute; left: 0; width: 438px; height: 38px; display: flex; align-items: center; gap: 10px; opacity: 0; }
+        .s6-row .s6-hi { position: absolute; left: -10px; right: -10px; top: -3px; bottom: -3px; border-radius: 10px; background: var(--current-soft); opacity: 0; }
+        .s6-row > :not(.s6-hi) { position: relative; }
+        .s6-num { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; flex: none;
+                  width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--current);
+                  font-family: var(--font-sans); font-size: 24px; font-weight: 700; color: var(--current); }
+        .s6-row .s6-file { color: var(--ink); }
+        .s6-row .s6-s { margin-left: 2px; }
+        .s6-row .s6-end { position: absolute; right: 0; top: 4px; display: flex; gap: 8px; align-items: center; }
+        .s6-ck { width: 28px; height: 28px; overflow: visible; }
+        .s6-ck path { fill: none; stroke: var(--current); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+        .s6-slipg { width: 22px; height: 28px; overflow: visible; opacity: 0; }
+        .s6-slipg path { fill: none; stroke: var(--thread-strong); stroke-width: 2.5; stroke-linejoin: round; }
+        .s6-rtag { display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border-radius: 999px; box-sizing: border-box;
+                   font-family: var(--font-sans); font-size: 24px; font-weight: 650; color: var(--current); border: 2px solid var(--current); }
+
+        /* fails closed */
+        #s6-fail { left: 696px; top: 798px; width: 438px; height: 166px; box-sizing: border-box; padding: 14px 20px;
+                   border-radius: 12px; border: 2px dashed var(--unknown); background: var(--ground); }
+        #s6-fail > * { position: absolute; left: 20px; }
+        #s6-fail-h { top: 12px; display: flex; align-items: center; gap: 10px; font-size: 26px; }
+        #s6-c409 { top: 52px; color: var(--unknown); }
+        #s6-c503 { top: 84px; color: var(--unknown); }
+        #s6-nofb { top: 119px; font-family: var(--font-display); font-weight: 780; font-size: 30px; color: var(--ink);
+                   font-variation-settings: "wdth" var(--w, 98); white-space: nowrap; }
+
+        /* HydraDB */
+        #s6-hy { left: 1220px; top: 110px; width: 580px; height: 530px; border-radius: 18px; }
+        #s6-hy-h, #s6-st-h { left: 28px; top: 24px; }
+        #s6-hy-f, #s6-st-f { right: 28px; top: 32px; }
+        #s6-hy-s, #s6-st-s { left: 28px; top: 74px; }
+        #s6-hy-r, #s6-st-r { left: 28px; right: 28px; top: 118px; }
+
+        .s6-gn { box-sizing: border-box; height: 48px; padding: 0 18px; border-radius: 12px; display: flex; align-items: center;
+                 background: var(--panel-2); border: 3px solid var(--thread); white-space: nowrap; }
+        .s6-gn > .s6-gl { position: relative; z-index: 2; font-family: var(--font-sans); font-size: 24px; font-weight: 600; color: var(--ink); }
+        .s6-gn > .s6-gl.s6-file { font-family: var(--font-mono); font-weight: 500; color: var(--thread-strong); }
+        .s6-gn.s6-src { border-left-width: 9px; }
+        .s6-gn.s6-exe { border-radius: 4px; border-top-style: dashed; }
+        .s6-gn.s6-tool { border-color: var(--rule); border-radius: 999px; }
+        .s6-gn.s6-rep { background: var(--panel); }
+        .s6-ov { position: absolute; inset: -3px; border-radius: inherit; opacity: 0; z-index: 1; box-sizing: border-box; }
+        .s6-ov-st { border: 3px solid var(--stale); background: repeating-linear-gradient(135deg, var(--stale-soft) 0 10px, var(--panel) 10px 20px); }
+        .s6-ov-cu { border: 3px solid var(--current); background: var(--panel-2); }
+        .s6-ov-un { border: 3px dashed var(--unknown); background: var(--ground); }
+        .s6-gn.s6-src > .s6-ov { left: -9px; }
+        .s6-el { font-family: var(--font-mono); font-size: 24px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+        #s6-gl-con { left: 1258px; top: 304px; }
+        #s6-gl-use { left: 1640px; top: 304px; }
+        #s6-gl-pro { left: 1496px; top: 413px; }
+        #s6-reused { left: 1634px; top: 402px; }
+
+        /* artifact store */
+        #s6-st { left: 1220px; top: 680px; width: 580px; height: 304px; border-radius: 18px; }
+        .s6-srow { height: 40px; display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+        #s6-blob-l { left: 1248px; top: 812px; color: var(--faint); }
+        #s6-man-l { left: 1248px; top: 911px; color: var(--faint); }
+        #s6-rowa { left: 1360px; top: 808px; }
+        #s6-rowb { left: 1360px; top: 856px; }
+        #s6-man { left: 1500px; top: 912px; }
+        .s6-fg { width: 20px; height: 26px; overflow: visible; flex: none; }
+        .s6-fg path { fill: none; stroke: var(--muted); stroke-width: 2.5; stroke-linejoin: round; }
+        #s6-hash { color: var(--ink); min-width: 202px; }
+        .s6-ver { display: flex; align-items: center; gap: 6px; color: var(--current); font-family: var(--font-sans); font-size: 24px; font-weight: 600; }
+
+        /* doors */
+        .s6-door { border-radius: 14px; }
+        #s6-d1 { left: 120px; top: 290px; width: 295px; height: 196px; }
+        #s6-d2 { left: 120px; top: 526px; width: 295px; height: 130px; }
+        #s6-d3 { left: 120px; top: 696px; width: 295px; height: 288px; }
+        #s6-fa { left: 452px; top: 330px; width: 180px; height: 110px; }
+        .s6-door .s6-in.s6-t { left: 24px; top: 22px; }
+        .s6-door .s6-in.s6-f { left: 24px; top: 66px; }
+        #s6-fa .s6-in.s6-t { left: 20px; top: 22px; }
+        #s6-fa .s6-in.s6-f { left: 20px; top: 66px; }
+        #s6-d1 .s6-dots { right: 22px; top: 30px; display: flex; gap: 7px; }
+        #s6-d1 .s6-dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--rule); }
+        #s6-d1-l { left: 24px; top: 108px; }
+        #s6-fig { left: 22px; top: 134px; font-size: 48px; }
+        #s6-fig .withheld-hatch { inset: 2% -4% 2% -4%; border-radius: 6px; }
+        #s6-d3-s { left: 24px; top: 66px; }
+        #s6-tools { left: 24px; top: 108px; display: flex; flex-direction: column; gap: 2px; }
+        .s6-tl { height: 32px; display: flex; align-items: center; gap: 12px; opacity: 0; }
+        .s6-tl::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--thread); }
+        #s6-arb { left: 432px; top: 878px; width: 226px; justify-content: center; border-color: var(--rule); opacity: 0; }
+        #s6-arb .s6-file { color: var(--ink); }
+        #s6-arb-b { position: absolute; inset: -3px; border-radius: 999px; border: 3px dashed var(--unknown); background: var(--ground); opacity: 0; }
+        #s6-arb > .s6-file { position: relative; }
+        #s6-arb-x { position: absolute; left: 16px; right: 16px; top: 22px; height: 3px; background: var(--unknown); transform-origin: left center; }
+
+        /* temporary tags */
+        .s6-tag { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px 0 16px; border-radius: 999px;
+                  font-family: var(--font-sans); font-size: 24px; font-weight: 650; white-space: nowrap; box-sizing: border-box; }
+        .s6-tag::before { content: ""; width: 11px; height: 11px; border-radius: 2px; background: currentColor; transform: rotate(45deg); }
+        .s6-tag.s6-tag-st { color: var(--stale); background: var(--stale-soft); }
+        .s6-tag.s6-tag-re { color: var(--current); border: 2px solid var(--current); height: 40px; }
+        .s6-tag.s6-tag-re::before { border-radius: 50%; transform: none; }
+        #s6-corr { left: 700px; top: 546px; }
+        #s6-walk { left: 700px; top: 616px; }
+        #s6-walk-l { left: 700px; top: 652px; }
+        #s6-found { left: 700px; top: 704px; }
+
+        /* lines */
+        #s6-lines, #s6-lines-top { left: 0; top: 0; }
+        #s6-lines path.s6-c { stroke-width: 3; }
+        #s6-lines path.s6-e { stroke-width: 3; }
+        #s6-lines path.s6-tmp { stroke: var(--thread-strong); stroke-width: 3; }
+        #s6-lines path.s6-tmp-st { stroke: var(--stale); }
+        #s6-lines path.unk { stroke: var(--unknown); stroke-dasharray: 9 10; }
+        .s6-hl { position: absolute; overflow: visible; pointer-events: none; }
+        .s6-hl rect { fill: none; stroke: var(--thread-strong); stroke-width: 4; }
+        .s6-hl.stale rect { stroke: var(--stale); }
+        .s6-hl.fresh rect { stroke: var(--current); }
+      </style>
+
+      <div id="root" data-composition-id="s6-architecture" data-width="1920" data-height="1080" data-duration="59.5">
+        <div id="s6-world">
+          <!-- ===== frames (backgrounds + drawn borders) ===== -->
+          <div id="s6-rt" class="s6-frame s6-strong">
+            <div class="s6-bg"></div>
+            <div id="s6-rt-h" class="s6-in s6-ph s6-big">Runtime</div>
+            <div id="s6-rt-f" class="s6-in s6-file">runtime.py</div>
+            <div id="s6-rt-s" class="s6-in s6-s">receipts · currentness · refresh</div>
+            <div id="s6-dock" class="s6-in">
+              <div id="s6-dock-t" class="s6-in s6-s s6-ink" style="position: absolute">7 registered tools</div>
+              <div id="s6-dock-f" class="s6-in s6-file" style="position: absolute">analytics.py</div>
+              <div id="s6-sqs" style="position: absolute">
+                <div class="s6-sq"><i></i></div><div class="s6-sq"><i></i></div><div class="s6-sq"><i></i></div>
+                <div class="s6-sq"><i id="s6-sq4"></i></div><div class="s6-sq"><i id="s6-sq5"></i></div>
+                <div class="s6-sq"><i id="s6-sq6"></i></div><div class="s6-sq"><i id="s6-sq7"></i></div>
+              </div>
+              <div id="s6-dock-d" class="s6-s" style="position: absolute">SQLite + Decimal</div>
+            </div>
+          </div>
+
+          <div id="s6-hy" class="s6-frame">
+            <div class="s6-bg"></div>
+            <div id="s6-hy-h" class="s6-in s6-ph">HydraDB</div>
+            <div id="s6-hy-f" class="s6-in s6-file">graph.py</div>
+            <div id="s6-hy-s" class="s6-in s6-s">relationships · native traversal</div>
+            <div id="s6-hy-r" class="s6-in s6-rule"></div>
+          </div>
+
+          <div id="s6-st" class="s6-frame">
+            <div class="s6-bg"></div>
+            <div id="s6-st-h" class="s6-in s6-ph">Artifact store</div>
+            <div id="s6-st-f" class="s6-in s6-file">artifacts.py</div>
+            <div id="s6-st-s" class="s6-in s6-s">content · hash-verified blobs</div>
+            <div id="s6-st-r" class="s6-in s6-rule"></div>
+          </div>
+
+          <div id="s6-d1" class="s6-frame s6-door">
+            <div class="s6-bg"></div>
+            <div class="s6-in s6-t s6-ph s6-door-t">Browser app</div>
+            <div class="s6-in s6-f s6-file">React</div>
+                        <div id="s6-d1-l" class="s6-in s6-s">Company revenue</div>
+            <div id="s6-fig" class="s6-in fig"><span id="s6-figv" class="fig-v">$5,565</span><span class="withheld-hatch"></span></div>
+          </div>
+          <div id="s6-fa" class="s6-frame s6-door">
+            <div class="s6-bg"></div>
+            <div class="s6-in s6-t s6-ph s6-door-t" style="--w: 100">FastAPI</div>
+            <div class="s6-in s6-f s6-file">api.py</div>
+          </div>
+          <div id="s6-d2" class="s6-frame s6-door">
+            <div class="s6-bg"></div>
+            <div class="s6-in s6-t s6-ph s6-door-t">Python API</div>
+            <div class="s6-in s6-f s6-file">ProofFlowRuntime</div>
+          </div>
+          <div id="s6-d3" class="s6-frame s6-door">
+            <div class="s6-bg"></div>
+            <div class="s6-in s6-t s6-ph s6-door-t">MCP server</div>
+            <div id="s6-d3-s" class="s6-in s6-s">5 typed tools</div>
+            <div id="s6-tools" class="s6-in">
+              <div class="s6-tl s6-file">load_csv</div>
+              <div class="s6-tl s6-file">prepare</div>
+              <div class="s6-tl s6-file">execute_plan</div>
+              <div class="s6-tl s6-file">inspect</div>
+              <div class="s6-tl s6-file">refresh</div>
+            </div>
+          </div>
+
+          <!-- ===== lines: connectors, lineage edges, temporary travel paths ===== -->
+          <svg id="s6-lines" class="threads" viewBox="0 0 1920 1080">
+            <!-- connectors -->
+            <path id="s6-c1" class="s6-c" d="M415 385 L452 385" />
+            <path id="s6-c2" class="s6-c" d="M632 385 L670 385" />
+            <path id="s6-c3" class="s6-c" d="M415 591 L670 591" />
+            <path id="s6-c4" class="s6-c" d="M415 790 L670 790" />
+            <path id="s6-c5" class="s6-c" d="M1160 420 L1220 420" />
+            <path id="s6-c6" class="s6-c" d="M1160 830 L1220 830" />
+            <!-- lineage edges (HydraDB) -->
+            <path id="s6-e1" class="s6-e" d="M1390 294 C1390 330 1450 318 1450 352" />
+            <path id="s6-e2" class="s6-e" d="M1590 294 C1590 330 1510 318 1510 352" />
+            <path id="s6-e3" class="s6-e" d="M1480 400 L1480 452" />
+            <path id="s6-e4" class="s6-e" d="M1440 500 C1440 535 1365 527 1365 562" />
+            <path id="s6-e5" class="s6-e" d="M1525 500 C1525 535 1640 527 1640 562" />
+            <path id="s6-e6" class="s6-e" d="M1709 500 C1709 535 1690 527 1690 562" />
+            <path id="s6-e7" class="s6-e" d="M1672 500 C1672 540 1430 522 1430 562" />
+            <!-- tool run, inside the runtime -->
+            <path id="s6-t1" class="s6-tmp" d="M860 590 C860 612 800 610 800 636" />
+            <path id="s6-t2" class="s6-tmp" d="M970 590 C970 606 1031 600 1031 618" />
+            <!-- result to the store; receipt to HydraDB; a correction into the graph -->
+            <path id="s6-t3" class="s6-tmp" d="M800 754 C800 830 980 830 1160 830 L1230 830" />
+            <path id="s6-t4" class="s6-tmp" d="M1134 700 C1190 700 1180 376 1250 376 L1414 376" />
+            <path id="s6-t5" class="s6-tmp s6-tmp-st" d="M1160 568 L1222 568 C1244 568 1236 270 1262 270" />
+            <path id="s6-t6" class="s6-tmp s6-tmp-st" d="M778 568 L1160 568" />
+          </svg>
+
+          <!-- ===== the tool run (6b) ===== -->
+          <div id="s6-chip" class="s6-chip"><span class="s6-file">convert_to_usd</span></div>
+          <div id="s6-res">
+            <div class="s6-s s6-ink">Regional USD</div>
+            <div class="s6-s s6-imm"><svg class="s6-lock" width="20" height="24" viewBox="0 0 20 24"><path d="M4 11 V7 a6 6 0 0 1 12 0 V11" fill="none" stroke-width="2.5" style="stroke: var(--muted)" /><rect x="1.5" y="11" width="17" height="11.5" rx="2.5" fill="none" stroke-width="2.5" style="stroke: var(--muted)" /></svg>immutable</div>
+          </div>
+          <div id="s6-slip">
+            <div class="s6-s s6-ink">Receipt</div>
+            <div class="s6-file">inputs</div>
+            <div class="s6-file">tool</div>
+            <div class="s6-file">output_hash</div>
+          </div>
+
+          <!-- ===== refresh steps (6f) ===== -->
+          <div id="s6-steps">
+            <div id="s6-steps-h" class="s6-s">Refresh, in dependency order</div>
+          </div>
+
+          <!-- ===== fails closed (6g) ===== -->
+          <div id="s6-fail">
+            <div id="s6-fail-h" class="s6-s s6-ink">
+              <svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="10.5" fill="none" stroke-width="3" style="stroke: var(--unknown)" /><path d="M5.6 20.4 L20.4 5.6" stroke-width="3" style="stroke: var(--unknown)" /></svg>
+              <span>Fails closed</span>
+            </div>
+            <div id="s6-c409" class="s6-file" data-text="409 evidence_unavailable"></div>
+            <div id="s6-c503" class="s6-file" data-text="503 backend_unavailable"></div>
+            <div id="s6-nofb">No fallback. No guess.</div>
+          </div>
+
+          <!-- ===== lineage graph nodes (HydraDB) ===== -->
+          <div id="s6-n-fx" class="s6-gn s6-src" style="left: 1262px; top: 246px; width: 150px"><span class="s6-gl">FX rate</span></div>
+          <div id="s6-n-tool" class="s6-gn s6-tool" style="left: 1534px; top: 246px; width: 238px"><span class="s6-gl s6-file">convert_to_usd</span></div>
+          <div id="s6-n-rec" class="s6-gn s6-exe" style="left: 1414px; top: 352px; width: 132px"><span class="s6-gl">Receipt</span></div>
+          <div id="s6-n-reg" class="s6-gn" style="left: 1387px; top: 452px; width: 186px"><span class="s6-gl">Regional USD</span></div>
+          <div id="s6-n-sup" class="s6-gn" style="left: 1646px; top: 452px; width: 126px"><span class="s6-gl">Support</span></div>
+          <div id="s6-n-co" class="s6-gn s6-rep" style="left: 1258px; top: 562px; width: 224px"><span class="s6-gl">Company report</span></div>
+          <div id="s6-n-eu" class="s6-gn s6-rep" style="left: 1590px; top: 562px; width: 140px"><span class="s6-gl">EU brief</span></div>
+          <div id="s6-gl-con" class="s6-el">CONSUMED</div>
+          <div id="s6-gl-use" class="s6-el">USED_TOOL</div>
+          <div id="s6-gl-pro" class="s6-el">PRODUCED</div>
+          <div id="s6-reused" class="s6-tag s6-tag-re">Reused</div>
+
+          <!-- ===== artifact store rows ===== -->
+          <div id="s6-blob-l" class="s6-file">blobs/</div>
+          <div id="s6-rowa" class="s6-srow">
+            <svg class="s6-fg" viewBox="0 0 20 26"><path d="M2 2 H13 L18 7 V24 H2 Z M13 2 V7 H18" /></svg>
+            <span id="s6-hash" class="s6-file" data-text="9f3c…b71e.json"></span>
+            <span id="s6-vera" class="s6-ver"><svg class="s6-ck" viewBox="0 0 28 28"><path id="s6-cka" d="M5 15 L11.5 21 L23 8" /></svg>verified</span>
+          </div>
+          <div id="s6-rowb" class="s6-srow">
+            <svg class="s6-fg" viewBox="0 0 20 26"><path d="M2 2 H13 L18 7 V24 H2 Z M13 2 V7 H18" /></svg>
+            <span class="s6-s s6-ink">+4 results · +4 receipts</span>
+            <span id="s6-verb" class="s6-ver"><svg class="s6-ck" viewBox="0 0 28 28"><path id="s6-ckb" d="M5 15 L11.5 21 L23 8" /></svg></span>
+          </div>
+          <div id="s6-man-l" class="s6-file">manifest.sqlite3</div>
+          <div id="s6-man" class="s6-s" style="left: 1500px">records · heads</div>
+
+          <!-- ===== temporary actors ===== -->
+          <div id="s6-corr" class="s6-tag s6-tag-st">Correction: FX rate</div>
+          <div id="s6-walk" class="s6-file">descendants(max_depth=15)</div>
+          <div id="s6-walk-l" class="s6-s">native traversal in HydraDB</div>
+          <div id="s6-found" class="s6-tag s6-tag-st">4 found downstream</div>
+          <div id="s6-arb" class="s6-chip"><span id="s6-arb-b"></span><span class="s6-file">arbitrary code</span><span id="s6-arb-x"></span></div>
+        </div>
+
+        <!-- fixed layer -->
+        <h2 id="s6-title" class="s6-title t-head-s">Under the hood</h2>
+        <p id="s6-sub" class="s6-sub t-body">Small, and strict.</p>
+        <div id="s6-bc" class="s6-bc">
+          <div class="s6-bc-i s6-o"><span class="s6-bc-n">1</span>Correction</div>
+          <div class="s6-bc-i s6-o"><span class="s6-bc-n">2</span>Walk graph</div>
+          <div class="s6-bc-i s6-m"><span class="s6-bc-n">3</span>Re-run 4, reuse 1</div>
+          <div class="s6-bc-i s6-m"><span class="s6-bc-n">4</span>Commit</div>
+          <div class="s6-bc-i s6-m"><span class="s6-bc-n">5</span>Current</div>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          const S = "s6";
+          const tl = gsap.timeline({ paused: true });
+          const NS = "http://www.w3.org/2000/svg";
+          const $ = (sel) => document.querySelector(sel);
+          const world = $("#s6-world");
+          const lines = $("#s6-lines");
+          const E = FILM.ease;
+
+          /* ---------- word times (fall back to an even split of the line only if a word is transcribed differently) ---------- */
+          const norm = (t) => String(t).toLowerCase().replace(/[^a-z0-9]+/g, "");
+          const at = (text, lineId, nth = 1, off = 0) => {
+            try {
+              return FILM.at(S, text, nth, off);
+            } catch (error) {
+              const ln = FILM.line(lineId);
+              const ws = ln.text.split(/\s+/);
+              const i = Math.max(0, ws.findIndex((w) => norm(w) === norm(text.split(/\s+/)[0])));
+              console.warn(`[s6] "${text}" not in words.json; estimated within ${lineId}`);
+              return Math.max(0, ln.localStart + ((ln.localEnd - ln.localStart) * i) / ws.length + off);
+            }
+          };
+          const ln = (id) => FILM.line(id);
+
+          /* ---------- seek-safe tween: only the first tween of an element+property renders immediately ---------- */
+          const used = new WeakMap();
+          const tw = (target, from, to, t, d = 0.5, ease = E) => {
+            const els = [].concat(target).flatMap((x) => (typeof x === "string" ? [...document.querySelectorAll(x)] : [x]));
+            if (els.length === 0) throw new Error(`[s6] no element for ${target}`);
+            els.forEach((el) => {
+              if (!el) throw new Error(`[s6] no element for ${target}`);
+              const seen = used.get(el) ?? new Set();
+              const props = Object.keys(from);
+              const first = props.every((p) => !seen.has(p));
+              props.forEach((p) => seen.add(p));
+              used.set(el, seen);
+              tl.fromTo(el, { ...from }, { ...to, duration: d, ease, immediateRender: first }, t);
+            });
+          };
+          const show = (target, t, d = 0.5, from = {}, to = {}, ease = E) => tw(target, { opacity: 0, ...from }, { opacity: 1, ...to }, t, d, ease);
+          const hide = (target, t, d = 0.4, to = 0) => tw(target, { opacity: 1 }, { opacity: to }, t, d, "power1.out");
+          const prep = (path) => {
+            path.setAttribute("pathLength", "1");
+            path.setAttribute("stroke-dasharray", "1");
+            return path;
+          };
+          const draw = (target, t, d = 0.7, ease = "power2.inOut") => {
+            const path = prep(typeof target === "string" ? $(target) : target);
+            tw(path, { attr: { "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 } }, t, d, ease);
+            return path;
+          };
+          const clonePath = (id, cls) => {
+            const base = $(id);
+            const copy = base.cloneNode(false);
+            copy.removeAttribute("id");
+            prep(copy);
+            copy.setAttribute("stroke-dashoffset", "1");
+            copy.setAttribute("class", `${base.getAttribute("class") || ""} ${cls}`);
+            lines.appendChild(copy);
+            return copy;
+          };
+          /* a dot travelling a path; one fresh dot per call */
+          const pulse = (pathSel, t, d = 0.45, cls = "", reverse = false) => {
+            const path = typeof pathSel === "string" ? $(pathSel) : pathSel;
+            const dot = document.createElement("div");
+            dot.className = `pulse ${cls}`;
+            world.appendChild(dot);
+            const total = path.getTotalLength();
+            const proxy = { p: 0 };
+            const place = () => {
+              const pt = path.getPointAtLength(total * (reverse ? 1 - proxy.p : proxy.p));
+              gsap.set(dot, { x: pt.x, y: pt.y, xPercent: -50, yPercent: -50 });
+            };
+            place();
+            tl.fromTo(dot, { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "none" }, t);
+            tl.fromTo(proxy, { p: 0 }, { p: 1, duration: d, ease: "power1.inOut", onUpdate: place, onStart: place }, t);
+            tl.fromTo(dot, { opacity: 1 }, { opacity: 0, duration: 0.12, ease: "none", immediateRender: false }, t + d - 0.08);
+          };
+          /* typed text */
+          const type = (sel, t, d) => {
+            const el = $(sel);
+            const text = el.dataset.text;
+            el.textContent = "";
+            const proxy = { n: 0 };
+            tl.fromTo(proxy, { n: 0 }, {
+              n: text.length, duration: d, ease: "none",
+              onUpdate: () => { el.textContent = text.slice(0, Math.round(proxy.n)); },
+            }, t);
+          };
+          /* panel border draws on, then the fill and the contents */
+          const frames = new Map();
+          const frameSetup = (el) => {
+            const w = el.offsetWidth, h = el.offsetHeight;
+            const r = parseFloat(getComputedStyle(el).borderTopLeftRadius) || 14;
+            const svg = document.createElementNS(NS, "svg");
+            svg.setAttribute("class", "s6-fr");
+            svg.setAttribute("width", w);
+            svg.setAttribute("height", h);
+            svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+            const rect = document.createElementNS(NS, "rect");
+            rect.setAttribute("x", 1.5); rect.setAttribute("y", 1.5);
+            rect.setAttribute("width", w - 3); rect.setAttribute("height", h - 3);
+            rect.setAttribute("rx", r);
+            svg.appendChild(rect);
+            el.insertBefore(svg, el.children[1] ?? null);
+            frames.set(el, rect);
+          };
+          world.querySelectorAll(".s6-frame").forEach(frameSetup);
+          const frame = (sel, t, d = 0.9) => {
+            const el = $(sel);
+            const rect = prep(frames.get(el));
+            tw(rect, { attr: { "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 } }, t, d, "power2.inOut");
+            show(el.querySelector(".s6-bg"), t + d * 0.45, d * 0.6, {}, {}, "power1.out");
+          };
+          /* a highlight outline around a world element (or rect) that draws on, holds, and goes */
+          const flash = (target, t, cls, holdFor = 0.6, grow = 7, radius = 16) => {
+            const el = typeof target === "string" ? $(target) : target;
+            const b = el.getBoundingClientRect ? null : el;
+            const x = (b ? b.x : el.offsetLeft) - grow, y = (b ? b.y : el.offsetTop) - grow;
+            const w = (b ? b.w : el.offsetWidth) + grow * 2, h = (b ? b.h : el.offsetHeight) + grow * 2;
+            const svg = document.createElementNS(NS, "svg");
+            svg.setAttribute("class", `s6-hl ${cls}`);
+            svg.setAttribute("width", w); svg.setAttribute("height", h);
+            svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+            svg.style.left = `${x}px`; svg.style.top = `${y}px`;
+            const rect = document.createElementNS(NS, "rect");
+            rect.setAttribute("x", 2); rect.setAttribute("y", 2);
+            rect.setAttribute("width", w - 4); rect.setAttribute("height", h - 4);
+            rect.setAttribute("rx", radius);
+            svg.appendChild(rect);
+            world.appendChild(svg);
+            draw(rect, t, 0.32, "power2.out");
+            if (holdFor !== null) hide(svg, t + 0.32 + holdFor, 0.35);
+            return svg;
+          };
+
+          /* ---------- state overlays on graph nodes, and coloured copies of edges ---------- */
+          const OV = ["st1", "cu1", "un1", "st2", "cu2"];
+          world.querySelectorAll(".s6-gn").forEach((node) => {
+            OV.forEach((k) => {
+              const ov = document.createElement("div");
+              ov.id = `${node.id}-${k}`;
+              ov.className = `s6-ov s6-ov-${k.slice(0, 2)}`;
+              node.insertBefore(ov, node.querySelector(".s6-gl"));
+            });
+          });
+          const ov = (node, k) => `#s6-n-${node}-${k}`;
+          const edgeCopy = {};
+          ["e1", "e2", "e3", "e4", "e5", "e6", "e7", "c1", "c2", "c5", "c6"].forEach((e) => {
+            edgeCopy[e] = {
+              st1: clonePath(`#s6-${e}`, "stale"), fr1: clonePath(`#s6-${e}`, "fresh"), un1: clonePath(`#s6-${e}`, "unk"),
+              st2: clonePath(`#s6-${e}`, "stale"), fr2: clonePath(`#s6-${e}`, "fresh"),
+            };
+            edgeCopy[e].un1.setAttribute("stroke-dasharray", "9 10");
+            edgeCopy[e].un1.setAttribute("stroke-dashoffset", "0");
+            edgeCopy[e].un1.style.opacity = "0";
+          });
+          const ec = (e, k) => edgeCopy[e][k];
+
+          /* ---------- refresh step rows, built from data ---------- */
+          const STEPS = [
+            { n: "1", tool: "convert_to_usd", sq: "#s6-sq4" },
+            { n: "2", tool: "company_total", sq: "#s6-sq5" },
+            { n: "3", tool: "compose_report", note: "company", sq: "#s6-sq7" },
+            { n: "4", tool: "compose_report", note: "EU brief", sq: "#s6-sq7" },
+          ];
+          const steps = $("#s6-steps");
+          const slipD = "M2 2 H20 V24 L17 26 L14 24 L11 26 L8 24 L5 26 L2 24 Z M6 9 H16 M6 14 H16 M6 19 H12";
+          const rows = STEPS.map((s, i) => {
+            const row = document.createElement("div");
+            row.className = "s6-row";
+            row.style.top = `${44 + i * 42}px`;
+            row.innerHTML =
+              `<span class="s6-hi"></span><span class="s6-num">${s.n}</span><span class="s6-file">${s.tool}</span>` +
+              (s.note ? `<span class="s6-s">${s.note}</span>` : "") +
+              `<span class="s6-end"><svg class="s6-slipg" viewBox="0 0 22 28"><path d="${slipD}"/></svg>` +
+              `<svg class="s6-ck" viewBox="0 0 28 28"><path d="M5 15 L11.5 21 L23 8"/></svg></span>`;
+            steps.appendChild(row);
+            return row;
+          });
+          const reuseRow = document.createElement("div");
+          reuseRow.className = "s6-row";
+          reuseRow.style.top = `${44 + 4 * 42}px`;
+          reuseRow.innerHTML = `<span class="s6-hi"></span><span class="s6-num" style="border-style: dashed">↺</span><span class="s6-file">support_by_region</span><span class="s6-end"><span class="s6-rtag">reused</span></span>`;
+          steps.appendChild(reuseRow);
+
+          /* ===================================================================== */
+          /* 6a  "Under the hood, it's small, and strict."                          */
+          /* ===================================================================== */
+          const SHIFT = -200; // while the doors are not built, the runtime and its stores sit centred
+          FILM.speakWords(tl, "#s6-title", S, { lead: -0.08 });
+          FILM.speakWords(tl, "#s6-sub", S, { lead: -0.04, rise: 12 });
+
+          /* ===================================================================== */
+          /* 6b  runtime; a tool run makes an immutable result and a receipt        */
+          /* ===================================================================== */
+          const tRuntime = at("runtime", "6b", 1, -0.2);
+          frame("#s6-rt", tRuntime, 1.0);
+          show("#s6-rt-h", tRuntime + 0.55, 0.7, { "--w": 60 }, { "--w": 116 }, "expo.out");
+          show("#s6-rt-f", tRuntime + 0.75, 0.5, { x: 14 }, { x: 0 });
+          show("#s6-rt-s", tRuntime + 0.95, 0.5, { y: 10 }, { y: 0 });
+          const tEvery = Math.max(tRuntime + 1.3, at("every", "6b", 1, -0.15));
+          show("#s6-dock", tEvery, 0.55, { y: 14 }, { y: 0 });
+          world.querySelectorAll(".s6-sq").forEach((sq, i) => show(sq, tEvery + 0.2 + i * 0.05, 0.3, { y: 6 }, { y: 0 }, "back.out(1.6)"));
+          const tTool = Math.max(tEvery + 0.7, at("tool", "6b", 1, -0.1));
+          show("#s6-sq4", tTool, 0.25, {}, {}, "power2.out");
+          show("#s6-chip", tTool + 0.05, 0.65, { y: -78 }, { y: 0 }, "power3.out");
+          const tImm = Math.max(tTool + 0.6, at("immutable", "6b", 1, -0.15));
+          draw("#s6-t1", tImm, 0.35);
+          show("#s6-res", tImm + 0.25, 0.55, { y: 16, scale: 0.94 }, { y: 0, scale: 1 }, "back.out(1.4)");
+          const tRec = Math.max(tImm + 0.6, at("receipt", "6b", 1, -0.15));
+          draw("#s6-t2", tRec, 0.35);
+          show("#s6-slip", tRec + 0.25, 0.6, { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)" }, "power2.out");
+          hide("#s6-sq4", tRec + 0.9, 0.5);
+
+          /* ===================================================================== */
+          /* 6c  content goes into a store that verifies every hash                 */
+          /* ===================================================================== */
+          const tStore = Math.max(tRec + 1.0, at("store", "6c", 1, -0.25));
+          frame("#s6-st", tStore, 0.9);
+          show("#s6-st-h", tStore + 0.5, 0.6, { "--w": 60 }, { "--w": 110 }, "expo.out");
+          show(["#s6-st-f", "#s6-st-s"], tStore + 0.7, 0.5, { y: 8 }, { y: 0 });
+          show("#s6-st-r", tStore + 0.8, 0.5, { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1 });
+          draw("#s6-c6", tStore + 0.6, 0.35);
+          const tContent = Math.max(at("content", "6c", 1, 0.1), tStore + 0.3);
+          draw("#s6-t3", tContent, 0.9);
+          pulse("#s6-t3", tContent + 0.2, 0.9, "thread");
+          show("#s6-blob-l", tContent + 0.6, 0.4);
+          show("#s6-rowa .s6-fg", tContent + 0.95, 0.35, { x: -10 }, { x: 0 });
+          const tVer = Math.max(tContent + 1.1, at("verifies", "6c", 1, -0.1));
+          type("#s6-hash", tVer, 0.75);
+          const tHash = Math.max(tVer + 0.8, at("hash", "6c", 1, 0));
+          show("#s6-vera", tHash, 0.25);
+          draw("#s6-cka", tHash, 0.4, "power2.out");
+          show(["#s6-man-l", "#s6-man"], tHash + 0.4, 0.5, { y: 8 }, { y: 0 });
+
+          /* ===================================================================== */
+          /* 6d  relationships go into HydraDB, as a lineage graph                  */
+          /* ===================================================================== */
+          const t6d = Math.max(ln("6d").localStart, tHash + 0.7);
+          frame("#s6-hy", t6d - 0.1, 0.9);
+          show("#s6-hy-h", t6d + 0.4, 0.6, { "--w": 60 }, { "--w": 110 }, "expo.out");
+          show(["#s6-hy-f", "#s6-hy-s"], t6d + 0.6, 0.5, { y: 8 }, { y: 0 });
+          show("#s6-hy-r", t6d + 0.7, 0.5, { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1 });
+          draw("#s6-c5", t6d + 0.5, 0.35);
+          const tGo = Math.max(at("go into", "6d", 1, 0), t6d + 0.4);
+          draw("#s6-t4", tGo, 0.8);
+          pulse("#s6-t4", tGo + 0.15, 0.8, "thread");
+          const g1 = tGo + 0.85;
+          show("#s6-n-rec", g1, 0.45, { scale: 0.9 }, { scale: 1 }, "back.out(1.6)");
+          show("#s6-n-fx", g1 + 0.15, 0.45, { y: -10 }, { y: 0 });
+          show("#s6-n-tool", g1 + 0.25, 0.45, { y: -10 }, { y: 0 });
+          draw("#s6-e1", g1 + 0.35, 0.45);
+          show("#s6-gl-con", g1 + 0.55, 0.35, { x: -8 }, { x: 0 });
+          draw("#s6-e2", g1 + 0.5, 0.45);
+          show("#s6-gl-use", g1 + 0.7, 0.35, { x: 8 }, { x: 0 });
+          draw("#s6-e3", g1 + 0.75, 0.35);
+          show("#s6-gl-pro", g1 + 0.9, 0.35, { x: -8 }, { x: 0 });
+          show("#s6-n-reg", g1 + 0.95, 0.45, { y: 10 }, { y: 0 });
+          const g2 = Math.max(g1 + 1.35, at("lineage", "6d", 1, -0.1));
+          show("#s6-n-sup", g2, 0.45, { y: 10 }, { y: 0 });
+          show("#s6-n-co", g2 + 0.2, 0.45, { y: 10 }, { y: 0 });
+          show("#s6-n-eu", g2 + 0.3, 0.45, { y: 10 }, { y: 0 });
+          draw("#s6-e4", g2 + 0.35, 0.45);
+          draw("#s6-e5", g2 + 0.45, 0.45);
+          draw("#s6-e6", g2 + 0.55, 0.45);
+          draw("#s6-e7", g2 + 0.65, 0.5);
+
+          /* ===================================================================== */
+          /* 6e  a correction arrives; HydraDB walks the graph to find downstream    */
+          /* ===================================================================== */
+          const t6e = Math.max(ln("6e").localStart, g2 + 1.0);
+          // the tool-run actors have done their job: clear the work area
+          hide(["#s6-chip", "#s6-res", "#s6-slip", "#s6-t1", "#s6-t2", "#s6-t3", "#s6-t4"], t6e - 0.2, 0.45);
+          const tCorr = Math.max(at("correction", "6e", 1, -0.25), t6e);
+          flash("#s6-rt", tCorr, "stale", 0.5, 6, 22);
+          show("#s6-corr", tCorr + 0.1, 0.55, { x: -70 }, { x: 0 });
+          draw("#s6-t6", tCorr + 0.5, 0.35);
+          pulse("#s6-t6", tCorr + 0.5, 0.4);
+          draw("#s6-t5", tCorr + 0.85, 0.4);
+          pulse("#s6-t5", tCorr + 0.85, 0.45);
+          show(ov("fx", "st1"), tCorr + 1.3, 0.3);
+          const tWalk = Math.max(at("walks", "6e", 1, -0.05), tCorr + 1.4);
+          show("#s6-walk", tWalk - 0.25, 0.4, { x: -10 }, { x: 0 });
+          show("#s6-walk-l", tWalk - 0.1, 0.4, { y: 6 }, { y: 0 });
+          const HOP = 0.42;
+          draw(ec("e1", "st1"), tWalk, HOP);
+          pulse("#s6-e1", tWalk, HOP);
+          show(ov("rec", "st1"), tWalk + HOP - 0.05, 0.25);
+          draw(ec("e3", "st1"), tWalk + HOP, HOP);
+          pulse("#s6-e3", tWalk + HOP, HOP);
+          show(ov("reg", "st1"), tWalk + 2 * HOP - 0.05, 0.25);
+          draw(ec("e4", "st1"), tWalk + 2 * HOP, HOP);
+          draw(ec("e5", "st1"), tWalk + 2 * HOP, HOP);
+          pulse("#s6-e4", tWalk + 2 * HOP, HOP);
+          pulse("#s6-e5", tWalk + 2 * HOP, HOP);
+          show([ov("co", "st1"), ov("eu", "st1")], tWalk + 3 * HOP - 0.05, 0.25);
+          const tDown = Math.max(at("downstream", "6e", 1, -0.1), tWalk + 3 * HOP + 0.1);
+          const found = ["#s6-n-rec", "#s6-n-reg", "#s6-n-co", "#s6-n-eu"].map((n, i) => flash(n, tDown + i * 0.08, "stale", null, 7, 16));
+          show("#s6-found", tDown, 0.45, { x: -10 }, { x: 0 }, "back.out(1.4)");
+
+          /* ===================================================================== */
+          /* 6f  re-run stale steps in order, reuse what's current, record receipts */
+          /* ===================================================================== */
+          const t6f = Math.max(ln("6f").localStart, tDown + 0.6);
+          hide(found, t6f, 0.4);
+          hide(["#s6-t5", "#s6-t6", "#s6-corr", "#s6-walk", "#s6-walk-l", "#s6-found"], t6f, 0.4);
+          const tRe = Math.max(at("re-runs", "6f", 1, -0.1), t6f + 0.1);
+          show("#s6-steps-h", tRe - 0.15, 0.45, { y: 8 }, { y: 0 });
+          const STEP = 0.36;
+          rows.forEach((row, i) => {
+            const t = tRe + 0.2 + i * STEP;
+            show(row, t, 0.4, { x: -14 }, { x: 0 });
+            draw(row.querySelector(".s6-ck path"), t + 0.18, 0.3, "power2.out");
+          });
+          const lightSquares = (t0, gap, on, off) => {
+            const spans = new Map();
+            STEPS.forEach((s, i) => {
+              const t = t0 + i * gap;
+              const span = spans.get(s.sq) ?? { a: t, b: t };
+              span.b = t;
+              spans.set(s.sq, span);
+            });
+            spans.forEach((span, sq) => {
+              show(sq, span.a, on, {}, {}, "power2.out");
+              hide(sq, span.b + on + 0.05, off);
+            });
+          };
+          lightSquares(tRe + 0.2, STEP, 0.2, 0.3);
+          // the graph re-inks in dependency order as each step lands
+          const tR1 = tRe + 0.2;
+          show(ov("fx", "cu1"), tR1, 0.3);
+          draw(ec("e1", "fr1"), tR1, 0.3);
+          show(ov("rec", "cu1"), tR1 + 0.15, 0.3);
+          draw(ec("e3", "fr1"), tR1 + 0.15, 0.3);
+          show(ov("reg", "cu1"), tR1 + 0.3, 0.3);
+          draw(ec("e4", "fr1"), tR1 + 2 * STEP, 0.3);
+          show(ov("co", "cu1"), tR1 + 2 * STEP + 0.2, 0.3);
+          draw(ec("e5", "fr1"), tR1 + 3 * STEP, 0.3);
+          show(ov("eu", "cu1"), tR1 + 3 * STEP + 0.2, 0.3);
+          const tReuse = Math.max(at("reuses", "6f", 1, -0.1), tR1 + 4 * STEP);
+          show(reuseRow, tReuse, 0.4, { x: -14 }, { x: 0 });
+          show("#s6-sq6", tReuse, 0.2);
+          hide("#s6-sq6", tReuse + 0.35, 0.3);
+          show("#s6-reused", tReuse + 0.1, 0.45, { y: 8 }, { y: 0 }, "back.out(1.5)");
+          const tRcpt = Math.max(at("receipts", "6f", 1, -0.15), tReuse + 0.5);
+          rows.forEach((row, i) => show(row.querySelector(".s6-slipg"), tRcpt + i * 0.1, 0.3, { y: -6 }, { y: 0 }, "back.out(1.8)"));
+          pulse("#s6-c5", tRcpt + 0.1, 0.3, "fresh");
+          pulse("#s6-c6", tRcpt + 0.1, 0.3, "fresh");
+          show("#s6-rowb", tRcpt + 0.35, 0.4, { x: -10 }, { x: 0 });
+          show("#s6-verb", tRcpt + 0.6, 0.2);
+          draw("#s6-ckb", tRcpt + 0.6, 0.35, "power2.out");
+
+          /* ===================================================================== */
+          /* 6g  missing evidence fails closed. No fallback. No guess.              */
+          /* ===================================================================== */
+          const t6g = Math.max(ln("6g").localStart, tRcpt + 0.9);
+          const tMiss = Math.max(at("missing", "6g", 1, -0.1), t6g);
+          show(ov("sup", "un1"), tMiss, 0.35);
+          hide("#s6-reused", tMiss, 0.3, 0.3);
+          show([ec("e6", "un1"), ec("e7", "un1")], tMiss + 0.25, 0.3);
+          show([ov("co", "un1"), ov("eu", "un1")], tMiss + 0.45, 0.35);
+          const tClosed = Math.max(at("closed", "6g", 1, -0.25), tMiss + 0.5);
+          show("#s6-fail", tClosed, 0.5, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)" }, "power2.inOut");
+          show("#s6-fail-h", tClosed + 0.25, 0.35);
+          type("#s6-c409", tClosed + 0.45, 0.5);
+          type("#s6-c503", tClosed + 0.75, 0.5);
+          const tNo = Math.max(at("no", "6g", 1, -0.05), tClosed + 1.0);
+          show("#s6-nofb", tNo, 0.55, { "--w": 60 }, { "--w": 98 }, "expo.out");
+
+          /* ===================================================================== */
+          /* 6h  around it: browser app, Python API, MCP server                     */
+          /* ===================================================================== */
+          const t6h = Math.max(ln("6h").localStart, tNo + 0.6);
+          // the hypothetical clears; the graph settles back to its plain threads
+          hide([ov("sup", "un1"), ov("co", "un1"), ov("eu", "un1"), ec("e6", "un1"), ec("e7", "un1")], t6h, 0.45);
+          tw("#s6-reused", { opacity: 0.3 }, { opacity: 1 }, t6h, 0.45, "power1.out");
+          hide([ov("fx", "cu1"), ov("rec", "cu1"), ov("reg", "cu1"), ov("co", "cu1"), ov("eu", "cu1"),
+                ov("fx", "st1"), ov("rec", "st1"), ov("reg", "st1"), ov("co", "st1"), ov("eu", "st1")], t6h + 0.2, 0.6);
+          hide(["e1", "e3", "e4", "e5"].flatMap((e) => [ec(e, "st1"), ec(e, "fr1")]), t6h + 0.2, 0.6);
+          tw(world, { x: SHIFT }, { x: 0 }, t6h, 1.4, "power2.inOut");
+          const tBrowser = Math.max(at("browser", "6h", 1, -0.2), t6h + 0.5);
+          frame("#s6-d1", tBrowser, 0.8);
+          show("#s6-d1 .s6-t", tBrowser + 0.35, 0.55, { "--w": 60 }, { "--w": 98 }, "expo.out");
+          show("#s6-d1 .s6-f", tBrowser + 0.5, 0.4);
+          show(["#s6-d1-l", "#s6-fig"], tBrowser + 0.65, 0.45, { y: 8 }, { y: 0 });
+          draw("#s6-c1", tBrowser + 0.6, 0.25);
+          frame("#s6-fa", tBrowser + 0.7, 0.6);
+          show(["#s6-fa .s6-t", "#s6-fa .s6-f"], tBrowser + 1.0, 0.4, { y: 8 }, { y: 0 });
+          draw("#s6-c2", tBrowser + 1.1, 0.25);
+          const tPy = Math.max(at("python", "6h", 1, -0.2), tBrowser + 0.8);
+          frame("#s6-d2", tPy, 0.8);
+          show("#s6-d2 .s6-t", tPy + 0.35, 0.55, { "--w": 60 }, { "--w": 98 }, "expo.out");
+          show("#s6-d2 .s6-f", tPy + 0.5, 0.4);
+          draw("#s6-c3", tPy + 0.55, 0.4);
+          const tMcp = Math.max(at("server", "6h", 1, -0.45), tPy + 0.8);
+          frame("#s6-d3", tMcp, 0.9);
+          show("#s6-d3 .s6-t", tMcp + 0.35, 0.55, { "--w": 60 }, { "--w": 98 }, "expo.out");
+          show("#s6-d3-s", tMcp + 0.5, 0.4);
+          draw("#s6-c4", tMcp + 0.55, 0.4);
+
+          /* ===================================================================== */
+          /* 6i  agents choose plans from typed tools; never arbitrary code         */
+          /* ===================================================================== */
+          const t6i = Math.max(ln("6i").localStart, tMcp + 0.7);
+          flash("#s6-d3", t6i, "", 0.9, 6, 18);
+          const tPlans = Math.max(at("plans", "6i", 1, -0.1), t6i + 0.2);
+          const tTyped = Math.max(at("tools", "6i", 1, 0), tPlans + 0.6);
+          world.querySelectorAll(".s6-tl").forEach((el, i) =>
+            show(el, tPlans + ((tTyped - tPlans) * i) / 4, 0.35, { x: -12 }, { x: 0 }));
+          const tArb = Math.max(at("arbitrary", "6i", 1, -0.35), tTyped + 0.3);
+          tw("#s6-arb", { opacity: 0, y: 150 }, { opacity: 1, y: 0 }, tArb, 0.55, "power3.out");
+          tw("#s6-arb", { x: 0 }, { x: -12 }, tArb + 0.5, 0.2, "power2.in");
+          const tCode = Math.max(at("code", "6i", 1, 0), tArb + 0.7);
+          tw("#s6-arb", { x: -12 }, { x: 0 }, tCode, 0.25, "power2.out");
+          tw("#s6-arb-x", { scaleX: 0 }, { scaleX: 1 }, tCode, 0.25, "power2.out");
+          show("#s6-arb-b", tCode, 0.2, {}, {}, "none");
+          tw("#s6-arb .s6-file", { opacity: 1 }, { opacity: 0.6 }, tCode, 0.2, "none");
+          tw("#s6-arb", { y: 0, rotation: 0 }, { y: 260, rotation: 7 }, tCode + 0.55, 0.7, "power2.in");
+          hide("#s6-arb", tCode + 0.85, 0.4);
+
+          /* ===================================================================== */
+          /* run (no voice): one correction, end to end; then hold perfectly still  */
+          /* ===================================================================== */
+          const run = FILM.mark("run", S);
+          const r0 = Math.max(run.localStart + 0.3, tCode + 1.4);
+          const span = Math.max(4.2, Math.min(5.6, FILM.section(S).duration - r0 - 2.2));
+          const k = span / 5.6; // compress the run if the window is short; it always leaves >= 2.2 s of hold
+          const R = (t) => r0 + t * k;
+          const bc = [...$("#s6-bc").children];
+          hide("#s6-sub", R(0) - 0.35, 0.3);
+          const step = (i, t) => {
+            show(bc[i], t, 0.4, { y: 10 }, { y: 0 });
+            if (i > 0) tw(bc[i - 1], { opacity: 1 }, { opacity: 0.55 }, t, 0.4, "power1.out");
+          };
+          // 1 correction posted from the browser, through FastAPI, into the runtime
+          step(0, R(0));
+          flash("#s6-d1", R(0), "stale", 0.5, 6, 18);
+          draw(ec("c1", "st2"), R(0.3), 0.2);
+          flash("#s6-fa", R(0.45), "stale", 0.4, 6, 18);
+          draw(ec("c2", "st2"), R(0.7), 0.2);
+          flash("#s6-rt", R(0.85), "stale", 0.4, 6, 22);
+          // 2 HydraDB walks the graph from the changed rate
+          step(1, R(1.1));
+          draw(ec("c5", "st2"), R(1.1), 0.2);
+          show(ov("fx", "st2"), R(1.3), 0.25);
+          draw(ec("e1", "st2"), R(1.45), 0.3 * k);
+          show(ov("rec", "st2"), R(1.7), 0.2);
+          draw(ec("e3", "st2"), R(1.75), 0.25 * k);
+          show(ov("reg", "st2"), R(1.98), 0.2);
+          draw(ec("e4", "st2"), R(2.0), 0.3 * k);
+          draw(ec("e5", "st2"), R(2.0), 0.3 * k);
+          show([ov("co", "st2"), ov("eu", "st2")], R(2.28), 0.2);
+          // the saved figure is withheld while it is stale
+          const fig = $("#s6-fig");
+          tw(fig, { "--wdth": 125, "--fig-dim": 0 }, { "--wdth": 82, "--fig-dim": 1 }, R(2.3), 0.45, "power2.inOut");
+          show(fig.querySelector(".withheld-hatch"), R(2.3), 0.4);
+          // 3 re-run four tools in order, reuse support
+          step(2, R(2.6));
+          rows.forEach((row, i) => {
+            const t = R(2.6 + i * 0.22);
+            show(row.querySelector(".s6-hi"), t, 0.15, {}, {}, "none");
+            hide(row.querySelector(".s6-hi"), t + 0.3, 0.3);
+          });
+          lightSquares(R(2.6), 0.22 * k, 0.12, 0.25);
+          show(ov("fx", "cu2"), R(2.6), 0.25);
+          draw(ec("e1", "fr2"), R(2.6), 0.25);
+          show(ov("rec", "cu2"), R(2.72), 0.25);
+          draw(ec("e3", "fr2"), R(2.72), 0.25);
+          show(ov("reg", "cu2"), R(2.85), 0.25);
+          draw(ec("e4", "fr2"), R(3.04), 0.25);
+          show(ov("co", "cu2"), R(3.2), 0.25);
+          draw(ec("e5", "fr2"), R(3.26), 0.25);
+          show(ov("eu", "cu2"), R(3.42), 0.25);
+          show(reuseRow.querySelector(".s6-hi"), R(3.5), 0.15, {}, {}, "none");
+          hide(reuseRow.querySelector(".s6-hi"), R(3.8), 0.3);
+          flash("#s6-reused", R(3.5), "fresh", 0.35, 4, 22);
+          // 4 commit: new receipts and edges are recorded, blobs land hash-checked
+          step(3, R(3.95));
+          draw(ec("c5", "fr2"), R(3.95), 0.22);
+          draw(ec("c6", "fr2"), R(4.0), 0.22);
+          flash("#s6-rowb", R(4.1), "fresh", 0.45, 6, 10);
+          // 5 back to the browser: the figure is current again
+          step(4, R(4.55));
+          draw(ec("c2", "fr2"), R(4.55), 0.2).setAttribute("transform", "rotate(180 651 385)");
+          draw(ec("c1", "fr2"), R(4.72), 0.2).setAttribute("transform", "rotate(180 433.5 385)");
+          hide(["c1", "c2", "c5"].map((c) => ec(c, "st2")), R(4.55), 0.3);
+          tw(fig, { "--wdth": 82, "--fig-dim": 1 }, { "--wdth": 125, "--fig-dim": 0 }, R(4.9), 0.55, "power3.out");
+          hide(fig.querySelector(".withheld-hatch"), R(4.9), 0.35);
+          FILM.countTo(tl, "#s6-figv", 5565, 5755, R(4.9), { duration: 0.7, format: (v) => "$" + Math.round(v).toLocaleString("en-US") });
+          flash("#s6-d1", R(4.9), "fresh", null, 6, 18);
+          // hold: nothing moves until the section ends
+
+          window.__timelines["s6-architecture"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

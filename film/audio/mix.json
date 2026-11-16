@@ -1,0 +1,331 @@
+{
+  "target": {
+    "lufs": -14,
+    "truePeak": -1.5,
+    "preLimitTp": -2,
+    "airBelowVoice": 9,
+    "under": 20,
+    "underBy": {
+      "s6": 21
+    },
+    "nameUnder": 15.5,
+    "lift": 4.5,
+    "liftRamp": 0.8,
+    "carve": {
+      "from": 400,
+      "to": 4000,
+      "gainDb": -3.5
+    },
+    "attack": 0.25,
+    "release": 0.6,
+    "innerGap": 1,
+    "bridge": 1.6,
+    "minSpeechRatio": 15
+  },
+  "inputs": {
+    "voice": [
+      {
+        "section": "s1",
+        "file": "audio/narration/s1.wav",
+        "at": 0,
+        "seconds": 16.994
+      },
+      {
+        "section": "s2",
+        "file": "audio/narration/s2.wav",
+        "at": 18,
+        "seconds": 21.346
+      },
+      {
+        "section": "s3",
+        "file": "audio/narration/s3.wav",
+        "at": 40.3,
+        "seconds": 13.753
+      },
+      {
+        "section": "s4",
+        "file": "audio/narration/s4.wav",
+        "at": 55.7,
+        "seconds": 29.748
+      },
+      {
+        "section": "s5",
+        "file": "audio/narration/s5.wav",
+        "at": 86.9,
+        "seconds": 25.981
+      },
+      {
+        "section": "s6",
+        "file": "audio/narration/s6.wav",
+        "at": 114.1,
+        "seconds": 51.497
+      },
+      {
+        "section": "s7",
+        "file": "audio/narration/s7.wav",
+        "at": 173.6,
+        "seconds": 30.063
+      },
+      {
+        "section": "s8",
+        "file": "audio/narration/s8.wav",
+        "at": 205.1,
+        "seconds": 8.694
+      }
+    ],
+    "bed": {
+      "file": "audio/music-bed.wav",
+      "seconds": 217.4,
+      "lufs": -18.02
+    },
+    "sfx": "audio/sfx.wav"
+  },
+  "bedBaseGainDb": -4.48,
+  "carveFilter": "firequalizer=zero_phase=1:gain_entry='entry(0,0);entry(280,0);entry(400,-3.5);entry(4000,-3.5);entry(5600,0);entry(24000,0)'",
+  "lifts": [
+    {
+      "name": "name (s3 opening)",
+      "from": 40.3,
+      "to": 43.102,
+      "musicLufs": -30.11
+    },
+    {
+      "name": "run (s6, no voice)",
+      "from": 165.597,
+      "to": 173.6,
+      "musicLufs": -14.82
+    },
+    {
+      "name": "final hold (s8)",
+      "from": 213.594,
+      "to": 217.4,
+      "musicLufs": -24.8
+    }
+  ],
+  "duck": {
+    "active": [
+      [
+        0.35,
+        53.852
+      ],
+      [
+        56.05,
+        85.248
+      ],
+      [
+        87.25,
+        112.681
+      ],
+      [
+        114.45,
+        165.397
+      ],
+      [
+        173.95,
+        203.463
+      ],
+      [
+        205.45,
+        213.594
+      ]
+    ],
+    "spans": [
+      {
+        "section": "s1",
+        "from": 0.35,
+        "to": 16.794,
+        "under": 20,
+        "depthDb": -6.68,
+        "musicBelowVoiceDb": 20.51
+      },
+      {
+        "section": "s2",
+        "from": 18.35,
+        "to": 39.146,
+        "under": 20,
+        "depthDb": -6.9,
+        "musicBelowVoiceDb": 20.33
+      },
+      {
+        "section": "s3",
+        "mark": "name",
+        "from": 40.65,
+        "to": 42.702,
+        "under": 15.5,
+        "depthDb": -10.38,
+        "musicBelowVoiceDb": 18.48
+      },
+      {
+        "section": "s3",
+        "from": 42.702,
+        "to": 53.852,
+        "under": 20,
+        "depthDb": -9.96,
+        "musicBelowVoiceDb": 20.02
+      },
+      {
+        "section": "s4",
+        "from": 56.05,
+        "to": 85.248,
+        "under": 20,
+        "depthDb": -9.88,
+        "musicBelowVoiceDb": 20.45
+      },
+      {
+        "section": "s5",
+        "from": 87.25,
+        "to": 112.681,
+        "under": 20,
+        "depthDb": -11.69,
+        "musicBelowVoiceDb": 20.34
+      },
+      {
+        "section": "s6",
+        "from": 114.45,
+        "to": 165.397,
+        "under": 21,
+        "depthDb": -13.24,
+        "musicBelowVoiceDb": 21.42
+      },
+      {
+        "section": "s7",
+        "from": 173.95,
+        "to": 203.463,
+        "under": 20,
+        "depthDb": -11.55,
+        "musicBelowVoiceDb": 20.46
+      },
+      {
+        "section": "s8",
+        "from": 205.45,
+        "to": 213.594,
+        "under": 20,
+        "depthDb": -11.36,
+        "musicBelowVoiceDb": 20.68
+      }
+    ]
+  },
+  "sections": [
+    {
+      "section": "s1",
+      "voiceLufs": -13.51,
+      "musicUnderVoiceLufs": -34.02,
+      "musicBelowVoiceDb": 20.51,
+      "musicInAirLufs": -57.11
+    },
+    {
+      "section": "s2",
+      "voiceLufs": -13.22,
+      "musicUnderVoiceLufs": -33.55,
+      "musicBelowVoiceDb": 20.33,
+      "musicInAirLufs": -34.86
+    },
+    {
+      "section": "s3",
+      "voiceLufs": -13.2,
+      "musicUnderVoiceLufs": -32.81,
+      "musicBelowVoiceDb": 19.6,
+      "musicInAirLufs": -28.98
+    },
+    {
+      "section": "s4",
+      "voiceLufs": -13.67,
+      "musicUnderVoiceLufs": -34.13,
+      "musicBelowVoiceDb": 20.45,
+      "musicInAirLufs": -23.23
+    },
+    {
+      "section": "s5",
+      "voiceLufs": -13.54,
+      "musicUnderVoiceLufs": -33.89,
+      "musicBelowVoiceDb": 20.34,
+      "musicInAirLufs": -23.32
+    },
+    {
+      "section": "s6",
+      "voiceLufs": -13.64,
+      "musicUnderVoiceLufs": -35.05,
+      "musicBelowVoiceDb": 21.42,
+      "musicInAirLufs": -21.13
+    },
+    {
+      "section": "s7",
+      "voiceLufs": -13.42,
+      "musicUnderVoiceLufs": -33.88,
+      "musicBelowVoiceDb": 20.46,
+      "musicInAirLufs": -18.29
+    },
+    {
+      "section": "s8",
+      "voiceLufs": -13.44,
+      "musicUnderVoiceLufs": -34.11,
+      "musicBelowVoiceDb": 20.68,
+      "musicInAirLufs": -23.36
+    }
+  ],
+  "speech": {
+    "voiceSpeechLufs": -13.5,
+    "musicUnderSpeechLufs": -34.09,
+    "musicBelowVoiceDb": 20.59,
+    "musicMomentaryVsSpeakingLevel": {
+      "about": "every 400 ms window inside a phrase: section voice level minus the music's momentary loudness",
+      "count": 1905,
+      "min": 15.89,
+      "minAt": 40.95,
+      "p05": 19.64,
+      "median": 20.58,
+      "below15dbShare": 0
+    },
+    "voiceWindowsVsMusic": {
+      "about": "400 ms windows where the voice is within 10 LU of its speech level: voice minus music in the same window",
+      "count": 1643,
+      "p05": 14.07,
+      "median": 20.76,
+      "min": 9.69,
+      "below15dbShare": 0.07
+    },
+    "sfxUnderSpeechLufs": -45.21
+  },
+  "musicInAirLufs": -17.11,
+  "master": {
+    "sum": {
+      "lufs": -13.1,
+      "lra": 4.1,
+      "truePeak": -0.8,
+      "samplePeak": -0.9
+    },
+    "preLimitDbtp": -2,
+    "limiter": "aresample=192000:resampler=soxr,alimiter=limit=0.88105:attack=5:release=80:level=false:asc=1,aresample=48000:resampler=soxr",
+    "loudnormPass1": {
+      "input_i": "-13.17",
+      "input_tp": "-1.10",
+      "input_lra": "4.10",
+      "input_thresh": "-23.89",
+      "output_i": "-14.22",
+      "output_tp": "-2.27",
+      "output_lra": "4.00",
+      "output_thresh": "-24.90",
+      "normalization_type": "dynamic",
+      "target_offset": "0.22"
+    },
+    "loudnormPass2": {
+      "output_i": "-13.94",
+      "output_tp": "-1.96",
+      "normalization_type": "linear",
+      "target_offset": "-0.06",
+      "trimDb": -0.1
+    },
+    "measured": {
+      "lufs": -14,
+      "lra": 4.1,
+      "truePeak": -2,
+      "samplePeak": -2.1
+    },
+    "approxMasterGainDb": -0.9,
+    "format": "48 kHz stereo, PCM 24-bit",
+    "samples": 10435200,
+    "seconds": 217.4,
+    "exactLength": true,
+    "clippedSamples": 0
+  }
+}
