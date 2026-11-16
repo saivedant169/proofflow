@@ -1,6 +1,6 @@
 # ProofFlow product stills
 
-Captured by CAPTURE with `node tools/capture-stills.mjs` (headless Chrome via puppeteer-core) from the **restyled** app (`frontend/`, commit 35dd134: new tokens, ThemeSwitch, Anybody / Instrument Sans / JetBrains Mono), **dark theme** (`proofflow-site-theme = dark` plus `prefers-color-scheme: dark`, the film's navy ground), reduced motion, no cursor, hover or focus ring.
+Captured by CAPTURE with `node tools/capture-stills.mjs` (headless Chrome via puppeteer-core) from the **restyled** app (`frontend/`, commit 35dd134: new tokens, ThemeSwitch, Anybody / Instrument Sans / JetBrains Mono; re-shot after merging main 50683c5, which removed the intro's "Watch walkthrough" link), **dark theme** (`proofflow-site-theme = dark` plus `prefers-color-scheme: dark`, the film's navy ground), reduced motion, no cursor, hover or focus ring.
 The frontend ran under the Vite dev server with `/api` and `/health` proxied to the hosted backend `https://proofflow.arnavbule.in` (a temporary config outside the repo; the frontend is unchanged). Every figure comes from that real backend and HydraDB; nothing is mocked. One anonymous session on 2026-11-16.
 
 Full frames: device scale 2 on a 1600 CSS px wide viewport (workspace frames grow to the document height; drawer frames are exactly 1600x1000). Crops `<id>.<name>@Nx.png` are re-rendered at scale 3 or 4 from the same live state (never upscaled). Mobile: 390x844, scale 3, mobile emulation. Boxes in `stills.json` are CSS px of each image; drawer frames name only drawer parts.

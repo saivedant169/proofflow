@@ -140,7 +140,7 @@
           "height": 1000
         },
         "fullPage": true,
-        "capturedAt": "2026-11-16T12:36:16.355Z",
+        "capturedAt": "2026-11-16T12:53:23.848Z",
         "colorScheme": "dark"
       }
     },
@@ -294,7 +294,7 @@
       "title": "Guided sample workspace at phone width (390 CSS px)",
       "kind": "full",
       "width": 390,
-      "height": 2034,
+      "height": 2002,
       "scale": 3,
       "boxes": {
         "headline": {
@@ -305,97 +305,97 @@
         },
         "dataset-bar": {
           "x": 16,
-          "y": 392.781,
+          "y": 360.781,
           "w": 358,
           "h": 68.438
         },
         "workflow-section": {
           "x": 16,
-          "y": 475.219,
+          "y": 443.219,
           "w": 358,
           "h": 123
         },
         "workflow": {
           "x": 16,
-          "y": 506.219,
+          "y": 474.219,
           "w": 358,
           "h": 92
         },
         "change-source": {
           "x": 16,
-          "y": 506.219,
+          "y": 474.219,
           "w": 175,
           "h": 42
         },
         "update-csv": {
           "x": 16,
-          "y": 506.219,
+          "y": 474.219,
           "w": 175,
           "h": 42
         },
         "refresh-affected": {
           "x": 199,
-          "y": 506.219,
+          "y": 474.219,
           "w": 175,
           "h": 42
         },
         "check-values": {
           "x": 16,
-          "y": 556.219,
+          "y": 524.219,
           "w": 358,
           "h": 42
         },
         "report-panel": {
           "x": 16,
-          "y": 614.219,
+          "y": 582.219,
           "w": 358,
           "h": 447.953
         },
         "company-revenue": {
           "x": 29,
-          "y": 687.219,
+          "y": 655.219,
           "w": 332,
           "h": 88.453
         },
         "eu-revenue": {
           "x": 29,
-          "y": 814.672,
+          "y": 782.672,
           "w": 167,
           "h": 89.984
         },
         "regional-revenue": {
           "x": 29,
-          "y": 814.672,
+          "y": 782.672,
           "w": 167,
           "h": 89.984
         },
         "eu-support": {
           "x": 194,
-          "y": 814.672,
+          "y": 782.672,
           "w": 167,
           "h": 89.984
         },
         "report-links": {
           "x": 37,
-          "y": 926.656,
+          "y": 894.656,
           "w": 316,
           "h": 112.516
         },
         "graph": {
           "x": 16,
-          "y": 1078.172,
+          "y": 1046.172,
           "w": 358,
           "h": 581.656
         },
         "activity": {
           "x": 16,
-          "y": 1675.828,
+          "y": 1643.828,
           "w": 358,
           "h": 215.141
         },
         "activity-rows": {
           "x": 33,
-          "y": 1734.969,
+          "y": 1702.969,
           "w": 324,
           "h": 147
         }
@@ -407,7 +407,7 @@
           "height": 844
         },
         "fullPage": true,
-        "capturedAt": "2026-11-16T12:36:26.015Z",
+        "capturedAt": "2026-11-16T12:53:31.612Z",
         "colorScheme": "dark"
       }
     },
@@ -427,49 +427,49 @@
         },
         "dataset-bar": {
           "x": 16,
-          "y": 392.781,
+          "y": 360.781,
           "w": 358,
           "h": 68.438
         },
         "workflow-section": {
           "x": 16,
-          "y": 475.219,
+          "y": 443.219,
           "w": 358,
           "h": 123
         },
         "workflow": {
           "x": 16,
-          "y": 506.219,
+          "y": 474.219,
           "w": 358,
           "h": 92
         },
         "change-source": {
           "x": 16,
-          "y": 506.219,
+          "y": 474.219,
           "w": 175,
           "h": 42
         },
         "update-csv": {
           "x": 16,
-          "y": 506.219,
+          "y": 474.219,
           "w": 175,
           "h": 42
         },
         "refresh-affected": {
           "x": 199,
-          "y": 506.219,
+          "y": 474.219,
           "w": 175,
           "h": 42
         },
         "check-values": {
           "x": 16,
-          "y": 556.219,
+          "y": 524.219,
           "w": 358,
           "h": 42
         },
         "company-revenue": {
           "x": 29,
-          "y": 687.219,
+          "y": 655.219,
           "w": 332,
           "h": 88.453
         }
@@ -528,7 +528,7 @@
       "cropOf": "p12-mobile",
       "origin": {
         "x": 8,
-        "y": 606
+        "y": 574
       }
     },
     "p02-change-source": {
@@ -590,7 +590,7 @@
           "height": 1000
         },
         "fullPage": false,
-        "capturedAt": "2026-11-16T12:36:30.846Z",
+        "capturedAt": "2026-11-16T12:53:35.454Z",
         "colorScheme": "dark"
       }
     },
@@ -804,6 +804,12 @@
           "w": 763.828,
           "h": 190.781
         },
+        "changed-source": {
+          "x": 681.156,
+          "y": 632.359,
+          "w": 112.297,
+          "h": 50
+        },
         "banner": {
           "x": 124,
           "y": 424.375,
@@ -841,7 +847,7 @@
           "height": 1000
         },
         "fullPage": true,
-        "capturedAt": "2026-11-16T12:36:37.213Z",
+        "capturedAt": "2026-11-16T12:53:40.665Z",
         "colorScheme": "dark"
       }
     },
@@ -954,6 +960,12 @@
           "y": 153.359,
           "w": 763.828,
           "h": 190.781
+        },
+        "changed-source": {
+          "x": 39.156,
+          "y": 153.359,
+          "w": 112.297,
+          "h": 50
         }
       },
       "cropOf": "p03-stale",
@@ -1060,7 +1072,7 @@
           "height": 1000
         },
         "fullPage": false,
-        "capturedAt": "2026-11-16T12:36:44.871Z",
+        "capturedAt": "2026-11-16T12:53:46.708Z",
         "colorScheme": "dark"
       }
     },
@@ -1260,7 +1272,7 @@
           "height": 1000
         },
         "fullPage": true,
-        "capturedAt": "2026-11-16T12:36:50.579Z",
+        "capturedAt": "2026-11-16T12:53:52.160Z",
         "colorScheme": "dark"
       }
     },
@@ -1449,7 +1461,7 @@
           "height": 1000
         },
         "fullPage": false,
-        "capturedAt": "2026-11-16T12:36:58.125Z",
+        "capturedAt": "2026-11-16T12:53:58.666Z",
         "colorScheme": "dark"
       }
     },
@@ -1554,7 +1566,7 @@
           "height": 1000
         },
         "fullPage": false,
-        "capturedAt": "2026-11-16T12:37:02.408Z",
+        "capturedAt": "2026-11-16T12:54:02.392Z",
         "colorScheme": "dark"
       }
     },
@@ -1760,7 +1772,7 @@
           "height": 1000
         },
         "fullPage": true,
-        "capturedAt": "2026-11-16T12:37:08.958Z",
+        "capturedAt": "2026-11-16T12:54:08.698Z",
         "colorScheme": "dark"
       }
     },
@@ -1967,7 +1979,7 @@
           "height": 1000
         },
         "fullPage": false,
-        "capturedAt": "2026-11-16T12:40:38.511Z",
+        "capturedAt": "2026-11-16T12:54:16.287Z",
         "colorScheme": "dark"
       }
     },
@@ -1984,6 +1996,45 @@
           "y": 8.469,
           "w": 515,
           "h": 74.938
+        }
+      },
+      "cropOf": "p08-csv-update",
+      "origin": {
+        "x": 1045,
+        "y": 213
+      }
+    },
+    "p08-csv-update.publish": {
+      "file": "p08-csv-update.publish@4x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 531,
+      "height": 676,
+      "scale": 4,
+      "boxes": {
+        "rates": {
+          "x": 8,
+          "y": 8.469,
+          "w": 515,
+          "h": 74.938
+        },
+        "region": {
+          "x": 8,
+          "y": 151.406,
+          "w": 515,
+          "h": 72.141
+        },
+        "preview": {
+          "x": 8,
+          "y": 275.547,
+          "w": 515,
+          "h": 304.063
+        },
+        "submit": {
+          "x": 8,
+          "y": 619.609,
+          "w": 515,
+          "h": 48
         }
       },
       "cropOf": "p08-csv-update",
@@ -2203,7 +2254,7 @@
           "height": 1000
         },
         "fullPage": true,
-        "capturedAt": "2026-11-16T12:44:57.058Z",
+        "capturedAt": "2026-11-16T12:54:21.936Z",
         "colorScheme": "dark"
       }
     },
@@ -2404,7 +2455,7 @@
           "height": 1000
         },
         "fullPage": false,
-        "capturedAt": "2026-11-16T12:37:27.552Z",
+        "capturedAt": "2026-11-16T12:54:28.807Z",
         "colorScheme": "dark"
       }
     },
@@ -2628,7 +2679,7 @@
           "height": 1000
         },
         "fullPage": true,
-        "capturedAt": "2026-11-16T12:37:44.748Z",
+        "capturedAt": "2026-11-16T12:54:34.315Z",
         "colorScheme": "dark"
       }
     },
@@ -2833,6 +2884,12 @@
           "w": 1352,
           "h": 47
         },
+        "verification-text": {
+          "x": 169,
+          "y": 559.656,
+          "w": 539,
+          "h": 21
+        },
         "accounting": {
           "x": 124,
           "y": 424.375,
@@ -2870,7 +2927,7 @@
           "height": 1000
         },
         "fullPage": true,
-        "capturedAt": "2026-11-16T12:37:49.946Z",
+        "capturedAt": "2026-11-16T12:54:38.440Z",
         "colorScheme": "dark"
       }
     },
@@ -3001,6 +3058,12 @@
           "y": 8.656,
           "w": 1352,
           "h": 47
+        },
+        "verification-text": {
+          "x": 53,
+          "y": 21.656,
+          "w": 539,
+          "h": 21
         }
       },
       "cropOf": "p09-csv-refreshed",
@@ -3256,7 +3319,7 @@
           "height": 1000
         },
         "fullPage": true,
-        "capturedAt": "2026-11-16T12:46:37.675Z",
+        "capturedAt": "2026-11-16T12:54:48.201Z",
         "colorScheme": "dark"
       }
     },
@@ -3350,6 +3413,60 @@
         "y": 410
       }
     },
+    "p09-csv-copied.copy": {
+      "file": "p09-csv-copied.copy@4x.png",
+      "state": "12",
+      "kind": "crop",
+      "width": 450,
+      "height": 59,
+      "scale": 4,
+      "boxes": {
+        "handoff": {
+          "x": 8.297,
+          "y": 8.375,
+          "w": 433.703,
+          "h": 42
+        },
+        "download-reports": {
+          "x": 8.297,
+          "y": 8.375,
+          "w": 230.203,
+          "h": 42
+        },
+        "copy-report": {
+          "x": 246.5,
+          "y": 8.375,
+          "w": 195.5,
+          "h": 42
+        }
+      },
+      "cropOf": "p09-csv-copied",
+      "origin": {
+        "x": 1034,
+        "y": 358
+      }
+    },
+    "p09-csv-copied.verified": {
+      "file": "p09-csv-copied.verified@4x.png",
+      "state": "12",
+      "kind": "crop",
+      "width": 624,
+      "height": 64,
+      "scale": 4,
+      "boxes": {
+        "verification-text": {
+          "x": 53,
+          "y": 21.156,
+          "w": 539,
+          "h": 21
+        }
+      },
+      "cropOf": "p09-csv-copied",
+      "origin": {
+        "x": 116,
+        "y": 568
+      }
+    },
     "p10-benchmark": {
       "file": "p10-benchmark.png",
       "state": "bench",
@@ -3415,7 +3532,7 @@
           "height": 1000
         },
         "fullPage": true,
-        "capturedAt": "2026-11-16T12:38:05.872Z",
+        "capturedAt": "2026-11-16T12:54:55.894Z",
         "colorScheme": "dark"
       }
     },
@@ -3637,7 +3754,7 @@
           "height": 1000
         },
         "fullPage": true,
-        "capturedAt": "2026-11-16T12:38:17.051Z",
+        "capturedAt": "2026-11-16T12:55:04.471Z",
         "colorScheme": "dark"
       }
     },
@@ -3732,99 +3849,6 @@
       "origin": {
         "x": 189,
         "y": 4299
-      }
-    },
-    "p08-csv-update.publish": {
-      "file": "p08-csv-update.publish@4x.png",
-      "state": "8",
-      "kind": "crop",
-      "width": 531,
-      "height": 676,
-      "scale": 4,
-      "boxes": {
-        "rates": {
-          "x": 8,
-          "y": 8.469,
-          "w": 515,
-          "h": 74.938
-        },
-        "region": {
-          "x": 8,
-          "y": 151.406,
-          "w": 515,
-          "h": 72.141
-        },
-        "preview": {
-          "x": 8,
-          "y": 275.547,
-          "w": 515,
-          "h": 304.063
-        },
-        "submit": {
-          "x": 8,
-          "y": 619.609,
-          "w": 515,
-          "h": 48
-        }
-      },
-      "cropOf": "p08-csv-update",
-      "origin": {
-        "x": 1045,
-        "y": 213
-      }
-    },
-    "p09-csv-copied.copy": {
-      "file": "p09-csv-copied.copy@4x.png",
-      "state": "12",
-      "kind": "crop",
-      "width": 450,
-      "height": 59,
-      "scale": 4,
-      "boxes": {
-        "handoff": {
-          "x": 8.297,
-          "y": 8.375,
-          "w": 433.703,
-          "h": 42
-        },
-        "download-reports": {
-          "x": 8.297,
-          "y": 8.375,
-          "w": 230.203,
-          "h": 42
-        },
-        "copy-report": {
-          "x": 246.5,
-          "y": 8.375,
-          "w": 195.5,
-          "h": 42
-        }
-      },
-      "cropOf": "p09-csv-copied",
-      "origin": {
-        "x": 1034,
-        "y": 358
-      }
-    },
-    "p09-csv-copied.verified": {
-      "file": "p09-csv-copied.verified@4x.png",
-      "state": "12",
-      "kind": "crop",
-      "width": 624,
-      "height": 64,
-      "scale": 4,
-      "boxes": {
-        "verification-text": {
-          "x": 53,
-          "y": 21.156,
-          "w": 539,
-          "h": 21
-        }
-      },
-      "cropOf": "p09-csv-copied",
-      "origin": {
-        "x": 116,
-        "y": 568
       }
     }
   }
