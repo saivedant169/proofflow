@@ -1,7 +1,8 @@
 <!doctype html>
 <!-- ProofFlow film, section 8: Close. Threads from all four edges converge on one point and become a baseline; the
      wordmark rises out of that baseline (s3 builds it from one thread with a width stretch; this is different), the
-     baseline then retracts into one mint dot, the full stop. Tagline, URL, the one disclosure, then a still hold. -->
+     baseline then retracts into one mint dot, the full stop. Then the positioning line, who it is for (three use-case
+     chips on their spoken words), how it plugs in (MCP), the address and the evidence line, then a still hold. -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,8 +20,8 @@
         .s8-threads .s8-alt { stroke: var(--thread-strong); stroke-width: 3; }
         .s8-threads .s8-base { stroke: var(--thread-strong); stroke-width: 5; }
 
-        /* the wordmark sits in a box whose bottom edge is the glyph baseline (y 500), so letters rise out of it */
-        .s8-box { position: absolute; left: 0; top: 280px; width: 1920px; height: 220px; overflow: hidden; }
+        /* the wordmark sits in a box whose bottom edge is the glyph baseline (y 410), so letters rise out of it */
+        .s8-box { position: absolute; left: 0; top: 190px; width: 1920px; height: 220px; overflow: hidden; }
         .s8-mark {
           position: absolute;
           left: 0;
@@ -45,12 +46,30 @@
           vertical-align: baseline;
         }
 
-        .s8-tag { position: absolute; left: 0; top: 566px; width: 1920px; text-align: center; color: var(--ink); white-space: nowrap; }
+        .s8-tag { position: absolute; left: 0; top: 462px; width: 1920px; text-align: center; color: var(--ink); white-space: nowrap; }
         .s8-tw { display: inline-block; --s8-wd: 92; font-variation-settings: "wdth" var(--s8-wd); }
+
+        /* who it is for: three chips, one row, centred */
+        .s8-chips { position: absolute; left: 0; top: 600px; width: 1920px; display: flex; justify-content: center; gap: 24px; }
+        .s8-chip {
+          display: inline-flex;
+          align-items: center;
+          height: 64px;
+          padding: 0 30px;
+          box-sizing: border-box;
+          border-radius: 999px;
+          border: 2px solid var(--rule);
+          background: var(--panel);
+          color: var(--ink);
+          white-space: nowrap;
+        }
+        .s8-mcp { position: absolute; left: 0; top: 694px; width: 1920px; text-align: center; color: var(--muted); white-space: nowrap; }
+        .s8-mcp .s8-k { color: var(--ink); }
+
         .s8-url {
           position: absolute;
           left: 0;
-          top: 668px;
+          top: 792px;
           width: 1920px;
           text-align: center;
           font-family: var(--font-mono);
@@ -59,38 +78,46 @@
           letter-spacing: 0;
         }
         .s8-url span { display: inline-block; }
-        .s8-disc { position: absolute; left: 0; top: 936px; width: 1920px; text-align: center; color: var(--muted); }
+        .s8-disc { position: absolute; left: 0; top: 900px; width: 1920px; text-align: center; color: var(--muted); }
       </style>
 
-      <div id="root" data-composition-id="s8-close" data-width="1920" data-height="1080" data-duration="13.9">
-        <!-- eight threads, two per edge, all converging on the baseline's centre (960, 500) -->
+      <div id="root" data-composition-id="s8-close" data-width="1920" data-height="1080" data-duration="23.3">
+        <!-- eight threads, two per edge, all converging on the baseline's centre (960, 410) -->
         <svg class="threads s8-threads" viewBox="0 0 1920 1080">
-          <path id="s8-t1" d="M-20 210 C380 210 700 500 960 500" />
-          <path id="s8-t2" class="s8-alt" d="M-20 880 C420 880 680 500 960 500" />
-          <path id="s8-t3" class="s8-alt" d="M420 -20 C420 300 720 500 960 500" />
-          <path id="s8-t4" d="M640 1100 C640 760 760 500 960 500" />
-          <path id="s8-t5" d="M1360 -20 C1360 300 1200 500 960 500" />
-          <path id="s8-t6" class="s8-alt" d="M1180 1100 C1180 760 1160 500 960 500" />
-          <path id="s8-t7" class="s8-alt" d="M1940 300 C1500 300 1220 500 960 500" />
-          <path id="s8-t8" d="M1940 820 C1540 820 1240 500 960 500" />
-          <path id="s8-bl" class="s8-base" d="M318 500 H960" />
-          <path id="s8-br" class="s8-base" d="M960 500 H1590" />
+          <path id="s8-t1" d="M-20 150 C380 150 700 410 960 410" />
+          <path id="s8-t2" class="s8-alt" d="M-20 820 C420 820 680 410 960 410" />
+          <path id="s8-t3" class="s8-alt" d="M420 -20 C420 250 720 410 960 410" />
+          <path id="s8-t4" d="M640 1100 C640 700 760 410 960 410" />
+          <path id="s8-t5" d="M1360 -20 C1360 250 1200 410 960 410" />
+          <path id="s8-t6" class="s8-alt" d="M1180 1100 C1180 700 1160 410 960 410" />
+          <path id="s8-t7" class="s8-alt" d="M1940 240 C1500 240 1220 410 960 410" />
+          <path id="s8-t8" d="M1940 760 C1540 760 1240 410 960 410" />
+          <path id="s8-bl" class="s8-base" d="M318 410 H960" />
+          <path id="s8-br" class="s8-base" d="M960 410 H1590" />
         </svg>
 
         <div class="s8-box">
           <div id="s8-mark" class="t-hero s8-mark"><span class="s8-l"><svg class="s8-p" viewBox="0 0 72 79"><path d="M11 68 V11 H42 A19 19 0 0 1 42 49 H11" /></svg></span><span class="s8-l">r</span><span class="s8-l">o</span><span class="s8-l">o</span><span class="s8-l">f</span><span class="s8-l">F</span><span class="s8-l">l</span><span class="s8-l">o</span><span class="s8-l">w</span><span id="s8-dot" class="s8-dot"></span></div>
         </div>
 
-        <p id="s8-tag" class="t-sub s8-tag"><span class="s8-tw">Saved</span> <span class="s8-tw">reports</span> <span class="s8-tw">that</span> <span class="s8-tw">know</span> <span class="s8-tw">when</span> <span class="s8-tw">they're</span> <span class="s8-tw">out</span> <span class="s8-tw">of</span> <span class="s8-tw">date.</span></p>
+        <p id="s8-tag" class="t-sub s8-tag"><span class="s8-tw">Full-context</span> <span class="s8-tw">accuracy</span> <span class="s8-tw">at</span> <span class="s8-tw">vector-search</span> <span class="s8-tw">cost.</span></p>
+
+        <div class="s8-chips">
+          <span id="s8-c1" class="t-label s8-chip">Finance close</span>
+          <span id="s8-c2" class="t-label s8-chip">Revenue &amp; FX reporting</span>
+          <span id="s8-c3" class="t-label s8-chip">Commerce analytics</span>
+        </div>
+        <p id="s8-mcp" class="t-label s8-mcp"><span class="s8-k">Any agent</span> → <span class="s8-k">MCP connector</span> (one download)</p>
+
         <p id="s8-url" class="t-body s8-url"><span id="s8-url-t">proofflow.arnavbule.in</span></p>
-        <p id="s8-disc" class="t-small s8-disc">Sample data is authored. Every result shown is in the public evidence.</p>
+        <p id="s8-disc" class="t-small s8-disc">Every number shown is in the public evidence.</p>
       </div>
 
       <script>
         (() => {
           const S = "s8";
           const tl = gsap.timeline({ paused: true });
-          const BASE = { left: 318, right: 1590, y: 500 }; /* measured: the P's stem and the dot's centre */
+          /* BASE (measured): the P's stem at x 318, the dot's centre at x 1590, baseline y 410 */
 
           const name = FILM.mark("finalName", S);
           const land = name.localStart + 0.45; /* threads meet as "ProofFlow" is spoken */
@@ -99,7 +126,7 @@
           const threads = ["#s8-t1", "#s8-t5", "#s8-t4", "#s8-t8", "#s8-t3", "#s8-t7", "#s8-t2", "#s8-t6"];
           threads.forEach((id, index) => {
             const start = Math.max(0, land - 0.95 + index * 0.03);
-            FILM.drawThread(tl, id, start, { duration: land - start, ease: "power2.inOut" });
+            FILM.drawThread(tl, id, start, { duration: Math.max(0.3, land - start), ease: "power2.inOut" });
           });
 
           /* 2. the baseline unfurls from the meeting point to both ends */
@@ -125,20 +152,25 @@
           tl.fromTo("#s8-br", { attr: { "stroke-dashoffset": 0 } }, { attr: { "stroke-dashoffset": -1 }, duration: 0.3, ease: "power2.out", immediateRender: false }, retract + 0.3);
           tl.fromTo("#s8-dot", { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.8)" }, retract + 0.48);
 
-          /* 6. tagline: each word stretches in on its spoken time */
-          const spoken = ["saved", "reports", "that", "know", "when", "they're", "out", "of", "date"];
+          /* 6. 8b: the positioning line, each word stretching in on its spoken time */
+          const spoken = ["Full-context", "accuracy", "at", "vector-search", "cost"];
           [...document.querySelectorAll("#s8-tag .s8-tw")].forEach((span, index) => {
             const time = FILM.at(S, spoken[index], 1, -0.06);
             tl.fromTo(span, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, time);
             tl.fromTo(span, { "--s8-wd": 70 }, { "--s8-wd": 92, duration: 0.6, ease: "expo.out" }, time);
           });
 
-          /* 7. the address writes itself on, left to right, after the tagline */
-          const tUrl = FILM.atEnd(S, "date", 1, 0.15);
-          tl.fromTo("#s8-url-t", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power2.inOut" }, tUrl);
+          /* 7. 8c: who it is for, one chip per spoken domain; then how it plugs in, on "MCP" */
+          [["#s8-c1", "finance"], ["#s8-c2", "revenue"], ["#s8-c3", "analytics"]].forEach(([id, word]) => {
+            tl.fromTo(id, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.55, ease: FILM.ease }, FILM.at(S, word, 1, -0.08));
+          });
+          tl.fromTo("#s8-mcp", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: FILM.ease }, FILM.at(S, "MCP", 1, -0.1));
 
-          /* 8. the one disclosure, quietly, as it is said; then nothing moves to the end */
-          tl.fromTo("#s8-disc", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, FILM.at(S, "sample", 1, -0.05));
+          /* 8. 8d: the address writes itself on, left to right, on "Try it live" */
+          tl.fromTo("#s8-url-t", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power2.inOut" }, FILM.at(S, "Try", 1, -0.05));
+
+          /* 9. the evidence line, quietly, as it is said; then nothing moves to the end */
+          tl.fromTo("#s8-disc", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, FILM.at(S, "Every", 1, -0.05));
 
           window.__timelines["s8-close"] = tl;
         })();

@@ -1,10 +1,15 @@
 <!doctype html>
-<!-- ProofFlow film, section 7: Results. Stat hits and honest comparison bars; the exact dependency walk's tie is
-     shown, not hidden. Every figure is copied from docs/MODEL_COMPARISON_RESULTS.md, docs/RETAIL_V2_RESULTS.md,
-     README.md and website/src/sections/results/data.ts:
-       real-model study: 32/32 affected reports, 48 invocations; input exposure 75,422 / 191,774 = 39.33% (no-op excluded);
-       same evidence allowance: exact-flat 32/32, iterative hybrid 28/32, BM25 25/32, BGE 5/32;
-       retail benchmark: 38/38, 39,375 / 128,729 evidence tokens = 69.41% fewer; exact-flat ties (38/38). -->
+<!-- ProofFlow film, section 7: Against today's approaches. One evolving chart, built method by method on the spoken word.
+     Left: reports right (of 32) against input tokens, each method a band from the axis to its token count.
+     Right: list price for the whole study, the same carve-out shown for cost. Then the retail stat and the honest tie.
+     Every figure is copied from docs/MODEL_COMPARISON_RESULTS.md (provider accounting, list-price estimates) and
+     docs/RETAIL_V2_RESULTS.md, via website/src/sections/results/data.ts:
+       full context 32/32, 219,145 input tokens, $3.742368 · ProofFlow 32/32, 77,071, $1.377214
+       vector (BGE) 5/32, 75,785, $1.377631 · keyword (BM25) 25/32, 75,699, $1.427535 · hybrid 28/32, 76,174, $1.448095
+       derived: 142,074 fewer input tokens, 63% lower list cost, 6.4x more right than vector at the same cost
+       exact-flat walk 32/32 (77,095 tokens) and 38/38: ties · retail: 38/38, 69.41% fewer evidence tokens.
+     Geometry: x 240 -> 1290 px = 0 -> 240,000 tokens (4.375 px per 1k); y 850 -> 320 px = 0 -> 32 right (16.5625 px each).
+     Ledger: 1400 -> 1780 px = $0 -> $4 (95 px per dollar). No speed or latency claim. -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -18,300 +23,304 @@
           overflow: hidden;
           background: var(--ground);
         }
-        /* headline: each word stretches in on the width axis */
-        .s7-title { position: absolute; left: 120px; top: 96px; white-space: nowrap; }
-        .s7-w { display: inline-block; --s7-wd: 125; font-variation-settings: "wdth" var(--s7-wd); }
+        .s7-title { position: absolute; left: 120px; top: 56px; white-space: nowrap; color: var(--ink); }
+        .s7-eye { position: absolute; left: 120px; top: 150px; white-space: nowrap; color: var(--muted); }
+        .s7-eye span { display: inline-block; }
+        .s7-eye .s7-sep { color: var(--faint); margin: 0 12px; }
 
-        /* ---- stats band: three blocks on one eyebrow line ---- */
-        .s7-block { position: absolute; top: 252px; }
-        .s7-a { left: 120px; width: 600px; }
-        .s7-b { left: 812px; width: 400px; }
-        .s7-c { left: 1300px; width: 500px; }
-        .s7-eyebrow { white-space: nowrap; color: var(--muted); }
-        .s7-stretch { --s7-wd: 112; font-variation-settings: "wdth" var(--s7-wd); white-space: nowrap; }
-        .s7-hero { margin-top: 6px; color: var(--ink); }
-        .s7-of { color: var(--thread-strong); }
-        .s7-label { margin-top: 12px; color: var(--ink); white-space: nowrap; }
-        .s7-fig2 { margin-top: 44px; color: var(--ink); }
-        .s7-c .s7-label { margin-top: 16px; }
-        .s7-pct { color: var(--thread-strong); font-weight: 700; }
-        .s7-c .t-small { margin-top: 6px; color: var(--muted); white-space: nowrap; }
+        /* one svg for every stroke: bands are thick butt-capped strokes so lengths are exact */
+        .s7-svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+        .s7-svg path, .s7-svg circle { fill: none; stroke-linecap: butt; stroke-linejoin: miter; }
+        .s7-grid { stroke: var(--hairline); stroke-width: 2; }
+        .s7-axis { stroke: var(--rule); stroke-width: 2; }
+        .s7-band-base { stroke: var(--faint); }
+        .s7-band-pf { stroke: var(--thread); }
+        .s7-carve { stroke: var(--ground); }
+        .s7-box { stroke: var(--faint); stroke-width: 2; }
+        .s7-mark { stroke: var(--thread-strong); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+        .s7-rule { stroke: var(--hairline); stroke-width: 2; }
 
-        /* input share: two bars on one scale (100% = 400 px) */
-        .s7-share-l { margin-top: 18px; white-space: nowrap; color: var(--muted); }
-        .s7-share-l.s7-pf { margin-top: 22px; color: var(--ink); }
-        .s7-share { position: relative; height: 28px; margin-top: 8px; }
-        .s7-share svg { position: absolute; left: 0; top: 0; overflow: visible; }
-        .s7-share-v { position: absolute; left: 186px; top: -16px; color: var(--ink); white-space: nowrap; }
-        .s7-share-cap { margin-top: 22px; color: var(--ink); white-space: nowrap; }
+        /* axes */
+        .s7-yt { position: absolute; left: 160px; width: 62px; text-align: right; line-height: 30px; margin: 0; }
+        .s7-xt { position: absolute; top: 864px; width: 120px; margin-left: -60px; text-align: center; margin-top: 0; margin-bottom: 0; }
+        .s7-xtitle { position: absolute; top: 900px; right: 630px; margin: 0; white-space: nowrap; color: var(--muted); }
+        .s7-ytitle-wrap { position: absolute; left: 92px; top: 570px; width: 120px; height: 30px; }
+        .s7-ytitle { margin: 0; width: 300px; margin-left: -90px; text-align: center; white-space: nowrap; color: var(--muted); transform: rotate(-90deg); }
 
-        /* bar strokes: butt caps so lengths are exact */
-        .s7-bars path { fill: none; stroke-width: 28; stroke-linecap: butt; }
-        .s7-track { stroke: var(--panel-2); }
-        .s7-full { stroke: var(--faint); }
-        .s7-fill-pf { stroke: var(--thread); }
-        .s7-fill-dim { stroke: var(--faint); }
-        .s7-fill-faint { stroke: var(--rule); }
+        /* method labels on the plot: name + score, one 40 px line */
+        .s7-lab { position: absolute; display: flex; align-items: baseline; gap: 14px; height: 40px; line-height: 40px; white-space: nowrap; margin: 0; }
+        .s7-lab .t-label { line-height: 40px; }
+        .s7-lab .node-title { line-height: 40px; }
+        /* the three search baselines carry their label inside their band, in ground ink */
+        .s7-in { height: 36px; line-height: 36px; gap: 12px; }
+        .s7-in .t-label, .s7-in .node-title, .s7-in .s7-of { line-height: 36px; color: var(--ground); }
+        .s7-in .t-label { font-weight: 700; }
+        .s7-nm-pf { color: var(--ink); font-weight: 700; }
+        .s7-nm { color: var(--muted); }
+        .s7-of { color: var(--faint); }
+        .s7-sc-pf { color: var(--thread-strong); }
+        .s7-sc { color: var(--ink); }
 
-        /* structure rules */
-        .s7-vr { position: absolute; top: 256px; width: 2px; height: 290px; background: var(--hairline); }
-        .s7-hr { position: absolute; left: 120px; top: 586px; width: 1680px; height: 2px; background: var(--hairline); }
+        .s7-tok { position: absolute; top: 305px; margin: 0; line-height: 30px; white-space: nowrap; }
+        .s7-tok-full { left: 1216px; color: var(--muted); }
+        .s7-tok-pf { left: 256px; color: var(--ground); font-weight: 700; }
+        .s7-gap { position: absolute; left: 577px; width: 622px; top: 300px; height: 40px; line-height: 40px; margin: 0; text-align: center; color: var(--ink); white-space: nowrap; }
+        .s7-gap b { font-family: var(--font-display); font-weight: 800; font-variation-settings: "wdth" 112; }
 
-        /* ---- method chart: affected reports refreshed, of 32 (bar 880 px = 32) ---- */
-        .s7-chart-h { position: absolute; left: 120px; top: 606px; white-space: nowrap; color: var(--muted); }
-        .s7-row { position: absolute; left: 120px; width: 1360px; height: 48px; }
-        .s7-r0 { top: 650px; }
-        .s7-r1 { top: 708px; }
-        .s7-r2 { top: 766px; }
-        .s7-r3 { top: 824px; }
-        .s7-r4 { top: 882px; }
-        .s7-rl { position: absolute; left: 0; top: 7px; white-space: nowrap; }
-        .s7-rl .t-mono { margin-left: 10px; color: var(--faint); }
-        .s7-rl-pf { color: var(--ink); font-weight: 700; }
-        .s7-rl-faint { color: var(--faint); }
-        .s7-row svg { position: absolute; left: 420px; top: 10px; overflow: visible; }
-        .s7-rv {
-          position: absolute;
-          left: 1316px;
-          top: 3px;
-          font-family: var(--font-display);
-          font-weight: 800;
-          font-size: 34px;
-          font-variation-settings: "wdth" 112;
-          line-height: 1.2;
-          white-space: nowrap;
-        }
-        .s7-rv-pf { color: var(--ink); }
-        .s7-rv-dim { color: var(--muted); }
-        .s7-rv-faint { color: var(--faint); }
+        .s7-x64 { position: absolute; left: 640px; top: 540px; margin: 0; }
+        .s7-x64 .t-sub { color: var(--thread-strong); }
+        .s7-x64 .t-small { margin-top: 6px; color: var(--muted); line-height: 1.3; white-space: nowrap; }
 
-        /* the tie: a level mark between the two bar ends and one bracket */
-        .s7-tie { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
-        .s7-tie path { fill: none; stroke: var(--thread-strong); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
-        .s7-tie .s7-level { stroke-width: 3; }
-        .s7-brk-l { position: absolute; left: 1544px; top: 648px; width: 270px; }
-        .s7-brk-l .t-label { color: var(--ink); line-height: 1.12; }
-        .s7-brk-l .t-small { margin-top: 6px; color: var(--muted); white-space: nowrap; }
+        /* ledger: list price, whole study */
+        .s7-led-eye { position: absolute; left: 1400px; top: 252px; margin: 0; white-space: nowrap; color: var(--muted); }
+        .s7-lr { position: absolute; left: 1400px; width: 380px; display: flex; justify-content: space-between; align-items: baseline; white-space: nowrap; }
+        .s7-lr .t-label { color: var(--muted); }
+        .s7-lr .s7-ln-pf { color: var(--ink); font-weight: 700; }
+        .s7-lv { color: var(--ink); }
+        .s7-lv-pf { color: var(--thread-strong); }
+        .s7-cut { position: absolute; left: 1531px; width: 225px; top: 454px; height: 36px; line-height: 36px; margin: 0; text-align: center; white-space: nowrap; }
+        .s7-cut b { font-family: var(--font-display); font-weight: 800; font-variation-settings: "wdth" 112; color: var(--ink); }
 
-        .s7-src { position: absolute; left: 120px; top: 948px; margin: 0; color: var(--faint); white-space: nowrap; }
+        /* retail */
+        .s7-ret-eye { position: absolute; left: 1400px; top: 808px; margin: 0; white-space: nowrap; color: var(--muted); }
+        .s7-ret { position: absolute; top: 838px; margin: 0; white-space: nowrap; }
+        .s7-ret .t-sub { color: var(--ink); }
+        .s7-ret .t-small { margin-top: 4px; color: var(--muted); }
+        .s7-ret-a { left: 1400px; }
+        .s7-ret-b { left: 1606px; }
+
+        /* the tie */
+        .s7-flat { position: absolute; left: 240px; top: 196px; margin: 0; display: flex; align-items: baseline; gap: 14px; white-space: nowrap; height: 40px; line-height: 40px; }
+        .s7-flat .t-label { color: var(--ink); line-height: 40px; }
+        .s7-flat .t-small { color: var(--muted); line-height: 40px; }
+        .s7-win { position: absolute; left: 878px; top: 222px; margin: 0; white-space: nowrap; height: 40px; line-height: 40px; color: var(--ink); font-weight: 700; }
+
+        .s7-src { position: absolute; left: 120px; top: 952px; margin: 0; white-space: nowrap; color: var(--faint); }
+        .s7-src span { display: inline-block; }
       </style>
 
       <div id="root" data-composition-id="s7-results" data-width="1920" data-height="1080" data-duration="50.9">
-        <h1 id="s7-title" class="s7-title t-head"><span class="s7-w">Does</span> <span class="s7-w">it</span> <span class="s7-w">work?</span></h1>
+        <h1 id="s7-title" class="t-head-s s7-title">How does it compare?</h1>
+        <p class="t-small s7-eye"><span id="s7-e1">Frozen study</span><span id="s7-e2"><span class="s7-sep">·</span><span id="s7-e2n">48</span> real model calls</span><span id="s7-e3"><span class="s7-sep">·</span>same task for every method</span></p>
 
-        <!-- A: the real-model study -->
-        <div id="s7-a" class="s7-block s7-a">
-          <p id="s7-a-eye" class="t-small s7-eyebrow">Frozen study · real model · 48 invocations</p>
-          <div id="s7-a-fig" class="t-hero s7-hero s7-stretch"><span id="s7-a-num">32</span><span class="s7-of">/32</span></div>
-          <p id="s7-a-lab" class="t-label s7-label">Affected reports refreshed</p>
-        </div>
+        <svg class="s7-svg" viewBox="0 0 1920 1080">
+          <!-- grid: 0, 8, 16, 24, 32 right -->
+          <path id="s7-g32" class="s7-grid" d="M240 320 H1290" />
+          <path id="s7-g24" class="s7-grid" d="M240 452.5 H1290" />
+          <path id="s7-g16" class="s7-grid" d="M240 585 H1290" />
+          <path id="s7-g8" class="s7-grid" d="M240 717.5 H1290" />
+          <path id="s7-ax" class="s7-axis" d="M240 850 H1290" />
+          <path id="s7-ay" class="s7-axis" d="M240 850 V296" />
 
-        <!-- B: input exposure, full context vs ProofFlow, one scale -->
-        <div id="s7-b" class="s7-block s7-b">
-          <p id="s7-b-eye" class="t-small s7-eyebrow">Model input, same study</p>
-          <p id="s7-b-l1" class="t-small s7-share-l">Full context</p>
-          <div class="s7-share">
-            <svg class="s7-bars" width="400" height="28" viewBox="0 0 400 28">
-              <path id="s7-b-full" class="s7-full" d="M0 14 H400" />
-            </svg>
-          </div>
-          <p id="s7-b-l2" class="t-small s7-share-l s7-pf">ProofFlow</p>
-          <div class="s7-share">
-            <svg class="s7-bars" width="400" height="28" viewBox="0 0 400 28">
-              <path id="s7-b-pf" class="s7-fill-pf" d="M0 14 H157.32" />
-            </svg>
-            <span id="s7-b-v" class="t-sub s7-share-v">39.33%</span>
-          </div>
-          <p id="s7-b-cap" class="t-label s7-share-cap">of full context's input</p>
-        </div>
+          <!-- bands: full context and ProofFlow on the 32 row; the carve leaves full context's 142,074 extra tokens hollow -->
+          <path id="s7-b-full" class="s7-band-base" stroke-width="44" d="M240 320 H1198.76" />
+          <path id="s7-b-pf" class="s7-band-pf" stroke-width="44" d="M240 320 H577.19" />
+          <path id="s7-b-carve" class="s7-carve" stroke-width="40" d="M577.19 320 H1196.76" />
+          <path id="s7-b-hyb" class="s7-band-base" stroke-width="36" d="M240 386.25 H573.26" />
+          <path id="s7-b-kw" class="s7-band-base" stroke-width="36" d="M240 435.94 H571.18" />
+          <path id="s7-b-vec" class="s7-band-base" stroke-width="36" d="M240 767.19 H571.56" />
 
-        <!-- C: the retail benchmark -->
-        <div id="s7-c" class="s7-block s7-c">
-          <p id="s7-c-eye" class="t-small s7-eyebrow">Retail benchmark</p>
-          <div id="s7-c-fig" class="t-head s7-fig2 s7-stretch"><span id="s7-c-num">38</span><span class="s7-of">/38</span></div>
-          <p id="s7-c-lab" class="t-label s7-label"><span id="s7-c-pct" class="s7-pct">69.41%</span> fewer evidence tokens</p>
-          <p id="s7-c-sub" class="t-small">39,375 vs 128,729 for full context</p>
-        </div>
+          <!-- 6.4x: from ProofFlow's row down to vector's, same tokens and list price -->
+          <path id="s7-brk64" class="s7-mark" d="M598 346 H614 V749 H598" />
 
-        <div id="s7-vr1" class="s7-vr" style="left: 762px"></div>
-        <div id="s7-vr2" class="s7-vr" style="left: 1252px"></div>
-        <div id="s7-hr" class="s7-hr"></div>
+          <!-- the tie: exact dependency walk sits on ProofFlow (77,095 vs 77,071 tokens, 32/32) -->
+          <circle id="s7-ring" class="s7-mark" cx="577.3" cy="320" r="24" />
+          <path id="s7-lead" class="s7-mark" d="M577.3 296 V238" />
+          <path id="s7-brkwin" class="s7-mark" d="M842 204 H856 V284 H842" />
 
-        <!-- method chart -->
-        <p id="s7-chart-h" class="t-small s7-chart-h">Affected reports refreshed, of 32 · same study, same evidence allowance</p>
-
-        <div id="s7-r0" class="s7-row s7-r0">
-          <p class="t-label s7-rl s7-rl-pf">ProofFlow</p>
-          <svg class="s7-bars" width="880" height="28" viewBox="0 0 880 28">
-            <path class="s7-track" d="M0 14 H880" />
-            <path id="s7-r0-bar" class="s7-fill-pf" d="M0 14 H880" />
-          </svg>
-          <span id="s7-r0-v" class="s7-rv s7-rv-pf">32</span>
-        </div>
-        <div id="s7-r1" class="s7-row s7-r1">
-          <p class="t-label s7-rl s7-rl-pf">Exact dependency walk</p>
-          <svg class="s7-bars" width="880" height="28" viewBox="0 0 880 28">
-            <path class="s7-track" d="M0 14 H880" />
-            <path id="s7-r1-bar" class="s7-fill-pf" d="M0 14 H880" />
-          </svg>
-          <span id="s7-r1-v" class="s7-rv s7-rv-pf">32</span>
-        </div>
-        <div id="s7-r2" class="s7-row s7-r2">
-          <p class="t-label s7-rl s7-rl-faint">Iterative hybrid</p>
-          <svg class="s7-bars" width="880" height="28" viewBox="0 0 880 28">
-            <path class="s7-track" d="M0 14 H880" />
-            <path id="s7-r2-bar" class="s7-fill-faint" d="M0 14 H770" />
-          </svg>
-          <span id="s7-r2-v" class="s7-rv s7-rv-faint">28</span>
-        </div>
-        <div id="s7-r3" class="s7-row s7-r3">
-          <p class="t-label s7-rl">Keyword search<span class="t-mono">BM25</span></p>
-          <svg class="s7-bars" width="880" height="28" viewBox="0 0 880 28">
-            <path class="s7-track" d="M0 14 H880" />
-            <path id="s7-r3-bar" class="s7-fill-dim" d="M0 14 H687.5" />
-          </svg>
-          <span id="s7-r3-v" class="s7-rv s7-rv-dim">25</span>
-        </div>
-        <div id="s7-r4" class="s7-row s7-r4">
-          <p class="t-label s7-rl">Vector search<span class="t-mono">BGE</span></p>
-          <svg class="s7-bars" width="880" height="28" viewBox="0 0 880 28">
-            <path class="s7-track" d="M0 14 H880" />
-            <path id="s7-r4-bar" class="s7-fill-dim" d="M0 14 H137.5" />
-          </svg>
-          <span id="s7-r4-v" class="s7-rv s7-rv-dim">5</span>
-        </div>
-
-        <!-- bar ends sit at x = 120 + 420 + 880 = 1420; row 0 bar centre y = 674, row 1 bar centre y = 732 -->
-        <svg class="s7-tie" viewBox="0 0 1920 1080">
-          <path id="s7-level" class="s7-level" d="M1421 648 V758" />
-          <path id="s7-brk" d="M1500 662 H1516 V744 H1500" />
+          <!-- ledger bars: $0 -> $4 = 380 px -->
+          <path id="s7-c-full" class="s7-band-base" stroke-width="36" d="M1400 364 H1755.52" />
+          <path id="s7-c-pf" class="s7-band-pf" stroke-width="36" d="M1400 472 H1530.84" />
+          <path id="s7-c-cut" class="s7-box" d="M1530.84 455 H1754.52 V489 H1530.84" />
+          <path id="s7-c-vec" class="s7-band-base" stroke-width="24" d="M1400 566 H1530.87" />
+          <path id="s7-c-kw" class="s7-band-base" stroke-width="24" d="M1400 654 H1535.62" />
+          <path id="s7-c-hyb" class="s7-band-base" stroke-width="24" d="M1400 742 H1537.57" />
+          <path id="s7-c-rule" class="s7-rule" d="M1400 790 H1780" />
         </svg>
-        <div id="s7-brk-l" class="s7-brk-l">
-          <p class="t-label">Explicit dependencies</p>
-          <p class="t-small">both 32/32 · 38/38</p>
+
+        <!-- axis labels -->
+        <p class="t-small s7-yt" id="s7-yt32" style="top: 305px">32</p>
+        <p class="t-small s7-yt" id="s7-yt24" style="top: 437.5px">24</p>
+        <p class="t-small s7-yt" id="s7-yt16" style="top: 570px">16</p>
+        <p class="t-small s7-yt" id="s7-yt8" style="top: 702.5px">8</p>
+        <p class="t-small s7-yt" id="s7-yt0" style="top: 835px">0</p>
+        <p class="t-small s7-xt" id="s7-xt0" style="left: 240px">0</p>
+        <p class="t-small s7-xt" id="s7-xt80" style="left: 590px">80k</p>
+        <p class="t-small s7-xt" id="s7-xt160" style="left: 940px">160k</p>
+        <p class="t-small s7-xt" id="s7-xt240" style="left: 1290px">240k</p>
+        <p id="s7-xtitle" class="t-small s7-xtitle">Input tokens, whole study</p>
+        <div id="s7-ytitle" class="s7-ytitle-wrap"><p class="t-small s7-ytitle">Reports right, of 32</p></div>
+
+        <!-- method labels -->
+        <p id="s7-l-full" class="s7-lab" style="top: 354px; right: 721px"><span class="t-label s7-nm">Full context</span><span class="node-title s7-sc"><span id="s7-s-full">32</span><span class="s7-of">/32</span></span></p>
+        <p id="s7-l-pf" class="s7-lab" style="top: 246px; left: 240px"><span class="t-label s7-nm-pf">ProofFlow</span><span class="node-title s7-sc-pf"><span id="s7-s-pf">32</span><span class="s7-of">/32</span></span></p>
+        <p id="s7-l-hyb" class="s7-lab s7-in" style="top: 368.25px; left: 254px"><span class="t-label s7-nm">Hybrid</span><span class="node-title s7-sc"><span id="s7-s-hyb">28</span><span class="s7-of">/32</span></span></p>
+        <p id="s7-l-kw" class="s7-lab s7-in" style="top: 417.94px; left: 254px"><span class="t-label s7-nm">Keyword</span><span class="node-title s7-sc"><span id="s7-s-kw">25</span><span class="s7-of">/32</span></span></p>
+        <p id="s7-l-vec" class="s7-lab s7-in" style="top: 749.19px; left: 254px"><span class="t-label s7-nm">Vector search</span><span class="node-title s7-sc"><span id="s7-s-vec">5</span><span class="s7-of">/32</span></span></p>
+
+        <p id="s7-tok-full" class="t-mono s7-tok s7-tok-full">219,145</p>
+        <p id="s7-tok-pf" class="t-mono s7-tok s7-tok-pf">77,071</p>
+        <p id="s7-gap" class="t-label s7-gap"><b id="s7-gap-n">142,074</b> fewer input tokens</p>
+
+        <div id="s7-x64" class="s7-x64">
+          <p class="t-sub"><span id="s7-x64-n">6.4</span>×</p>
+          <p class="t-small">more right than vector search,<br />at the same list price</p>
         </div>
 
-        <p id="s7-src" class="t-mono s7-src">docs/MODEL_COMPARISON_RESULTS.md · docs/RETAIL_V2_RESULTS.md</p>
+        <!-- ledger -->
+        <p id="s7-led-eye" class="t-small s7-led-eye">List price, whole study</p>
+        <div id="s7-r-full" class="s7-lr" style="top: 292px"><span class="t-label">Full context</span><span id="s7-v-full" class="t-sub-s s7-lv">$3.74</span></div>
+        <div id="s7-r-pf" class="s7-lr" style="top: 400px"><span class="t-label s7-ln-pf">ProofFlow</span><span id="s7-v-pf" class="t-sub-s s7-lv-pf">$1.38</span></div>
+        <p id="s7-cut" class="t-label s7-cut"><b>−<span id="s7-cut-n">63</span>%</b></p>
+        <div id="s7-r-vec" class="s7-lr" style="top: 512px"><span class="t-label">Vector search</span><span id="s7-v-vec" class="node-title s7-lv">$1.38</span></div>
+        <div id="s7-r-kw" class="s7-lr" style="top: 600px"><span class="t-label">Keyword search</span><span id="s7-v-kw" class="node-title s7-lv">$1.43</span></div>
+        <div id="s7-r-hyb" class="s7-lr" style="top: 688px"><span class="t-label">Hybrid</span><span id="s7-v-hyb" class="node-title s7-lv">$1.45</span></div>
+
+        <!-- retail benchmark -->
+        <p id="s7-ret-eye" class="t-small s7-ret-eye">Separate retail benchmark</p>
+        <div id="s7-ret-a" class="s7-ret s7-ret-a">
+          <p class="t-sub"><span id="s7-ret-n">38</span><span class="s7-of">/38</span></p>
+          <p class="t-small">reports right</p>
+        </div>
+        <div id="s7-ret-b" class="s7-ret s7-ret-b">
+          <p class="t-sub">−<span id="s7-ret-p">69</span>%</p>
+          <p class="t-small">evidence tokens</p>
+        </div>
+
+        <!-- the tie -->
+        <p id="s7-flat" class="s7-flat"><span class="t-label">Exact dependency walk</span><span class="t-small">ties · 32/32 · 38/38</span></p>
+        <p id="s7-win" class="t-label s7-win">The structure is the win.</p>
+
+        <p class="t-mono s7-src"><span id="s7-src-a">docs/MODEL_COMPARISON_RESULTS.md</span><span id="s7-src-b">&nbsp;·&nbsp;docs/RETAIL_V2_RESULTS.md</span></p>
       </div>
 
       <script>
         (() => {
           const S = "s7";
           const tl = gsap.timeline({ paused: true });
-          const zero = FILM.section(S).start;
+          const at = (word, nth = 1, offset = 0) => FILM.at(S, word, nth, offset);
+          const after = (t, min) => Math.max(t, min);
+          const fade = (target, position, from = {}, duration = 0.5) =>
+            tl.fromTo(target, { opacity: 0, ...from }, { opacity: 1, x: 0, y: 0, duration, ease: FILM.ease }, position);
+          const show = (target, position, duration = 0.3) =>
+            tl.fromTo(target, { opacity: 0 }, { opacity: 1, duration, ease: "power2.out" }, position);
+          const usd = (v) => "$" + v.toFixed(2);
+          const int = (v) => Math.round(v).toLocaleString("en-US");
 
-          /* A spoken number may be one token ("thirty-two") or two ("thirty two"): try each spelling. */
-          const at = (spellings, offset = 0) => {
-            for (const text of [].concat(spellings)) {
-              try {
-                return FILM.at(S, text, 1, offset);
-              } catch (error) {
-                /* try the next spelling */
-              }
-            }
-            throw new Error(`[s7] none of ${[].concat(spellings).join(" | ")} is spoken in s7`);
-          };
-          /* The first time a word is spoken after a given section-local time. */
-          const atAfter = (text, after, offset = 0) => {
-            const want = String(text).toLowerCase().replace(/[^a-z0-9]+/g, "");
-            const hit = FILM.words(S).find(
-              (w) => w.start - zero >= after - 1e-6 && String(w.w).toLowerCase().replace(/[^a-z0-9]+/g, "") === want,
-            );
-            if (!hit) throw new Error(`[s7] "${text}" is not spoken after ${after}s`);
-            return Math.max(0, Math.round((hit.start - zero + offset) * 1000) / 1000);
-          };
-          const L = (id) => FILM.line(id);
-          const fade = (target, position, from = {}, duration = 0.6, ease = FILM.ease) =>
-            tl.fromTo(target, { opacity: 0, ...from }, { opacity: 1, x: 0, y: 0, duration, ease }, position);
-          const stretch = (target, position, from, to, duration = 0.8) =>
-            tl.fromTo(target, { "--s7-wd": from }, { "--s7-wd": to, duration, ease: "expo.out" }, position);
+          /* 7a: the question, word by word */
+          FILM.speakWords(tl, "#s7-title", S, { rise: 14 });
 
-          /* 7a: "Does it work?" each word stretches in on its spoken time */
-          const words = [...document.querySelectorAll("#s7-title .s7-w")];
-          const spoken = ["does", "it", "work"];
-          words.forEach((span, index) => {
-            const time = at(spoken[index], -0.06);
-            tl.fromTo(span, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, time);
-            stretch(span, time, 60, 125, 0.7);
-          });
+          /* 7b: the frozen study; the frame of the chart is the study's fixed set-up */
+          const tFroze = at("froze", 1, -0.05);
+          fade("#s7-e1", tFroze, { x: -16 });
+          const t48 = at("Forty-eight", 1, -0.05);
+          fade("#s7-e2", t48, { x: -16 });
+          FILM.countTo(tl, "#s7-e2n", 0, 48, t48, { duration: 0.7 });
+          fade("#s7-e3", at("same", 1, -0.05), { x: -16 });
 
-          /* 7b: the real-model study. Eyebrow on "frozen", 32/32 counts and stretches on "thirty-two". */
-          fade("#s7-a-eye", at("frozen", -0.05), { x: -24 });
-          const t32 = at(["thirty-two", "thirty two", "32"], -0.08);
-          tl.fromTo("#s7-a-fig", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, t32);
-          stretch("#s7-a-fig", t32, 60, 112, 0.9);
-          FILM.countTo(tl, "#s7-a-num", 0, 32, t32, { duration: 0.9 });
-          fade("#s7-a-lab", t32 + 0.35, { y: 14 }, 0.5);
+          FILM.drawThread(tl, "#s7-ay", t48 + 0.1, { duration: 0.7, ease: "power2.inOut" });
+          FILM.drawThread(tl, "#s7-ax", t48 + 0.3, { duration: 0.9, ease: "power2.inOut" });
+          ["#s7-g8", "#s7-g16", "#s7-g24", "#s7-g32"].forEach((id, i) =>
+            FILM.drawThread(tl, id, t48 + 0.45 + i * 0.08, { duration: 0.9, ease: "power2.inOut" }),
+          );
+          ["#s7-yt0", "#s7-yt8", "#s7-yt16", "#s7-yt24", "#s7-yt32"].forEach((id, i) => show(id, t48 + 0.4 + i * 0.06));
+          ["#s7-xt0", "#s7-xt80", "#s7-xt160", "#s7-xt240"].forEach((id, i) => show(id, t48 + 0.6 + i * 0.08));
+          show("#s7-ytitle", t48 + 0.9, 0.5);
+          show("#s7-xtitle", t48 + 1.0, 0.5);
+          fade("#s7-led-eye", at("method", 1, -0.1), { x: -16 });
 
-          /* "matching full context": the full-context bar is the scale; "under forty percent": ProofFlow's share */
-          const tMatch = at("matching", -0.05);
-          tl.fromTo("#s7-vr1", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.7, ease: "power2.inOut" }, tMatch - 0.1);
-          fade("#s7-b-eye", tMatch, { x: -18 }, 0.5);
-          fade("#s7-b-l1", tMatch + 0.1, { x: -18 }, 0.5);
-          FILM.drawThread(tl, "#s7-b-full", tMatch + 0.15, { duration: 0.8, ease: "power2.inOut" });
-          const tUnder = at("under", -0.05);
-          fade("#s7-b-l2", tUnder, { x: -18 }, 0.5);
-          FILM.drawThread(tl, "#s7-b-pf", tUnder + 0.1, { duration: 0.6, ease: "power3.out" });
-          tl.fromTo("#s7-b-v", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, tUnder + 0.35);
-          FILM.countTo(tl, "#s7-b-v", 0, 39.33, tUnder + 0.35, { duration: 0.8, format: (v) => `${v.toFixed(2)}%` });
-          fade("#s7-b-cap", tUnder + 0.6, { y: 12 }, 0.5);
+          /* 7c: full context lands top-right: its band fills to 219,145 tokens, its list price counts to $3.74 */
+          const tRe = at("Re-reading", 1, -0.05);
+          const tFull32 = at("thirty-two", 1, -0.05);
+          const fullDraw = Math.max(0.9, tFull32 - tRe);
+          FILM.drawThread(tl, "#s7-b-full", tRe, { duration: fullDraw, ease: "power2.inOut" });
+          show("#s7-tok-full", tRe + fullDraw - 0.25);
+          FILM.countTo(tl, "#s7-tok-full", 0, 219145, tRe + 0.1, { duration: fullDraw - 0.1, ease: "power2.inOut", format: int });
+          fade("#s7-l-full", tFull32, { y: -12 });
+          FILM.countTo(tl, "#s7-s-full", 0, 32, tFull32, { duration: 0.6 });
+          fade("#s7-src-a", at("reports", 1), { y: 8 }, 0.6);
 
-          /* 7c: the method chart. ProofFlow's 32 is laid down as the line starts; keyword search to 25, vector to 5.
-             Rows below ProofFlow start one row higher: the exact dependency walk slides into that gap in 7e. */
-          const pitch = 58;
-          const t7c = Math.max(L("7c").localStart - 0.35, tUnder + 1.2);
-          tl.fromTo("#s7-hr", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, t7c - 0.2);
-          fade("#s7-chart-h", t7c, { y: 10 }, 0.5);
-          fade("#s7-r0", t7c, { x: -24 }, 0.5);
-          FILM.drawThread(tl, "#s7-r0-bar", t7c + 0.1, { duration: 0.8, ease: "power3.out" });
-          tl.fromTo("#s7-r0-v", { opacity: 0 }, { opacity: 1, duration: 0.3 }, t7c + 0.6);
+          const tThree = at("three", 1, -0.1);
+          const tSeventy = after(at("seventy-four", 1, 0.2), tThree + 0.7);
+          fade("#s7-r-full", tThree - 0.2, { x: -18 });
+          FILM.drawThread(tl, "#s7-c-full", tThree, { duration: tSeventy - tThree, ease: "power2.inOut" });
+          FILM.countTo(tl, "#s7-v-full", 0, 3.742368, tThree, { duration: tSeventy - tThree, ease: "power2.inOut", format: usd });
 
-          /* the strongest search baseline, faint but present: iterative hybrid 28 */
-          const tHyb = t7c + 0.25;
-          tl.fromTo("#s7-r2", { opacity: 0, x: -24, y: -pitch }, { opacity: 1, x: 0, y: -pitch, duration: 0.5, ease: FILM.ease }, tHyb);
-          FILM.drawThread(tl, "#s7-r2-bar", tHyb + 0.1, { duration: 0.7, ease: "power3.out" });
-          tl.fromTo("#s7-r2-v", { opacity: 0 }, { opacity: 1, duration: 0.3 }, tHyb + 0.6);
+          /* 7d: ProofFlow lands top-left on the same row; the 142,074 tokens it never sends are carved out */
+          const tPf = at("ProofFlow", 1, -0.05);
+          FILM.drawThread(tl, "#s7-b-pf", tPf, { duration: 0.8, ease: "power3.out" });
+          fade("#s7-l-pf", tPf, { y: 12 });
+          show("#s7-tok-pf", tPf + 0.6);
+          FILM.countTo(tl, "#s7-tok-pf", 0, 77071, tPf + 0.1, { duration: 0.7, ease: "power3.out", format: int });
+          FILM.countTo(tl, "#s7-s-pf", 0, 32, after(at("thirty-two", 2, -0.05), tPf + 0.3), { duration: 0.6 });
 
-          const tKey = Math.max(at("keyword", -0.05), tHyb + 0.2);
-          tl.fromTo("#s7-r3", { opacity: 0, x: -24, y: -pitch }, { opacity: 1, x: 0, y: -pitch, duration: 0.5, ease: FILM.ease }, tKey);
-          const t25 = at(["twenty-five", "twenty five", "25"], 0);
-          FILM.drawThread(tl, "#s7-r3-bar", tKey + 0.15, { duration: Math.max(0.6, t25 + 0.3 - (tKey + 0.15)), ease: "power2.out" });
-          tl.fromTo("#s7-r3-v", { opacity: 0 }, { opacity: 1, duration: 0.25 }, Math.max(tKey + 0.5, t25 + 0.1));
+          const tHundred = after(at("hundred", 1, -0.1), tPf + 0.9);
+          const tFewer = after(at("fewer", 1, 0.2), tHundred + 0.8);
+          FILM.drawThread(tl, "#s7-b-carve", tHundred, { duration: tFewer - tHundred, ease: "power2.inOut" });
+          show("#s7-gap", tHundred + 0.3, 0.4);
+          FILM.countTo(tl, "#s7-gap-n", 0, 142074, tHundred + 0.3, { duration: tFewer - tHundred, ease: "power2.out", format: int });
 
-          const tVec = at("vector", -0.05);
-          const t5 = atAfter("five", tVec);
-          tl.fromTo("#s7-r4", { opacity: 0, x: -24, y: -pitch }, { opacity: 1, x: 0, y: -pitch, duration: 0.5, ease: FILM.ease }, tVec);
-          FILM.drawThread(tl, "#s7-r4-bar", Math.max(tVec + 0.2, t5 - 0.25), { duration: 0.45, ease: "power2.out" });
-          tl.fromTo("#s7-r4-v", { opacity: 0 }, { opacity: 1, duration: 0.25 }, t5 + 0.05);
+          const tDollar = at("dollar", 1, -0.15);
+          const t138 = after(at("thirty-eight", 1, 0.2), tDollar + 0.6);
+          fade("#s7-r-pf", tDollar - 0.15, { x: -18 });
+          FILM.drawThread(tl, "#s7-c-pf", tDollar, { duration: t138 - tDollar, ease: "power3.out" });
+          FILM.countTo(tl, "#s7-v-pf", 0, 1.377214, tDollar, { duration: t138 - tDollar, ease: "power3.out", format: usd });
 
-          /* 7d: the retail benchmark. Eyebrow on "retail", 38/38 on "thirty-eight", 69.41% on "sixty-nine". */
-          const tRetail = at("retail", -0.1);
-          tl.fromTo("#s7-vr2", { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.7, ease: "power2.inOut" }, tRetail - 0.1);
-          fade("#s7-c-eye", tRetail, { x: -24 });
-          const t38 = at(["thirty-eight", "thirty eight", "38"], -0.08);
-          tl.fromTo("#s7-c-fig", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, t38);
-          stretch("#s7-c-fig", t38, 60, 112, 0.9);
-          FILM.countTo(tl, "#s7-c-num", 0, 38, t38, { duration: 0.9 });
-          const t69 = at(["sixty-nine", "sixty nine", "69"], -0.05);
-          fade("#s7-c-lab", t69, { y: 12 }, 0.5);
-          FILM.countTo(tl, "#s7-c-pct", 0, 69.41, t69, { duration: 0.8, format: (v) => `${v.toFixed(2)}%` });
-          fade("#s7-c-sub", at("evidence", 0.1), { y: 10 }, 0.5);
+          const t63 = after(at("Sixty-three", 1, -0.08), t138 + 0.1);
+          FILM.drawThread(tl, "#s7-c-cut", t63, { duration: 0.45, ease: "power2.out" });
+          tl.fromTo("#s7-cut", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" }, t63 + 0.05);
+          FILM.countTo(tl, "#s7-cut-n", 0, 63, t63 + 0.05, { duration: 0.6 });
 
-          /* 7e: "A plain dependency walk ties it." The rows below make room, the walk slides in level with ProofFlow and
-             its bar lands on "ties"; a level mark joins the two bar ends. "recording dependencies": one bracket. */
-          const tPlain = at("plain", -0.1);
-          tl.fromTo(["#s7-r2", "#s7-r3", "#s7-r4"], { y: -pitch }, { y: 0, duration: 0.6, ease: "power3.inOut", immediateRender: false }, tPlain);
-          tl.fromTo("#s7-r1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.6, ease: FILM.ease }, tPlain + 0.2);
-          const tTies = at("ties", 0);
-          const barStart = tPlain + 0.35;
-          FILM.drawThread(tl, "#s7-r1-bar", barStart, { duration: Math.max(0.6, tTies + 0.15 - barStart), ease: "power2.out" });
-          tl.fromTo("#s7-r1-v", { opacity: 0 }, { opacity: 1, duration: 0.25 }, Math.max(barStart + 0.5, tTies + 0.1));
-          FILM.drawThread(tl, "#s7-level", Math.max(barStart + 0.6, tTies + 0.2), { duration: 0.35, ease: "power2.out" });
+          /* 7e: vector search lands bottom-left at ProofFlow's tokens and price, five right; then keyword, hybrid */
+          const tVec = at("Vector", 1, -0.05);
+          FILM.drawThread(tl, "#s7-b-vec", tVec, { duration: 0.8, ease: "power3.out" });
+          fade("#s7-r-vec", after(at("cost", 1, -0.1), tVec + 0.2), { x: -18 });
+          FILM.drawThread(tl, "#s7-c-vec", after(at("cost", 1, 0), tVec + 0.3), { duration: 0.6, ease: "power3.out" });
+          const t5 = after(at("five", 1, -0.05), tVec + 0.6);
+          fade("#s7-l-vec", t5 - 0.15, { x: -14 });
+          FILM.countTo(tl, "#s7-s-vec", 0, 5, t5 - 0.15, { duration: 0.4 });
+          FILM.drawThread(tl, "#s7-brk64", t5, { duration: 0.6, ease: "power2.inOut" });
+          const tRight = after(at("right", 2, -0.05), t5 + 0.3);
+          fade("#s7-x64", tRight, { x: -14 });
+          FILM.countTo(tl, "#s7-x64-n", 1, 6.4, tRight, { duration: 0.6, format: (v) => v.toFixed(1) });
 
-          const tRec = at("recording", -0.05);
-          FILM.drawThread(tl, "#s7-brk", tRec, { duration: 0.6, ease: "power2.inOut" });
-          fade("#s7-brk-l", tRec + 0.3, { x: -18 }, 0.6);
-          fade("#s7-src", at("dependencies", 0.1), { y: 8 }, 0.6);
+          const tKw = after(at("Keyword", 1, -0.05), tRight + 0.3);
+          FILM.drawThread(tl, "#s7-b-kw", tKw, { duration: 0.7, ease: "power3.out" });
+          fade("#s7-r-kw", tKw + 0.1, { x: -18 });
+          FILM.drawThread(tl, "#s7-c-kw", tKw + 0.2, { duration: 0.6, ease: "power3.out" });
+          const t25 = after(at("twenty-five", 1, -0.05), tKw + 0.3);
+          fade("#s7-l-kw", t25 - 0.2, { x: -14 });
+          FILM.countTo(tl, "#s7-s-kw", 0, 25, t25 - 0.2, { duration: 0.5 });
+
+          const tHy = after(at("Hybrid", 1, -0.05), t25 + 0.3);
+          FILM.drawThread(tl, "#s7-b-hyb", tHy, { duration: 0.7, ease: "power3.out" });
+          fade("#s7-r-hyb", tHy + 0.1, { x: -18 });
+          FILM.drawThread(tl, "#s7-c-hyb", tHy + 0.2, { duration: 0.6, ease: "power3.out" });
+          const t28 = after(at("twenty-eight", 1, -0.05), tHy + 0.3);
+          fade("#s7-l-hyb", t28 - 0.2, { x: -14 });
+          FILM.countTo(tl, "#s7-s-hyb", 0, 28, t28 - 0.2, { duration: 0.5 });
+
+          /* 7f: the separate retail benchmark, compact, under the ledger */
+          const tSep = at("separate", 1, -0.1);
+          FILM.drawThread(tl, "#s7-c-rule", tSep, { duration: 0.7, ease: "power2.inOut" });
+          fade("#s7-ret-eye", tSep + 0.15, { x: -16 });
+          fade("#s7-src-b", at("benchmark", 1), { y: 8 }, 0.6);
+          const t38 = after(at("thirty-eight", 2, -0.08), tSep + 0.4);
+          fade("#s7-ret-a", t38, { y: 14 });
+          FILM.countTo(tl, "#s7-ret-n", 0, 38, t38, { duration: 0.8 });
+          const t69 = after(at("sixty-nine", 1, -0.08), t38 + 0.4);
+          fade("#s7-ret-b", t69, { y: 14 });
+          FILM.countTo(tl, "#s7-ret-p", 0, 69, t69, { duration: 0.8 });
+
+          /* 7g: the exact dependency walk sits on ProofFlow's mark: a tie, made visible. The structure is the win. */
+          const tPlain = at("plain", 1, -0.1);
+          fade("#s7-flat", tPlain, { x: -18 }, 0.6);
+          const tTies = after(at("ties", 1, -0.05), tPlain + 0.5);
+          FILM.drawThread(tl, "#s7-ring", tTies, { duration: 0.5, ease: "power2.inOut" });
+          FILM.drawThread(tl, "#s7-lead", tTies + 0.35, { duration: 0.35, ease: "power2.out" });
+          const tRec = after(at("recording", 1, -0.05), tTies + 0.5);
+          FILM.drawThread(tl, "#s7-brkwin", tRec, { duration: 0.5, ease: "power2.inOut" });
+          fade("#s7-win", tRec + 0.2, { x: -16 }, 0.6);
 
           window.__timelines["s7-results"] = tl;
         })();
