@@ -1,8 +1,9 @@
 <!doctype html>
-<!-- ProofFlow film, s5 "Working today" (STORYBOARD.md). Real stills from the live app (stills/README.md):
-     the imported-CSV workspace made from the app's own sample CSV, EUR 1.10 -> 1.20.
-     Figures visible: created $3,740.00 / EU $990.00, withheld "Awaiting refresh", refreshed $3,830.00 / $1,080.00.
-     Five MCP tools: proofflow/mcp_server.py (load_csv, prepare, execute_plan, inspect, refresh). -->
+<!-- ProofFlow film, s5 "Live today" (STORYBOARD.md frame s5, research/script.md s5).
+     Real stills of the restyled app (stills/README.md), dark theme: the documented two-row CSV
+     (fixtures/browser_csv_v1/valid_non_eu.csv, region NORTH), EUR → USD 1.20 → 1.30.
+     Figures visible: created $308.00 / NORTH $108.00, withheld "Awaiting refresh", refreshed $317.00 / $117.00.
+     Six hosted connector tools (README "Hosted CSV connector"). -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,18 +17,19 @@
           overflow: hidden;
           background: var(--ground);
         }
-        #s5-title { position: absolute; left: 120px; top: 96px; white-space: nowrap; }
+        #s5-title { position: absolute; left: 120px; top: 96px; margin: 0; white-space: nowrap; }
 
         /* the browser window: bar + view; the view holds one shot at a time */
         #s5-win { left: 520px; top: 196px; width: 1280px; height: 784px; background: var(--panel); }
         #s5-bar { left: 0; top: 0; width: 1280px; height: 44px; box-sizing: border-box; background: var(--panel-2); gap: 14px; }
         .s5-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--rule); flex: none; }
         #s5-url { margin-left: 18px; font-size: 24px; color: var(--muted); }
-        #s5-view { position: absolute; left: 0; top: 44px; width: 1280px; height: 740px; overflow: hidden; background: var(--ink); }
+        #s5-view { position: absolute; left: 0; top: 44px; width: 1280px; height: 740px; overflow: hidden; background: var(--ground); }
         .s5-shot { position: absolute; left: 0; top: 0; width: 1280px; height: 740px; opacity: 0; }
         #s5-shot-a { opacity: 1; }
         .s5-still { position: absolute; overflow: visible; }
-        #s5-view .hl rect { stroke: var(--thread); stroke-width: 5; }
+        #s5-st-g { overflow: hidden; }
+        #s5-view .hl rect { stroke: var(--thread-strong); stroke-width: 5; }
         #s5-view .hl.stale rect { stroke: var(--stale); }
         #s5-view .hl.fresh rect { stroke: var(--current); }
 
@@ -37,18 +39,18 @@
           left: 120px;
           top: 300px;
           width: 360px;
+          margin: 0;
           opacity: 0;
-          font-variation-settings: "wdth" 104;
         }
         .s5-cap .s5-kick { display: block; margin-bottom: 18px; }
 
-        /* 5e: the agent and its five tools */
-        #s5-agent { left: 950px; top: 496px; width: 280px; height: 128px; opacity: 0; }
+        /* 5e: the agent and its six hosted tools */
+        #s5-agent { left: 940px; top: 478px; width: 280px; height: 128px; box-sizing: border-box; opacity: 0; }
         .s5-chip {
           position: absolute;
-          left: 1420px;
+          left: 1400px;
           box-sizing: border-box;
-          width: 320px;
+          width: 420px;
           height: 64px;
           padding: 0 26px;
           display: flex;
@@ -58,20 +60,21 @@
           border: 3px solid var(--thread);
           opacity: 0;
         }
-        #s5-mcp { position: absolute; left: 950px; top: 648px; width: 280px; text-align: center; opacity: 0; }
+        #s5-mcp { position: absolute; left: 880px; top: 640px; width: 400px; margin: 0; text-align: center; white-space: nowrap; }
+        #s5-mcp span { opacity: 0; }
       </style>
 
-      <div id="root" data-composition-id="s5-product" data-width="1920" data-height="1080" data-duration="28.9">
-        <h1 id="s5-title" class="t-sub">Running today.</h1>
+      <div id="root" data-composition-id="s5-product" data-width="1920" data-height="1080" data-duration="27">
+        <h1 id="s5-title" class="t-sub">ProofFlow, live today.</h1>
 
         <p id="s5-c1" class="s5-cap t-sub-s">Orders in, as a CSV</p>
         <p id="s5-c2" class="s5-cap t-sub-s">A preview first. Nothing saved yet.</p>
-        <p id="s5-c3" class="s5-cap t-sub-s">Both reports created</p>
-        <p id="s5-c4" class="s5-cap t-sub-s"><span class="s5-kick t-label">Correction</span>EUR → USD is now 1.20</p>
+        <p id="s5-c3" class="s5-cap t-sub-s">Two reports, created</p>
+        <p id="s5-c4" class="s5-cap t-sub-s"><span class="s5-kick t-label">Correction</span>EUR → USD<br />1.20 → 1.30</p>
         <p id="s5-c5" class="s5-cap t-sub-s is-stale">Affected figures withheld</p>
-        <p id="s5-c6" class="s5-cap t-sub-s">The path back to the rate</p>
+        <p id="s5-c6" class="s5-cap t-sub-s">The graph shows why</p>
         <p id="s5-c7" class="s5-cap t-sub-s is-current">Current again</p>
-        <p id="s5-c8" class="s5-cap t-sub-s">Copy only while every figure is current</p>
+        <p id="s5-c8" class="s5-cap t-sub-s">Copied only while every figure is current</p>
 
         <div id="s5-win" class="window">
           <div id="s5-bar" class="window-bar">
@@ -87,27 +90,33 @@
             <div id="s5-shot-f" class="s5-shot"><div id="s5-st-f" class="s5-still"></div></div>
             <div id="s5-shot-g" class="s5-shot"><div id="s5-st-g" class="s5-still"></div></div>
             <div id="s5-shot-h" class="s5-shot"><div id="s5-st-h" class="s5-still"></div></div>
-            <div id="s5-shot-i" class="s5-shot"><div id="s5-st-i" class="s5-still"></div></div>
+            <div id="s5-shot-i" class="s5-shot">
+              <div id="s5-st-i1" class="s5-still"></div>
+              <div id="s5-st-i2" class="s5-still"></div>
+            </div>
+            <div id="s5-shot-j" class="s5-shot"><div id="s5-st-j" class="s5-still"></div></div>
           </div>
         </div>
 
         <svg class="threads" viewBox="0 0 1920 1080" aria-hidden="true">
-          <path id="s5-t1" d="M1230 560 C1325 560 1325 384 1420 384" />
-          <path id="s5-t2" d="M1230 560 C1325 560 1325 472 1420 472" />
-          <path id="s5-t3" d="M1230 560 L1420 560" />
-          <path id="s5-t4" d="M1230 560 C1325 560 1325 648 1420 648" />
-          <path id="s5-t5" d="M1230 560 C1325 560 1325 736 1420 736" />
+          <path id="s5-t1" d="M1220 542 C1310 542 1310 332 1400 332" />
+          <path id="s5-t2" d="M1220 542 C1310 542 1310 416 1400 416" />
+          <path id="s5-t3" d="M1220 542 C1310 542 1310 500 1400 500" />
+          <path id="s5-t4" d="M1220 542 C1310 542 1310 584 1400 584" />
+          <path id="s5-t5" d="M1220 542 C1310 542 1310 668 1400 668" />
+          <path id="s5-t6" d="M1220 542 C1310 542 1310 752 1400 752" />
         </svg>
         <div id="s5-agent" class="node">
           <span class="node-title">Agent</span>
-          <span class="node-sub">chooses the plan</span>
+          <span class="node-sub">hosted connector</span>
         </div>
-        <span id="s5-k1" class="s5-chip t-mono" style="top: 352px">load_csv</span>
-        <span id="s5-k2" class="s5-chip t-mono" style="top: 440px">prepare</span>
-        <span id="s5-k3" class="s5-chip t-mono" style="top: 528px">execute_plan</span>
-        <span id="s5-k4" class="s5-chip t-mono" style="top: 616px">inspect</span>
-        <span id="s5-k5" class="s5-chip t-mono" style="top: 704px">refresh</span>
-        <p id="s5-mcp" class="t-mono">over MCP</p>
+        <span id="s5-k1" class="s5-chip t-mono" style="top: 300px">create_csv_reports</span>
+        <span id="s5-k2" class="s5-chip t-mono" style="top: 384px">inspect_reports</span>
+        <span id="s5-k3" class="s5-chip t-mono" style="top: 468px">inspect_evidence</span>
+        <span id="s5-k4" class="s5-chip t-mono" style="top: 552px">update_csv</span>
+        <span id="s5-k5" class="s5-chip t-mono" style="top: 636px">refresh_reports</span>
+        <span id="s5-k6" class="s5-chip t-mono" style="top: 720px">export_current_reports</span>
+        <p id="s5-mcp" class="t-mono"><span id="s5-mcp-a">over MCP</span><span id="s5-mcp-b"> · one download</span></p>
       </div>
 
       <script>
@@ -117,116 +126,159 @@
           const at = (word, nth = 1, off = 0) => FILM.at(S, word, nth, off);
           const VW = 1280;
           const VH = 740;
+          const $ = (id) => document.getElementById(id);
 
-          /* ---- mount every shot once: full frames at 0.8x (under native), crops centred at <= 2x ---- */
-          const centre = (holder, m) => {
-            const w = m.crop.w * m.k;
-            const h = m.crop.h * m.k;
-            holder.style.left = `${Math.round((VW - w) / 2)}px`;
-            holder.style.top = `${Math.round((VH - h) / 2)}px`;
+          /* ---- mount every shot once; nothing ever shows above its still's native pixels ---- */
+          const place = (holder, m, left, top) => {
+            holder.style.left = `${Math.round(left)}px`;
+            holder.style.top = `${Math.round(top)}px`;
+            return { ...m, w: m.crop.w * m.k, h: m.crop.h * m.k };
           };
-          const crop = (id, still, k) => {
-            const holder = document.getElementById(id);
+          // a crop, as large as fits the view (under its native limit), centred
+          const fit = (id, still, room = { w: VW - 80, h: VH - 56 }) => {
             const rec = FILM.still(still);
-            const m = FILM.mountStill(holder, still, { width: Math.round(rec.width * k) });
-            centre(holder, m);
-            return m;
+            const k = Math.min(rec.maxK, room.w / rec.width, room.h / rec.height);
+            const m = FILM.mountStill($(id), still, { width: Math.round(rec.width * k) });
+            return place($(id), m, (VW - m.crop.w * m.k) / 2, (VH - m.crop.h * m.k) / 2);
           };
-          const full = (id, still) => {
-            const holder = document.getElementById(id);
-            holder.style.left = "0px";
-            holder.style.top = "0px";
-            return FILM.mountStill(holder, still, { width: VW });
+          // a crop at a chosen scale (it may be larger than the view; the camera pans over it)
+          const big = (id, still, k, left, top) => {
+            const rec = FILM.still(still);
+            const m = FILM.mountStill($(id), still, { width: Math.round(rec.width * k) });
+            return place($(id), m, left, top);
           };
-          const mA = full("s5-st-a", "p01-workspace");
-          const mB = crop("s5-st-b", "p06-csv-form.csv", 2);
-          const mC = crop("s5-st-c", "p06-csv-preview.preview", 2);
-          const mD = crop("s5-st-d", "p07-csv-created.report", 1.45);
-          const mE = crop("s5-st-e", "p08-csv-update.rates", 2);
-          const mF = crop("s5-st-f", "p08-csv-stale.report", 1.36);
-          const mG = crop("s5-st-g", "p08-csv-evidence.path", 2);
-          const mH = crop("s5-st-h", "p09-csv-refreshed.report", 1.45);
-          const mI = full("s5-st-i", "p09-csv-refreshed");
-          void mA;
+          // one named box of a crop (plus a margin of the still around it), as large as fits
+          const fitBox = (id, still, box, pad) => {
+            const rec = FILM.still(still);
+            const b = FILM.box(still, box);
+            const w = Math.min(rec.width, b.x + b.w + pad) - Math.max(0, b.x - pad);
+            const h = Math.min(rec.height, b.y + b.h + pad) - Math.max(0, b.y - pad);
+            const k = Math.min(rec.maxK, (VW - 80) / w, (VH - 56) / h);
+            const m = FILM.mountStill($(id), still, { box, pad, width: Math.round(w * k) });
+            return place($(id), m, (VW - m.crop.w * m.k) / 2, (VH - m.crop.h * m.k) / 2);
+          };
+          // the camera frames a few named boxes of a crop: the whole crop is mounted (under its native limit)
+          // and placed so those boxes sit centred; the view clips the rest
+          const focus = (id, still, names, pad) => {
+            const rec = FILM.still(still);
+            const r = names.map((n) => FILM.box(still, n));
+            const x = Math.min(...r.map((b) => b.x)) - pad;
+            const y = Math.min(...r.map((b) => b.y)) - pad;
+            const w = Math.max(...r.map((b) => b.x + b.w)) + pad - x;
+            const h = Math.max(...r.map((b) => b.y + b.h)) + pad - y;
+            const k = Math.min(rec.maxK, (VW - 80) / w, (VH - 40) / h);
+            const m = FILM.mountStill($(id), still, { width: Math.round(rec.width * k) });
+            return place($(id), m, VW / 2 - (x + w / 2) * m.k, VH / 2 - (y + h / 2) * m.k);
+          };
+          const full = (id, still) => place($(id), FILM.mountStill($(id), still, { width: VW }), 0, 0);
+          // one outline around several named boxes of a still
+          const union = (m, names) => {
+            const r = names.map((n) => m.rect(n));
+            const x = Math.min(...r.map((b) => b.x));
+            const y = Math.min(...r.map((b) => b.y));
+            return { x, y, w: Math.max(...r.map((b) => b.x + b.w)) - x, h: Math.max(...r.map((b) => b.y + b.h)) - y };
+          };
 
-          const shots = ["a", "b", "c", "d", "e", "f", "g", "h", "i"].map((s) => `#s5-shot-${s}`);
+          const mA = full("s5-st-a", "p01-workspace");
+          const mB = fit("s5-st-b", "p06-csv-form.csv");
+          const mC = fit("s5-st-c", "p06-csv-preview.preview");
+          const mD = focus("s5-st-d", "p07-csv-created.report", ["company-revenue", "regional-revenue"], 110);
+          const eK = 1.6;
+          const mE = big("s5-st-e", "p08-csv-update.publish", eK, (VW - 531 * eK) / 2, 0);
+          const mF = focus("s5-st-f", "p08-csv-stale.report", ["withheld-notice", "withheld-claims"], 70);
+          const mG = fitBox("s5-st-g", "p08-csv-stale.graph", "affected-path", 64);
+          const mH = focus("s5-st-h", "p09-csv-refreshed.report", ["company-revenue", "regional-revenue"], 110);
+          // the verified line and the two handoff controls, each as large as it stays native, stacked
+          const mI1 = big("s5-st-i1", "p09-csv-copied.verified", 1.85, 0, 0);
+          const mI2 = big("s5-st-i2", "p09-csv-copied.copy", 2, 0, 0);
+          const iGap = 72;
+          const iTop = Math.round((VH - (mI1.h + iGap + mI2.h)) / 2);
+          $("s5-st-i1").style.left = `${Math.round((VW - mI1.w) / 2)}px`;
+          $("s5-st-i1").style.top = `${iTop}px`;
+          $("s5-st-i2").style.left = `${Math.round((VW - mI2.w) / 2)}px`;
+          $("s5-st-i2").style.top = `${iTop + Math.round(mI1.h) + iGap}px`;
+          const mJ = full("s5-st-j", "p09-csv-copied");
+
+          const shots = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"].map((s) => `#s5-shot-${s}`);
           // A cut inside the window: the new shot lands over the old in 0.1 s, then the old one goes.
           const cut = (from, to, t) => {
             tl.fromTo(shots[to], { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "none" }, t);
             tl.fromTo(shots[from], { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none", immediateRender: false }, t + 0.1);
           };
+          // the camera settles onto each new crop: a short glide, never a zoom
+          const settle = (sel, t, dy = 18) =>
+            tl.fromTo(sel, { y: dy }, { y: 0, duration: 0.9, ease: "power2.out" }, t);
           const caps = ["#s5-c1", "#s5-c2", "#s5-c3", "#s5-c4", "#s5-c5", "#s5-c6", "#s5-c7", "#s5-c8"];
           const capIn = (i, t) =>
             tl.fromTo(caps[i], { opacity: 0, x: -28 }, { opacity: 1, x: 0, duration: 0.5, ease: FILM.ease }, t);
           const capOut = (i, t) =>
             tl.fromTo(caps[i], { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power1.in", immediateRender: false }, t);
-          const mark = (holder, m, box, t, state) => {
-            const svg = FILM.outline(tl, holder, m.rect(box), t, { grow: 8 });
+          const mark = (holder, rect, t, state) => {
+            const svg = FILM.outline(tl, holder, rect, t, { grow: 8 });
             if (state) svg.classList.add(state);
             return svg;
           };
+          const step = (from, to, cap, t) => {
+            cut(from, to, t);
+            if (cap > 0) capOut(cap - 1, t);
+            capIn(cap, t + 0.1);
+          };
 
-          // ---- 5a: this is ProofFlow, running today -------------------------------------------------
+          // ---- 5a: this is ProofFlow, live today ----------------------------------------------------
           tl.fromTo("#s5-win", { x: 260, opacity: 0 }, { x: 0, opacity: 1, duration: 0.9, ease: "expo.out" }, 0.05);
           FILM.speakWords(tl, "#s5-title", S, { lead: -0.08 });
           // the camera glides down the live workspace: steps, saved reports, the evidence graph
-          tl.fromTo("#s5-st-a", { y: 0 }, { y: -200, duration: 2.2, ease: "power2.inOut" }, at("running", 1, 0.25));
+          const aDrop = Math.min(220, Math.round(mA.h - VH));
+          tl.fromTo("#s5-st-a", { y: 0 }, { y: -aDrop, duration: 2.2, ease: "power2.inOut" }, at("live", 1, 0.2));
 
-          // ---- 5b: upload orders as a CSV, preview them, and create the reports ----------------------
+          // ---- 5b: upload orders as a CSV, preview them, and create two reports -----------------------
           const tCsv = at("upload", 1, -0.1);
-          cut(0, 1, tCsv);
-          capIn(0, tCsv + 0.1);
-          mark("#s5-st-b", mB, "csv", at("csv", 1, -0.05));
+          step(0, 1, 0, tCsv);
+          settle("#s5-st-b", tCsv);
+          mark("#s5-st-b", union(mB, ["file-actions", "csv"]), at("orders", 1, 0.05));
           const tPrev = at("preview", 1, -0.1);
-          cut(1, 2, tPrev);
-          capOut(0, tPrev);
-          capIn(1, tPrev + 0.1);
-          mark("#s5-st-c", mC, "preview", tPrev + 0.25, "fresh");
+          step(1, 2, 1, tPrev);
+          settle("#s5-st-c", tPrev);
+          mark("#s5-st-c", mC.rect("preview"), tPrev + 0.3, "fresh");
           const tCreate = at("create", 1, -0.1);
-          cut(2, 3, tCreate);
-          capOut(1, tCreate);
-          capIn(2, tCreate + 0.1);
-          mark("#s5-st-d", mD, "company-revenue", at("reports", 1, -0.1));
-          mark("#s5-st-d", mD, "regional-revenue", at("reports", 1, 0.05));
+          step(2, 3, 2, tCreate);
+          settle("#s5-st-d", tCreate);
+          mark("#s5-st-d", union(mD, ["company-revenue", "regional-revenue"]), at("two", 1, 0.05));
 
-          // ---- 5c: publish a corrected rate; affected figures withheld; the evidence path -----------
+          // ---- 5c: publish a corrected rate; affected figures withheld; the graph shows why --------
           const tPub = at("publish", 1, -0.1);
-          cut(3, 4, tPub);
-          capOut(2, tPub);
-          capIn(3, tPub + 0.1);
-          // the EUR -> USD field only (left half of the rates row)
-          const eur = mE.rect("rates");
-          const eurRect = { x: eur.x, y: eur.y, w: Math.round(eur.w * 0.49), h: eur.h };
-          FILM.outline(tl, "#s5-st-e", eurRect, at("corrected", 1, -0.05), { grow: 8 }).classList.add("stale");
+          step(3, 4, 3, tPub);
+          // land on "Ready to publish / Publish correction", then rise to the corrected rate itself
+          const eLow = Math.round(VH - mE.h - 24);
+          tl.fromTo("#s5-st-e", { y: eLow }, { y: eLow, duration: 0.01, ease: "none" }, tPub);
+          tl.fromTo("#s5-st-e", { y: eLow }, { y: 24, duration: 0.85, ease: "power3.inOut", immediateRender: false }, tPub + 0.35);
+          const rates = mE.rect("rates");
+          mark("#s5-st-e", { x: rates.x, y: rates.y, w: Math.round(rates.w * 0.49), h: rates.h }, at("rate", 1, -0.1), "stale");
           const tWith = at("affected", 1, -0.1);
-          cut(4, 5, tWith);
-          capOut(3, tWith);
-          capIn(4, tWith + 0.1);
-          mark("#s5-st-f", mF, "withheld-claims", at("withheld", 1, -0.1), "stale");
-          const tEv = at("evidence", 1, -0.1);
-          cut(5, 6, tEv);
-          capOut(4, tEv);
-          capIn(5, tEv + 0.1);
-          mark("#s5-st-g", mG, "path", at("path", 1, -0.05));
+          step(4, 5, 4, tWith);
+          settle("#s5-st-f", tWith);
+          mark("#s5-st-f", mF.rect("withheld-claims"), at("withheld", 1, -0.1), "stale");
+          const tGraph = at("graph", 1, -0.15);
+          step(5, 6, 5, tGraph);
+          settle("#s5-st-g", tGraph);
+          mark("#s5-st-g", mG.rect("changed-source"), at("shows", 1, 0.05), "stale");
 
-          // ---- 5d: refresh brings them current; a checked report copies only while current -----------
+          // ---- 5d: refresh brings them current; a checked report copies only while current ----------
           const tRef = at("refresh", 1, -0.1);
-          cut(6, 7, tRef);
-          capOut(5, tRef);
-          capIn(6, tRef + 0.1);
-          mark("#s5-st-h", mH, "company-revenue", at("current", 1, -0.15), "fresh");
-          mark("#s5-st-h", mH, "regional-revenue", at("current", 1, 0.0), "fresh");
+          step(6, 7, 6, tRef);
+          settle("#s5-st-h", tRef);
+          mark("#s5-st-h", union(mH, ["company-revenue", "regional-revenue"]), at("current", 1, -0.1), "fresh");
           const tChk = at("checked", 1, -0.15);
-          tl.fromTo("#s5-st-i", { y: -204 }, { y: -204, duration: 0.01, ease: "none" }, tChk);
-          cut(7, 8, tChk);
-          capOut(6, tChk);
-          capIn(7, tChk + 0.1);
-          mark("#s5-st-i", mI, "verification", tChk + 0.3, "fresh");
-          mark("#s5-st-i", mI, "copy-report", at("copied", 1, -0.1));
+          step(7, 8, 7, tChk);
+          settle("#s5-st-i1", tChk);
+          tl.fromTo("#s5-st-i2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: FILM.ease }, at("can", 1, -0.1));
+          const copy = mI2.rect("copy-report");
+          mark("#s5-st-i2", copy, at("copied", 1, -0.05), "fresh");
 
-          // ---- 5e: agents get the same power, through five MCP tools --------------------------------
+          // ---- 5e: agents get the same workflow through MCP; six tools, one download -----------------
           const tAg = at("agents", 1, -0.15);
           capOut(7, tAg - 0.05);
+          cut(8, 9, tAg - 0.05);
           tl.fromTo(
             "#s5-win",
             { x: 0, y: 0, scale: 1 },
@@ -234,14 +286,16 @@
             tAg,
           );
           tl.fromTo("#s5-agent", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: FILM.ease }, tAg + 0.55);
-          const tFive = at("five", 1, -0.1);
-          ["#s5-t1", "#s5-t2", "#s5-t3", "#s5-t4", "#s5-t5"].forEach((p, i) =>
-            FILM.drawThread(tl, p, tFive + i * 0.1, { duration: 0.6 }),
+          tl.fromTo("#s5-mcp-a", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.out" }, at("mcp", 1, -0.05));
+          const tSix = at("six", 1, -0.1);
+          ["#s5-t1", "#s5-t2", "#s5-t3", "#s5-t4", "#s5-t5", "#s5-t6"].forEach((p, i) =>
+            FILM.drawThread(tl, p, tSix + i * 0.08, { duration: 0.55 }),
           );
-          ["#s5-k1", "#s5-k2", "#s5-k3", "#s5-k4", "#s5-k5"].forEach((c, i) =>
-            tl.fromTo(c, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.45, ease: "back.out(1.4)" }, tFive + 0.4 + i * 0.1),
+          ["#s5-k1", "#s5-k2", "#s5-k3", "#s5-k4", "#s5-k5", "#s5-k6"].forEach((c, i) =>
+            tl.fromTo(c, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.45, ease: "back.out(1.4)" }, tSix + 0.35 + i * 0.08),
           );
-          tl.fromTo("#s5-mcp", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: FILM.ease }, at("mcp", 1, -0.05));
+          tl.fromTo("#s5-mcp-b", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.out" }, at("one", 1, -0.05));
+          void mJ;
 
           // Shared element+property tweens (fade in, later fade out): settle every element to its earliest
           // start state, whichever tween was built last.

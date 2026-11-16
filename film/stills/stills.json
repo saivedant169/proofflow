@@ -1,7 +1,8 @@
 {
   "version": 1,
   "deviceScaleFactor": 2,
-  "source": "https://proofflow.arnavbule.in (live public demo)",
+  "source": "ProofFlow app (frontend/, restyled) at http://localhost:5188, API proxied to the hosted backend",
+  "theme": "dark",
   "stills": {
     "p01-workspace": {
       "file": "p01-workspace.png",
@@ -9,2906 +10,410 @@
       "title": "Guided sample workspace, everything current",
       "kind": "full",
       "width": 1600,
-      "height": 1175,
+      "height": 1262,
       "scale": 2,
       "boxes": {
         "headline": {
-          "x": 60,
-          "y": 114,
-          "w": 1480,
-          "h": 54.875
-        },
-        "report-panel": {
-          "x": 44,
-          "y": 402.656,
-          "w": 568.469,
-          "h": 475
-        },
-        "company-revenue": {
-          "x": 74,
-          "y": 491.234,
-          "w": 508.469,
-          "h": 76.75
-        },
-        "eu-revenue": {
-          "x": 74,
-          "y": 591.984,
-          "w": 244.234,
-          "h": 72.75
-        },
-        "eu-support": {
-          "x": 338.234,
-          "y": 591.984,
-          "w": 244.234,
-          "h": 72.75
-        },
-        "report-links": {
-          "x": 74,
-          "y": 688.734,
-          "w": 508.469,
-          "h": 92.594
-        },
-        "graph": {
-          "x": 628.469,
-          "y": 402.656,
-          "w": 927.531,
-          "h": 475
-        },
-        "graph-reports": {
-          "x": 1389.469,
-          "y": 582.656,
-          "w": 128,
-          "h": 126
-        },
-        "workflow": {
-          "x": 1111.813,
-          "y": 348.656,
-          "w": 444.188,
-          "h": 38
-        },
-        "change-source": {
-          "x": 1111.813,
-          "y": 348.656,
-          "w": 149.797,
-          "h": 38
-        },
-        "refresh-affected": {
-          "x": 1269.609,
-          "y": 348.656,
-          "w": 148.234,
-          "h": 38
-        },
-        "check-values": {
-          "x": 1425.844,
-          "y": 348.656,
-          "w": 130.156,
-          "h": 38
-        },
-        "activity": {
-          "x": 44,
-          "y": 897.656,
-          "w": 1512,
-          "h": 209
+          "x": 124,
+          "y": 112,
+          "w": 1352,
+          "h": 56.156
         },
         "dataset-bar": {
-          "x": 44,
-          "y": 267.656,
-          "w": 1512,
-          "h": 64
+          "x": 124,
+          "y": 273.938,
+          "w": 1352,
+          "h": 72.438
+        },
+        "workflow-section": {
+          "x": 124,
+          "y": 366.375,
+          "w": 1352,
+          "h": 42
+        },
+        "workflow": {
+          "x": 966.531,
+          "y": 366.375,
+          "w": 509.469,
+          "h": 42
+        },
+        "change-source": {
+          "x": 966.531,
+          "y": 366.375,
+          "w": 172.203,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 966.531,
+          "y": 366.375,
+          "w": 172.203,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 1146.734,
+          "y": 366.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "check-values": {
+          "x": 1325.953,
+          "y": 366.375,
+          "w": 150.047,
+          "h": 42
+        },
+        "report-panel": {
+          "x": 124,
+          "y": 424.375,
+          "w": 506.156,
+          "h": 498.578
+        },
+        "company-revenue": {
+          "x": 149,
+          "y": 513.375,
+          "w": 456.156,
+          "h": 102.188
+        },
+        "eu-revenue": {
+          "x": 149,
+          "y": 654.563,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 149,
+          "y": 654.563,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "eu-support": {
+          "x": 381.078,
+          "y": 654.563,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "report-links": {
+          "x": 157,
+          "y": 772.656,
+          "w": 440.156,
+          "h": 112.516
+        },
+        "graph": {
+          "x": 650.156,
+          "y": 424.375,
+          "w": 825.844,
+          "h": 498.578
+        },
+        "graph-reports": {
+          "x": 1332.688,
+          "y": 619.359,
+          "w": 112.297,
+          "h": 140.781
+        },
+        "activity": {
+          "x": 124,
+          "y": 942.953,
+          "w": 1352,
+          "h": 219.906
+        },
+        "activity-rows": {
+          "x": 149,
+          "y": 1006.094,
+          "w": 1302,
+          "h": 143.766
         }
       },
       "flags": [
         {
           "text": "Guided demo · Sample orders · fixed calculations",
           "box": {
-            "x": 44,
-            "y": 267.656,
-            "w": 1512,
-            "h": 64
+            "x": 124,
+            "y": 273.938,
+            "w": 1352,
+            "h": 72.438
           }
         }
       ],
       "capture": {
-        "url": "https://proofflow.arnavbule.in/",
+        "url": "(app)/",
         "viewport": {
           "width": 1600,
           "height": 1000
         },
         "fullPage": true,
-        "capturedAt": "2026-11-15T23:58:42.444Z",
-        "colorScheme": "light"
+        "capturedAt": "2026-11-16T12:36:16.355Z",
+        "colorScheme": "dark"
       }
     },
     "p01-workspace.report": {
       "file": "p01-workspace.report@4x.png",
       "state": "1",
       "kind": "crop",
-      "width": 585,
-      "height": 492,
+      "width": 523,
+      "height": 515,
       "scale": 4,
       "boxes": {
         "report-panel": {
           "x": 8,
-          "y": 8.656,
-          "w": 568.469,
-          "h": 475
+          "y": 8.375,
+          "w": 506.156,
+          "h": 498.578
         },
         "company-revenue": {
-          "x": 38,
-          "y": 97.234,
-          "w": 508.469,
-          "h": 76.75
+          "x": 33,
+          "y": 97.375,
+          "w": 456.156,
+          "h": 102.188
         },
         "eu-revenue": {
-          "x": 38,
-          "y": 197.984,
-          "w": 244.234,
-          "h": 72.75
+          "x": 33,
+          "y": 238.563,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 33,
+          "y": 238.563,
+          "w": 224.078,
+          "h": 96.094
         },
         "eu-support": {
-          "x": 302.234,
-          "y": 197.984,
-          "w": 244.234,
-          "h": 72.75
+          "x": 265.078,
+          "y": 238.563,
+          "w": 224.078,
+          "h": 96.094
         },
         "report-links": {
-          "x": 38,
-          "y": 294.734,
-          "w": 508.469,
-          "h": 92.594
+          "x": 41,
+          "y": 356.656,
+          "w": 440.156,
+          "h": 112.516
         }
       },
       "cropOf": "p01-workspace",
       "origin": {
-        "x": 36,
-        "y": 394
+        "x": 116,
+        "y": 416
       }
     },
     "p01-workspace.graph": {
       "file": "p01-workspace.graph@3x.png",
       "state": "1",
       "kind": "crop",
-      "width": 944,
-      "height": 492,
+      "width": 842,
+      "height": 515,
       "scale": 3,
       "boxes": {
         "graph": {
-          "x": 8.469,
-          "y": 8.656,
-          "w": 927.531,
-          "h": 475
+          "x": 8.156,
+          "y": 8.375,
+          "w": 825.844,
+          "h": 498.578
         },
         "graph-reports": {
-          "x": 769.469,
-          "y": 188.656,
-          "w": 128,
-          "h": 126
+          "x": 690.688,
+          "y": 203.359,
+          "w": 112.297,
+          "h": 140.781
         }
       },
       "cropOf": "p01-workspace",
       "origin": {
-        "x": 620,
-        "y": 394
+        "x": 642,
+        "y": 416
       }
     },
     "p01-workspace.workflow": {
       "file": "p01-workspace.workflow@4x.png",
       "state": "1",
       "kind": "crop",
-      "width": 473,
+      "width": 534,
       "height": 67,
       "scale": 4,
       "boxes": {
         "workflow": {
-          "x": 14.813,
-          "y": 14.656,
-          "w": 444.188,
-          "h": 38
+          "x": 12.531,
+          "y": 12.375,
+          "w": 509.469,
+          "h": 42
         },
         "change-source": {
-          "x": 14.813,
-          "y": 14.656,
-          "w": 149.797,
-          "h": 38
+          "x": 12.531,
+          "y": 12.375,
+          "w": 172.203,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 12.531,
+          "y": 12.375,
+          "w": 172.203,
+          "h": 42
         },
         "refresh-affected": {
-          "x": 172.609,
-          "y": 14.656,
-          "w": 148.234,
-          "h": 38
+          "x": 192.734,
+          "y": 12.375,
+          "w": 171.219,
+          "h": 42
         },
         "check-values": {
-          "x": 328.844,
-          "y": 14.656,
-          "w": 130.156,
-          "h": 38
+          "x": 371.953,
+          "y": 12.375,
+          "w": 150.047,
+          "h": 42
         }
       },
       "cropOf": "p01-workspace",
       "origin": {
-        "x": 1097,
-        "y": 334
+        "x": 954,
+        "y": 354
       }
     },
     "p01-workspace.headline": {
       "file": "p01-workspace.headline@3x.png",
       "state": "1",
       "kind": "crop",
-      "width": 1512,
-      "height": 87,
+      "width": 1384,
+      "height": 89,
       "scale": 3,
       "boxes": {
         "headline": {
           "x": 16,
           "y": 16,
-          "w": 1480,
-          "h": 54.875
+          "w": 1352,
+          "h": 56.156
         }
       },
       "cropOf": "p01-workspace",
       "origin": {
-        "x": 44,
-        "y": 98
-      }
-    },
-    "p02-change-source": {
-      "file": "p02-change-source.png",
-      "state": "2",
-      "title": "Change a source drawer: Exchange rate selected, EUR to USD 1.20 entered, not yet applied",
-      "kind": "full",
-      "width": 1600,
-      "height": 1000,
-      "scale": 2,
-      "boxes": {
-        "drawer": {
-          "x": 1130,
-          "y": 0,
-          "w": 470,
-          "h": 1000
-        },
-        "options": {
-          "x": 1158,
-          "y": 111.984,
-          "w": 414,
-          "h": 375
-        },
-        "fx-option": {
-          "x": 1158,
-          "y": 111.984,
-          "w": 414,
-          "h": 67
-        },
-        "editor": {
-          "x": 1158,
-          "y": 511.984,
-          "w": 414,
-          "h": 173.391
-        },
-        "fx-input": {
-          "x": 1158,
-          "y": 598.984,
-          "w": 414,
-          "h": 45
-        },
-        "apply": {
-          "x": 1158,
-          "y": 710.375,
-          "w": 414,
-          "h": 44
-        },
-        "drawer-header": {
-          "x": 1158,
-          "y": 28,
-          "w": 414,
-          "h": 59.984
-        }
-      },
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": false,
-        "capturedAt": "2026-11-15T23:58:53.645Z",
-        "colorScheme": "light"
-      }
-    },
-    "p02-change-source.editor": {
-      "file": "p02-change-source.editor@4x.png",
-      "state": "2",
-      "kind": "crop",
-      "width": 434,
-      "height": 264,
-      "scale": 4,
-      "boxes": {
-        "editor": {
-          "x": 10,
-          "y": 10.984,
-          "w": 414,
-          "h": 173.391
-        },
-        "fx-input": {
-          "x": 10,
-          "y": 97.984,
-          "w": 414,
-          "h": 45
-        },
-        "apply": {
-          "x": 10,
-          "y": 209.375,
-          "w": 414,
-          "h": 44
-        }
-      },
-      "cropOf": "p02-change-source",
-      "origin": {
-        "x": 1148,
-        "y": 501
-      }
-    },
-    "p02-change-source.options": {
-      "file": "p02-change-source.options@3x.png",
-      "state": "2",
-      "kind": "crop",
-      "width": 434,
-      "height": 479,
-      "scale": 3,
-      "boxes": {
-        "options": {
-          "x": 10,
-          "y": 93.984,
-          "w": 414,
-          "h": 375
-        },
-        "fx-option": {
-          "x": 10,
-          "y": 93.984,
-          "w": 414,
-          "h": 67
-        },
-        "drawer-header": {
-          "x": 10,
-          "y": 10,
-          "w": 414,
-          "h": 59.984
-        }
-      },
-      "cropOf": "p02-change-source",
-      "origin": {
-        "x": 1148,
-        "y": 18
-      }
-    },
-    "p02-change-source.fx-option": {
-      "file": "p02-change-source.fx-option@4x.png",
-      "state": "2",
-      "kind": "crop",
-      "width": 430,
-      "height": 84,
-      "scale": 4,
-      "boxes": {
-        "fx-option": {
-          "x": 8,
-          "y": 8.984,
-          "w": 414,
-          "h": 67
-        }
-      },
-      "cropOf": "p02-change-source",
-      "origin": {
-        "x": 1150,
-        "y": 103
-      }
-    },
-    "p03-stale": {
-      "file": "p03-stale.png",
-      "state": "3",
-      "title": "After EUR to USD 1.20 correction: affected figures withheld, affected path highlighted",
-      "kind": "full",
-      "width": 1600,
-      "height": 1233,
-      "scale": 2,
-      "boxes": {
-        "headline": {
-          "x": 60,
-          "y": 114,
-          "w": 1480,
-          "h": 54.875
-        },
-        "report-panel": {
-          "x": 44,
-          "y": 460.656,
-          "w": 568.469,
-          "h": 475
-        },
-        "company-revenue": {
-          "x": 74,
-          "y": 600.234,
-          "w": 508.469,
-          "h": 86.188
-        },
-        "eu-revenue": {
-          "x": 74,
-          "y": 710.422,
-          "w": 244.234,
-          "h": 72.75
-        },
-        "eu-support": {
-          "x": 338.234,
-          "y": 710.422,
-          "w": 244.234,
-          "h": 72.75
-        },
-        "report-links": {
-          "x": 74,
-          "y": 807.172,
-          "w": 508.469,
-          "h": 92.594
-        },
-        "graph": {
-          "x": 628.469,
-          "y": 460.656,
-          "w": 927.531,
-          "h": 475
-        },
-        "graph-reports": {
-          "x": 1389.469,
-          "y": 640.656,
-          "w": 128,
-          "h": 126
-        },
-        "workflow": {
-          "x": 1111.813,
-          "y": 348.656,
-          "w": 444.188,
-          "h": 38
-        },
-        "change-source": {
-          "x": 1111.813,
-          "y": 348.656,
-          "w": 149.797,
-          "h": 38
-        },
-        "refresh-affected": {
-          "x": 1269.609,
-          "y": 348.656,
-          "w": 148.234,
-          "h": 38
-        },
-        "check-values": {
-          "x": 1425.844,
-          "y": 348.656,
-          "w": 130.156,
-          "h": 38
-        },
-        "activity": {
-          "x": 44,
-          "y": 955.656,
-          "w": 1512,
-          "h": 209
-        },
-        "dataset-bar": {
-          "x": 44,
-          "y": 267.656,
-          "w": 1512,
-          "h": 64
-        },
-        "banner": {
-          "x": 44,
-          "y": 402.656,
-          "w": 1512,
-          "h": 42
-        },
-        "withheld-notice": {
-          "x": 74,
-          "y": 542.234,
-          "w": 508.469,
-          "h": 36
-        },
-        "withheld-claims": {
-          "x": 74,
-          "y": 600.234,
-          "w": 508.469,
-          "h": 182.938
-        },
-        "affected-path": {
-          "x": 659.469,
-          "y": 590.656,
-          "w": 858,
-          "h": 176
-        }
-      },
-      "flags": [
-        {
-          "text": "Guided demo · Sample orders · fixed calculations",
-          "box": {
-            "x": 44,
-            "y": 267.656,
-            "w": 1512,
-            "h": 64
-          }
-        }
-      ],
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": true,
-        "capturedAt": "2026-11-15T23:58:59.622Z",
-        "colorScheme": "light"
-      }
-    },
-    "p03-stale.banner": {
-      "file": "p03-stale.banner@4x.png",
-      "state": "3",
-      "kind": "crop",
-      "width": 1532,
-      "height": 63,
-      "scale": 4,
-      "boxes": {
-        "banner": {
-          "x": 10,
-          "y": 10.656,
-          "w": 1512,
-          "h": 42
-        }
-      },
-      "cropOf": "p03-stale",
-      "origin": {
-        "x": 34,
-        "y": 392
-      }
-    },
-    "p03-stale.report": {
-      "file": "p03-stale.report@4x.png",
-      "state": "3",
-      "kind": "crop",
-      "width": 585,
-      "height": 492,
-      "scale": 4,
-      "boxes": {
-        "report-panel": {
-          "x": 8,
-          "y": 8.656,
-          "w": 568.469,
-          "h": 475
-        },
-        "company-revenue": {
-          "x": 38,
-          "y": 148.234,
-          "w": 508.469,
-          "h": 86.188
-        },
-        "eu-revenue": {
-          "x": 38,
-          "y": 258.422,
-          "w": 244.234,
-          "h": 72.75
-        },
-        "eu-support": {
-          "x": 302.234,
-          "y": 258.422,
-          "w": 244.234,
-          "h": 72.75
-        },
-        "report-links": {
-          "x": 38,
-          "y": 355.172,
-          "w": 508.469,
-          "h": 92.594
-        },
-        "withheld-notice": {
-          "x": 38,
-          "y": 90.234,
-          "w": 508.469,
-          "h": 36
-        },
-        "withheld-claims": {
-          "x": 38,
-          "y": 148.234,
-          "w": 508.469,
-          "h": 182.938
-        }
-      },
-      "cropOf": "p03-stale",
-      "origin": {
-        "x": 36,
-        "y": 452
-      }
-    },
-    "p03-stale.graph": {
-      "file": "p03-stale.graph@3x.png",
-      "state": "3",
-      "kind": "crop",
-      "width": 944,
-      "height": 492,
-      "scale": 3,
-      "boxes": {
-        "graph": {
-          "x": 8.469,
-          "y": 8.656,
-          "w": 927.531,
-          "h": 475
-        },
-        "graph-reports": {
-          "x": 769.469,
-          "y": 188.656,
-          "w": 128,
-          "h": 126
-        },
-        "affected-path": {
-          "x": 39.469,
-          "y": 138.656,
-          "w": 858,
-          "h": 176
-        }
-      },
-      "cropOf": "p03-stale",
-      "origin": {
-        "x": 620,
-        "y": 452
-      }
-    },
-    "p03-stale.workflow": {
-      "file": "p03-stale.workflow@4x.png",
-      "state": "3",
-      "kind": "crop",
-      "width": 473,
-      "height": 67,
-      "scale": 4,
-      "boxes": {
-        "workflow": {
-          "x": 14.813,
-          "y": 14.656,
-          "w": 444.188,
-          "h": 38
-        },
-        "change-source": {
-          "x": 14.813,
-          "y": 14.656,
-          "w": 149.797,
-          "h": 38
-        },
-        "refresh-affected": {
-          "x": 172.609,
-          "y": 14.656,
-          "w": 148.234,
-          "h": 38
-        },
-        "check-values": {
-          "x": 328.844,
-          "y": 14.656,
-          "w": 130.156,
-          "h": 38
-        }
-      },
-      "cropOf": "p03-stale",
-      "origin": {
-        "x": 1097,
-        "y": 334
-      }
-    },
-    "p04-evidence": {
-      "file": "p04-evidence.png",
-      "state": "4",
-      "title": "Inspect evidence drawer for the affected EU revenue claim: native HydraDB dependency path",
-      "kind": "full",
-      "width": 1600,
-      "height": 1000,
-      "scale": 2,
-      "boxes": {
-        "drawer": {
-          "x": 1040,
-          "y": 0,
-          "w": 560,
-          "h": 1000
-        },
-        "drawer-header": {
-          "x": 1068,
-          "y": 28,
-          "w": 504,
-          "h": 59.984
-        },
-        "name": {
-          "x": 1068,
-          "y": 111.984,
-          "w": 504,
-          "h": 26.594
-        },
-        "facts": {
-          "x": 1068,
-          "y": 163.578,
-          "w": 504,
-          "h": 213.563
-        },
-        "path": {
-          "x": 1068,
-          "y": 458.141,
-          "w": 504,
-          "h": 112
-        },
-        "why": {
-          "x": 1068,
-          "y": 402.141,
-          "w": 504,
-          "h": 220.375
-        }
-      },
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": false,
-        "capturedAt": "2026-11-15T23:59:05.067Z",
-        "colorScheme": "light"
-      }
-    },
-    "p04-evidence.path": {
-      "file": "p04-evidence.path@4x.png",
-      "state": "4",
-      "kind": "crop",
-      "width": 528,
-      "height": 137,
-      "scale": 4,
-      "boxes": {
-        "path": {
-          "x": 12,
-          "y": 12.141,
-          "w": 504,
-          "h": 112
-        }
-      },
-      "cropOf": "p04-evidence",
-      "origin": {
-        "x": 1056,
-        "y": 446
-      }
-    },
-    "p04-evidence.header": {
-      "file": "p04-evidence.header@3x.png",
-      "state": "4",
-      "kind": "crop",
-      "width": 524,
-      "height": 370,
-      "scale": 3,
-      "boxes": {
-        "drawer-header": {
-          "x": 10,
-          "y": 10,
-          "w": 504,
-          "h": 59.984
-        },
-        "name": {
-          "x": 10,
-          "y": 93.984,
-          "w": 504,
-          "h": 26.594
-        },
-        "facts": {
-          "x": 10,
-          "y": 145.578,
-          "w": 504,
-          "h": 213.563
-        }
-      },
-      "cropOf": "p04-evidence",
-      "origin": {
-        "x": 1058,
-        "y": 18
-      }
-    },
-    "p05-refreshed": {
-      "file": "p05-refreshed.png",
-      "state": "5",
-      "title": "After Refresh affected: current values $5,755 / $2,280, four tool calls, support unchanged",
-      "kind": "full",
-      "width": 1600,
-      "height": 1233,
-      "scale": 2,
-      "boxes": {
-        "headline": {
-          "x": 60,
-          "y": 114,
-          "w": 1480,
-          "h": 54.875
-        },
-        "report-panel": {
-          "x": 44,
-          "y": 460.656,
-          "w": 568.469,
-          "h": 475
-        },
-        "company-revenue": {
-          "x": 74,
-          "y": 549.234,
-          "w": 508.469,
-          "h": 76.75
-        },
-        "eu-revenue": {
-          "x": 74,
-          "y": 649.984,
-          "w": 244.234,
-          "h": 72.75
-        },
-        "eu-support": {
-          "x": 338.234,
-          "y": 649.984,
-          "w": 244.234,
-          "h": 72.75
-        },
-        "report-links": {
-          "x": 74,
-          "y": 746.734,
-          "w": 508.469,
-          "h": 92.594
-        },
-        "graph": {
-          "x": 628.469,
-          "y": 460.656,
-          "w": 927.531,
-          "h": 475
-        },
-        "graph-reports": {
-          "x": 1389.469,
-          "y": 640.656,
-          "w": 128,
-          "h": 126
-        },
-        "workflow": {
-          "x": 1111.813,
-          "y": 348.656,
-          "w": 444.188,
-          "h": 38
-        },
-        "change-source": {
-          "x": 1111.813,
-          "y": 348.656,
-          "w": 149.797,
-          "h": 38
-        },
-        "refresh-affected": {
-          "x": 1269.609,
-          "y": 348.656,
-          "w": 148.234,
-          "h": 38
-        },
-        "check-values": {
-          "x": 1425.844,
-          "y": 348.656,
-          "w": 130.156,
-          "h": 38
-        },
-        "activity": {
-          "x": 44,
-          "y": 955.656,
-          "w": 1512,
-          "h": 209
-        },
-        "dataset-bar": {
-          "x": 44,
-          "y": 267.656,
-          "w": 1512,
-          "h": 64
-        },
-        "banner": {
-          "x": 44,
-          "y": 402.656,
-          "w": 1512,
-          "h": 42
-        },
-        "activity-rows": {
-          "x": 64,
-          "y": 1011.656,
-          "w": 1472,
-          "h": 141
-        }
-      },
-      "flags": [
-        {
-          "text": "Guided demo · Sample orders · fixed calculations",
-          "box": {
-            "x": 44,
-            "y": 267.656,
-            "w": 1512,
-            "h": 64
-          }
-        }
-      ],
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": true,
-        "capturedAt": "2026-11-15T23:59:12.398Z",
-        "colorScheme": "light"
-      }
-    },
-    "p05-refreshed.banner": {
-      "file": "p05-refreshed.banner@4x.png",
-      "state": "5",
-      "kind": "crop",
-      "width": 1532,
-      "height": 63,
-      "scale": 4,
-      "boxes": {
-        "banner": {
-          "x": 10,
-          "y": 10.656,
-          "w": 1512,
-          "h": 42
-        }
-      },
-      "cropOf": "p05-refreshed",
-      "origin": {
-        "x": 34,
-        "y": 392
-      }
-    },
-    "p05-refreshed.report": {
-      "file": "p05-refreshed.report@4x.png",
-      "state": "5",
-      "kind": "crop",
-      "width": 585,
-      "height": 492,
-      "scale": 4,
-      "boxes": {
-        "report-panel": {
-          "x": 8,
-          "y": 8.656,
-          "w": 568.469,
-          "h": 475
-        },
-        "company-revenue": {
-          "x": 38,
-          "y": 97.234,
-          "w": 508.469,
-          "h": 76.75
-        },
-        "eu-revenue": {
-          "x": 38,
-          "y": 197.984,
-          "w": 244.234,
-          "h": 72.75
-        },
-        "eu-support": {
-          "x": 302.234,
-          "y": 197.984,
-          "w": 244.234,
-          "h": 72.75
-        },
-        "report-links": {
-          "x": 38,
-          "y": 294.734,
-          "w": 508.469,
-          "h": 92.594
-        }
-      },
-      "cropOf": "p05-refreshed",
-      "origin": {
-        "x": 36,
-        "y": 452
-      }
-    },
-    "p05-refreshed.activity": {
-      "file": "p05-refreshed.activity@3x.png",
-      "state": "5",
-      "kind": "crop",
-      "width": 1528,
-      "height": 226,
-      "scale": 3,
-      "boxes": {
-        "activity": {
-          "x": 8,
-          "y": 8.656,
-          "w": 1512,
-          "h": 209
-        },
-        "activity-rows": {
-          "x": 28,
-          "y": 64.656,
-          "w": 1472,
-          "h": 141
-        }
-      },
-      "cropOf": "p05-refreshed",
-      "origin": {
-        "x": 36,
-        "y": 947
-      }
-    },
-    "p05-refreshed.graph": {
-      "file": "p05-refreshed.graph@3x.png",
-      "state": "5",
-      "kind": "crop",
-      "width": 944,
-      "height": 492,
-      "scale": 3,
-      "boxes": {
-        "graph": {
-          "x": 8.469,
-          "y": 8.656,
-          "w": 927.531,
-          "h": 475
-        },
-        "graph-reports": {
-          "x": 769.469,
-          "y": 188.656,
-          "w": 128,
-          "h": 126
-        }
-      },
-      "cropOf": "p05-refreshed",
-      "origin": {
-        "x": 620,
-        "y": 452
-      }
-    },
-    "p06-csv-form": {
-      "file": "p06-csv-form.png",
-      "state": "6",
-      "title": "Use your data drawer filled with the app's sample CSV and rates, before validation",
-      "kind": "full",
-      "width": 1600,
-      "height": 1000,
-      "scale": 2,
-      "boxes": {
-        "drawer": {
-          "x": 1040,
-          "y": 0,
-          "w": 560,
-          "h": 1000
-        },
-        "drawer-header": {
-          "x": 1068,
-          "y": 28,
-          "w": 504,
-          "h": 59.984
-        },
-        "csv": {
-          "x": 1068,
-          "y": 296.578,
-          "w": 504,
-          "h": 175
-        },
-        "file-actions": {
-          "x": 1068,
-          "y": 231.578,
-          "w": 504,
-          "h": 54
-        },
-        "rates": {
-          "x": 1068,
-          "y": 603.578,
-          "w": 504,
-          "h": 64
-        },
-        "region": {
-          "x": 1068,
-          "y": 710.578,
-          "w": 504,
-          "h": 63
-        },
-        "submit": {
-          "x": 1068,
-          "y": 794.578,
-          "w": 504,
-          "h": 44
-        }
-      },
-      "flags": [
-        {
-          "text": "Authored sample CSV",
-          "box": {
-            "x": 1068,
-            "y": 231.578,
-            "w": 504,
-            "h": 54
-          }
-        }
-      ],
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": false,
-        "capturedAt": "2026-11-16T00:00:27.700Z",
-        "colorScheme": "light"
-      }
-    },
-    "p06-csv-form.csv": {
-      "file": "p06-csv-form.csv@4x.png",
-      "state": "6",
-      "kind": "crop",
-      "width": 524,
-      "height": 261,
-      "scale": 4,
-      "boxes": {
-        "csv": {
-          "x": 10,
-          "y": 75.578,
-          "w": 504,
-          "h": 175
-        },
-        "file-actions": {
-          "x": 10,
-          "y": 10.578,
-          "w": 504,
-          "h": 54
-        }
-      },
-      "cropOf": "p06-csv-form",
-      "origin": {
-        "x": 1058,
-        "y": 221
-      },
-      "flags": [
-        {
-          "text": "Authored sample CSV",
-          "box": {
-            "x": 10,
-            "y": 10.578,
-            "w": 504,
-            "h": 54
-          }
-        }
-      ]
-    },
-    "p06-csv-form.rates": {
-      "file": "p06-csv-form.rates@4x.png",
-      "state": "6",
-      "kind": "crop",
-      "width": 524,
-      "height": 191,
-      "scale": 4,
-      "boxes": {
-        "rates": {
-          "x": 10,
-          "y": 10.578,
-          "w": 504,
-          "h": 64
-        },
-        "region": {
-          "x": 10,
-          "y": 117.578,
-          "w": 504,
-          "h": 63
-        }
-      },
-      "cropOf": "p06-csv-form",
-      "origin": {
-        "x": 1058,
-        "y": 593
-      }
-    },
-    "p06-csv-preview": {
-      "file": "p06-csv-preview.png",
-      "state": "6",
-      "title": "After Validate CSV: non-persisting preview, ready to create",
-      "kind": "full",
-      "width": 1600,
-      "height": 1000,
-      "scale": 2,
-      "boxes": {
-        "drawer": {
-          "x": 1040,
-          "y": 0,
-          "w": 560,
-          "h": 1000
-        },
-        "rates": {
-          "x": 1068,
-          "y": 490.578,
-          "w": 504,
-          "h": 64
-        },
-        "region": {
-          "x": 1068,
-          "y": 597.578,
-          "w": 504,
-          "h": 63
-        },
-        "preview": {
-          "x": 1068,
-          "y": 683.578,
-          "w": 504,
-          "h": 233
-        },
-        "submit": {
-          "x": 1068,
-          "y": 955.578,
-          "w": 504,
-          "h": 44
-        }
-      },
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": false,
-        "capturedAt": "2026-11-16T00:00:31.380Z",
-        "colorScheme": "light"
-      }
-    },
-    "p06-csv-preview.preview": {
-      "file": "p06-csv-preview.preview@4x.png",
-      "state": "6",
-      "kind": "crop",
-      "width": 524,
-      "height": 254,
-      "scale": 4,
-      "boxes": {
-        "preview": {
-          "x": 10,
-          "y": 10.578,
-          "w": 504,
-          "h": 233
-        }
-      },
-      "cropOf": "p06-csv-preview",
-      "origin": {
-        "x": 1058,
-        "y": 673
-      }
-    },
-    "p06-csv-preview.preview-create": {
-      "file": "p06-csv-preview.preview-create@3x.png",
-      "state": "6",
-      "kind": "crop",
-      "width": 524,
-      "height": 327,
-      "scale": 3,
-      "boxes": {
-        "preview": {
-          "x": 10,
-          "y": 10.578,
-          "w": 504,
-          "h": 233
-        },
-        "submit": {
-          "x": 10,
-          "y": 282.578,
-          "w": 504,
-          "h": 44
-        }
-      },
-      "cropOf": "p06-csv-preview",
-      "origin": {
-        "x": 1058,
-        "y": 673
-      }
-    },
-    "p07-csv-created": {
-      "file": "p07-csv-created.png",
-      "state": "7",
-      "title": "Imported CSV workspace after Create reports, both reports current",
-      "kind": "full",
-      "width": 1600,
-      "height": 1271,
-      "scale": 2,
-      "boxes": {
-        "report-panel": {
-          "x": 44,
-          "y": 507.531,
-          "w": 568.469,
-          "h": 466
-        },
-        "company-revenue": {
-          "x": 74,
-          "y": 596.109,
-          "w": 508.469,
-          "h": 76.75
-        },
-        "regional-revenue": {
-          "x": 74,
-          "y": 696.859,
-          "w": 508.469,
-          "h": 72.75
-        },
-        "support-link": {
-          "x": 74,
-          "y": 784.609,
-          "w": 508.469,
-          "h": 28
-        },
-        "graph": {
-          "x": 628.469,
-          "y": 507.531,
-          "w": 927.531,
-          "h": 466
-        },
-        "graph-reports": {
-          "x": 1389.469,
-          "y": 687.531,
-          "w": 128,
-          "h": 138.531
-        },
-        "workflow": {
-          "x": 888.047,
-          "y": 348.656,
-          "w": 667.953,
-          "h": 38
-        },
-        "workflow-section": {
-          "x": 44,
-          "y": 348.656,
-          "w": 1512,
-          "h": 38
-        },
-        "update-csv": {
-          "x": 888.047,
-          "y": 348.656,
-          "w": 122.313,
-          "h": 38
-        },
-        "refresh-affected": {
-          "x": 1018.359,
-          "y": 348.656,
-          "w": 148.234,
-          "h": 38
-        },
-        "download-reports": {
-          "x": 1174.594,
-          "y": 348.656,
-          "w": 200.703,
-          "h": 38
-        },
-        "copy-report": {
-          "x": 1383.297,
-          "y": 348.656,
-          "w": 172.703,
-          "h": 38
-        },
-        "accounting": {
-          "x": 44,
-          "y": 402.656,
-          "w": 1512,
-          "h": 88.875
-        },
-        "dataset-bar": {
-          "x": 44,
-          "y": 267.656,
-          "w": 1512,
-          "h": 64
-        },
-        "activity": {
-          "x": 44,
-          "y": 993.531,
-          "w": 1512,
-          "h": 209
-        }
-      },
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": true,
-        "capturedAt": "2026-11-16T00:00:38.705Z",
-        "colorScheme": "light"
-      }
-    },
-    "p07-csv-created.report": {
-      "file": "p07-csv-created.report@4x.png",
-      "state": "7",
-      "kind": "crop",
-      "width": 585,
-      "height": 483,
-      "scale": 4,
-      "boxes": {
-        "report-panel": {
-          "x": 8,
-          "y": 8.531,
-          "w": 568.469,
-          "h": 466
-        },
-        "company-revenue": {
-          "x": 38,
-          "y": 97.109,
-          "w": 508.469,
-          "h": 76.75
-        },
-        "regional-revenue": {
-          "x": 38,
-          "y": 197.859,
-          "w": 508.469,
-          "h": 72.75
-        },
-        "support-link": {
-          "x": 38,
-          "y": 285.609,
-          "w": 508.469,
-          "h": 28
-        }
-      },
-      "cropOf": "p07-csv-created",
-      "origin": {
-        "x": 36,
-        "y": 499
-      }
-    },
-    "p07-csv-created.accounting": {
-      "file": "p07-csv-created.accounting@4x.png",
-      "state": "7",
-      "kind": "crop",
-      "width": 1528,
-      "height": 106,
-      "scale": 4,
-      "boxes": {
-        "accounting": {
-          "x": 8,
-          "y": 8.656,
-          "w": 1512,
-          "h": 88.875
-        }
-      },
-      "cropOf": "p07-csv-created",
-      "origin": {
-        "x": 36,
-        "y": 394
-      }
-    },
-    "p07-csv-created.graph": {
-      "file": "p07-csv-created.graph@3x.png",
-      "state": "7",
-      "kind": "crop",
-      "width": 944,
-      "height": 483,
-      "scale": 3,
-      "boxes": {
-        "graph": {
-          "x": 8.469,
-          "y": 8.531,
-          "w": 927.531,
-          "h": 466
-        },
-        "graph-reports": {
-          "x": 769.469,
-          "y": 188.531,
-          "w": 128,
-          "h": 138.531
-        }
-      },
-      "cropOf": "p07-csv-created",
-      "origin": {
-        "x": 620,
-        "y": 499
-      }
-    },
-    "p07-csv-created.workflow": {
-      "file": "p07-csv-created.workflow@4x.png",
-      "state": "7",
-      "kind": "crop",
-      "width": 696,
-      "height": 67,
-      "scale": 4,
-      "boxes": {
-        "workflow": {
-          "x": 14.047,
-          "y": 14.656,
-          "w": 667.953,
-          "h": 38
-        },
-        "update-csv": {
-          "x": 14.047,
-          "y": 14.656,
-          "w": 122.313,
-          "h": 38
-        },
-        "refresh-affected": {
-          "x": 144.359,
-          "y": 14.656,
-          "w": 148.234,
-          "h": 38
-        },
-        "download-reports": {
-          "x": 300.594,
-          "y": 14.656,
-          "w": 200.703,
-          "h": 38
-        },
-        "copy-report": {
-          "x": 509.297,
-          "y": 14.656,
-          "w": 172.703,
-          "h": 38
-        }
-      },
-      "cropOf": "p07-csv-created",
-      "origin": {
-        "x": 874,
-        "y": 334
-      }
-    },
-    "p08-csv-update": {
-      "file": "p08-csv-update.png",
-      "state": "8",
-      "title": "Update your CSV drawer: same rows, EUR → USD corrected to 1.20, validated and ready to publish",
-      "kind": "full",
-      "width": 1600,
-      "height": 1000,
-      "scale": 2,
-      "boxes": {
-        "drawer": {
-          "x": 1040,
-          "y": 0,
-          "w": 560,
-          "h": 1000
-        },
-        "rates": {
-          "x": 1068,
-          "y": 467.375,
-          "w": 504,
-          "h": 64
-        },
-        "preview": {
-          "x": 1068,
-          "y": 684.375,
-          "w": 504,
-          "h": 233
-        },
-        "submit": {
-          "x": 1068,
-          "y": 956.375,
-          "w": 504,
-          "h": 43.625
-        }
-      },
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": false,
-        "capturedAt": "2026-11-16T00:00:44.860Z",
-        "colorScheme": "light"
-      }
-    },
-    "p08-csv-update.rates": {
-      "file": "p08-csv-update.rates@4x.png",
-      "state": "8",
-      "kind": "crop",
-      "width": 524,
-      "height": 85,
-      "scale": 4,
-      "boxes": {
-        "rates": {
-          "x": 10,
-          "y": 10.375,
-          "w": 504,
-          "h": 64
-        }
-      },
-      "cropOf": "p08-csv-update",
-      "origin": {
-        "x": 1058,
-        "y": 457
-      }
-    },
-    "p08-csv-update.preview-publish": {
-      "file": "p08-csv-update.preview-publish@3x.png",
-      "state": "8",
-      "kind": "crop",
-      "width": 524,
-      "height": 326,
-      "scale": 3,
-      "boxes": {
-        "preview": {
-          "x": 10,
-          "y": 10.375,
-          "w": 504,
-          "h": 233
-        },
-        "submit": {
-          "x": 10,
-          "y": 282.375,
-          "w": 504,
-          "h": 43.625
-        }
-      },
-      "cropOf": "p08-csv-update",
-      "origin": {
-        "x": 1058,
-        "y": 674
-      }
-    },
-    "p08-csv-stale": {
-      "file": "p08-csv-stale.png",
-      "state": "8",
-      "title": "After Publish correction: affected CSV revenue withheld until refresh",
-      "kind": "full",
-      "width": 1600,
-      "height": 1366,
-      "scale": 2,
-      "boxes": {
-        "report-panel": {
-          "x": 44,
-          "y": 565.531,
-          "w": 568.469,
-          "h": 503.156
-        },
-        "company-revenue": {
-          "x": 74,
-          "y": 705.109,
-          "w": 508.469,
-          "h": 86.188
-        },
-        "regional-revenue": {
-          "x": 74,
-          "y": 815.297,
-          "w": 508.469,
-          "h": 69.797
-        },
-        "support-link": {
-          "x": 74,
-          "y": 900.094,
-          "w": 508.469,
-          "h": 28
-        },
-        "graph": {
-          "x": 628.469,
-          "y": 565.531,
-          "w": 927.531,
-          "h": 503.156
-        },
-        "graph-reports": {
-          "x": 1389.469,
-          "y": 745.531,
-          "w": 128,
-          "h": 138.531
-        },
-        "workflow": {
-          "x": 888.047,
-          "y": 348.656,
-          "w": 667.953,
-          "h": 38
-        },
-        "workflow-section": {
-          "x": 44,
-          "y": 348.656,
-          "w": 1512,
-          "h": 38
-        },
-        "update-csv": {
-          "x": 888.047,
-          "y": 348.656,
-          "w": 122.313,
-          "h": 38
-        },
-        "refresh-affected": {
-          "x": 1018.359,
-          "y": 348.656,
-          "w": 148.234,
-          "h": 38
-        },
-        "download-reports": {
-          "x": 1174.594,
-          "y": 348.656,
-          "w": 200.703,
-          "h": 38
-        },
-        "copy-report": {
-          "x": 1383.297,
-          "y": 348.656,
-          "w": 172.703,
-          "h": 38
-        },
-        "accounting": {
-          "x": 44,
-          "y": 402.656,
-          "w": 1512,
-          "h": 88.875
-        },
-        "dataset-bar": {
-          "x": 44,
-          "y": 267.656,
-          "w": 1512,
-          "h": 64
-        },
-        "activity": {
-          "x": 44,
-          "y": 1088.688,
-          "w": 1512,
-          "h": 209
-        },
-        "banner": {
-          "x": 44,
-          "y": 507.531,
-          "w": 1512,
-          "h": 42
-        },
-        "withheld-notice": {
-          "x": 74,
-          "y": 647.109,
-          "w": 508.469,
-          "h": 36
-        },
-        "withheld-claims": {
-          "x": 74,
-          "y": 705.109,
-          "w": 508.469,
-          "h": 179.984
-        },
-        "affected-path": {
-          "x": 659.469,
-          "y": 720.531,
-          "w": 858,
-          "h": 163.531
-        }
-      },
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": true,
-        "capturedAt": "2026-11-16T00:00:50.211Z",
-        "colorScheme": "light"
-      }
-    },
-    "p08-csv-stale.banner": {
-      "file": "p08-csv-stale.banner@4x.png",
-      "state": "8",
-      "kind": "crop",
-      "width": 1532,
-      "height": 63,
-      "scale": 4,
-      "boxes": {
-        "banner": {
-          "x": 10,
-          "y": 10.531,
-          "w": 1512,
-          "h": 42
-        }
-      },
-      "cropOf": "p08-csv-stale",
-      "origin": {
-        "x": 34,
-        "y": 497
-      }
-    },
-    "p08-csv-stale.report": {
-      "file": "p08-csv-stale.report@4x.png",
-      "state": "8",
-      "kind": "crop",
-      "width": 585,
-      "height": 520,
-      "scale": 4,
-      "boxes": {
-        "report-panel": {
-          "x": 8,
-          "y": 8.531,
-          "w": 568.469,
-          "h": 503.156
-        },
-        "company-revenue": {
-          "x": 38,
-          "y": 148.109,
-          "w": 508.469,
-          "h": 86.188
-        },
-        "regional-revenue": {
-          "x": 38,
-          "y": 258.297,
-          "w": 508.469,
-          "h": 69.797
-        },
-        "support-link": {
-          "x": 38,
-          "y": 343.094,
-          "w": 508.469,
-          "h": 28
-        },
-        "withheld-notice": {
-          "x": 38,
-          "y": 90.109,
-          "w": 508.469,
-          "h": 36
-        },
-        "withheld-claims": {
-          "x": 38,
-          "y": 148.109,
-          "w": 508.469,
-          "h": 179.984
-        }
-      },
-      "cropOf": "p08-csv-stale",
-      "origin": {
-        "x": 36,
-        "y": 557
-      }
-    },
-    "p08-csv-stale.graph": {
-      "file": "p08-csv-stale.graph@3x.png",
-      "state": "8",
-      "kind": "crop",
-      "width": 944,
-      "height": 520,
-      "scale": 3,
-      "boxes": {
-        "graph": {
-          "x": 8.469,
-          "y": 8.531,
-          "w": 927.531,
-          "h": 503.156
-        },
-        "graph-reports": {
-          "x": 769.469,
-          "y": 188.531,
-          "w": 128,
-          "h": 138.531
-        },
-        "affected-path": {
-          "x": 39.469,
-          "y": 163.531,
-          "w": 858,
-          "h": 163.531
-        }
-      },
-      "cropOf": "p08-csv-stale",
-      "origin": {
-        "x": 620,
-        "y": 557
-      }
-    },
-    "p08-csv-stale.accounting": {
-      "file": "p08-csv-stale.accounting@4x.png",
-      "state": "8",
-      "kind": "crop",
-      "width": 1528,
-      "height": 106,
-      "scale": 4,
-      "boxes": {
-        "accounting": {
-          "x": 8,
-          "y": 8.656,
-          "w": 1512,
-          "h": 88.875
-        }
-      },
-      "cropOf": "p08-csv-stale",
-      "origin": {
-        "x": 36,
-        "y": 394
-      }
-    },
-    "p08-csv-evidence": {
-      "file": "p08-csv-evidence.png",
-      "state": "8",
-      "title": "Inspect evidence for the affected regional report: native dependency path from the corrected rate",
-      "kind": "full",
-      "width": 1600,
-      "height": 1000,
-      "scale": 2,
-      "boxes": {
-        "drawer": {
-          "x": 1040,
-          "y": 0,
-          "w": 560,
-          "h": 1000
-        },
-        "drawer-header": {
-          "x": 1068,
-          "y": 28,
-          "w": 504,
-          "h": 59.984
-        },
-        "name": {
-          "x": 1068,
-          "y": 111.984,
-          "w": 504,
-          "h": 26.594
-        },
-        "facts": {
-          "x": 1068,
-          "y": 163.578,
-          "w": 504,
-          "h": 213.563
-        },
-        "path": {
-          "x": 1068,
-          "y": 458.141,
-          "w": 504,
-          "h": 190
-        },
-        "why": {
-          "x": 1068,
-          "y": 402.141,
-          "w": 504,
-          "h": 298.375
-        }
-      },
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": false,
-        "capturedAt": "2026-11-16T00:00:55.412Z",
-        "colorScheme": "light"
-      }
-    },
-    "p08-csv-evidence.path": {
-      "file": "p08-csv-evidence.path@4x.png",
-      "state": "8",
-      "kind": "crop",
-      "width": 528,
-      "height": 215,
-      "scale": 4,
-      "boxes": {
-        "path": {
-          "x": 12,
-          "y": 12.141,
-          "w": 504,
-          "h": 190
-        }
-      },
-      "cropOf": "p08-csv-evidence",
-      "origin": {
-        "x": 1056,
-        "y": 446
-      }
-    },
-    "p08-csv-evidence.header": {
-      "file": "p08-csv-evidence.header@3x.png",
-      "state": "8",
-      "kind": "crop",
-      "width": 524,
-      "height": 370,
-      "scale": 3,
-      "boxes": {
-        "drawer-header": {
-          "x": 10,
-          "y": 10,
-          "w": 504,
-          "h": 59.984
-        },
-        "name": {
-          "x": 10,
-          "y": 93.984,
-          "w": 504,
-          "h": 26.594
-        },
-        "facts": {
-          "x": 10,
-          "y": 145.578,
-          "w": 504,
-          "h": 213.563
-        }
-      },
-      "cropOf": "p08-csv-evidence",
-      "origin": {
-        "x": 1058,
-        "y": 18
-      }
-    },
-    "p09-csv-refreshed-unchecked": {
-      "file": "p09-csv-refreshed-unchecked.png",
-      "state": "9",
-      "title": "After Refresh affected (before Check values): refreshed CSV revenue, Check values offered",
-      "kind": "full",
-      "width": 1600,
-      "height": 1335,
-      "scale": 2,
-      "boxes": {
-        "report-panel": {
-          "x": 44,
-          "y": 572.031,
-          "w": 568.469,
-          "h": 466
-        },
-        "company-revenue": {
-          "x": 74,
-          "y": 660.609,
-          "w": 508.469,
-          "h": 76.75
-        },
-        "regional-revenue": {
-          "x": 74,
-          "y": 761.359,
-          "w": 508.469,
-          "h": 72.75
-        },
-        "support-link": {
-          "x": 74,
-          "y": 849.109,
-          "w": 508.469,
-          "h": 28
-        },
-        "graph": {
-          "x": 628.469,
-          "y": 572.031,
-          "w": 927.531,
-          "h": 466
-        },
-        "graph-reports": {
-          "x": 1389.469,
-          "y": 752.031,
-          "w": 128,
-          "h": 138.531
-        },
-        "workflow": {
-          "x": 888.047,
-          "y": 348.656,
-          "w": 667.953,
-          "h": 38
-        },
-        "workflow-section": {
-          "x": 44,
-          "y": 348.656,
-          "w": 1512,
-          "h": 38
-        },
-        "update-csv": {
-          "x": 888.047,
-          "y": 348.656,
-          "w": 122.313,
-          "h": 38
-        },
-        "refresh-affected": {
-          "x": 1018.359,
-          "y": 348.656,
-          "w": 148.234,
-          "h": 38
-        },
-        "download-reports": {
-          "x": 1174.594,
-          "y": 348.656,
-          "w": 200.703,
-          "h": 38
-        },
-        "copy-report": {
-          "x": 1383.297,
-          "y": 348.656,
-          "w": 172.703,
-          "h": 38
-        },
-        "accounting": {
-          "x": 44,
-          "y": 402.656,
-          "w": 1512,
-          "h": 88.875
-        },
-        "dataset-bar": {
-          "x": 44,
-          "y": 267.656,
-          "w": 1512,
-          "h": 64
-        },
-        "activity": {
-          "x": 44,
-          "y": 1058.031,
-          "w": 1512,
-          "h": 209
-        },
-        "banner": {
-          "x": 44,
-          "y": 507.531,
-          "w": 1512,
-          "h": 48.5
-        },
-        "check-values": {
-          "x": 1442.141,
-          "y": 519.531,
-          "w": 98.859,
-          "h": 24.5
-        }
-      },
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": true,
-        "capturedAt": "2026-11-16T00:01:02.582Z",
-        "colorScheme": "light"
-      }
-    },
-    "p09-csv-refreshed-unchecked.banner": {
-      "file": "p09-csv-refreshed-unchecked.banner@4x.png",
-      "state": "9",
-      "kind": "crop",
-      "width": 1532,
-      "height": 70,
-      "scale": 4,
-      "boxes": {
-        "banner": {
-          "x": 10,
-          "y": 10.531,
-          "w": 1512,
-          "h": 48.5
-        },
-        "check-values": {
-          "x": 1408.141,
-          "y": 22.531,
-          "w": 98.859,
-          "h": 24.5
-        }
-      },
-      "cropOf": "p09-csv-refreshed-unchecked",
-      "origin": {
-        "x": 34,
-        "y": 497
-      }
-    },
-    "p09-csv-refreshed-unchecked.report": {
-      "file": "p09-csv-refreshed-unchecked.report@4x.png",
-      "state": "9",
-      "kind": "crop",
-      "width": 585,
-      "height": 483,
-      "scale": 4,
-      "boxes": {
-        "report-panel": {
-          "x": 8,
-          "y": 8.031,
-          "w": 568.469,
-          "h": 466
-        },
-        "company-revenue": {
-          "x": 38,
-          "y": 96.609,
-          "w": 508.469,
-          "h": 76.75
-        },
-        "regional-revenue": {
-          "x": 38,
-          "y": 197.359,
-          "w": 508.469,
-          "h": 72.75
-        },
-        "support-link": {
-          "x": 38,
-          "y": 285.109,
-          "w": 508.469,
-          "h": 28
-        }
-      },
-      "cropOf": "p09-csv-refreshed-unchecked",
-      "origin": {
-        "x": 36,
-        "y": 564
-      }
-    },
-    "p09-csv-refreshed": {
-      "file": "p09-csv-refreshed.png",
-      "state": "9",
-      "title": "After Refresh affected and Check values: current CSV revenue, checked-report handoff controls enabled",
-      "kind": "full",
-      "width": 1600,
-      "height": 1329,
-      "scale": 2,
-      "boxes": {
-        "report-panel": {
-          "x": 44,
-          "y": 565.531,
-          "w": 568.469,
-          "h": 466
-        },
-        "company-revenue": {
-          "x": 74,
-          "y": 654.109,
-          "w": 508.469,
-          "h": 76.75
-        },
-        "regional-revenue": {
-          "x": 74,
-          "y": 754.859,
-          "w": 508.469,
-          "h": 72.75
-        },
-        "support-link": {
-          "x": 74,
-          "y": 842.609,
-          "w": 508.469,
-          "h": 28
-        },
-        "graph": {
-          "x": 628.469,
-          "y": 565.531,
-          "w": 927.531,
-          "h": 466
-        },
-        "graph-reports": {
-          "x": 1389.469,
-          "y": 745.531,
-          "w": 128,
-          "h": 138.531
-        },
-        "workflow": {
-          "x": 888.047,
-          "y": 348.656,
-          "w": 667.953,
-          "h": 38
-        },
-        "workflow-section": {
-          "x": 44,
-          "y": 348.656,
-          "w": 1512,
-          "h": 38
-        },
-        "update-csv": {
-          "x": 888.047,
-          "y": 348.656,
-          "w": 122.313,
-          "h": 38
-        },
-        "refresh-affected": {
-          "x": 1018.359,
-          "y": 348.656,
-          "w": 148.234,
-          "h": 38
-        },
-        "download-reports": {
-          "x": 1174.594,
-          "y": 348.656,
-          "w": 200.703,
-          "h": 38
-        },
-        "copy-report": {
-          "x": 1383.297,
-          "y": 348.656,
-          "w": 172.703,
-          "h": 38
-        },
-        "accounting": {
-          "x": 44,
-          "y": 402.656,
-          "w": 1512,
-          "h": 88.875
-        },
-        "dataset-bar": {
-          "x": 44,
-          "y": 267.656,
-          "w": 1512,
-          "h": 64
-        },
-        "activity": {
-          "x": 44,
-          "y": 1051.531,
-          "w": 1512,
-          "h": 209
-        },
-        "handoff": {
-          "x": 1174.594,
-          "y": 348.656,
-          "w": 381.406,
-          "h": 38
-        },
-        "verification": {
-          "x": 44,
-          "y": 507.531,
-          "w": 1512,
-          "h": 42
-        }
-      },
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": true,
-        "capturedAt": "2026-11-16T00:01:07.516Z",
-        "colorScheme": "light"
-      }
-    },
-    "p09-csv-refreshed.report": {
-      "file": "p09-csv-refreshed.report@4x.png",
-      "state": "9",
-      "kind": "crop",
-      "width": 585,
-      "height": 483,
-      "scale": 4,
-      "boxes": {
-        "report-panel": {
-          "x": 8,
-          "y": 8.531,
-          "w": 568.469,
-          "h": 466
-        },
-        "company-revenue": {
-          "x": 38,
-          "y": 97.109,
-          "w": 508.469,
-          "h": 76.75
-        },
-        "regional-revenue": {
-          "x": 38,
-          "y": 197.859,
-          "w": 508.469,
-          "h": 72.75
-        },
-        "support-link": {
-          "x": 38,
-          "y": 285.609,
-          "w": 508.469,
-          "h": 28
-        }
-      },
-      "cropOf": "p09-csv-refreshed",
-      "origin": {
-        "x": 36,
-        "y": 557
-      }
-    },
-    "p09-csv-refreshed.handoff": {
-      "file": "p09-csv-refreshed.handoff@4x.png",
-      "state": "9",
-      "kind": "crop",
-      "width": 1532,
-      "height": 59,
-      "scale": 4,
-      "boxes": {
-        "workflow": {
-          "x": 854.047,
-          "y": 10.656,
-          "w": 667.953,
-          "h": 38
-        },
-        "workflow-section": {
-          "x": 10,
-          "y": 10.656,
-          "w": 1512,
-          "h": 38
-        },
-        "update-csv": {
-          "x": 854.047,
-          "y": 10.656,
-          "w": 122.313,
-          "h": 38
-        },
-        "refresh-affected": {
-          "x": 984.359,
-          "y": 10.656,
-          "w": 148.234,
-          "h": 38
-        },
-        "download-reports": {
-          "x": 1140.594,
-          "y": 10.656,
-          "w": 200.703,
-          "h": 38
-        },
-        "copy-report": {
-          "x": 1349.297,
-          "y": 10.656,
-          "w": 172.703,
-          "h": 38
-        },
-        "handoff": {
-          "x": 1140.594,
-          "y": 10.656,
-          "w": 381.406,
-          "h": 38
-        }
-      },
-      "cropOf": "p09-csv-refreshed",
-      "origin": {
-        "x": 34,
-        "y": 338
-      }
-    },
-    "p09-csv-refreshed.accounting": {
-      "file": "p09-csv-refreshed.accounting@4x.png",
-      "state": "9",
-      "kind": "crop",
-      "width": 1528,
-      "height": 106,
-      "scale": 4,
-      "boxes": {
-        "accounting": {
-          "x": 8,
-          "y": 8.656,
-          "w": 1512,
-          "h": 88.875
-        }
-      },
-      "cropOf": "p09-csv-refreshed",
-      "origin": {
-        "x": 36,
-        "y": 394
-      }
-    },
-    "p09-csv-refreshed.graph": {
-      "file": "p09-csv-refreshed.graph@3x.png",
-      "state": "9",
-      "kind": "crop",
-      "width": 944,
-      "height": 483,
-      "scale": 3,
-      "boxes": {
-        "graph": {
-          "x": 8.469,
-          "y": 8.531,
-          "w": 927.531,
-          "h": 466
-        },
-        "graph-reports": {
-          "x": 769.469,
-          "y": 188.531,
-          "w": 128,
-          "h": 138.531
-        }
-      },
-      "cropOf": "p09-csv-refreshed",
-      "origin": {
-        "x": 620,
-        "y": 557
-      }
-    },
-    "p09-csv-refreshed.activity": {
-      "file": "p09-csv-refreshed.activity@3x.png",
-      "state": "9",
-      "kind": "crop",
-      "width": 1528,
-      "height": 226,
-      "scale": 3,
-      "boxes": {
-        "activity": {
-          "x": 8,
-          "y": 8.531,
-          "w": 1512,
-          "h": 209
-        }
-      },
-      "cropOf": "p09-csv-refreshed",
-      "origin": {
-        "x": 36,
-        "y": 1043
-      }
-    },
-    "p10-benchmark": {
-      "file": "p10-benchmark.png",
-      "state": "10",
-      "title": "Benchmark view: recorded model comparison, retail benchmark and original pilot (full page)",
-      "kind": "full",
-      "width": 1600,
-      "height": 3380,
-      "scale": 2,
-      "boxes": {
-        "intro": {
-          "x": 140,
-          "y": 121,
-          "w": 1320,
-          "h": 93.219
-        },
-        "model-comparison": {
-          "x": 140,
-          "y": 248.219,
-          "w": 1320,
-          "h": 670.125
-        },
-        "model-table": {
-          "x": 141,
-          "y": 432.281,
-          "w": 1318,
-          "h": 284
-        },
-        "model-heading": {
-          "x": 140,
-          "y": 248.219,
-          "w": 1320,
-          "h": 84.688
-        },
-        "retail": {
-          "x": 140,
-          "y": 1020.344,
-          "w": 1320,
-          "h": 1188.766
-        },
-        "pilot-table": {
-          "x": 140,
-          "y": 2366.703,
-          "w": 1320,
-          "h": 523.078
-        },
-        "execution-results": {
-          "x": 140,
-          "y": 2913.781,
-          "w": 1320,
-          "h": 136.797
-        },
-        "full-context-limit": {
-          "x": 140,
-          "y": 3050.578,
-          "w": 1320,
-          "h": 108.188
-        },
-        "recorded-agent": {
-          "x": 140,
-          "y": 3253.766,
-          "w": 1320,
-          "h": 77
-        }
-      },
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": true,
-        "capturedAt": "2026-11-16T00:02:16.709Z",
-        "colorScheme": "light"
-      }
-    },
-    "p10-benchmark.top": {
-      "file": "p10-benchmark.top@3x.png",
-      "state": "10",
-      "kind": "crop",
-      "width": 1600,
-      "height": 1000,
-      "scale": 3,
-      "boxes": {
-        "intro": {
-          "x": 140,
-          "y": 121,
-          "w": 1320,
-          "h": 93.219
-        },
-        "model-comparison": {
-          "x": 140,
-          "y": 248.219,
-          "w": 1320,
-          "h": 670.125
-        },
-        "model-table": {
-          "x": 141,
-          "y": 432.281,
-          "w": 1318,
-          "h": 284
-        },
-        "model-heading": {
-          "x": 140,
-          "y": 248.219,
-          "w": 1320,
-          "h": 84.688
-        }
-      },
-      "cropOf": "p10-benchmark",
-      "origin": {
-        "x": 0,
-        "y": 0
-      }
-    },
-    "p10-benchmark.model-comparison": {
-      "file": "p10-benchmark.model-comparison@3x.png",
-      "state": "10",
-      "kind": "crop",
-      "width": 1340,
-      "height": 691,
-      "scale": 3,
-      "boxes": {
-        "model-comparison": {
-          "x": 10,
-          "y": 10.219,
-          "w": 1320,
-          "h": 670.125
-        },
-        "model-table": {
-          "x": 11,
-          "y": 194.281,
-          "w": 1318,
-          "h": 284
-        },
-        "model-heading": {
-          "x": 10,
-          "y": 10.219,
-          "w": 1320,
-          "h": 84.688
-        }
-      },
-      "cropOf": "p10-benchmark",
-      "origin": {
-        "x": 130,
-        "y": 238
-      }
-    },
-    "p10-benchmark.model-table": {
-      "file": "p10-benchmark.model-table@4x.png",
-      "state": "10",
-      "kind": "crop",
-      "width": 1338,
-      "height": 305,
-      "scale": 4,
-      "boxes": {
-        "model-table": {
-          "x": 10,
-          "y": 10.281,
-          "w": 1318,
-          "h": 284
-        }
-      },
-      "cropOf": "p10-benchmark",
-      "origin": {
-        "x": 131,
-        "y": 422
-      }
-    },
-    "p10-benchmark.retail": {
-      "file": "p10-benchmark.retail@3x.png",
-      "state": "10",
-      "kind": "crop",
-      "width": 1340,
-      "height": 1210,
-      "scale": 3,
-      "boxes": {
-        "retail": {
-          "x": 10,
-          "y": 10.344,
-          "w": 1320,
-          "h": 1188.766
-        }
-      },
-      "cropOf": "p10-benchmark",
-      "origin": {
-        "x": 130,
-        "y": 1010
-      }
-    },
-    "p10-benchmark.execution-results": {
-      "file": "p10-benchmark.execution-results@4x.png",
-      "state": "10",
-      "kind": "crop",
-      "width": 1340,
-      "height": 266,
-      "scale": 4,
-      "boxes": {
-        "execution-results": {
-          "x": 10,
-          "y": 10.781,
-          "w": 1320,
-          "h": 136.797
-        },
-        "full-context-limit": {
-          "x": 10,
-          "y": 147.578,
-          "w": 1320,
-          "h": 108.188
-        }
-      },
-      "cropOf": "p10-benchmark",
-      "origin": {
-        "x": 130,
-        "y": 2903
-      }
-    },
-    "p11-agent": {
-      "file": "p11-agent.png",
-      "state": "11",
-      "title": "Benchmark view with the Recorded agent workflow expanded (recorded local model run)",
-      "kind": "full",
-      "width": 1600,
-      "height": 3975,
-      "scale": 2,
-      "boxes": {
-        "recorded-agent": {
-          "x": 140,
-          "y": 3253.766,
-          "w": 1320,
-          "h": 672.578
-        },
-        "disclosure": {
-          "x": 164,
-          "y": 3329.766,
-          "w": 850,
-          "h": 21.594
-        },
-        "run-1": {
-          "x": 164,
-          "y": 3373.359,
-          "w": 1272,
-          "h": 208.594
-        },
-        "run-2": {
-          "x": 164,
-          "y": 3581.953,
-          "w": 1272,
-          "h": 208.594
-        },
-        "refresh-proof": {
-          "x": 164,
-          "y": 3790.547,
-          "w": 1272,
-          "h": 76.797
-        }
-      },
-      "flags": [
-        {
-          "text": "Recorded local model run, not a live hosted model",
-          "box": {
-            "x": 164,
-            "y": 3329.766,
-            "w": 850,
-            "h": 21.594
-          }
-        }
-      ],
-      "capture": {
-        "url": "https://proofflow.arnavbule.in/",
-        "viewport": {
-          "width": 1600,
-          "height": 1000
-        },
-        "fullPage": true,
-        "capturedAt": "2026-11-16T00:02:25.014Z",
-        "colorScheme": "light"
-      }
-    },
-    "p11-agent.agent": {
-      "file": "p11-agent.agent@3x.png",
-      "state": "11",
-      "kind": "crop",
-      "width": 1340,
-      "height": 694,
-      "scale": 3,
-      "boxes": {
-        "recorded-agent": {
-          "x": 10,
-          "y": 10.766,
-          "w": 1320,
-          "h": 672.578
-        },
-        "disclosure": {
-          "x": 34,
-          "y": 86.766,
-          "w": 850,
-          "h": 21.594
-        },
-        "run-1": {
-          "x": 34,
-          "y": 130.359,
-          "w": 1272,
-          "h": 208.594
-        },
-        "run-2": {
-          "x": 34,
-          "y": 338.953,
-          "w": 1272,
-          "h": 208.594
-        },
-        "refresh-proof": {
-          "x": 34,
-          "y": 547.547,
-          "w": 1272,
-          "h": 76.797
-        }
-      },
-      "cropOf": "p11-agent",
-      "origin": {
-        "x": 130,
-        "y": 3243
-      },
-      "flags": [
-        {
-          "text": "Recorded local model run, not a live hosted model",
-          "box": {
-            "x": 34,
-            "y": 86.766,
-            "w": 850,
-            "h": 21.594
-          }
-        }
-      ]
-    },
-    "p11-agent.runs": {
-      "file": "p11-agent.runs@4x.png",
-      "state": "11",
-      "kind": "crop",
-      "width": 1292,
-      "height": 438,
-      "scale": 4,
-      "boxes": {
-        "run-1": {
-          "x": 10,
-          "y": 10.359,
-          "w": 1272,
-          "h": 208.594
-        },
-        "run-2": {
-          "x": 10,
-          "y": 218.953,
-          "w": 1272,
-          "h": 208.594
-        }
-      },
-      "cropOf": "p11-agent",
-      "origin": {
-        "x": 154,
-        "y": 3363
-      }
-    },
-    "p11-agent.proof": {
-      "file": "p11-agent.proof@4x.png",
-      "state": "11",
-      "kind": "crop",
-      "width": 1292,
-      "height": 98,
-      "scale": 4,
-      "boxes": {
-        "refresh-proof": {
-          "x": 10,
-          "y": 10.547,
-          "w": 1272,
-          "h": 76.797
-        }
-      },
-      "cropOf": "p11-agent",
-      "origin": {
-        "x": 154,
-        "y": 3780
+        "x": 108,
+        "y": 96
       }
     },
     "p12-mobile": {
       "file": "p12-mobile.png",
-      "state": "12",
+      "state": "1",
       "title": "Guided sample workspace at phone width (390 CSS px)",
       "kind": "full",
       "width": 390,
-      "height": 1865,
+      "height": 2034,
       "scale": 3,
       "boxes": {
         "headline": {
           "x": 16,
-          "y": 89,
+          "y": 115,
           "w": 358,
-          "h": 80.625
+          "h": 62.375
         },
-        "report-panel": {
+        "dataset-bar": {
           "x": 16,
-          "y": 614.688,
+          "y": 392.781,
           "w": 358,
-          "h": 425
+          "h": 68.438
         },
-        "company-revenue": {
-          "x": 39,
-          "y": 693.906,
-          "w": 312,
-          "h": 72.938
-        },
-        "graph": {
+        "workflow-section": {
           "x": 16,
-          "y": 1055.688,
+          "y": 475.219,
           "w": 358,
-          "h": 489.5
+          "h": 123
         },
         "workflow": {
           "x": 16,
-          "y": 510.688,
+          "y": 506.219,
           "w": 358,
-          "h": 88
+          "h": 92
+        },
+        "change-source": {
+          "x": 16,
+          "y": 506.219,
+          "w": 175,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 16,
+          "y": 506.219,
+          "w": 175,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 199,
+          "y": 506.219,
+          "w": 175,
+          "h": 42
+        },
+        "check-values": {
+          "x": 16,
+          "y": 556.219,
+          "w": 358,
+          "h": 42
+        },
+        "report-panel": {
+          "x": 16,
+          "y": 614.219,
+          "w": 358,
+          "h": 447.953
+        },
+        "company-revenue": {
+          "x": 29,
+          "y": 687.219,
+          "w": 332,
+          "h": 88.453
+        },
+        "eu-revenue": {
+          "x": 29,
+          "y": 814.672,
+          "w": 167,
+          "h": 89.984
+        },
+        "regional-revenue": {
+          "x": 29,
+          "y": 814.672,
+          "w": 167,
+          "h": 89.984
+        },
+        "eu-support": {
+          "x": 194,
+          "y": 814.672,
+          "w": 167,
+          "h": 89.984
+        },
+        "report-links": {
+          "x": 37,
+          "y": 926.656,
+          "w": 316,
+          "h": 112.516
+        },
+        "graph": {
+          "x": 16,
+          "y": 1078.172,
+          "w": 358,
+          "h": 581.656
+        },
+        "activity": {
+          "x": 16,
+          "y": 1675.828,
+          "w": 358,
+          "h": 215.141
+        },
+        "activity-rows": {
+          "x": 33,
+          "y": 1734.969,
+          "w": 324,
+          "h": 147
         }
       },
       "capture": {
-        "url": "https://proofflow.arnavbule.in/",
+        "url": "(app)/",
         "viewport": {
           "width": 390,
           "height": 844
         },
         "fullPage": true,
-        "capturedAt": "2026-11-15T23:58:49.700Z",
-        "colorScheme": "light"
+        "capturedAt": "2026-11-16T12:36:26.015Z",
+        "colorScheme": "dark"
       }
     },
     "p12-mobile.phone-screen": {
       "file": "p12-mobile.phone-screen@3x.png",
-      "state": "12",
+      "state": "1",
       "kind": "crop",
       "width": 390,
       "height": 844,
@@ -2916,21 +421,57 @@
       "boxes": {
         "headline": {
           "x": 16,
-          "y": 89,
+          "y": 115,
           "w": 358,
-          "h": 80.625
+          "h": 62.375
         },
-        "company-revenue": {
-          "x": 39,
-          "y": 693.906,
-          "w": 312,
-          "h": 72.938
+        "dataset-bar": {
+          "x": 16,
+          "y": 392.781,
+          "w": 358,
+          "h": 68.438
+        },
+        "workflow-section": {
+          "x": 16,
+          "y": 475.219,
+          "w": 358,
+          "h": 123
         },
         "workflow": {
           "x": 16,
-          "y": 510.688,
+          "y": 506.219,
           "w": 358,
-          "h": 88
+          "h": 92
+        },
+        "change-source": {
+          "x": 16,
+          "y": 506.219,
+          "w": 175,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 16,
+          "y": 506.219,
+          "w": 175,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 199,
+          "y": 506.219,
+          "w": 175,
+          "h": 42
+        },
+        "check-values": {
+          "x": 16,
+          "y": 556.219,
+          "w": 358,
+          "h": 42
+        },
+        "company-revenue": {
+          "x": 29,
+          "y": 687.219,
+          "w": 332,
+          "h": 88.453
         }
       },
       "cropOf": "p12-mobile",
@@ -2941,29 +482,3349 @@
     },
     "p12-mobile.report": {
       "file": "p12-mobile.report@4x.png",
-      "state": "12",
+      "state": "1",
       "kind": "crop",
-      "width": 358,
-      "height": 426,
+      "width": 374,
+      "height": 465,
       "scale": 4,
       "boxes": {
         "report-panel": {
-          "x": 0,
-          "y": 0.688,
+          "x": 8,
+          "y": 8.219,
           "w": 358,
-          "h": 425
+          "h": 447.953
         },
         "company-revenue": {
-          "x": 23,
-          "y": 79.906,
-          "w": 312,
-          "h": 72.938
+          "x": 21,
+          "y": 81.219,
+          "w": 332,
+          "h": 88.453
+        },
+        "eu-revenue": {
+          "x": 21,
+          "y": 208.672,
+          "w": 167,
+          "h": 89.984
+        },
+        "regional-revenue": {
+          "x": 21,
+          "y": 208.672,
+          "w": 167,
+          "h": 89.984
+        },
+        "eu-support": {
+          "x": 186,
+          "y": 208.672,
+          "w": 167,
+          "h": 89.984
+        },
+        "report-links": {
+          "x": 29,
+          "y": 320.656,
+          "w": 316,
+          "h": 112.516
         }
       },
       "cropOf": "p12-mobile",
       "origin": {
-        "x": 16,
-        "y": 614
+        "x": 8,
+        "y": 606
+      }
+    },
+    "p02-change-source": {
+      "file": "p02-change-source.png",
+      "state": "2",
+      "title": "Change a source drawer: Exchange rate selected, EUR → USD 1.20 entered, not yet applied",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1120,
+          "y": 0,
+          "w": 480,
+          "h": 1000
+        },
+        "drawer-header": {
+          "x": 1153,
+          "y": 32,
+          "w": 415,
+          "h": 61.188
+        },
+        "options": {
+          "x": 1153,
+          "y": 119.188,
+          "w": 415,
+          "h": 386.063
+        },
+        "fx-option": {
+          "x": 1153,
+          "y": 119.188,
+          "w": 415,
+          "h": 70.813
+        },
+        "editor": {
+          "x": 1153,
+          "y": 531.25,
+          "w": 415,
+          "h": 191.828
+        },
+        "fx-input": {
+          "x": 1153,
+          "y": 630.391,
+          "w": 415,
+          "h": 49.891
+        },
+        "apply": {
+          "x": 1153,
+          "y": 747.078,
+          "w": 415,
+          "h": 44
+        }
+      },
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-16T12:36:30.846Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p02-change-source.editor": {
+      "file": "p02-change-source.editor@4x.png",
+      "state": "2",
+      "kind": "crop",
+      "width": 431,
+      "height": 277,
+      "scale": 4,
+      "boxes": {
+        "editor": {
+          "x": 8,
+          "y": 8.25,
+          "w": 415,
+          "h": 191.828
+        },
+        "fx-input": {
+          "x": 8,
+          "y": 107.391,
+          "w": 415,
+          "h": 49.891
+        },
+        "apply": {
+          "x": 8,
+          "y": 224.078,
+          "w": 415,
+          "h": 44
+        }
+      },
+      "cropOf": "p02-change-source",
+      "origin": {
+        "x": 1145,
+        "y": 523
+      }
+    },
+    "p02-change-source.options": {
+      "file": "p02-change-source.options@3x.png",
+      "state": "2",
+      "kind": "crop",
+      "width": 431,
+      "height": 490,
+      "scale": 3,
+      "boxes": {
+        "drawer-header": {
+          "x": 8,
+          "y": 8,
+          "w": 415,
+          "h": 61.188
+        },
+        "options": {
+          "x": 8,
+          "y": 95.188,
+          "w": 415,
+          "h": 386.063
+        },
+        "fx-option": {
+          "x": 8,
+          "y": 95.188,
+          "w": 415,
+          "h": 70.813
+        }
+      },
+      "cropOf": "p02-change-source",
+      "origin": {
+        "x": 1145,
+        "y": 24
+      }
+    },
+    "p02-change-source.fx-option": {
+      "file": "p02-change-source.fx-option@4x.png",
+      "state": "2",
+      "kind": "crop",
+      "width": 423,
+      "height": 79,
+      "scale": 4,
+      "boxes": {
+        "fx-option": {
+          "x": 4,
+          "y": 4.188,
+          "w": 415,
+          "h": 70.813
+        }
+      },
+      "cropOf": "p02-change-source",
+      "origin": {
+        "x": 1149,
+        "y": 115
+      }
+    },
+    "p03-stale": {
+      "file": "p03-stale.png",
+      "state": "3",
+      "title": "After the EUR → USD 1.20 correction: affected figures withheld, affected path highlighted",
+      "kind": "full",
+      "width": 1600,
+      "height": 1419,
+      "scale": 2,
+      "boxes": {
+        "headline": {
+          "x": 124,
+          "y": 112,
+          "w": 1352,
+          "h": 56.156
+        },
+        "dataset-bar": {
+          "x": 124,
+          "y": 273.938,
+          "w": 1352,
+          "h": 72.438
+        },
+        "workflow-section": {
+          "x": 124,
+          "y": 366.375,
+          "w": 1352,
+          "h": 42
+        },
+        "workflow": {
+          "x": 966.531,
+          "y": 366.375,
+          "w": 509.469,
+          "h": 42
+        },
+        "change-source": {
+          "x": 966.531,
+          "y": 366.375,
+          "w": 172.203,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 966.531,
+          "y": 366.375,
+          "w": 172.203,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 1146.734,
+          "y": 366.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "check-values": {
+          "x": 1325.953,
+          "y": 366.375,
+          "w": 150.047,
+          "h": 42
+        },
+        "report-panel": {
+          "x": 124,
+          "y": 487.375,
+          "w": 506.156,
+          "h": 592.703
+        },
+        "company-revenue": {
+          "x": 149,
+          "y": 653.375,
+          "w": 456.156,
+          "h": 124.094
+        },
+        "eu-revenue": {
+          "x": 149,
+          "y": 816.469,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 149,
+          "y": 816.469,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "eu-support": {
+          "x": 381.078,
+          "y": 816.469,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "report-links": {
+          "x": 157,
+          "y": 934.563,
+          "w": 440.156,
+          "h": 112.516
+        },
+        "withheld-notice": {
+          "x": 157,
+          "y": 564.375,
+          "w": 440.156,
+          "h": 59
+        },
+        "withheld-claims": {
+          "x": 149,
+          "y": 653.375,
+          "w": 456.156,
+          "h": 259.188
+        },
+        "graph": {
+          "x": 650.156,
+          "y": 487.375,
+          "w": 825.844,
+          "h": 592.703
+        },
+        "graph-reports": {
+          "x": 1332.688,
+          "y": 682.359,
+          "w": 112.297,
+          "h": 140.781
+        },
+        "affected-path": {
+          "x": 681.156,
+          "y": 632.359,
+          "w": 763.828,
+          "h": 190.781
+        },
+        "banner": {
+          "x": 124,
+          "y": 424.375,
+          "w": 1352,
+          "h": 47
+        },
+        "activity": {
+          "x": 124,
+          "y": 1100.078,
+          "w": 1352,
+          "h": 219.906
+        },
+        "activity-rows": {
+          "x": 149,
+          "y": 1163.219,
+          "w": 1302,
+          "h": 143.766
+        }
+      },
+      "flags": [
+        {
+          "text": "Guided demo · Sample orders · fixed calculations",
+          "box": {
+            "x": 124,
+            "y": 273.938,
+            "w": 1352,
+            "h": 72.438
+          }
+        }
+      ],
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T12:36:37.213Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p03-stale.banner": {
+      "file": "p03-stale.banner@4x.png",
+      "state": "3",
+      "kind": "crop",
+      "width": 1368,
+      "height": 64,
+      "scale": 4,
+      "boxes": {
+        "banner": {
+          "x": 8,
+          "y": 8.375,
+          "w": 1352,
+          "h": 47
+        }
+      },
+      "cropOf": "p03-stale",
+      "origin": {
+        "x": 116,
+        "y": 416
+      }
+    },
+    "p03-stale.report": {
+      "file": "p03-stale.report@4x.png",
+      "state": "3",
+      "kind": "crop",
+      "width": 523,
+      "height": 610,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.375,
+          "w": 506.156,
+          "h": 592.703
+        },
+        "company-revenue": {
+          "x": 33,
+          "y": 174.375,
+          "w": 456.156,
+          "h": 124.094
+        },
+        "eu-revenue": {
+          "x": 33,
+          "y": 337.469,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 33,
+          "y": 337.469,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "eu-support": {
+          "x": 265.078,
+          "y": 337.469,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "report-links": {
+          "x": 41,
+          "y": 455.563,
+          "w": 440.156,
+          "h": 112.516
+        },
+        "withheld-notice": {
+          "x": 41,
+          "y": 85.375,
+          "w": 440.156,
+          "h": 59
+        },
+        "withheld-claims": {
+          "x": 33,
+          "y": 174.375,
+          "w": 456.156,
+          "h": 259.188
+        }
+      },
+      "cropOf": "p03-stale",
+      "origin": {
+        "x": 116,
+        "y": 479
+      }
+    },
+    "p03-stale.graph": {
+      "file": "p03-stale.graph@3x.png",
+      "state": "3",
+      "kind": "crop",
+      "width": 842,
+      "height": 610,
+      "scale": 3,
+      "boxes": {
+        "graph": {
+          "x": 8.156,
+          "y": 8.375,
+          "w": 825.844,
+          "h": 592.703
+        },
+        "graph-reports": {
+          "x": 690.688,
+          "y": 203.359,
+          "w": 112.297,
+          "h": 140.781
+        },
+        "affected-path": {
+          "x": 39.156,
+          "y": 153.359,
+          "w": 763.828,
+          "h": 190.781
+        }
+      },
+      "cropOf": "p03-stale",
+      "origin": {
+        "x": 642,
+        "y": 479
+      }
+    },
+    "p03-stale.workflow": {
+      "file": "p03-stale.workflow@4x.png",
+      "state": "3",
+      "kind": "crop",
+      "width": 534,
+      "height": 67,
+      "scale": 4,
+      "boxes": {
+        "workflow": {
+          "x": 12.531,
+          "y": 12.375,
+          "w": 509.469,
+          "h": 42
+        },
+        "change-source": {
+          "x": 12.531,
+          "y": 12.375,
+          "w": 172.203,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 12.531,
+          "y": 12.375,
+          "w": 172.203,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 192.734,
+          "y": 12.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "check-values": {
+          "x": 371.953,
+          "y": 12.375,
+          "w": 150.047,
+          "h": 42
+        }
+      },
+      "cropOf": "p03-stale",
+      "origin": {
+        "x": 954,
+        "y": 354
+      }
+    },
+    "p04-evidence": {
+      "file": "p04-evidence.png",
+      "state": "3",
+      "title": "Inspect evidence for the withheld EU revenue figure: the native HydraDB dependency path",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1020,
+          "y": 0,
+          "w": 580,
+          "h": 1000
+        },
+        "drawer-header": {
+          "x": 1053,
+          "y": 32,
+          "w": 515,
+          "h": 61.188
+        },
+        "name": {
+          "x": 1053,
+          "y": 119.188,
+          "w": 515,
+          "h": 26.25
+        },
+        "facts": {
+          "x": 1053,
+          "y": 169.438,
+          "w": 515,
+          "h": 221.141
+        },
+        "path": {
+          "x": 1053,
+          "y": 475.922,
+          "w": 515,
+          "h": 132.422
+        },
+        "why": {
+          "x": 1053,
+          "y": 414.578,
+          "w": 515,
+          "h": 250.266
+        }
+      },
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-16T12:36:44.871Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p04-evidence.path": {
+      "file": "p04-evidence.path@4x.png",
+      "state": "3",
+      "kind": "crop",
+      "width": 531,
+      "height": 150,
+      "scale": 4,
+      "boxes": {
+        "path": {
+          "x": 8,
+          "y": 8.922,
+          "w": 515,
+          "h": 132.422
+        }
+      },
+      "cropOf": "p04-evidence",
+      "origin": {
+        "x": 1045,
+        "y": 467
+      }
+    },
+    "p04-evidence.header": {
+      "file": "p04-evidence.header@3x.png",
+      "state": "3",
+      "kind": "crop",
+      "width": 531,
+      "height": 375,
+      "scale": 3,
+      "boxes": {
+        "drawer-header": {
+          "x": 8,
+          "y": 8,
+          "w": 515,
+          "h": 61.188
+        },
+        "name": {
+          "x": 8,
+          "y": 95.188,
+          "w": 515,
+          "h": 26.25
+        },
+        "facts": {
+          "x": 8,
+          "y": 145.438,
+          "w": 515,
+          "h": 221.141
+        }
+      },
+      "cropOf": "p04-evidence",
+      "origin": {
+        "x": 1045,
+        "y": 24
+      }
+    },
+    "p05-refreshed": {
+      "file": "p05-refreshed.png",
+      "state": "4",
+      "title": "After Refresh affected: current values, four tool calls, support unchanged",
+      "kind": "full",
+      "width": 1600,
+      "height": 1325,
+      "scale": 2,
+      "boxes": {
+        "headline": {
+          "x": 124,
+          "y": 112,
+          "w": 1352,
+          "h": 56.156
+        },
+        "dataset-bar": {
+          "x": 124,
+          "y": 273.938,
+          "w": 1352,
+          "h": 72.438
+        },
+        "workflow-section": {
+          "x": 124,
+          "y": 366.375,
+          "w": 1352,
+          "h": 42
+        },
+        "workflow": {
+          "x": 966.531,
+          "y": 366.375,
+          "w": 509.469,
+          "h": 42
+        },
+        "change-source": {
+          "x": 966.531,
+          "y": 366.375,
+          "w": 172.203,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 966.531,
+          "y": 366.375,
+          "w": 172.203,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 1146.734,
+          "y": 366.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "check-values": {
+          "x": 1325.953,
+          "y": 366.375,
+          "w": 150.047,
+          "h": 42
+        },
+        "report-panel": {
+          "x": 124,
+          "y": 487.375,
+          "w": 506.156,
+          "h": 498.578
+        },
+        "company-revenue": {
+          "x": 149,
+          "y": 576.375,
+          "w": 456.156,
+          "h": 102.188
+        },
+        "eu-revenue": {
+          "x": 149,
+          "y": 717.563,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 149,
+          "y": 717.563,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "eu-support": {
+          "x": 381.078,
+          "y": 717.563,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "report-links": {
+          "x": 157,
+          "y": 835.656,
+          "w": 440.156,
+          "h": 112.516
+        },
+        "graph": {
+          "x": 650.156,
+          "y": 487.375,
+          "w": 825.844,
+          "h": 498.578
+        },
+        "graph-reports": {
+          "x": 1332.688,
+          "y": 682.359,
+          "w": 112.297,
+          "h": 140.781
+        },
+        "banner": {
+          "x": 124,
+          "y": 424.375,
+          "w": 1352,
+          "h": 47
+        },
+        "activity": {
+          "x": 124,
+          "y": 1005.953,
+          "w": 1352,
+          "h": 219.906
+        },
+        "activity-rows": {
+          "x": 149,
+          "y": 1069.094,
+          "w": 1302,
+          "h": 143.766
+        }
+      },
+      "flags": [
+        {
+          "text": "Guided demo · Sample orders · fixed calculations",
+          "box": {
+            "x": 124,
+            "y": 273.938,
+            "w": 1352,
+            "h": 72.438
+          }
+        }
+      ],
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T12:36:50.579Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p05-refreshed.banner": {
+      "file": "p05-refreshed.banner@4x.png",
+      "state": "4",
+      "kind": "crop",
+      "width": 1368,
+      "height": 64,
+      "scale": 4,
+      "boxes": {
+        "banner": {
+          "x": 8,
+          "y": 8.375,
+          "w": 1352,
+          "h": 47
+        }
+      },
+      "cropOf": "p05-refreshed",
+      "origin": {
+        "x": 116,
+        "y": 416
+      }
+    },
+    "p05-refreshed.report": {
+      "file": "p05-refreshed.report@4x.png",
+      "state": "4",
+      "kind": "crop",
+      "width": 523,
+      "height": 515,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.375,
+          "w": 506.156,
+          "h": 498.578
+        },
+        "company-revenue": {
+          "x": 33,
+          "y": 97.375,
+          "w": 456.156,
+          "h": 102.188
+        },
+        "eu-revenue": {
+          "x": 33,
+          "y": 238.563,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 33,
+          "y": 238.563,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "eu-support": {
+          "x": 265.078,
+          "y": 238.563,
+          "w": 224.078,
+          "h": 96.094
+        },
+        "report-links": {
+          "x": 41,
+          "y": 356.656,
+          "w": 440.156,
+          "h": 112.516
+        }
+      },
+      "cropOf": "p05-refreshed",
+      "origin": {
+        "x": 116,
+        "y": 479
+      }
+    },
+    "p05-refreshed.activity": {
+      "file": "p05-refreshed.activity@3x.png",
+      "state": "4",
+      "kind": "crop",
+      "width": 1368,
+      "height": 237,
+      "scale": 3,
+      "boxes": {
+        "activity": {
+          "x": 8,
+          "y": 8.953,
+          "w": 1352,
+          "h": 219.906
+        },
+        "activity-rows": {
+          "x": 33,
+          "y": 72.094,
+          "w": 1302,
+          "h": 143.766
+        }
+      },
+      "cropOf": "p05-refreshed",
+      "origin": {
+        "x": 116,
+        "y": 997
+      }
+    },
+    "p05-refreshed.graph": {
+      "file": "p05-refreshed.graph@3x.png",
+      "state": "4",
+      "kind": "crop",
+      "width": 842,
+      "height": 515,
+      "scale": 3,
+      "boxes": {
+        "graph": {
+          "x": 8.156,
+          "y": 8.375,
+          "w": 825.844,
+          "h": 498.578
+        },
+        "graph-reports": {
+          "x": 690.688,
+          "y": 203.359,
+          "w": 112.297,
+          "h": 140.781
+        }
+      },
+      "cropOf": "p05-refreshed",
+      "origin": {
+        "x": 642,
+        "y": 479
+      }
+    },
+    "p06-csv-form": {
+      "file": "p06-csv-form.png",
+      "state": "5",
+      "title": "Use your data: the two-row orders CSV uploaded, EUR → USD 1.20, region NORTH, before validation",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1020,
+          "y": 0,
+          "w": 580,
+          "h": 1000
+        },
+        "drawer-header": {
+          "x": 1053,
+          "y": 32,
+          "w": 515,
+          "h": 61.188
+        },
+        "csv": {
+          "x": 1053,
+          "y": 324.688,
+          "w": 515,
+          "h": 180
+        },
+        "file-actions": {
+          "x": 1053,
+          "y": 247.313,
+          "w": 515,
+          "h": 65.375
+        },
+        "rates": {
+          "x": 1053,
+          "y": 654.078,
+          "w": 515,
+          "h": 74.938
+        },
+        "region": {
+          "x": 1053,
+          "y": 797.016,
+          "w": 515,
+          "h": 72.141
+        },
+        "submit": {
+          "x": 1053,
+          "y": 891.156,
+          "w": 515,
+          "h": 48
+        }
+      },
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-16T12:36:58.125Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p06-csv-form.csv": {
+      "file": "p06-csv-form.csv@4x.png",
+      "state": "5",
+      "kind": "crop",
+      "width": 531,
+      "height": 274,
+      "scale": 4,
+      "boxes": {
+        "csv": {
+          "x": 8,
+          "y": 85.688,
+          "w": 515,
+          "h": 180
+        },
+        "file-actions": {
+          "x": 8,
+          "y": 8.313,
+          "w": 515,
+          "h": 65.375
+        }
+      },
+      "cropOf": "p06-csv-form",
+      "origin": {
+        "x": 1045,
+        "y": 239
+      }
+    },
+    "p06-csv-form.rates": {
+      "file": "p06-csv-form.rates@4x.png",
+      "state": "5",
+      "kind": "crop",
+      "width": 531,
+      "height": 232,
+      "scale": 4,
+      "boxes": {
+        "rates": {
+          "x": 8,
+          "y": 8.078,
+          "w": 515,
+          "h": 74.938
+        },
+        "region": {
+          "x": 8,
+          "y": 151.016,
+          "w": 515,
+          "h": 72.141
+        }
+      },
+      "cropOf": "p06-csv-form",
+      "origin": {
+        "x": 1045,
+        "y": 646
+      }
+    },
+    "p06-csv-preview": {
+      "file": "p06-csv-preview.png",
+      "state": "6",
+      "title": "After Validate CSV: a preview that saves nothing, ready to create",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1020,
+          "y": 0,
+          "w": 580,
+          "h": 1000
+        },
+        "rates": {
+          "x": 1053,
+          "y": 249.078,
+          "w": 515,
+          "h": 74.938
+        },
+        "region": {
+          "x": 1053,
+          "y": 392.016,
+          "w": 515,
+          "h": 72.141
+        },
+        "preview": {
+          "x": 1053,
+          "y": 488.156,
+          "w": 515,
+          "h": 304.063
+        },
+        "submit": {
+          "x": 1053,
+          "y": 832.219,
+          "w": 515,
+          "h": 48
+        }
+      },
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-16T12:37:02.408Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p06-csv-preview.preview": {
+      "file": "p06-csv-preview.preview@4x.png",
+      "state": "6",
+      "kind": "crop",
+      "width": 531,
+      "height": 321,
+      "scale": 4,
+      "boxes": {
+        "preview": {
+          "x": 8,
+          "y": 8.156,
+          "w": 515,
+          "h": 304.063
+        }
+      },
+      "cropOf": "p06-csv-preview",
+      "origin": {
+        "x": 1045,
+        "y": 480
+      }
+    },
+    "p06-csv-preview.preview-create": {
+      "file": "p06-csv-preview.preview-create@3x.png",
+      "state": "6",
+      "kind": "crop",
+      "width": 531,
+      "height": 409,
+      "scale": 3,
+      "boxes": {
+        "preview": {
+          "x": 8,
+          "y": 8.156,
+          "w": 515,
+          "h": 304.063
+        },
+        "submit": {
+          "x": 8,
+          "y": 352.219,
+          "w": 515,
+          "h": 48
+        }
+      },
+      "cropOf": "p06-csv-preview",
+      "origin": {
+        "x": 1045,
+        "y": 480
+      }
+    },
+    "p07-csv-created": {
+      "file": "p07-csv-created.png",
+      "state": "7",
+      "title": "The CSV workspace after Create reports: both reports current",
+      "kind": "full",
+      "width": 1600,
+      "height": 1418,
+      "scale": 2,
+      "boxes": {
+        "headline": {
+          "x": 124,
+          "y": 112,
+          "w": 1352,
+          "h": 56.156
+        },
+        "dataset-bar": {
+          "x": 124,
+          "y": 273.938,
+          "w": 1352,
+          "h": 72.438
+        },
+        "workflow-section": {
+          "x": 124,
+          "y": 366.375,
+          "w": 1352,
+          "h": 42
+        },
+        "workflow": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 763.844,
+          "h": 42
+        },
+        "change-source": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 863.078,
+          "y": 366.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "handoff": {
+          "x": 1042.297,
+          "y": 366.375,
+          "w": 433.703,
+          "h": 42
+        },
+        "download-reports": {
+          "x": 1042.297,
+          "y": 366.375,
+          "w": 230.203,
+          "h": 42
+        },
+        "copy-report": {
+          "x": 1280.5,
+          "y": 366.375,
+          "w": 195.5,
+          "h": 42
+        },
+        "report-panel": {
+          "x": 124,
+          "y": 546.656,
+          "w": 506.156,
+          "h": 531.797
+        },
+        "company-revenue": {
+          "x": 149,
+          "y": 635.656,
+          "w": 456.156,
+          "h": 102.188
+        },
+        "eu-revenue": {
+          "x": 149,
+          "y": 776.844,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 149,
+          "y": 776.844,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "support-link": {
+          "x": 157,
+          "y": 884.938,
+          "w": 440.156,
+          "h": 28
+        },
+        "report-links": {
+          "x": 157,
+          "y": 932.938,
+          "w": 440.156,
+          "h": 112.516
+        },
+        "graph": {
+          "x": 650.156,
+          "y": 546.656,
+          "w": 825.844,
+          "h": 531.797
+        },
+        "graph-reports": {
+          "x": 1332.688,
+          "y": 741.641,
+          "w": 112.297,
+          "h": 140.781
+        },
+        "accounting": {
+          "x": 124,
+          "y": 424.375,
+          "w": 1352,
+          "h": 106.281
+        },
+        "activity": {
+          "x": 124,
+          "y": 1098.453,
+          "w": 1352,
+          "h": 219.906
+        },
+        "activity-rows": {
+          "x": 149,
+          "y": 1161.594,
+          "w": 1302,
+          "h": 143.766
+        }
+      },
+      "flags": [
+        {
+          "text": "Your CSV workspace · 2 orders · NORTH regional report",
+          "box": {
+            "x": 124,
+            "y": 273.938,
+            "w": 1352,
+            "h": 72.438
+          }
+        }
+      ],
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T12:37:08.958Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p07-csv-created.report": {
+      "file": "p07-csv-created.report@4x.png",
+      "state": "7",
+      "kind": "crop",
+      "width": 523,
+      "height": 549,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.656,
+          "w": 506.156,
+          "h": 531.797
+        },
+        "company-revenue": {
+          "x": 33,
+          "y": 97.656,
+          "w": 456.156,
+          "h": 102.188
+        },
+        "eu-revenue": {
+          "x": 33,
+          "y": 238.844,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 33,
+          "y": 238.844,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "support-link": {
+          "x": 41,
+          "y": 346.938,
+          "w": 440.156,
+          "h": 28
+        },
+        "report-links": {
+          "x": 41,
+          "y": 394.938,
+          "w": 440.156,
+          "h": 112.516
+        }
+      },
+      "cropOf": "p07-csv-created",
+      "origin": {
+        "x": 116,
+        "y": 538
+      }
+    },
+    "p07-csv-created.accounting": {
+      "file": "p07-csv-created.accounting@4x.png",
+      "state": "7",
+      "kind": "crop",
+      "width": 1368,
+      "height": 123,
+      "scale": 4,
+      "boxes": {
+        "accounting": {
+          "x": 8,
+          "y": 8.375,
+          "w": 1352,
+          "h": 106.281
+        }
+      },
+      "cropOf": "p07-csv-created",
+      "origin": {
+        "x": 116,
+        "y": 416
+      }
+    },
+    "p07-csv-created.graph": {
+      "file": "p07-csv-created.graph@3x.png",
+      "state": "7",
+      "kind": "crop",
+      "width": 842,
+      "height": 549,
+      "scale": 3,
+      "boxes": {
+        "graph": {
+          "x": 8.156,
+          "y": 8.656,
+          "w": 825.844,
+          "h": 531.797
+        },
+        "graph-reports": {
+          "x": 690.688,
+          "y": 203.641,
+          "w": 112.297,
+          "h": 140.781
+        }
+      },
+      "cropOf": "p07-csv-created",
+      "origin": {
+        "x": 642,
+        "y": 538
+      }
+    },
+    "p07-csv-created.workflow": {
+      "file": "p07-csv-created.workflow@4x.png",
+      "state": "7",
+      "kind": "crop",
+      "width": 788,
+      "height": 67,
+      "scale": 4,
+      "boxes": {
+        "workflow": {
+          "x": 12.156,
+          "y": 12.375,
+          "w": 763.844,
+          "h": 42
+        },
+        "change-source": {
+          "x": 12.156,
+          "y": 12.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 12.156,
+          "y": 12.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 163.078,
+          "y": 12.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "handoff": {
+          "x": 342.297,
+          "y": 12.375,
+          "w": 433.703,
+          "h": 42
+        },
+        "download-reports": {
+          "x": 342.297,
+          "y": 12.375,
+          "w": 230.203,
+          "h": 42
+        },
+        "copy-report": {
+          "x": 580.5,
+          "y": 12.375,
+          "w": 195.5,
+          "h": 42
+        }
+      },
+      "cropOf": "p07-csv-created",
+      "origin": {
+        "x": 700,
+        "y": 354
+      }
+    },
+    "p08-csv-update": {
+      "file": "p08-csv-update.png",
+      "state": "8",
+      "title": "Update your CSV: the same rows, EUR → USD corrected to 1.30, validated and ready to publish",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1020,
+          "y": 0,
+          "w": 580,
+          "h": 1000
+        },
+        "rates": {
+          "x": 1053,
+          "y": 221.469,
+          "w": 515,
+          "h": 74.938
+        },
+        "region": {
+          "x": 1053,
+          "y": 364.406,
+          "w": 515,
+          "h": 72.141
+        },
+        "preview": {
+          "x": 1053,
+          "y": 488.547,
+          "w": 515,
+          "h": 304.063
+        },
+        "submit": {
+          "x": 1053,
+          "y": 832.609,
+          "w": 515,
+          "h": 48
+        }
+      },
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-16T12:40:38.511Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p08-csv-update.rates": {
+      "file": "p08-csv-update.rates@4x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 531,
+      "height": 92,
+      "scale": 4,
+      "boxes": {
+        "rates": {
+          "x": 8,
+          "y": 8.469,
+          "w": 515,
+          "h": 74.938
+        }
+      },
+      "cropOf": "p08-csv-update",
+      "origin": {
+        "x": 1045,
+        "y": 213
+      }
+    },
+    "p08-csv-update.preview-publish": {
+      "file": "p08-csv-update.preview-publish@3x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 531,
+      "height": 409,
+      "scale": 3,
+      "boxes": {
+        "preview": {
+          "x": 8,
+          "y": 8.547,
+          "w": 515,
+          "h": 304.063
+        },
+        "submit": {
+          "x": 8,
+          "y": 352.609,
+          "w": 515,
+          "h": 48
+        }
+      },
+      "cropOf": "p08-csv-update",
+      "origin": {
+        "x": 1045,
+        "y": 480
+      }
+    },
+    "p08-csv-stale": {
+      "file": "p08-csv-stale.png",
+      "state": "9",
+      "title": "After Publish correction: the affected CSV figures withheld until refresh",
+      "kind": "full",
+      "width": 1600,
+      "height": 1579,
+      "scale": 2,
+      "boxes": {
+        "headline": {
+          "x": 124,
+          "y": 112,
+          "w": 1352,
+          "h": 56.156
+        },
+        "dataset-bar": {
+          "x": 124,
+          "y": 273.938,
+          "w": 1352,
+          "h": 72.438
+        },
+        "workflow-section": {
+          "x": 124,
+          "y": 366.375,
+          "w": 1352,
+          "h": 42
+        },
+        "workflow": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 763.844,
+          "h": 42
+        },
+        "change-source": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 863.078,
+          "y": 366.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "handoff": {
+          "x": 1042.297,
+          "y": 366.375,
+          "w": 433.703,
+          "h": 42
+        },
+        "download-reports": {
+          "x": 1042.297,
+          "y": 366.375,
+          "w": 230.203,
+          "h": 42
+        },
+        "copy-report": {
+          "x": 1280.5,
+          "y": 366.375,
+          "w": 195.5,
+          "h": 42
+        },
+        "report-panel": {
+          "x": 124,
+          "y": 609.656,
+          "w": 506.156,
+          "h": 629.797
+        },
+        "company-revenue": {
+          "x": 149,
+          "y": 775.656,
+          "w": 456.156,
+          "h": 124.094
+        },
+        "eu-revenue": {
+          "x": 149,
+          "y": 938.75,
+          "w": 456.156,
+          "h": 95.188
+        },
+        "regional-revenue": {
+          "x": 149,
+          "y": 938.75,
+          "w": 456.156,
+          "h": 95.188
+        },
+        "support-link": {
+          "x": 157,
+          "y": 1045.938,
+          "w": 440.156,
+          "h": 28
+        },
+        "report-links": {
+          "x": 157,
+          "y": 1093.938,
+          "w": 440.156,
+          "h": 112.516
+        },
+        "withheld-notice": {
+          "x": 157,
+          "y": 686.656,
+          "w": 440.156,
+          "h": 59
+        },
+        "withheld-claims": {
+          "x": 149,
+          "y": 775.656,
+          "w": 456.156,
+          "h": 258.281
+        },
+        "graph": {
+          "x": 650.156,
+          "y": 609.656,
+          "w": 825.844,
+          "h": 629.797
+        },
+        "graph-reports": {
+          "x": 1332.688,
+          "y": 804.641,
+          "w": 112.297,
+          "h": 140.781
+        },
+        "affected-path": {
+          "x": 681.156,
+          "y": 779.641,
+          "w": 763.828,
+          "h": 165.781
+        },
+        "changed-source": {
+          "x": 681.156,
+          "y": 779.641,
+          "w": 112.297,
+          "h": 64.781
+        },
+        "banner": {
+          "x": 124,
+          "y": 546.656,
+          "w": 1352,
+          "h": 47
+        },
+        "accounting": {
+          "x": 124,
+          "y": 424.375,
+          "w": 1352,
+          "h": 106.281
+        },
+        "activity": {
+          "x": 124,
+          "y": 1259.453,
+          "w": 1352,
+          "h": 219.906
+        },
+        "activity-rows": {
+          "x": 149,
+          "y": 1322.594,
+          "w": 1302,
+          "h": 143.766
+        }
+      },
+      "flags": [
+        {
+          "text": "Your CSV workspace · 2 orders · NORTH regional report",
+          "box": {
+            "x": 124,
+            "y": 273.938,
+            "w": 1352,
+            "h": 72.438
+          }
+        }
+      ],
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T12:44:57.058Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p08-csv-stale.banner": {
+      "file": "p08-csv-stale.banner@4x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 1368,
+      "height": 64,
+      "scale": 4,
+      "boxes": {
+        "banner": {
+          "x": 8,
+          "y": 8.656,
+          "w": 1352,
+          "h": 47
+        }
+      },
+      "cropOf": "p08-csv-stale",
+      "origin": {
+        "x": 116,
+        "y": 538
+      }
+    },
+    "p08-csv-stale.report": {
+      "file": "p08-csv-stale.report@4x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 523,
+      "height": 647,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.656,
+          "w": 506.156,
+          "h": 629.797
+        },
+        "company-revenue": {
+          "x": 33,
+          "y": 174.656,
+          "w": 456.156,
+          "h": 124.094
+        },
+        "eu-revenue": {
+          "x": 33,
+          "y": 337.75,
+          "w": 456.156,
+          "h": 95.188
+        },
+        "regional-revenue": {
+          "x": 33,
+          "y": 337.75,
+          "w": 456.156,
+          "h": 95.188
+        },
+        "support-link": {
+          "x": 41,
+          "y": 444.938,
+          "w": 440.156,
+          "h": 28
+        },
+        "report-links": {
+          "x": 41,
+          "y": 492.938,
+          "w": 440.156,
+          "h": 112.516
+        },
+        "withheld-notice": {
+          "x": 41,
+          "y": 85.656,
+          "w": 440.156,
+          "h": 59
+        },
+        "withheld-claims": {
+          "x": 33,
+          "y": 174.656,
+          "w": 456.156,
+          "h": 258.281
+        }
+      },
+      "cropOf": "p08-csv-stale",
+      "origin": {
+        "x": 116,
+        "y": 601
+      }
+    },
+    "p08-csv-stale.graph": {
+      "file": "p08-csv-stale.graph@3x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 842,
+      "height": 647,
+      "scale": 3,
+      "boxes": {
+        "graph": {
+          "x": 8.156,
+          "y": 8.656,
+          "w": 825.844,
+          "h": 629.797
+        },
+        "graph-reports": {
+          "x": 690.688,
+          "y": 203.641,
+          "w": 112.297,
+          "h": 140.781
+        },
+        "affected-path": {
+          "x": 39.156,
+          "y": 178.641,
+          "w": 763.828,
+          "h": 165.781
+        },
+        "changed-source": {
+          "x": 39.156,
+          "y": 178.641,
+          "w": 112.297,
+          "h": 64.781
+        }
+      },
+      "cropOf": "p08-csv-stale",
+      "origin": {
+        "x": 642,
+        "y": 601
+      }
+    },
+    "p08-csv-stale.accounting": {
+      "file": "p08-csv-stale.accounting@4x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 1368,
+      "height": 123,
+      "scale": 4,
+      "boxes": {
+        "accounting": {
+          "x": 8,
+          "y": 8.375,
+          "w": 1352,
+          "h": 106.281
+        }
+      },
+      "cropOf": "p08-csv-stale",
+      "origin": {
+        "x": 116,
+        "y": 416
+      }
+    },
+    "p08-csv-evidence": {
+      "file": "p08-csv-evidence.png",
+      "state": "9",
+      "title": "Inspect evidence for the withheld regional report: its native path back to the corrected rate",
+      "kind": "full",
+      "width": 1600,
+      "height": 1000,
+      "scale": 2,
+      "boxes": {
+        "drawer": {
+          "x": 1020,
+          "y": 0,
+          "w": 580,
+          "h": 1000
+        },
+        "drawer-header": {
+          "x": 1053,
+          "y": 32,
+          "w": 515,
+          "h": 61.188
+        },
+        "name": {
+          "x": 1053,
+          "y": 119.188,
+          "w": 515,
+          "h": 26.25
+        },
+        "facts": {
+          "x": 1053,
+          "y": 169.438,
+          "w": 515,
+          "h": 221.141
+        },
+        "path": {
+          "x": 1053,
+          "y": 475.922,
+          "w": 515,
+          "h": 224.703
+        },
+        "why": {
+          "x": 1053,
+          "y": 414.578,
+          "w": 515,
+          "h": 342.547
+        }
+      },
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": false,
+        "capturedAt": "2026-11-16T12:37:27.552Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p08-csv-evidence.path": {
+      "file": "p08-csv-evidence.path@4x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 531,
+      "height": 242,
+      "scale": 4,
+      "boxes": {
+        "path": {
+          "x": 8,
+          "y": 8.922,
+          "w": 515,
+          "h": 224.703
+        }
+      },
+      "cropOf": "p08-csv-evidence",
+      "origin": {
+        "x": 1045,
+        "y": 467
+      }
+    },
+    "p08-csv-evidence.header": {
+      "file": "p08-csv-evidence.header@3x.png",
+      "state": "9",
+      "kind": "crop",
+      "width": 531,
+      "height": 375,
+      "scale": 3,
+      "boxes": {
+        "drawer-header": {
+          "x": 8,
+          "y": 8,
+          "w": 515,
+          "h": 61.188
+        },
+        "name": {
+          "x": 8,
+          "y": 95.188,
+          "w": 515,
+          "h": 26.25
+        },
+        "facts": {
+          "x": 8,
+          "y": 145.438,
+          "w": 515,
+          "h": 221.141
+        }
+      },
+      "cropOf": "p08-csv-evidence",
+      "origin": {
+        "x": 1045,
+        "y": 24
+      }
+    },
+    "p09-csv-refreshed-unchecked": {
+      "file": "p09-csv-refreshed-unchecked.png",
+      "state": "10",
+      "title": "After Refresh affected, before Check values: refreshed CSV figures",
+      "kind": "full",
+      "width": 1600,
+      "height": 1489,
+      "scale": 2,
+      "boxes": {
+        "headline": {
+          "x": 124,
+          "y": 112,
+          "w": 1352,
+          "h": 56.156
+        },
+        "dataset-bar": {
+          "x": 124,
+          "y": 273.938,
+          "w": 1352,
+          "h": 72.438
+        },
+        "workflow-section": {
+          "x": 124,
+          "y": 366.375,
+          "w": 1352,
+          "h": 42
+        },
+        "workflow": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 763.844,
+          "h": 42
+        },
+        "change-source": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 863.078,
+          "y": 366.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "check-values": {
+          "x": 1342.406,
+          "y": 559.656,
+          "w": 116.594,
+          "h": 29.5
+        },
+        "handoff": {
+          "x": 1042.297,
+          "y": 366.375,
+          "w": 433.703,
+          "h": 42
+        },
+        "download-reports": {
+          "x": 1042.297,
+          "y": 366.375,
+          "w": 230.203,
+          "h": 42
+        },
+        "copy-report": {
+          "x": 1280.5,
+          "y": 366.375,
+          "w": 195.5,
+          "h": 42
+        },
+        "report-panel": {
+          "x": 124,
+          "y": 618.156,
+          "w": 506.156,
+          "h": 531.797
+        },
+        "company-revenue": {
+          "x": 149,
+          "y": 707.156,
+          "w": 456.156,
+          "h": 102.188
+        },
+        "eu-revenue": {
+          "x": 149,
+          "y": 848.344,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 149,
+          "y": 848.344,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "support-link": {
+          "x": 157,
+          "y": 956.438,
+          "w": 440.156,
+          "h": 28
+        },
+        "report-links": {
+          "x": 157,
+          "y": 1004.438,
+          "w": 440.156,
+          "h": 112.516
+        },
+        "graph": {
+          "x": 650.156,
+          "y": 618.156,
+          "w": 825.844,
+          "h": 531.797
+        },
+        "graph-reports": {
+          "x": 1332.688,
+          "y": 813.141,
+          "w": 112.297,
+          "h": 140.781
+        },
+        "banner": {
+          "x": 124,
+          "y": 546.656,
+          "w": 1352,
+          "h": 55.5
+        },
+        "accounting": {
+          "x": 124,
+          "y": 424.375,
+          "w": 1352,
+          "h": 106.281
+        },
+        "activity": {
+          "x": 124,
+          "y": 1169.953,
+          "w": 1352,
+          "h": 219.906
+        },
+        "activity-rows": {
+          "x": 149,
+          "y": 1233.094,
+          "w": 1302,
+          "h": 143.766
+        }
+      },
+      "flags": [
+        {
+          "text": "Your CSV workspace · 2 orders · NORTH regional report",
+          "box": {
+            "x": 124,
+            "y": 273.938,
+            "w": 1352,
+            "h": 72.438
+          }
+        }
+      ],
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T12:37:44.748Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p09-csv-refreshed-unchecked.banner": {
+      "file": "p09-csv-refreshed-unchecked.banner@4x.png",
+      "state": "10",
+      "kind": "crop",
+      "width": 1368,
+      "height": 73,
+      "scale": 4,
+      "boxes": {
+        "check-values": {
+          "x": 1226.406,
+          "y": 21.656,
+          "w": 116.594,
+          "h": 29.5
+        },
+        "banner": {
+          "x": 8,
+          "y": 8.656,
+          "w": 1352,
+          "h": 55.5
+        }
+      },
+      "cropOf": "p09-csv-refreshed-unchecked",
+      "origin": {
+        "x": 116,
+        "y": 538
+      }
+    },
+    "p09-csv-refreshed-unchecked.report": {
+      "file": "p09-csv-refreshed-unchecked.report@4x.png",
+      "state": "10",
+      "kind": "crop",
+      "width": 523,
+      "height": 548,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.156,
+          "w": 506.156,
+          "h": 531.797
+        },
+        "company-revenue": {
+          "x": 33,
+          "y": 97.156,
+          "w": 456.156,
+          "h": 102.188
+        },
+        "eu-revenue": {
+          "x": 33,
+          "y": 238.344,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 33,
+          "y": 238.344,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "support-link": {
+          "x": 41,
+          "y": 346.438,
+          "w": 440.156,
+          "h": 28
+        },
+        "report-links": {
+          "x": 41,
+          "y": 394.438,
+          "w": 440.156,
+          "h": 112.516
+        }
+      },
+      "cropOf": "p09-csv-refreshed-unchecked",
+      "origin": {
+        "x": 116,
+        "y": 610
+      }
+    },
+    "p09-csv-refreshed": {
+      "file": "p09-csv-refreshed.png",
+      "state": "11",
+      "title": "After Check values: verified current figures, handoff controls enabled",
+      "kind": "full",
+      "width": 1600,
+      "height": 1481,
+      "scale": 2,
+      "boxes": {
+        "headline": {
+          "x": 124,
+          "y": 112,
+          "w": 1352,
+          "h": 56.156
+        },
+        "dataset-bar": {
+          "x": 124,
+          "y": 273.938,
+          "w": 1352,
+          "h": 72.438
+        },
+        "workflow-section": {
+          "x": 124,
+          "y": 366.375,
+          "w": 1352,
+          "h": 42
+        },
+        "workflow": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 763.844,
+          "h": 42
+        },
+        "change-source": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 863.078,
+          "y": 366.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "handoff": {
+          "x": 1042.297,
+          "y": 366.375,
+          "w": 433.703,
+          "h": 42
+        },
+        "download-reports": {
+          "x": 1042.297,
+          "y": 366.375,
+          "w": 230.203,
+          "h": 42
+        },
+        "copy-report": {
+          "x": 1280.5,
+          "y": 366.375,
+          "w": 195.5,
+          "h": 42
+        },
+        "report-panel": {
+          "x": 124,
+          "y": 609.656,
+          "w": 506.156,
+          "h": 531.797
+        },
+        "company-revenue": {
+          "x": 149,
+          "y": 698.656,
+          "w": 456.156,
+          "h": 102.188
+        },
+        "eu-revenue": {
+          "x": 149,
+          "y": 839.844,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 149,
+          "y": 839.844,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "support-link": {
+          "x": 157,
+          "y": 947.938,
+          "w": 440.156,
+          "h": 28
+        },
+        "report-links": {
+          "x": 157,
+          "y": 995.938,
+          "w": 440.156,
+          "h": 112.516
+        },
+        "graph": {
+          "x": 650.156,
+          "y": 609.656,
+          "w": 825.844,
+          "h": 531.797
+        },
+        "graph-reports": {
+          "x": 1332.688,
+          "y": 804.641,
+          "w": 112.297,
+          "h": 140.781
+        },
+        "verification": {
+          "x": 124,
+          "y": 546.656,
+          "w": 1352,
+          "h": 47
+        },
+        "accounting": {
+          "x": 124,
+          "y": 424.375,
+          "w": 1352,
+          "h": 106.281
+        },
+        "activity": {
+          "x": 124,
+          "y": 1161.453,
+          "w": 1352,
+          "h": 219.906
+        },
+        "activity-rows": {
+          "x": 149,
+          "y": 1224.594,
+          "w": 1302,
+          "h": 143.766
+        }
+      },
+      "flags": [
+        {
+          "text": "Your CSV workspace · 2 orders · NORTH regional report",
+          "box": {
+            "x": 124,
+            "y": 273.938,
+            "w": 1352,
+            "h": 72.438
+          }
+        }
+      ],
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T12:37:49.946Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p09-csv-refreshed.report": {
+      "file": "p09-csv-refreshed.report@4x.png",
+      "state": "11",
+      "kind": "crop",
+      "width": 523,
+      "height": 549,
+      "scale": 4,
+      "boxes": {
+        "report-panel": {
+          "x": 8,
+          "y": 8.656,
+          "w": 506.156,
+          "h": 531.797
+        },
+        "company-revenue": {
+          "x": 33,
+          "y": 97.656,
+          "w": 456.156,
+          "h": 102.188
+        },
+        "eu-revenue": {
+          "x": 33,
+          "y": 238.844,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 33,
+          "y": 238.844,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "support-link": {
+          "x": 41,
+          "y": 346.938,
+          "w": 440.156,
+          "h": 28
+        },
+        "report-links": {
+          "x": 41,
+          "y": 394.938,
+          "w": 440.156,
+          "h": 112.516
+        }
+      },
+      "cropOf": "p09-csv-refreshed",
+      "origin": {
+        "x": 116,
+        "y": 601
+      }
+    },
+    "p09-csv-refreshed.handoff": {
+      "file": "p09-csv-refreshed.handoff@4x.png",
+      "state": "11",
+      "kind": "crop",
+      "width": 1368,
+      "height": 59,
+      "scale": 4,
+      "boxes": {
+        "workflow-section": {
+          "x": 8,
+          "y": 8.375,
+          "w": 1352,
+          "h": 42
+        },
+        "workflow": {
+          "x": 596.156,
+          "y": 8.375,
+          "w": 763.844,
+          "h": 42
+        },
+        "change-source": {
+          "x": 596.156,
+          "y": 8.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 596.156,
+          "y": 8.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 747.078,
+          "y": 8.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "handoff": {
+          "x": 926.297,
+          "y": 8.375,
+          "w": 433.703,
+          "h": 42
+        },
+        "download-reports": {
+          "x": 926.297,
+          "y": 8.375,
+          "w": 230.203,
+          "h": 42
+        },
+        "copy-report": {
+          "x": 1164.5,
+          "y": 8.375,
+          "w": 195.5,
+          "h": 42
+        }
+      },
+      "cropOf": "p09-csv-refreshed",
+      "origin": {
+        "x": 116,
+        "y": 358
+      }
+    },
+    "p09-csv-refreshed.verification": {
+      "file": "p09-csv-refreshed.verification@4x.png",
+      "state": "11",
+      "kind": "crop",
+      "width": 1368,
+      "height": 64,
+      "scale": 4,
+      "boxes": {
+        "verification": {
+          "x": 8,
+          "y": 8.656,
+          "w": 1352,
+          "h": 47
+        }
+      },
+      "cropOf": "p09-csv-refreshed",
+      "origin": {
+        "x": 116,
+        "y": 538
+      }
+    },
+    "p09-csv-refreshed.accounting": {
+      "file": "p09-csv-refreshed.accounting@4x.png",
+      "state": "11",
+      "kind": "crop",
+      "width": 1368,
+      "height": 123,
+      "scale": 4,
+      "boxes": {
+        "accounting": {
+          "x": 8,
+          "y": 8.375,
+          "w": 1352,
+          "h": 106.281
+        }
+      },
+      "cropOf": "p09-csv-refreshed",
+      "origin": {
+        "x": 116,
+        "y": 416
+      }
+    },
+    "p09-csv-refreshed.graph": {
+      "file": "p09-csv-refreshed.graph@3x.png",
+      "state": "11",
+      "kind": "crop",
+      "width": 842,
+      "height": 549,
+      "scale": 3,
+      "boxes": {
+        "graph": {
+          "x": 8.156,
+          "y": 8.656,
+          "w": 825.844,
+          "h": 531.797
+        },
+        "graph-reports": {
+          "x": 690.688,
+          "y": 203.641,
+          "w": 112.297,
+          "h": 140.781
+        }
+      },
+      "cropOf": "p09-csv-refreshed",
+      "origin": {
+        "x": 642,
+        "y": 601
+      }
+    },
+    "p09-csv-refreshed.activity": {
+      "file": "p09-csv-refreshed.activity@3x.png",
+      "state": "11",
+      "kind": "crop",
+      "width": 1368,
+      "height": 237,
+      "scale": 3,
+      "boxes": {
+        "activity": {
+          "x": 8,
+          "y": 8.453,
+          "w": 1352,
+          "h": 219.906
+        },
+        "activity-rows": {
+          "x": 33,
+          "y": 71.594,
+          "w": 1302,
+          "h": 143.766
+        }
+      },
+      "cropOf": "p09-csv-refreshed",
+      "origin": {
+        "x": 116,
+        "y": 1153
+      }
+    },
+    "p09-csv-copied": {
+      "file": "p09-csv-copied.png",
+      "state": "12",
+      "title": "Copy checked report: the server checked every figure current, then copied the snapshot",
+      "kind": "full",
+      "width": 1600,
+      "height": 1510,
+      "scale": 2,
+      "boxes": {
+        "headline": {
+          "x": 124,
+          "y": 112,
+          "w": 1352,
+          "h": 56.156
+        },
+        "dataset-bar": {
+          "x": 124,
+          "y": 273.938,
+          "w": 1352,
+          "h": 72.438
+        },
+        "workflow-section": {
+          "x": 124,
+          "y": 366.375,
+          "w": 1352,
+          "h": 71.5
+        },
+        "workflow": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 763.844,
+          "h": 42
+        },
+        "change-source": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 712.156,
+          "y": 366.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 863.078,
+          "y": 366.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "handoff": {
+          "x": 1042.297,
+          "y": 366.375,
+          "w": 433.703,
+          "h": 42
+        },
+        "download-reports": {
+          "x": 1042.297,
+          "y": 366.375,
+          "w": 230.203,
+          "h": 42
+        },
+        "copy-report": {
+          "x": 1280.5,
+          "y": 366.375,
+          "w": 195.5,
+          "h": 42
+        },
+        "receipt": {
+          "x": 124,
+          "y": 418.375,
+          "w": 1352,
+          "h": 19.5
+        },
+        "report-panel": {
+          "x": 124,
+          "y": 639.156,
+          "w": 506.156,
+          "h": 531.797
+        },
+        "company-revenue": {
+          "x": 149,
+          "y": 728.156,
+          "w": 456.156,
+          "h": 102.188
+        },
+        "eu-revenue": {
+          "x": 149,
+          "y": 869.344,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "regional-revenue": {
+          "x": 149,
+          "y": 869.344,
+          "w": 456.156,
+          "h": 96.094
+        },
+        "support-link": {
+          "x": 157,
+          "y": 977.438,
+          "w": 440.156,
+          "h": 28
+        },
+        "report-links": {
+          "x": 157,
+          "y": 1025.438,
+          "w": 440.156,
+          "h": 112.516
+        },
+        "graph": {
+          "x": 650.156,
+          "y": 639.156,
+          "w": 825.844,
+          "h": 531.797
+        },
+        "graph-reports": {
+          "x": 1332.688,
+          "y": 834.141,
+          "w": 112.297,
+          "h": 140.781
+        },
+        "verification": {
+          "x": 124,
+          "y": 576.156,
+          "w": 1352,
+          "h": 47
+        },
+        "verification-text": {
+          "x": 169,
+          "y": 589.156,
+          "w": 539,
+          "h": 21
+        },
+        "accounting": {
+          "x": 124,
+          "y": 453.875,
+          "w": 1352,
+          "h": 106.281
+        },
+        "activity": {
+          "x": 124,
+          "y": 1190.953,
+          "w": 1352,
+          "h": 219.906
+        },
+        "activity-rows": {
+          "x": 149,
+          "y": 1254.094,
+          "w": 1302,
+          "h": 143.766
+        }
+      },
+      "flags": [
+        {
+          "text": "Your CSV workspace · 2 orders · NORTH regional report",
+          "box": {
+            "x": 124,
+            "y": 273.938,
+            "w": 1352,
+            "h": 72.438
+          }
+        }
+      ],
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T12:46:37.675Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p09-csv-copied.handoff": {
+      "file": "p09-csv-copied.handoff@4x.png",
+      "state": "12",
+      "kind": "crop",
+      "width": 1368,
+      "height": 88,
+      "scale": 4,
+      "boxes": {
+        "workflow-section": {
+          "x": 8,
+          "y": 8.375,
+          "w": 1352,
+          "h": 71.5
+        },
+        "workflow": {
+          "x": 596.156,
+          "y": 8.375,
+          "w": 763.844,
+          "h": 42
+        },
+        "change-source": {
+          "x": 596.156,
+          "y": 8.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "update-csv": {
+          "x": 596.156,
+          "y": 8.375,
+          "w": 142.922,
+          "h": 42
+        },
+        "refresh-affected": {
+          "x": 747.078,
+          "y": 8.375,
+          "w": 171.219,
+          "h": 42
+        },
+        "handoff": {
+          "x": 926.297,
+          "y": 8.375,
+          "w": 433.703,
+          "h": 42
+        },
+        "download-reports": {
+          "x": 926.297,
+          "y": 8.375,
+          "w": 230.203,
+          "h": 42
+        },
+        "copy-report": {
+          "x": 1164.5,
+          "y": 8.375,
+          "w": 195.5,
+          "h": 42
+        },
+        "receipt": {
+          "x": 8,
+          "y": 60.375,
+          "w": 1352,
+          "h": 19.5
+        }
+      },
+      "cropOf": "p09-csv-copied",
+      "origin": {
+        "x": 116,
+        "y": 358
+      }
+    },
+    "p09-csv-copied.receipt": {
+      "file": "p09-csv-copied.receipt@4x.png",
+      "state": "12",
+      "kind": "crop",
+      "width": 1368,
+      "height": 36,
+      "scale": 4,
+      "boxes": {
+        "receipt": {
+          "x": 8,
+          "y": 8.375,
+          "w": 1352,
+          "h": 19.5
+        }
+      },
+      "cropOf": "p09-csv-copied",
+      "origin": {
+        "x": 116,
+        "y": 410
+      }
+    },
+    "p10-benchmark": {
+      "file": "p10-benchmark.png",
+      "state": "bench",
+      "title": "Benchmark view: recorded model comparison, retail benchmark and original pilot",
+      "kind": "full",
+      "width": 1600,
+      "height": 3794,
+      "scale": 2,
+      "boxes": {
+        "intro": {
+          "x": 172,
+          "y": 116,
+          "w": 1256,
+          "h": 98.047
+        },
+        "model-comparison": {
+          "x": 172,
+          "y": 365.828,
+          "w": 1256,
+          "h": 564.438
+        },
+        "model-table": {
+          "x": 173,
+          "y": 457.016,
+          "w": 1254,
+          "h": 338.5
+        },
+        "retail": {
+          "x": 172,
+          "y": 1155.578,
+          "w": 1256,
+          "h": 1312.641
+        },
+        "pilot-table": {
+          "x": 173,
+          "y": 2763.891,
+          "w": 1254,
+          "h": 395.125
+        },
+        "execution-results": {
+          "x": 172,
+          "y": 3237.453,
+          "w": 1256,
+          "h": 182.969
+        },
+        "full-context-limit": {
+          "x": 172,
+          "y": 3420.422,
+          "w": 1256,
+          "h": 119.281
+        },
+        "recorded-agent": {
+          "x": 172,
+          "y": 3641.391,
+          "w": 1256,
+          "h": 88.625
+        }
+      },
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T12:38:05.872Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p10-benchmark.top": {
+      "file": "p10-benchmark.top@3x.png",
+      "state": "bench",
+      "kind": "crop",
+      "width": 1600,
+      "height": 1000,
+      "scale": 3,
+      "boxes": {
+        "intro": {
+          "x": 172,
+          "y": 116,
+          "w": 1256,
+          "h": 98.047
+        },
+        "model-comparison": {
+          "x": 172,
+          "y": 365.828,
+          "w": 1256,
+          "h": 564.438
+        },
+        "model-table": {
+          "x": 173,
+          "y": 457.016,
+          "w": 1254,
+          "h": 338.5
+        }
+      },
+      "cropOf": "p10-benchmark",
+      "origin": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "p10-benchmark.model-comparison": {
+      "file": "p10-benchmark.model-comparison@3x.png",
+      "state": "bench",
+      "kind": "crop",
+      "width": 1272,
+      "height": 582,
+      "scale": 3,
+      "boxes": {
+        "model-comparison": {
+          "x": 8,
+          "y": 8.828,
+          "w": 1256,
+          "h": 564.438
+        },
+        "model-table": {
+          "x": 9,
+          "y": 100.016,
+          "w": 1254,
+          "h": 338.5
+        }
+      },
+      "cropOf": "p10-benchmark",
+      "origin": {
+        "x": 164,
+        "y": 357
+      }
+    },
+    "p10-benchmark.model-table": {
+      "file": "p10-benchmark.model-table@4x.png",
+      "state": "bench",
+      "kind": "crop",
+      "width": 1270,
+      "height": 355,
+      "scale": 4,
+      "boxes": {
+        "model-table": {
+          "x": 8,
+          "y": 8.016,
+          "w": 1254,
+          "h": 338.5
+        }
+      },
+      "cropOf": "p10-benchmark",
+      "origin": {
+        "x": 165,
+        "y": 449
+      }
+    },
+    "p10-benchmark.retail": {
+      "file": "p10-benchmark.retail@3x.png",
+      "state": "bench",
+      "kind": "crop",
+      "width": 1272,
+      "height": 1330,
+      "scale": 3,
+      "boxes": {
+        "retail": {
+          "x": 8,
+          "y": 8.578,
+          "w": 1256,
+          "h": 1312.641
+        }
+      },
+      "cropOf": "p10-benchmark",
+      "origin": {
+        "x": 164,
+        "y": 1147
+      }
+    },
+    "p10-benchmark.execution-results": {
+      "file": "p10-benchmark.execution-results@4x.png",
+      "state": "bench",
+      "kind": "crop",
+      "width": 1272,
+      "height": 319,
+      "scale": 4,
+      "boxes": {
+        "execution-results": {
+          "x": 8,
+          "y": 8.453,
+          "w": 1256,
+          "h": 182.969
+        },
+        "full-context-limit": {
+          "x": 8,
+          "y": 191.422,
+          "w": 1256,
+          "h": 119.281
+        }
+      },
+      "cropOf": "p10-benchmark",
+      "origin": {
+        "x": 164,
+        "y": 3229
+      }
+    },
+    "p11-agent": {
+      "file": "p11-agent.png",
+      "state": "bench",
+      "title": "Benchmark view with the recorded agent workflow expanded",
+      "kind": "full",
+      "width": 1600,
+      "height": 4517,
+      "scale": 2,
+      "boxes": {
+        "intro": {
+          "x": 172,
+          "y": 116,
+          "w": 1256,
+          "h": 98.047
+        },
+        "model-comparison": {
+          "x": 172,
+          "y": 365.828,
+          "w": 1256,
+          "h": 564.438
+        },
+        "model-table": {
+          "x": 173,
+          "y": 457.016,
+          "w": 1254,
+          "h": 338.5
+        },
+        "retail": {
+          "x": 172,
+          "y": 1155.578,
+          "w": 1256,
+          "h": 1312.641
+        },
+        "pilot-table": {
+          "x": 173,
+          "y": 2763.891,
+          "w": 1254,
+          "h": 395.125
+        },
+        "execution-results": {
+          "x": 172,
+          "y": 3237.453,
+          "w": 1256,
+          "h": 182.969
+        },
+        "full-context-limit": {
+          "x": 172,
+          "y": 3420.422,
+          "w": 1256,
+          "h": 119.281
+        },
+        "recorded-agent": {
+          "x": 172,
+          "y": 3641.391,
+          "w": 1256,
+          "h": 811.891
+        },
+        "disclosure": {
+          "x": 197,
+          "y": 3729.016,
+          "w": 850,
+          "h": 47.594
+        },
+        "run-1": {
+          "x": 197,
+          "y": 3796.609,
+          "w": 1206,
+          "h": 269.016
+        },
+        "run-2": {
+          "x": 197,
+          "y": 4065.625,
+          "w": 1206,
+          "h": 241.625
+        },
+        "refresh-proof": {
+          "x": 197,
+          "y": 4307.25,
+          "w": 1206,
+          "h": 81.781
+        }
+      },
+      "capture": {
+        "url": "(app)/",
+        "viewport": {
+          "width": 1600,
+          "height": 1000
+        },
+        "fullPage": true,
+        "capturedAt": "2026-11-16T12:38:17.051Z",
+        "colorScheme": "dark"
+      }
+    },
+    "p11-agent.agent": {
+      "file": "p11-agent.agent@3x.png",
+      "state": "bench",
+      "kind": "crop",
+      "width": 1272,
+      "height": 829,
+      "scale": 3,
+      "boxes": {
+        "recorded-agent": {
+          "x": 8,
+          "y": 8.391,
+          "w": 1256,
+          "h": 811.891
+        },
+        "disclosure": {
+          "x": 33,
+          "y": 96.016,
+          "w": 850,
+          "h": 47.594
+        },
+        "run-1": {
+          "x": 33,
+          "y": 163.609,
+          "w": 1206,
+          "h": 269.016
+        },
+        "run-2": {
+          "x": 33,
+          "y": 432.625,
+          "w": 1206,
+          "h": 241.625
+        },
+        "refresh-proof": {
+          "x": 33,
+          "y": 674.25,
+          "w": 1206,
+          "h": 81.781
+        }
+      },
+      "cropOf": "p11-agent",
+      "origin": {
+        "x": 164,
+        "y": 3633
+      }
+    },
+    "p11-agent.runs": {
+      "file": "p11-agent.runs@4x.png",
+      "state": "bench",
+      "kind": "crop",
+      "width": 1222,
+      "height": 528,
+      "scale": 4,
+      "boxes": {
+        "run-1": {
+          "x": 8,
+          "y": 8.609,
+          "w": 1206,
+          "h": 269.016
+        },
+        "run-2": {
+          "x": 8,
+          "y": 277.625,
+          "w": 1206,
+          "h": 241.625
+        }
+      },
+      "cropOf": "p11-agent",
+      "origin": {
+        "x": 189,
+        "y": 3788
+      }
+    },
+    "p11-agent.proof": {
+      "file": "p11-agent.proof@4x.png",
+      "state": "bench",
+      "kind": "crop",
+      "width": 1222,
+      "height": 99,
+      "scale": 4,
+      "boxes": {
+        "refresh-proof": {
+          "x": 8,
+          "y": 8.25,
+          "w": 1206,
+          "h": 81.781
+        }
+      },
+      "cropOf": "p11-agent",
+      "origin": {
+        "x": 189,
+        "y": 4299
+      }
+    },
+    "p08-csv-update.publish": {
+      "file": "p08-csv-update.publish@4x.png",
+      "state": "8",
+      "kind": "crop",
+      "width": 531,
+      "height": 676,
+      "scale": 4,
+      "boxes": {
+        "rates": {
+          "x": 8,
+          "y": 8.469,
+          "w": 515,
+          "h": 74.938
+        },
+        "region": {
+          "x": 8,
+          "y": 151.406,
+          "w": 515,
+          "h": 72.141
+        },
+        "preview": {
+          "x": 8,
+          "y": 275.547,
+          "w": 515,
+          "h": 304.063
+        },
+        "submit": {
+          "x": 8,
+          "y": 619.609,
+          "w": 515,
+          "h": 48
+        }
+      },
+      "cropOf": "p08-csv-update",
+      "origin": {
+        "x": 1045,
+        "y": 213
+      }
+    },
+    "p09-csv-copied.copy": {
+      "file": "p09-csv-copied.copy@4x.png",
+      "state": "12",
+      "kind": "crop",
+      "width": 450,
+      "height": 59,
+      "scale": 4,
+      "boxes": {
+        "handoff": {
+          "x": 8.297,
+          "y": 8.375,
+          "w": 433.703,
+          "h": 42
+        },
+        "download-reports": {
+          "x": 8.297,
+          "y": 8.375,
+          "w": 230.203,
+          "h": 42
+        },
+        "copy-report": {
+          "x": 246.5,
+          "y": 8.375,
+          "w": 195.5,
+          "h": 42
+        }
+      },
+      "cropOf": "p09-csv-copied",
+      "origin": {
+        "x": 1034,
+        "y": 358
+      }
+    },
+    "p09-csv-copied.verified": {
+      "file": "p09-csv-copied.verified@4x.png",
+      "state": "12",
+      "kind": "crop",
+      "width": 624,
+      "height": 64,
+      "scale": 4,
+      "boxes": {
+        "verification-text": {
+          "x": 53,
+          "y": 21.156,
+          "w": 539,
+          "h": 21
+        }
+      },
+      "cropOf": "p09-csv-copied",
+      "origin": {
+        "x": 116,
+        "y": 568
       }
     }
   }
