@@ -1,0 +1,79 @@
+{
+  "audio/narration/s1.wav": {
+    "flac": "audio/handoff/narration__s1.flac",
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 16,
+    "duration": 20.352
+  },
+  "audio/narration/s2.wav": {
+    "flac": "audio/handoff/narration__s2.flac",
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 16,
+    "duration": 19
+  },
+  "audio/narration/s3.wav": {
+    "flac": "audio/handoff/narration__s3.flac",
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 16,
+    "duration": 15.215
+  },
+  "audio/narration/s4.wav": {
+    "flac": "audio/handoff/narration__s4.flac",
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 16,
+    "duration": 29.556
+  },
+  "audio/narration/s5.wav": {
+    "flac": "audio/handoff/narration__s5.flac",
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 16,
+    "duration": 25.762
+  },
+  "audio/narration/s6.wav": {
+    "flac": "audio/handoff/narration__s6.flac",
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 16,
+    "duration": 51.87
+  },
+  "audio/narration/s7.wav": {
+    "flac": "audio/handoff/narration__s7.flac",
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 16,
+    "duration": 44.572
+  },
+  "audio/narration/s8.wav": {
+    "flac": "audio/handoff/narration__s8.flac",
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 16,
+    "duration": 20.083
+  },
+  "audio/music-bed.wav": {
+    "flac": "audio/handoff/music-bed.flac",
+    "sample_rate": 48000,
+    "channels": 2,
+    "bits": 24,
+    "duration": 245.8
+  },
+  "audio/sfx.wav": {
+    "flac": "audio/handoff/sfx.flac",
+    "sample_rate": 48000,
+    "channels": 2,
+    "bits": 24,
+    "duration": 245.8
+  },
+  "audio/mix.wav": {
+    "flac": "audio/handoff/mix.flac",
+    "sample_rate": 48000,
+    "channels": 2,
+    "bits": 24,
+    "duration": 245.8
+  }
+}
