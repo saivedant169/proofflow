@@ -1,0 +1,421 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.748
+One input changes. Now your AI agent has
+
+2
+00:00:03.788 --> 00:00:05.876
+to work out what that broke.
+
+3
+00:00:06.426 --> 00:00:08.464
+Today, it has two options.
+
+4
+00:00:09.014 --> 00:00:11.494
+Re-read everything. Accurate,
+
+5
+00:00:11.534 --> 00:00:12.955
+but you pay for every token,
+
+6
+00:00:12.995 --> 00:00:14.316
+every time.
+
+7
+00:00:14.866 --> 00:00:17.527
+Or search for what looks related.
+
+8
+00:00:17.677 --> 00:00:20.402
+Cheap, but blind to what matters.
+
+9
+00:00:21.750 --> 00:00:23.963
+Agents build reports on their own earlier
+
+10
+00:00:24.003 --> 00:00:27.243
+work, so every number quietly depends on
+
+11
+00:00:27.283 --> 00:00:28.623
+inputs underneath.
+
+12
+00:00:28.873 --> 00:00:30.153
+Correct one exchange rate,
+
+13
+00:00:30.193 --> 00:00:32.522
+and some of those numbers are now wrong.
+
+14
+00:00:32.772 --> 00:00:34.712
+But a total can depend on that rate
+
+15
+00:00:34.752 --> 00:00:36.480
+without ever mentioning it.
+
+16
+00:00:36.730 --> 00:00:39.349
+Similar words are not the same as real
+
+17
+00:00:39.389 --> 00:00:40.450
+dependencies.
+
+18
+00:00:41.650 --> 00:00:43.943
+ProofFlow is a context layer that follows
+
+19
+00:00:43.983 --> 00:00:46.076
+structure instead of guessing.
+
+20
+00:00:46.326 --> 00:00:48.256
+Every number keeps its receipts:
+
+21
+00:00:48.346 --> 00:00:50.686
+exactly which inputs, and which tool,
+
+22
+00:00:50.726 --> 00:00:51.726
+made it.
+
+23
+00:00:51.836 --> 00:00:53.296
+So when something changes,
+
+24
+00:00:53.336 --> 00:00:55.346
+the agent gets exactly what broke.
+
+25
+00:00:55.516 --> 00:00:56.565
+Nothing more.
+
+26
+00:00:58.550 --> 00:01:00.806
+An input, like the exchange rate,
+
+27
+00:01:00.876 --> 00:01:02.507
+is saved as a version.
+
+28
+00:01:02.757 --> 00:01:05.394
+A tool reads it, and leaves a receipt.
+
+29
+00:01:05.644 --> 00:01:07.634
+The receipt points to its result,
+
+30
+00:01:07.784 --> 00:01:10.004
+and each number in a report points to that
+
+31
+00:01:10.044 --> 00:01:11.044
+result.
+
+32
+00:01:11.471 --> 00:01:13.093
+Now, correct the rate.
+
+33
+00:01:13.543 --> 00:01:15.493
+The change travels up those links.
+
+34
+00:01:15.923 --> 00:01:17.913
+Both revenue figures are withheld,
+
+35
+00:01:18.103 --> 00:01:19.613
+never shown stale.
+
+36
+00:01:19.863 --> 00:01:21.483
+Support never read the rate,
+
+37
+00:01:21.523 --> 00:01:24.353
+so it stays current, and is reused.
+
+38
+00:01:24.603 --> 00:01:27.806
+Refresh re-runs only the affected steps.
+
+39
+00:01:29.550 --> 00:01:32.027
+This is ProofFlow, live today.
+
+40
+00:01:32.277 --> 00:01:34.067
+Upload orders as a CSV,
+
+41
+00:01:34.437 --> 00:01:37.121
+preview them, and create two reports.
+
+42
+00:01:37.371 --> 00:01:38.901
+Publish a corrected rate.
+
+43
+00:01:39.531 --> 00:01:41.161
+Affected figures are withheld,
+
+44
+00:01:41.371 --> 00:01:43.390
+and the graph shows exactly why.
+
+45
+00:01:43.640 --> 00:01:45.203
+Refresh brings them current.
+
+46
+00:01:45.933 --> 00:01:48.113
+A checked report can only be copied while
+
+47
+00:01:48.153 --> 00:01:49.794
+every figure is current.
+
+48
+00:01:50.044 --> 00:01:52.554
+Agents get the same workflow through MCP.
+
+49
+00:01:52.944 --> 00:01:55.012
+Six tools, one download.
+
+50
+00:01:56.550 --> 00:01:57.936
+Under the hood, it's small,
+
+51
+00:01:57.976 --> 00:01:59.319
+and strict.
+
+52
+00:01:59.769 --> 00:02:01.435
+At the center is the runtime.
+
+53
+00:02:01.965 --> 00:02:04.145
+Every tool run produces an immutable
+
+54
+00:02:04.185 --> 00:02:06.107
+result, and a receipt.
+
+55
+00:02:06.357 --> 00:02:08.997
+Content goes into a store that verifies
+
+56
+00:02:09.037 --> 00:02:10.432
+every hash.
+
+57
+00:02:10.682 --> 00:02:12.665
+Relationships go into HydraDB,
+
+58
+00:02:12.705 --> 00:02:14.619
+as a lineage graph.
+
+59
+00:02:14.869 --> 00:02:16.379
+When a correction arrives,
+
+60
+00:02:16.509 --> 00:02:18.709
+HydraDB walks that graph natively,
+
+61
+00:02:18.749 --> 00:02:20.920
+to find everything downstream.
+
+62
+00:02:21.170 --> 00:02:23.630
+That walk becomes the agent's context.
+
+63
+00:02:23.900 --> 00:02:25.390
+Traverse the structure.
+
+64
+00:02:25.660 --> 00:02:26.718
+Skip the re-read.
+
+65
+00:02:26.968 --> 00:02:29.477
+The runtime re-runs stale steps in order,
+
+66
+00:02:29.827 --> 00:02:31.217
+reuses what's current,
+
+67
+00:02:31.427 --> 00:02:33.144
+and records new receipts.
+
+68
+00:02:33.394 --> 00:02:34.804
+If evidence is missing,
+
+69
+00:02:34.914 --> 00:02:36.984
+it fails closed. No fallback.
+
+70
+00:02:37.274 --> 00:02:38.274
+No guess.
+
+71
+00:02:38.336 --> 00:02:40.766
+Agents reach it through a browser app,
+
+72
+00:02:40.956 --> 00:02:43.806
+a Python API, or an MCP server,
+
+73
+00:02:43.936 --> 00:02:46.106
+choosing plans from typed tools,
+
+74
+00:02:46.496 --> 00:02:48.120
+never arbitrary code.
+
+75
+00:02:56.450 --> 00:02:58.626
+So how does it compare to today's
+
+76
+00:02:58.666 --> 00:02:59.722
+approaches?
+
+77
+00:03:00.172 --> 00:03:02.972
+We froze one study. Forty-eight real model
+
+78
+00:03:03.012 --> 00:03:05.677
+calls, the same task for every method.
+
+79
+00:03:05.927 --> 00:03:07.966
+Re-reading everything got all thirty-two
+
+80
+00:03:08.006 --> 00:03:09.486
+reports right, for three dollars
+
+81
+00:03:09.526 --> 00:03:10.719
+seventy-four.
+
+82
+00:03:10.969 --> 00:03:12.729
+ProofFlow also got thirty-two of
+
+83
+00:03:12.769 --> 00:03:14.781
+thirty-two, with a hundred forty-two
+
+84
+00:03:14.821 --> 00:03:16.609
+thousand fewer input tokens,
+
+85
+00:03:16.649 --> 00:03:18.359
+for a dollar thirty-eight.
+
+86
+00:03:18.769 --> 00:03:20.784
+Sixty-three percent less.
+
+87
+00:03:21.034 --> 00:03:22.801
+Vector search cost the same as ProofFlow,
+
+88
+00:03:22.841 --> 00:03:25.461
+and got five right. Keyword search,
+
+89
+00:03:25.501 --> 00:03:28.497
+twenty-five. Hybrid, twenty-eight.
+
+90
+00:03:28.747 --> 00:03:30.478
+On a separate retail benchmark,
+
+91
+00:03:30.518 --> 00:03:31.698
+thirty-eight of thirty-eight,
+
+92
+00:03:31.738 --> 00:03:33.878
+with sixty-nine percent fewer evidence
+
+93
+00:03:33.918 --> 00:03:34.918
+tokens.
+
+94
+00:03:35.109 --> 00:03:37.103
+A plain dependency walk over the same
+
+95
+00:03:37.143 --> 00:03:40.103
+links ties it. The win is recording the
+
+96
+00:03:40.143 --> 00:03:41.143
+structure.
+
+97
+00:03:42.450 --> 00:03:43.478
+ProofFlow.
+
+98
+00:03:43.728 --> 00:03:45.227
+Full-context accuracy,
+
+99
+00:03:45.267 --> 00:03:47.562
+at vector-search cost.
+
+100
+00:03:47.812 --> 00:03:49.475
+Built for teams whose agents produce
+
+101
+00:03:49.515 --> 00:03:51.265
+numbers people act on:
+
+102
+00:03:51.635 --> 00:03:54.205
+finance, revenue, analytics.
+
+103
+00:03:54.915 --> 00:03:57.421
+Add it to any agent through MCP.
+
+104
+00:03:57.671 --> 00:04:00.914
+Try it live. Every number shown is in the
+
+105
+00:04:00.954 --> 00:04:02.234
+public evidence.

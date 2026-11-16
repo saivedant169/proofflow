@@ -71,14 +71,14 @@ function WalkthroughTile({ index, onHover }: { index: number; onHover: (i: numbe
   const videoRef = useRef<HTMLVideoElement>(null)
   useEffect(() => { if (playing) videoRef.current?.focus() }, [playing])
   const poster = import.meta.env.BASE_URL + 'shots/walkthrough-poster.jpg'
-  const body = { icon: <Play size={20} strokeWidth={2} />, title: 'Watch the walkthrough', line: 'Two minutes, including the 48-invocation study.', chip: '2 min' }
+  const body = { icon: <Play size={20} strokeWidth={2} />, title: 'Watch the walkthrough', line: 'Four minutes, including the 48-invocation study.', chip: '4 min' }
 
   if (playing) {
     return (
       <div className="try-tile is-playing">
         <div className="try-tile-media stage">
           <video ref={videoRef} className="try-video" controls autoPlay playsInline preload="none" poster={poster}
-            width={1920} height={1080} src={links.walkthrough} aria-label="ProofFlow two-minute walkthrough">
+            width={1920} height={1080} src={links.walkthrough} aria-label="ProofFlow four-minute walkthrough">
             Your browser cannot play this video. <a href={links.walkthrough}>Download the walkthrough</a>.
           </video>
         </div>
@@ -100,7 +100,7 @@ function WalkthroughTile({ index, onHover }: { index: number; onHover: (i: numbe
     <button type="button" className="try-tile" onClick={() => setPlaying(true)}
       onMouseEnter={() => onHover(index)} onMouseLeave={() => onHover(null)}
       onFocus={() => onHover(index)} onBlur={() => onHover(null)}
-      aria-label="Play the two-minute walkthrough here">
+      aria-label="Play the four-minute walkthrough here">
       <div className="try-tile-media stage">
         <img className="try-poster" src={poster} width={1920} height={1080} loading="lazy" decoding="async" alt="" />
         <span className="try-play" aria-hidden><Play size={26} strokeWidth={2} fill="currentColor" /></span>
@@ -174,7 +174,7 @@ export default function TryIt() {
         <div className="wrap">
           <header className="try-head">
             <h2 id="try-title" className="try-title">Try it in thirty seconds.</h2>
-            <p className="try-lede">Open the live app, watch the two-minute walkthrough, or connect your own agent.</p>
+            <p className="try-lede">Open the live app, watch the four-minute walkthrough, or connect your own agent.</p>
           </header>
 
           <Branches hover={hover} tiles={tilesRef} />
