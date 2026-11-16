@@ -1,8 +1,9 @@
 <!doctype html>
-<!-- ProofFlow film, s3 "The idea" (music opens on mark "name"). One thread crosses the empty frame and becomes the
-     P; the rest of the wordmark unfurls on Anybody's width axis; a mint dot lands. Then the figure from s1 returns
-     with its receipt: threads tie it to exactly which inputs and which calculation made it, so it knows what to
-     hold back and what to redo. -->
+<!-- ProofFlow film, s3 "The idea" (music opens on mark "name" = line 3a). One thread crosses the empty frame and
+     becomes the P; the wordmark unfurls on Anybody's width axis; a mint dot lands; "context layer" tags it. Then
+     the $5,565 total unfolds its receipt: exactly which inputs (each a version) and which tools made it. When the
+     rate changes, s2's network returns dimmed; only the exact affected slice lifts into a small "Agent context"
+     window. Nothing more: the rest stays dark. -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,14 +17,14 @@
           overflow: hidden;
           background: var(--ground);
         }
-        /* the wordmark: everything inside is sized in em, so the mark is re-laid (font-size), never scaled */
-        /* built at hero size; it only ever scales DOWN (to 80/168) into the corner */
+        /* the wordmark: built at hero size; it only ever scales DOWN (to 80/168) into the corner */
         .s3-mark {
           position: absolute;
           left: 322px;
-          top: 474px;
+          top: 440px;
           white-space: nowrap;
           color: var(--ink);
+          z-index: 5;
         }
         .s3-p {
           display: inline-block;
@@ -59,6 +60,23 @@
           background: var(--current);
           vertical-align: baseline;
         }
+        .s3-layer {
+          position: absolute;
+          left: 330px;
+          top: 650px;
+          height: 60px;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          padding: 0 28px;
+          border-radius: 999px;
+          border: 2px solid var(--thread);
+          background: var(--panel);
+          white-space: nowrap;
+        }
+        .s3-layer .t-label {
+          color: var(--thread-strong);
+        }
         /* the figure and its receipt */
         .s3-fig-label {
           position: absolute;
@@ -71,11 +89,6 @@
           left: 116px;
           top: 498px;
           white-space: nowrap;
-        }
-        .s3-withheld {
-          position: absolute;
-          left: 120px;
-          top: 660px;
         }
         .s3-receipt {
           left: 1040px;
@@ -134,7 +147,6 @@
           height: 3px;
           border-radius: 2px;
           background: var(--stale);
-          transform-origin: left center;
         }
         .s3-newbox {
           display: inline-block;
@@ -144,11 +156,6 @@
         .s3-rule {
           left: 48px;
           width: 544px;
-        }
-        .s3-refresh {
-          position: absolute;
-          left: 1040px;
-          top: 842px;
         }
         .s3-gate {
           position: absolute;
@@ -167,40 +174,85 @@
         .s3-threads .s3-port-hot {
           fill: var(--stale);
         }
-        .s3-threads .s3-port-fresh {
-          fill: var(--current);
+        /* 3c: the network (s2's places), and the agent's context */
+        .s3-n {
+          padding: 0 14px;
+          align-items: center;
+          text-align: center;
+          gap: 0;
+          border-color: var(--rule);
+        }
+        .s3-n.source {
+          align-items: flex-start;
+          padding-left: 20px;
+        }
+        .s3-n .node-sub {
+          color: var(--ink);
+          white-space: nowrap;
+        }
+        .s3-n .node-title {
+          white-space: nowrap;
+        }
+        .s3-slice {
+          z-index: 3;
+        }
+        .s3-win {
+          left: 1180px;
+          top: 228px;
+          width: 620px;
+          height: 600px;
+          z-index: 2;
+        }
+        .s3-win-label {
+          position: absolute;
+          left: 1212px;
+          top: 248px;
+          white-space: nowrap;
+          z-index: 3;
+        }
+        .s3-sthreads {
+          z-index: 3;
         }
       </style>
 
-      <div id="root" data-composition-id="s3-idea" data-width="1920" data-height="1080" data-duration="19.2">
+      <div id="root" data-composition-id="s3-idea" data-width="1920" data-height="1080" data-duration="16.9">
+        <!-- 3c: the network, dimmed (world), behind everything -->
+        <div id="s3-world" class="s3-gate">
+          <svg id="s3-edges" class="threads" viewBox="0 0 1920 1080"></svg>
+        </div>
+        <div id="s3-win" class="panel s3-win"></div>
+        <p id="s3-win-label" class="t-label s3-win-label">Agent context</p>
+        <svg id="s3-sthreads" class="threads s3-sthreads" viewBox="0 0 1920 1080"></svg>
+        <div id="s3-slice" class="s3-gate s3-slice"></div>
+
         <div id="s3-mark" class="t-hero s3-mark">
           <svg id="s3-p" class="s3-p" viewBox="0 0 72 79"><path id="s3-p-lead" class="s3-p-lead" d="M-1400 68 H11" /><path id="s3-p-letter" class="s3-p-letter" d="M11 68 V11 H42 A19 19 0 0 1 42 49 H11" /></svg><span class="s3-l">r</span><span class="s3-l">o</span><span class="s3-l">o</span><span class="s3-l">f</span><span class="s3-l">F</span><span class="s3-l">l</span><span class="s3-l">o</span><span class="s3-l">w</span><span id="s3-dot" class="s3-dot"></span>
         </div>
+        <div id="s3-layer" class="s3-layer"><span id="s3-layer-words" class="t-label">context layer</span></div>
 
-        <p id="s3-fig-label" class="t-label s3-fig-label">Company revenue</p>
-        <div id="s3-fig" class="fig s3-fig"><span class="fig-v">$5,565</span><span class="withheld-hatch"></span></div>
-        <span id="s3-withheld" class="tag tag-stale s3-withheld">Withheld</span>
+        <div id="s3-b" class="s3-gate">
+          <p id="s3-fig-label" class="t-label s3-fig-label">Company total</p>
+          <div id="s3-fig" class="fig s3-fig"><span class="fig-v">$5,565</span><span class="withheld-hatch"></span></div>
 
-        <div id="s3-receipt" class="panel s3-receipt">
-          <p class="t-label s3-rlabel" style="top: 30px">Receipt</p>
-          <p id="s3-in-label" class="t-small s3-rlabel" style="top: 98px">Inputs</p>
-          <div id="s3-r0" class="s3-row" style="top: 148px"><span class="t-label">Orders</span><span class="t-small s3-ver">version 1</span></div>
-          <div id="s3-r1" class="s3-row" style="top: 218px"><span class="t-label">Refunds</span><span class="t-small s3-ver">version 1</span></div>
-          <div id="s3-r2" class="s3-row" style="top: 288px">
-            <span class="t-label">EUR→USD</span>
-            <span class="s3-num"><span id="s3-old" class="t-label">1.10</span><span id="s3-strike" class="s3-strike"></span></span>
-            <span id="s3-newbox" class="s3-newbox"><span id="s3-new" class="t-label is-stale">1.20</span></span>
-            <span class="t-small s3-ver">version 1</span>
+          <div id="s3-receipt" class="panel s3-receipt">
+            <p class="t-label s3-rlabel" style="top: 30px">Receipt</p>
+            <p id="s3-in-label" class="t-small s3-rlabel" style="top: 98px">Inputs</p>
+            <div id="s3-r0" class="s3-row" style="top: 148px"><span class="t-label">Orders</span><span class="t-small s3-ver">version 1</span></div>
+            <div id="s3-r1" class="s3-row" style="top: 218px"><span class="t-label">Refunds</span><span class="t-small s3-ver">version 1</span></div>
+            <div id="s3-r2" class="s3-row" style="top: 288px">
+              <span class="t-label">EUR→USD</span>
+              <span class="s3-num"><span id="s3-old" class="t-label">1.10</span><span id="s3-strike" class="s3-strike"></span></span>
+              <span id="s3-newbox" class="s3-newbox"><span id="s3-new" class="t-label is-stale">1.20</span></span>
+              <span class="t-small s3-ver">version 1</span>
+            </div>
+            <div id="s3-rule" class="rule-h s3-rule" style="top: 358px"></div>
+            <p id="s3-tool-label" class="t-small s3-rlabel" style="top: 374px">Tool</p>
+            <div id="s3-r3" class="s3-row" style="top: 418px"><span class="t-mono">convert_to_usd</span></div>
+            <div id="s3-r4" class="s3-row" style="top: 488px"><span class="t-mono">company_total</span></div>
           </div>
-          <div id="s3-rule" class="rule-h s3-rule" style="top: 358px"></div>
-          <p id="s3-calc-label" class="t-small s3-rlabel" style="top: 374px">Calculation</p>
-          <div id="s3-r3" class="s3-row" style="top: 418px"><span class="t-mono">convert_to_usd</span></div>
-          <div id="s3-r4" class="s3-row" style="top: 488px"><span class="t-mono">company_total</span></div>
+          <svg id="s3-perf" class="s3-perf" viewBox="0 0 640 4"><line x1="10" y1="2" x2="630" y2="2" /></svg>
+          <svg id="s3-threads" class="threads s3-threads" viewBox="0 0 1920 1080"></svg>
         </div>
-        <svg id="s3-perf" class="s3-perf" viewBox="0 0 640 4"><line x1="10" y1="2" x2="630" y2="2" /></svg>
-        <span id="s3-refresh" class="tag tag-current s3-refresh">Refresh</span>
-
-        <svg id="s3-threads" class="threads s3-threads" viewBox="0 0 1920 1080"></svg>
         <div id="s3-pulse-gate" class="s3-gate"><div id="s3-pulse" class="pulse"></div></div>
       </div>
 
@@ -211,12 +263,28 @@
           const rootStyle = getComputedStyle(document.documentElement);
           const tok = (name) => rootStyle.getPropertyValue(name).trim();
           const at = (text, nth = 1, offset = 0) => FILM.at(S, text, nth, offset);
+          const atEnd = (text, nth = 1, offset = 0) => FILM.atEnd(S, text, nth, offset);
           const SVGNS = "http://www.w3.org/2000/svg";
           const threads = document.getElementById("s3-threads");
+          const cx = (n) => n.x + n.w / 2;
+          const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+          const edgeD = (a, b) => {
+            const x1 = clamp(cx(a) + (cx(b) - cx(a)) * 0.22, a.x + 22, a.x + a.w - 22);
+            const x2 = clamp(cx(b) + (cx(a) - cx(b)) * 0.22, b.x + 22, b.x + b.w - 22);
+            const y1 = a.y, y2 = b.y + b.h, my = (y1 + y2) / 2;
+            return `M${x1} ${y1} C${x1} ${my} ${x2} ${my} ${x2} ${y2}`;
+          };
+          const svgPath = (svg, d, cls) => {
+            const p = document.createElementNS(SVGNS, "path");
+            p.setAttribute("d", d);
+            if (cls) p.setAttribute("class", cls);
+            svg.appendChild(p);
+            return p;
+          };
 
-          /* ---------- 3a "ProofFlow": one thread becomes the P, the word unfurls, the dot lands ---------- */
+          /* ---------- 3a "ProofFlow is a context layer": a thread becomes the P; the word unfurls ---------- */
           const tName = FILM.mark("name", S).localStart;
-          const HERO = { left: 322, top: 474 }; // must match .s3-mark
+          const HERO = { left: 322, top: 440 }; // must match .s3-mark
           const SMALL = { left: 120, top: 96, k: 80 / 168 };
           const tLead = Math.max(0, tName - 0.2);
           FILM.drawThread(tl, "#s3-p-lead", tLead, { duration: 0.42, ease: "power2.in" });
@@ -224,15 +292,19 @@
           // a zero-length round-capped dash would show as a dot before the draw: keep each path dark until it starts
           tl.fromTo("#s3-p-lead", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, tLead);
           tl.fromTo("#s3-p-letter", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, tLead + 0.4);
-          // the tail of the thread is drawn into the letter
           tl.fromTo("#s3-p-lead", { attr: { "stroke-dashoffset": 0 } }, { attr: { "stroke-dashoffset": -1 }, duration: 0.4, ease: "power2.inOut", immediateRender: false }, tLead + 0.5);
           document.querySelectorAll("#s3-mark .s3-l").forEach((span, i) => {
             tl.fromTo(span, { "--s3-w": 50, opacity: 0 }, { "--s3-w": 132, opacity: 1, duration: 0.6, ease: "expo.out" }, tLead + 0.6 + i * 0.05);
           });
           tl.fromTo("#s3-dot", { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.2)" }, tLead + 1.15);
+          // "context layer": the tag rolls out under the mark, word by word
+          const tLayer = at("context", 1, -0.12);
+          tl.fromTo("#s3-layer", { opacity: 0, clipPath: "inset(0 100% 0 0 round 30px)" }, { opacity: 1, clipPath: "inset(0 0% 0 0 round 30px)", duration: 0.6, ease: FILM.ease }, tLayer);
+          FILM.speakWords(tl, "#s3-layer-words", S, { rise: 12 });
 
           /* ---------- 3b "Every number keeps its receipts" ---------- */
           const L3b = FILM.line("3b");
+          tl.fromTo("#s3-layer", { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.in", immediateRender: false }, L3b.localStart - 0.1);
           tl.fromTo("#s3-mark",
             { x: 0, y: 0, scale: 1, transformOrigin: "0% 0%" },
             { x: SMALL.left - HERO.left, y: SMALL.top - HERO.top, scale: SMALL.k, transformOrigin: "0% 0%", duration: 0.8, ease: "power3.inOut" },
@@ -260,52 +332,129 @@
             return c;
           };
           const thread = (y, cls) => {
-            const p = document.createElementNS(SVGNS, "path");
             const mx = (anchor.x + RX) / 2;
-            p.setAttribute("d", `M${anchor.x} ${anchor.y} C${mx} ${anchor.y} ${mx} ${y} ${RX} ${y}`);
-            if (cls) p.setAttribute("class", cls);
-            threads.appendChild(p);
-            return p;
+            return svgPath(threads, `M${anchor.x} ${anchor.y} C${mx} ${anchor.y} ${mx} ${y} ${RX} ${y}`, cls);
           };
           const paths = rowY.map((y) => thread(y));
           const hotPath = thread(rowY[2], "stale");
           const ports = rowY.map((y) => dot(RX, y, "s3-port", 8));
           const hotPort = dot(RX, rowY[2], "s3-port-hot", 8);
-          const freshPorts = [3, 4].map((i) => dot(RX, rowY[i], "s3-port-fresh", 8));
           const anchorDot = dot(anchor.x, anchor.y, "s3-port", 10);
-          tl.fromTo(anchorDot, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, at("inputs", 1, -0.25));
+          tl.fromTo(anchorDot, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, at("exactly", 1, -0.1));
 
           const reveal = (i, t) => {
             FILM.drawThread(tl, paths[i], t, { duration: 0.5, ease: "power2.inOut" });
             tl.fromTo(ports[i], { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, t + 0.42);
             tl.fromTo(`#s3-r${i}`, { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.45, ease: FILM.ease }, t + 0.38);
           };
-          const tIn = at("inputs", 1, -0.1);
+          const tIn = at("inputs", 1, -0.25);
           tl.fromTo("#s3-in-label", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, tIn);
-          [0, 1, 2].forEach((i) => reveal(i, tIn + i * 0.24));
-          const tCalc = at("calculation", 1, -0.1);
-          tl.fromTo("#s3-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: FILM.ease }, tCalc - 0.1);
-          tl.fromTo("#s3-calc-label", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, tCalc);
-          [3, 4].forEach((i, k) => reveal(i, tCalc + k * 0.24));
+          [0, 1, 2].forEach((i) => reveal(i, tIn + i * 0.2));
+          const tTool = at("tool", 1, -0.2);
+          tl.fromTo("#s3-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: FILM.ease }, tTool - 0.1);
+          tl.fromTo("#s3-tool-label", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, tTool);
+          [3, 4].forEach((i, k) => reveal(i, tTool + k * 0.2));
+          tl.fromTo(["#s3-strike", "#s3-newbox"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
 
-          /* ---------- 3c "So it knows what to hold back, and what to redo" ---------- */
-          const tKnow = at("knows", 1, -0.05);
-          tl.fromTo("#s3-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, tKnow);
-          tl.fromTo("#s3-old", { color: tok("--ink") }, { color: tok("--faint"), duration: 0.25, ease: "none" }, tKnow);
-          tl.fromTo("#s3-newbox", { width: 0 }, { width: 64, duration: 0.4, ease: FILM.ease }, tKnow + 0.15);
-          tl.fromTo("#s3-new", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: FILM.ease }, tKnow + 0.2);
-          tl.fromTo(hotPort, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, tKnow + 0.25);
-          // the change runs back up its thread to the figure
-          FILM.drawThread(tl, hotPath, tKnow + 0.3, { duration: 0.6, ease: "power1.inOut", reverse: true });
-          FILM.pulseAlong(tl, hotPath, "#s3-pulse", tKnow + 0.3, { duration: 0.6, reverse: true, ease: "power1.inOut" });
-          tl.fromTo("#s3-pulse-gate", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, tKnow + 0.3);
-          tl.fromTo("#s3-pulse-gate", { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none", immediateRender: false }, tKnow + 0.91);
-          const tHold = at("hold", 1, -0.05);
-          FILM.withhold(tl, "#s3-fig", tHold);
-          tl.fromTo("#s3-withheld", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.45, ease: FILM.ease }, tHold + 0.1);
-          const tRedo = at("redo", 1, -0.05);
-          freshPorts.forEach((p, k) => tl.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, tRedo + k * 0.08));
-          tl.fromTo("#s3-refresh", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.45, ease: FILM.ease }, tRedo + 0.1);
+          /* ---------- 3c "So when something changes, the agent gets exactly what broke. Nothing more." ---------- */
+          const tChange = at("changes", 1, -0.1);
+          tl.fromTo("#s3-strike", { opacity: 1, scaleX: 0, transformOrigin: "0% 50%" }, { opacity: 1, scaleX: 1, duration: 0.25, ease: "power2.out", immediateRender: false }, tChange);
+          tl.fromTo("#s3-old", { color: tok("--ink") }, { color: tok("--faint"), duration: 0.25, ease: "none" }, tChange);
+          tl.fromTo("#s3-newbox", { opacity: 1, width: 0 }, { opacity: 1, width: 64, duration: 0.4, ease: FILM.ease, immediateRender: false }, tChange + 0.15);
+          tl.fromTo("#s3-new", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: FILM.ease }, tChange + 0.2);
+          tl.fromTo(hotPort, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, tChange + 0.25);
+          FILM.drawThread(tl, hotPath, tChange + 0.3, { duration: 0.55, ease: "power1.inOut", reverse: true });
+          FILM.pulseAlong(tl, hotPath, "#s3-pulse", tChange + 0.3, { duration: 0.55, reverse: true, ease: "power1.inOut" });
+          tl.fromTo("#s3-pulse-gate", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, tChange + 0.3);
+          tl.fromTo("#s3-pulse-gate", { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none", immediateRender: false }, tChange + 0.86);
+
+          // "the agent gets": the receipt view gives way to the whole network from s2, dimmed
+          const tAgent = at("agent", 1, -0.2);
+          tl.fromTo("#s3-b", { opacity: 1, x: 0 }, { opacity: 0, x: -60, duration: 0.45, ease: "power2.in" }, tAgent);
+          const N = {
+            refunds: { x: 230, y: 800, w: 170, h: 60, src: true, html: "Refunds" },
+            orders: { x: 470, y: 800, w: 170, h: 60, src: true, html: "Orders" },
+            eur: { x: 720, y: 800, w: 250, h: 60, src: true, html: 'EUR→USD <span class="is-stale">1.20</span>' },
+            regions: { x: 1040, y: 800, w: 170, h: 60, src: true, html: "Regions" },
+            tickets: { x: 1420, y: 800, w: 170, h: 60, src: true, html: "Tickets" },
+            refundTotal: { x: 300, y: 650, w: 200, h: 60, html: "Refund total" },
+            regional: { x: 770, y: 650, w: 220, h: 60, html: "Regional USD" },
+            support: { x: 1170, y: 650, w: 170, h: 60, html: "Support" },
+            response: { x: 1440, y: 650, w: 230, h: 60, html: "Response rate" },
+            company: { x: 470, y: 480, w: 280, h: 90, html: "Company total", fig: "$5,565" },
+            eu: { x: 960, y: 480, w: 220, h: 90, html: "EU brief", fig: "$2,090" },
+            review: { x: 1440, y: 480, w: 240, h: 90, html: "Rate review", fig: "94%" },
+            deck: { x: 500, y: 330, w: 220, h: 64, html: "Board deck" },
+            weekly: { x: 1180, y: 330, w: 220, h: 64, html: "Weekly recap" },
+          };
+          const E = [
+            ["refunds", "refundTotal"], ["orders", "regional"], ["eur", "regional"], ["regions", "regional"],
+            ["tickets", "support"], ["tickets", "response"], ["refundTotal", "company"], ["regional", "company"],
+            ["regional", "eu"], ["support", "eu"], ["response", "review"], ["company", "deck"], ["eu", "weekly"], ["review", "weekly"],
+          ];
+          // the exact slice, and where each part lands in the agent's context window
+          const SLICE = {
+            deck: { x: 1235, y: 312 },
+            weekly: { x: 1530, y: 312 },
+            company: { x: 1205, y: 440 },
+            eu: { x: 1530, y: 440 },
+            regional: { x: 1370, y: 600 },
+            eur: { x: 1355, y: 730 },
+          };
+          const world = document.getElementById("s3-world");
+          const sliceHost = document.getElementById("s3-slice");
+          const edgeSvg = document.getElementById("s3-edges");
+          const sliceSvg = document.getElementById("s3-sthreads");
+          for (const [id, n] of Object.entries(N)) {
+            const el = document.createElement("div");
+            el.id = `s3-n-${id}`;
+            el.className = `node s3-n${n.src ? " source" : ""}`;
+            el.style.cssText = `left:${n.x}px;top:${n.y}px;width:${n.w}px;height:${n.h}px;`;
+            el.innerHTML = `<span class="node-sub">${n.html}</span>` + (n.fig ? `<span class="node-title">${n.fig}</span>` : "");
+            (SLICE[id] ? sliceHost : world).appendChild(el);
+            n.el = el;
+          }
+          const inSlice = (id) => !!SLICE[id];
+          // edges inside the slice sit with the slice (full strength); the rest stay in the dimmed world
+          const sliceEdgeSvg = document.createElementNS(SVGNS, "svg");
+          sliceEdgeSvg.setAttribute("class", "threads");
+          sliceEdgeSvg.setAttribute("viewBox", "0 0 1920 1080");
+          sliceHost.prepend(sliceEdgeSvg);
+          const worldEdges = E.map(([a, b]) => {
+            const both = inSlice(a) && inSlice(b);
+            return { a, b, el: svgPath(both ? sliceEdgeSvg : edgeSvg, edgeD(N[a], N[b]), both ? "stale" : "base") };
+          });
+          const tNet = tAgent + 0.3;
+          tl.fromTo(world, { opacity: 0 }, { opacity: 0.32, duration: 0.5, ease: "power1.out" }, tNet);
+          tl.fromTo(sliceHost, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.out" }, tNet);
+          for (const id of Object.keys(SLICE)) {
+            tl.fromTo(N[id].el, { borderColor: tok("--rule") }, { borderColor: tok("--stale"), duration: 0.3, ease: "none" }, tNet + 0.2);
+          }
+          // "exactly what broke": the slice lifts out into the agent's context; the rest slides away, dark
+          const tLift = at("exactly", 2, -0.15);
+          const LIFT = 1.0;
+          tl.fromTo(world, { x: 0 }, { x: -560, duration: LIFT + 0.2, ease: "power3.inOut" }, tLift);
+          tl.fromTo(world, { opacity: 0.32 }, { opacity: 0.2, duration: LIFT, ease: "power1.inOut", immediateRender: false }, tLift);
+          worldEdges.forEach((e) => {
+            if (inSlice(e.a) || inSlice(e.b)) tl.fromTo(e.el, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "none" }, tLift);
+          });
+          tl.fromTo("#s3-win", { opacity: 0, clipPath: "inset(100% 0 0 0 round 18px)" }, { opacity: 1, clipPath: "inset(0% 0 0 0 round 18px)", duration: 0.7, ease: FILM.ease }, tLift + 0.2);
+          tl.fromTo("#s3-win-label", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.45, ease: FILM.ease }, tLift + 0.8);
+          Object.entries(SLICE).forEach(([id, to], i) => {
+            const n = N[id];
+            tl.fromTo(n.el, { x: 0, y: 0 }, { x: to.x - n.x, y: to.y - n.y, duration: LIFT, ease: "power3.inOut" }, tLift + 0.1 + i * 0.04);
+          });
+          // its threads redraw inside the window, from the rate up
+          const placed = (id) => ({ ...N[id], x: SLICE[id].x, y: SLICE[id].y });
+          const sliceEdges = [["eur", "regional", 0], ["regional", "company", 1], ["regional", "eu", 1], ["company", "deck", 2], ["eu", "weekly", 2]];
+          sliceEdges.forEach(([a, b, hop]) => {
+            const p = svgPath(sliceSvg, edgeD(placed(a), placed(b)), "stale");
+            FILM.drawThread(tl, p, tLift + LIFT + 0.1 + hop * 0.22, { duration: 0.35, ease: "power1.inOut" });
+          });
+          // "Nothing more": the window closes around exactly that; the rest stays dark
+          const tMore = at("Nothing", 1, -0.05);
+          tl.fromTo(world, { opacity: 0.2 }, { opacity: 0.12, duration: 0.6, ease: "power1.out", immediateRender: false }, tMore);
+          FILM.outline(tl, "#s3-slice", { x: 1180, y: 228, w: 620, h: 600 }, tMore, { grow: 0, radius: 18, duration: 0.6 });
 
           window.__timelines["s3-idea"] = tl;
         })();

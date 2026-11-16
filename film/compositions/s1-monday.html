@@ -1,7 +1,10 @@
 <!doctype html>
-<!-- ProofFlow film, s1 "Monday" (the hook). A saved report states a confident figure; its lineage thread hangs
-     down to nothing; Tuesday the rate is corrected below it, the change climbs its own stub and dies in the gap.
-     The last frame is drawn again, identically, as s2's first frame (shared constants marked SHARED). -->
+<!-- ProofFlow film, s1 "Two bad options" (the hook). One input changes; an AI agent faces a network it cannot see
+     into. "Two options": the frame forks into two lanes (the product page's "Today's fixes are heavy or blind").
+     Left, re-read everything: a torrent of document lines floods an agent context window, the token meter pegs and
+     the cost ticks, twice. Right, search for what looks related: a beam lights the two nodes that say "rate"; the
+     total that really depends on the rate stays dark and is marked Missed. The end frame (the two lanes) is drawn
+     again, identically, as s2's first frame: the block marked SHARED is copied into s2 with the prefix changed. -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,105 +18,264 @@
           overflow: hidden;
           background: var(--ground);
         }
-        /* SHARED with s2: every position in this block */
-        .s1-head {
-          position: absolute;
-          left: 120px;
-          top: 96px;
-          white-space: nowrap;
-          color: var(--ink);
-          --s1-w: 125;
-          font-variation-settings: "wdth" var(--s1-w);
-        }
-        .s1-card {
-          left: 880px;
-          top: 260px;
-          width: 720px;
-          height: 380px;
-        }
-        .s1-card-label {
-          position: absolute;
-          left: 48px;
-          top: 42px;
-          white-space: nowrap;
-        }
-        .s1-fig {
-          position: absolute;
-          left: 44px;
-          top: 100px;
-          white-space: nowrap;
-        }
-        .s1-saved {
-          position: absolute;
-          left: 48px;
-          top: 284px;
-        }
-        .s1-trace {
-          position: absolute;
-          left: 880px;
-          top: 260px;
-          width: 720px;
-          height: 380px;
-          overflow: visible;
-        }
-        .s1-trace rect {
-          fill: none;
-          stroke: var(--thread);
-          stroke-width: 3;
-        }
-        .s1-threads circle {
-          stroke-width: 4;
-        }
-        .s1-threads .s1-anchor {
-          fill: var(--thread);
-        }
-        .s1-threads .s1-ring {
-          fill: var(--ground);
-          stroke: var(--thread);
-        }
-        .s1-threads .s1-ring-hot {
-          fill: var(--ground);
-          stroke: var(--stale);
-        }
-        .s1-threads path.s1-stub {
-          stroke: var(--rule);
-        }
+        /* ---------- 1a: the input chip and the opaque network ---------- */
         .s1-chip {
           position: absolute;
-          left: 1150px;
-          top: 880px;
+          left: 200px;
+          top: 684px;
+          width: 340px;
           height: 88px;
           box-sizing: border-box;
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: 18px;
-          padding: 0 34px 0 30px;
           border-radius: 999px;
           background: var(--panel);
-          border: 3px solid var(--stale);
+          border: 3px solid var(--thread);
           white-space: nowrap;
+          z-index: 2;
         }
         .s1-chip-name {
           color: var(--ink);
         }
-        .s1-num {
+        .s1-flip {
           position: relative;
           display: inline-block;
-          width: 104px;
-          overflow: visible;
+          width: 100px;
+          height: 52px;
+          overflow: hidden;
         }
-        .s1-old {
-          color: var(--faint);
-        }
-        .s1-strike {
+        .s1-flip > span {
           position: absolute;
-          left: -6px;
-          width: 112px;
-          top: 23px;
-          height: 4px;
-          border-radius: 2px;
-          background: var(--stale);
-          transform-origin: left center;
+          left: 0;
+          top: 0;
+          line-height: 52px;
+        }
+        .s1-bn {
+          position: absolute;
+          box-sizing: border-box;
+          border-radius: 14px;
+          background: var(--panel);
+          border: 3px solid var(--rule);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 10px;
+          padding: 0 22px;
+        }
+        .s1-bn i {
+          display: block;
+          height: 8px;
+          border-radius: 4px;
+          background: var(--hairline);
+        }
+        .s1-sight line {
+          stroke: var(--faint);
+          stroke-width: 2;
+          stroke-dasharray: 8 10;
+        }
+        .s1-agent {
+          z-index: 3;
+          align-items: center;
+          text-align: center;
+        }
+        .s1-agent .node-title {
+          white-space: nowrap;
+        }
+
+        /* ---------- SHARED with s2 (prefix s1 -> s2): the two lanes ---------- */
+        .s1-lrule {
+          position: absolute;
+          top: 300px;
+          width: 780px;
+          height: 2px;
+          background: var(--rule);
+        }
+        .s1-divider {
+          position: absolute;
+          left: 959px;
+          top: 300px;
+          width: 2px;
+          height: 684px;
+          background: var(--hairline);
+        }
+        .s1-lname {
+          position: absolute;
+          top: 324px;
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          white-space: nowrap;
+          color: var(--ink);
+        }
+        .s1-icon {
+          width: 40px;
+          height: 40px;
+          flex: none;
+        }
+        .s1-icon path,
+        .s1-icon circle,
+        .s1-icon line,
+        .s1-icon rect {
+          fill: none;
+          stroke: var(--muted);
+          stroke-width: 3;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+        .s1-doc {
+          position: absolute;
+          box-sizing: border-box;
+          width: 200px;
+          height: 250px;
+          padding: 30px 24px;
+          border-radius: 12px;
+          background: var(--panel);
+          border: 2px solid var(--rule);
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .s1-doc i {
+          display: block;
+          height: 9px;
+          border-radius: 5px;
+          background: var(--hairline);
+        }
+        .s1-win {
+          left: 160px;
+          top: 450px;
+          width: 400px;
+          height: 350px;
+        }
+        .s1-row {
+          position: absolute;
+          left: 182px;
+          width: 356px;
+          height: 10px;
+        }
+        .s1-bar {
+          position: absolute;
+          top: 0;
+          height: 10px;
+          border-radius: 5px;
+          background: var(--muted);
+        }
+        .s1-cap {
+          position: absolute;
+          white-space: nowrap;
+        }
+        .s1-seg {
+          position: absolute;
+          top: 906px;
+          width: 14px;
+          height: 40px;
+          border-radius: 4px;
+          background: var(--hairline);
+          overflow: hidden;
+        }
+        .s1-seg i {
+          position: absolute;
+          inset: 0;
+          background: var(--thread);
+        }
+        .s1-dollar {
+          position: absolute;
+          top: 900px;
+          font-family: var(--font-display);
+          font-weight: 800;
+          font-size: 44px;
+          line-height: 1;
+          font-variation-settings: "wdth" 100;
+          color: var(--ink);
+        }
+        .s1-pill {
+          position: absolute;
+          left: 1020px;
+          top: 396px;
+          width: 440px;
+          height: 64px;
+          box-sizing: border-box;
+          border-radius: 999px;
+          background: var(--panel);
+          border: 2px solid var(--rule);
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          padding: 0 26px;
+        }
+        .s1-pill svg {
+          width: 30px;
+          height: 30px;
+          flex: none;
+        }
+        .s1-pill svg circle,
+        .s1-pill svg line {
+          fill: none;
+          stroke: var(--muted);
+          stroke-width: 3;
+          stroke-linecap: round;
+        }
+        .s1-query {
+          white-space: pre;
+        }
+        .s1-n {
+          padding: 0 14px;
+          align-items: center;
+          text-align: center;
+          gap: 0;
+          border-color: var(--rule);
+        }
+        .s1-n.source {
+          border-color: var(--thread);
+          align-items: flex-start;
+          padding-left: 20px;
+        }
+        .s1-n.s1-hot {
+          border-color: var(--stale);
+        }
+        .s1-n .node-sub {
+          color: var(--ink);
+          white-space: nowrap;
+        }
+        .s1-n .node-title {
+          white-space: nowrap;
+        }
+        .s1-vflip {
+          position: relative;
+          display: inline-block;
+          width: 50px;
+          height: 30px;
+          overflow: hidden;
+          vertical-align: bottom;
+        }
+        .s1-vflip > span {
+          position: absolute;
+          left: 0;
+          top: 0;
+          line-height: 30px;
+        }
+        .s1-v-old {
+          opacity: 0;
+        }
+        .s1-hit {
+          color: var(--thread-strong);
+        }
+        .s1-beam {
+          position: absolute;
+          left: 1004px;
+          top: 0;
+          width: 812px;
+          height: 3px;
+          background: var(--thread-strong);
+          z-index: 4;
+        }
+        .s1-missed {
+          position: absolute;
+          left: 1362px;
+          top: 509px;
+          z-index: 6;
         }
         .s1-gate {
           position: absolute;
@@ -123,115 +285,329 @@
           height: 1080px;
           pointer-events: none;
         }
-        .s1-newbox {
-          display: inline-block;
-          width: 104px;
-          overflow: hidden;
-        }
       </style>
 
-      <div id="root" data-composition-id="s1-monday" data-width="1920" data-height="1080" data-duration="21.2">
-        <h1 id="s1-monday" class="s1-head t-head">Monday.</h1>
-        <h1 id="s1-tuesday" class="s1-head t-head">Tuesday.</h1>
-
-        <div id="s1-card" class="panel s1-card">
-          <p id="s1-card-label" class="t-label s1-card-label">Company weekly report</p>
-          <div id="s1-fig" class="fig s1-fig"><span class="fig-v">$5,565</span><span class="withheld-hatch"></span></div>
-          <span id="s1-saved" class="tag tag-current s1-saved">Saved by your agent</span>
+      <div id="root" data-composition-id="s1-monday" data-width="1920" data-height="1080" data-duration="21.4">
+        <!-- 1a: one input, an opaque network, the agent -->
+        <div id="s1-a" class="s1-gate">
+          <svg id="s1-sight" class="threads s1-sight" viewBox="0 0 1920 1080">
+            <line id="s1-sight-a" x1="1436" y1="490" x2="1190" y2="232" />
+            <line id="s1-sight-b" x1="1436" y1="490" x2="1190" y2="796" />
+          </svg>
+          <svg id="s1-bthreads" class="threads" viewBox="0 0 1920 1080"></svg>
+          <div id="s1-bnet"></div>
+          <div id="s1-chip" class="s1-chip">
+            <span class="t-label s1-chip-name">EUR→USD</span>
+            <span class="s1-flip"><span id="s1-old" class="t-sub-s ink">1.10</span><span id="s1-new" class="t-sub-s is-stale">1.20</span></span>
+          </div>
         </div>
-        <svg id="s1-trace" class="s1-trace" viewBox="0 0 720 380">
-          <rect id="s1-trace-rect" x="0" y="0" width="720" height="380" rx="18" />
-        </svg>
-
-        <div id="s1-chip" class="s1-chip">
-          <span class="t-label s1-chip-name">EUR→USD</span>
-          <span class="s1-num"><span id="s1-old" class="t-sub-s s1-old">1.10</span><span id="s1-strike" class="s1-strike"></span></span>
-          <span id="s1-newbox" class="s1-newbox"><span id="s1-new" class="t-sub-s is-stale">1.20</span></span>
-        </div>
-
-        <svg class="threads s1-threads" viewBox="0 0 1920 1080">
-          <path id="s1-thread" d="M1380 512 V1120" />
-          <path id="s1-stub" class="s1-stub" d="M1380 880 V800" />
-          <path id="s1-stub-hot" class="stale" d="M1380 880 V800" />
-          <circle id="s1-anchor" class="s1-anchor" cx="1380" cy="512" r="9" />
-          <circle id="s1-ring-a" class="s1-ring" cx="1380" cy="720" r="9" />
-          <circle id="s1-ring-a-hot" class="s1-ring-hot" cx="1380" cy="720" r="9" />
-          <circle id="s1-ring-b" class="s1-ring" cx="1380" cy="800" r="9" />
-          <circle id="s1-ring-b-hot" class="s1-ring-hot" cx="1380" cy="800" r="9" />
-        </svg>
-        <!-- the gate keeps the pulse dark outside its own run (pulseAlong's fade-out renders immediately) -->
         <div id="s1-pulse-gate" class="s1-gate"><div id="s1-pulse" class="pulse"></div></div>
+
+        <!-- the two lanes (SHARED end frame) -->
+        <div id="s1-duel" class="s1-gate"></div>
       </div>
 
       <script>
         (() => {
           const S = "s1";
           const tl = gsap.timeline({ paused: true });
-          const root = getComputedStyle(document.documentElement);
-          const tok = (name) => root.getPropertyValue(name).trim();
+          const rootStyle = getComputedStyle(document.documentElement);
+          const tok = (name) => rootStyle.getPropertyValue(name).trim();
           const at = (text, nth = 1, offset = 0) => FILM.at(S, text, nth, offset);
           const atEnd = (text, nth = 1, offset = 0) => FILM.atEnd(S, text, nth, offset);
           const L = { a: FILM.line("1a"), b: FILM.line("1b"), c: FILM.line("1c"), d: FILM.line("1d") };
-          const usd = (v) => "$" + Math.round(v).toLocaleString("en-US");
+          const SVGNS = "http://www.w3.org/2000/svg";
+          const cx = (n) => n.x + n.w / 2;
+          const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+          /** A lineage edge from a lower node's top to an upper node's bottom, ports leaning toward each other. */
+          const edgeD = (a, b) => {
+            const x1 = clamp(cx(a) + (cx(b) - cx(a)) * 0.22, a.x + 22, a.x + a.w - 22);
+            const x2 = clamp(cx(b) + (cx(a) - cx(b)) * 0.22, b.x + 22, b.x + b.w - 22);
+            const y1 = a.y, y2 = b.y + b.h, my = (y1 + y2) / 2;
+            return `M${x1} ${y1} C${x1} ${my} ${x2} ${my} ${x2} ${y2}`;
+          };
+          const svgPath = (svg, d, cls) => {
+            const p = document.createElementNS(SVGNS, "path");
+            p.setAttribute("d", d);
+            if (cls) p.setAttribute("class", cls);
+            svg.appendChild(p);
+            return p;
+          };
 
-          // 1a "Monday." stretches in on its own word, at final size (Anybody width 60 -> 125).
-          const tMon = Math.max(0, at("Monday", 1, -0.12));
-          tl.fromTo("#s1-monday", { "--s1-w": 60, opacity: 0 }, { "--s1-w": 125, opacity: 1, duration: 0.8, ease: "expo.out" }, tMon);
-          tl.fromTo("#s1-tuesday", { "--s1-w": 60, opacity: 0 }, { "--s1-w": 60, opacity: 0, duration: 0.01 }, 0);
+          /* ================= SHARED with s2: the two lanes, built at their final state ================= */
+          const buildDuel = (P, host) => {
+            const add = (tag, cls, css, html) => {
+              const el = document.createElement(tag);
+              if (cls) el.className = cls;
+              if (css) el.style.cssText = css;
+              if (html != null) el.innerHTML = html;
+              host.appendChild(el);
+              return el;
+            };
+            const R = {};
+            // the agent at the top, forking into two lanes
+            R.fork = document.createElementNS(SVGNS, "svg");
+            R.fork.setAttribute("class", "threads");
+            R.fork.setAttribute("viewBox", "0 0 1920 1080");
+            host.appendChild(R.fork);
+            R.forkL = svgPath(R.fork, "M960 196 C960 262 510 236 510 300");
+            R.forkR = svgPath(R.fork, "M960 196 C960 262 1410 236 1410 300");
+            R.agent = add("div", `node pill ${P}-agent`, "left:820px;top:96px;width:280px;height:100px;", '<span class="node-title">AI agent</span>');
+            R.ruleL = add("div", `${P}-lrule`, "left:120px;");
+            R.ruleR = add("div", `${P}-lrule`, "left:1020px;");
+            R.divider = add("div", `${P}-divider`);
 
-          // "saves": the report is saved — its outline traces on, then the panel commits under it.
-          const tSave = at("saves", 1, -0.05);
-          FILM.drawThread(tl, "#s1-trace-rect", tSave, { duration: 0.6, ease: "power2.inOut" });
-          tl.fromTo("#s1-card", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power1.out" }, tSave + 0.45);
-          tl.fromTo("#s1-trace", { opacity: 1 }, { opacity: 0, duration: 0.4, ease: "power1.out" }, tSave + 0.75);
-          tl.fromTo("#s1-card-label", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.5, ease: FILM.ease }, tSave + 0.5);
-          // "report": the agent's stamp.
-          tl.fromTo("#s1-saved", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, atEnd("report", 1, 0.02));
+            // ---- left lane: re-read everything ----
+            R.nameL = add("div", `${P}-lname`, "left:120px;",
+              `<svg class="${P}-icon" viewBox="0 0 40 40"><rect x="9" y="4" width="22" height="28" rx="3" /><path d="M4 10 V36 H26" /></svg><span class="t-sub-s">Re-read everything</span>`);
+            R.docs = [];
+            for (let i = 0; i < 5; i += 1) {
+              const bars = [0.9, 0.7, 0.85, 0.6, 0.8, 0.5, 0.75].map((w) => `<i style="width:${w * 100}%"></i>`).join("");
+              R.docs.push(add("div", `${P}-doc`, `left:${640 + (4 - i) * 14}px;top:${500 - (4 - i) * 14}px;`, bars));
+            }
+            R.win = add("div", `panel ${P}-win`);
+            R.winLabel = add("p", `t-small ${P}-cap`, "left:160px;top:812px;", "Agent context");
+            let seed = 11;
+            const rnd = () => {
+              seed = (seed * 16807) % 2147483647;
+              return (seed - 1) / 2147483646;
+            };
+            R.rows = [];
+            for (let i = 0; i < 20; i += 1) {
+              const row = add("div", `${P}-row`, `top:${776 - i * 20}px;`);
+              let x = 0;
+              const segs = 1 + Math.floor(rnd() * 3);
+              const total = 170 + rnd() * 186;
+              for (let s = 0; s < segs; s += 1) {
+                const w = Math.max(36, total / segs - 12 + (rnd() - 0.5) * 40);
+                if (x + w > 356) break;
+                const bar = document.createElement("span");
+                bar.className = `${P}-bar`;
+                bar.style.left = `${x}px`;
+                bar.style.width = `${w}px`;
+                row.appendChild(bar);
+                x += w + 12;
+              }
+              R.rows.push(row);
+            }
+            const meter = (left, filled, dollars) => {
+              const out = { segs: [], dollars: [] };
+              out.tokLabel = add("p", `t-small ${P}-cap`, `left:${left}px;top:866px;`, "Tokens");
+              for (let i = 0; i < 13; i += 1) {
+                const seg = add("div", `${P}-seg`, `left:${left + i * 20}px;`, i < filled ? "<i></i>" : "");
+                out.segs.push(seg);
+              }
+              out.costLabel = add("p", `t-small ${P}-cap`, `left:${left + 300}px;top:866px;`, "Cost");
+              for (let i = 0; i < dollars; i += 1) out.dollars.push(add("span", `${P}-dollar`, `left:${left + 300 + i * 35}px;`, "$"));
+              return out;
+            };
+            R.meterL = meter(120, 13, 8);
+            R.accurate = add("span", `tag tag-current ${P}-cap`, "left:712px;top:900px;", "Accurate");
 
-          // 1b the figure: "Company revenue" -> $0 appears; counts from "five" and lands as "dollars" ends.
-          tl.fromTo("#s1-fig", { opacity: 0, "--wdth": 70 }, { opacity: 1, "--wdth": 125, duration: 0.6, ease: "expo.out" }, L.b.localStart);
-          const tFive = at("five");
-          FILM.countTo(tl, "#s1-fig .fig-v", 0, 5565, tFive, {
-            duration: Math.max(0.6, atEnd("dollars") - tFive),
-            ease: "power2.inOut",
-            format: usd,
+            // ---- right lane: search for what looks related ----
+            R.nameR = add("div", `${P}-lname`, "left:1020px;",
+              `<svg class="${P}-icon" viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" /><line x1="25" y1="25" x2="35" y2="35" /></svg><span class="t-sub-s">Search what looks related</span>`);
+            R.pill = add("div", `${P}-pill`, "",
+              `<svg viewBox="0 0 30 30"><circle cx="12" cy="12" r="8.5" /><line x1="18.5" y1="18.5" x2="27" y2="27" /></svg><span class="t-mono ${P}-query">exchange rate</span>`);
+            R.query = R.pill.lastElementChild;
+            R.thr = document.createElementNS(SVGNS, "svg");
+            R.thr.setAttribute("class", "threads");
+            R.thr.setAttribute("viewBox", "0 0 1920 1080");
+            host.appendChild(R.thr);
+            R.net = {
+              orders: { x: 1020, y: 780, w: 170, h: 60, src: true, html: "Orders" },
+              eur: { x: 1230, y: 780, w: 250, h: 60, src: true, hot: true, html: `EUR→USD <span class="${P}-vflip"><span class="${P}-v-old ink">1.10</span><span class="${P}-v-new is-stale">1.20</span></span>` },
+              tickets: { x: 1590, y: 780, w: 170, h: 60, src: true, html: "Tickets" },
+              regional: { x: 1090, y: 640, w: 220, h: 60, html: "Regional USD" },
+              response: { x: 1550, y: 640, w: 230, h: 60, html: `Response <span class="${P}-hw">rate</span>` },
+              company: { x: 1060, y: 490, w: 280, h: 90, html: "Company total", fig: "$5,565" },
+              review: { x: 1540, y: 490, w: 240, h: 90, html: `<span class="${P}-hw">Rate</span> review`, fig: "94%" },
+            };
+            R.netEdges = [["orders", "regional"], ["eur", "regional"], ["tickets", "response"], ["regional", "company"], ["response", "review"]];
+            for (const [id, n] of Object.entries(R.net)) {
+              n.el = add("div", `node ${P}-n${n.src ? " source" : ""}${n.hot ? ` ${P}-hot` : ""}`,
+                `left:${n.x}px;top:${n.y}px;width:${n.w}px;height:${n.h}px;`,
+                `<span class="node-sub">${n.html}</span>` + (n.fig ? `<span class="node-title">${n.fig}</span>` : ""));
+              n.el.id = `${P}-rn-${id}`;
+            }
+            R.edgeEls = R.netEdges.map(([a, b]) => svgPath(R.thr, edgeD(R.net[a], R.net[b]), "base"));
+            R.hits = [...host.getElementsByClassName(P + "-hw")];
+            R.hits.forEach((h) => h.classList.add(`${P}-hit`));
+            R.beam = add("div", `${P}-beam`);
+            R.missed = add("span", `tag tag-stale ${P}-missed`, "", "Missed");
+            R.meterR = meter(1020, 2, 1);
+            const box = (n) => ({ x: n.x, y: n.y, w: n.w, h: n.h });
+            R.found = [box(R.net.review), box(R.net.response)];
+            R.miss = box(R.net.company);
+            return R;
+          };
+          /* ================= end SHARED ================= */
+
+          /* ---------- 1a: the opaque network ---------- */
+          const chip = document.getElementById("s1-chip");
+          const CHIP = { x: 200, y: 684, w: 340, h: 88 };
+          const BN = [
+            { x: 600, y: 700, w: 150, h: 56 }, { x: 800, y: 700, w: 150, h: 56 }, { x: 1000, y: 700, w: 150, h: 56 },
+            { x: 460, y: 545, w: 170, h: 60 }, { x: 700, y: 545, w: 170, h: 60 }, { x: 940, y: 545, w: 170, h: 60 },
+            { x: 560, y: 390, w: 200, h: 70 }, { x: 840, y: 390, w: 200, h: 70 },
+            { x: 690, y: 240, w: 220, h: 70 },
+          ];
+          const BE = [["c", 3], ["c", 4], [0, 4], [1, 4], [1, 5], [2, 5], [3, 6], [4, 6], [4, 7], [5, 7], [6, 8], [7, 8]];
+          const bnHost = document.getElementById("s1-bnet");
+          const bthreads = document.getElementById("s1-bthreads");
+          BN.forEach((n, i) => {
+            const el = document.createElement("div");
+            el.className = "s1-bn";
+            el.style.cssText = `left:${n.x}px;top:${n.y}px;width:${n.w}px;height:${n.h}px;`;
+            const lines = n.h >= 70 ? [0.8, 0.5] : [0.7];
+            el.innerHTML = lines.map((w) => `<i style="width:${w * 100}%"></i>`).join("");
+            bnHost.appendChild(el);
+            n.el = el;
+            n.i = i;
           });
-          // the lineage we cannot see yet: a thread hangs from the figure down off the frame
-          const tThread = at("hundred", 1, 0.1);
-          tl.fromTo("#s1-anchor", { opacity: 0, scale: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, tThread);
-          FILM.drawThread(tl, "#s1-thread", tThread + 0.1, { duration: 1.2, ease: "power2.inOut" });
+          const nodeOf = (k) => (k === "c" ? CHIP : BN[k]);
+          const bEdges = BE.map(([a, b]) => ({ a, b, el: svgPath(bthreads, edgeD(nodeOf(a), nodeOf(b)), "base") }));
+          const hotEdge = svgPath(bthreads, edgeD(CHIP, BN[4]), "stale");
 
-          // 1c "Tuesday": Monday narrows out, Tuesday stretches in.
-          const tTue = at("Tuesday", 1, -0.05);
-          tl.fromTo("#s1-monday", { "--s1-w": 125, opacity: 1 }, { "--s1-w": 50, opacity: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, tTue);
-          tl.fromTo("#s1-tuesday", { "--s1-w": 60, opacity: 0 }, { "--s1-w": 125, opacity: 1, duration: 0.8, ease: "expo.out", immediateRender: false }, tTue + 0.22);
-          // the thread pulls back up to an open end; the rate rises in underneath it — near, not joined
-          tl.fromTo("#s1-thread", { attr: { "stroke-dashoffset": 0 } }, { attr: { "stroke-dashoffset": 0.658 }, duration: 0.7, ease: "power3.inOut", immediateRender: false }, tTue + 0.1);
-          tl.fromTo("#s1-ring-a", { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, tTue + 0.7);
-          tl.fromTo("#s1-chip", { opacity: 0, y: 150 }, { opacity: 1, y: 0, duration: 0.8, ease: "expo.out" }, tTue + 0.3);
-          tl.fromTo("#s1-chip", { borderColor: tok("--rule") }, { borderColor: tok("--rule"), duration: 0.01 }, 0);
-          FILM.drawThread(tl, "#s1-stub", tTue + 0.85, { duration: 0.45, ease: "power2.out" });
-          tl.fromTo("#s1-ring-b", { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, tTue + 1.2);
+          /* ---------- the lanes ---------- */
+          const R = buildDuel("s1", document.getElementById("s1-duel"));
+          const AGENT_A = { x: 1440, y: 440 }; // the agent's place in 1a (it glides to the top on "Today")
+          R.agent.style.zIndex = "3";
 
-          // "corrects": 1.10 is struck, 1.20 arrives in orange, the chip's border turns orange.
-          const tFix = at("corrects", 1, 0.05);
-          tl.fromTo("#s1-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, tFix);
-          tl.fromTo("#s1-old", { color: tok("--ink") }, { color: tok("--faint"), duration: 0.3, ease: "power1.out" }, tFix);
-          tl.fromTo("#s1-newbox", { width: 0 }, { width: 104, duration: 0.55, ease: FILM.ease }, tFix + 0.25);
-          tl.fromTo("#s1-new", { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.5, ease: FILM.ease }, tFix + 0.35);
-          tl.fromTo("#s1-chip", { borderColor: tok("--rule") }, { borderColor: tok("--stale"), duration: 0.35, ease: "power1.out", immediateRender: false }, tFix + 0.3);
+          // ---- 1a "One input changes." ----
+          const tOne = at("One", 1, -0.1);
+          tl.fromTo(chip, { opacity: 0, x: 960 - (CHIP.x + CHIP.w / 2), y: 540 - (CHIP.y + CHIP.h / 2) },
+            { opacity: 1, x: 960 - (CHIP.x + CHIP.w / 2), y: 540 - (CHIP.y + CHIP.h / 2), duration: 0.5, ease: "power2.out" }, tOne);
+          tl.fromTo(chip, { clipPath: "inset(0 50% 0 50% round 44px)" }, { clipPath: "inset(0 0% 0 0% round 44px)", duration: 0.7, ease: "expo.out" }, tOne);
+          const tChange = at("changes", 1, 0.05);
+          tl.fromTo("#s1-old", { y: 0, opacity: 1 }, { y: -52, opacity: 0, duration: 0.42, ease: "power3.in" }, tChange);
+          tl.fromTo("#s1-new", { y: 52, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, tChange + 0.18);
+          tl.fromTo(chip, { borderColor: tok("--thread") }, { borderColor: tok("--stale"), duration: 0.3, ease: "power1.out" }, tChange + 0.2);
 
-          // 1d "doesn't change": the report holds perfectly still. "Nothing tells it": the change climbs its own
-          // stub and stops at the gap. "wrong": the report's open end blinks orange once.
-          const tTell = at("Nothing", 1, 0.05);
-          FILM.pulseAlong(tl, "#s1-stub-hot", "#s1-pulse", tTell, { duration: 0.55, ease: "power2.out" });
-          tl.fromTo("#s1-pulse-gate", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, tTell);
-          tl.fromTo("#s1-pulse-gate", { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none", immediateRender: false }, tTell + 0.56);
-          FILM.drawThread(tl, "#s1-stub-hot", tTell, { duration: 0.55, ease: "power2.out" });
-          tl.fromTo("#s1-ring-b-hot", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, tTell + 0.5);
-          const tWrong = at("wrong", 1, 0.02);
-          tl.fromTo("#s1-ring-a-hot", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "none" }, tWrong);
-          tl.fromTo("#s1-ring-a-hot", { opacity: 1 }, { opacity: 0, duration: 0.5, ease: "power1.in", immediateRender: false }, tWrong + 0.2);
+          // "Now your AI agent": the chip settles into the input row, the network rises behind it, the agent arrives
+          const tNow = at("Now", 1, -0.05);
+          tl.fromTo(chip, { x: 960 - (CHIP.x + CHIP.w / 2), y: 540 - (CHIP.y + CHIP.h / 2) },
+            { x: 0, y: 0, duration: 0.9, ease: "power3.inOut", immediateRender: false }, tNow);
+          const tierOf = (n) => (n.y >= 700 ? 0 : n.y >= 545 ? 1 : n.y >= 390 ? 2 : 3);
+          BN.forEach((n) => {
+            const t = tNow + 0.35 + tierOf(n) * 0.16 + (n.x - 460) * 0.0002;
+            tl.fromTo(n.el, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: FILM.ease }, t);
+          });
+          bEdges.forEach((e) => {
+            const tier = tierOf(BN[e.b]);
+            FILM.drawThread(tl, e.el, tNow + 0.45 + tier * 0.16, { duration: 0.5, ease: "power2.out" });
+          });
+          const tAgent = at("AI", 1, -0.1);
+          tl.fromTo(R.agent, { opacity: 0, x: AGENT_A.x - 820 + 60, y: AGENT_A.y - 96 },
+            { opacity: 1, x: AGENT_A.x - 820, y: AGENT_A.y - 96, duration: 0.7, ease: "expo.out" }, tAgent);
+          // "work out": the agent looks at the network: two sight lines, and nothing to read inside
+          const tLook = at("work", 1, -0.05);
+          // (dashed lines: grow the end point instead of a dash draw)
+          [["#s1-sight-a", 1190, 232], ["#s1-sight-b", 1190, 796]].forEach(([sel, x2, y2], i) => {
+            tl.fromTo(sel, { attr: { x2: 1436, y2: 490 }, opacity: 0 }, { attr: { x2, y2 }, opacity: 1, duration: 0.6, ease: "power2.out" }, tLook + i * 0.08);
+          });
+          // "what that broke": the change goes in, and from outside nobody can tell how far
+          const tBroke = at("what", 1, -0.05);
+          FILM.drawThread(tl, hotEdge, tBroke, { duration: 0.5, ease: "power1.inOut" });
+          FILM.pulseAlong(tl, hotEdge, "#s1-pulse", tBroke, { duration: 0.5, ease: "power1.inOut" });
+          tl.fromTo("#s1-pulse-gate", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, tBroke);
+          tl.fromTo("#s1-pulse-gate", { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none", immediateRender: false }, tBroke + 0.51);
+          const origin = BN[4];
+          BN.forEach((n) => {
+            const d = Math.hypot(cx(n) - cx(origin), n.y - origin.y);
+            const t = tBroke + 0.5 + d * 0.0011;
+            tl.set(n.el, { borderStyle: "dashed" }, t);
+            tl.fromTo(n.el, { borderColor: tok("--rule") }, { borderColor: tok("--unknown"), duration: 0.3, ease: "power1.out", immediateRender: false }, t);
+          });
+
+          // ---- 1b "Today, it has two options." ----
+          const tToday = at("Today", 1, -0.05);
+          tl.fromTo("#s1-a", { opacity: 1, y: 0 }, { opacity: 0, y: 40, duration: 0.55, ease: "power2.in" }, tToday);
+          tl.fromTo(R.agent, { x: AGENT_A.x - 820, y: AGENT_A.y - 96 }, { x: 0, y: 0, duration: 1.0, ease: "power3.inOut", immediateRender: false }, tToday + 0.1);
+          const tTwo = at("two", 1, -0.05);
+          FILM.drawThread(tl, R.forkL, tTwo, { duration: 0.6, ease: "power2.inOut" });
+          FILM.drawThread(tl, R.forkR, tTwo, { duration: 0.6, ease: "power2.inOut" });
+          tl.fromTo([R.ruleL, R.ruleR], { scaleX: 0, transformOrigin: "50% 50%" }, { scaleX: 1, duration: 0.7, ease: "power3.out" }, tTwo + 0.5);
+          tl.fromTo(R.divider, { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, duration: 0.9, ease: "power2.inOut" }, tTwo + 0.55);
+
+          // ---- 1c left lane: "Re-read everything. Accurate, but you pay for every token, every time." ----
+          tl.fromTo(R.nameL.querySelector("svg"), { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.4, ease: FILM.ease }, at("Re-read", 1, -0.15));
+          FILM.speakWords(tl, R.nameL.querySelector(".t-sub-s"), S);
+          const tAll = at("everything", 1, 0);
+          R.docs.forEach((d, i) => tl.fromTo(d, { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.45, ease: FILM.ease }, tAll - 0.1 + i * 0.05));
+          tl.fromTo(R.win, { opacity: 0, scaleY: 0.85, transformOrigin: "50% 100%" }, { opacity: 1, scaleY: 1, duration: 0.5, ease: FILM.ease }, tAll);
+          tl.fromTo(R.winLabel, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, tAll + 0.2);
+          // the torrent: every line of every document, faster and faster, past the window's top edge
+          const SRC = { x: 742, y: 600 };
+          const torrent = (t0, span, first) => {
+            R.rows.forEach((row, i) => {
+              const top = 776 - i * 20;
+              const f = i / (R.rows.length - 1);
+              const t = t0 + span * (1 - (1 - f) * (1 - f)); // accelerating
+              tl.fromTo(row,
+                { opacity: 0, x: SRC.x - 360, y: SRC.y - top, scaleX: 0.35, transformOrigin: "50% 50%" },
+                { opacity: 1, x: 0, y: 0, scaleX: 1, duration: 0.42, ease: "power2.out", immediateRender: first }, t);
+            });
+          };
+          torrent(tAll + 0.35, Math.max(1.0, at("Accurate") - tAll + 0.3), true);
+          tl.fromTo(R.accurate, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: FILM.ease }, at("Accurate", 1, 0.05));
+          tl.fromTo([R.meterL.tokLabel, R.meterL.costLabel], { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, at("pay", 1, -0.3));
+          // "pay for every token": the token meter spins up to its stop
+          const tPay = at("pay", 1, -0.05);
+          const tTok = atEnd("token", 1, 0);
+          R.meterL.segs.forEach((seg, i) => {
+            tl.fromTo(seg.firstChild, { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "none" }, tPay + ((tTok - tPay) * i) / 12);
+            tl.fromTo(seg, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, at("pay", 1, -0.3));
+          });
+          // the cost ticks, one dollar per beat
+          const dollarAt = [tPay, at("every", 1), at("token"), at("token", 1, 0.3), at("every", 2), at("time"), at("time", 1, 0.3), at("time", 1, 0.6)];
+          R.meterL.dollars.forEach((d, i) => tl.fromTo(d, { opacity: 0, y: -22 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, dollarAt[i]));
+          // "every time": the window empties and floods again
+          const tAgain = at("every", 2, -0.12);
+          R.rows.forEach((row, i) => tl.fromTo(row, { opacity: 1, y: 0 }, { opacity: 0, y: 30, duration: 0.22, ease: "power2.in", immediateRender: false }, tAgain + i * 0.006));
+          torrent(tAgain + 0.3, Math.max(0.8, atEnd("time") - tAgain - 0.1), false);
+          R.meterL.segs.forEach((seg, i) => {
+            tl.fromTo(seg.firstChild, { opacity: 1 }, { opacity: 0.25, duration: 0.15, ease: "none", immediateRender: false }, tAgain);
+            tl.fromTo(seg.firstChild, { opacity: 0.25 }, { opacity: 1, duration: 0.08, ease: "none", immediateRender: false }, tAgain + 0.3 + i * 0.05);
+          });
+
+          // ---- 1d right lane: "Or search for what looks related. Cheap, but blind to what matters." ----
+          const tSearch = at("search", 1, -0.1);
+          tl.fromTo(R.nameR.querySelector("svg"), { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.4, ease: FILM.ease }, tSearch - 0.1);
+          FILM.speakWords(tl, R.nameR.querySelector(".t-sub-s"), S, { nth: { what: 2 } });
+          tl.fromTo(R.pill, { opacity: 0, clipPath: "inset(0 100% 0 0 round 32px)" }, { opacity: 1, clipPath: "inset(0 0% 0 0 round 32px)", duration: 0.55, ease: FILM.ease }, tSearch + 0.1);
+          const query = "exchange rate";
+          const typed = { n: 0 };
+          const writeQ = () => {
+            R.query.textContent = query.slice(0, Math.round(typed.n));
+          };
+          tl.fromTo(typed, { n: 0 }, { n: query.length, duration: 0.7, ease: "none", onUpdate: writeQ, onStart: writeQ }, tSearch + 0.4);
+          // the network fades up, inputs first
+          Object.values(R.net).forEach((n) => {
+            const tier = n.y >= 780 ? 0 : n.y >= 640 ? 1 : 2;
+            tl.fromTo(n.el, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: FILM.ease }, tSearch + 0.2 + tier * 0.12 + (n.x - 1020) * 0.0002);
+          });
+          R.edgeEls.forEach((p, i) => FILM.drawThread(tl, p, tSearch + 0.4 + (i % 3) * 0.08, { duration: 0.45, ease: "power2.out" }));
+          R.hits.forEach((h) => tl.fromTo(h, { color: tok("--ink") }, { color: tok("--ink"), duration: 0.01 }, 0));
+          // the beam sweeps down; only the words that look like "rate" light
+          const tBeam = at("looks", 1, -0.05);
+          const B0 = 470, B1 = 860, BD = 1.15;
+          tl.fromTo(R.beam, { y: B0 }, { y: B1, duration: BD, ease: "none" }, tBeam);
+          tl.fromTo(R.beam, { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "none" }, tBeam);
+          tl.fromTo(R.beam, { opacity: 1 }, { opacity: 0, duration: 0.15, ease: "none", immediateRender: false }, tBeam + BD - 0.15);
+          R.found.forEach((b, i) => {
+            const t = tBeam + ((b.y + b.h / 2 - B0) / (B1 - B0)) * BD;
+            FILM.outline(tl, "#s1-duel", b, t, { grow: 8, radius: 20 });
+            tl.fromTo(R.hits[i === 0 ? 1 : 0], { color: tok("--ink") }, { color: tok("--thread-strong"), duration: 0.2, ease: "none", immediateRender: false }, t);
+          });
+          // "Cheap": a sliver of tokens, one dollar
+          const tCheap = at("Cheap", 1, -0.05);
+          tl.fromTo([R.meterR.tokLabel, R.meterR.costLabel, ...R.meterR.segs], { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, tCheap - 0.2);
+          R.meterR.segs.slice(0, 2).forEach((seg, i) => tl.fromTo(seg.firstChild, { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "none" }, tCheap + i * 0.12));
+          tl.fromTo(R.meterR.dollars[0], { opacity: 0, y: -22 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, tCheap + 0.15);
+          // "blind to what matters": the total that really depends on the rate was never lit
+          FILM.outline(tl, "#s1-duel", R.miss, at("blind", 1, 0), { grow: 8, radius: 20 }).setAttribute("class", "hl stale");
+          tl.fromTo(R.missed, { opacity: 0, scale: 0.6, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, at("matters", 1, -0.05));
 
           window.__timelines["s1-monday"] = tl;
         })();
