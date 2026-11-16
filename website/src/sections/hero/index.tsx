@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { useReducedMotion } from 'motion/react'
-import { Play } from 'lucide-react'
 import { ButtonLink } from '../../components/ui'
 import { links } from '../../content/facts'
 import MetricsStrip from './MetricsStrip'
@@ -34,10 +33,6 @@ export default function Hero() {
             </p>
             <div className="hero-ctas">
               <ButtonLink href={links.liveApp} external>Open live app</ButtonLink>
-              <ButtonLink href={links.walkthrough} external variant="secondary"
-                icon={<Play size={16} strokeWidth={2.2} aria-hidden />}>
-                Watch the film
-              </ButtonLink>
             </div>
           </div>
 

@@ -3,7 +3,6 @@ import { links, project, repoFile } from '../../content/facts'
 
 const FOOTER_LINKS = [
   { label: 'Live app', href: links.liveApp },
-  { label: 'Walkthrough', href: links.walkthrough },
   { label: 'Evidence', href: links.publicEvidence },
   { label: 'Connector', href: links.connector },
   { label: 'Repository', href: links.repo },

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { ArrowLeft, ArrowRight, CheckCircle2, CircleAlert, Copy, Database, FileUp, LoaderCircle, Play, Plug, Plus, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CheckCircle2, CircleAlert, Copy, Database, FileUp, LoaderCircle, Plug, Plus, ShieldCheck } from 'lucide-react'
 import { api } from './lib/api'
 import { parseUSDCents } from './lib/format'
 import type { ImportExport, ImportExportRequest, ImportedWorkspaceState, ImportRequest, SourceChange, Verification, WorkspaceState } from './lib/types'
@@ -186,7 +186,6 @@ export default function App() {
         <div className="intro-actions">
           {kind === 'demo' && <button className="button button-primary" disabled={busy} onClick={() => setImportOpen('create')}><FileUp size={16} aria-hidden="true" />Use your data</button>}
           <div className="intro-resources">
-            <a className="text-link" href="/walkthrough.mp4"><Play size={15} aria-hidden="true" />Watch walkthrough</a>
             <a className="text-link" href="/evidence/"><ShieldCheck size={16} aria-hidden="true" />Evidence &amp; verification</a>
             <a className="text-link" href="/agent/"><Plug size={16} aria-hidden="true" />Connect an agent</a>
           </div>

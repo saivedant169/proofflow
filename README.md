@@ -6,7 +6,7 @@ ProofFlow records the source data, tool versions and calculations behind a repor
 
 Use the browser to create company and regional revenue reports from CSV, or connect an MCP agent to inspect evidence and manage corrections. Agents choose plans; registered tools calculate the numbers.
 
-[Showcase](https://proofflow.arnavbule.in/) · [Live demo](https://proofflow.arnavbule.in/app/) · [Two-minute walkthrough](https://proofflow.arnavbule.in/walkthrough.mp4) · [Agent setup](https://proofflow.arnavbule.in/agent/) · [Public evidence](https://proofflow.arnavbule.in/evidence/)
+[Showcase](https://proofflow.arnavbule.in/) · [Live demo](https://proofflow.arnavbule.in/app/) · [Agent setup](https://proofflow.arnavbule.in/agent/) · [Public evidence](https://proofflow.arnavbule.in/evidence/)
 
 ![ProofFlow workspace](evidence/ui/workspace-final.jpg)
 

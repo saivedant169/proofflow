@@ -101,250 +101,125 @@
   container-type: inline-size;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 26px;
 }
-
-.hero-section .plot-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.hero-section .plot-title { font-size: var(--t-13); font-weight: 600; color: var(--ink-soft); }
-
-.hero-section .plot-switch {
-  display: inline-flex;
-  padding: 3px;
-  gap: 2px;
-  border-radius: var(--radius-chip);
-  border: 1px solid var(--rule-strong);
-}
-.hero-section .plot-switch button {
-  min-height: 34px;
-  padding: 0 14px;
-  border: 0;
-  border-radius: var(--radius-chip);
-  background: transparent;
-  color: var(--ink-soft);
-  font-size: var(--t-13);
-  font-weight: 600;
-  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
-}
-.hero-section .plot-switch button:hover { color: var(--ink); }
-.hero-section .plot-switch button[aria-pressed='true'] { background: var(--thread); color: var(--on-thread); }
-
-.hero-section .plot-area {
-  position: relative;
-  aspect-ratio: 16 / 12.5;
-  padding: 52px 28px 40px 34px;
-}
-.hero-section .plot-inner { position: relative; width: 100%; height: 100%; }
-
-.hero-section .plot-grid {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: var(--y);
-  height: 0;
-  border-top: 1px solid var(--rule);
-}
-.hero-section .plot-grid:first-child { border-top-color: var(--rule-strong); }
-.hero-section .plot-ytick {
-  position: absolute;
-  right: calc(100% + 10px);
-  top: -0.7em;
-  font-size: 12px;
-  color: var(--ink-faint);
-}
-.hero-section .plot-xtick {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: var(--x);
-  transform: translateX(-50%);
-  font-size: 12px;
-  color: var(--ink-faint);
-  animation: hero-fade var(--dur) var(--ease-out) both;
-}
-.hero-section .plot-xtitle {
-  position: absolute;
-  right: 0;
-  bottom: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink-faint);
-}
-
-/* Annotations: the horizontal gap (same answers, fewer tokens) and the vertical gap (same budget, more right) */
-.hero-section .plot-span {
-  position: absolute;
-  top: 0;
-  left: var(--x0);
-  width: calc(var(--x1) - var(--x0));
-  height: 0;
-  border-top: 2px dashed color-mix(in srgb, var(--current) 70%, transparent);
-  transition: left 900ms var(--ease-in-out), width 900ms var(--ease-in-out), opacity var(--dur-slow) var(--ease-out) 900ms;
-}
-.hero-section .plot-span-text {
-  position: absolute;
-  left: 50%;
-  top: 10px;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  font-size: clamp(13px, 2.7cqi, 17px);
-  font-weight: 700;
-  font-variation-settings: 'wdth' 90;
-  color: var(--current);
-}
-.hero-section .plot-rise {
-  position: absolute;
-  left: var(--x);
-  bottom: var(--y0);
-  top: 0;
-  width: 0;
-  border-left: 2px solid color-mix(in srgb, var(--thread) 70%, transparent);
-  transform-origin: bottom;
-  transition: left 900ms var(--ease-in-out), transform 1100ms var(--ease-out) 500ms, opacity var(--dur) var(--ease-out) 500ms;
-}
-.hero-section .plot-rise-text {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  white-space: nowrap;
-  font-size: clamp(11px, 2.2cqi, 13px);
-  font-weight: 600;
-  color: var(--ink-soft);
-  line-height: 1.2;
-}
-.hero-section .plot-rise-text .figure {
-  font-size: clamp(26px, 7cqi, 44px);
-  font-weight: 760;
-  font-variation-settings: 'wdth' 86;
-  color: var(--thread-ink);
-  line-height: 1;
-}
-.hero-section .plot:not([data-ready]) .plot-span,
-.hero-section .plot:not([data-ready]) .plot-rise { opacity: 0; }
-.hero-section .plot:not([data-ready]) .plot-rise { transform: scaleY(0); }
-
-/* Points */
-.hero-section .plot-points {
-  list-style: none;
+.hero-section .plot-title {
   margin: 0;
-  padding: 0;
-  position: absolute;
-  inset: 0;
-  transform: translate(calc(var(--px, 0) * -6px), calc(var(--py, 0) * -4px));
-}
-.hero-section .plot-pt {
-  position: absolute;
-  left: var(--x);
-  bottom: var(--y);
-  width: 0;
-  height: 0;
-  transition:
-    left 900ms var(--ease-in-out),
-    bottom 1100ms var(--ease-out) calc(var(--i) * 90ms + 150ms),
-    opacity 500ms var(--ease-out) calc(var(--i) * 90ms + 150ms);
-}
-.hero-section .plot:not([data-ready]) .plot-pt { bottom: 0; opacity: 0; }
-
-.hero-section .plot-dot {
-  position: absolute;
-  left: -18px;
-  top: -18px;
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
-  cursor: pointer;
-}
-.hero-section .plot-dot-core {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--ink-faint);
-  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
-}
-.hero-section .plot-pt[data-active] .plot-dot-core { transform: scale(1.3); box-shadow: 0 0 0 3px var(--paper), 0 0 0 5px currentColor; }
-.hero-section .pt-full .plot-dot-core { width: 15px; height: 15px; background: var(--ink-soft); color: var(--ink-soft); }
-.hero-section .pt-bm25 .plot-dot-core,
-.hero-section .pt-hybrid .plot-dot-core { color: var(--ink-faint); }
-.hero-section .pt-dense .plot-dot-core { width: 14px; height: 14px; background: var(--stale-fill); color: var(--stale-fill); }
-.hero-section .pt-exact .plot-dot-core {
-  width: 30px;
-  height: 30px;
-  background: transparent;
-  border: 1.5px dashed var(--thread-ink);
-  color: transparent;
-}
-.hero-section .pt-exact[data-active] .plot-dot-core { box-shadow: none; transform: scale(1.12); }
-.hero-section .pt-graph .plot-dot-core {
-  position: relative;
-  width: 18px;
-  height: 18px;
-  background: var(--thread);
-  color: var(--thread);
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--thread) 24%, transparent);
-}
-.hero-section .pt-graph .plot-dot-core::after {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 2px solid var(--thread);
-  animation: hero-ripple 2.4s var(--ease-out) 1.6s 3 both;
-}
-
-.hero-section .plot-label {
-  position: absolute;
-  white-space: nowrap;
-  pointer-events: none;
-  font-size: clamp(11px, 2.3cqi, 14px);
-  font-weight: 600;
-  color: var(--ink-soft);
-  line-height: 1.1;
-}
-.hero-section .plot-pt[data-place='right'] .plot-label { left: 14px; top: 0; transform: translateY(-50%); }
-.hero-section .plot-pt[data-place='above'] .plot-label { left: 0; bottom: 18px; transform: translateX(-50%); }
-.hero-section .plot-pt[data-place='above-end'] .plot-label { right: -8px; bottom: 16px; }
-.hero-section .plot-pt[data-place='below'] .plot-label,
-.hero-section .plot-pt[data-place='below-start'] .plot-label { top: 21px; font-size: clamp(10px, 2cqi, 12px); color: var(--thread-ink); font-weight: 550; }
-.hero-section .plot-pt[data-place='below'] .plot-label { left: 0; transform: translateX(-50%); }
-.hero-section .plot-pt[data-place='below-start'] .plot-label { right: 6px; }
-.hero-section .pt-graph .plot-label {
-  font-family: var(--font-display);
-  font-size: clamp(17px, 4.4cqi, 28px);
-  font-weight: 800;
-  font-variation-settings: 'wdth' 112;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
-.hero-section .pt-dense .plot-label { color: var(--stale); }
-.hero-section .pt-full .plot-label { color: var(--ink); }
-
-.hero-section .plot-readout {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 6px 18px;
-  padding-top: 12px;
-  border-top: 1px solid var(--rule);
+  gap: 4px 10px;
   font-size: var(--t-13);
-  color: var(--ink-soft);
-  min-height: 3.2em;
+  font-weight: 650;
+  color: var(--ink);
 }
-.hero-section .plot-readout-name { font-weight: 650; color: var(--ink); }
-.hero-section .plot-readout-stats { display: flex; flex-wrap: wrap; gap: 4px 16px; }
-.hero-section .plot-readout-stats b { font-size: var(--t-15); font-weight: 700; color: var(--ink); }
+.hero-section .plot-title-aside { font-weight: 500; color: var(--ink-faint); }
+
+/* ── Lanes: ProofFlow solid, the saving dashed out to full context ── */
+.hero-section .plot-lanes { display: flex; flex-direction: column; gap: 22px; margin-top: -10px; }
+.hero-section .lane-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.hero-section .lane-name {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.hero-section .lane-save { font-size: var(--t-13); color: var(--ink-soft); white-space: nowrap; }
+.hero-section .lane-save b {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 6cqi, 2.2rem);
+  font-weight: 700;
+  font-stretch: 112%;
+  line-height: 1;
+  color: var(--thread-ink);
+  margin-right: 10px;
+}
+.hero-section .lane-track { position: relative; display: block; height: 30px; }
+.hero-section .lane-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--w);
+  display: flex;
+  align-items: center;
+  padding-inline: 12px;
+  border-radius: 6px;
+  background: var(--thread);
+  transform-origin: left;
+  transition: transform var(--dur-slow) var(--ease-out) calc(var(--i) * 90ms);
+}
+.hero-section .lane-bar-text {
+  font-size: var(--t-13);
+  font-weight: 700;
+  color: var(--on-thread);
+  white-space: nowrap;
+  transition: opacity var(--dur) var(--ease-out) 420ms;
+}
+.hero-section .lane-ghost {
+  position: absolute;
+  inset: 0 0 0 calc(var(--w) + 4px);
+  border: 1px dashed color-mix(in srgb, var(--ink-faint) 70%, transparent);
+  border-radius: 6px;
+  background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--ink-faint) 10%, transparent) 0 1px, transparent 1px 7px);
+  transition: opacity var(--dur) var(--ease-out) 480ms;
+}
+.hero-section .lane-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+.hero-section .lane-scale .figure { color: var(--ink-soft); font-weight: 600; margin-left: 4px; }
+
+/* ── Accuracy rows ─────────────────────────────────────────────────── */
+.hero-section .plot-acc { padding-top: 22px; border-top: 1px solid var(--rule); }
+.hero-section .acc-rows { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 9px; }
+.hero-section .acc-row {
+  display: grid;
+  grid-template-columns: minmax(7.5em, 30%) minmax(0, 1fr) 2em;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--t-13);
+}
+.hero-section .acc-name { color: var(--ink-soft); line-height: 1.25; }
+.hero-section .acc-graph .acc-name { color: var(--ink); font-weight: 700; }
+.hero-section .acc-track {
+  position: relative;
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--rule) 55%, transparent);
+}
+.hero-section .acc-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--w);
+  border-radius: 3px;
+  background: var(--ink-faint);
+  opacity: 0.6;
+  transform-origin: left;
+  transition: transform var(--dur-slow) var(--ease-out) calc(var(--i) * 60ms);
+}
+.hero-section .acc-graph .acc-bar { background: var(--thread); opacity: 1; }
+.hero-section .acc-full .acc-bar { background: var(--ink-soft); opacity: 0.85; }
+.hero-section .acc-dense .acc-bar { background: var(--stale-fill); opacity: 1; }
+.hero-section .acc-val { text-align: right; font-weight: 600; color: var(--ink-soft); }
+.hero-section .acc-graph .acc-val { color: var(--ink); font-weight: 700; }
+.hero-section .acc-dense .acc-val { color: var(--stale); }
+
+.hero-section .plot:not([data-ready]) .lane-bar,
+.hero-section .plot:not([data-ready]) .acc-bar { transform: scaleX(0); }
+.hero-section .plot:not([data-ready]) .lane-ghost,
+.hero-section .plot:not([data-ready]) .lane-bar-text { opacity: 0; }
+
+.hero-section .plot-note { margin: 0; font-size: 12px; line-height: 1.5; color: var(--ink-faint); max-width: 62ch; }
 
 /* Multiplication sign: the display face draws it tiny; use the body face. */
 .hero-section .times { font-family: var(--font-body); font-weight: 500; font-size: 0.62em; margin-left: 0.04em; }
@@ -516,6 +391,5 @@
   .hero-section .metric-label { font-size: var(--t-15); }
   .hero-section .metric-bar { grid-template-columns: minmax(0, 1fr); gap: 3px; font-size: 11px; }
   .hero-section .metric-bars { gap: 8px; }
-  .hero-section .plot-area { aspect-ratio: 1 / 1.02; padding: 48px 20px 36px 26px; }
   .hero-section .hero-ctas .btn { flex: 1 1 auto; justify-content: center; }
 }

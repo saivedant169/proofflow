@@ -21,8 +21,6 @@ RUN uv sync --frozen --no-dev --no-editable && \
     groupadd --gid 10001 proofflow && useradd --uid 10001 --gid 10001 --no-create-home proofflow && \
     mkdir -p /data/sessions && chown -R 10001:10001 /data
 COPY --from=frontend /build/frontend/dist /app/frontend/dist
-COPY video/proofflow-walkthrough.mp4 /app/frontend/dist/walkthrough.mp4
-COPY video/poster.jpg /app/frontend/dist/walkthrough-poster.jpg
 COPY evidence/benchmark_summary.json /app/evidence/benchmark_summary.json
 USER 10001:10001
 EXPOSE 8000
