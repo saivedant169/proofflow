@@ -6,7 +6,7 @@
      docs/RETAIL_V2_RESULTS.md, via website/src/sections/results/data.ts:
        full context 32/32, 219,145 input tokens, $3.742368 · ProofFlow 32/32, 77,071, $1.377214
        vector (BGE) 5/32, 75,785, $1.377631 · keyword (BM25) 25/32, 75,699, $1.427535 · hybrid 28/32, 76,174, $1.448095
-       derived: 142,074 fewer input tokens, 63% lower list cost, 6.4x more right than vector at the same cost
+       derived: 142,074 fewer input tokens (-65%, 1 - 77,071/219,145), 63% lower list cost, 6.4x more right than vector at the same cost
        exact-flat walk 32/32 (77,095 tokens) and 38/38: ties · retail: 38/38, 69.41% fewer evidence tokens.
      Geometry: x 240 -> 1290 px = 0 -> 240,000 tokens (4.375 px per 1k); y 850 -> 320 px = 0 -> 32 right (16.5625 px each).
      Ledger: 1400 -> 1780 px = $0 -> $4 (95 px per dollar). No speed or latency claim. -->
@@ -37,7 +37,7 @@
         .s7-band-pf { stroke: var(--thread); }
         .s7-carve { stroke: var(--ground); }
         .s7-box { stroke: var(--faint); stroke-width: 2; }
-        .s7-mark { stroke: var(--thread-strong); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+        .s7-mark { stroke: var(--thread-strong); stroke-width: 3; stroke-linecap: butt; stroke-linejoin: miter; } /* butt: an undrawn dash leaves no dot */
         .s7-rule { stroke: var(--hairline); stroke-width: 2; }
 
         /* axes */
@@ -55,6 +55,12 @@
         .s7-in { height: 36px; line-height: 36px; gap: 12px; }
         .s7-in .t-label, .s7-in .node-title, .s7-in .s7-of { line-height: 36px; color: var(--ground); }
         .s7-in .t-label { font-weight: 700; }
+        /* their scores sit in one column just past the band ends (~76k tokens) */
+        .s7-scr { position: absolute; left: 592px; height: 36px; line-height: 36px; margin: 0; white-space: nowrap; color: var(--ink); }
+        .s7-scr .s7-of { line-height: 36px; }
+        .s7-budget { position: absolute; left: 588px; top: 800px; height: 32px; line-height: 32px; margin: 0; white-space: nowrap; color: var(--muted); }
+        .s7-pct { display: inline-block; margin-left: 26px; font-family: var(--font-display); font-weight: 800; font-variation-settings: "wdth" 112; color: var(--ink); }
+        .s7-times { font-family: var(--font-sans); font-weight: 700; }
         .s7-nm-pf { color: var(--ink); font-weight: 700; }
         .s7-nm { color: var(--muted); }
         .s7-of { color: var(--faint); }
@@ -67,7 +73,7 @@
         .s7-gap { position: absolute; left: 577px; width: 622px; top: 300px; height: 40px; line-height: 40px; margin: 0; text-align: center; color: var(--ink); white-space: nowrap; }
         .s7-gap b { font-family: var(--font-display); font-weight: 800; font-variation-settings: "wdth" 112; }
 
-        .s7-x64 { position: absolute; left: 640px; top: 540px; margin: 0; }
+        .s7-x64 { position: absolute; left: 764px; top: 540px; margin: 0; }
         .s7-x64 .t-sub { color: var(--thread-strong); }
         .s7-x64 .t-small { margin-top: 6px; color: var(--muted); line-height: 1.3; white-space: nowrap; }
 
@@ -99,7 +105,7 @@
         .s7-src span { display: inline-block; }
       </style>
 
-      <div id="root" data-composition-id="s7-results" data-width="1920" data-height="1080" data-duration="50.9">
+      <div id="root" data-composition-id="s7-results" data-width="1920" data-height="1080" data-duration="46">
         <h1 id="s7-title" class="t-head-s s7-title">How does it compare?</h1>
         <p class="t-small s7-eye"><span id="s7-e1">Frozen study</span><span id="s7-e2"><span class="s7-sep">·</span><span id="s7-e2n">48</span> real model calls</span><span id="s7-e3"><span class="s7-sep">·</span>same task for every method</span></p>
 
@@ -120,8 +126,10 @@
           <path id="s7-b-kw" class="s7-band-base" stroke-width="36" d="M240 435.94 H571.18" />
           <path id="s7-b-vec" class="s7-band-base" stroke-width="36" d="M240 767.19 H571.56" />
 
+          <!-- retrieval budget: the three search bands end at ~76k tokens -->
+          <path id="s7-bud" class="s7-box" stroke-dasharray="6 8" d="M572 794 V848" />
           <!-- 6.4x: from ProofFlow's row down to vector's, same tokens and list price -->
-          <path id="s7-brk64" class="s7-mark" d="M598 346 H614 V749 H598" />
+          <path id="s7-brk64" class="s7-mark" d="M712 346 H728 V749 H712" />
 
           <!-- the tie: exact dependency walk sits on ProofFlow (77,095 vs 77,071 tokens, 32/32) -->
           <circle id="s7-ring" class="s7-mark" cx="577.3" cy="320" r="24" />
@@ -154,16 +162,20 @@
         <!-- method labels -->
         <p id="s7-l-full" class="s7-lab" style="top: 354px; right: 721px"><span class="t-label s7-nm">Full context</span><span class="node-title s7-sc"><span id="s7-s-full">32</span><span class="s7-of">/32</span></span></p>
         <p id="s7-l-pf" class="s7-lab" style="top: 246px; left: 240px"><span class="t-label s7-nm-pf">ProofFlow</span><span class="node-title s7-sc-pf"><span id="s7-s-pf">32</span><span class="s7-of">/32</span></span></p>
-        <p id="s7-l-hyb" class="s7-lab s7-in" style="top: 368.25px; left: 254px"><span class="t-label s7-nm">Hybrid</span><span class="node-title s7-sc"><span id="s7-s-hyb">28</span><span class="s7-of">/32</span></span></p>
-        <p id="s7-l-kw" class="s7-lab s7-in" style="top: 417.94px; left: 254px"><span class="t-label s7-nm">Keyword</span><span class="node-title s7-sc"><span id="s7-s-kw">25</span><span class="s7-of">/32</span></span></p>
-        <p id="s7-l-vec" class="s7-lab s7-in" style="top: 749.19px; left: 254px"><span class="t-label s7-nm">Vector search</span><span class="node-title s7-sc"><span id="s7-s-vec">5</span><span class="s7-of">/32</span></span></p>
+        <p id="s7-l-hyb" class="s7-lab s7-in" style="top: 368.25px; left: 254px"><span class="t-label s7-nm">Hybrid</span></p>
+        <p id="s7-r-shyb" class="node-title s7-scr" style="top: 368.25px"><span id="s7-s-hyb">28</span><span class="s7-of">/32</span></p>
+        <p id="s7-l-kw" class="s7-lab s7-in" style="top: 417.94px; left: 254px"><span class="t-label s7-nm">Keyword search</span></p>
+        <p id="s7-r-skw" class="node-title s7-scr" style="top: 417.94px"><span id="s7-s-kw">25</span><span class="s7-of">/32</span></p>
+        <p id="s7-l-vec" class="s7-lab s7-in" style="top: 749.19px; left: 254px"><span class="t-label s7-nm">Vector search</span></p>
+        <p id="s7-r-svec" class="node-title s7-scr" style="top: 749.19px"><span id="s7-s-vec">5</span><span class="s7-of">/32</span></p>
+        <p id="s7-budget" class="t-small s7-budget">Retrieval: same ~76k-token budget</p>
 
         <p id="s7-tok-full" class="t-mono s7-tok s7-tok-full">219,145</p>
         <p id="s7-tok-pf" class="t-mono s7-tok s7-tok-pf">77,071</p>
-        <p id="s7-gap" class="t-label s7-gap"><b id="s7-gap-n">142,074</b> fewer input tokens</p>
+        <p id="s7-gap" class="t-label s7-gap"><b id="s7-gap-n">142,074</b> fewer input tokens<span id="s7-gap-p" class="s7-pct">−<span id="s7-gap-pn">65</span>%</span></p>
 
         <div id="s7-x64" class="s7-x64">
-          <p class="t-sub"><span id="s7-x64-n">6.4</span>×</p>
+          <p class="t-sub"><span id="s7-x64-n">6.4</span><span class="s7-times">×</span></p>
           <p class="t-small">more right than vector search,<br />at the same list price</p>
         </div>
 
@@ -259,6 +271,10 @@
           FILM.drawThread(tl, "#s7-b-carve", tHundred, { duration: tFewer - tHundred, ease: "power2.inOut" });
           show("#s7-gap", tHundred + 0.3, 0.4);
           FILM.countTo(tl, "#s7-gap-n", 0, 142074, tHundred + 0.3, { duration: tFewer - tHundred, ease: "power2.out", format: int });
+          /* the token saving as a share, the same weight as the ledger's −63%, on "fewer" */
+          const tFew = after(at("fewer", 1, -0.05), tHundred + 0.4);
+          tl.fromTo("#s7-gap-p", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" }, tFew);
+          FILM.countTo(tl, "#s7-gap-pn", 0, 65, tFew, { duration: 0.6 });
 
           const tDollar = at("dollar", 1, -0.15);
           const t138 = after(at("thirty-eight", 1, 0.2), tDollar + 0.6);
@@ -278,6 +294,7 @@
           FILM.drawThread(tl, "#s7-c-vec", after(at("cost", 1, 0), tVec + 0.3), { duration: 0.6, ease: "power3.out" });
           const t5 = after(at("five", 1, -0.05), tVec + 0.6);
           fade("#s7-l-vec", t5 - 0.15, { x: -14 });
+          fade("#s7-r-svec", t5 - 0.15, { x: -10 });
           FILM.countTo(tl, "#s7-s-vec", 0, 5, t5 - 0.15, { duration: 0.4 });
           FILM.drawThread(tl, "#s7-brk64", t5, { duration: 0.6, ease: "power2.inOut" });
           const tRight = after(at("right", 2, -0.05), t5 + 0.3);
@@ -290,6 +307,7 @@
           FILM.drawThread(tl, "#s7-c-kw", tKw + 0.2, { duration: 0.6, ease: "power3.out" });
           const t25 = after(at("twenty-five", 1, -0.05), tKw + 0.3);
           fade("#s7-l-kw", t25 - 0.2, { x: -14 });
+          fade("#s7-r-skw", t25 - 0.2, { x: -10 });
           FILM.countTo(tl, "#s7-s-kw", 0, 25, t25 - 0.2, { duration: 0.5 });
 
           const tHy = after(at("Hybrid", 1, -0.05), t25 + 0.3);
@@ -298,7 +316,11 @@
           FILM.drawThread(tl, "#s7-c-hyb", tHy + 0.2, { duration: 0.6, ease: "power3.out" });
           const t28 = after(at("twenty-eight", 1, -0.05), tHy + 0.3);
           fade("#s7-l-hyb", t28 - 0.2, { x: -14 });
+          fade("#s7-r-shyb", t28 - 0.2, { x: -10 });
           FILM.countTo(tl, "#s7-s-hyb", 0, 28, t28 - 0.2, { duration: 0.5 });
+          /* the retrieval group shares ProofFlow's budget: one dashed guide at ~76k tokens */
+          tl.fromTo("#s7-bud", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, t28 + 0.45);
+          fade("#s7-budget", t28 + 0.5, { x: -12 });
 
           /* 7f: the separate retail benchmark, compact, under the ledger */
           const tSep = at("separate", 1, -0.1);
@@ -316,6 +338,8 @@
           const tPlain = at("plain", 1, -0.1);
           fade("#s7-flat", tPlain, { x: -18 }, 0.6);
           const tTies = after(at("ties", 1, -0.05), tPlain + 0.5);
+          /* the circle's dash leaves a sliver before it draws, so it is also hidden until then */
+          tl.fromTo("#s7-ring", { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none" }, tTies);
           FILM.drawThread(tl, "#s7-ring", tTies, { duration: 0.5, ease: "power2.inOut" });
           FILM.drawThread(tl, "#s7-lead", tTies + 0.35, { duration: 0.35, ease: "power2.out" });
           const tRec = after(at("recording", 1, -0.05), tTies + 0.5);
