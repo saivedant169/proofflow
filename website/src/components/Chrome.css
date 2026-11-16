@@ -211,7 +211,11 @@ header.site-nav.is-open { background: color-mix(in srgb, var(--paper) 94%, trans
 .mobile-nav a[aria-current] .mobile-node { background: var(--thread); box-shadow: 0 0 0 4px var(--thread-soft); }
 .mobile-nav .btn { margin-top: 18px; justify-content: center; width: 100%; }
 
-@media (max-width: 1080px) {
+/* Six section links: tighten them before they would meet the actions, then fold into the menu. */
+@media (max-width: 1320px) {
+  .site-nav-links a { padding: 0 11px; }
+}
+@media (max-width: 1200px) {
   .site-nav-inner { grid-template-columns: auto minmax(0, 1fr); }
   .site-nav-links { display: none; }
 }

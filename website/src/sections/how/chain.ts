@@ -37,7 +37,7 @@ export const PHASES = [
   { key: 'artifact', label: 'Immutable artifact', caption: 'The output is stored once, named by its content hash, and never edited.' },
   { key: 'claim', label: 'Report claim', caption: 'Every number in a saved report points at the artifact it came from.' },
   { key: 'change', label: 'Correction', caption: 'The rate becomes 1.20. HydraDB returns the exact dependency path, not look-alike text; those claims are withheld.' },
-  { key: 'refresh', label: 'Refresh', caption: 'Only that path is recomputed, no full re-read: four tools re-run, and support is reused.' },
+  { key: 'refresh', label: 'Refresh', caption: 'Only that path is recomputed: four tools re-run, while unaffected support is reused, not recomputed.' },
 ] as const
 
 export const PHASE_LEN = 1 / PHASES.length

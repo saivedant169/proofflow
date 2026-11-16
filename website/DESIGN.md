@@ -15,11 +15,12 @@ The page is itself a lineage chain. Each section is a node on a vertical thread 
 | 3 | `how` | How does it work, conceptually? | Four record types in sequence: source version, execution receipt, immutable artifact, report claim. Currentness states: current, stale, unknown (fail closed). |
 | 4 | `demo` | Can I see it work? | Full in-browser replay of the guided sample with the real fixture arithmetic: five corrections (FX, order, refund, support, remove a source), the dependency graph, affected list, refresh with executed vs reused count. Clearly labeled as a replay; the live app runs SQLite + HydraDB. |
 | 5 | `results` | Is it real and better? | Actual-model study (32/32 at 39.33% input exposure), retail benchmark (38/38, 69.41% fewer evidence tokens), fixed-budget diagnostic, comparators, plus a "what we don't claim" panel (exact-flat ties, development efficiency gate failed, single sample). |
+| 5b | `who` | Who wants this, and how do they adopt it? | Teams with recurring agent-produced numbers (finance close, revenue and FX reporting, commerce analytics); today's trade-off (full re-read: accurate, costly; vector search: missed 27 of 32); adoption via the hosted MCP connector or self-hosting with HydraDB OSS; next wedge labelled as roadmap. No customers, prices or adoption numbers. |
 | 6 | `architecture` | Is it well built? | System diagram: browser / MCP host → FastAPI → runtime → registered tools (SQLite) + artifact store (hash-verified blobs, SQLite manifest) + HydraDB (lineage, native traversal). Five MCP tools. Runtime API snippet. Fail-closed rules. |
 | 7 | `evaluation` | Can I trust the method? | The evaluation pipeline as a real sequence: frozen protocol → held-out runs from a clean committed tree → audit scripts → offline verifier ZIP → CI with real HydraDB and Chromium. Retained failures listed. |
 | 8 | `try` | How do I try it now? | Live app, CSV MCP connector, run locally (two commands), evidence ZIP, walkthrough video, repository (judge access). |
 
-Navigation: sticky top bar with wordmark, five anchor links (How it works, Demo, Results, Architecture, Evaluation) with the active section indicated, theme switch, primary button "Open live app". On wide screens the lineage rail also shows progress; each node is a jump link.
+Navigation: sticky top bar with wordmark, six anchor links (How it works, Demo, Results, Who it's for, Architecture, Evaluation) with the active section indicated, theme switch, primary button "Open live app". On wide screens the lineage rail also shows progress; each node is a jump link.
 
 ## Visual direction: "the thread"
 
