@@ -9,7 +9,7 @@ export const REPO_BLOB = `${REPO_URL}/blob/main`
 export const repoFile = (path: string) => `${REPO_BLOB}/${path}`
 
 export const links = {
-  liveApp: 'https://proofflow.arnavbule.in',
+  liveApp: 'https://proofflow.arnavbule.in/app/',
   walkthrough: 'https://proofflow.arnavbule.in/walkthrough.mp4',
   publicEvidence: 'https://proofflow.arnavbule.in/evidence/',
   evidenceZip: 'https://proofflow.arnavbule.in/evidence/proofflow-model-evidence.zip',

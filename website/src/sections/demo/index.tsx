@@ -299,12 +299,12 @@ export default function Demo() {
 
         <div className="demo-shots">
           <figure>
-            <img src="./shots/workspace-stale-final.jpg" width={1536} height={1146} loading="lazy"
+            <img src={import.meta.env.BASE_URL + "shots/workspace-stale-final.jpg"} width={1536} height={1146} loading="lazy"
               alt="The live ProofFlow app after correcting EUR to USD to 1.20: company revenue shows Awaiting refresh with the previous $5,565.00 labelled, the evidence graph highlights the affected path, and a banner says 4 saved artifacts require revalidation." />
             <figcaption>The live app after the EUR correction: affected values wait for refresh.</figcaption>
           </figure>
           <figure>
-            <img src="./shots/workspace-refreshed-final.jpg" width={1536} height={1096} loading="lazy"
+            <img src={import.meta.env.BASE_URL + "shots/workspace-refreshed-final.jpg"} width={1536} height={1096} loading="lazy"
               alt="The live ProofFlow app after refresh: company revenue $5,755.00, EU revenue $2,280.00, EU support tickets 2, and a banner reporting 4 tool calls, unchanged support and matching recomputation." />
             <figcaption>The live app after refresh: four tool calls, support unchanged.</figcaption>
           </figure>

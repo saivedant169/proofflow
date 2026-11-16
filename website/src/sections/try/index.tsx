@@ -58,7 +58,7 @@ export default function TryIt() {
 
             <figure className="try-shot">
               <img
-                src="./shots/workspace-final.jpg"
+                src={import.meta.env.BASE_URL + "shots/workspace-final.jpg"}
                 width={1536}
                 height={1031}
                 loading="lazy"
@@ -90,7 +90,7 @@ export default function TryIt() {
                   controls
                   preload="none"
                   playsInline
-                  poster="./shots/walkthrough-poster.jpg"
+                  poster={import.meta.env.BASE_URL + "shots/walkthrough-poster.jpg"}
                   width={1920}
                   height={1080}
                   aria-label="ProofFlow two-minute walkthrough"
