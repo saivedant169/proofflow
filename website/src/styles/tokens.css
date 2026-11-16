@@ -1,0 +1,124 @@
+/* ProofFlow site design tokens. Every color in the site comes from here. */
+:root {
+  color-scheme: light;
+  --paper: #F2F4F8;
+  --paper-raised: #FFFFFF;
+  --paper-sunken: #E7EAF2;
+  --ink: #12163A;
+  --ink-soft: #4A5072;
+  --ink-faint: #7A809E;
+  --rule: #D4D9E6;
+  --rule-strong: #B6BDD2;
+
+  --thread: #3346FF;          /* lineage, brand, links */
+  --thread-soft: #E3E6FF;     /* tinted backgrounds behind thread text */
+  --thread-ink: #2433D6;      /* thread-colored text on paper (AA) */
+  --on-thread: #FFFFFF;
+
+  --current: #0A8F72;         /* text */
+  --current-fill: #14B892;
+  --current-soft: #DDF5EE;
+  --stale: #B8410C;           /* text */
+  --stale-fill: #FF6B1F;
+  --stale-soft: #FFE8DC;
+  --unknown: #5F6585;
+  --unknown-soft: #E6E8F0;
+
+  --shadow-panel: 0 1px 0 rgba(18, 22, 58, 0.04), 0 12px 32px -16px rgba(18, 22, 58, 0.18);
+  --hatch: repeating-linear-gradient(135deg, var(--stale-soft) 0 6px, transparent 6px 12px);
+
+  /* Type */
+  --font-display: 'Anybody', 'Instrument Sans', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-code: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  /* Bringhurst-style scale */
+  --t-13: 0.8125rem;
+  --t-15: 0.9375rem;
+  --t-18: 1.125rem;
+  --t-21: 1.3125rem;
+  --t-24: 1.5rem;
+  --t-30: 1.875rem;
+  --t-36: 2.25rem;
+  --t-48: 3rem;
+  --t-64: 4rem;
+  --t-84: 5.25rem;
+  --t-112: 7rem;
+
+  /* Layout */
+  --max: 1240px;
+  --gutter: 24px;
+  --section-y: clamp(88px, 12vw, 168px);
+  --radius-chip: 999px;
+  --radius-panel: 14px;
+  --radius-frame: 6px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur: 320ms;
+  --dur-slow: 640ms;
+}
+
+@media (max-width: 640px) {
+  :root { --gutter: 16px; }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #0A0D24;
+  --paper-raised: #11153A;
+  --paper-sunken: #070920;
+  --ink: #E9ECFA;
+  --ink-soft: #A6ADCF;
+  --ink-faint: #767DA6;
+  --rule: #262B55;
+  --rule-strong: #3A4078;
+
+  --thread: #8090FF;
+  --thread-soft: #1D2360;
+  --thread-ink: #9AA7FF;
+  --on-thread: #0A0D24;
+
+  --current: #34E3B6;
+  --current-fill: #22C99D;
+  --current-soft: #0E2F33;
+  --stale: #FF9A61;
+  --stale-fill: #FF7A33;
+  --stale-soft: #3A1E1A;
+  --unknown: #A0A6C8;
+  --unknown-soft: #1C2046;
+
+  --shadow-panel: 0 1px 0 rgba(255, 255, 255, 0.03), 0 18px 40px -20px rgba(0, 0, 0, 0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --paper: #0A0D24;
+    --paper-raised: #11153A;
+    --paper-sunken: #070920;
+    --ink: #E9ECFA;
+    --ink-soft: #A6ADCF;
+    --ink-faint: #767DA6;
+    --rule: #262B55;
+    --rule-strong: #3A4078;
+
+    --thread: #8090FF;
+    --thread-soft: #1D2360;
+    --thread-ink: #9AA7FF;
+    --on-thread: #0A0D24;
+
+    --current: #34E3B6;
+    --current-fill: #22C99D;
+    --current-soft: #0E2F33;
+    --stale: #FF9A61;
+    --stale-fill: #FF7A33;
+    --stale-soft: #3A1E1A;
+    --unknown: #A0A6C8;
+    --unknown-soft: #1C2046;
+
+    --shadow-panel: 0 1px 0 rgba(255, 255, 255, 0.03), 0 18px 40px -20px rgba(0, 0, 0, 0.7);
+  }
+}

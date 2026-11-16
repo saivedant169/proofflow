@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProofFlow</title>
+    <meta name="description" content="ProofFlow keeps saved agent reports current when an input changes: it records the inputs behind each number, withholds outdated claims and refreshes only the affected work." />
+    <meta property="og:title" content="ProofFlow: saved reports that know when they're out of date" />
+    <meta property="og:description" content="Records the inputs behind each number, withholds outdated claims when an input changes and refreshes only the affected work." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#F2F4F8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0A0D24" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Instrument+Sans:wdth,wght@75..100,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script>
+      // Apply the saved theme before first paint to avoid a flash.
+      try {
+        var t = localStorage.getItem('proofflow-site-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
