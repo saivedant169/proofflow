@@ -1,0 +1,242 @@
+/* Problem section styles. Every selector is scoped under .problem-section */
+
+/* The story: three beats hung on one thread */
+.problem-section .problem-story {
+  list-style: none;
+  margin: 0;
+  padding: 38px 0 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.65fr);
+  gap: clamp(28px, 4vw, 56px);
+}
+.problem-section .problem-story::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  height: 2px;
+  background: var(--rule);
+}
+
+.problem-section .beat {
+  position: relative;
+  min-width: 0;
+}
+.problem-section .beat::before {
+  content: '';
+  position: absolute;
+  top: -38px;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 3px var(--thread);
+}
+
+.problem-section .beat-title {
+  font-size: clamp(1.25rem, 1.02rem + 0.75vw, 1.5rem);
+  font-weight: 720;
+  font-variation-settings: 'wdth' 108;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.problem-section .beat-text {
+  margin-top: 10px;
+  max-width: 42ch;
+  font-size: var(--t-15);
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.problem-section .beat-visual { margin-top: 22px; }
+.problem-section .beat-cite { margin-top: 12px; }
+
+/* Beat 1: the changed inputs */
+.problem-section .p-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.problem-section .p-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 6px 13px;
+  border-radius: var(--radius-chip);
+  border: 1px solid var(--rule-strong);
+  background: var(--paper-raised);
+  font-size: var(--t-13);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink-soft);
+}
+.problem-section .p-chip-changed {
+  border-color: var(--stale-fill);
+  background: var(--stale-soft);
+  color: var(--ink);
+}
+.problem-section .p-chip del {
+  color: var(--ink-faint);
+  font-weight: 500;
+  text-decoration-thickness: 1.5px;
+}
+.problem-section .p-chip ins {
+  color: var(--stale);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Beat 2: the stale figure still being served */
+.problem-section .p-report-kicker {
+  margin-bottom: 8px;
+  font-size: var(--t-13);
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+.problem-section .p-report {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-panel);
+  background: var(--paper-raised);
+}
+.problem-section .p-report-label {
+  font-size: var(--t-13);
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.problem-section .p-report-value {
+  font-size: var(--t-30);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 112;
+  line-height: 1.05;
+  color: var(--ink);
+}
+.problem-section .p-report-note {
+  margin: 10px 0 8px;
+  font-size: var(--t-13);
+  line-height: 1.5;
+  color: var(--stale);
+}
+.problem-section .p-report-note .figure { font-weight: 700; }
+
+/* Beat 3: the two usual fixes */
+.problem-section .fix-paths {
+  display: grid;
+  gap: 26px;
+}
+.problem-section .fix { margin: 0; min-width: 0; }
+.problem-section .fix-title {
+  font-family: var(--font-display);
+  font-size: var(--t-18);
+  font-weight: 700;
+  font-variation-settings: 'wdth' 105;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.problem-section .fix-sub {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-body);
+  font-size: var(--t-13);
+  font-weight: 400;
+  font-variation-settings: 'wdth' 100;
+  color: var(--ink-soft);
+}
+
+.problem-section .bars {
+  margin: 12px 0 0;
+  display: grid;
+  gap: 8px;
+}
+.problem-section .bar-row {
+  display: grid;
+  grid-template-columns: minmax(0, 9rem) minmax(48px, 1fr) minmax(4.5rem, auto);
+  align-items: center;
+  gap: 12px;
+}
+.problem-section .bar-row dt {
+  font-size: var(--t-13);
+  line-height: 1.3;
+  color: var(--ink-soft);
+}
+.problem-section .bar-row dd { margin: 0; }
+.problem-section .bar-track {
+  height: 10px;
+  border-radius: 2px;
+  background: var(--paper-sunken);
+  overflow: hidden;
+}
+.problem-section .bar {
+  display: block;
+  height: 100%;
+  width: var(--w);
+  border-radius: 2px;
+  background: var(--ink-faint);
+}
+.problem-section .bar-num {
+  text-align: right;
+  font-size: var(--t-15);
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.problem-section .bar-row.is-lead dt { color: var(--ink); font-weight: 600; }
+.problem-section .bar-row.is-lead .bar { background: var(--thread); }
+.problem-section .bar-row.is-lead .bar-num { color: var(--ink); }
+
+.problem-section .fix-source {
+  font-size: var(--t-13);
+  color: var(--ink-faint);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+}
+
+/* Pivot into the solution, attached to the thread */
+.problem-section .problem-pivot {
+  margin-top: clamp(56px, 8vw, 96px);
+  padding-left: 20px;
+  border-left: 3px solid var(--thread);
+  max-width: 30ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem);
+  font-weight: 720;
+  font-variation-settings: 'wdth' 112;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+/* Below laptop widths the thread runs down the left instead */
+@media (max-width: 1080px) {
+  .problem-section .problem-story {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 680px;
+    padding: 0 0 0 36px;
+    gap: 48px;
+  }
+  .problem-section .problem-story::before {
+    left: 6px;
+    right: auto;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    height: auto;
+  }
+  .problem-section .beat::before { top: 5px; left: -36px; }
+}
+
+@media (max-width: 520px) {
+  .problem-section .problem-story { padding-left: 28px; gap: 40px; }
+  .problem-section .beat::before { left: -28px; }
+  .problem-section .bar-row { grid-template-columns: minmax(0, 6.75rem) minmax(40px, 1fr) auto; gap: 10px; }
+  .problem-section .p-report-value { font-size: var(--t-24); }
+}
