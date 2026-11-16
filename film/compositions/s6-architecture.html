@@ -1,8 +1,9 @@
 <!doctype html>
 <!-- ProofFlow film, s6 "Under the hood". The architecture builds from nothing, one component per spoken line,
      into one fixed layout: the runtime in the centre, HydraDB and the artifact store on the right, the three doors
-     (browser app via FastAPI, Python API, MCP server) on the left. Then one correction runs end to end with no
-     voice, and the frame holds still. Facts: proofflow/runtime.py, artifacts.py, graph.py, api.py, mcp_server.py,
+     (browser app via FastAPI, Python API, MCP server) on the left. In 6f the walk HydraDB found lifts out into a
+     compact "Agent context" panel beside a much larger ghosted "Full re-read" block, which is struck and collapses.
+     Then one correction runs end to end with no voice, and the frame holds still. Facts: proofflow/runtime.py, artifacts.py, graph.py, api.py, mcp_server.py,
      analytics.py (TOOL_SPECS, 7 tools), README.md "How it works", website/src/sections/architecture/system.ts. -->
 <html lang="en">
   <head>
@@ -185,6 +186,24 @@
         #s6-walk-l { left: 700px; top: 652px; }
         #s6-found { left: 700px; top: 704px; }
 
+        /* 6f: the agent's context vs a full re-read (temporary; both sit where the runtime is, while it steps aside) */
+        #s6-stg { left: 0; top: 0; }
+        #s6-stg > * { position: absolute; }
+        #s6-ghost { left: 320px; top: 270px; width: 500px; height: 700px; box-sizing: border-box; border-radius: 18px;
+                    border: 3px dashed var(--rule); background: var(--ground); opacity: 0; }
+        #s6-ghost > * { position: absolute; }
+        #s6-gh-h { left: 28px; top: 24px; color: var(--muted); --w: 98; font-size: 32px; }
+        #s6-gh-h > span { position: relative; }
+        #s6-gh-x { position: absolute; left: -8px; right: -8px; top: 15px; height: 4px; border-radius: 2px; background: var(--muted);
+                   transform-origin: left center; }
+        #s6-gh-s { left: 28px; top: 68px; color: var(--faint); }
+        #s6-gh-lines { left: 28px; right: 28px; top: 124px; bottom: 26px; }
+        .s6-ghb { position: absolute; left: 0; height: 10px; border-radius: 5px; background: var(--hairline); }
+        .s6-ghb.s6-k { background: var(--rule); }
+        #s6-ctx { left: 860px; top: 630px; width: 320px; height: 340px; border-radius: 16px; }
+        #s6-ctx-h { left: 24px; top: 22px; }
+        .s6-gn.s6-cx { border-color: var(--stale); opacity: 0; z-index: 3; }
+
         /* lines */
         #s6-lines, #s6-lines-top { left: 0; top: 0; }
         #s6-lines path.s6-c { stroke-width: 3; }
@@ -334,6 +353,7 @@
           <div id="s6-reused" class="s6-tag s6-tag-re">Reused</div>
 
           <!-- ===== artifact store rows ===== -->
+          <div id="s6-stg">
           <div id="s6-blob-l" class="s6-file">blobs/</div>
           <div id="s6-rowa" class="s6-srow">
             <svg class="s6-fg" viewBox="0 0 20 26"><path d="M2 2 H13 L18 7 V24 H2 Z M13 2 V7 H18" /></svg>
@@ -347,6 +367,18 @@
           </div>
           <div id="s6-man-l" class="s6-file">manifest.sqlite3</div>
           <div id="s6-man" class="s6-s" style="left: 1500px">records · heads</div>
+          </div>
+
+          <!-- ===== 6f: the agent's context, and the full re-read it replaces ===== -->
+          <div id="s6-ghost" data-layout-allow-overlap data-layout-allow-occlusion>
+            <div id="s6-gh-h" class="s6-ph"><span>Full re-read<i id="s6-gh-x"></i></span></div>
+            <div id="s6-gh-s" class="s6-s">everything, every time</div>
+            <div id="s6-gh-lines"></div>
+          </div>
+          <div id="s6-ctx" class="s6-frame s6-strong" data-layout-allow-overlap data-layout-allow-occlusion>
+            <div class="s6-bg"></div>
+            <div id="s6-ctx-h" class="s6-in s6-ph s6-door-t">Agent context</div>
+          </div>
 
           <!-- ===== temporary actors ===== -->
           <div id="s6-corr" class="s6-tag s6-tag-st">Correction: FX rate</div>
@@ -378,19 +410,9 @@
           const lines = $("#s6-lines");
           const E = FILM.ease;
 
-          /* ---------- word times (fall back to an even split of the line only if a word is transcribed differently) ---------- */
-          const norm = (t) => String(t).toLowerCase().replace(/[^a-z0-9]+/g, "");
-          const at = (text, lineId, nth = 1, off = 0) => {
-            try {
-              return FILM.at(S, text, nth, off);
-            } catch (error) {
-              const ln = FILM.line(lineId);
-              const ws = ln.text.split(/\s+/);
-              const i = Math.max(0, ws.findIndex((w) => norm(w) === norm(text.split(/\s+/)[0])));
-              console.warn(`[s6] "${text}" not in words.json; estimated within ${lineId}`);
-              return Math.max(0, ln.localStart + ((ln.localEnd - ln.localStart) * i) / ws.length + off);
-            }
-          };
+          /* ---------- word times: strict, so a word that is not spoken in s6 throws at load. The line id only
+                         documents which line the word belongs to. ---------- */
+          const at = (text, _lineId, nth = 1, off = 0) => FILM.at(S, text, nth, off);
           const ln = (id) => FILM.line(id);
 
           /* ---------- seek-safe tween: only the first tween of an element+property renders immediately ---------- */
@@ -504,6 +526,27 @@
             if (holdFor !== null) hide(svg, t + 0.32 + holdFor, 0.35);
             return svg;
           };
+
+          /* ---------- 6f: copies of the walk's result set (the changed rate and what it reaches) ---------- */
+          const CTX = ["fx", "rec", "reg", "co", "eu"];
+          const ctxBox = $("#s6-ctx");
+          const clones = CTX.map((k, i) => {
+            const src = document.getElementById("s6-n-" + k);
+            const el = src.cloneNode(true);
+            el.id = `s6-cx-${k}`;
+            el.classList.add("s6-cx");
+            world.appendChild(el);
+            const tx = ctxBox.offsetLeft + 24, ty = ctxBox.offsetTop + 70 + i * 52;
+            return { el, dx: tx - src.offsetLeft, dy: ty - src.offsetTop };
+          });
+          const ghostLines = Array.from({ length: 22 }, (_, i) => {
+            const b = document.createElement("div");
+            b.className = i % 5 === 0 ? "s6-ghb s6-k" : "s6-ghb";
+            b.style.top = `${i * 24}px`;
+            b.style.width = `${i % 5 === 0 ? 46 : 58 + ((i * 37) % 41)}%`;
+            $("#s6-gh-lines").appendChild(b);
+            return b;
+          });
 
           /* ---------- state overlays on graph nodes, and coloured copies of edges ---------- */
           const OV = ["st1", "cu1", "un1", "st2", "cu2"];
@@ -671,12 +714,54 @@
           show("#s6-found", tDown, 0.45, { x: -10 }, { x: 0 }, "back.out(1.4)");
 
           /* ===================================================================== */
-          /* 6f  re-run stale steps in order, reuse what's current, record receipts */
+          /* 6f  that walk becomes the agent's context. Traverse, skip the re-read  */
           /* ===================================================================== */
-          const t6f = Math.max(ln("6f").localStart, tDown + 0.6);
-          hide(found, t6f, 0.4);
+          const t6f = Math.max(ln("6f").localStart - 0.15, tDown + 0.6);
           hide(["#s6-t5", "#s6-t6", "#s6-corr", "#s6-walk", "#s6-walk-l", "#s6-found"], t6f, 0.4);
-          const tRe = Math.max(at("re-runs", "6f", 1, -0.1), t6f + 0.1);
+          // the runtime and the store step aside; HydraDB, still showing the walk, stays
+          const ASIDE = ["#s6-rt", "#s6-st", "#s6-stg", "#s6-c5", "#s6-c6"];
+          hide(ASIDE, t6f, 0.5);
+          // what a full re-read would carry: everything, drawn large and ghosted
+          const tGhost = Math.max(at("walk", "6f", 1, -0.05), t6f + 0.2);
+          show("#s6-ghost", tGhost, 0.45, {}, {}, "power1.out");
+          ghostLines.forEach((b, i) =>
+            show(b, tGhost + 0.1 + i * 0.03, 0.3, { scaleX: 0.25, transformOrigin: "left center" }, { scaleX: 1 }));
+          // the walk's result set lifts out of HydraDB into a compact agent context
+          const tBec = Math.max(at("becomes", "6f", 1, -0.2), tGhost + 0.3);
+          frame("#s6-ctx", tBec, 0.7);
+          show("#s6-ctx-h", tBec + 0.3, 0.55, { "--w": 60 }, { "--w": 98 }, "expo.out");
+          const tLift = Math.max(at("agent's", "6f", 1, -0.4), tBec + 0.35);
+          hide(found, tLift, 0.3);
+          clones.forEach((c, i) => {
+            const t = tLift + i * 0.12;
+            show(c.el, t, 0.1, {}, {}, "none");
+            tw(c.el, { x: 0, y: 0 }, { x: c.dx, y: c.dy }, t, 0.85, "power3.inOut");
+          });
+          const tCtx = Math.max(at("context", "6f", 1, 0), tLift + 4 * 0.12 + 0.85);
+          flash("#s6-ctx", tCtx, "", 0.7, 7, 22);
+          // traverse the structure: the walk runs once more, edge by edge
+          const tTrav = Math.max(at("traverse", "6f", 1, -0.1), tCtx + 0.3);
+          const H2 = 0.3;
+          pulse("#s6-e1", tTrav, H2);
+          pulse("#s6-e3", tTrav + H2, H2);
+          pulse("#s6-e4", tTrav + 2 * H2, H2);
+          pulse("#s6-e5", tTrav + 2 * H2, H2);
+          // skip the re-read: struck, then its contents collapse; a faint footprint keeps the size legible
+          const tSkip = Math.max(at("skip", "6f", 1, -0.05), tTrav + 3 * H2);
+          tw("#s6-gh-x", { scaleX: 0 }, { scaleX: 1 }, tSkip, 0.35, "power2.out");
+          const tRR = Math.max(at("re-read", "6f", 1, -0.1), tSkip + 0.4);
+          tw("#s6-gh-lines", { clipPath: "inset(0% 0% 0% 0%)" }, { clipPath: "inset(100% 0% 0% 0%)" }, tRR, 0.6, "power2.in");
+          tw("#s6-ghost", { opacity: 1 }, { opacity: 0.45 }, tRR + 0.35, 0.4, "power1.out");
+
+          /* ===================================================================== */
+          /* 6g  re-run stale steps in order, reuse what's current, record receipts */
+          /* ===================================================================== */
+          const t6g = Math.max(ln("6g").localStart - 0.25, tRR + 0.8);
+          // the comparison clears first, then the runtime and the store return (no double exposure)
+          tw("#s6-ghost", { opacity: 0.45 }, { opacity: 0 }, t6g, 0.35, "power1.out");
+          hide(["#s6-ctx", ...clones.map((c) => c.el)], t6g, 0.35);
+          tw(ASIDE, { opacity: 0 }, { opacity: 1 }, t6g + 0.35, 0.55, "power1.out");
+          const tRe = Math.max(at("re-runs", "6g", 1, -0.1), t6g + 0.5);
           show("#s6-steps-h", tRe - 0.15, 0.45, { y: 8 }, { y: 0 });
           const STEP = 0.36;
           rows.forEach((row, i) => {
@@ -709,12 +794,12 @@
           show(ov("co", "cu1"), tR1 + 2 * STEP + 0.2, 0.3);
           draw(ec("e5", "fr1"), tR1 + 3 * STEP, 0.3);
           show(ov("eu", "cu1"), tR1 + 3 * STEP + 0.2, 0.3);
-          const tReuse = Math.max(at("reuses", "6f", 1, -0.1), tR1 + 4 * STEP);
+          const tReuse = Math.max(at("reuses", "6g", 1, -0.1), tR1 + 4 * STEP);
           show(reuseRow, tReuse, 0.4, { x: -14 }, { x: 0 });
           show("#s6-sq6", tReuse, 0.2);
           hide("#s6-sq6", tReuse + 0.35, 0.3);
           show("#s6-reused", tReuse + 0.1, 0.45, { y: 8 }, { y: 0 }, "back.out(1.5)");
-          const tRcpt = Math.max(at("receipts", "6f", 1, -0.15), tReuse + 0.5);
+          const tRcpt = Math.max(at("receipts", "6g", 1, -0.15), tReuse + 0.5);
           rows.forEach((row, i) => show(row.querySelector(".s6-slipg"), tRcpt + i * 0.1, 0.3, { y: -6 }, { y: 0 }, "back.out(1.8)"));
           pulse("#s6-c5", tRcpt + 0.1, 0.3, "fresh");
           pulse("#s6-c6", tRcpt + 0.1, 0.3, "fresh");
@@ -723,34 +808,35 @@
           draw("#s6-ckb", tRcpt + 0.6, 0.35, "power2.out");
 
           /* ===================================================================== */
-          /* 6g  missing evidence fails closed. No fallback. No guess.              */
+          /* 6h  missing evidence fails closed. No fallback. No guess.              */
           /* ===================================================================== */
-          const t6g = Math.max(ln("6g").localStart, tRcpt + 0.9);
-          const tMiss = Math.max(at("missing", "6g", 1, -0.1), t6g);
+          const t6h = Math.max(ln("6h").localStart, tRcpt + 0.9);
+          const tMiss = Math.max(at("missing", "6h", 1, -0.1), t6h);
           show(ov("sup", "un1"), tMiss, 0.35);
           hide("#s6-reused", tMiss, 0.3, 0.3);
           show([ec("e6", "un1"), ec("e7", "un1")], tMiss + 0.25, 0.3);
           show([ov("co", "un1"), ov("eu", "un1")], tMiss + 0.45, 0.35);
-          const tClosed = Math.max(at("closed", "6g", 1, -0.25), tMiss + 0.5);
+          const tClosed = Math.max(at("closed", "6h", 1, -0.25), tMiss + 0.5);
           show("#s6-fail", tClosed, 0.5, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)" }, "power2.inOut");
           show("#s6-fail-h", tClosed + 0.25, 0.35);
           type("#s6-c409", tClosed + 0.45, 0.5);
           type("#s6-c503", tClosed + 0.75, 0.5);
-          const tNo = Math.max(at("no", "6g", 1, -0.05), tClosed + 1.0);
+          const tNo = Math.max(at("no", "6h", 1, -0.05), tClosed + 1.0);
           show("#s6-nofb", tNo, 0.55, { "--w": 60 }, { "--w": 98 }, "expo.out");
 
           /* ===================================================================== */
-          /* 6h  around it: browser app, Python API, MCP server                     */
+          /* 6i  agents reach it through a browser app, a Python API, or an MCP     */
+          /*     server, choosing plans from typed tools, never arbitrary code       */
           /* ===================================================================== */
-          const t6h = Math.max(ln("6h").localStart, tNo + 0.6);
+          const t6i = Math.max(ln("6i").localStart, tNo + 0.6);
           // the hypothetical clears; the graph settles back to its plain threads
-          hide([ov("sup", "un1"), ov("co", "un1"), ov("eu", "un1"), ec("e6", "un1"), ec("e7", "un1")], t6h, 0.45);
-          tw("#s6-reused", { opacity: 0.3 }, { opacity: 1 }, t6h, 0.45, "power1.out");
+          hide([ov("sup", "un1"), ov("co", "un1"), ov("eu", "un1"), ec("e6", "un1"), ec("e7", "un1")], t6i, 0.45);
+          tw("#s6-reused", { opacity: 0.3 }, { opacity: 1 }, t6i, 0.45, "power1.out");
           hide([ov("fx", "cu1"), ov("rec", "cu1"), ov("reg", "cu1"), ov("co", "cu1"), ov("eu", "cu1"),
-                ov("fx", "st1"), ov("rec", "st1"), ov("reg", "st1"), ov("co", "st1"), ov("eu", "st1")], t6h + 0.2, 0.6);
-          hide(["e1", "e3", "e4", "e5"].flatMap((e) => [ec(e, "st1"), ec(e, "fr1")]), t6h + 0.2, 0.6);
-          tw(world, { x: SHIFT }, { x: 0 }, t6h, 1.4, "power2.inOut");
-          const tBrowser = Math.max(at("browser", "6h", 1, -0.2), t6h + 0.5);
+                ov("fx", "st1"), ov("rec", "st1"), ov("reg", "st1"), ov("co", "st1"), ov("eu", "st1")], t6i + 0.2, 0.6);
+          hide(["e1", "e3", "e4", "e5"].flatMap((e) => [ec(e, "st1"), ec(e, "fr1")]), t6i + 0.2, 0.6);
+          tw(world, { x: SHIFT }, { x: 0 }, t6i, 1.4, "power2.inOut");
+          const tBrowser = Math.max(at("browser", "6i", 1, -0.2), t6i + 0.5);
           frame("#s6-d1", tBrowser, 0.8);
           show("#s6-d1 .s6-t", tBrowser + 0.35, 0.55, { "--w": 60 }, { "--w": 98 }, "expo.out");
           show("#s6-d1 .s6-f", tBrowser + 0.5, 0.4);
@@ -759,23 +845,21 @@
           frame("#s6-fa", tBrowser + 0.7, 0.6);
           show(["#s6-fa .s6-t", "#s6-fa .s6-f"], tBrowser + 1.0, 0.4, { y: 8 }, { y: 0 });
           draw("#s6-c2", tBrowser + 1.1, 0.25);
-          const tPy = Math.max(at("python", "6h", 1, -0.2), tBrowser + 0.8);
+          const tPy = Math.max(at("python", "6i", 1, -0.2), tBrowser + 0.8);
           frame("#s6-d2", tPy, 0.8);
           show("#s6-d2 .s6-t", tPy + 0.35, 0.55, { "--w": 60 }, { "--w": 98 }, "expo.out");
           show("#s6-d2 .s6-f", tPy + 0.5, 0.4);
           draw("#s6-c3", tPy + 0.55, 0.4);
-          const tMcp = Math.max(at("server", "6h", 1, -0.45), tPy + 0.8);
+          const tMcp = Math.max(at("MCP", "6i", 1, -0.15), tPy + 0.8);
           frame("#s6-d3", tMcp, 0.9);
           show("#s6-d3 .s6-t", tMcp + 0.35, 0.55, { "--w": 60 }, { "--w": 98 }, "expo.out");
           show("#s6-d3-s", tMcp + 0.5, 0.4);
           draw("#s6-c4", tMcp + 0.55, 0.4);
 
-          /* ===================================================================== */
-          /* 6i  agents choose plans from typed tools; never arbitrary code         */
-          /* ===================================================================== */
-          const t6i = Math.max(ln("6i").localStart, tMcp + 0.7);
-          flash("#s6-d3", t6i, "", 0.9, 6, 18);
-          const tPlans = Math.max(at("plans", "6i", 1, -0.1), t6i + 0.2);
+          // choosing plans from typed tools: the MCP door lists its five
+          const tChoose = Math.max(at("choosing", "6i", 1, -0.1), tMcp + 0.9);
+          flash("#s6-d3", tChoose, "", 0.9, 6, 18);
+          const tPlans = Math.max(at("plans", "6i", 1, -0.1), tChoose + 0.2);
           const tTyped = Math.max(at("tools", "6i", 1, 0), tPlans + 0.6);
           world.querySelectorAll(".s6-tl").forEach((el, i) =>
             show(el, tPlans + ((tTyped - tPlans) * i) / 4, 0.35, { x: -12 }, { x: 0 }));

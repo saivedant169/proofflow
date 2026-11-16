@@ -145,6 +145,8 @@
 
         /* state tags that straddle a top border (siblings, so a node's clip never cuts them) */
         .s4-tag { position: absolute; z-index: 4; }
+        /* support's two states sit side by side above it: "current" first, then "reused" */
+        #s4-sutags { right: 600px; top: 753px; display: flex; gap: 14px; }
 
         /* threads */
         .s4-socket { fill: var(--thread); stroke: none; }
@@ -238,8 +240,7 @@
               <span class="node-sub">Separate result</span>
             </div>
           </div>
-          <span id="s4-tag-cur" class="s4-tag tag tag-current" style="right: 600px; top: 753px">Current</span>
-          <span id="s4-tag-reu" class="s4-tag tag tag-reused" style="right: 600px; top: 753px">Reused</span>
+          <div id="s4-sutags" class="s4-tag"><span id="s4-tag-cur" class="tag tag-current">Current</span><span id="s4-tag-reu" class="tag tag-reused">Reused</span></div>
 
           <!-- each number in a report points to that result -->
           <div id="s4-company" class="panel s4-card">
@@ -366,14 +367,15 @@
           pop("#s4-tag-wc", tWith + 0.1);
           pop("#s4-tag-we", tWith + 0.18);
 
-          // ---- 4f: support never read the rate, so it stays ---------------------------------------
+          // ---- 4f: support never read the rate, so it stays current, and is reused ----------------
           const tSupport = at("support", 1, -0.05);
           show("#s4-su-ringf", tSupport, 0.35);
-          pop("#s4-tag-cur", tSupport + 0.05);
           const coRows = FILM.outline(tl, "#s4-company", { x: 22, y: 176, w: 326, h: 48 }, at("stays", 1, -0.1));
           const euRows = FILM.outline(tl, "#s4-eu", { x: 22, y: 176, w: 326, h: 48 }, at("stays", 1, -0.02));
           coRows.classList.add("fresh");
           euRows.classList.add("fresh");
+          pop("#s4-tag-cur", at("current", 1, -0.12));
+          pop("#s4-tag-reu", at("reused", 1, -0.12));
 
           // ---- 4g: refresh re-runs only the affected steps ----------------------------------------
           const r0 = at("refresh", 1, -0.05);
@@ -408,9 +410,7 @@
           FILM.countTo(tl, "#s4-eu-fig .fig-v", 2090, 2280, tCards + 0.06, { duration: 0.9, format: money });
           pop("#s4-tag-fc", tCards + 0.15);
           pop("#s4-tag-fe", tCards + 0.22);
-          // support kept its identity: reused, not re-run
-          hide("#s4-tag-cur", tCards + 0.3, 0.2);
-          pop("#s4-tag-reu", tCards + 0.35);
+          // support kept its identity: reused, not re-run (its tags from 4f hold)
           // the summary line
           const tFoot = Math.min(end - 1.5, Math.max(tCards + 0.9, FILM.atEnd(S, "steps") + 0.1));
           tl.fromTo("#s4-foot", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.6, ease: FILM.ease }, tFoot);
