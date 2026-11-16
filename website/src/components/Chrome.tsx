@@ -106,8 +106,8 @@ export function Nav() {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') { setOpen(false); menuBtn.current?.focus() }
     }
-    // Close the sheet if the viewport grows past the mobile breakpoint.
-    const wide = window.matchMedia('(min-width: 721px)')
+    // Close the sheet once the viewport is wide enough to show the inline section links (Chrome.css, 1200px).
+    const wide = window.matchMedia('(min-width: 1201px)')
     const onWide = () => wide.matches && setOpen(false)
     window.addEventListener('keydown', onKey)
     wide.addEventListener('change', onWide)

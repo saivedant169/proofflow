@@ -26,7 +26,7 @@ export default function Hero() {
 
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <p className="hero-kicker"><span aria-hidden className="hero-kicker-dot" />HydraDB agent context layer</p>
+            <p className="hero-kicker"><span aria-hidden className="hero-kicker-dot" /><span><strong>HydraDB Hackathon · Track 2</strong> — context layer for agents</span></p>
             <h1 id="top-title" className="hero-title">Full‑context accuracy at vector‑search cost.</h1>
             <p className="hero-lede">
               ProofFlow traverses the dependency path in HydraDB, so agents refresh exactly what a changed input affected, nothing more.

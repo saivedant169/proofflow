@@ -139,7 +139,7 @@ export default function TryIt() {
             <LinkTile index={0} onHover={onHover} href={links.liveApp}
               icon={<AppWindow size={20} strokeWidth={2} />}
               title="Open the live app"
-              line="Correct one rate. Watch 4 affected steps re-run."
+              line="Correct one rate: 4 affected steps re-run, support is reused."
               chip={<><span className="try-live-dot" aria-hidden />Live</>}
               media={
                 <img className="try-shot" src={import.meta.env.BASE_URL + 'shots/workspace-refreshed-final.jpg'}
@@ -155,7 +155,7 @@ export default function TryIt() {
               media={<AgentThreads run={agentRun} />} />
           </div>
 
-          <div className="try-local">
+          <div className="try-local" id="run-locally">
             <div className="try-local-text">
               <h3 className="try-local-title">Run it locally</h3>
               <ul className="try-reqs" aria-label="Requirements">

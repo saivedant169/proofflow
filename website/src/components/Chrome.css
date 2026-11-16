@@ -157,7 +157,7 @@ header.site-nav.is-open { background: color-mix(in srgb, var(--paper) 94%, trans
 .site-nav.is-scrolled .nav-progress { opacity: 0.85; }
 .site-nav.is-open .nav-progress { opacity: 0; }
 
-/* Mobile menu */
+/* Menu button and sheet (every width where the inline section links are hidden) */
 .nav-menu-btn {
   display: none;
   width: 42px; height: 42px;
@@ -211,22 +211,38 @@ header.site-nav.is-open { background: color-mix(in srgb, var(--paper) 94%, trans
 .mobile-nav a[aria-current] .mobile-node { background: var(--thread); box-shadow: 0 0 0 4px var(--thread-soft); }
 .mobile-nav .btn { margin-top: 18px; justify-content: center; width: 100%; }
 
-@media (max-width: 1080px) {
+/* Six section links: tighten them before they would meet the actions, then fold into the menu. */
+@media (max-width: 1320px) {
+  .site-nav-links a { padding: 0 11px; }
+}
+/* Wherever the inline links are hidden, the menu button and its sheet take over, so every width can navigate. */
+@media (max-width: 1200px) {
   .site-nav-inner { grid-template-columns: auto minmax(0, 1fr); }
   .site-nav-links { display: none; }
+  .nav-menu-btn { display: grid; }
+  .mobile-nav { display: flex; }
+}
+/* Tablet / small laptop: the bar still carries the live-app CTA, so the sheet lists sections only. */
+@media (min-width: 721px) and (max-width: 1200px) {
+  .mobile-nav { padding-bottom: 26px; }
+  .mobile-nav .btn { display: none; }
 }
 @media (max-width: 720px) {
   :root { --nav-h: 64px; }
   .site-nav.is-scrolled .site-nav-inner { height: 56px; }
   .nav-cta { display: none; }
-  .nav-menu-btn { display: grid; }
-  .mobile-nav { display: flex; }
   .site-nav-actions { gap: 8px; }
   .theme-switch button { width: 28px; height: 28px; }
 }
+/* Narrowest phones: shrink the wordmark and controls so the switch keeps clear of the wordmark (>= 12px gap). */
 @media (max-width: 380px) {
-  .wordmark { font-size: var(--t-18); }
-  .wordmark svg { width: 22px; height: 22px; }
+  .site-nav-inner { gap: 12px; }
+  .wordmark { font-size: 1rem; gap: 7px; }
+  .wordmark svg { width: 20px; height: 20px; }
+  .site-nav-actions { gap: 6px; }
+  .theme-switch { padding: 2px; }
+  .theme-switch button { width: 27px; height: 27px; }
+  .nav-menu-btn { width: 38px; height: 38px; }
 }
 
 /* ---------- Lineage rail: a quiet thread in the left margin on wide screens ---------- */

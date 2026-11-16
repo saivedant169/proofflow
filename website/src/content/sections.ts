@@ -5,6 +5,7 @@ export const SECTIONS = [
   { id: 'how', label: 'How it works', nav: true },
   { id: 'demo', label: 'Demo', nav: true },
   { id: 'results', label: 'Results', nav: true },
+  { id: 'who', label: 'Who it’s for', nav: true },
   { id: 'architecture', label: 'Architecture', nav: true },
   { id: 'evaluation', label: 'Evaluation', nav: true },
   { id: 'try', label: 'Try it', nav: false },

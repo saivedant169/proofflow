@@ -5,6 +5,7 @@ import Problem from './sections/problem'
 import HowItWorks from './sections/how'
 import Demo from './sections/demo'
 import Results from './sections/results'
+import Who from './sections/who'
 import Architecture from './sections/architecture'
 import Evaluation from './sections/evaluation'
 import TryIt from './sections/try'
@@ -21,6 +22,7 @@ export default function App() {
         <HowItWorks />
         <Demo />
         <Results />
+        <Who />
         <Architecture />
         <Evaluation />
         <TryIt />
