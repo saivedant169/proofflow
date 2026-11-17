@@ -231,3 +231,8 @@ body {
 /* Fine rules used as structure */
 .rule-h { position: absolute; height: 2px; background: var(--hairline); transform-origin: left center; }
 .rule-v { position: absolute; width: 2px; background: var(--hairline); transform-origin: center top; }
+
+/* An undrawn (offset 1) or retracted (offset -1) stroke is a zero-length dash; the GPU raster still paints its
+   caps as stray dots, so hide it until it starts drawing. */
+[stroke-dashoffset="1"],
+[stroke-dashoffset="-1"] { visibility: hidden; }
