@@ -1,0 +1,315 @@
+<!doctype html>
+<!-- ProofFlow film, s3 "The idea" (music opens on mark "name"). One thread crosses the empty frame and becomes the
+     P; the rest of the wordmark unfurls on Anybody's width axis; a mint dot lands. Then the figure from s1 returns
+     with its receipt: threads tie it to exactly which inputs and which calculation made it, so it knows what to
+     hold back and what to redo. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ground);
+        }
+        /* the wordmark: everything inside is sized in em, so the mark is re-laid (font-size), never scaled */
+        /* built at hero size; it only ever scales DOWN (to 80/168) into the corner */
+        .s3-mark {
+          position: absolute;
+          left: 322px;
+          top: 474px;
+          white-space: nowrap;
+          color: var(--ink);
+        }
+        .s3-p {
+          display: inline-block;
+          width: 0.72em;
+          height: 0.79em;
+          margin-right: 0.012em;
+          overflow: visible;
+          vertical-align: baseline;
+        }
+        .s3-p path {
+          fill: none;
+          stroke: var(--thread);
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+        .s3-p .s3-p-letter {
+          stroke-width: 21;
+        }
+        .s3-p .s3-p-lead {
+          stroke-width: 2.4;
+        }
+        .s3-l {
+          display: inline-block;
+          --s3-w: 132;
+          font-variation-settings: "wdth" var(--s3-w);
+        }
+        .s3-dot {
+          display: inline-block;
+          width: 0.15em;
+          height: 0.15em;
+          margin-left: 0.06em;
+          border-radius: 50%;
+          background: var(--current);
+          vertical-align: baseline;
+        }
+        /* the figure and its receipt */
+        .s3-fig-label {
+          position: absolute;
+          left: 120px;
+          top: 454px;
+          white-space: nowrap;
+        }
+        .s3-fig {
+          position: absolute;
+          left: 116px;
+          top: 498px;
+          white-space: nowrap;
+        }
+        .s3-withheld {
+          position: absolute;
+          left: 120px;
+          top: 660px;
+        }
+        .s3-receipt {
+          left: 1040px;
+          top: 230px;
+          width: 640px;
+          height: 580px;
+          border-top-color: transparent;
+        }
+        .s3-perf {
+          position: absolute;
+          left: 1040px;
+          top: 229px;
+          width: 640px;
+          height: 4px;
+          overflow: visible;
+        }
+        .s3-perf line {
+          stroke: var(--rule);
+          stroke-width: 3;
+          stroke-dasharray: 12 10;
+        }
+        .s3-rlabel {
+          position: absolute;
+          left: 48px;
+          white-space: nowrap;
+        }
+        .s3-row {
+          position: absolute;
+          left: 48px;
+          width: 544px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          white-space: nowrap;
+        }
+        .s3-row .t-label {
+          color: var(--ink);
+        }
+        .s3-row .t-label.is-stale {
+          color: var(--stale);
+        }
+        .s3-ver {
+          margin-left: auto;
+        }
+        .s3-num {
+          position: relative;
+          display: inline-block;
+          width: 64px;
+        }
+        .s3-strike {
+          position: absolute;
+          left: -4px;
+          width: 70px;
+          top: 19px;
+          height: 3px;
+          border-radius: 2px;
+          background: var(--stale);
+          transform-origin: left center;
+        }
+        .s3-newbox {
+          display: inline-block;
+          width: 64px;
+          overflow: hidden;
+        }
+        .s3-rule {
+          left: 48px;
+          width: 544px;
+        }
+        .s3-refresh {
+          position: absolute;
+          left: 1040px;
+          top: 842px;
+        }
+        .s3-gate {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1920px;
+          height: 1080px;
+          pointer-events: none;
+        }
+        .s3-threads circle {
+          stroke: none;
+        }
+        .s3-threads .s3-port {
+          fill: var(--thread);
+        }
+        .s3-threads .s3-port-hot {
+          fill: var(--stale);
+        }
+        .s3-threads .s3-port-fresh {
+          fill: var(--current);
+        }
+      </style>
+
+      <div id="root" data-composition-id="s3-idea" data-width="1920" data-height="1080" data-duration="15.4">
+        <div id="s3-mark" class="t-hero s3-mark">
+          <svg id="s3-p" class="s3-p" viewBox="0 0 72 79"><path id="s3-p-lead" class="s3-p-lead" d="M-1400 68 H11" /><path id="s3-p-letter" class="s3-p-letter" d="M11 68 V11 H42 A19 19 0 0 1 42 49 H11" /></svg><span class="s3-l">r</span><span class="s3-l">o</span><span class="s3-l">o</span><span class="s3-l">f</span><span class="s3-l">F</span><span class="s3-l">l</span><span class="s3-l">o</span><span class="s3-l">w</span><span id="s3-dot" class="s3-dot"></span>
+        </div>
+
+        <p id="s3-fig-label" class="t-label s3-fig-label">Company revenue</p>
+        <div id="s3-fig" class="fig s3-fig"><span class="fig-v">$5,565</span><span class="withheld-hatch"></span></div>
+        <span id="s3-withheld" class="tag tag-stale s3-withheld">Withheld</span>
+
+        <div id="s3-receipt" class="panel s3-receipt">
+          <p class="t-label s3-rlabel" style="top: 30px">Receipt</p>
+          <p id="s3-in-label" class="t-small s3-rlabel" style="top: 98px">Inputs</p>
+          <div id="s3-r0" class="s3-row" style="top: 148px"><span class="t-label">Orders</span><span class="t-small s3-ver">version 1</span></div>
+          <div id="s3-r1" class="s3-row" style="top: 218px"><span class="t-label">Refunds</span><span class="t-small s3-ver">version 1</span></div>
+          <div id="s3-r2" class="s3-row" style="top: 288px">
+            <span class="t-label">EUR→USD</span>
+            <span class="s3-num"><span id="s3-old" class="t-label">1.10</span><span id="s3-strike" class="s3-strike"></span></span>
+            <span id="s3-newbox" class="s3-newbox"><span id="s3-new" class="t-label is-stale">1.20</span></span>
+            <span class="t-small s3-ver">version 1</span>
+          </div>
+          <div id="s3-rule" class="rule-h s3-rule" style="top: 358px"></div>
+          <p id="s3-calc-label" class="t-small s3-rlabel" style="top: 374px">Calculation</p>
+          <div id="s3-r3" class="s3-row" style="top: 418px"><span class="t-mono">convert_to_usd</span></div>
+          <div id="s3-r4" class="s3-row" style="top: 488px"><span class="t-mono">company_total</span></div>
+        </div>
+        <svg id="s3-perf" class="s3-perf" viewBox="0 0 640 4"><line x1="10" y1="2" x2="630" y2="2" /></svg>
+        <span id="s3-refresh" class="tag tag-current s3-refresh">Refresh</span>
+
+        <svg id="s3-threads" class="threads s3-threads" viewBox="0 0 1920 1080"></svg>
+        <div id="s3-pulse-gate" class="s3-gate"><div id="s3-pulse" class="pulse"></div></div>
+      </div>
+
+      <script>
+        (() => {
+          const S = "s3";
+          const tl = gsap.timeline({ paused: true });
+          const rootStyle = getComputedStyle(document.documentElement);
+          const tok = (name) => rootStyle.getPropertyValue(name).trim();
+          const at = (text, nth = 1, offset = 0) => FILM.at(S, text, nth, offset);
+          const SVGNS = "http://www.w3.org/2000/svg";
+          const threads = document.getElementById("s3-threads");
+
+          /* ---------- 3a "ProofFlow": one thread becomes the P, the word unfurls, the dot lands ---------- */
+          const tName = FILM.mark("name", S).localStart;
+          const HERO = { left: 322, top: 474 }; // must match .s3-mark
+          const SMALL = { left: 120, top: 96, k: 80 / 168 };
+          const tLead = Math.max(0, tName - 0.2);
+          FILM.drawThread(tl, "#s3-p-lead", tLead, { duration: 0.42, ease: "power2.in" });
+          FILM.drawThread(tl, "#s3-p-letter", tLead + 0.4, { duration: 0.5, ease: "power2.out" });
+          // a zero-length round-capped dash would show as a dot before the draw: keep each path dark until it starts
+          tl.fromTo("#s3-p-lead", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, tLead);
+          tl.fromTo("#s3-p-letter", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, tLead + 0.4);
+          // the tail of the thread is drawn into the letter
+          tl.fromTo("#s3-p-lead", { attr: { "stroke-dashoffset": 0 } }, { attr: { "stroke-dashoffset": -1 }, duration: 0.4, ease: "power2.inOut", immediateRender: false }, tLead + 0.5);
+          document.querySelectorAll("#s3-mark .s3-l").forEach((span, i) => {
+            tl.fromTo(span, { "--s3-w": 50, opacity: 0 }, { "--s3-w": 132, opacity: 1, duration: 0.6, ease: "expo.out" }, tLead + 0.6 + i * 0.05);
+          });
+          tl.fromTo("#s3-dot", { scale: 0, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.2)" }, tLead + 1.15);
+
+          /* ---------- 3b "Every number keeps its receipts" ---------- */
+          const L3b = FILM.line("3b");
+          tl.fromTo("#s3-mark",
+            { x: 0, y: 0, scale: 1, transformOrigin: "0% 0%" },
+            { x: SMALL.left - HERO.left, y: SMALL.top - HERO.top, scale: SMALL.k, transformOrigin: "0% 0%", duration: 0.8, ease: "power3.inOut" },
+            L3b.localStart);
+          const tNum = Math.max(at("number", 1, -0.1), L3b.localStart + 0.55); // after the wordmark has cleared
+          tl.fromTo("#s3-fig-label", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: FILM.ease }, tNum);
+          tl.fromTo("#s3-fig", { opacity: 0, x: -40, "--wdth": 60 }, { opacity: 1, x: 0, "--wdth": 125, duration: 0.75, ease: "expo.out" }, tNum + 0.05);
+
+          // the receipt unfolds downward from its perforated edge
+          const tRec = at("receipts", 1, -0.1);
+          tl.fromTo("#s3-perf", { opacity: 0, scaleX: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, duration: 0.4, ease: FILM.ease }, tRec);
+          tl.fromTo("#s3-receipt", { clipPath: "inset(0px 0px 100% 0px)" }, { clipPath: "inset(0px 0px 0% 0px)", duration: 0.75, ease: "power2.out" }, tRec + 0.15);
+
+          // threads tie the figure to each line of its receipt
+          const RX = 1040, RY = 230;
+          const anchor = { x: 680, y: 559 };
+          const rowY = [148, 218, 288, 418, 488].map((t) => RY + t + 22);
+          const dot = (x, y, cls, r = 8) => {
+            const c = document.createElementNS(SVGNS, "circle");
+            c.setAttribute("cx", x);
+            c.setAttribute("cy", y);
+            c.setAttribute("r", r);
+            c.setAttribute("class", cls);
+            threads.appendChild(c);
+            return c;
+          };
+          const thread = (y, cls) => {
+            const p = document.createElementNS(SVGNS, "path");
+            const mx = (anchor.x + RX) / 2;
+            p.setAttribute("d", `M${anchor.x} ${anchor.y} C${mx} ${anchor.y} ${mx} ${y} ${RX} ${y}`);
+            if (cls) p.setAttribute("class", cls);
+            threads.appendChild(p);
+            return p;
+          };
+          const paths = rowY.map((y) => thread(y));
+          const hotPath = thread(rowY[2], "stale");
+          const ports = rowY.map((y) => dot(RX, y, "s3-port", 8));
+          const hotPort = dot(RX, rowY[2], "s3-port-hot", 8);
+          const freshPorts = [3, 4].map((i) => dot(RX, rowY[i], "s3-port-fresh", 8));
+          const anchorDot = dot(anchor.x, anchor.y, "s3-port", 10);
+          tl.fromTo(anchorDot, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, at("inputs", 1, -0.25));
+
+          const reveal = (i, t) => {
+            FILM.drawThread(tl, paths[i], t, { duration: 0.5, ease: "power2.inOut" });
+            tl.fromTo(ports[i], { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, t + 0.42);
+            tl.fromTo(`#s3-r${i}`, { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.45, ease: FILM.ease }, t + 0.38);
+          };
+          const tIn = at("inputs", 1, -0.1);
+          tl.fromTo("#s3-in-label", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, tIn);
+          [0, 1, 2].forEach((i) => reveal(i, tIn + i * 0.24));
+          const tCalc = at("calculation", 1, -0.1);
+          tl.fromTo("#s3-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: FILM.ease }, tCalc - 0.1);
+          tl.fromTo("#s3-calc-label", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, tCalc);
+          [3, 4].forEach((i, k) => reveal(i, tCalc + k * 0.24));
+
+          /* ---------- 3c "So it knows what to hold back, and what to redo" ---------- */
+          const tKnow = at("knows", 1, -0.05);
+          tl.fromTo("#s3-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, tKnow);
+          tl.fromTo("#s3-old", { color: tok("--ink") }, { color: tok("--faint"), duration: 0.25, ease: "none" }, tKnow);
+          tl.fromTo("#s3-newbox", { width: 0 }, { width: 64, duration: 0.4, ease: FILM.ease }, tKnow + 0.15);
+          tl.fromTo("#s3-new", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: FILM.ease }, tKnow + 0.2);
+          tl.fromTo(hotPort, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, tKnow + 0.25);
+          // the change runs back up its thread to the figure
+          FILM.drawThread(tl, hotPath, tKnow + 0.3, { duration: 0.6, ease: "power1.inOut", reverse: true });
+          FILM.pulseAlong(tl, hotPath, "#s3-pulse", tKnow + 0.3, { duration: 0.6, reverse: true, ease: "power1.inOut" });
+          tl.fromTo("#s3-pulse-gate", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, tKnow + 0.3);
+          tl.fromTo("#s3-pulse-gate", { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none", immediateRender: false }, tKnow + 0.91);
+          const tHold = at("hold", 1, -0.05);
+          FILM.withhold(tl, "#s3-fig", tHold);
+          tl.fromTo("#s3-withheld", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.45, ease: FILM.ease }, tHold + 0.1);
+          const tRedo = at("redo", 1, -0.05);
+          freshPorts.forEach((p, k) => tl.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, tRedo + k * 0.08));
+          tl.fromTo("#s3-refresh", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.45, ease: FILM.ease }, tRedo + 0.1);
+
+          window.__timelines["s3-idea"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

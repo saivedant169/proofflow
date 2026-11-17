@@ -1,0 +1,427 @@
+<!doctype html>
+<!-- ProofFlow film, s4 "How it works" (STORYBOARD.md). The beginner's core explanation: one chain builds
+     node by node (source version -> execution receipt -> immutable result -> report claims), a correction
+     travels up it, revenue is withheld, support stays, refresh re-runs only the affected steps.
+     Figures: README.md guided-sample table ($5,565 -> $5,755, $2,090 -> $2,280, support 2 = same artifact,
+     four tools execute during refresh). -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: var(--ground);
+        }
+        #s4-title {
+          position: absolute;
+          left: 120px;
+          top: 96px;
+          --s4-w: 120;
+          font-variation-settings: "wdth" var(--s4-w);
+          white-space: nowrap;
+        }
+        #s4-world {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1920px;
+          height: 1080px;
+        }
+
+        /* ---- chain nodes: a content layer above the state layers ---- */
+        .s4-node { z-index: 2; }
+        .s4-node > .s4-in { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 6px; }
+        .s4-hatch,
+        .s4-ring {
+          position: absolute;
+          border-radius: inherit;
+          opacity: 0;
+          pointer-events: none;
+        }
+        /* withheld hatch: an SVG pattern (stripes of --stale-soft on --panel), no gradients */
+        .s4-hatch { left: 0; top: 0; width: 100%; height: 100%; z-index: 1; overflow: visible; }
+        .s4-hb { fill: var(--panel); }
+        .s4-hs { fill: var(--stale-soft); }
+        .s4-ring { inset: -3px; z-index: 3; border: 3px solid var(--stale); }
+        .s4-ring.s4-fresh { border-color: var(--current); }
+        .s4-node.source .s4-ring { left: -10px; border-left-width: 10px; }
+
+        #s4-source { left: 120px; top: 385px; width: 320px; height: 170px; padding: 22px 26px 22px 30px; }
+        #s4-receipt { left: 570px; top: 415px; width: 300px; height: 110px; padding: 0 34px; }
+        #s4-artifact { left: 1020px; top: 400px; width: 300px; height: 140px; }
+        #s4-support { left: 1020px; top: 815px; width: 300px; height: 110px; }
+        .s4-node .node-title { white-space: nowrap; font-variation-settings: "wdth" 86; }
+
+        /* version chips on the source */
+        .s4-chips { position: relative; height: 52px; margin-top: 10px; }
+        .s4-chip {
+          position: absolute;
+          left: 0;
+          top: 0;
+          box-sizing: border-box;
+          height: 50px;
+          width: 122px;
+          justify-content: center;
+          display: flex;
+          align-items: center;
+          border-radius: 999px;
+          background: var(--panel-2);
+          border: 2px solid var(--rule);
+          font-family: var(--font-sans);
+          font-size: 26px;
+          font-weight: 650;
+          color: var(--ink);
+          white-space: nowrap;
+        }
+        .s4-chip b { font-family: var(--font-display); font-weight: 750; font-variation-settings: "wdth" 110; margin-left: 10px; }
+        #s4-v2, #s4-v2c { left: 134px; }
+        #s4-v2 { border-color: var(--stale); color: var(--stale); background: var(--stale-soft); }
+        #s4-v2c { border-color: var(--current); color: var(--current); background: var(--current-soft); }
+
+        #s4-src-cap { position: absolute; left: 120px; top: 584px; white-space: nowrap; }
+
+        /* sub-lines that swap on refresh */
+        .s4-sub { position: relative; display: block; height: 30px; white-space: nowrap; }
+        .s4-sub > span { position: absolute; left: 0; top: 0; display: inline-flex; align-items: center; gap: 10px; }
+        .s4-sub .s4-b { opacity: 0; color: var(--current); }
+        .s4-lock { width: 18px; height: 22px; flex: none; }
+        .s4-lock path, .s4-lock rect { fill: none; stroke: var(--muted); stroke-width: 2.5; }
+
+        /* the receipt slip that pops from the pill */
+        .s4-slip {
+          position: absolute;
+          box-sizing: border-box;
+          left: 586px;
+          top: 262px;
+          width: 268px;
+          height: 118px;
+          padding: 20px 24px 0;
+          background: var(--panel-2);
+          border: 2px solid var(--rule);
+          border-top: 3px dashed var(--muted);
+          border-radius: 6px 6px 12px 12px;
+          z-index: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .s4-slip .t-small { color: var(--muted); }
+        #s4-slip2 { left: 600px; top: 250px; border-color: var(--current); border-top-color: var(--current); z-index: 1; }
+
+        /* edge labels */
+        .s4-edge {
+          position: absolute;
+          top: 418px;
+          width: 150px;
+          text-align: center;
+          font-size: 24px;
+          z-index: 2;
+        }
+
+        /* report cards */
+        .s4-card { left: 1430px; width: 370px; height: 250px; z-index: 2; }
+        #s4-company { top: 195px; }
+        #s4-eu { top: 495px; }
+        .s4-card .s4-ring { border-radius: 18px; inset: -2px; }
+        .s4-card .t-label { position: absolute; left: 28px; top: 24px; color: var(--ink); white-space: nowrap; }
+        .s4-card .fig { --wdth: 100; position: absolute; left: 28px; top: 68px; font-size: 76px; white-space: nowrap; }
+        .s4-card .s4-sup {
+          position: absolute;
+          left: 28px;
+          top: 178px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          white-space: nowrap;
+        }
+        .s4-sup .t-label { position: static; color: var(--muted); }
+        .s4-sup b { font-family: var(--font-display); font-weight: 800; font-size: 44px; font-variation-settings: "wdth" 115; color: var(--ink); line-height: 1; }
+
+        /* state tags that straddle a top border (siblings, so a node's clip never cuts them) */
+        .s4-tag { position: absolute; z-index: 4; }
+
+        /* threads */
+        .s4-socket { fill: var(--thread); stroke: none; }
+        .s4-pulse { z-index: 6; }
+
+        #s4-v2, #s4-v2c, #s4-slip2, #s4-tag-cur, #s4-tag-reu, #s4-tag-wc, #s4-tag-we, #s4-tag-fc, #s4-tag-fe,
+        #s4-foot, #s4-lbl-a, #s4-lbl-b, #s4-src-cap, .s4-socket { opacity: 0; }
+        #s4-foot { position: absolute; left: 120px; top: 930px; white-space: nowrap; }
+        #s4-foot .muted { color: var(--muted); }
+      </style>
+
+      <div id="root" data-composition-id="s4-how" data-width="1920" data-height="1080" data-duration="31.2">
+        <h1 id="s4-title" class="t-head-s">How it works</h1>
+
+        <div id="s4-world">
+          <svg width="0" height="0" style="position: absolute" aria-hidden="true"><defs><pattern id="s4-hatchpat" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect class="s4-hb" width="20" height="20" /><rect class="s4-hs" width="10" height="20" /></pattern></defs></svg>
+          <svg class="threads" viewBox="0 0 1920 1080" aria-hidden="true">
+            <!-- base threads -->
+            <path id="s4-th-a" d="M440 470 L570 470" />
+            <path id="s4-th-b" d="M870 470 L1020 470" />
+            <path id="s4-th-c" d="M1320 455 C1380 455 1370 306 1430 306" />
+            <path id="s4-th-d" d="M1320 485 C1380 485 1370 606 1430 606" />
+            <path id="s4-th-e" d="M1320 855 C1394 855 1356 395 1430 395" />
+            <path id="s4-th-f" d="M1320 885 C1394 885 1356 695 1430 695" />
+            <!-- the change: orange, drawn behind the pulse -->
+            <path id="s4-st-a" class="stale" d="M440 470 L570 470" />
+            <path id="s4-st-b" class="stale" d="M870 470 L1020 470" />
+            <path id="s4-st-c" class="stale" d="M1320 455 C1380 455 1370 306 1430 306" />
+            <path id="s4-st-d" class="stale" d="M1320 485 C1380 485 1370 606 1430 606" />
+            <!-- the refresh: mint -->
+            <path id="s4-fr-a" class="fresh" d="M440 470 L570 470" />
+            <path id="s4-fr-b" class="fresh" d="M870 470 L1020 470" />
+            <path id="s4-fr-c" class="fresh" d="M1320 455 C1380 455 1370 306 1430 306" />
+            <path id="s4-fr-d" class="fresh" d="M1320 485 C1380 485 1370 606 1430 606" />
+            <circle id="s4-so-c" class="s4-socket" cx="1430" cy="306" r="7" />
+            <circle id="s4-so-d" class="s4-socket" cx="1430" cy="606" r="7" />
+            <circle id="s4-so-e" class="s4-socket" cx="1430" cy="395" r="7" />
+            <circle id="s4-so-f" class="s4-socket" cx="1430" cy="695" r="7" />
+          </svg>
+
+          <div id="s4-lbl-a" class="s4-edge t-mono" style="left: 430px">CONSUMED</div>
+          <div id="s4-lbl-b" class="s4-edge t-mono" style="left: 870px">PRODUCED</div>
+
+          <!-- 4a: an input saved as a version -->
+          <div id="s4-source" class="node source s4-node">
+            <span id="s4-src-ring" class="s4-ring"></span><span id="s4-src-ringf" class="s4-ring s4-fresh"></span>
+            <div class="s4-in">
+              <span class="node-title">Exchange rate</span>
+              <div class="s4-chips">
+                <span id="s4-v1" class="s4-chip">v1<b>1.10</b></span>
+                <span id="s4-v2" class="s4-chip">v2<b>1.20</b></span>
+                <span id="s4-v2c" class="s4-chip">v2<b>1.20</b></span>
+              </div>
+            </div>
+          </div>
+          <p id="s4-src-cap" class="t-label">Saved as a version</p>
+
+          <!-- 4b: a tool reads it and leaves a receipt -->
+          <div id="s4-slip" class="s4-slip" data-layout-allow-overlap data-layout-allow-occlusion>
+            <span class="t-mono">convert_to_usd</span>
+            <span class="t-small">read: rate v1</span>
+          </div>
+          <div id="s4-slip2" class="s4-slip" data-layout-allow-overlap data-layout-allow-occlusion>
+            <span class="t-mono">convert_to_usd</span>
+            <span class="t-small">read: rate v2</span>
+          </div>
+          <div id="s4-receipt" class="node pill s4-node">
+            <svg id="s4-rc-hatch" class="s4-hatch" aria-hidden="true"><rect width="100%" height="100%" rx="52" fill="url(#s4-hatchpat)" /></svg><span id="s4-rc-ring" class="s4-ring"></span><span id="s4-rc-ringf" class="s4-ring s4-fresh"></span>
+            <div class="s4-in">
+              <span class="node-title">Conversion</span>
+              <span class="s4-sub node-sub"><span id="s4-rc-a">Execution receipt</span><span id="s4-rc-b" class="s4-b">Re-ran · new receipt</span></span>
+            </div>
+          </div>
+
+          <!-- 4c: the receipt points to its result -->
+          <div id="s4-artifact" class="node s4-node">
+            <svg id="s4-ar-hatch" class="s4-hatch" aria-hidden="true"><rect width="100%" height="100%" rx="11" fill="url(#s4-hatchpat)" /></svg><span id="s4-ar-ring" class="s4-ring"></span><span id="s4-ar-ringf" class="s4-ring s4-fresh"></span>
+            <div class="s4-in">
+              <span class="node-title">Regional USD</span>
+              <span class="s4-sub node-sub">
+                <span id="s4-ar-a"><svg class="s4-lock" viewBox="0 0 18 22" aria-hidden="true"><rect x="1.5" y="9.5" width="15" height="11" rx="2" /><path d="M4.5 9.5 V6 a4.5 4.5 0 0 1 9 0 V9.5" /></svg>Immutable result</span>
+                <span id="s4-ar-b" class="s4-b">New result</span>
+              </span>
+            </div>
+          </div>
+
+          <div id="s4-support" class="node s4-node">
+            <span id="s4-su-ringf" class="s4-ring s4-fresh"></span>
+            <div class="s4-in">
+              <span class="node-title">Support tickets</span>
+              <span class="node-sub">Separate result</span>
+            </div>
+          </div>
+          <span id="s4-tag-cur" class="s4-tag tag tag-current" style="right: 600px; top: 753px">Current</span>
+          <span id="s4-tag-reu" class="s4-tag tag tag-reused" style="right: 600px; top: 753px">Reused</span>
+
+          <!-- each number in a report points to that result -->
+          <div id="s4-company" class="panel s4-card">
+            <span id="s4-co-ring" class="s4-ring"></span><span id="s4-co-ringf" class="s4-ring s4-fresh"></span>
+            <p class="t-label">Company report</p>
+            <div id="s4-co-fig" class="fig"><span class="fig-v">$5,565</span><span class="withheld-hatch"></span></div>
+            <div class="s4-sup"><span class="t-label">Support tickets</span><b>2</b></div>
+          </div>
+          <div id="s4-eu" class="panel s4-card">
+            <span id="s4-eu-ring" class="s4-ring"></span><span id="s4-eu-ringf" class="s4-ring s4-fresh"></span>
+            <p class="t-label">EU brief</p>
+            <div id="s4-eu-fig" class="fig"><span class="fig-v">$2,090</span><span class="withheld-hatch"></span></div>
+            <div class="s4-sup"><span class="t-label">Support tickets</span><b>2</b></div>
+          </div>
+          <span id="s4-tag-wc" class="s4-tag tag tag-stale" style="right: 140px; top: 167px">Withheld</span>
+          <span id="s4-tag-we" class="s4-tag tag tag-stale" style="right: 140px; top: 467px">Withheld</span>
+          <span id="s4-tag-fc" class="s4-tag tag tag-current" style="right: 140px; top: 167px">Refreshed</span>
+          <span id="s4-tag-fe" class="s4-tag tag tag-current" style="right: 140px; top: 467px">Refreshed</span>
+
+          <div id="s4-p1" class="pulse s4-pulse"></div>
+          <div id="s4-p2" class="pulse s4-pulse"></div>
+          <div id="s4-p3" class="pulse s4-pulse"></div>
+          <div id="s4-p4" class="pulse s4-pulse"></div>
+          <div id="s4-f1" class="pulse fresh s4-pulse"></div>
+          <div id="s4-f2" class="pulse fresh s4-pulse"></div>
+          <div id="s4-f3" class="pulse fresh s4-pulse"></div>
+          <div id="s4-f4" class="pulse fresh s4-pulse"></div>
+        </div>
+
+        <p id="s4-foot" class="t-sub-s">4 tools ran. <span class="muted">Support reused.</span></p>
+      </div>
+
+      <script>
+        (() => {
+          const S = "s4";
+          const tl = gsap.timeline({ paused: true });
+          const at = (word, nth = 1, off = 0) => FILM.at(S, word, nth, off);
+          const end = FILM.section(S).duration;
+          const q = (id) => document.getElementById(id);
+          const wipe = (target, t, d = 0.55, r = 14) =>
+            tl.fromTo(
+              target,
+              { clipPath: `inset(0% 100% 0% 0% round ${r}px)` },
+              { clipPath: `inset(0% 0% 0% 0% round ${r}px)`, duration: d, ease: "power2.out" },
+              t,
+            );
+          const show = (target, t, d = 0.3) => tl.fromTo(target, { opacity: 0 }, { opacity: 1, duration: d, ease: "power1.out" }, t);
+          const hide = (target, t, d = 0.3) => tl.fromTo(target, { opacity: 1 }, { opacity: 0, duration: d, ease: "power1.in" }, t);
+          const pop = (target, t) =>
+            tl.fromTo(target, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, t);
+
+          // Everything that only appears on a beat starts hidden (CSS .s4-late).
+          ["s4-st-a", "s4-st-b", "s4-st-c", "s4-st-d", "s4-fr-a", "s4-fr-b", "s4-fr-c", "s4-fr-d"].forEach((id) => {
+            const p = q(id);
+            p.setAttribute("pathLength", "1");
+            p.setAttribute("stroke-dasharray", "1");
+            p.setAttribute("stroke-dashoffset", "1");
+          });
+
+          // ---- 0: title stretches in on the width axis -------------------------------------------
+          tl.fromTo("#s4-title", { "--s4-w": 60, opacity: 0 }, { "--s4-w": 120, opacity: 1, duration: 0.8, ease: "expo.out" }, 0.1);
+
+          // The world follows the chain as it grows: source centred, then receipt, then the whole chain.
+          const tTool = at("tool");
+          const tResult = at("result");
+          tl.fromTo("#s4-world", { x: 420 }, { x: 210, duration: 0.9, ease: "power2.inOut" }, tTool - 0.35);
+          tl.fromTo("#s4-world", { x: 210 }, { x: 0, duration: 0.9, ease: "power2.inOut", immediateRender: false }, tResult - 0.5);
+
+          // ---- 4a: an input, the exchange rate, saved as a version --------------------------------
+          const tEx = at("exchange", 1, -0.1);
+          wipe("#s4-source", tEx, 0.6);
+          tl.fromTo("#s4-v1", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: FILM.ease }, at("version", 1, -0.25));
+          tl.fromTo("#s4-src-cap", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: FILM.ease }, at("version", 1, -0.1));
+
+          // ---- 4b: a tool reads it, and leaves a receipt ------------------------------------------
+          FILM.drawThread(tl, "#s4-th-a", at("reads", 1, -0.25), { duration: 0.6 });
+          wipe("#s4-receipt", tTool, 0.55, 60);
+          show("#s4-lbl-a", at("reads", 1, 0.2));
+          tl.fromTo("#s4-slip", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.55, ease: "back.out(1.4)" }, at("receipt", 1, -0.1));
+
+          // ---- 4c: the receipt points to its result; each number points to that result ------------
+          FILM.drawThread(tl, "#s4-th-b", at("points", 1, -0.1), { duration: 0.6 });
+          show("#s4-lbl-b", at("points", 1, 0.3));
+          wipe("#s4-artifact", tResult, 0.55);
+          const tEach = at("each");
+          tl.fromTo(["#s4-company", "#s4-eu"], { opacity: 0, x: 48 }, { opacity: 1, x: 0, duration: 0.7, ease: "expo.out", stagger: 0.14 }, tEach - 0.1);
+          const tThat = at("result", 2, -0.35);
+          FILM.drawThread(tl, "#s4-th-c", tThat, { duration: 0.6 });
+          FILM.drawThread(tl, "#s4-th-d", tThat + 0.08, { duration: 0.6 });
+          show(["#s4-so-c", "#s4-so-d"], tThat + 0.5, 0.15);
+          // the support result: a separate input to both reports
+          const tSup = tThat + 0.55;
+          tl.fromTo("#s4-support", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: FILM.ease }, tSup);
+          FILM.drawThread(tl, "#s4-th-e", tSup + 0.35, { duration: 0.6 });
+          FILM.drawThread(tl, "#s4-th-f", tSup + 0.43, { duration: 0.6 });
+          show(["#s4-so-e", "#s4-so-f"], tSup + 0.9, 0.15);
+
+          // ---- 4d: correct the rate ---------------------------------------------------------------
+          const tFix = FILM.mark("correction", S).localStart;
+          const tCorrect = at("correct", 1, -0.05);
+          tl.fromTo("#s4-v1", { x: 0, y: 0, opacity: 1 }, { x: 0, y: 0, opacity: 0.4, duration: 0.5, ease: FILM.ease, immediateRender: false }, tCorrect);
+          tl.fromTo("#s4-v2", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.6, ease: "expo.out" }, tCorrect + 0.05);
+          show("#s4-src-ring", tCorrect + 0.1, 0.35);
+          void tFix;
+
+          // ---- 4e: the change travels up those links ----------------------------------------------
+          const hop = 0.42;
+          const t0 = at("travels", 1, -0.15);
+          const hopTo = (stalePath, base, dot, t, d = hop) => {
+            FILM.drawThread(tl, stalePath, t, { duration: d, ease: "power1.inOut" });
+            FILM.pulseAlong(tl, base, dot, t, { duration: d });
+          };
+          hopTo("#s4-st-a", "#s4-th-a", "#s4-p1", t0);
+          show(["#s4-rc-hatch", "#s4-rc-ring"], t0 + hop - 0.05, 0.25);
+          hopTo("#s4-st-b", "#s4-th-b", "#s4-p2", t0 + hop);
+          show(["#s4-ar-hatch", "#s4-ar-ring"], t0 + 2 * hop - 0.05, 0.25);
+          hopTo("#s4-st-c", "#s4-th-c", "#s4-p3", t0 + 2 * hop, hop + 0.06);
+          hopTo("#s4-st-d", "#s4-th-d", "#s4-p4", t0 + 2 * hop, hop + 0.06);
+          show(["#s4-co-ring", "#s4-eu-ring"], t0 + 3 * hop, 0.25);
+          // both revenue figures are withheld, never shown stale
+          const tWith = at("withheld", 1, -0.15);
+          FILM.withhold(tl, "#s4-co-fig", tWith, { fromWidth: 100, toWidth: 72 });
+          FILM.withhold(tl, "#s4-eu-fig", tWith + 0.08, { fromWidth: 100, toWidth: 72 });
+          pop("#s4-tag-wc", tWith + 0.1);
+          pop("#s4-tag-we", tWith + 0.18);
+
+          // ---- 4f: support never read the rate, so it stays ---------------------------------------
+          const tSupport = at("support", 1, -0.05);
+          show("#s4-su-ringf", tSupport, 0.35);
+          pop("#s4-tag-cur", tSupport + 0.05);
+          const coRows = FILM.outline(tl, "#s4-company", { x: 22, y: 176, w: 326, h: 48 }, at("stays", 1, -0.1));
+          const euRows = FILM.outline(tl, "#s4-eu", { x: 22, y: 176, w: 326, h: 48 }, at("stays", 1, -0.02));
+          coRows.classList.add("fresh");
+          euRows.classList.add("fresh");
+
+          // ---- 4g: refresh re-runs only the affected steps ----------------------------------------
+          const r0 = at("refresh", 1, -0.05);
+          hide([coRows, euRows], r0, 0.3);
+          hide("#s4-src-ring", r0, 0.3);
+          show("#s4-src-ringf", r0, 0.3);
+          tl.fromTo("#s4-v2c", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, r0);
+          const rHop = 0.4;
+          const refreshTo = (freshPath, base, dot, t, d = rHop) => {
+            FILM.drawThread(tl, freshPath, t, { duration: d, ease: "power1.inOut" });
+            FILM.pulseAlong(tl, base, dot, t, { duration: d });
+          };
+          refreshTo("#s4-fr-a", "#s4-th-a", "#s4-f1", r0);
+          const tRc = r0 + rHop - 0.05;
+          hide(["#s4-rc-hatch", "#s4-rc-ring", "#s4-rc-a"], tRc, 0.25);
+          show(["#s4-rc-ringf", "#s4-rc-b"], tRc, 0.3);
+          tl.fromTo("#s4-slip", { opacity: 1 }, { opacity: 0.5, duration: 0.3, ease: "power1.out", immediateRender: false }, tRc);
+          tl.fromTo("#s4-slip2", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, tRc);
+          refreshTo("#s4-fr-b", "#s4-th-b", "#s4-f2", r0 + rHop);
+          const tAr = r0 + 2 * rHop - 0.05;
+          hide(["#s4-ar-hatch", "#s4-ar-ring", "#s4-ar-a"], tAr, 0.25);
+          show(["#s4-ar-ringf", "#s4-ar-b"], tAr, 0.3);
+          refreshTo("#s4-fr-c", "#s4-th-c", "#s4-f3", r0 + 2 * rHop, rHop + 0.06);
+          refreshTo("#s4-fr-d", "#s4-th-d", "#s4-f4", r0 + 2 * rHop, rHop + 0.06);
+          const tCards = r0 + 3 * rHop + 0.02;
+          hide(["#s4-co-ring", "#s4-eu-ring", "#s4-tag-wc", "#s4-tag-we"], tCards, 0.25);
+          show(["#s4-co-ringf", "#s4-eu-ringf"], tCards, 0.3);
+          FILM.restore(tl, "#s4-co-fig", tCards, { fromWidth: 72, toWidth: 100 });
+          FILM.restore(tl, "#s4-eu-fig", tCards + 0.06, { fromWidth: 72, toWidth: 100 });
+          const money = (v) => "$" + Math.round(v).toLocaleString("en-US");
+          FILM.countTo(tl, "#s4-co-fig .fig-v", 5565, 5755, tCards, { duration: 0.9, format: money });
+          FILM.countTo(tl, "#s4-eu-fig .fig-v", 2090, 2280, tCards + 0.06, { duration: 0.9, format: money });
+          pop("#s4-tag-fc", tCards + 0.15);
+          pop("#s4-tag-fe", tCards + 0.22);
+          // support kept its identity: reused, not re-run
+          hide("#s4-tag-cur", tCards + 0.3, 0.2);
+          pop("#s4-tag-reu", tCards + 0.35);
+          // the summary line
+          const tFoot = Math.min(end - 1.5, Math.max(tCards + 0.9, FILM.atEnd(S, "steps") + 0.1));
+          tl.fromTo("#s4-foot", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.6, ease: FILM.ease }, tFoot);
+
+          // Several fromTo tweens share an element and property (fade in, later fade out; withhold, later
+          // restore). Each renders its start state when created, so the last one built would win before any
+          // of them begins. One pass to the end and back leaves every element in its earliest start state.
+          tl.progress(1, false).progress(0, false);
+          window.__timelines["s4-how"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
